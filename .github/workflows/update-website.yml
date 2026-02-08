@@ -1,0 +1,107 @@
+name: Update Website Data
+
+on:
+  # Run every hour to export latest jobs from Google Sheets
+  schedule:
+    - cron: '0 * * * *'
+
+  # Allow manual triggering from GitHub Actions UI
+  workflow_dispatch:
+
+  # Also trigger when code changes are pushed to main
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - 'scripts/**'
+      - 'package.json'
+      - 'vite.config.js'
+
+jobs:
+  export-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    # Grant GITHUB_TOKEN write permissions for GitHub Pages deployment
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    # Prevent concurrent deployments
+    concurrency:
+      group: "pages"
+      cancel-in-progress: false
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Create service account credentials file
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          # Create config directory to match scraper path
+          mkdir -p ../job-scraping/config
+          echo "$GOOGLE_SERVICE_ACCOUNT_JSON" > ../job-scraping/config/service_account.json
+          chmod 600 ../job-scraping/config/service_account.json
+
+      - name: Export jobs from Google Sheets
+        run: |
+          npm run export-jobs
+
+      - name: Build website
+        run: npm run build
+
+      - name: Clean up credentials
+        if: always()
+        run: |
+          rm -f ../job-scraping/config/service_account.json
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Upload jobs.json as artifact (for debugging)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jobs-data-${{ github.run_id }}
+          path: public/data/jobs.json
+          retention-days: 7
+
+      # Optional: Report statistics
+      - name: Report deployment stats
+        if: success()
+        run: |
+          if [ -f public/data/jobs.json ]; then
+            JOB_COUNT=$(jq 'length' public/data/jobs.json)
+            echo "✅ Deployed successfully with $JOB_COUNT jobs"
+            echo "🌐 Site URL: ${{ steps.deployment.outputs.page_url }}"
+          fi
+
+      - name: Report failure
+        if: failure()
+        run: |
+          echo "::error::Website update failed. Check logs for details."
+          echo "Run ID: ${{ github.run_id }}"
+          echo "Workflow: ${{ github.workflow }}"

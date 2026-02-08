@@ -1,0 +1,424 @@
+{
+  "version": "1.0.0",
+  "generated": "2026-02-08T21:30:06.714Z",
+  "stats": {
+    "total_skills": 81,
+    "onet_matched": 11,
+    "unmatched": 70,
+    "match_rate": "14%"
+  },
+  "cache": {
+    "leadership, interpersonal, influencing": {
+      "normalized": "Leadership, Interpersonal, Influencing",
+      "onet": null
+    },
+    "planning": {
+      "normalized": "Planning",
+      "onet": null
+    },
+    "communication": {
+      "normalized": "Communication",
+      "onet": null
+    },
+    "presentation": {
+      "normalized": "Presentation",
+      "onet": null
+    },
+    "organizational, analysis": {
+      "normalized": "Organizational, Analysis",
+      "onet": null
+    },
+    "problem solving": {
+      "normalized": "Problem Solving",
+      "onet": {
+        "id": "2.B.2.i",
+        "name": "Complex Problem Solving",
+        "description": "Identifying complex problems and reviewing related information to develop and evaluate options and implement solutions.",
+        "occupation": {
+          "code": "15-1211.01",
+          "title": "Health Informatics Specialists"
+        }
+      }
+    },
+    "operations experience": {
+      "normalized": "Operations Experience",
+      "onet": null
+    },
+    "external customers": {
+      "normalized": "External Customers",
+      "onet": null
+    },
+    "ncr system": {
+      "normalized": "Ncr System",
+      "onet": null
+    },
+    "on soldering": {
+      "normalized": "On Soldering",
+      "onet": null
+    },
+    "parts lists": {
+      "normalized": "Parts Lists",
+      "onet": null
+    },
+    "oral communication": {
+      "normalized": "Oral Communication",
+      "onet": null
+    },
+    "written communication": {
+      "normalized": "Written Communication",
+      "onet": null
+    },
+    "interpersonal communication": {
+      "normalized": "Interpersonal Communication",
+      "onet": null
+    },
+    "front-end practices": {
+      "normalized": "Front-end Practices",
+      "onet": null
+    },
+    "leadership": {
+      "normalized": "Leadership",
+      "onet": null
+    },
+    "networking globally": {
+      "normalized": "Networking Globally",
+      "onet": null
+    },
+    "projects with peers": {
+      "normalized": "Projects With Peers",
+      "onet": null
+    },
+    "solve problems": {
+      "normalized": "Solve Problems",
+      "onet": null
+    },
+    "verbal communication": {
+      "normalized": "Verbal Communication",
+      "onet": null
+    },
+    "operator drilling": {
+      "normalized": "Operator Drilling",
+      "onet": null
+    },
+    "activation, deactivation": {
+      "normalized": "Activation, Deactivation",
+      "onet": null
+    },
+    "organization performance principles": {
+      "normalized": "Organization Performance Principles",
+      "onet": null
+    },
+    "hop effectiveness": {
+      "normalized": "Hop Effectiveness",
+      "onet": null
+    },
+    "safety concepts": {
+      "normalized": "Safety Concepts",
+      "onet": null
+    },
+    "human performance principles": {
+      "normalized": "Human Performance Principles",
+      "onet": null
+    },
+    "hydraulic, electronics experience": {
+      "normalized": "Hydraulic, Electronics Experience",
+      "onet": null
+    },
+    "mechanical equipment": {
+      "normalized": "Mechanical Equipment",
+      "onet": {
+        "id": "2.B.3.j",
+        "name": "Equipment Maintenance",
+        "description": "Performing routine maintenance on equipment and determining when and what kind of maintenance is needed.",
+        "occupation": {
+          "code": "49-9041.00",
+          "title": "Industrial Machinery Mechanics"
+        }
+      }
+    },
+    "analysis": {
+      "normalized": "Analysis",
+      "onet": {
+        "id": "2.B.4.g",
+        "name": "Systems Analysis",
+        "description": "Determining how a system should work and how changes in conditions, operations, and the environment will affect outcomes.",
+        "occupation": {
+          "code": "15-1211.00",
+          "title": "Computer Systems Analysts"
+        }
+      }
+    },
+    "electrical systems": {
+      "normalized": "Electrical Systems",
+      "onet": null
+    },
+    "troubleshooting": {
+      "normalized": "Troubleshooting",
+      "onet": {
+        "id": "2.B.3.k",
+        "name": "Troubleshooting",
+        "description": "Determining causes of operating errors and deciding what to do about it.",
+        "occupation": {
+          "code": "47-2111.00",
+          "title": "Electricians"
+        }
+      }
+    },
+    "operations": {
+      "normalized": "Operations",
+      "onet": {
+        "id": "2.B.3.g",
+        "name": "Operations Monitoring",
+        "description": "Watching gauges, dials, or other indicators to make sure a machine is working properly.",
+        "occupation": {
+          "code": "51-8013.00",
+          "title": "Power Plant Operators"
+        }
+      }
+    },
+    "install, maintain": {
+      "normalized": "Install, Maintain",
+      "onet": null
+    },
+    "optimize vessel position": {
+      "normalized": "Optimize Vessel Position",
+      "onet": null
+    },
+    "forecasted weather": {
+      "normalized": "Forecasted Weather",
+      "onet": null
+    },
+    "performance influencing factors": {
+      "normalized": "Performance Influencing Factors",
+      "onet": null
+    },
+    "gaps, briefings, writing": {
+      "normalized": "Gaps, Briefings, Writing",
+      "onet": {
+        "id": "2.A.1.c",
+        "name": "Writing",
+        "description": "Communicating effectively in writing as appropriate for the needs of the audience.",
+        "occupation": {
+          "code": "23-1011.00",
+          "title": "Lawyers"
+        }
+      }
+    },
+    "daily caag operations": {
+      "normalized": "Daily Caag Operations",
+      "onet": null
+    },
+    "develop, test, implement": {
+      "normalized": "Develop, Test, Implement",
+      "onet": null
+    },
+    "models/tools": {
+      "normalized": "Models/tools",
+      "onet": null
+    },
+    "administration": {
+      "normalized": "Administration",
+      "onet": null
+    },
+    "objectives": {
+      "normalized": "Objectives",
+      "onet": null
+    },
+    "science": {
+      "normalized": "Science",
+      "onet": null
+    },
+    "represent programmatic": {
+      "normalized": "Represent Programmatic",
+      "onet": null
+    },
+    "clear management": {
+      "normalized": "Clear Management",
+      "onet": null
+    },
+    "education experience": {
+      "normalized": "Education Experience",
+      "onet": null
+    },
+    "citizenship": {
+      "normalized": "Citizenship",
+      "onet": null
+    },
+    "reviews/negotiates contract terms": {
+      "normalized": "Reviews/negotiates Contract Terms",
+      "onet": null
+    },
+    "condition": {
+      "normalized": "Condition",
+      "onet": null
+    },
+    "reviews": {
+      "normalized": "Reviews",
+      "onet": null
+    },
+    "fluent oral": {
+      "normalized": "Fluent Oral",
+      "onet": null
+    },
+    "manipulate loads": {
+      "normalized": "Manipulate Loads",
+      "onet": null
+    },
+    "feature cam": {
+      "normalized": "Feature Cam",
+      "onet": null
+    },
+    "pipeline": {
+      "normalized": "Pipeline",
+      "onet": null
+    },
+    "engineering": {
+      "normalized": "Engineering",
+      "onet": null
+    },
+    "offshore": {
+      "normalized": "Offshore",
+      "onet": null
+    },
+    "installation": {
+      "normalized": "Installation",
+      "onet": {
+        "id": "2.B.3.d",
+        "name": "Installation",
+        "description": "Installing equipment, machines, wiring, or programs to meet specifications.",
+        "occupation": {
+          "code": "49-9021.00",
+          "title": "Heating, Air Conditioning, and Refrigeration Mechanics and Installers"
+        }
+      }
+    },
+    "reel-lay": {
+      "normalized": "Reel-lay",
+      "onet": null
+    },
+    "subsea": {
+      "normalized": "Subsea",
+      "onet": null
+    },
+    "project management": {
+      "normalized": "Project Management",
+      "onet": {
+        "id": "2.B.5.a",
+        "name": "Time Management",
+        "description": "Managing one's own time and the time of others.",
+        "occupation": {
+          "code": "15-1299.09",
+          "title": "Information Technology Project Managers"
+        }
+      }
+    },
+    "inspection": {
+      "normalized": "Inspection",
+      "onet": null
+    },
+    "welding": {
+      "normalized": "Welding",
+      "onet": null
+    },
+    "logistics": {
+      "normalized": "Logistics",
+      "onet": null
+    },
+    "maintenance": {
+      "normalized": "Maintenance",
+      "onet": {
+        "id": "2.B.3.j",
+        "name": "Equipment Maintenance",
+        "description": "Performing routine maintenance on equipment and determining when and what kind of maintenance is needed.",
+        "occupation": {
+          "code": "49-9071.00",
+          "title": "Maintenance and Repair Workers, General"
+        }
+      }
+    },
+    "manufacturing": {
+      "normalized": "Manufacturing",
+      "onet": null
+    },
+    "supply chain": {
+      "normalized": "Supply Chain",
+      "onet": null
+    },
+    "information technology": {
+      "normalized": "Information Technology",
+      "onet": null
+    },
+    "administration services": {
+      "normalized": "Administration Services",
+      "onet": null
+    },
+    "finance": {
+      "normalized": "Finance",
+      "onet": null
+    },
+    "accounting": {
+      "normalized": "Accounting",
+      "onet": null
+    },
+    "control": {
+      "normalized": "Control",
+      "onet": {
+        "id": "2.B.3.h",
+        "name": "Operation and Control",
+        "description": "Controlling operations of equipment or systems.",
+        "occupation": {
+          "code": "51-8013.00",
+          "title": "Power Plant Operators"
+        }
+      }
+    },
+    "human resources": {
+      "normalized": "Human Resources",
+      "onet": null
+    },
+    "sales": {
+      "normalized": "Sales",
+      "onet": null
+    },
+    "commercialization": {
+      "normalized": "Commercialization",
+      "onet": null
+    },
+    "production (g&p)": {
+      "normalized": "Production (g&p)",
+      "onet": null
+    },
+    "chemical processing (mcp)": {
+      "normalized": "Chemical Processing (mcp)",
+      "onet": null
+    },
+    "real estate services": {
+      "normalized": "Real Estate Services",
+      "onet": null
+    },
+    "services": {
+      "normalized": "Services",
+      "onet": null
+    },
+    "quality": {
+      "normalized": "Quality",
+      "onet": {
+        "id": "2.B.3.m",
+        "name": "Quality Control Analysis",
+        "description": "Conducting tests and inspections of products, services, or processes to evaluate quality or performance.",
+        "occupation": {
+          "code": "11-3051.01",
+          "title": "Quality Control Systems Managers"
+        }
+      }
+    },
+    "supp": {
+      "normalized": "Supp",
+      "onet": null
+    },
+    "audit": {
+      "normalized": "Audit",
+      "onet": null
+    }
+  }
+}

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Refresh Button Functionality</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1 { color: #2563eb; }
+    h2 { color: #1e40af; margin-top: 30px; }
+    .test-box {
+      background: #f0f9ff;
+      border: 2px solid #3b82f6;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+    button {
+      background: #3b82f6;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 5px;
+    }
+    button:hover {
+      background: #2563eb;
+    }
+    .result {
+      margin-top: 10px;
+      padding: 10px;
+      background: white;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 12px;
+    }
+    .success { color: #059669; }
+    .error { color: #dc2626; }
+    .info { color: #2563eb; }
+  </style>
+</head>
+<body>
+  <h1>Refresh Jobs Button - Test Suite</h1>
+  <p>This page demonstrates that the refresh button works correctly with cache-busting.</p>
+
+  <div class="test-box">
+    <h2>Test 1: Fetch without cache-busting (initial load)</h2>
+    <p>This simulates the initial page load - no timestamp parameter.</p>
+    <button onclick="testNormalFetch()">Test Normal Fetch</button>
+    <div id="result1" class="result"></div>
+  </div>
+
+  <div class="test-box">
+    <h2>Test 2: Fetch with cache-busting (refresh button)</h2>
+    <p>This simulates clicking "Refresh Jobs" - includes timestamp parameter.</p>
+    <button onclick="testCacheBustingFetch()">Test Refresh Fetch</button>
+    <div id="result2" class="result"></div>
+  </div>
+
+  <div class="test-box">
+    <h2>Test 3: Compare timestamps</h2>
+    <p>Click multiple times to see unique timestamps on each request.</p>
+    <button onclick="testMultipleRefreshes()">Test Multiple Refreshes</button>
+    <div id="result3" class="result"></div>
+  </div>
+
+  <div class="test-box">
+    <h2>Test 4: Network inspection</h2>
+    <p>Open DevTools Network tab, then click this button. You should see:</p>
+    <ul>
+      <li>Request URL: <code>jobs.json?t=<strong>timestamp</strong></code></li>
+      <li>Status: 200 (not 304 cached)</li>
+      <li>Request Headers: <code>Cache-Control: no-store</code></li>
+    </ul>
+    <button onclick="testWithNetworkTab()">Fetch for Network Inspection</button>
+    <div id="result4" class="result"></div>
+  </div>
+
+  <script>
+    async function testNormalFetch() {
+      const resultDiv = document.getElementById('result1');
+      resultDiv.innerHTML = '<span class="info">Fetching /data/jobs.json...</span>';
+
+      try {
+        const start = Date.now();
+        const response = await fetch('/data/jobs.json');
+        const data = await response.json();
+        const duration = Date.now() - start;
+
+        resultDiv.innerHTML = `
+          <span class="success">✓ Success</span><br>
+          Jobs loaded: ${data.length}<br>
+          Duration: ${duration}ms<br>
+          Cache status: ${response.headers.get('cache-control') || 'default'}<br>
+          URL: ${response.url}
+        `;
+      } catch (error) {
+        resultDiv.innerHTML = `<span class="error">✗ Error: ${error.message}</span>`;
+      }
+    }
+
+    async function testCacheBustingFetch() {
+      const resultDiv = document.getElementById('result2');
+      const timestamp = Date.now();
+      resultDiv.innerHTML = `<span class="info">Fetching /data/jobs.json?t=${timestamp}...</span>`;
+
+      try {
+        const start = Date.now();
+        const response = await fetch(`/data/jobs.json?t=${timestamp}`, {
+          cache: 'no-store'
+        });
+        const data = await response.json();
+        const duration = Date.now() - start;
+
+        resultDiv.innerHTML = `
+          <span class="success">✓ Success</span><br>
+          Jobs loaded: ${data.length}<br>
+          Duration: ${duration}ms<br>
+          Cache option: no-store<br>
+          Timestamp: ${timestamp}<br>
+          URL: ${response.url}
+        `;
+      } catch (error) {
+        resultDiv.innerHTML = `<span class="error">✗ Error: ${error.message}</span>`;
+      }
+    }
+
+    let refreshCount = 0;
+    async function testMultipleRefreshes() {
+      const resultDiv = document.getElementById('result3');
+      refreshCount++;
+
+      const timestamp = Date.now();
+      resultDiv.innerHTML += `<br><span class="info">Refresh #${refreshCount} - timestamp: ${timestamp}</span>`;
+
+      try {
+        const response = await fetch(`/data/jobs.json?t=${timestamp}`, {
+          cache: 'no-store'
+        });
+        const data = await response.json();
+        resultDiv.innerHTML += ` - <span class="success">✓ ${data.length} jobs loaded</span>`;
+      } catch (error) {
+        resultDiv.innerHTML += ` - <span class="error">✗ ${error.message}</span>`;
+      }
+    }
+
+    async function testWithNetworkTab() {
+      const resultDiv = document.getElementById('result4');
+      const timestamp = Date.now();
+
+      resultDiv.innerHTML = `
+        <span class="info">Check Network tab now!</span><br>
+        Fetching with timestamp: ${timestamp}<br>
+        Look for: jobs.json?t=${timestamp}
+      `;
+
+      try {
+        const response = await fetch(`/data/jobs.json?t=${timestamp}`, {
+          cache: 'no-store'
+        });
+        const data = await response.json();
+
+        resultDiv.innerHTML += `<br><span class="success">✓ Request completed - Check Network tab</span>`;
+      } catch (error) {
+        resultDiv.innerHTML += `<br><span class="error">✗ Error: ${error.message}</span>`;
+      }
+    }
+  </script>
+</body>
+</html>

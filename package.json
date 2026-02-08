@@ -1,0 +1,44 @@
+{
+  "name": "moblyze-jobs-web",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "export-jobs": "node scripts/export-jobs.js",
+    "export-from-db": "node scripts/export-from-db.js",
+    "geocode-locations": "node scripts/geocode-locations.js",
+    "verify-geocoding": "node scripts/verify-setup.js",
+    "test-geocode": "node scripts/test-geocode-integration.js",
+    "process-descriptions": "node scripts/process-descriptions.js",
+    "test-ai-parser": "node scripts/test-ai-parser.js",
+    "test-batch-processing": "node scripts/test-batch-processing.js",
+    "example-parser": "node scripts/example-unified-parser.js",
+    "match-occupations": "node scripts/match-job-occupations.js",
+    "sync-process": "node scripts/sync-and-process-jobs.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.74.0",
+    "country-state-city": "^3.2.1",
+    "date-fns": "^4.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-infinite-scroll-component": "^6.1.1",
+    "react-router-dom": "^6.22.0",
+    "react-select": "^5.10.2"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "better-sqlite3": "^11.0.0",
+    "dotenv": "^16.6.1",
+    "googleapis": "^144.0.0",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "vite": "^6.0.3"
+  }
+}
