@@ -4,5 +4,5 @@ import geocodeApiPlugin from './vite-plugin-geocode-api.js'
 
 export default defineConfig({
   plugins: [react(), geocodeApiPlugin()],
-  base: './',
+  base: '/internal-jobs-review/',
 })
