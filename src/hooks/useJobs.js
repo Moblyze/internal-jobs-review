@@ -25,8 +25,8 @@ export function useJobs() {
 
     // Add cache-busting timestamp to ensure fresh data on manual refresh
     const url = forceRefresh
-      ? `/data/jobs.json?t=${Date.now()}`
-      : '/data/jobs.json';
+      ? `${import.meta.env.BASE_URL}data/jobs.json?t=${Date.now()}`
+      : `${import.meta.env.BASE_URL}data/jobs.json`;
 
     if (forceRefresh) {
       console.log('[useJobs] Force refresh requested - fetching with cache-busting');
@@ -292,7 +292,7 @@ async function loadOccupationMappings() {
   // Start loading
   occupationMappingsPromise = (async () => {
     try {
-      const response = await fetch('/data/job-occupations.json');
+      const response = await fetch(`${import.meta.env.BASE_URL}data/job-occupations.json`);
       if (!response.ok) {
         console.warn('Occupation mappings file not found. Run: npm run match-occupations');
         return {};
