@@ -14,7 +14,7 @@ initializeONet().then(() => {
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/internal-jobs-review">
       <App />
     </BrowserRouter>
   </React.StrictMode>,
