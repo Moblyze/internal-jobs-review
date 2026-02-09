@@ -250,22 +250,84 @@ function parseLocation(locationStr, includeMetadata = false) {
     const [, countryCode, stateCode, cityRaw] = locationMatch;
     const city = cleanCityName(cityRaw);
 
-    // Simple country name mapping for fallback (when geocoded data unavailable)
+    // Comprehensive country name mapping (ISO 3166-1 alpha-2)
     const countryNames = {
+      // Major countries
       'US': 'United States',
       'CA': 'Canada',
       'GB': 'United Kingdom',
-      'BR': 'Brazil',
-      'MX': 'Mexico',
-      'IT': 'Italy',
-      'AE': 'United Arab Emirates',
-      'IN': 'India',
       'AU': 'Australia',
-      'DE': 'Germany',
+      'NZ': 'New Zealand',
+
+      // Europe
+      'AT': 'Austria',
+      'BE': 'Belgium',
+      'BG': 'Bulgaria',
+      'HR': 'Croatia',
+      'CY': 'Cyprus',
+      'CZ': 'Czech Republic',
+      'DK': 'Denmark',
+      'EE': 'Estonia',
+      'FI': 'Finland',
       'FR': 'France',
+      'DE': 'Germany',
+      'GR': 'Greece',
+      'HU': 'Hungary',
+      'IE': 'Ireland',
+      'IT': 'Italy',
+      'LV': 'Latvia',
+      'LT': 'Lithuania',
+      'LU': 'Luxembourg',
+      'MT': 'Malta',
       'NL': 'Netherlands',
+      'NO': 'Norway',
+      'PL': 'Poland',
+      'PT': 'Portugal',
+      'RO': 'Romania',
+      'SK': 'Slovakia',
+      'SI': 'Slovenia',
+      'ES': 'Spain',
+      'SE': 'Sweden',
+      'CH': 'Switzerland',
+
+      // Americas
+      'AR': 'Argentina',
+      'BR': 'Brazil',
+      'CL': 'Chile',
+      'CO': 'Colombia',
+      'MX': 'Mexico',
+      'PE': 'Peru',
+      'VE': 'Venezuela',
+
+      // Asia
+      'CN': 'China',
+      'IN': 'India',
+      'ID': 'Indonesia',
+      'JP': 'Japan',
+      'MY': 'Malaysia',
+      'PH': 'Philippines',
       'SG': 'Singapore',
-      'NO': 'Norway'
+      'KR': 'South Korea',
+      'TH': 'Thailand',
+      'VN': 'Vietnam',
+
+      // Middle East
+      'AE': 'United Arab Emirates',
+      'BH': 'Bahrain',
+      'IL': 'Israel',
+      'JO': 'Jordan',
+      'KW': 'Kuwait',
+      'OM': 'Oman',
+      'QA': 'Qatar',
+      'SA': 'Saudi Arabia',
+      'TR': 'Turkey',
+
+      // Africa
+      'EG': 'Egypt',
+      'KE': 'Kenya',
+      'MA': 'Morocco',
+      'NG': 'Nigeria',
+      'ZA': 'South Africa'
     };
 
     const countryName = countryNames[countryCode?.toUpperCase()] || null;

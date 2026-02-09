@@ -205,6 +205,24 @@ export async function getLocationMetadata(location) {
     // Use city as-is (e.g., "Singapore River" or just "Singapore")
   }
 
+  // If country is still missing but we have countryCode, map it
+  if (!country && countryCode) {
+    const countryCodeMap = {
+      'US': 'United States', 'CA': 'Canada', 'GB': 'United Kingdom', 'AU': 'Australia',
+      'BR': 'Brazil', 'MX': 'Mexico', 'IT': 'Italy', 'FR': 'France', 'DE': 'Germany',
+      'ES': 'Spain', 'NL': 'Netherlands', 'BE': 'Belgium', 'CH': 'Switzerland',
+      'AT': 'Austria', 'SE': 'Sweden', 'NO': 'Norway', 'DK': 'Denmark', 'FI': 'Finland',
+      'PL': 'Poland', 'RO': 'Romania', 'PT': 'Portugal', 'GR': 'Greece', 'IE': 'Ireland',
+      'AE': 'United Arab Emirates', 'SA': 'Saudi Arabia', 'QA': 'Qatar', 'KW': 'Kuwait',
+      'OM': 'Oman', 'BH': 'Bahrain', 'IN': 'India', 'CN': 'China', 'JP': 'Japan',
+      'KR': 'South Korea', 'SG': 'Singapore', 'MY': 'Malaysia', 'TH': 'Thailand',
+      'ID': 'Indonesia', 'PH': 'Philippines', 'VN': 'Vietnam', 'ZA': 'South Africa',
+      'NG': 'Nigeria', 'EG': 'Egypt', 'AR': 'Argentina', 'CL': 'Chile', 'CO': 'Colombia',
+      'PE': 'Peru', 'VE': 'Venezuela'
+    }
+    country = countryCodeMap[countryCode.toUpperCase()] || null
+  }
+
   return {
     original: cleanLocation,
     formatted: formatLocationWithGeodata(cleanLocation, locationGeodata),
@@ -363,10 +381,20 @@ export async function createGroupedLocationOptionsWithGeodata(jobsOrLocations) {
     if (aIsUS && !bIsUS) return -1
     if (!aIsUS && bIsUS) return 1
 
-    // Then other countries alphabetically
-    if (a === 'Other') return 1
-    if (b === 'Other') return -1
+    // Special categories at the end (Offshore, Remote, Other)
+    const specialCategories = ['Offshore', 'Remote', 'Other']
+    const aIsSpecial = specialCategories.includes(a)
+    const bIsSpecial = specialCategories.includes(b)
 
+    if (aIsSpecial && !bIsSpecial) return 1
+    if (!aIsSpecial && bIsSpecial) return -1
+
+    // Both special: sort in order (Offshore, Remote, Other)
+    if (aIsSpecial && bIsSpecial) {
+      return specialCategories.indexOf(a) - specialCategories.indexOf(b)
+    }
+
+    // Then other countries alphabetically
     return a.localeCompare(b)
   })
 
