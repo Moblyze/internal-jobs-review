@@ -51,7 +51,10 @@ function JobCard({ job }) {
 
       {job.description && (
         <p className="text-gray-700 text-sm line-clamp-3 mb-3">
-          {job.description}
+          {typeof job.description === 'string'
+            ? job.description.substring(0, 200).replace(/<[^>]*>/g, '').trim()
+            : ''}
+          {job.description && job.description.length > 200 ? '...' : ''}
         </p>
       )}
 
