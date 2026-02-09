@@ -575,7 +575,8 @@ async function loadPrebuiltCache() {
   cacheLoadPromise = (async () => {
     try {
       // Use low-priority fetch to avoid blocking critical resources
-      const response = await fetch('/data/onet-skills-cache.json', {
+      const baseUrl = typeof import.meta !== 'undefined' && import.meta.env ? import.meta.env.BASE_URL : '/';
+      const response = await fetch(`${baseUrl}data/onet-skills-cache.json`, {
         priority: 'low',
         cache: 'default'
       });
