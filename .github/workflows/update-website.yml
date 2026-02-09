@@ -8,21 +8,22 @@ on:
   # Allow manual triggering from GitHub Actions UI
   workflow_dispatch:
 
-  # Also trigger when code changes are pushed to main
-  push:
-    branches:
-      - main
-    paths:
-      - 'src/**'
-      - 'public/**'
-      - 'scripts/**'
-      - 'package.json'
-      - 'vite.config.js'
+  # NOTE: Push trigger disabled to prevent AI reprocessing on every code change
+  # Re-enable after initial AI processing is complete and jobs.json is committed
+  # push:
+  #   branches:
+  #     - main
+  #   paths:
+  #     - 'src/**'
+  #     - 'public/**'
+  #     - 'scripts/**'
+  #     - 'package.json'
+  #     - 'vite.config.js'
 
 jobs:
   export-and-deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 60  # Increased for initial AI processing (normally <5min)
 
     # Grant GITHUB_TOKEN write permissions for GitHub Pages deployment
     permissions:
