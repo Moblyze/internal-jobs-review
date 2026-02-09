@@ -68,6 +68,21 @@ const testCases = [
     input: "locations\nUS-TX-MIDLAND-2105 MARKET STREET",
     expected: "Midland, TX",
     description: "US location - Midland"
+  },
+  {
+    input: "locations\nUS-TX-OTHER TEXAS",
+    expected: "Texas",
+    description: "State-wide location (OTHER TEXAS) - should show just state name"
+  },
+  {
+    input: "locations\nUS-NM-OTHER NEW MEXICO",
+    expected: "New Mexico",
+    description: "State-wide location (OTHER NEW MEXICO) - should show just state name"
+  },
+  {
+    input: "locations\nUS-AR-OTHER ARKANSAS",
+    expected: "Arkansas",
+    description: "State-wide location (OTHER ARKANSAS) - should show just state name"
   }
 ];
 

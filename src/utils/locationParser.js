@@ -68,6 +68,15 @@ function tryGeocoded(locationStr) {
 
   const { city, state, stateCode, country, countryCode } = geo
 
+  // Handle state-wide locations (city is null, e.g., "OTHER TEXAS" → "Texas")
+  if (!city && state && countryCode === 'US') {
+    return state
+  }
+
+  if (!city && state && countryCode === 'CA') {
+    return `${state}, Canada`
+  }
+
   // Format based on country conventions
   if (countryCode === 'US' && city && stateCode) {
     return `${city}, ${stateCode}`
@@ -152,7 +161,10 @@ function cleanCityName(city) {
   // Remove anything in parentheses (e.g., "London (Sutton)" → "London")
   city = city.replace(/\s*\([^)]*\)/g, '');
 
-  // Remove common building/facility names
+  // Remove "OTHER" prefix at the beginning (e.g., "OTHER TEXAS" → "TEXAS")
+  city = city.replace(/^OTHER\s+/i, '');
+
+  // Remove common building/facility names with hyphen
   city = city.replace(/\s*-\s*(VENTURA|RETIC|OTHER).*$/i, '');
 
   // Title case the result
@@ -258,13 +270,35 @@ function parseLocation(locationStr, includeMetadata = false) {
 
     const countryName = countryNames[countryCode?.toUpperCase()] || null;
 
+    // US state names mapping (for detecting state-wide locations)
+    const usStateNames = {
+      'AL': 'Alabama', 'AK': 'Alaska', 'AZ': 'Arizona', 'AR': 'Arkansas',
+      'CA': 'California', 'CO': 'Colorado', 'CT': 'Connecticut', 'DE': 'Delaware',
+      'FL': 'Florida', 'GA': 'Georgia', 'HI': 'Hawaii', 'ID': 'Idaho',
+      'IL': 'Illinois', 'IN': 'Indiana', 'IA': 'Iowa', 'KS': 'Kansas',
+      'KY': 'Kentucky', 'LA': 'Louisiana', 'ME': 'Maine', 'MD': 'Maryland',
+      'MA': 'Massachusetts', 'MI': 'Michigan', 'MN': 'Minnesota', 'MS': 'Mississippi',
+      'MO': 'Missouri', 'MT': 'Montana', 'NE': 'Nebraska', 'NV': 'Nevada',
+      'NH': 'New Hampshire', 'NJ': 'New Jersey', 'NM': 'New Mexico', 'NY': 'New York',
+      'NC': 'North Carolina', 'ND': 'North Dakota', 'OH': 'Ohio', 'OK': 'Oklahoma',
+      'OR': 'Oregon', 'PA': 'Pennsylvania', 'RI': 'Rhode Island', 'SC': 'South Carolina',
+      'SD': 'South Dakota', 'TN': 'Tennessee', 'TX': 'Texas', 'UT': 'Utah',
+      'VT': 'Vermont', 'VA': 'Virginia', 'WA': 'Washington', 'WV': 'West Virginia',
+      'WI': 'Wisconsin', 'WY': 'Wyoming'
+    };
+
+    // Check if the cleaned city name matches the state name (indicates state-wide location)
+    const isStateWideLocation = stateCode &&
+      usStateNames[stateCode.toUpperCase()] &&
+      city.toLowerCase() === usStateNames[stateCode.toUpperCase()].toLowerCase();
+
     // Build metadata object (only if requested)
     const metadata = includeMetadata ? {
       countryCode: countryCode ? countryCode.toUpperCase() : null,
       countryName: countryName,
       stateCode: stateCode ? stateCode.toUpperCase() : null,
-      stateName: null, // Not available without library
-      cityName: city,
+      stateName: stateCode && usStateNames[stateCode.toUpperCase()] ? usStateNames[stateCode.toUpperCase()] : null,
+      cityName: isStateWideLocation ? null : city,
       coordinates: null, // Not available without geocoded data
       parsed: true,
       source: 'fallback'
@@ -273,7 +307,10 @@ function parseLocation(locationStr, includeMetadata = false) {
     // Format output based on country conventions
     let formatted;
 
-    if (countryCode && countryCode.toUpperCase() === 'US' && stateCode) {
+    // Handle state-wide US locations (e.g., "OTHER TEXAS" → "Texas")
+    if (isStateWideLocation && countryCode && countryCode.toUpperCase() === 'US') {
+      formatted = city; // Just show state name (already title-cased)
+    } else if (countryCode && countryCode.toUpperCase() === 'US' && stateCode) {
       // US locations: "City, ST"
       formatted = `${city}, ${stateCode.toUpperCase()}`;
     } else if (countryCode && countryCode.toUpperCase() === 'CA' && stateCode) {
