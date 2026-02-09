@@ -1,9 +1,10 @@
 name: Update Website Data
 
 on:
-  # Run every hour to export latest jobs from Google Sheets
-  schedule:
-    - cron: '0 * * * *'
+  # Hourly runs disabled - 97.6% of jobs already processed
+  # Re-enable when needed for ongoing updates
+  # schedule:
+  #   - cron: '0 * * * *'
 
   # Allow manual triggering from GitHub Actions UI
   workflow_dispatch:
