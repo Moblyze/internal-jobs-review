@@ -229,7 +229,7 @@ export async function restructureJobDescription(rawDescription, options = {}) {
     // Parse JSON response
     let parsed;
     try {
-      // Clean up any potential markdown code blocks
+      // Clean up any potential markdown code blocks and extract JSON
       let cleanedContent = textContent.trim();
 
       // Remove markdown code blocks if present
@@ -237,9 +237,18 @@ export async function restructureJobDescription(rawDescription, options = {}) {
         cleanedContent = cleanedContent.replace(/^```(?:json)?\n?/, '').replace(/\n?```$/, '');
       }
 
+      // Handle cases where AI adds explanatory text before/after JSON
+      // Look for JSON object boundaries { ... }
+      const jsonStart = cleanedContent.indexOf('{');
+      const jsonEnd = cleanedContent.lastIndexOf('}');
+
+      if (jsonStart !== -1 && jsonEnd !== -1 && jsonEnd > jsonStart) {
+        cleanedContent = cleanedContent.substring(jsonStart, jsonEnd + 1);
+      }
+
       parsed = JSON.parse(cleanedContent);
     } catch (parseError) {
-      console.error('Failed to parse AI response as JSON:', textContent);
+      console.error('Failed to parse AI response as JSON:', textContent.substring(0, 500));
       throw new Error(`Invalid JSON response from AI: ${parseError.message}`);
     }
 
@@ -507,7 +516,7 @@ Please classify this job into the most appropriate role from the list above.`;
     // Parse JSON response
     let parsed;
     try {
-      // Clean up any potential markdown code blocks
+      // Clean up any potential markdown code blocks and extract JSON
       let cleanedContent = textContent.trim();
 
       // Remove markdown code blocks if present
@@ -515,9 +524,18 @@ Please classify this job into the most appropriate role from the list above.`;
         cleanedContent = cleanedContent.replace(/^```(?:json)?\n?/, '').replace(/\n?```$/, '');
       }
 
+      // Handle cases where AI adds explanatory text before/after JSON
+      // Look for JSON object boundaries { ... }
+      const jsonStart = cleanedContent.indexOf('{');
+      const jsonEnd = cleanedContent.lastIndexOf('}');
+
+      if (jsonStart !== -1 && jsonEnd !== -1 && jsonEnd > jsonStart) {
+        cleanedContent = cleanedContent.substring(jsonStart, jsonEnd + 1);
+      }
+
       parsed = JSON.parse(cleanedContent);
     } catch (parseError) {
-      console.error('Failed to parse AI response as JSON:', textContent);
+      console.error('Failed to parse AI response as JSON:', textContent.substring(0, 500));
       throw new Error(`Invalid JSON response from AI: ${parseError.message}`);
     }
 

@@ -59,12 +59,14 @@ const COLUMNS = {
   LOCATION: 2,
   DESCRIPTION: 3,
   URL: 4,
-  POSTED_DATE: 5,
-  SKILLS: 6,
-  SALARY: 7,
-  STATUS: 8,
-  STATUS_CHANGED_DATE: 9,
-  SCRAPED_AT: 10
+  REQUISITION_ID: 5,
+  POSTED_DATE: 6,
+  SKILLS: 7,
+  CERTIFICATIONS: 8,
+  SALARY: 9,
+  STATUS: 10,
+  STATUS_CHANGED_DATE: 11,
+  SCRAPED_AT: 12
 };
 
 /**
@@ -145,8 +147,10 @@ function parseRow(row, sheetName) {
     location: row[COLUMNS.LOCATION] || '',
     description: row[COLUMNS.DESCRIPTION] || '',
     url: row[COLUMNS.URL] || '',
+    requisitionId: row[COLUMNS.REQUISITION_ID] || null,
     postedDate: row[COLUMNS.POSTED_DATE] || null,
     skills: row[COLUMNS.SKILLS] ? row[COLUMNS.SKILLS].split(';').map(s => s.trim()).filter(Boolean) : [],
+    certifications: row[COLUMNS.CERTIFICATIONS] ? row[COLUMNS.CERTIFICATIONS].split(';').map(c => c.trim()).filter(Boolean) : [],
     salary: row[COLUMNS.SALARY] || null,
     status: row[COLUMNS.STATUS] || 'active',
     statusChangedDate: row[COLUMNS.STATUS_CHANGED_DATE] || null,
