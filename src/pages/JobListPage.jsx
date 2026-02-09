@@ -45,8 +45,14 @@ function JobListPage() {
       })
 
       // Load skills
-      getUniqueSkills(jobs).then(setSkills).catch(err => {
-        console.error('Failed to load skills:', err)
+      console.log('[JobListPage] Starting to load skills from', jobs.length, 'jobs');
+      getUniqueSkills(jobs).then(processedSkills => {
+        console.log('[JobListPage] Skills processed:', processedSkills.length, 'skills');
+        console.log('[JobListPage] First 10 skills:', processedSkills.slice(0, 10));
+        setSkills(processedSkills);
+      }).catch(err => {
+        console.error('[JobListPage] Failed to load skills:', err);
+        console.error('[JobListPage] Error stack:', err.stack);
         setSkills([])
       })
 
