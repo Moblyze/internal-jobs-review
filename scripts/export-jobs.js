@@ -27,12 +27,14 @@ const COLUMNS = {
   LOCATION: 2,
   DESCRIPTION: 3,
   URL: 4,
-  POSTED_DATE: 5,
-  SKILLS: 6,
-  SALARY: 7,
-  STATUS: 8,
-  STATUS_CHANGED_DATE: 9,
-  SCRAPED_AT: 10
+  REQUISITION_ID: 5,  // Added - was missing!
+  POSTED_DATE: 6,
+  SKILLS: 7,
+  CERTIFICATIONS: 8,
+  SALARY: 9,
+  STATUS: 10,
+  STATUS_CHANGED_DATE: 11,
+  SCRAPED_AT: 12
 };
 
 async function authenticate() {
@@ -47,25 +49,41 @@ async function authenticate() {
   return await auth.getClient();
 }
 
-function parseRow(row, sheetName) {
-  // Skip empty rows or header rows
-  if (!row[COLUMNS.TITLE] || row[COLUMNS.TITLE] === 'Title') {
+function parseRow(row, sheetName, columnMap) {
+  // Skip empty rows
+  if (!row || row.length === 0) {
+    return null;
+  }
+
+  // Helper to get column value by name
+  const getCol = (name) => {
+    const index = columnMap[name];
+    return index !== undefined ? (row[index] || null) : null;
+  };
+
+  const title = getCol('Title');
+  const url = getCol('URL');
+
+  // Skip if no title or URL
+  if (!title || !url) {
     return null;
   }
 
   return {
-    id: `${sheetName}-${row[COLUMNS.URL]}`.replace(/[^a-zA-Z0-9-]/g, '-').toLowerCase(),
-    title: row[COLUMNS.TITLE] || '',
-    company: row[COLUMNS.COMPANY] || sheetName,
-    location: row[COLUMNS.LOCATION] || '',
-    description: row[COLUMNS.DESCRIPTION] || '',
-    url: row[COLUMNS.URL] || '',
-    postedDate: row[COLUMNS.POSTED_DATE] || null,
-    skills: row[COLUMNS.SKILLS] ? row[COLUMNS.SKILLS].split(';').map(s => s.trim()).filter(Boolean) : [],
-    salary: row[COLUMNS.SALARY] || null,
-    status: row[COLUMNS.STATUS] || 'active',
-    statusChangedDate: row[COLUMNS.STATUS_CHANGED_DATE] || null,
-    scrapedAt: row[COLUMNS.SCRAPED_AT] || null,
+    id: `${sheetName}-${url}`.replace(/[^a-zA-Z0-9-]/g, '-').toLowerCase(),
+    title: title,
+    company: getCol('Company') || sheetName,
+    location: getCol('Location') || '',
+    description: getCol('Description') || '',
+    url: url,
+    requisitionId: getCol('Requisition ID'),
+    postedDate: getCol('Posted Date'),
+    skills: getCol('Skills') ? getCol('Skills').split(';').map(s => s.trim()).filter(Boolean) : [],
+    certifications: getCol('Certifications') ? getCol('Certifications').split(';').map(c => c.trim()).filter(Boolean) : [],
+    salary: getCol('Salary'),
+    status: getCol('Status') || 'active',
+    statusChangedDate: getCol('Status Changed Date'),
+    scrapedAt: getCol('Scraped At'),
   };
 }
 
@@ -87,14 +105,35 @@ async function fetchAllJobs(auth) {
 
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: spreadsheet.data.spreadsheetId,
-      range: `${sheetName}!A:K`, // All columns from the sheet (updated for status columns)
+      range: `${sheetName}!A:M`, // All columns from the sheet (A-M = 13 columns)
     });
 
     const rows = response.data.values || [];
 
-    // Parse rows (skip header)
+    if (rows.length === 0) {
+      console.log(`  No data in ${sheetName}, skipping`);
+      continue;
+    }
+
+    // Build column map from header row
+    const headers = rows[0];
+    const columnMap = {};
+    headers.forEach((header, index) => {
+      columnMap[header] = index;
+    });
+
+    // Validate required columns exist
+    const required = ['Title', 'Company', 'URL'];
+    const missing = required.filter(col => columnMap[col] === undefined);
+    if (missing.length > 0) {
+      console.warn(`  ⚠️  ${sheetName} missing required columns: ${missing.join(', ')}`);
+      console.warn(`  Available columns: ${headers.join(', ')}`);
+      continue;
+    }
+
+    // Parse data rows (skip header)
     const jobs = rows.slice(1)
-      .map(row => parseRow(row, sheetName))
+      .map(row => parseRow(row, sheetName, columnMap))
       .filter(job => job !== null);
 
     console.log(`  Found ${jobs.length} jobs from ${sheetName}`);
