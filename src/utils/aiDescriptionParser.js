@@ -21,7 +21,10 @@ import Anthropic from '@anthropic-ai/sdk';
 /**
  * Configuration
  */
-const AI_PROXY_URL = import.meta.env.VITE_AI_PROXY_URL || 'http://localhost:3000';
+const AI_PROXY_URL = 
+  typeof import.meta !== 'undefined' && import.meta.env
+    ? import.meta.env.VITE_AI_PROXY_URL || 'http://localhost:3000'
+    : 'http://localhost:3000';
 
 /**
  * Initialize Anthropic client (Node.js only)
