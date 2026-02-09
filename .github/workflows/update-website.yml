@@ -65,7 +65,7 @@ jobs:
           # Create logs directory
           mkdir -p logs
           # Run full pipeline: export from Sheets + AI processing
-          npm run sync-process
+          npm run sync-process -- --limit=200
 
       - name: Build website
         run: npm run build
