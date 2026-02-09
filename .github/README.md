@@ -10,9 +10,10 @@ Automated website updates and GitHub Pages deployment.
 
 **What it does:**
 1. Exports latest jobs from Google Sheets to JSON
-2. Builds React app with Vite
-3. Deploys to GitHub Pages
-4. Uploads jobs data as artifact for debugging
+2. **AI-processes job descriptions** (only new/unprocessed jobs)
+3. Builds React app with Vite
+4. Deploys to GitHub Pages
+5. Uploads jobs data as artifact for debugging
 
 **Triggers:**
 - ⏰ **Scheduled:** Every hour (`0 * * * *`)
@@ -20,7 +21,8 @@ Automated website updates and GitHub Pages deployment.
 - 📝 **Code changes:** Push to `main` (src, scripts, config files)
 
 **Required secrets:**
-- `GOOGLE_SERVICE_ACCOUNT_JSON` - Service account credentials
+- `GOOGLE_SERVICE_ACCOUNT_JSON` - Service account credentials for Google Sheets
+- `ANTHROPIC_API_KEY` - Claude API key for AI job description processing
 
 **Permissions:**
 - `contents: read` - Checkout code
@@ -44,9 +46,10 @@ See `../DEPLOYMENT.md` for complete setup instructions.
 
 - [ ] Enable GitHub Pages (Settings → Pages → Source: GitHub Actions)
 - [ ] Add `GOOGLE_SERVICE_ACCOUNT_JSON` secret to GitHub
+- [ ] Add `ANTHROPIC_API_KEY` secret to GitHub (for AI processing)
 - [ ] Push code to `main` branch
 - [ ] Trigger first deployment manually
-- [ ] Verify site at `https://moblyze.github.io/moblyze-jobs-web/`
+- [ ] Verify site at `https://moblyze.github.io/internal-jobs-review/`
 
 ## Monitoring
 
@@ -76,12 +79,13 @@ Every workflow run uploads the exported `jobs.json` for debugging:
 ```mermaid
 graph LR
     A[Hourly Trigger] --> B[Export from Sheets]
-    B --> C[Build React App]
-    C --> D[Deploy to Pages]
-    D --> E[Live Site]
+    B --> C[AI Process New Jobs]
+    C --> D[Build React App]
+    D --> E[Deploy to Pages]
+    E --> F[Live Site]
 
-    F[Code Push] --> C
-    G[Manual Trigger] --> B
+    G[Code Push] --> D
+    H[Manual Trigger] --> B
 ```
 
 ## Troubleshooting
@@ -104,10 +108,10 @@ graph LR
 
 ## Performance
 
-**Typical workflow duration:** ~80 seconds
+**Typical workflow duration:** ~90 seconds (no new jobs) to ~5 minutes (with AI processing)
 - Checkout: 5s
 - Install deps: 20s (cached)
-- Export jobs: 10s
+- Sync & AI process: 10s - 4 minutes (depends on new job count)
 - Build: 15s
 - Deploy: 30s
 
@@ -121,6 +125,10 @@ graph LR
 - **GitHub Actions:** Free for public repositories (unlimited)
 - **Expected usage:** ~2,160 minutes/month (hourly updates)
 - **GitHub Pages:** Free for public repositories
+- **AI Processing (Claude API):** ~$0.01 per new job description
+  - Expected: 5-20 new jobs/day = **$1.50-$6/month**
+  - Only processes NEW jobs without AI descriptions
+  - Zero cost when no new jobs are added
 
 **Recommendation:** Keep repository public to avoid Actions costs.
 

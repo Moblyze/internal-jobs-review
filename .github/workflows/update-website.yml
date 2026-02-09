@@ -57,9 +57,14 @@ jobs:
           echo "$GOOGLE_SERVICE_ACCOUNT_JSON" > ../job-scraping/config/service_account.json
           chmod 600 ../job-scraping/config/service_account.json
 
-      - name: Export jobs from Google Sheets
+      - name: Sync and process jobs with AI
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
-          npm run export-jobs
+          # Create logs directory
+          mkdir -p logs
+          # Run full pipeline: export from Sheets + AI processing
+          npm run sync-process
 
       - name: Build website
         run: npm run build
@@ -95,7 +100,9 @@ jobs:
         run: |
           if [ -f public/data/jobs.json ]; then
             JOB_COUNT=$(jq 'length' public/data/jobs.json)
+            AI_PROCESSED=$(jq '[.[] | select(.structuredDescription != null)] | length' public/data/jobs.json)
             echo "✅ Deployed successfully with $JOB_COUNT jobs"
+            echo "🤖 AI-processed descriptions: $AI_PROCESSED/$JOB_COUNT"
             echo "🌐 Site URL: ${{ steps.deployment.outputs.page_url }}"
           fi
 
