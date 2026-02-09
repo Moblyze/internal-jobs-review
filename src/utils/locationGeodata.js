@@ -5,7 +5,7 @@
  * Replaces country-state-city library lookups with permanent geocoded data
  */
 
-import { getAllLocations } from './locationParser.js'
+import { getAllLocations, getLocationWithMetadata as parseLocationFallback } from './locationParser.js'
 
 // Cache for geocoded data
 let geocodedDataCache = null
@@ -22,7 +22,7 @@ export async function loadGeocodedData() {
   }
 
   try {
-    const response = await fetch('/data/locations-geocoded.json')
+    const response = await fetch(`${import.meta.env.BASE_URL}data/locations-geocoded.json`)
     if (!response.ok) {
       console.warn('Geocoded locations file not found, using fallback parsing')
       geocodedDataCache = {}
@@ -159,6 +159,25 @@ export async function getLocationMetadata(location) {
   const locationGeodata = geodata[cleanLocation]
 
   if (!locationGeodata) {
+    // Fallback: Try parsing the location with the fallback parser
+    // This handles already-formatted locations like "Houston, TX" or "Paris, FR"
+    const parsed = parseLocationFallback(location)
+
+    if (parsed && parsed.metadata) {
+      // Successfully parsed with fallback - use that metadata
+      return {
+        original: cleanLocation,
+        formatted: parsed.formatted,
+        city: parsed.metadata.cityName || null,
+        state: parsed.metadata.stateName || null,
+        stateCode: parsed.metadata.stateCode || null,
+        country: parsed.metadata.countryName || 'Other',
+        countryCode: parsed.metadata.countryCode || null,
+        coordinates: parsed.metadata.coordinates || null
+      }
+    }
+
+    // Final fallback if parsing also failed
     return {
       original: cleanLocation,
       formatted: cleanLocation,

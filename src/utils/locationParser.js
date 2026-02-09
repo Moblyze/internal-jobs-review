@@ -27,7 +27,7 @@ function loadGeocodedCache() {
     return geocodedCachePromise
   }
 
-  geocodedCachePromise = fetch('/data/locations-geocoded.json')
+  geocodedCachePromise = fetch(`${import.meta.env.BASE_URL}data/locations-geocoded.json`)
     .then(response => {
       if (response.ok) {
         return response.json()
@@ -180,8 +180,8 @@ function cleanCityName(city) {
 function parseLocation(locationStr, includeMetadata = false) {
   if (!locationStr) return null;
 
-  // Remove "locations" prefix and trim
-  locationStr = locationStr.replace(/^locations\s*/i, '').trim();
+  // Remove "locations" and "Location:" prefixes and trim
+  locationStr = locationStr.replace(/^locations\s*/i, '').replace(/^Location:\s*/i, '').trim();
 
   // If it's empty after cleanup, return null
   if (!locationStr) return null;
@@ -398,7 +398,7 @@ function parseLocation(locationStr, includeMetadata = false) {
     return formatted;
   }
 
-  // Pattern 4: "City, ST" (already abbreviated state)
+  // Pattern 4: "City, ST" (already abbreviated state or country code)
   const cityAbbrMatch = locationStr.match(/^([^,]+),\s*([A-Z]{2})$/);
   if (cityAbbrMatch) {
     const [, cityRaw, stateAbbr] = cityAbbrMatch;
@@ -413,7 +413,31 @@ function parseLocation(locationStr, includeMetadata = false) {
       'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'
     ]);
 
+    // Common international country codes (ISO 3166-1 alpha-2)
+    const countryCodes = {
+      'AE': 'United Arab Emirates',
+      'AU': 'Australia',
+      'BR': 'Brazil',
+      'CA': 'Canada',
+      'CN': 'China',
+      'DE': 'Germany',
+      'FR': 'France',
+      'GB': 'United Kingdom',
+      'IN': 'India',
+      'IT': 'Italy',
+      'JP': 'Japan',
+      'MX': 'Mexico',
+      'MY': 'Malaysia',
+      'NL': 'Netherlands',
+      'NO': 'Norway',
+      'PT': 'Portugal',
+      'SG': 'Singapore',
+      'TR': 'Turkey',
+      'US': 'United States'
+    };
+
     if (usStateCodes.has(stateAbbr.toUpperCase())) {
+      // US state
       const formatted = `${city}, ${stateAbbr.toUpperCase()}`;
       if (includeMetadata) {
         return {
@@ -433,7 +457,29 @@ function parseLocation(locationStr, includeMetadata = false) {
       return formatted;
     }
 
-    // Not a US state - return as-is
+    // Check if it's a country code
+    const countryName = countryCodes[stateAbbr.toUpperCase()];
+    if (countryName) {
+      const formatted = `${city}, ${countryName}`;
+      if (includeMetadata) {
+        return {
+          formatted,
+          metadata: {
+            countryCode: stateAbbr.toUpperCase(),
+            countryName: countryName,
+            stateCode: null,
+            stateName: null,
+            cityName: city,
+            coordinates: null,
+            parsed: true,
+            source: 'fallback'
+          }
+        };
+      }
+      return formatted;
+    }
+
+    // Not a recognized state or country - return as-is
     const formatted = `${city}, ${stateAbbr}`;
     if (includeMetadata) {
       return {

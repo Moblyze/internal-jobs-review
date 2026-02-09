@@ -20,7 +20,7 @@ async function loadGeocodedCache() {
   }
 
   try {
-    const response = await fetch('/data/locations-geocoded.json')
+    const response = await fetch(`${import.meta.env.BASE_URL}data/locations-geocoded.json`)
     if (response.ok) {
       geocodedCache = await response.json()
       console.log(`Loaded ${Object.keys(geocodedCache).length} geocoded locations`)

@@ -257,7 +257,7 @@ export async function batchGeocode(locations, accessToken, onProgress = null) {
  * @param {string} path - Path to geocoded data file
  * @returns {Promise<Object>} - Map of location -> geocoded data
  */
-export async function loadGeocodedLocations(path = '/data/locations-geocoded.json') {
+export async function loadGeocodedLocations(path = `${import.meta.env.BASE_URL}data/locations-geocoded.json`) {
   try {
     const response = await fetch(path)
     if (!response.ok) {
