@@ -92,9 +92,7 @@ function JobCard({ job }) {
       })()}
 
       <div className="flex items-center justify-between text-xs text-gray-500">
-        {job.salary && (
-          <span className="font-medium text-green-600">{job.salary}</span>
-        )}
+        {/* Salary field temporarily hidden - contains qualifications instead of salary */}
         {job.postedDate && (
           <span>{timeAgo(job.postedDate)}</span>
         )}
