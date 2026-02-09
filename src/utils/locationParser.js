@@ -166,6 +166,7 @@ function cleanCityName(city) {
  * Gets country data from country-state-city library
  */
 function getCountryByCode(countryCode) {
+  if (!countryCode) return null;
   return Country.getAllCountries().find(
     country => country.isoCode.toUpperCase() === countryCode.toUpperCase()
   );
@@ -175,6 +176,7 @@ function getCountryByCode(countryCode) {
  * Gets state/region data for a country
  */
 function getStateByCode(countryCode, stateCode) {
+  if (!countryCode || !stateCode) return null;
   const states = State.getStatesOfCountry(countryCode.toUpperCase());
   return states.find(
     state => state.isoCode.toUpperCase() === stateCode.toUpperCase()
@@ -185,6 +187,7 @@ function getStateByCode(countryCode, stateCode) {
  * Finds a city by name in a country/state
  */
 function findCityByName(cityName, countryCode, stateCode = null) {
+  if (!cityName || !countryCode) return null;
   const normalizedSearch = cityName.toLowerCase().trim();
 
   if (stateCode) {
@@ -287,7 +290,7 @@ function parseLocation(locationStr, includeMetadata = false) {
 
     // Build metadata object (only if requested)
     const metadata = includeMetadata ? {
-      countryCode: countryCode.toUpperCase(),
+      countryCode: countryCode ? countryCode.toUpperCase() : null,
       countryName: countryName,
       stateCode: stateCode ? stateCode.toUpperCase() : null,
       stateName: state ? state.name : null,
@@ -302,19 +305,19 @@ function parseLocation(locationStr, includeMetadata = false) {
     // Format output based on country conventions
     let formatted;
 
-    if (countryCode.toUpperCase() === 'US' && state) {
+    if (countryCode && countryCode.toUpperCase() === 'US' && state) {
       // US locations: "City, ST"
       formatted = `${city}, ${state.isoCode}`;
-    } else if (countryCode.toUpperCase() === 'CA' && state) {
+    } else if (countryCode && countryCode.toUpperCase() === 'CA' && state) {
       // Canadian locations: "City, AB, Canada"
       formatted = `${city}, ${state.isoCode}, Canada`;
-    } else if (countryCode.toUpperCase() === 'BR' && state) {
+    } else if (countryCode && countryCode.toUpperCase() === 'BR' && state) {
       // Brazilian locations: "City, State, Brazil"
       formatted = `${city}, ${state.name}, Brazil`;
-    } else if (countryCode.toUpperCase() === 'MX' && MX_STATE_CODES[stateCode.toUpperCase()]) {
+    } else if (countryCode && stateCode && countryCode.toUpperCase() === 'MX' && MX_STATE_CODES[stateCode.toUpperCase()]) {
       // Mexican locations: "City, Mexico"
       formatted = `${city}, Mexico`;
-    } else if (countryCode.toUpperCase() === 'IT' && IT_PROVINCE_CODES[stateCode.toUpperCase()]) {
+    } else if (countryCode && stateCode && countryCode.toUpperCase() === 'IT' && IT_PROVINCE_CODES[stateCode.toUpperCase()]) {
       // Italian locations: "City, Italy"
       formatted = `${city}, Italy`;
     } else if (countryName) {
