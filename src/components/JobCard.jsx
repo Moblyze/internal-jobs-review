@@ -1,12 +1,14 @@
 import { Link } from 'react-router-dom'
-import { timeAgo, companyToSlug } from '../utils/formatters'
+import { timeAgo, companyToSlug, jobToSlug } from '../utils/formatters'
 import { filterValidSkills } from '../utils/skillValidator'
 import { formatLocation } from '../utils/locationParser'
 
 function JobCard({ job }) {
+  const jobSlug = jobToSlug(job.company, job.title);
+
   return (
     <Link
-      to={`/jobs/${job.id}`}
+      to={`/jobs/${jobSlug}`}
       className="block bg-white rounded-lg shadow-sm border border-gray-200 p-4 hover:shadow-md hover:border-blue-300 transition-all"
     >
       <div className="flex items-start justify-between gap-2 mb-2">

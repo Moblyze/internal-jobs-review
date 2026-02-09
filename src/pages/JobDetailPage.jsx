@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { useJobs, getJobById, getSimilarJobs } from '../hooks/useJobs'
-import { formatDate, companyToSlug } from '../utils/formatters'
+import { useJobs, getSimilarJobs } from '../hooks/useJobs'
+import { formatDate, companyToSlug, findJobBySlug } from '../utils/formatters'
 import { formatJobDescription } from '../utils/contentFormatter'
 import { formatLocation } from '../utils/locationParser'
 import { filterValidSkills } from '../utils/skillValidator'
@@ -10,7 +10,7 @@ import JobCard from '../components/JobCard'
 import StructuredJobDescription from '../components/StructuredJobDescription'
 
 function JobDetailPage() {
-  const { jobId } = useParams()
+  const { jobSlug } = useParams()
   const { jobs, loading, error } = useJobs()
 
   // State must be declared before any conditional returns (React hooks rule)
@@ -37,7 +37,7 @@ function JobDetailPage() {
     )
   }
 
-  const job = getJobById(jobs, jobId)
+  const job = findJobBySlug(jobs, jobSlug)
 
   // Load similar jobs when job changes
   useEffect(() => {

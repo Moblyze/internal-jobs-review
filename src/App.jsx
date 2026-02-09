@@ -42,7 +42,7 @@ function App() {
       <Suspense fallback={<LoadingSpinner />}>
         <Routes>
           <Route path="/" element={<JobListPage />} />
-          <Route path="/jobs/:jobId" element={<JobDetailPage />} />
+          <Route path="/jobs/:jobSlug" element={<JobDetailPage />} />
           <Route path="/companies/:companySlug" element={<CompanyPage />} />
           <Route path="/demo/description-formatting" element={<DescriptionDemoPage />} />
           <Route path="/compare" element={<ComparisonTool />} />
