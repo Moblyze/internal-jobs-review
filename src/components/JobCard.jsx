@@ -49,14 +49,24 @@ function JobCard({ job }) {
         })()}
       </div>
 
-      {job.description && (
-        <p className="text-gray-700 text-sm line-clamp-3 mb-3">
-          {typeof job.description === 'string'
-            ? job.description.substring(0, 200).replace(/<[^>]*>/g, '').trim()
-            : ''}
-          {job.description && job.description.length > 200 ? '...' : ''}
-        </p>
-      )}
+      {job.description && (() => {
+        // Get plain text description, strip HTML, collapse whitespace
+        const plainText = typeof job.description === 'string'
+          ? job.description
+              .replace(/<[^>]*>/g, '') // Remove HTML tags
+              .replace(/\s+/g, ' ')     // Collapse multiple spaces/newlines
+              .trim()
+          : '';
+
+        const preview = plainText.substring(0, 150);
+        const needsEllipsis = plainText.length > 150;
+
+        return (
+          <p className="text-gray-700 text-sm mb-3 line-clamp-2">
+            {preview}{needsEllipsis ? '...' : ''}
+          </p>
+        );
+      })()}
 
       {(() => {
         const validSkills = filterValidSkills(job.skills);
