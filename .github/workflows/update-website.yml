@@ -69,6 +69,11 @@ jobs:
           npm run sync-process -- --limit=200
 
       - name: Build website
+        env:
+          VITE_MAPBOX_TOKEN: ${{ secrets.VITE_MAPBOX_TOKEN }}
+          VITE_ONET_API_KEY: ${{ secrets.VITE_ONET_API_KEY }}
+          VITE_ONET_BASE_URL: https://api-v2.onetcenter.org
+          VITE_AI_PROXY_URL: https://refreshing-vitality-production-3c80.up.railway.app
         run: npm run build
 
       - name: Clean up credentials
