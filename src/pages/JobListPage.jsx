@@ -294,7 +294,7 @@ function JobListPage() {
 
         {/* Job List */}
         <div className="lg:col-span-3">
-          {filteredJobs.length === 0 ? (
+          {filteredJobs.length === 0 && jobs.length > 0 ? (
             <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 text-center">
               <p className="text-gray-600">
                 No jobs match your filters. Try adjusting your criteria.
