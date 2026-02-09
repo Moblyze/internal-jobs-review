@@ -79,10 +79,22 @@ jobs:
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v4
 
+      - name: Verify dist contents before upload
+        run: |
+          echo "📦 Contents of dist/ directory:"
+          find dist -type f | sort
+          echo ""
+          echo "📊 File counts:"
+          echo "  Total files: $(find dist -type f | wc -l)"
+          echo "  JavaScript files: $(find dist -name "*.js" | wc -l)"
+          echo "  CSS files: $(find dist -name "*.css" | wc -l)"
+          echo "  Data files: $(find dist/data -type f | wc -l)"
+          echo "  Asset files: $(find dist/assets -type f | wc -l)"
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: 'dist'
 
       - name: Deploy to GitHub Pages
         id: deployment
