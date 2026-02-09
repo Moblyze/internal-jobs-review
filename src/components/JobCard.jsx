@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { timeAgo, companyToSlug, jobToSlug } from '../utils/formatters'
 import { filterValidSkills } from '../utils/skillValidator'
 import { formatLocation } from '../utils/locationParser'
+import { ensureCleanText } from '../utils/htmlCleaner'
 
 function JobCard({ job }) {
   const jobSlug = jobToSlug(job.company, job.title);
@@ -53,12 +54,13 @@ function JobCard({ job }) {
 
       {job.description && (() => {
         // Get plain text description, strip HTML, collapse whitespace
-        const plainText = typeof job.description === 'string'
-          ? job.description
-              .replace(/<[^>]*>/g, '') // Remove HTML tags
-              .replace(/\s+/g, ' ')     // Collapse multiple spaces/newlines
-              .trim()
+        const cleanDescription = typeof job.description === 'string'
+          ? ensureCleanText(job.description)
           : '';
+
+        const plainText = cleanDescription
+          .replace(/\s+/g, ' ')  // Collapse multiple spaces/newlines
+          .trim();
 
         const preview = plainText.substring(0, 150);
         const needsEllipsis = plainText.length > 150;

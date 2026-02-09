@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { ensureCleanText } from '../utils/htmlCleaner'
 
 /**
  * StructuredJobDescription Component
@@ -160,7 +161,7 @@ function ListBlock({ items }) {
               <circle cx="4" cy="4" r="3" />
             </svg>
           </span>
-          <span className="text-gray-700 leading-relaxed flex-1">{item}</span>
+          <span className="text-gray-700 leading-relaxed flex-1">{ensureCleanText(item)}</span>
         </li>
       ))}
     </ul>
@@ -173,7 +174,7 @@ function ListBlock({ items }) {
 function ParagraphBlock({ content }) {
   return (
     <p className="text-gray-700 leading-relaxed">
-      {content}
+      {ensureCleanText(content)}
     </p>
   )
 }
@@ -294,7 +295,7 @@ function StructuredJobDescription({
         <StructuredFormatRenderer sections={description.sections} collapsible={collapsible} />
       ) : typeof description === 'string' ? (
         // Fallback for plain text
-        <p className="text-gray-700 whitespace-pre-wrap leading-relaxed">{description}</p>
+        <p className="text-gray-700 whitespace-pre-wrap leading-relaxed">{ensureCleanText(description)}</p>
       ) : (
         // Unknown format
         <p className="text-gray-500 italic">Unable to display job description format</p>

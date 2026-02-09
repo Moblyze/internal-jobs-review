@@ -6,7 +6,10 @@
  * - Detecting and formatting section headers
  * - Creating proper list structures
  * - Adding semantic HTML elements
+ * - Cleaning any HTML tags that slip through from scrapers
  */
+
+import { cleanJobDescription } from './htmlCleaner';
 
 /**
  * Identifies common section headers in job descriptions
@@ -203,7 +206,9 @@ function parseContent(text) {
  * @returns {Array} Array of content blocks with type and content
  */
 export function formatJobDescription(text) {
-  return parseContent(text);
+  // First, ensure any HTML tags are stripped
+  const cleanText = cleanJobDescription(text);
+  return parseContent(cleanText);
 }
 
 /**

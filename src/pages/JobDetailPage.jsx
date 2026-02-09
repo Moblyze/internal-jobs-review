@@ -5,6 +5,7 @@ import { formatDate, companyToSlug, findJobBySlug } from '../utils/formatters'
 import { formatJobDescription } from '../utils/contentFormatter'
 import { getAllLocations } from '../utils/locationParser'
 import { filterValidSkills } from '../utils/skillValidator'
+import { ensureCleanText } from '../utils/htmlCleaner'
 import Breadcrumbs from '../components/Breadcrumbs'
 import JobCard from '../components/JobCard'
 import StructuredJobDescription from '../components/StructuredJobDescription'
@@ -209,7 +210,7 @@ function JobDetailPage() {
                 }
               })
             ) : (
-              <p className="text-gray-700 whitespace-pre-wrap">{job.description}</p>
+              <p className="text-gray-700 whitespace-pre-wrap">{ensureCleanText(job.description)}</p>
             )}
           </div>
         )}
