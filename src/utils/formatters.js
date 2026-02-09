@@ -52,16 +52,30 @@ export function slugToCompany(slug) {
  * @returns {string} URL slug
  */
 export function jobToSlug(company, title) {
-  const companySlug = company.toLowerCase()
-    .replace(/\s+/g, '-')
-    .replace(/[^a-z0-9-]/g, '');
+  if (!company || !title) {
+    console.warn('[jobToSlug] Missing company or title:', { company, title });
+    return '';
+  }
 
-  const titleSlug = title.toLowerCase()
-    .replace(/\s+/g, '-')
-    .replace(/[^a-z0-9-]/g, '')
-    .substring(0, 100); // Limit title length in URL
+  const companySlug = company
+    .trim()                          // Remove leading/trailing whitespace
+    .toLowerCase()
+    .replace(/\s+/g, '-')           // Replace spaces with hyphens
+    .replace(/[^a-z0-9-]/g, '')     // Remove special characters
+    .replace(/-+/g, '-')            // Replace consecutive hyphens with single hyphen
+    .replace(/^-|-$/g, '');         // Remove leading/trailing hyphens
 
-  return `${companySlug}-${titleSlug}`;
+  const titleSlug = title
+    .trim()                          // Remove leading/trailing whitespace
+    .toLowerCase()
+    .replace(/\s+/g, '-')           // Replace spaces with hyphens
+    .replace(/[^a-z0-9-]/g, '')     // Remove special characters
+    .replace(/-+/g, '-')            // Replace consecutive hyphens with single hyphen
+    .replace(/^-|-$/g, '')          // Remove leading/trailing hyphens
+    .substring(0, 100);             // Limit title length in URL
+
+  const slug = `${companySlug}-${titleSlug}`;
+  return slug;
 }
 
 /**
@@ -73,11 +87,36 @@ export function jobToSlug(company, title) {
  * @returns {object|null} Matched job or null
  */
 export function findJobBySlug(jobs, slug) {
+  if (!jobs || jobs.length === 0) {
+    console.warn('[findJobBySlug] No jobs to search');
+    return null;
+  }
+
+  if (!slug) {
+    console.warn('[findJobBySlug] No slug provided');
+    return null;
+  }
+
   // Find all jobs that match the slug
   const matches = jobs.filter(job => {
     const expectedSlug = jobToSlug(job.company, job.title);
-    return expectedSlug === slug;
+    const isMatch = expectedSlug === slug;
+
+    // Debug logging (only for first 3 jobs to avoid spam)
+    if (jobs.indexOf(job) < 3 || isMatch) {
+      console.log('[findJobBySlug]', isMatch ? '✓ MATCH' : '✗',
+        `Expected: "${expectedSlug}" vs URL: "${slug}"`,
+        isMatch ? job.title : '');
+    }
+
+    return isMatch;
   });
+
+  if (matches.length === 0) {
+    console.warn('[findJobBySlug] No job found for slug:', slug);
+  } else {
+    console.log('[findJobBySlug] ✓ Found job:', matches[0].title);
+  }
 
   // Return first match (or null if no matches)
   // If multiple jobs have identical company+title, return the first one
