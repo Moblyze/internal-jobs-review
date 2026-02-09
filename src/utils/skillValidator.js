@@ -4,6 +4,7 @@
  */
 
 import * as onetClient from './onetClient.js';
+import { matchSkillToReference } from '../data/onetSkillsReference.js';
 
 const GENERIC_STARTING_WORDS = [
   'with', 'be', 'show', 'demonstrate', 'work', 'working', 'have', 'must',
@@ -156,6 +157,18 @@ export function normalizeSkill(skill) {
   if (!skill || typeof skill !== 'string') return null;
 
   let normalized = skill.trim();
+
+  // Quick rejection: must start with a letter (catches #hashtags, &fragments, (parens, -dashes, .bullets, /slashes, digits, ●⦁ bullets, etc.)
+  if (!/^[a-zA-Z]/.test(normalized)) return null;
+
+  // Quick rejection: contains commas (unsplit compound lists - should have been split upstream)
+  if (normalized.includes(',')) return null;
+
+  // Quick rejection: years of experience patterns
+  if (/\b\d+\+?\s*(years?|yrs?|months?)\b/i.test(normalized)) return null;
+
+  // Quick rejection: contains parentheses (fragments, acronym expansions, not standalone skills)
+  if (/[()]/.test(normalized)) return null;
 
   // Quick rejection: marketing/recruitment phrases
   const lower = normalized.toLowerCase();
@@ -459,6 +472,12 @@ export function isValidSkill(skill) {
 
   const trimmed = skill.trim();
 
+  // Must start with a letter
+  if (!/^[a-zA-Z]/.test(trimmed)) return false;
+
+  // Too many words (likely a sentence/requirement, not a skill)
+  if (trimmed.split(/\s+/).length > 4) return false;
+
   // Too long (likely a sentence)
   if (trimmed.length > 50) return false;
 
@@ -704,6 +723,7 @@ export function processSkills(skills) {
   if (!Array.isArray(skills)) return [];
 
   const processed = [];
+  const seen = new Set();
 
   for (const skill of skills) {
     // Stage 1: Split compound skills first
@@ -716,26 +736,33 @@ export function processSkills(skills) {
       // Skip if normalization rejected it
       if (!normalized) continue;
 
-      // Stage 3: O*NET standardization (using pre-built cache if loaded)
-      let standardized = normalized;
+      // Stage 3: Match against O*NET reference allowlist
+      // This is the primary filter - only skills matching the reference get through
+      let canonicalName = null;
+
+      // First try O*NET pre-built cache (if loaded)
       try {
         const onetName = onetClient.lookupInPrebuiltCache(normalized);
         if (onetName) {
-          standardized = onetName;
+          canonicalName = onetName;
         }
       } catch (error) {
-        // Cache not loaded or error - use client normalization
+        // Cache not loaded - continue to reference matching
       }
 
-      // Stage 4: Validate
-      if (!isValidSkill(standardized)) continue;
+      // Then try the static reference allowlist
+      if (!canonicalName) {
+        canonicalName = matchSkillToReference(normalized);
+      }
 
-      // Stage 5: Check for duplicates (case-insensitive)
-      const lowerStandardized = standardized.toLowerCase();
-      const isDuplicate = processed.some(s => s.toLowerCase() === lowerStandardized);
+      // Skip if no reference match found - not a recognized skill
+      if (!canonicalName) continue;
 
-      if (!isDuplicate) {
-        processed.push(standardized);
+      // Stage 4: Deduplicate (case-insensitive)
+      const lowerCanonical = canonicalName.toLowerCase();
+      if (!seen.has(lowerCanonical)) {
+        seen.add(lowerCanonical);
+        processed.push(canonicalName);
       }
     }
   }

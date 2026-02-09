@@ -194,6 +194,10 @@ export async function getGroupedLocations(jobs) {
 }
 
 export async function getUniqueSkills(jobs) {
+  // Ensure O*NET cache is loaded before processing skills
+  const { initializeONet } = await import('../utils/onetClient');
+  await initializeONet();
+
   const { filterValidSkills } = await import('../utils/skillValidator');
   const allSkills = jobs.flatMap(job => job.skills);
   const validSkills = filterValidSkills(allSkills);
@@ -267,6 +271,10 @@ export async function getTopLocations(jobs, limit = 5) {
  * @returns {Promise<Array>} Array of skill names sorted by frequency
  */
 export async function getTopSkills(jobs, limit = 5) {
+  // Ensure O*NET cache is loaded before processing skills
+  const { initializeONet } = await import('../utils/onetClient');
+  await initializeONet();
+
   const { filterValidSkills } = await import('../utils/skillValidator');
   const skillCounts = {};
 
