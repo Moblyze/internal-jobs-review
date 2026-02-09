@@ -53,6 +53,8 @@ function JobListPage() {
 
   useEffect(() => {
     async function applyFilters() {
+      console.log('[JobListPage] Applying filters to', jobs.length, 'jobs');
+      console.log('[JobListPage] Current filters:', filters);
       let result = jobs.filter(job => {
         // Status filter (hide inactive unless toggled)
         // Only filter out jobs with explicitly inactive statuses (removed, paused)
@@ -98,6 +100,7 @@ function JobListPage() {
         result = await filterJobsByRole(result, filters.roles)
       }
 
+      console.log('[JobListPage] Filtered jobs count:', result.length);
       setFilteredJobs(result)
     }
 

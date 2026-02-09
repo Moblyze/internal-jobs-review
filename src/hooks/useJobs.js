@@ -43,11 +43,13 @@ export function useJobs() {
       const data = await res.json();
       const now = new Date();
       console.log(`[useJobs] Successfully loaded ${data.length} jobs`);
+      console.log('[useJobs] First job sample:', data[0]);
 
       setJobs(data);
       setLastUpdated(now);
       localStorage.setItem(LAST_UPDATED_KEY, now.toISOString());
       setLoading(false);
+      console.log('[useJobs] Loading state set to false, jobs set');
 
       // After loading jobs, check for new locations and auto-geocode them
       if (forceRefresh) {
