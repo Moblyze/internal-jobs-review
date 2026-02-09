@@ -9,6 +9,7 @@ import { ensureCleanText } from '../utils/htmlCleaner'
 import Breadcrumbs from '../components/Breadcrumbs'
 import JobCard from '../components/JobCard'
 import StructuredJobDescription from '../components/StructuredJobDescription'
+import EnhanceWithAIButton from '../components/EnhanceWithAIButton'
 
 function JobDetailPage() {
   const { jobSlug } = useParams()
@@ -17,6 +18,7 @@ function JobDetailPage() {
   // State must be declared before any conditional returns (React hooks rule)
   const [descriptionView, setDescriptionView] = useState('ai')
   const [similarJobs, setSimilarJobs] = useState([])
+  const [clientEnhancement, setClientEnhancement] = useState(null)
 
   // Find job before useEffect (but after hooks)
   const job = !loading && !error ? findJobBySlug(jobs, jobSlug) : null
@@ -64,10 +66,17 @@ function JobDetailPage() {
   const formattedDescription = formatJobDescription(job.description)
   const locations = getAllLocations(job.location)
 
-  // Check if job has AI-structured description
-  const hasStructuredDescription = job.structuredDescription &&
-    job.structuredDescription.sections &&
-    job.structuredDescription.sections.length > 0
+  // Check if job has AI-structured description (from jobs.json or client enhancement)
+  const structuredDescription = clientEnhancement || job.structuredDescription
+  const hasStructuredDescription = structuredDescription &&
+    structuredDescription.sections &&
+    structuredDescription.sections.length > 0
+
+  // Handler for when AI enhancement completes
+  const handleEnhanced = (newStructuredDescription) => {
+    setClientEnhancement(newStructuredDescription)
+    setDescriptionView('ai') // Auto-switch to AI view
+  }
 
   const breadcrumbItems = [
     {
@@ -140,8 +149,8 @@ function JobDetailPage() {
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-xl font-semibold text-gray-900">Job Description</h2>
 
-          {/* Toggle Button and Badge */}
-          {hasStructuredDescription && (
+          {/* Toggle Button and Badge OR Enhance Button */}
+          {hasStructuredDescription ? (
             <div className="flex items-center gap-3">
               {/* Version Badge */}
               <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${
@@ -172,12 +181,14 @@ function JobDetailPage() {
                 {descriptionView === 'ai' ? 'View Original' : 'View AI-Structured'}
               </button>
             </div>
+          ) : (
+            <EnhanceWithAIButton job={job} onEnhanced={handleEnhanced} />
           )}
         </div>
 
         {/* Description Content */}
         {descriptionView === 'ai' && hasStructuredDescription ? (
-          <StructuredJobDescription description={job.structuredDescription} />
+          <StructuredJobDescription description={structuredDescription} />
         ) : (
           <div className="prose prose-sm max-w-none text-gray-700">
             {formattedDescription.length > 0 ? (

@@ -1,8 +1,8 @@
 /**
  * AI-Powered Job Description Parser
  *
- * Uses Claude API to intelligently restructure messy job descriptions
- * into clean, semantic, mobile-friendly sections.
+ * Uses Claude API via secure backend proxy to intelligently restructure
+ * messy job descriptions into clean, semantic, mobile-friendly sections.
  *
  * This service handles "blob" descriptions with poor or no formatting
  * by leveraging Claude's natural language understanding to:
@@ -10,23 +10,32 @@
  * - Convert long paragraphs into scannable bullet points
  * - Separate responsibilities from requirements from benefits
  * - Remove redundant marketing fluff
+ *
+ * SECURITY: For browser usage, this module makes requests through a secure
+ * backend proxy to avoid exposing the API key. For Node.js scripts, it
+ * uses the Anthropic SDK directly.
  */
 
 import Anthropic from '@anthropic-ai/sdk';
 
 /**
- * Initialize Anthropic client
- * API key should be set in .env file as ANTHROPIC_API_KEY
+ * Configuration
+ */
+const AI_PROXY_URL = import.meta.env.VITE_AI_PROXY_URL || 'http://localhost:3000';
+
+/**
+ * Initialize Anthropic client (Node.js only)
  */
 let anthropicClient = null;
 
-// Helper to get API key in both browser (Vite) and Node.js environments
+// Helper to detect if running in browser
+function isBrowser() {
+  return typeof window !== 'undefined' && typeof import.meta !== 'undefined';
+}
+
+// Helper to get API key (Node.js only)
 function getApiKey() {
-  // Browser/Vite environment
-  if (typeof import.meta !== 'undefined' && import.meta.env) {
-    return import.meta.env.ANTHROPIC_API_KEY;
-  }
-  // Node.js environment
+  // Node.js environment only
   if (typeof process !== 'undefined' && process.env) {
     return process.env.ANTHROPIC_API_KEY;
   }
@@ -34,6 +43,13 @@ function getApiKey() {
 }
 
 function getAnthropicClient() {
+  // Browser environment - should use proxy instead
+  if (isBrowser()) {
+    throw new Error(
+      'Direct Anthropic API calls not allowed in browser. Use proxy endpoints instead.'
+    );
+  }
+
   if (!anthropicClient) {
     const apiKey = getApiKey();
     if (!apiKey || apiKey === 'your_anthropic_api_key_here') {
@@ -41,11 +57,7 @@ function getAnthropicClient() {
         'Anthropic API key not configured. Please set ANTHROPIC_API_KEY in .env file.'
       );
     }
-    anthropicClient = new Anthropic({
-      apiKey,
-      // For server-side only - this won't work in browser
-      dangerouslyAllowBrowser: false,
-    });
+    anthropicClient = new Anthropic({ apiKey });
   }
   return anthropicClient;
 }
@@ -193,37 +205,64 @@ export async function restructureJobDescription(rawDescription, options = {}) {
   } = options;
 
   try {
-    // Get Anthropic client
-    const client = getAnthropicClient();
+    let textContent;
 
-    // Create timeout promise
-    const timeoutPromise = new Promise((_, reject) =>
-      setTimeout(() => reject(new Error('Request timeout')), timeout)
-    );
-
-    // Make API request
-    const requestPromise = client.messages.create({
-      model,
-      max_tokens: maxTokens,
-      messages: [
-        {
-          role: 'user',
-          content: `${RESTRUCTURE_PROMPT}\n\n**Job Description to Format:**\n\n${trimmed}`,
+    // Browser: Use proxy endpoint
+    if (isBrowser()) {
+      const response = await fetch(`${AI_PROXY_URL}/api/enhance-description`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-      ],
-    });
+        body: JSON.stringify({
+          description: trimmed,
+          systemPrompt: RESTRUCTURE_PROMPT,
+          model,
+          maxTokens,
+        }),
+        signal: AbortSignal.timeout(timeout),
+      });
 
-    // Race between timeout and request
-    const response = await Promise.race([requestPromise, timeoutPromise]);
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
+        throw new Error(errorData.error || `HTTP ${response.status}: ${response.statusText}`);
+      }
 
-    // Extract text content from response
-    const textContent = response.content
-      .filter((block) => block.type === 'text')
-      .map((block) => block.text)
-      .join('');
+      const data = await response.json();
+      textContent = data.content;
 
-    if (!textContent) {
-      throw new Error('No text content in API response');
+      if (!textContent) {
+        throw new Error('No content in proxy response');
+      }
+    }
+    // Node.js: Use Anthropic SDK directly
+    else {
+      const client = getAnthropicClient();
+
+      const response = await Promise.race([
+        client.messages.create({
+          model,
+          max_tokens: maxTokens,
+          messages: [
+            {
+              role: 'user',
+              content: `${RESTRUCTURE_PROMPT}\n\n**Job Description to Format:**\n\n${trimmed}`,
+            },
+          ],
+        }),
+        new Promise((_, reject) =>
+          setTimeout(() => reject(new Error('Request timeout')), timeout)
+        ),
+      ]);
+
+      textContent = response.content
+        .filter((block) => block.type === 'text')
+        .map((block) => block.text)
+        .join('');
+
+      if (!textContent) {
+        throw new Error('No text content in API response');
+      }
     }
 
     // Parse JSON response
@@ -301,11 +340,16 @@ export async function restructureJobDescription(rawDescription, options = {}) {
 
 /**
  * Check if AI description parsing is available
- * (i.e., if Anthropic API key is configured)
  *
- * @returns {boolean} - True if API key is configured
+ * @returns {boolean} - True if AI parsing is available
  */
 export function isAiParsingAvailable() {
+  // In browser, AI is always available via proxy
+  if (isBrowser()) {
+    return true;
+  }
+
+  // In Node.js, check for API key
   const apiKey = getApiKey();
   return Boolean(apiKey && apiKey !== 'your_anthropic_api_key_here');
 }
@@ -463,16 +507,48 @@ export async function classifyJobRole(jobTitle, jobDescription = '', availableRo
   } = options;
 
   try {
-    // Get Anthropic client
-    const client = getAnthropicClient();
+    let textContent;
 
-    // Format role list for prompt
-    const rolesList = availableRoles
-      .map(role => `- ${role.id}: ${role.label} (${role.category})`)
-      .join('\n');
+    // Browser: Use proxy endpoint
+    if (isBrowser()) {
+      const response = await fetch(`${AI_PROXY_URL}/api/classify-role`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          jobTitle: trimmedTitle,
+          jobDescription: trimmedDescription,
+          availableRoles,
+          systemPrompt: ROLE_CLASSIFICATION_PROMPT,
+          model,
+        }),
+        signal: AbortSignal.timeout(timeout),
+      });
 
-    // Build user message
-    const userMessage = `**Available Roles:**
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
+        throw new Error(errorData.error || `HTTP ${response.status}: ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      textContent = data.content;
+
+      if (!textContent) {
+        throw new Error('No content in proxy response');
+      }
+    }
+    // Node.js: Use Anthropic SDK directly
+    else {
+      const client = getAnthropicClient();
+
+      // Format role list for prompt
+      const rolesList = availableRoles
+        .map((role) => `- ${role.id}: ${role.label} (${role.category})`)
+        .join('\n');
+
+      // Build user message
+      const userMessage = `**Available Roles:**
 ${rolesList}
 
 **Job to Classify:**
@@ -483,34 +559,30 @@ ${trimmedDescription ? `Description: ${trimmedDescription.substring(0, 1000)}` :
 
 Please classify this job into the most appropriate role from the list above.`;
 
-    // Create timeout promise
-    const timeoutPromise = new Promise((_, reject) =>
-      setTimeout(() => reject(new Error('Request timeout')), timeout)
-    );
+      const response = await Promise.race([
+        client.messages.create({
+          model,
+          max_tokens: maxTokens,
+          messages: [
+            {
+              role: 'user',
+              content: `${ROLE_CLASSIFICATION_PROMPT}\n\n${userMessage}`,
+            },
+          ],
+        }),
+        new Promise((_, reject) =>
+          setTimeout(() => reject(new Error('Request timeout')), timeout)
+        ),
+      ]);
 
-    // Make API request
-    const requestPromise = client.messages.create({
-      model,
-      max_tokens: maxTokens,
-      messages: [
-        {
-          role: 'user',
-          content: `${ROLE_CLASSIFICATION_PROMPT}\n\n${userMessage}`
-        }
-      ]
-    });
+      textContent = response.content
+        .filter((block) => block.type === 'text')
+        .map((block) => block.text)
+        .join('');
 
-    // Race between timeout and request
-    const response = await Promise.race([requestPromise, timeoutPromise]);
-
-    // Extract text content from response
-    const textContent = response.content
-      .filter(block => block.type === 'text')
-      .map(block => block.text)
-      .join('');
-
-    if (!textContent) {
-      throw new Error('No text content in API response');
+      if (!textContent) {
+        throw new Error('No text content in API response');
+      }
     }
 
     // Parse JSON response

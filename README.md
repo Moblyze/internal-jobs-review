@@ -19,7 +19,12 @@ Internal preview tool for visualizing scraped job data from external sources (Ba
 ✅ **Job Details** - Full job pages with breadcrumbs
 ✅ **Company Pages** - View all jobs from a specific employer
 ✅ **Similar Jobs** - Recommendations based on company/location/skills
+✅ **AI Enhancement** - On-demand job description enhancement (secure backend proxy)
 ✅ **Responsive Design** - Works great on phones and desktops
+
+### Security Note
+
+The "Enhance with AI" feature uses a secure backend proxy to protect the Anthropic API key. See [SECURITY_FIX_AI_PROXY.md](./SECURITY_FIX_AI_PROXY.md) for setup instructions.
 
 ## Setup
 

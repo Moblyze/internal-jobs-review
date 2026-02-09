@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import { mergeEnhancements } from '../utils/jobEnhancementStorage';
 
 const LAST_UPDATED_KEY = 'jobs_last_updated';
 
@@ -42,7 +43,11 @@ export function useJobs() {
       console.log(`[useJobs] Successfully loaded ${data.length} jobs`);
       console.log('[useJobs] First job sample:', data[0]);
 
-      setJobs(data);
+      // Merge localStorage enhancements with jobs data
+      const enhancedJobs = mergeEnhancements(data);
+      console.log('[useJobs] Merged client-side enhancements');
+
+      setJobs(enhancedJobs);
       setLastUpdated(now);
       localStorage.setItem(LAST_UPDATED_KEY, now.toISOString());
       setLoading(false);

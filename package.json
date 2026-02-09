@@ -15,6 +15,7 @@
     "process-descriptions": "node scripts/process-descriptions.js",
     "test-ai-parser": "node scripts/test-ai-parser.js",
     "test-batch-processing": "node scripts/test-batch-processing.js",
+    "test-single-enhancement": "node scripts/test-single-job-enhancement.js",
     "example-parser": "node scripts/example-unified-parser.js",
     "match-occupations": "node scripts/match-job-occupations.js",
     "sync-process": "node scripts/sync-and-process-jobs.js"
