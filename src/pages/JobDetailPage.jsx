@@ -17,6 +17,19 @@ function JobDetailPage() {
   const [descriptionView, setDescriptionView] = useState('ai')
   const [similarJobs, setSimilarJobs] = useState([])
 
+  // Find job before useEffect (but after hooks)
+  const job = !loading && !error ? findJobBySlug(jobs, jobSlug) : null
+
+  // Load similar jobs when job changes - MUST be before conditional returns
+  useEffect(() => {
+    if (job && jobs) {
+      getSimilarJobs(jobs, job, 5).then(setSimilarJobs).catch(err => {
+        console.error('Failed to load similar jobs:', err)
+        setSimilarJobs([])
+      })
+    }
+  }, [jobs, job])
+
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-[400px]">
@@ -36,18 +49,6 @@ function JobDetailPage() {
       </div>
     )
   }
-
-  const job = findJobBySlug(jobs, jobSlug)
-
-  // Load similar jobs when job changes
-  useEffect(() => {
-    if (job) {
-      getSimilarJobs(jobs, job, 5).then(setSimilarJobs).catch(err => {
-        console.error('Failed to load similar jobs:', err)
-        setSimilarJobs([])
-      })
-    }
-  }, [jobs, job])
 
   if (!job) {
     return (
