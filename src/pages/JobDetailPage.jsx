@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useJobs, getJobById, getSimilarJobs } from '../hooks/useJobs'
 import { formatDate, companyToSlug } from '../utils/formatters'
@@ -15,6 +15,7 @@ function JobDetailPage() {
 
   // State must be declared before any conditional returns (React hooks rule)
   const [descriptionView, setDescriptionView] = useState('ai')
+  const [similarJobs, setSimilarJobs] = useState([])
 
   if (loading) {
     return (
@@ -38,6 +39,16 @@ function JobDetailPage() {
 
   const job = getJobById(jobs, jobId)
 
+  // Load similar jobs when job changes
+  useEffect(() => {
+    if (job) {
+      getSimilarJobs(jobs, job, 5).then(setSimilarJobs).catch(err => {
+        console.error('Failed to load similar jobs:', err)
+        setSimilarJobs([])
+      })
+    }
+  }, [jobs, job])
+
   if (!job) {
     return (
       <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 text-center">
@@ -46,8 +57,6 @@ function JobDetailPage() {
       </div>
     )
   }
-
-  const similarJobs = getSimilarJobs(jobs, job, 5)
 
   // Format job description into structured content blocks
   const formattedDescription = formatJobDescription(job.description)
@@ -106,7 +115,14 @@ function JobDetailPage() {
             </div>
           )}
 
-          {/* Salary field temporarily hidden - contains qualifications instead of salary */}
+          {job.salary && (
+            <div className="flex items-center text-green-600 font-medium">
+              <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M8.16 5.314l4.897-1.596A1 1 0 0114.82 4.62l1.07 6.263c.08.471-.122.92-.564 1.15l-6.693 3.695a1 1 0 01-1.466-.756l-1.068-6.263a1 1 0 01.997-1.195z"></path>
+              </svg>
+              {job.salary}
+            </div>
+          )}
         </div>
       </div>
 

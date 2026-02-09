@@ -566,6 +566,7 @@ let cacheLoadPromise = null;
 /**
  * Load pre-built skills cache from file
  * Returns cached promise to avoid multiple simultaneous fetches
+ * Uses low-priority fetch to avoid blocking critical resources
  */
 async function loadPrebuiltCache() {
   if (prebuiltCache) return prebuiltCache;
@@ -573,7 +574,11 @@ async function loadPrebuiltCache() {
 
   cacheLoadPromise = (async () => {
     try {
-      const response = await fetch('/data/onet-skills-cache.json');
+      // Use low-priority fetch to avoid blocking critical resources
+      const response = await fetch('/data/onet-skills-cache.json', {
+        priority: 'low',
+        cache: 'default'
+      });
       if (!response.ok) {
         console.warn('O*NET pre-built cache not found, will use API');
         return null;

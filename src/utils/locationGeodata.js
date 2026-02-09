@@ -5,6 +5,8 @@
  * Replaces country-state-city library lookups with permanent geocoded data
  */
 
+import { getAllLocations } from './locationParser.js'
+
 // Cache for geocoded data
 let geocodedDataCache = null
 
@@ -309,9 +311,6 @@ export async function createGroupedLocationOptionsWithGeodata(jobsOrLocations) {
 
   // Count jobs for each formatted location (if we have jobs data)
   if (jobs.length > 0) {
-    // Import getAllLocations dynamically to avoid circular dependency issues
-    const { getAllLocations } = await import('./locationParser.js')
-
     // Create a map of formatted location -> job count
     const locationJobCounts = new Map()
 

@@ -168,10 +168,8 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
   const [isExpanded, setIsExpanded] = useState(false)
   const [locationOptions, setLocationOptions] = useState([])
   const [topLocationsFormatted, setTopLocationsFormatted] = useState([])
-
-  // Calculate top items for quick select (5-10 most popular)
-  const topCompanies = useMemo(() => getTopCompanies(jobs, 10), [jobs])
-  const topSkills = useMemo(() => getTopSkills(jobs, 10), [jobs])
+  const [topCompanies, setTopCompanies] = useState([])
+  const [topSkills, setTopSkills] = useState([])
 
   // Extract all unique locations from jobs for region matching
   const allLocations = useMemo(() => extractAllLocations(jobs), [jobs])
@@ -182,9 +180,9 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
     []
   )
 
-  // Load geocoded location options on mount
+  // Load async filter data on mount
   useEffect(() => {
-    async function loadLocationOptions() {
+    async function loadFilterData() {
       try {
         // Use geocoded data for location grouping - pass jobs to extract raw locations
         const options = await createGroupedLocationOptionsWithGeodata(jobs)
@@ -193,14 +191,23 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
         // Get formatted top locations
         const topLocs = await getTopLocationsFormatted(jobs, 10)
         setTopLocationsFormatted(topLocs)
+
+        // Get top companies and skills
+        const companies = await getTopCompanies(jobs, 10)
+        setTopCompanies(companies)
+
+        const skills = await getTopSkills(jobs, 10)
+        setTopSkills(skills)
       } catch (error) {
-        console.error('Error loading location options:', error)
+        console.error('Error loading filter data:', error)
         // Fallback to old method
         setLocationOptions(createGroupedLocationOptions(locations))
-        setTopLocationsFormatted(getTopLocations(jobs, 10))
+        getTopLocations(jobs, 10).then(setTopLocationsFormatted).catch(console.error)
+        getTopCompanies(jobs, 10).then(setTopCompanies).catch(console.error)
+        getTopSkills(jobs, 10).then(setTopSkills).catch(console.error)
       }
     }
-    loadLocationOptions()
+    loadFilterData()
   }, [jobs, locations])
 
   // Create options for react-select

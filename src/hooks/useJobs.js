@@ -1,12 +1,9 @@
 import { useState, useEffect, useCallback } from 'react';
-import { filterValidSkills } from '../utils/skillValidator';
-import { getAllLocations } from '../utils/locationParser';
-import { groupLocationsByRegion } from '../utils/locationGrouping';
-import { getAllCertifications, getAllCertificationsWithCounts } from '../utils/certificationExtractor';
-import { geocodeNewLocations, checkForNewLocations } from '../utils/geocoder';
-import { getEnergyRole, ENERGY_ROLES } from '../utils/energyRoles';
 
 const LAST_UPDATED_KEY = 'jobs_last_updated';
+
+// Lazy-load utility modules to enable code splitting
+const getGeocoderModule = () => import('../utils/geocoder');
 
 export function useJobs() {
   const [jobs, setJobs] = useState([]);
@@ -56,6 +53,7 @@ export function useJobs() {
         console.log('[useJobs] Checking for new locations to geocode...');
 
         try {
+          const { checkForNewLocations, geocodeNewLocations } = await getGeocoderModule();
           const checkResult = await checkForNewLocations(data);
 
           if (checkResult.hasNewLocations) {
@@ -124,7 +122,7 @@ export function getJobsByCompany(jobs, companySlug) {
   );
 }
 
-export function getSimilarJobs(jobs, currentJob, limit = 5) {
+export async function getSimilarJobs(jobs, currentJob, limit = 5) {
   if (!currentJob) return [];
 
   // Priority 1: Same company
@@ -138,6 +136,7 @@ export function getSimilarJobs(jobs, currentJob, limit = 5) {
   }
 
   // Priority 2: Same location or overlapping skills
+  const { getAllLocations } = await import('../utils/locationParser');
   const currentJobLocations = getAllLocations(currentJob.location);
 
   const similar = jobs
@@ -173,8 +172,9 @@ export function getUniqueCompanies(jobs) {
   return companies.sort();
 }
 
-export function getUniqueLocations(jobs) {
+export async function getUniqueLocations(jobs) {
   // Get all formatted locations from all jobs
+  const { getAllLocations } = await import('../utils/locationParser');
   const allLocationArrays = jobs
     .map(job => getAllLocations(job.location))
     .filter(locs => locs.length > 0);
@@ -184,31 +184,35 @@ export function getUniqueLocations(jobs) {
   return locations.sort();
 }
 
-export function getGroupedLocations(jobs) {
+export async function getGroupedLocations(jobs) {
   // Get all unique locations
-  const locations = getUniqueLocations(jobs);
+  const locations = await getUniqueLocations(jobs);
 
   // Group them by country and region
+  const { groupLocationsByRegion } = await import('../utils/locationGrouping');
   return groupLocationsByRegion(locations);
 }
 
-export function getUniqueSkills(jobs) {
+export async function getUniqueSkills(jobs) {
+  const { filterValidSkills } = await import('../utils/skillValidator');
   const allSkills = jobs.flatMap(job => job.skills);
   const validSkills = filterValidSkills(allSkills);
   const skills = [...new Set(validSkills)];
   return skills.sort();
 }
 
-export function getUniqueCertifications(jobs) {
+export async function getUniqueCertifications(jobs) {
+  const { getAllCertifications } = await import('../utils/certificationExtractor');
   return getAllCertifications(jobs);
 }
 
 /**
  * Get all certifications with job counts (including zero-count certifications)
  * @param {Array} jobs - Array of job objects
- * @returns {Array} - Array of {name, count} objects sorted by count (desc) then name (asc)
+ * @returns {Promise<Array>} - Array of {name, count} objects sorted by count (desc) then name (asc)
  */
-export function getCertificationsWithCounts(jobs) {
+export async function getCertificationsWithCounts(jobs) {
+  const { getAllCertificationsWithCounts } = await import('../utils/certificationExtractor');
   return getAllCertificationsWithCounts(jobs);
 }
 
@@ -237,9 +241,10 @@ export function getTopCompanies(jobs, limit = 5) {
  * Get the top N most popular locations from jobs data
  * @param {Array} jobs - Array of job objects
  * @param {number} limit - Number of top locations to return (default: 5)
- * @returns {Array} Array of location names sorted by frequency
+ * @returns {Promise<Array>} Array of location names sorted by frequency
  */
-export function getTopLocations(jobs, limit = 5) {
+export async function getTopLocations(jobs, limit = 5) {
+  const { getAllLocations } = await import('../utils/locationParser');
   const locationCounts = {};
 
   jobs.forEach(job => {
@@ -259,9 +264,10 @@ export function getTopLocations(jobs, limit = 5) {
  * Get the top N most popular skills from jobs data
  * @param {Array} jobs - Array of job objects
  * @param {number} limit - Number of top skills to return (default: 5)
- * @returns {Array} Array of skill names sorted by frequency
+ * @returns {Promise<Array>} Array of skill names sorted by frequency
  */
-export function getTopSkills(jobs, limit = 5) {
+export async function getTopSkills(jobs, limit = 5) {
+  const { filterValidSkills } = await import('../utils/skillValidator');
   const skillCounts = {};
 
   jobs.forEach(job => {
@@ -319,6 +325,7 @@ async function loadOccupationMappings() {
  * @returns {Promise<Array>} Array of role objects with counts
  */
 export async function getEnergyRoles(jobs) {
+  const { getEnergyRole, ENERGY_ROLES } = await import('../utils/energyRoles');
   const mappings = await loadOccupationMappings();
   const roleCounts = {};
 
@@ -369,6 +376,7 @@ export async function filterJobsByRole(jobs, roleIds) {
     return jobs;
   }
 
+  const { getEnergyRole, ENERGY_ROLES } = await import('../utils/energyRoles');
   const mappings = await loadOccupationMappings();
 
   // Normalize to array

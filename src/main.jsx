@@ -5,13 +5,7 @@ import App from './App'
 import './index.css'
 import { initializeONet } from './utils/onetClient'
 
-// Initialize O*NET cache early for fast skills standardization
-initializeONet().then(() => {
-  console.log('✅ O*NET skills cache loaded');
-}).catch(err => {
-  console.warn('⚠️  O*NET cache failed to load, using client-side normalization:', err);
-});
-
+// Start React rendering immediately (non-blocking)
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter basename="/internal-jobs-review">
@@ -19,3 +13,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </BrowserRouter>
   </React.StrictMode>,
 )
+
+// Initialize O*NET cache in background for progressive enhancement
+// Skills will use client-side normalization until cache loads
+initializeONet().then(() => {
+  console.log('✅ O*NET skills cache loaded');
+}).catch(err => {
+  console.warn('⚠️  O*NET cache failed to load, using client-side normalization:', err);
+});

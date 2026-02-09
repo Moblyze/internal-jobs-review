@@ -70,7 +70,7 @@ testCases.forEach((test, index) => {
 console.log('\n\n' + '='.repeat(80));
 console.log('\n✓ Location parser integration complete!');
 console.log('\nNew Features:');
-console.log('- Uses country-state-city library for comprehensive geographic data');
+console.log('- Uses pre-geocoded Mapbox data for comprehensive geographic data');
 console.log('- Provides coordinates (lat/lon) for mapping features');
 console.log('- Backward compatible with existing formatLocation() API');
 console.log('- New getLocationWithMetadata() for enhanced data');

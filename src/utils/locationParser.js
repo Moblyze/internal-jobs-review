@@ -3,7 +3,6 @@
  *
  * Parses various location formats into clean, human-readable formats.
  * Uses geocoded data from Mapbox for accurate location information.
- * Falls back to country-state-city library for non-geocoded locations.
  *
  * Handles patterns like:
  * - "locations\nIT-FI-FLORENCE-VIA FELICE MATTEUCCI 2" → "Florence, Italy"
@@ -11,8 +10,6 @@
  * - "Houston" → "Houston"
  * - Multiple locations separated by newlines
  */
-
-import { Country, State, City } from 'country-state-city'
 
 // Cache for geocoded data (loaded once, asynchronously on first use)
 let geocodedCache = null
@@ -163,43 +160,6 @@ function cleanCityName(city) {
 }
 
 /**
- * Gets country data from country-state-city library
- */
-function getCountryByCode(countryCode) {
-  if (!countryCode) return null;
-  return Country.getAllCountries().find(
-    country => country.isoCode.toUpperCase() === countryCode.toUpperCase()
-  );
-}
-
-/**
- * Gets state/region data for a country
- */
-function getStateByCode(countryCode, stateCode) {
-  if (!countryCode || !stateCode) return null;
-  const states = State.getStatesOfCountry(countryCode.toUpperCase());
-  return states.find(
-    state => state.isoCode.toUpperCase() === stateCode.toUpperCase()
-  );
-}
-
-/**
- * Finds a city by name in a country/state
- */
-function findCityByName(cityName, countryCode, stateCode = null) {
-  if (!cityName || !countryCode) return null;
-  const normalizedSearch = cityName.toLowerCase().trim();
-
-  if (stateCode) {
-    const cities = City.getCitiesOfState(countryCode.toUpperCase(), stateCode.toUpperCase());
-    return cities.find(city => city.name.toLowerCase() === normalizedSearch);
-  } else {
-    const cities = City.getCitiesOfCountry(countryCode.toUpperCase());
-    return cities.find(city => city.name.toLowerCase() === normalizedSearch);
-  }
-}
-
-/**
  * Parses a single location string and returns formatted location with metadata
  *
  * @param {string} locationStr - Raw location string
@@ -278,42 +238,50 @@ function parseLocation(locationStr, includeMetadata = false) {
     const [, countryCode, stateCode, cityRaw] = locationMatch;
     const city = cleanCityName(cityRaw);
 
-    // Get country data from library
-    const country = getCountryByCode(countryCode);
-    const countryName = country ? country.name : null;
+    // Simple country name mapping for fallback (when geocoded data unavailable)
+    const countryNames = {
+      'US': 'United States',
+      'CA': 'Canada',
+      'GB': 'United Kingdom',
+      'BR': 'Brazil',
+      'MX': 'Mexico',
+      'IT': 'Italy',
+      'AE': 'United Arab Emirates',
+      'IN': 'India',
+      'AU': 'Australia',
+      'DE': 'Germany',
+      'FR': 'France',
+      'NL': 'Netherlands',
+      'SG': 'Singapore',
+      'NO': 'Norway'
+    };
 
-    // Get state data from library (if stateCode exists)
-    const state = stateCode ? getStateByCode(countryCode, stateCode) : null;
-
-    // Try to find city in library for coordinates
-    const cityData = findCityByName(city, countryCode, stateCode);
+    const countryName = countryNames[countryCode?.toUpperCase()] || null;
 
     // Build metadata object (only if requested)
     const metadata = includeMetadata ? {
       countryCode: countryCode ? countryCode.toUpperCase() : null,
       countryName: countryName,
       stateCode: stateCode ? stateCode.toUpperCase() : null,
-      stateName: state ? state.name : null,
+      stateName: null, // Not available without library
       cityName: city,
-      coordinates: cityData ? {
-        latitude: parseFloat(cityData.latitude),
-        longitude: parseFloat(cityData.longitude)
-      } : null,
-      parsed: true
+      coordinates: null, // Not available without geocoded data
+      parsed: true,
+      source: 'fallback'
     } : null;
 
     // Format output based on country conventions
     let formatted;
 
-    if (countryCode && countryCode.toUpperCase() === 'US' && state) {
+    if (countryCode && countryCode.toUpperCase() === 'US' && stateCode) {
       // US locations: "City, ST"
-      formatted = `${city}, ${state.isoCode}`;
-    } else if (countryCode && countryCode.toUpperCase() === 'CA' && state) {
+      formatted = `${city}, ${stateCode.toUpperCase()}`;
+    } else if (countryCode && countryCode.toUpperCase() === 'CA' && stateCode) {
       // Canadian locations: "City, AB, Canada"
-      formatted = `${city}, ${state.isoCode}, Canada`;
-    } else if (countryCode && countryCode.toUpperCase() === 'BR' && state) {
-      // Brazilian locations: "City, State, Brazil"
-      formatted = `${city}, ${state.name}, Brazil`;
+      formatted = `${city}, ${stateCode.toUpperCase()}, Canada`;
+    } else if (countryCode && countryCode.toUpperCase() === 'BR' && stateCode) {
+      // Brazilian locations: "City, Brazil" (no state name available)
+      formatted = `${city}, Brazil`;
     } else if (countryCode && stateCode && countryCode.toUpperCase() === 'MX' && MX_STATE_CODES[stateCode.toUpperCase()]) {
       // Mexican locations: "City, Mexico"
       formatted = `${city}, Mexico`;
@@ -336,64 +304,61 @@ function parseLocation(locationStr, includeMetadata = false) {
   if (cityStateMatch) {
     const [, cityRaw, stateOrCountryRaw] = cityStateMatch;
     const city = titleCase(cityRaw.trim());
-    const stateOrCountry = stateOrCountryRaw.trim();
+    const stateOrCountry = titleCase(stateOrCountryRaw.trim());
 
-    // Try to find US state by name
-    const usStates = State.getStatesOfCountry('US');
-    const usState = usStates.find(s => s.name.toLowerCase() === stateOrCountry.toLowerCase());
+    // Simple US state name to code mapping for common cases
+    const usStateMap = {
+      'Alabama': 'AL', 'Alaska': 'AK', 'Arizona': 'AZ', 'Arkansas': 'AR',
+      'California': 'CA', 'Colorado': 'CO', 'Connecticut': 'CT', 'Delaware': 'DE',
+      'Florida': 'FL', 'Georgia': 'GA', 'Hawaii': 'HI', 'Idaho': 'ID',
+      'Illinois': 'IL', 'Indiana': 'IN', 'Iowa': 'IA', 'Kansas': 'KS',
+      'Kentucky': 'KY', 'Louisiana': 'LA', 'Maine': 'ME', 'Maryland': 'MD',
+      'Massachusetts': 'MA', 'Michigan': 'MI', 'Minnesota': 'MN', 'Mississippi': 'MS',
+      'Missouri': 'MO', 'Montana': 'MT', 'Nebraska': 'NE', 'Nevada': 'NV',
+      'New Hampshire': 'NH', 'New Jersey': 'NJ', 'New Mexico': 'NM', 'New York': 'NY',
+      'North Carolina': 'NC', 'North Dakota': 'ND', 'Ohio': 'OH', 'Oklahoma': 'OK',
+      'Oregon': 'OR', 'Pennsylvania': 'PA', 'Rhode Island': 'RI', 'South Carolina': 'SC',
+      'South Dakota': 'SD', 'Tennessee': 'TN', 'Texas': 'TX', 'Utah': 'UT',
+      'Vermont': 'VT', 'Virginia': 'VA', 'Washington': 'WA', 'West Virginia': 'WV',
+      'Wisconsin': 'WI', 'Wyoming': 'WY'
+    };
 
-    if (usState) {
+    const stateCode = usStateMap[stateOrCountry];
+    if (stateCode) {
       // Found US state - format as "City, ST"
-      const formatted = `${city}, ${usState.isoCode}`;
-      const cityData = findCityByName(city, 'US', usState.isoCode);
-
+      const formatted = `${city}, ${stateCode}`;
       if (includeMetadata) {
         return {
           formatted,
           metadata: {
             countryCode: 'US',
             countryName: 'United States',
-            stateCode: usState.isoCode,
-            stateName: usState.name,
+            stateCode: stateCode,
+            stateName: stateOrCountry,
             cityName: city,
-            coordinates: cityData ? {
-              latitude: parseFloat(cityData.latitude),
-              longitude: parseFloat(cityData.longitude)
-            } : null,
-            parsed: true
+            coordinates: null,
+            parsed: true,
+            source: 'fallback'
           }
         };
       }
       return formatted;
     }
 
-    // Not a US state - assume it's "City, Country"
-    const countries = Country.getAllCountries();
-    const country = countries.find(c => c.name.toLowerCase() === stateOrCountry.toLowerCase());
-
-    if (country) {
-      const formatted = `${city}, ${country.name}`;
-      const cityData = findCityByName(city, country.isoCode);
-
-      if (includeMetadata) {
-        return {
-          formatted,
-          metadata: {
-            countryCode: country.isoCode,
-            countryName: country.name,
-            stateCode: null,
-            stateName: null,
-            cityName: city,
-            coordinates: cityData ? {
-              latitude: parseFloat(cityData.latitude),
-              longitude: parseFloat(cityData.longitude)
-            } : null,
-            parsed: true
-          }
-        };
-      }
-      return formatted;
+    // Not a US state - return as-is
+    const formatted = `${city}, ${stateOrCountry}`;
+    if (includeMetadata) {
+      return {
+        formatted,
+        metadata: {
+          cityName: city,
+          parsed: false,
+          originalText: locationStr,
+          source: 'fallback'
+        }
+      };
     }
+    return formatted;
   }
 
   // Pattern 4: "City, ST" (already abbreviated state)
@@ -402,103 +367,64 @@ function parseLocation(locationStr, includeMetadata = false) {
     const [, cityRaw, stateAbbr] = cityAbbrMatch;
     const city = titleCase(cityRaw.trim());
 
-    // Check if it's a US state abbreviation
-    const usState = getStateByCode('US', stateAbbr);
-    if (usState) {
-      const formatted = `${city}, ${stateAbbr}`;
-      const cityData = findCityByName(city, 'US', stateAbbr);
+    // Valid US state codes
+    const usStateCodes = new Set([
+      'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA',
+      'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD',
+      'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ',
+      'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC',
+      'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'
+    ]);
 
+    if (usStateCodes.has(stateAbbr.toUpperCase())) {
+      const formatted = `${city}, ${stateAbbr.toUpperCase()}`;
       if (includeMetadata) {
         return {
           formatted,
           metadata: {
             countryCode: 'US',
             countryName: 'United States',
-            stateCode: stateAbbr,
-            stateName: usState.name,
+            stateCode: stateAbbr.toUpperCase(),
+            stateName: null,
             cityName: city,
-            coordinates: cityData ? {
-              latitude: parseFloat(cityData.latitude),
-              longitude: parseFloat(cityData.longitude)
-            } : null,
-            parsed: true
+            coordinates: null,
+            parsed: true,
+            source: 'fallback'
           }
         };
       }
       return formatted;
     }
+
+    // Not a US state - return as-is
+    const formatted = `${city}, ${stateAbbr}`;
+    if (includeMetadata) {
+      return {
+        formatted,
+        metadata: {
+          cityName: city,
+          parsed: false,
+          originalText: locationStr,
+          source: 'fallback'
+        }
+      };
+    }
+    return formatted;
   }
 
-  // Pattern 5: Just city name - try to find in library
+  // Pattern 5: Just city name - return as-is (no library lookup)
   if (/^[A-Za-z\s]+$/.test(locationStr) && !locationStr.includes('\n')) {
     const city = titleCase(locationStr);
 
-    // Try to find in US cities first (most common)
-    const usCities = City.getCitiesOfCountry('US');
-    const usCity = usCities.find(c => c.name.toLowerCase() === city.toLowerCase());
-
-    if (usCity) {
-      // Found in US - get state info
-      const state = getStateByCode('US', usCity.stateCode);
-      if (state) {
-        const formatted = `${city}, ${state.isoCode}`;
-
-        if (includeMetadata) {
-          return {
-            formatted,
-            metadata: {
-              countryCode: 'US',
-              countryName: 'United States',
-              stateCode: state.isoCode,
-              stateName: state.name,
-              cityName: city,
-              coordinates: {
-                latitude: parseFloat(usCity.latitude),
-                longitude: parseFloat(usCity.longitude)
-              },
-              parsed: true
-            }
-          };
-        }
-        return formatted;
-      }
-    }
-
-    // Try UK cities (common for energy/oil industry)
-    const ukCities = City.getCitiesOfCountry('GB');
-    const ukCity = ukCities.find(c => c.name.toLowerCase() === city.toLowerCase());
-
-    if (ukCity) {
-      const formatted = `${city}, United Kingdom`;
-
-      if (includeMetadata) {
-        return {
-          formatted,
-          metadata: {
-            countryCode: 'GB',
-            countryName: 'United Kingdom',
-            stateCode: null,
-            stateName: null,
-            cityName: city,
-            coordinates: {
-              latitude: parseFloat(ukCity.latitude),
-              longitude: parseFloat(ukCity.longitude)
-            },
-            parsed: true
-          }
-        };
-      }
-      return formatted;
-    }
-
-    // Couldn't find city - return as-is
+    // Return as-is - if this is a valid location, it should be in geocoded data
     if (includeMetadata) {
       return {
         formatted: city,
         metadata: {
           cityName: city,
           parsed: false,
-          originalText: locationStr
+          originalText: locationStr,
+          source: 'fallback'
         }
       };
     }
@@ -509,7 +435,7 @@ function parseLocation(locationStr, includeMetadata = false) {
   if (includeMetadata) {
     return {
       formatted: locationStr,
-      metadata: { parsed: false, originalText: locationStr }
+      metadata: { parsed: false, originalText: locationStr, source: 'fallback' }
     };
   }
   return locationStr;

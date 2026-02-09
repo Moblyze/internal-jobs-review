@@ -24,18 +24,39 @@ function JobListPage() {
   const [currentTime, setCurrentTime] = useState(Date.now())
   const [showRefreshSuccess, setShowRefreshSuccess] = useState(false)
 
-  // Get unique values for filters
+  // Get unique values for filters (sync)
   const companies = useMemo(() => getUniqueCompanies(jobs), [jobs])
-  const locations = useMemo(() => getUniqueLocations(jobs), [jobs])
-  const skills = useMemo(() => getUniqueSkills(jobs), [jobs])
-  const certifications = useMemo(() => getCertificationsWithCounts(jobs), [jobs])
+
+  // State for async filter data
+  const [locations, setLocations] = useState([])
+  const [skills, setSkills] = useState([])
+  const [certifications, setCertifications] = useState([])
 
   // State for roles (loaded async)
   const [roles, setRoles] = useState([])
 
-  // Load roles when jobs change
+  // Load async filter data when jobs change
   useEffect(() => {
     if (jobs.length > 0) {
+      // Load locations
+      getUniqueLocations(jobs).then(setLocations).catch(err => {
+        console.error('Failed to load locations:', err)
+        setLocations([])
+      })
+
+      // Load skills
+      getUniqueSkills(jobs).then(setSkills).catch(err => {
+        console.error('Failed to load skills:', err)
+        setSkills([])
+      })
+
+      // Load certifications
+      getCertificationsWithCounts(jobs).then(setCertifications).catch(err => {
+        console.error('Failed to load certifications:', err)
+        setCertifications([])
+      })
+
+      // Load roles
       getEnergyRoles(jobs).then(setRoles).catch(err => {
         console.error('Failed to load roles:', err)
         setRoles([])
