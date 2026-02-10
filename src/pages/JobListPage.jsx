@@ -84,10 +84,9 @@ function JobListPage() {
   const [filteredJobs, setFilteredJobs] = useState([])
 
   useEffect(() => {
-    async function applyFilters() {
-      console.log('[JobListPage] Applying filters to', jobs.length, 'jobs');
-      console.log('[JobListPage] Current filters:', filters);
+    let isCancelled = false
 
+    async function applyFilters() {
       // Expand region IDs to location values
       let expandedLocations = [...(filters.locations || [])]
       if (filters.regions && filters.regions.length > 0 && locationOptions.length > 0) {
@@ -100,7 +99,6 @@ function JobListPage() {
         })
         // Deduplicate
         expandedLocations = [...new Set(expandedLocations)]
-        console.log('[JobListPage] Expanded locations from regions:', expandedLocations)
       }
 
       // Pre-compute all job locations async (ensures geocoded cache is loaded)
@@ -112,6 +110,11 @@ function JobListPage() {
             jobLocationsMap.set(job.id, locations)
           })
         )
+      }
+
+      // Check if this effect was cancelled while async work was happening
+      if (isCancelled) {
+        return
       }
 
       let result = jobs.filter((job) => {
@@ -159,11 +162,20 @@ function JobListPage() {
         result = await filterJobsByRole(result, filters.roles)
       }
 
-      console.log('[JobListPage] Filtered jobs count:', result.length);
+      // Check again after async role filtering
+      if (isCancelled) {
+        return
+      }
+
       setFilteredJobs(result)
     }
 
     applyFilters()
+
+    // Cleanup function to cancel this effect if filters change before it completes
+    return () => {
+      isCancelled = true
+    }
   }, [jobs, filters, locationOptions])
 
   // Paginated jobs for display
