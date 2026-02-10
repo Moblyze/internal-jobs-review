@@ -640,6 +640,30 @@ export function getAllLocations(location) {
 }
 
 /**
+ * Gets all locations as an array (async version that ensures geocoded cache is loaded)
+ *
+ * @param {string} location - Raw location string from job data
+ * @returns {Promise<string[]>} - Array of formatted locations
+ */
+export async function getAllLocationsAsync(location) {
+  if (!location) return [];
+
+  // Ensure geocoded cache is loaded
+  await loadGeocodedCache();
+
+  // Handle multiple locations separated by newlines
+  const locations = location.split('\n').filter(loc => {
+    const trimmed = loc.trim();
+    return trimmed && trimmed.toLowerCase() !== 'locations';
+  });
+
+  // Parse each location
+  return locations
+    .map(loc => parseLocation(loc, false))
+    .filter(Boolean);
+}
+
+/**
  * Gets location with geographic metadata (country, state, coordinates)
  *
  * @param {string} location - Raw location string from job data

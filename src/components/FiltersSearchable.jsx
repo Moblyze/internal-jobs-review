@@ -85,12 +85,10 @@ function QuickSelectPills({ items, selectedItems, onSelect, label }) {
  * Energy region pills component for major global energy regions
  * Styled consistently with other filter pills (gray theme)
  *
- * Uses locationOptions (from the dropdown) as the source of truth for matching,
- * so that selected values always correspond to actual dropdown option values.
- * This prevents the format mismatch between extractAllLocations (sync, may use
- * fallback parser) and dropdown option values (async, always use geodata).
+ * Uses region IDs in the filter state instead of expanding all locations.
+ * This keeps URLs clean and improves performance.
  */
-function EnergyRegionPills({ regions, selectedLocations, onSelect, locationOptions, label }) {
+function EnergyRegionPills({ regions, selectedRegions, onRegionSelect, label }) {
   const [showAll, setShowAll] = useState(false)
 
   // Show 5 regions initially, expandable
@@ -99,21 +97,14 @@ function EnergyRegionPills({ regions, selectedLocations, onSelect, locationOptio
   const hasMore = regions.length > displayLimit
 
   const handleRegionClick = (region) => {
-    // Get all dropdown option values that match this region
-    const regionLocations = getRegionLocationValues(region, locationOptions)
+    const isSelected = selectedRegions.includes(region.id)
 
-    // Check if all region locations are currently selected
-    const allSelected = regionLocations.length > 0 &&
-                       regionLocations.every(loc => selectedLocations.includes(loc))
-
-    if (allSelected) {
-      // Remove all region locations
-      const newLocations = selectedLocations.filter(loc => !regionLocations.includes(loc))
-      onSelect(newLocations)
+    if (isSelected) {
+      // Remove region
+      onRegionSelect(selectedRegions.filter(id => id !== region.id))
     } else {
-      // Add all region locations (deduplicate)
-      const newLocations = [...new Set([...selectedLocations, ...regionLocations])]
-      onSelect(newLocations)
+      // Add region
+      onRegionSelect([...selectedRegions, region.id])
     }
   }
 
@@ -123,10 +114,7 @@ function EnergyRegionPills({ regions, selectedLocations, onSelect, locationOptio
     <div className="mb-2">
       <div className="flex flex-wrap gap-1.5">
         {visibleRegions.map((region) => {
-          // Check if this region is selected (all of its locations are selected)
-          const regionLocations = getRegionLocationValues(region, locationOptions)
-          const allSelected = regionLocations.length > 0 &&
-                             regionLocations.every(loc => selectedLocations.includes(loc))
+          const isSelected = selectedRegions.includes(region.id)
 
           return (
             <button
@@ -134,14 +122,14 @@ function EnergyRegionPills({ regions, selectedLocations, onSelect, locationOptio
               onClick={() => handleRegionClick(region)}
               className={`
                 px-2.5 py-1 rounded-full text-xs font-medium transition-all
-                ${allSelected
+                ${isSelected
                   ? 'bg-blue-600 text-white hover:bg-blue-700'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-300'
                 }
               `}
               title={
-                allSelected
-                  ? `Remove all ${region.name} locations`
+                isSelected
+                  ? `Remove ${region.name} region`
                   : `Select ${region.name} - ${region.description}`
               }
             >
@@ -321,19 +309,25 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
       ...base,
       fontSize: '0.875rem'
     }),
-    option: (base, state) => ({
-      ...base,
-      fontSize: '0.875rem',
-      backgroundColor: state.isSelected
-        ? '#3b82f6'
-        : state.isFocused
-        ? '#dbeafe'
-        : 'white',
-      color: state.isSelected ? 'white' : '#111827',
-      '&:active': {
-        backgroundColor: '#3b82f6'
+    option: (base, state) => {
+      // Check if this option's value is in the selected values array
+      const isSelected = state.isSelected ||
+        (filters.locations && filters.locations.includes(state.data.value))
+
+      return {
+        ...base,
+        fontSize: '0.875rem',
+        backgroundColor: isSelected
+          ? '#3b82f6'
+          : state.isFocused
+          ? '#dbeafe'
+          : 'white',
+        color: isSelected ? 'white' : '#111827',
+        '&:active': {
+          backgroundColor: '#3b82f6'
+        }
       }
-    }),
+    },
     groupHeading: (base) => ({
       ...base,
       fontSize: '0.75rem',
@@ -381,15 +375,16 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
   }
 
   const clearFilters = () => {
-    onFilterChange({ companies: [], locations: [], skills: [], certifications: [], roles: [], showInactive: filters.showInactive })
+    onFilterChange({ companies: [], locations: [], regions: [], skills: [], certifications: [], roles: [], showInactive: filters.showInactive })
   }
 
   const activeFilterCount =
-    (filters.companies?.length || 0) +
-    (filters.locations?.length || 0) +
-    (filters.skills?.length || 0) +
-    (filters.certifications?.length || 0) +
-    (filters.roles?.length || 0)
+    ((filters.companies?.length || 0) > 0 ? 1 : 0) +
+    ((filters.locations?.length || 0) > 0 ? 1 : 0) +
+    ((filters.regions?.length || 0) > 0 ? 1 : 0) +
+    ((filters.skills?.length || 0) > 0 ? 1 : 0) +
+    ((filters.certifications?.length || 0) > 0 ? 1 : 0) +
+    ((filters.roles?.length || 0) > 0 ? 1 : 0)
 
   return (
     <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 mb-6">
@@ -457,9 +452,8 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
           {/* Energy Region Pills */}
           <EnergyRegionPills
             regions={allEnergyRegions}
-            selectedLocations={filters.locations || []}
-            onSelect={(newLocations) => onFilterChange({ ...filters, locations: newLocations })}
-            locationOptions={locationOptions}
+            selectedRegions={filters.regions || []}
+            onRegionSelect={(newRegions) => onFilterChange({ ...filters, regions: newRegions })}
             label="Popular regions"
           />
 

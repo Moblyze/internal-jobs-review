@@ -16,6 +16,7 @@ export function useFilterParams() {
   const filters = useMemo(() => {
     const companies = searchParams.get('companies')
     const locations = searchParams.get('locations')
+    const regions = searchParams.get('regions')
     const skills = searchParams.get('skills')
     const certifications = searchParams.get('certifications')
     const roles = searchParams.get('roles')
@@ -24,6 +25,7 @@ export function useFilterParams() {
     return {
       companies: companies ? companies.split(',').filter(Boolean) : [],
       locations: locations ? locations.split(',').filter(Boolean) : [],
+      regions: regions ? regions.split(',').filter(Boolean) : [],
       skills: skills ? skills.split(',').filter(Boolean) : [],
       certifications: certifications ? certifications.split(',').filter(Boolean) : [],
       roles: roles ? roles.split(',').filter(Boolean) : [],
@@ -42,6 +44,9 @@ export function useFilterParams() {
     if (newFilters.locations?.length > 0) {
       params.set('locations', newFilters.locations.join(','))
     }
+    if (newFilters.regions?.length > 0) {
+      params.set('regions', newFilters.regions.join(','))
+    }
     if (newFilters.skills?.length > 0) {
       params.set('skills', newFilters.skills.join(','))
     }
@@ -55,13 +60,13 @@ export function useFilterParams() {
       params.set('showInactive', 'true')
     }
 
-    // Update URL without reloading the page
-    setSearchParams(params, { replace: true })
+    // Update URL and create a new history entry so back button works
+    setSearchParams(params)
   }, [setSearchParams])
 
   // Reset all filters (clears URL params)
   const resetFilters = useCallback(() => {
-    setSearchParams({}, { replace: true })
+    setSearchParams({})
   }, [setSearchParams])
 
   return {
@@ -98,6 +103,9 @@ export function buildFilterUrl(baseUrl, filters) {
   }
   if (filters.locations?.length > 0) {
     params.set('locations', filters.locations.join(','))
+  }
+  if (filters.regions?.length > 0) {
+    params.set('regions', filters.regions.join(','))
   }
   if (filters.skills?.length > 0) {
     params.set('skills', filters.skills.join(','))
