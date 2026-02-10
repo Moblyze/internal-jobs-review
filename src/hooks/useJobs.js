@@ -219,10 +219,18 @@ export async function getUniqueSkills(jobs) {
   const { filterValidSkills } = await import('../utils/skillValidator');
   // Only include skills from ACTIVE jobs (exclude removed/paused jobs)
   const activeJobs = jobs.filter(job => job.status !== 'removed' && job.status !== 'paused');
-  const allSkills = activeJobs.flatMap(job => job.skills);
+  const allSkills = activeJobs.flatMap(job => job.skills || []);
   const validSkills = filterValidSkills(allSkills);
-  const skills = [...new Set(validSkills)];
-  return skills.sort();
+
+  // Deduplicate case-insensitively, keeping canonical form
+  const seen = new Map();
+  for (const skill of validSkills) {
+    const lower = skill.toLowerCase();
+    if (!seen.has(lower)) {
+      seen.set(lower, skill);
+    }
+  }
+  return [...seen.values()].sort();
 }
 
 export async function getUniqueCertifications(jobs) {
@@ -309,6 +317,15 @@ export async function getTopSkills(jobs, limit = 5) {
   await initializeONet();
 
   const { filterValidSkills } = await import('../utils/skillValidator');
+  const { ONET_SKILLS, ONET_KNOWLEDGE, ONET_ABILITIES } = await import('../data/onetSkillsReference.js');
+
+  // Generic O*NET base taxonomy skills are too broad for popular pills
+  // (e.g., "Communication", "Writing", "Mathematics", "Speaking")
+  // Only show energy/industry-specific skills as popular filters
+  const genericSkills = new Set([
+    ...ONET_SKILLS, ...ONET_KNOWLEDGE, ...ONET_ABILITIES,
+  ].map(s => s.toLowerCase()));
+
   const skillCounts = {};
 
   // Only count ACTIVE jobs (exclude removed/paused jobs)
@@ -320,6 +337,8 @@ export async function getTopSkills(jobs, limit = 5) {
 
     const validSkills = filterValidSkills(job.skills);
     validSkills.forEach(skill => {
+      // Skip generic O*NET base skills for popular pills
+      if (genericSkills.has(skill.toLowerCase())) return;
       skillCounts[skill] = (skillCounts[skill] || 0) + 1;
     });
   });

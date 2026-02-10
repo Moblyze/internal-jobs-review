@@ -139,9 +139,10 @@ function JobListPage() {
           if (!hasLocation) return false
         }
 
-        // Skills filter (job must have at least one selected skill)
+        // Skills filter (job must have at least one selected skill, case-insensitive)
         if (filters.skills.length > 0) {
-          const hasSkill = filters.skills.some(skill => job.skills.includes(skill))
+          const jobSkillsLower = (job.skills || []).map(s => s.toLowerCase())
+          const hasSkill = filters.skills.some(skill => jobSkillsLower.includes(skill.toLowerCase()))
           if (!hasSkill) return false
         }
 
