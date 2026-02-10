@@ -351,7 +351,13 @@ export async function createGroupedLocationOptionsWithGeodata(jobsOrLocations) {
     // Create a map of formatted location -> job count
     const locationJobCounts = new Map()
 
+    // Only count ACTIVE jobs (exclude removed/paused jobs)
     jobs.forEach(job => {
+      // Skip inactive jobs
+      if (job.status === 'removed' || job.status === 'paused') {
+        return
+      }
+
       const jobFormattedLocations = getAllLocations(job.location)
       jobFormattedLocations.forEach(formattedLoc => {
         locationJobCounts.set(formattedLoc, (locationJobCounts.get(formattedLoc) || 0) + 1)
@@ -420,7 +426,13 @@ export async function createGroupedLocationOptionsWithGeodata(jobsOrLocations) {
 export async function getTopLocationsFormatted(jobs, limit = 10) {
   const locationCounts = {}
 
+  // Only count ACTIVE jobs (exclude removed/paused jobs)
   jobs.forEach(job => {
+    // Skip inactive jobs
+    if (job.status === 'removed' || job.status === 'paused') {
+      return
+    }
+
     if (job.location) {
       const locations = job.location.split('\n')
       locations.forEach(loc => {

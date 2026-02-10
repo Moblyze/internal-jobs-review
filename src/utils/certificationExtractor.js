@@ -404,7 +404,13 @@ export function getAllCertifications(jobs) {
 
   const allCertifications = new Set()
 
+  // Only include certifications from ACTIVE jobs (exclude removed/paused jobs)
   jobs.forEach(job => {
+    // Skip inactive jobs
+    if (job.status === 'removed' || job.status === 'paused') {
+      return
+    }
+
     const jobCerts = extractJobCertifications(job)
     jobCerts.forEach(cert => allCertifications.add(cert))
   })
@@ -450,10 +456,15 @@ export function getAllOfficialCertifications() {
 export function getAllCertificationsWithCounts(jobs) {
   if (!Array.isArray(jobs)) return []
 
-  // Count certifications found in jobs
+  // Count certifications found in ACTIVE jobs only (exclude removed/paused jobs)
   const certCounts = new Map()
 
   jobs.forEach(job => {
+    // Skip inactive jobs
+    if (job.status === 'removed' || job.status === 'paused') {
+      return
+    }
+
     const jobCerts = extractJobCertifications(job)
     jobCerts.forEach(cert => {
       certCounts.set(cert, (certCounts.get(cert) || 0) + 1)

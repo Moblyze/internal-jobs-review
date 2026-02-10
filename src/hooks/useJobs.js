@@ -173,14 +173,17 @@ export async function getSimilarJobs(jobs, currentJob, limit = 5) {
 }
 
 export function getUniqueCompanies(jobs) {
-  const companies = [...new Set(jobs.map(job => job.company))];
+  // Only include companies from ACTIVE jobs (exclude removed/paused jobs)
+  const activeJobs = jobs.filter(job => job.status !== 'removed' && job.status !== 'paused');
+  const companies = [...new Set(activeJobs.map(job => job.company))];
   return companies.sort();
 }
 
 export async function getUniqueLocations(jobs) {
-  // Get all formatted locations from all jobs
+  // Get all formatted locations from ACTIVE jobs only (exclude removed/paused jobs)
   const { getAllLocations } = await import('../utils/locationParser');
-  const allLocationArrays = jobs
+  const activeJobs = jobs.filter(job => job.status !== 'removed' && job.status !== 'paused');
+  const allLocationArrays = activeJobs
     .map(job => getAllLocations(job.location))
     .filter(locs => locs.length > 0);
 
@@ -204,7 +207,9 @@ export async function getUniqueSkills(jobs) {
   await initializeONet();
 
   const { filterValidSkills } = await import('../utils/skillValidator');
-  const allSkills = jobs.flatMap(job => job.skills);
+  // Only include skills from ACTIVE jobs (exclude removed/paused jobs)
+  const activeJobs = jobs.filter(job => job.status !== 'removed' && job.status !== 'paused');
+  const allSkills = activeJobs.flatMap(job => job.skills);
   const validSkills = filterValidSkills(allSkills);
   const skills = [...new Set(validSkills)];
   return skills.sort();
@@ -234,7 +239,13 @@ export async function getCertificationsWithCounts(jobs) {
 export function getTopCompanies(jobs, limit = 5) {
   const companyCounts = {};
 
+  // Only count ACTIVE jobs (exclude removed/paused jobs)
   jobs.forEach(job => {
+    // Skip inactive jobs
+    if (job.status === 'removed' || job.status === 'paused') {
+      return;
+    }
+
     if (job.company) {
       companyCounts[job.company] = (companyCounts[job.company] || 0) + 1;
     }
@@ -256,7 +267,13 @@ export async function getTopLocations(jobs, limit = 5) {
   const { getAllLocations } = await import('../utils/locationParser');
   const locationCounts = {};
 
+  // Only count ACTIVE jobs (exclude removed/paused jobs)
   jobs.forEach(job => {
+    // Skip inactive jobs
+    if (job.status === 'removed' || job.status === 'paused') {
+      return;
+    }
+
     const locations = getAllLocations(job.location);
     locations.forEach(loc => {
       locationCounts[loc] = (locationCounts[loc] || 0) + 1;
@@ -283,7 +300,13 @@ export async function getTopSkills(jobs, limit = 5) {
   const { filterValidSkills } = await import('../utils/skillValidator');
   const skillCounts = {};
 
+  // Only count ACTIVE jobs (exclude removed/paused jobs)
   jobs.forEach(job => {
+    // Skip inactive jobs
+    if (job.status === 'removed' || job.status === 'paused') {
+      return;
+    }
+
     const validSkills = filterValidSkills(job.skills);
     validSkills.forEach(skill => {
       skillCounts[skill] = (skillCounts[skill] || 0) + 1;
@@ -342,7 +365,13 @@ export async function getEnergyRoles(jobs) {
   const mappings = await loadOccupationMappings();
   const roleCounts = {};
 
+  // Only count ACTIVE jobs (exclude removed/paused jobs)
   jobs.forEach(job => {
+    // Skip inactive jobs
+    if (job.status === 'removed' || job.status === 'paused') {
+      return;
+    }
+
     const mapping = mappings[job.id];
     if (!mapping) return;
 

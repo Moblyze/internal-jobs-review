@@ -4,7 +4,9 @@ import { format, formatDistanceToNow } from 'date-fns'
 import { useJobs, getUniqueCompanies, getUniqueLocations, getUniqueSkills, getUniqueCertifications, getCertificationsWithCounts, getEnergyRoles, filterJobsByRole } from '../hooks/useJobs'
 import { useFilterParams } from '../hooks/useFilterParams'
 import { getAllLocations } from '../utils/locationParser'
+import { createGroupedLocationOptionsWithGeodata } from '../utils/locationGeodata'
 import { extractJobCertifications } from '../utils/certificationExtractor'
+import { ALL_ENERGY_REGIONS, getRegionLocationValues } from '../utils/energyRegions'
 import FiltersSearchable from '../components/FiltersSearchable'
 import JobCard from '../components/JobCard'
 import SEO from '../components/SEO'
@@ -25,6 +27,7 @@ function JobListPage() {
 
   // State for async filter data
   const [locations, setLocations] = useState([])
+  const [locationOptions, setLocationOptions] = useState([])
   const [skills, setSkills] = useState([])
   const [certifications, setCertifications] = useState([])
 
@@ -38,6 +41,12 @@ function JobListPage() {
       getUniqueLocations(jobs).then(setLocations).catch(err => {
         console.error('Failed to load locations:', err)
         setLocations([])
+      })
+
+      // Load location options for region matching
+      createGroupedLocationOptionsWithGeodata(jobs).then(setLocationOptions).catch(err => {
+        console.error('Failed to load location options:', err)
+        setLocationOptions([])
       })
 
       // Load skills
@@ -78,7 +87,23 @@ function JobListPage() {
     async function applyFilters() {
       console.log('[JobListPage] Applying filters to', jobs.length, 'jobs');
       console.log('[JobListPage] Current filters:', filters);
-      let result = jobs.filter(job => {
+
+      // Expand region IDs to location values
+      let expandedLocations = [...(filters.locations || [])]
+      if (filters.regions && filters.regions.length > 0 && locationOptions.length > 0) {
+        filters.regions.forEach(regionId => {
+          const region = ALL_ENERGY_REGIONS.find(r => r.id === regionId)
+          if (region) {
+            const regionLocations = getRegionLocationValues(region, locationOptions)
+            expandedLocations = [...expandedLocations, ...regionLocations]
+          }
+        })
+        // Deduplicate
+        expandedLocations = [...new Set(expandedLocations)]
+        console.log('[JobListPage] Expanded locations from regions:', expandedLocations)
+      }
+
+      let result = jobs.filter((job) => {
         // Status filter (hide inactive unless toggled)
         // Only filter out jobs with explicitly inactive statuses (removed, paused)
         // Jobs with "active" or unknown statuses (like timestamps) are shown by default
@@ -91,13 +116,13 @@ function JobListPage() {
           return false
         }
 
-        // Location filter
-        if (filters.locations.length > 0) {
-          const jobLocations = getAllLocations(job.location);
-          const hasLocation = filters.locations.some(filterLoc =>
+        // Location filter (includes expanded regions)
+        if (expandedLocations.length > 0) {
+          const jobLocations = getAllLocations(job.location)
+          const hasLocation = expandedLocations.some(filterLoc =>
             jobLocations.includes(filterLoc)
-          );
-          if (!hasLocation) return false;
+          )
+          if (!hasLocation) return false
         }
 
         // Skills filter (job must have at least one selected skill)
@@ -128,7 +153,7 @@ function JobListPage() {
     }
 
     applyFilters()
-  }, [jobs, filters])
+  }, [jobs, filters, locationOptions])
 
   // Paginated jobs for display
   const visibleJobs = useMemo(() => {
@@ -300,7 +325,7 @@ function JobListPage() {
             <p className="text-gray-600">
               Showing {filteredJobs.length} of {jobs.length} jobs
             </p>
-            {(filters.companies?.length > 0 || filters.locations?.length > 0 || filters.skills?.length > 0 || filters.certifications?.length > 0 || filters.roles?.length > 0) && (
+            {(filters.companies?.length > 0 || filters.locations?.length > 0 || filters.regions?.length > 0 || filters.skills?.length > 0 || filters.certifications?.length > 0 || filters.roles?.length > 0) && (
               <ShareFilterButton />
             )}
           </div>
