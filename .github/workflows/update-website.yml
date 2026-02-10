@@ -28,7 +28,7 @@ jobs:
 
     # Grant GITHUB_TOKEN write permissions for GitHub Pages deployment
     permissions:
-      contents: read
+      contents: write
       pages: write
       id-token: write
 
@@ -72,6 +72,20 @@ jobs:
         env:
           VITE_MAPBOX_TOKEN: ${{ secrets.VITE_MAPBOX_TOKEN }}
         run: node scripts/geocode-missing.js --local
+
+      - name: Commit updated jobs data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/data/jobs.json public/data/locations-geocoded.json
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            UPDATED=$(jq '[.[] | select(.structuredDescription != null)] | length' public/data/jobs.json)
+            TOTAL=$(jq 'length' public/data/jobs.json)
+            git commit -m "Update AI-processed jobs data ($UPDATED/$TOTAL processed)"
+            git push
+          fi
 
       - name: Build website
         env:
