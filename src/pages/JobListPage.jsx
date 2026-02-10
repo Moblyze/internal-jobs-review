@@ -280,11 +280,6 @@ function JobListPage() {
         description={seoDescription}
       />
 
-      {/* Fixed Share Filter Button - appears when any filters are active */}
-      {(filters.companies?.length > 0 || filters.locations?.length > 0 || filters.regions?.length > 0 || filters.skills?.length > 0 || filters.certifications?.length > 0 || filters.roles?.length > 0) && (
-        <ShareFilterButton />
-      )}
-
       {/* Geocoding Status Notification */}
       {geocodingStatus && (
         <div className={`mb-4 rounded-lg p-4 border ${
@@ -327,7 +322,7 @@ function JobListPage() {
             Job Opportunities
           </h1>
           {lastUpdated && (
-            <div className="flex flex-col items-end">
+            <div className="flex flex-col items-end gap-2">
               <div className="flex items-center gap-2">
                 <button
                   onClick={handleRefresh}
@@ -342,9 +337,13 @@ function JobListPage() {
                   </span>
                 )}
               </div>
-              <p className="text-xs text-gray-500 mt-1">
+              <p className="text-xs text-gray-500">
                 Last refreshed: {format(lastUpdated, 'd MMM, yyyy')} at {format(lastUpdated, 'h:mm a')} ({formatDistanceToNow(lastUpdated, { addSuffix: true, includeSeconds: false })})
               </p>
+              {/* Share Filter Button - appears when any filters are active */}
+              {(filters.companies?.length > 0 || filters.locations?.length > 0 || filters.regions?.length > 0 || filters.skills?.length > 0 || filters.certifications?.length > 0 || filters.roles?.length > 0) && (
+                <ShareFilterButton />
+              )}
             </div>
           )}
         </div>

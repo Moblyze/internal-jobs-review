@@ -35,7 +35,7 @@ function ShareFilterButton({ className = '' }) {
   return (
     <button
       onClick={handleShare}
-      className={`fixed right-4 top-20 z-40 inline-flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 bg-white border border-gray-300 rounded-md shadow-md transition-colors ${className}`}
+      className={`inline-flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 bg-white border border-gray-300 rounded-md shadow-sm transition-colors ${className}`}
       title="Copy shareable URL with current filters"
     >
       {copied ? (
