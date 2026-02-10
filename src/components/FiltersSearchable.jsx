@@ -457,7 +457,7 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
               onChange={handleCompanyChange}
               options={companyOptions}
               styles={selectStyles}
-              placeholder="Search companies..."
+              placeholder={`Filter ${companyOptions.length} companies...`}
               isClearable={false}
               closeMenuOnSelect={false}
               className="text-sm"
@@ -493,7 +493,7 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
                   onChange={handleEmploymentTypeChange}
                   options={employmentTypeOptions}
                   styles={selectStyles}
-                  placeholder="Search employment types..."
+                  placeholder={`Filter ${employmentTypeOptions.length} employment types...`}
                   isClearable={false}
                   closeMenuOnSelect={false}
                   className="text-sm"
@@ -531,7 +531,7 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
             onChange={handleLocationChange}
             options={locationOptions}
             styles={selectStyles}
-            placeholder="Search locations..."
+            placeholder={`Filter ${locationOptions.reduce((sum, group) => sum + (group.options?.length || 0), 0)} locations...`}
             isClearable={false}
             closeMenuOnSelect={false}
             className="text-sm"
@@ -563,7 +563,7 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
             onChange={handleSkillChange}
             options={skillOptions}
             styles={selectStyles}
-            placeholder="Search skills..."
+            placeholder={`Filter ${skillOptions.length} skills...`}
             isClearable={false}
             closeMenuOnSelect={false}
             className="text-sm"
@@ -591,7 +591,7 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
                 onChange={handleRoleChange}
                 options={roleOptions}
                 styles={selectStyles}
-                placeholder="Filter by occupation role..."
+                placeholder={`Filter by ${roleOptions.length} roles...`}
                 isClearable={false}
                 closeMenuOnSelect={false}
                 className="text-sm"
@@ -618,7 +618,7 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
             onChange={handleCertificationChange}
             options={certificationOptions}
             styles={selectStyles}
-            placeholder="Search certifications..."
+            placeholder={`Filter ${certificationOptions.length} certifications...`}
             isClearable={false}
             closeMenuOnSelect={false}
             className="text-sm"
