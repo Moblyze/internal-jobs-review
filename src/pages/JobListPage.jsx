@@ -280,6 +280,11 @@ function JobListPage() {
         description={seoDescription}
       />
 
+      {/* Fixed Share Filter Button - appears when any filters are active */}
+      {(filters.companies?.length > 0 || filters.locations?.length > 0 || filters.regions?.length > 0 || filters.skills?.length > 0 || filters.certifications?.length > 0 || filters.roles?.length > 0) && (
+        <ShareFilterButton />
+      )}
+
       {/* Geocoding Status Notification */}
       {geocodingStatus && (
         <div className={`mb-4 rounded-lg p-4 border ${
@@ -344,14 +349,9 @@ function JobListPage() {
           )}
         </div>
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <p className="text-gray-600">
-              Showing {filteredJobs.length} of {jobs.length} jobs
-            </p>
-            {(filters.companies?.length > 0 || filters.locations?.length > 0 || filters.regions?.length > 0 || filters.skills?.length > 0 || filters.certifications?.length > 0 || filters.roles?.length > 0) && (
-              <ShareFilterButton />
-            )}
-          </div>
+          <p className="text-gray-600">
+            Showing {filteredJobs.length} of {jobs.length} jobs
+          </p>
           {inactiveJobsCount > 0 && (
             <label className="flex items-center cursor-pointer">
               <input
