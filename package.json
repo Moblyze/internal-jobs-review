@@ -18,7 +18,9 @@
     "test-single-enhancement": "node scripts/test-single-job-enhancement.js",
     "example-parser": "node scripts/example-unified-parser.js",
     "match-occupations": "node scripts/match-job-occupations.js",
-    "sync-process": "node scripts/sync-and-process-jobs.js"
+    "sync-process": "node scripts/sync-and-process-jobs.js",
+    "clean-skills": "node scripts/clean-job-skills.js",
+    "verify-skills": "node scripts/verify-skills-fix.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.74.0",
