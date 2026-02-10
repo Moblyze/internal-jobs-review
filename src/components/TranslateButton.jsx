@@ -139,8 +139,9 @@ export default function TranslateButton({ text, className = '' }) {
     }
   }, [isTranslated])
 
-  // Always show the button (user may want to translate even if we don't detect non-English)
-  // But auto-show it prominently when non-English is detected
+  // Only show when non-English text is detected (or translation is active)
+  if (!showButton && !isTranslated) return null
+
   return (
     <button
       onClick={handleTranslate}
@@ -150,9 +151,7 @@ export default function TranslateButton({ text, className = '' }) {
         transition-all disabled:opacity-50
         ${isTranslated
           ? 'bg-blue-100 text-blue-700 hover:bg-blue-200 border border-blue-300'
-          : showButton
-            ? 'bg-amber-50 text-amber-700 hover:bg-amber-100 border border-amber-300 animate-pulse-once'
-            : 'text-gray-600 hover:text-gray-800 hover:bg-gray-100 border border-gray-300'
+          : 'bg-amber-50 text-amber-700 hover:bg-amber-100 border border-amber-300'
         }
         ${className}
       `}
