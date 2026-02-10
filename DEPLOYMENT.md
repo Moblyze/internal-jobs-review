@@ -4,28 +4,38 @@ Guide for deploying the job board web interface to GitHub Pages with automated u
 
 **Live Site**: `https://moblyze.github.io/moblyze-jobs-web/`
 
-## Two-Workflow Deployment System
+## Three-Workflow Deployment System
 
-This project uses **two separate workflows** for different deployment needs:
+This project uses **three separate workflows** for different deployment needs:
 
-| Workflow | When | Duration | Use For |
-|----------|------|----------|---------|
-| **Fast Deploy** | Automatic on code changes | ~2-3 minutes | Bug fixes, features, UI changes |
-| **Update Website Data** | Manual trigger or scheduled | ~35 minutes | New jobs, AI reprocessing, data updates |
+| Workflow | Trigger | Duration | Use For |
+|----------|---------|----------|---------|
+| **Fast Deploy** | Automatic on push | ~2-3 minutes | Bug fixes, features, UI changes |
+| **Data Sync** | Scheduled daily | ~5-10 minutes | Fresh job data from Sheets |
+| **AI Processing** | Manual only | ~60 minutes | AI reprocessing (500 jobs/batch) |
 
 ### When to Use Each Workflow
 
-**Use Fast Deploy (Automatic):**
+**Fast Deploy (Automatic):**
 - Fixing bugs in React components
 - Adding new features or UI changes
 - Updating styles or configuration
 - Any code change that doesn't need new data
+- **Triggers:** Automatically on push to main
 
-**Use Update Website Data (Manual):**
+**Data Sync (Scheduled):**
 - Fetching new jobs from Google Sheets
-- Reprocessing jobs with AI
 - Updating geocoded locations
-- Any time you need fresh data
+- Daily refresh of job data
+- **Triggers:** Automatically at 10 AM UTC daily, or manual
+- **Does NOT run AI processing**
+
+**AI Processing (Manual):**
+- Reprocessing jobs with AI (Claude)
+- Processing structured descriptions
+- **Triggers:** Manual only
+- **Batch size:** 500 jobs per run
+- **Duration:** ~60 minutes for 500 jobs
 
 ## Fast Deploy Workflow
 
@@ -68,45 +78,70 @@ If you deploy code but the data files (`jobs.json`, `locations-geocoded.json`) a
 2. The site will deploy successfully but show no jobs
 3. **Solution:** Run the **Update Website Data** workflow to fetch and commit data
 
-## Update Website Data Workflow
+## Data Sync Workflow
 
 ### What It Does
 
 1. Checks out code
 2. Installs dependencies
 3. **Exports jobs from Google Sheets** (~5 minutes)
-4. **Processes jobs with AI** (~25 minutes for 200 jobs)
+4. **Geocodes new locations** (~2 minutes)
+5. **Commits updated data files** to repository
+6. Builds React app (~15 seconds)
+7. Deploys to GitHub Pages (~30 seconds)
+8. **Total: ~5-10 minutes**
+
+### How to Use
+
+**Automatic (Scheduled):**
+
+Runs daily at **10 AM UTC** automatically. No action required.
+
+**Manual Trigger:**
+
+1. Go to: `https://github.com/moblyze/moblyze-jobs-web/actions`
+2. Click **Data Sync (Sheets Export)**
+3. Click **Run workflow** → **Run workflow**
+4. Wait ~5-10 minutes for completion
+
+### When to Run This Workflow
+
+- After jobs are scraped and added to Google Sheets (runs automatically)
+- When you want to force an immediate data refresh
+- When locations need geocoding
+- After making changes to data export scripts
+
+## AI Processing Workflow
+
+### What It Does
+
+1. Checks out code
+2. Installs dependencies
+3. **Exports jobs from Google Sheets** (~5 minutes)
+4. **Processes jobs with AI** (~60 minutes for 500 jobs)
 5. **Geocodes new locations** (~2 minutes)
 6. **Commits updated data files** to repository
 7. Builds React app (~15 seconds)
 8. Deploys to GitHub Pages (~30 seconds)
-9. **Total: ~35 minutes** (varies with number of jobs)
+9. **Total: ~60 minutes** (varies with number of jobs)
 
 ### How to Use
 
-**Manual Trigger (Recommended):**
+**Manual Trigger Only:**
 
 1. Go to: `https://github.com/moblyze/moblyze-jobs-web/actions`
-2. Click **Update Website Data**
+2. Click **AI Processing (Update Website)**
 3. Click **Run workflow** → **Run workflow**
-4. Wait ~35 minutes for completion
+4. Wait ~60 minutes for completion
 
-**Scheduled (Currently Disabled):**
-
-The workflow can run automatically on a schedule, but it's currently disabled to prevent unnecessary AI reprocessing. To enable:
-
-Edit `.github/workflows/update-website.yml` and uncomment:
-```yaml
-schedule:
-  - cron: '0 * * * *'  # Every hour
-```
+**Not Scheduled:** This workflow must be triggered manually to prevent unnecessary AI costs.
 
 ### When to Run This Workflow
 
-- After jobs are scraped and added to Google Sheets
 - When you want to reprocess jobs with updated AI prompts
-- When locations need geocoding
-- After making changes to data processing scripts
+- After making changes to AI processing logic
+- When you need to generate structured descriptions for new jobs
+- Typically run weekly or as needed (not daily)
 
 ## Setup Guide
 
@@ -130,10 +165,10 @@ Add these secrets at: `https://github.com/moblyze/moblyze-jobs-web/settings/secr
 
 | Secret Name | Description | Used By |
 |-------------|-------------|---------|
-| `GOOGLE_SERVICE_ACCOUNT_JSON` | Service account credentials | Update Website Data |
-| `ANTHROPIC_API_KEY` | Claude API key for AI processing | Update Website Data |
-| `VITE_MAPBOX_TOKEN` | Mapbox API token for geocoding | Both workflows |
-| `VITE_ONET_API_KEY` | O*NET API key (optional) | Both workflows |
+| `GOOGLE_SERVICE_ACCOUNT_JSON` | Service account credentials | Data Sync, AI Processing |
+| `ANTHROPIC_API_KEY` | Claude API key for AI processing | AI Processing only |
+| `VITE_MAPBOX_TOKEN` | Mapbox API token for geocoding | All workflows |
+| `VITE_ONET_API_KEY` | O*NET API key (optional) | All workflows |
 
 **How to Add a Secret:**
 
@@ -155,14 +190,14 @@ git push origin main
 
 Wait ~2-3 minutes for Fast Deploy workflow to complete.
 
-**Option B: Fetch and deploy new data (Slow)**
+**Option B: Fetch and deploy new data**
 
 To fetch fresh data from Google Sheets:
 
 1. Go to: `https://github.com/moblyze/moblyze-jobs-web/actions`
-2. Click **Update Website Data**
+2. Click **Data Sync (Sheets Export)**
 3. Click **Run workflow** → **Run workflow**
-4. Wait ~35 minutes for completion
+4. Wait ~5-10 minutes for completion
 
 ### Step 4: Verify Deployment
 
@@ -187,18 +222,29 @@ git push origin main
 # Fast Deploy runs automatically (~2-3 minutes)
 ```
 
-### Scenario 2: Update Job Data
+### Scenario 2: Update Job Data (Daily)
 
 ```bash
-# 1. Run Update Website Data workflow manually
-#    Go to Actions → Update Website Data → Run workflow
-#    Wait ~35 minutes
+# Data Sync runs automatically at 10 AM UTC daily
+# No action needed - just wait for scheduled run
 
-# 2. Data files are automatically committed by workflow
-# 3. Site redeploys with new data
+# To force immediate update:
+# Go to Actions → Data Sync → Run workflow
+# Wait ~5-10 minutes
 ```
 
-### Scenario 3: Update Code AND Data
+### Scenario 3: Reprocess Jobs with AI
+
+```bash
+# Manually trigger AI Processing workflow
+# Go to Actions → AI Processing → Run workflow
+# Wait ~60 minutes (processes 500 jobs)
+
+# This is separate from daily data sync
+# Run only when needed (weekly or after AI prompt changes)
+```
+
+### Scenario 4: Update Code AND Data
 
 ```bash
 # 1. Push code changes first
@@ -208,19 +254,18 @@ git push origin main
 
 # 2. Fast Deploy runs automatically (~2-3 minutes)
 
-# 3. Manually trigger Update Website Data
-#    Go to Actions → Update Website Data → Run workflow
-#    Wait ~35 minutes
+# 3. Data Sync will run at 10 AM UTC automatically
+#    Or manually trigger for immediate update
 
-# Both changes will be live after data workflow completes
+# 4. If AI reprocessing needed, manually trigger AI Processing
 ```
 
-### Scenario 4: Force Data Refresh
+### Scenario 5: Force Data Refresh
 
 If the site shows stale data:
 
 ```bash
-# 1. Manually trigger Update Website Data workflow
+# 1. Manually trigger Data Sync workflow
 #    This will fetch latest jobs from Google Sheets
 
 # 2. Verify new data was committed:
@@ -238,7 +283,7 @@ cat public/data/jobs.json | jq 'length'
 
 **Solution:**
 1. Check if file exists: `ls public/data/jobs.json`
-2. If missing, run **Update Website Data** workflow to fetch data
+2. If missing, run **Data Sync** workflow to fetch data
 3. If exists, check workflow logs for warnings
 
 ### Site Shows Old Jobs
@@ -246,24 +291,24 @@ cat public/data/jobs.json | jq 'length'
 **Cause:** Fast Deploy uses existing committed data files
 
 **Solution:**
-1. Run **Update Website Data** workflow to fetch fresh data
+1. Run **Data Sync** workflow to fetch fresh data (or wait for daily 10 AM UTC run)
 2. Wait for workflow to commit updated `jobs.json`
 3. Fast Deploy will use new data on next code push
 
-### Data Workflow Takes Too Long
+### AI Processing Takes Too Long
 
 **Cause:** AI processing is rate-limited to ~1 job/second
 
-**Current:** Processing 200 jobs takes ~25 minutes
+**Current:** Processing 500 jobs takes ~60 minutes
 
 **Solutions:**
-- Reduce `--limit=200` in workflow to process fewer jobs
-- Disable AI processing temporarily by commenting out that step
-- Run outside business hours when rate limits may be higher
+- Reduce `--limit=500` in workflow to process fewer jobs
+- Use Data Sync for quick updates without AI processing
+- Run AI Processing outside business hours or during low-traffic periods
 
-### Both Workflows Run at Same Time
+### Multiple Workflows Run at Same Time
 
-**Cause:** Pushing code while data workflow is running
+**Cause:** Pushing code while data workflow is running, or workflows overlapping
 
 **Impact:** Data workflow commits files, triggering Fast Deploy
 
@@ -277,7 +322,7 @@ cat public/data/jobs.json | jq 'length'
 **Cause:** Old data files committed to repository
 
 **Solution:**
-1. Run **Update Website Data** workflow
+1. Run **Data Sync** workflow (or wait for daily 10 AM UTC run)
 2. Verify updated data was committed:
 ```bash
 git pull origin main
@@ -299,10 +344,10 @@ git log -1 public/data/jobs.json  # Check last commit time
 
 **Cause:** Workflow lacks necessary permissions
 
-**Solution:** Both workflows already have:
+**Solution:** All workflows already have:
 ```yaml
 permissions:
-  contents: write  # For committing data (Update Website Data only)
+  contents: write  # For committing data (Data Sync and AI Processing only)
   pages: write     # For deployment
   id-token: write  # For authentication
 ```
@@ -325,7 +370,7 @@ https://github.com/moblyze/moblyze-jobs-web/actions
 
 ### Download Data Artifacts
 
-Every **Update Website Data** workflow run uploads `jobs.json` as an artifact:
+Both **Data Sync** and **AI Processing** workflow runs upload `jobs.json` as an artifact:
 
 1. Go to workflow run
 2. Scroll to **Artifacts** section
@@ -358,7 +403,24 @@ npm run preview
 # Open http://localhost:4173
 ```
 
-### Test Data Workflow Locally
+### Test Data Sync Locally
+
+```bash
+# Ensure service account file exists
+ls ../job-scraping/config/service_account.json
+
+# Run data sync only (no AI processing)
+npm run sync-only
+
+# Geocode new locations
+node scripts/geocode-missing.js --local
+
+# Build and preview
+npm run build
+npm run preview
+```
+
+### Test AI Processing Locally
 
 ```bash
 # Ensure service account file exists
@@ -404,25 +466,37 @@ cat public/data/locations-geocoded.json | jq 'keys | length'
 - Deploy: ~25s
 - **Total: ~60s** (excluding queue time)
 
-### Data Workflow Optimization
+### Data Sync Optimization
+
+**Already Optimized:**
+- Dependency caching with `actions/setup-node@v4`
+- Skips AI processing for speed
+- Scheduled to run daily at 10 AM UTC
+
+**Typical Timing:**
+- Google Sheets export: ~5 minutes
+- Geocoding: ~2 minutes
+- Build and deploy: ~1 minute
+- **Total: ~5-10 minutes**
+
+### AI Processing Optimization
 
 **Current Bottlenecks:**
-- AI processing: ~25 minutes for 200 jobs (rate-limited)
-- Google Sheets export: ~5 seconds per sheet
+- AI processing: ~60 minutes for 500 jobs (rate-limited)
+- Rate limit: ~1 job/second for Claude API
 
 **Optimization Options:**
 
-1. **Reduce AI processing limit:**
+1. **Reduce batch size:**
 ```yaml
 # In update-website.yml
-npm run sync-process -- --limit=50  # Process only 50 jobs
+npm run sync-process -- --limit=100  # Process only 100 jobs
 ```
 
-2. **Skip AI processing (emergency):**
+2. **Use Data Sync instead:**
 ```yaml
-# Comment out AI processing step
-# - name: Sync and process jobs with AI
-#   run: npm run sync-process -- --limit=200
+# For quick updates without AI, use sync-data.yml workflow
+# Runs in ~5-10 minutes vs 60 minutes
 ```
 
 3. **Process only unprocessed jobs:**
@@ -454,14 +528,15 @@ Review who can:
 
 ## Advanced Configuration
 
-### Change Data Workflow Schedule
+### Change Data Sync Schedule
 
-Edit `.github/workflows/update-website.yml`:
+Edit `.github/workflows/sync-data.yml`:
 
 ```yaml
 schedule:
-  - cron: '0 */4 * * *'  # Every 4 hours
-  - cron: '0 9 * * 1'    # Every Monday at 9am
+  - cron: '0 10 * * *'   # Current: Daily at 10 AM UTC
+  - cron: '0 */6 * * *'  # Alternative: Every 6 hours
+  - cron: '0 9 * * 1'    # Alternative: Every Monday at 9am UTC
 ```
 
 ### Adjust AI Processing Rate Limits
@@ -496,7 +571,7 @@ export default defineConfig({
 **File:** `.github/workflows/deploy-fast.yml`
 
 **Triggers:**
-- Push to `main` (code files only)
+- Automatic on push to `main` (code files only)
 - Manual dispatch
 
 **What it does:**
@@ -506,20 +581,36 @@ export default defineConfig({
 
 **Duration:** ~2-3 minutes
 
-### Update Website Data Workflow
-**File:** `.github/workflows/update-website.yml`
+### Data Sync Workflow
+**File:** `.github/workflows/sync-data.yml`
 
 **Triggers:**
-- Manual dispatch only (schedule disabled)
+- Scheduled daily at 10 AM UTC
+- Manual dispatch
 
 **What it does:**
 - Exports jobs from Google Sheets
-- Processes with AI (Claude)
+- Geocodes locations (Mapbox)
+- Commits data files
+- Builds and deploys
+- **Does NOT run AI processing**
+
+**Duration:** ~5-10 minutes
+
+### AI Processing Workflow
+**File:** `.github/workflows/update-website.yml`
+
+**Triggers:**
+- Manual dispatch only
+
+**What it does:**
+- Exports jobs from Google Sheets
+- Processes 500 jobs with AI (Claude)
 - Geocodes locations (Mapbox)
 - Commits data files
 - Builds and deploys
 
-**Duration:** ~35 minutes (varies by job count)
+**Duration:** ~60 minutes for 500 jobs
 
 ## Support
 
@@ -536,12 +627,14 @@ If you encounter issues:
 | Action | Command/Link |
 |--------|-------------|
 | Deploy code changes | `git push origin main` (automatic) |
-| Update job data | Actions → Update Website Data → Run workflow |
+| Update job data (daily) | Runs automatically at 10 AM UTC, or Actions → Data Sync → Run workflow |
+| Reprocess with AI | Actions → AI Processing → Run workflow (~60 min) |
 | View live site | https://moblyze.github.io/moblyze-jobs-web/ |
 | Check deployments | /deployments |
 | View workflow runs | /actions |
 | Build locally | `npm run build && npm run preview` |
-| Test data sync | `npm run sync-process -- --limit=10` |
+| Test data sync | `npm run sync-only` |
+| Test AI processing | `npm run sync-process -- --limit=10` |
 
 ## Next Steps
 
@@ -550,8 +643,8 @@ After successful deployment:
 1. ✅ Verify site loads at GitHub Pages URL
 2. ✅ Check that jobs display correctly
 3. ✅ Test filtering and navigation
-4. ✅ Understand when to use Fast Deploy vs Update Website Data
-5. ✅ Set up alerts for workflow failures (optional)
-6. 🎯 Consider scheduling data updates during off-hours
-7. 🎯 Monitor AI processing costs
+4. ✅ Understand when to use Fast Deploy vs Data Sync vs AI Processing
+5. ✅ Confirm daily Data Sync schedule (10 AM UTC)
+6. 🎯 Set up alerts for workflow failures (optional)
+7. 🎯 Monitor AI processing costs and frequency
 8. 🎯 Add custom domain (optional)
