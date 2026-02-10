@@ -22,6 +22,7 @@ function JobDetailPage() {
   const [descriptionView, setDescriptionView] = useState('ai')
   const [similarJobs, setSimilarJobs] = useState([])
   const [clientEnhancement, setClientEnhancement] = useState(null)
+  const [translatedDescription, setTranslatedDescription] = useState(null)
 
   // Find job before useEffect (but after hooks)
   const job = !loading && !error ? findJobBySlug(jobs, jobSlug) : null
@@ -170,7 +171,7 @@ function JobDetailPage() {
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
             <h2 className="text-xl font-semibold text-gray-900">Job Description</h2>
-            <TranslateButton text={job.description} />
+            <TranslateButton text={job.description} onTranslated={setTranslatedDescription} />
           </div>
 
           {/* Toggle Button and Badge OR Enhance Button */}
@@ -211,7 +212,11 @@ function JobDetailPage() {
         </div>
 
         {/* Description Content */}
-        {descriptionView === 'ai' && hasStructuredDescription ? (
+        {translatedDescription ? (
+          <div className="prose prose-sm max-w-none text-gray-700">
+            <p className="text-gray-700 whitespace-pre-wrap leading-relaxed">{translatedDescription}</p>
+          </div>
+        ) : descriptionView === 'ai' && hasStructuredDescription ? (
           <StructuredJobDescription description={structuredDescription} />
         ) : (
           <div className="prose prose-sm max-w-none text-gray-700">

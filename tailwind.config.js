@@ -5,17 +5,7 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {
-      animation: {
-        'pulse-once': 'pulse-once 2s ease-in-out',
-      },
-      keyframes: {
-        'pulse-once': {
-          '0%, 100%': { opacity: '1' },
-          '50%': { opacity: '0.7' },
-        },
-      },
-    },
+    extend: {},
   },
   plugins: [],
 }

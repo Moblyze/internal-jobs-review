@@ -11,12 +11,3 @@ body {
   -moz-osx-font-smoothing: grayscale;
   @apply bg-gray-50;
 }
-
-/* Hide the Google Translate top banner — we use our own UI */
-.goog-te-banner-frame { display: none !important; }
-body { top: 0 !important; }
-/* Hide the Google Translate attribution widget */
-#google_translate_element { display: none !important; }
-.goog-te-gadget { display: none !important; }
-/* Fix body shift caused by translate banner */
-.skiptranslate { display: none !important; }
