@@ -317,31 +317,78 @@ export async function getTopSkills(jobs, limit = 5) {
   await initializeONet();
 
   const { filterValidSkills } = await import('../utils/skillValidator');
-  const { ONET_SKILLS, ONET_KNOWLEDGE, ONET_ABILITIES } = await import('../data/onetSkillsReference.js');
 
-  // Generic O*NET base taxonomy skills are too broad for popular pills
-  // (e.g., "Communication", "Writing", "Mathematics", "Speaking")
-  // Only show energy/industry-specific skills as popular filters
-  const genericSkills = new Set([
-    ...ONET_SKILLS, ...ONET_KNOWLEDGE, ...ONET_ABILITIES,
+  // Whitelist approach: ONLY count energy/trades/field-specific skills for popular pills.
+  // This is more robust than a blacklist because new generic skills (Excel, Python, etc.)
+  // won't leak through. Only skills meaningful to energy sector job seekers appear as pills.
+  const ENERGY_PILLS_WHITELIST = new Set([
+    // Engineering disciplines
+    'petroleum engineering', 'subsea engineering', 'pipeline engineering',
+    'drilling engineering', 'completions engineering', 'production engineering',
+    'process engineering', 'reservoir engineering', 'chemical engineering',
+    'mechanical engineering', 'electrical engineering', 'civil engineering',
+    'structural engineering', 'controls engineering', 'facilities engineering',
+    'marine engineering', 'environmental engineering', 'nuclear engineering',
+    'automation engineering', 'aerospace engineering', 'industrial engineering',
+
+    // Technical/trades
+    'welding', 'fabrication', 'machining', 'soldering', 'brazing',
+    'pipefitting', 'rigging', 'scaffolding', 'electrical wiring',
+    'instrumentation', 'calibration', 'inspection', 'ndt',
+    'non-destructive testing', 'pressure testing', 'commissioning',
+    'decommissioning', 'hot work', 'confined space entry',
+
+    // Operations
+    'drilling', 'completions', 'production operations', 'well testing',
+    'well intervention', 'workover', 'artificial lift',
+    'subsea operations', 'pipeline operations', 'offshore operations',
+    'onshore operations', 'upstream operations', 'midstream operations',
+    'downstream operations', 'refinery operations', 'lng',
+    'power generation', 'renewable energy', 'solar energy', 'wind energy',
+    'grid operations', 'transmission', 'distribution',
+    'feed', 'epc', 'turnaround',
+
+    // Geoscience
+    'geoscience', 'geology', 'geophysics', 'petrophysics',
+    'seismic interpretation', 'reservoir simulation',
+
+    // Safety
+    'hse', 'safety management', 'environmental management',
+    'process safety', 'occupational safety', 'incident investigation',
+    'risk assessment', 'hazard analysis', 'permit to work',
+    'lockout tagout', 'emergency response', 'fire safety',
+
+    // Management (energy-relevant)
+    'project management', 'construction management',
+    'maintenance management', 'operations management',
+    'asset management', 'contract management',
+    'project controls', 'cost estimation',
+
+    // Tools (energy-specific)
+    'scada', 'plc', 'dcs', 'autocad', 'caesar ii',
+    'aspen hysys', 'primavera', 'gis', 'arcgis',
+    'pdms', 'e3d', 'sp3d', 'smartplant',
+    'solidworks', 'revit', 'microstation',
+    'staad pro', 'etabs', 'ansys', 'maximo',
+
+    // Standards
+    'api standards', 'asme standards', 'iso standards', 'nfpa',
+
+    // Construction and trades
+    'crane operations', 'heavy equipment operation', 'carpentry',
+    'plumbing', 'hvac', 'refrigeration', 'boiler operations',
+    'hydraulics', 'pneumatics',
+
+    // Maintenance
+    'mechanical maintenance', 'electrical maintenance',
+    'preventive maintenance', 'predictive maintenance',
+    'reliability engineering',
+
+    // Quality and improvement (energy-relevant)
+    'quality management', 'lean', 'six sigma',
+    'root cause analysis', 'regulatory compliance',
+    'risk management',
   ].map(s => s.toLowerCase()));
-
-  // Generic/soft skills from INDUSTRY_SKILLS that are too broad for popular pills.
-  // These are valid skills for job cards but not useful as filter pills because
-  // they appear across nearly every job and don't help users narrow results
-  // to specific energy-industry roles.
-  const GENERIC_PILLS_EXCLUSIONS = new Set([
-    'communication', 'oral communication', 'written communication', 'interpersonal communication',
-    'leadership', 'team leadership', 'team building', 'teamwork',
-    'problem solving', 'decision making', 'analytical thinking',
-    'mentoring', 'coaching', 'conflict resolution',
-    'customer service', 'stakeholder engagement',
-    'documentation', 'planning', 'scheduling', 'budgeting', 'forecasting',
-    'presentation', 'report writing', 'technical writing',
-    'strategic planning', 'business development', 'financial analysis',
-    'procurement', 'logistics', 'audit',
-    'continuous improvement', 'organizational skills', 'attention to detail',
-  ]);
 
   const skillCounts = {};
 
@@ -354,10 +401,8 @@ export async function getTopSkills(jobs, limit = 5) {
 
     const validSkills = filterValidSkills(job.skills);
     validSkills.forEach(skill => {
-      // Skip generic O*NET base skills for popular pills
-      if (genericSkills.has(skill.toLowerCase())) return;
-      // Skip generic soft/business skills that aren't useful as filter pills
-      if (GENERIC_PILLS_EXCLUSIONS.has(skill.toLowerCase())) return;
+      // Only count energy-specific skills for popular pills
+      if (!ENERGY_PILLS_WHITELIST.has(skill.toLowerCase())) return;
       skillCounts[skill] = (skillCounts[skill] || 0) + 1;
     });
   });
