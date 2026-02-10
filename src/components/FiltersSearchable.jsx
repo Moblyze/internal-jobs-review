@@ -245,9 +245,18 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
 
   const selectedLocations = useMemo(() => {
     // Find the full option objects for selected locations
-    const flatOptions = locationOptions.flatMap(group => group.options)
+    const flatOptions = locationOptions.flatMap(group => group.options || [])
     return (filters.locations || [])
-      .map(loc => flatOptions.find(opt => opt.value === loc))
+      .map(loc => {
+        // Try to find the full option object first
+        const fullOption = flatOptions.find(opt => opt.value === loc)
+        if (fullOption) {
+          return fullOption
+        }
+        // Fallback: create a simple option object if not found in options yet
+        // This ensures selections are preserved even when options are still loading
+        return { label: loc, value: loc }
+      })
       .filter(Boolean)
   }, [filters.locations, locationOptions])
 
@@ -259,13 +268,21 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
   const selectedCertifications = useMemo(() => {
     // Find matching options to preserve the count display
     return (filters.certifications || [])
-      .map(certName => certificationOptions.find(opt => opt.value === certName))
+      .map(certName => {
+        const fullOption = certificationOptions.find(opt => opt.value === certName)
+        // Fallback to simple option if not found (preserves selection while options load)
+        return fullOption || { label: certName, value: certName }
+      })
       .filter(Boolean)
   }, [filters.certifications, certificationOptions])
 
   const selectedRoles = useMemo(() => {
     return (filters.roles || [])
-      .map(roleId => roleOptions.find(opt => opt.value === roleId))
+      .map(roleId => {
+        const fullOption = roleOptions.find(opt => opt.value === roleId)
+        // Fallback to simple option if not found (preserves selection while options load)
+        return fullOption || { label: roleId, value: roleId }
+      })
       .filter(Boolean)
   }, [filters.roles, roleOptions])
 
@@ -310,19 +327,15 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
       fontSize: '0.875rem'
     }),
     option: (base, state) => {
-      // Check if this option's value is in the selected values array
-      const isSelected = state.isSelected ||
-        (filters.locations && filters.locations.includes(state.data.value))
-
       return {
         ...base,
         fontSize: '0.875rem',
-        backgroundColor: isSelected
+        backgroundColor: state.isSelected
           ? '#3b82f6'
           : state.isFocused
           ? '#dbeafe'
           : 'white',
-        color: isSelected ? 'white' : '#111827',
+        color: state.isSelected ? 'white' : '#111827',
         '&:active': {
           backgroundColor: '#3b82f6'
         }

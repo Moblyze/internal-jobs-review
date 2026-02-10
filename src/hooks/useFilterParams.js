@@ -4,7 +4,8 @@ import { useCallback, useMemo } from 'react'
 /**
  * Custom hook for managing filter state via URL parameters
  *
- * Supports multiple values per filter using comma-separated strings
+ * Supports multiple values per filter using pipe-separated strings (|)
+ * Uses pipe delimiter to avoid conflicts with commas in location names (e.g., "Houston, TX")
  * Automatically syncs with URL and provides clean URLs (removes empty params)
  *
  * @returns {Object} { filters, setFilters, resetFilters }
@@ -23,12 +24,12 @@ export function useFilterParams() {
     const showInactive = searchParams.get('showInactive')
 
     return {
-      companies: companies ? companies.split(',').filter(Boolean) : [],
-      locations: locations ? locations.split(',').filter(Boolean) : [],
-      regions: regions ? regions.split(',').filter(Boolean) : [],
-      skills: skills ? skills.split(',').filter(Boolean) : [],
-      certifications: certifications ? certifications.split(',').filter(Boolean) : [],
-      roles: roles ? roles.split(',').filter(Boolean) : [],
+      companies: companies ? companies.split('|').filter(Boolean) : [],
+      locations: locations ? locations.split('|').filter(Boolean) : [],
+      regions: regions ? regions.split('|').filter(Boolean) : [],
+      skills: skills ? skills.split('|').filter(Boolean) : [],
+      certifications: certifications ? certifications.split('|').filter(Boolean) : [],
+      roles: roles ? roles.split('|').filter(Boolean) : [],
       showInactive: showInactive === 'true'
     }
   }, [searchParams])
@@ -38,23 +39,24 @@ export function useFilterParams() {
     const params = new URLSearchParams()
 
     // Add non-empty filter arrays to URL
+    // Use pipe (|) as delimiter to avoid conflicts with commas in location names
     if (newFilters.companies?.length > 0) {
-      params.set('companies', newFilters.companies.join(','))
+      params.set('companies', newFilters.companies.join('|'))
     }
     if (newFilters.locations?.length > 0) {
-      params.set('locations', newFilters.locations.join(','))
+      params.set('locations', newFilters.locations.join('|'))
     }
     if (newFilters.regions?.length > 0) {
-      params.set('regions', newFilters.regions.join(','))
+      params.set('regions', newFilters.regions.join('|'))
     }
     if (newFilters.skills?.length > 0) {
-      params.set('skills', newFilters.skills.join(','))
+      params.set('skills', newFilters.skills.join('|'))
     }
     if (newFilters.certifications?.length > 0) {
-      params.set('certifications', newFilters.certifications.join(','))
+      params.set('certifications', newFilters.certifications.join('|'))
     }
     if (newFilters.roles?.length > 0) {
-      params.set('roles', newFilters.roles.join(','))
+      params.set('roles', newFilters.roles.join('|'))
     }
     if (newFilters.showInactive) {
       params.set('showInactive', 'true')
@@ -98,23 +100,24 @@ export function decodeFilterValue(value) {
 export function buildFilterUrl(baseUrl, filters) {
   const params = new URLSearchParams()
 
+  // Use pipe (|) as delimiter to avoid conflicts with commas in location names
   if (filters.companies?.length > 0) {
-    params.set('companies', filters.companies.join(','))
+    params.set('companies', filters.companies.join('|'))
   }
   if (filters.locations?.length > 0) {
-    params.set('locations', filters.locations.join(','))
+    params.set('locations', filters.locations.join('|'))
   }
   if (filters.regions?.length > 0) {
-    params.set('regions', filters.regions.join(','))
+    params.set('regions', filters.regions.join('|'))
   }
   if (filters.skills?.length > 0) {
-    params.set('skills', filters.skills.join(','))
+    params.set('skills', filters.skills.join('|'))
   }
   if (filters.certifications?.length > 0) {
-    params.set('certifications', filters.certifications.join(','))
+    params.set('certifications', filters.certifications.join('|'))
   }
   if (filters.roles?.length > 0) {
-    params.set('roles', filters.roles.join(','))
+    params.set('roles', filters.roles.join('|'))
   }
   if (filters.showInactive) {
     params.set('showInactive', 'true')

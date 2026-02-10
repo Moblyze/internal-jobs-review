@@ -141,16 +141,25 @@ export async function getSimilarJobs(jobs, currentJob, limit = 5) {
   }
 
   // Priority 2: Same location or overlapping skills
-  const { getAllLocations } = await import('../utils/locationParser');
-  const currentJobLocations = getAllLocations(currentJob.location);
+  const { getAllLocationsAsync } = await import('../utils/locationParser');
+  const currentJobLocations = await getAllLocationsAsync(currentJob.location);
 
-  const similar = jobs
-    .filter(job => job.id !== currentJob.id && job.company !== currentJob.company)
+  // Pre-compute locations for all candidate jobs
+  const candidateJobs = jobs.filter(job => job.id !== currentJob.id && job.company !== currentJob.company);
+  const jobLocationsMap = new Map();
+  await Promise.all(
+    candidateJobs.map(async job => {
+      const locations = await getAllLocationsAsync(job.location);
+      jobLocationsMap.set(job.id, locations);
+    })
+  );
+
+  const similar = candidateJobs
     .map(job => {
       let score = 0;
 
       // Same location (check if any formatted location matches)
-      const jobLocations = getAllLocations(job.location);
+      const jobLocations = jobLocationsMap.get(job.id) || [];
       const hasCommonLocation = jobLocations.some(loc =>
         currentJobLocations.includes(loc)
       );
@@ -181,14 +190,15 @@ export function getUniqueCompanies(jobs) {
 
 export async function getUniqueLocations(jobs) {
   // Get all formatted locations from ACTIVE jobs only (exclude removed/paused jobs)
-  const { getAllLocations } = await import('../utils/locationParser');
+  const { getAllLocationsAsync } = await import('../utils/locationParser');
   const activeJobs = jobs.filter(job => job.status !== 'removed' && job.status !== 'paused');
-  const allLocationArrays = activeJobs
-    .map(job => getAllLocations(job.location))
-    .filter(locs => locs.length > 0);
+  const allLocationArrays = await Promise.all(
+    activeJobs.map(async job => await getAllLocationsAsync(job.location))
+  );
+  const validArrays = allLocationArrays.filter(locs => locs.length > 0);
 
   // Flatten and deduplicate
-  const locations = [...new Set(allLocationArrays.flat())];
+  const locations = [...new Set(validArrays.flat())];
   return locations.sort();
 }
 
@@ -264,17 +274,18 @@ export function getTopCompanies(jobs, limit = 5) {
  * @returns {Promise<Array>} Array of location names sorted by frequency
  */
 export async function getTopLocations(jobs, limit = 5) {
-  const { getAllLocations } = await import('../utils/locationParser');
+  const { getAllLocationsAsync } = await import('../utils/locationParser');
   const locationCounts = {};
 
   // Only count ACTIVE jobs (exclude removed/paused jobs)
-  jobs.forEach(job => {
-    // Skip inactive jobs
-    if (job.status === 'removed' || job.status === 'paused') {
-      return;
-    }
+  const activeJobs = jobs.filter(job => job.status !== 'removed' && job.status !== 'paused');
 
-    const locations = getAllLocations(job.location);
+  // Process all jobs async to ensure consistent formatting
+  const jobLocationArrays = await Promise.all(
+    activeJobs.map(async job => await getAllLocationsAsync(job.location))
+  );
+
+  jobLocationArrays.forEach(locations => {
     locations.forEach(loc => {
       locationCounts[loc] = (locationCounts[loc] || 0) + 1;
     });

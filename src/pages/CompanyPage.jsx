@@ -2,12 +2,12 @@ import { useParams } from 'react-router-dom'
 import { useJobs, getJobsByCompany } from '../hooks/useJobs'
 import { useFilterParams } from '../hooks/useFilterParams'
 import { slugToCompany } from '../utils/formatters'
-import { getAllLocations } from '../utils/locationParser'
+import { getAllLocationsAsync } from '../utils/locationParser'
 import { extractJobCertifications } from '../utils/certificationExtractor'
 import Breadcrumbs from '../components/Breadcrumbs'
 import JobCard from '../components/JobCard'
 import SEO from '../components/SEO'
-import { useMemo } from 'react'
+import { useState, useEffect } from 'react'
 
 function CompanyPage() {
   const { companySlug } = useParams()
@@ -39,53 +39,81 @@ function CompanyPage() {
     ? companyJobs[0].company
     : slugToCompany(companySlug)
 
-  // Apply filters to company jobs
-  const filteredJobs = useMemo(() => {
-    let result = companyJobs
+  // State for filtered jobs and locations
+  const [filteredJobs, setFilteredJobs] = useState([])
+  const [locations, setLocations] = useState([])
 
-    // Location filter
-    if (filters.locations?.length > 0) {
-      result = result.filter(job => {
-        const jobLocations = getAllLocations(job.location)
-        return filters.locations.some(filterLoc =>
-          jobLocations.includes(filterLoc)
+  // Apply filters to company jobs (async to handle location parsing)
+  useEffect(() => {
+    async function applyFilters() {
+      // Pre-compute all job locations async (ensures geocoded cache is loaded)
+      const jobLocationsMap = new Map()
+      if (filters.locations?.length > 0) {
+        await Promise.all(
+          companyJobs.map(async (job) => {
+            const jobLocs = await getAllLocationsAsync(job.location)
+            jobLocationsMap.set(job.id, jobLocs)
+          })
         )
-      })
-    }
+      }
 
-    // Skills filter
-    if (filters.skills?.length > 0) {
-      result = result.filter(job =>
-        filters.skills.some(skill => job.skills?.includes(skill))
-      )
-    }
+      let result = companyJobs
 
-    // Certifications filter
-    if (filters.certifications?.length > 0) {
-      result = result.filter(job => {
-        const jobCertifications = extractJobCertifications(job)
-        return filters.certifications.some(cert =>
-          jobCertifications.includes(cert)
+      // Location filter
+      if (filters.locations?.length > 0) {
+        result = result.filter(job => {
+          const jobLocations = jobLocationsMap.get(job.id) || []
+          return filters.locations.some(filterLoc =>
+            jobLocations.includes(filterLoc)
+          )
+        })
+      }
+
+      // Skills filter
+      if (filters.skills?.length > 0) {
+        result = result.filter(job =>
+          filters.skills.some(skill => job.skills?.includes(skill))
         )
-      })
+      }
+
+      // Certifications filter
+      if (filters.certifications?.length > 0) {
+        result = result.filter(job => {
+          const jobCertifications = extractJobCertifications(job)
+          return filters.certifications.some(cert =>
+            jobCertifications.includes(cert)
+          )
+        })
+      }
+
+      // Roles filter
+      if (filters.roles?.length > 0) {
+        result = result.filter(job =>
+          filters.roles.some(role => job.energy_role?.includes(role))
+        )
+      }
+
+      setFilteredJobs(result)
     }
 
-    // Roles filter
-    if (filters.roles?.length > 0) {
-      result = result.filter(job =>
-        filters.roles.some(role => job.energy_role?.includes(role))
-      )
-    }
-
-    return result
+    applyFilters()
   }, [companyJobs, filters])
 
   // Get unique locations for this company (from all jobs, not just filtered)
-  const allLocationArrays = companyJobs
-    .map(job => getAllLocations(job.location))
-    .filter(locs => locs.length > 0);
+  useEffect(() => {
+    async function loadLocations() {
+      const allLocationArrays = await Promise.all(
+        companyJobs.map(async job => await getAllLocationsAsync(job.location))
+      )
+      const validArrays = allLocationArrays.filter(locs => locs.length > 0)
+      const uniqueLocations = [...new Set(validArrays.flat())].sort()
+      setLocations(uniqueLocations)
+    }
 
-  const locations = [...new Set(allLocationArrays.flat())].sort();
+    if (companyJobs.length > 0) {
+      loadLocations()
+    }
+  }, [companyJobs])
 
   const breadcrumbItems = [
     {

@@ -3,7 +3,7 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import { format, formatDistanceToNow } from 'date-fns'
 import { useJobs, getUniqueCompanies, getUniqueLocations, getUniqueSkills, getUniqueCertifications, getCertificationsWithCounts, getEnergyRoles, filterJobsByRole } from '../hooks/useJobs'
 import { useFilterParams } from '../hooks/useFilterParams'
-import { getAllLocations } from '../utils/locationParser'
+import { getAllLocationsAsync } from '../utils/locationParser'
 import { createGroupedLocationOptionsWithGeodata } from '../utils/locationGeodata'
 import { extractJobCertifications } from '../utils/certificationExtractor'
 import { ALL_ENERGY_REGIONS, getRegionLocationValues } from '../utils/energyRegions'
@@ -103,6 +103,17 @@ function JobListPage() {
         console.log('[JobListPage] Expanded locations from regions:', expandedLocations)
       }
 
+      // Pre-compute all job locations async (ensures geocoded cache is loaded)
+      const jobLocationsMap = new Map()
+      if (expandedLocations.length > 0) {
+        await Promise.all(
+          jobs.map(async (job) => {
+            const locations = await getAllLocationsAsync(job.location)
+            jobLocationsMap.set(job.id, locations)
+          })
+        )
+      }
+
       let result = jobs.filter((job) => {
         // Status filter (hide inactive unless toggled)
         // Only filter out jobs with explicitly inactive statuses (removed, paused)
@@ -118,7 +129,7 @@ function JobListPage() {
 
         // Location filter (includes expanded regions)
         if (expandedLocations.length > 0) {
-          const jobLocations = getAllLocations(job.location)
+          const jobLocations = jobLocationsMap.get(job.id) || []
           const hasLocation = expandedLocations.some(filterLoc =>
             jobLocations.includes(filterLoc)
           )

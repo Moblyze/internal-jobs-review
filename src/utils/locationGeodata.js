@@ -5,7 +5,7 @@
  * Replaces country-state-city library lookups with permanent geocoded data
  */
 
-import { getAllLocations, getLocationWithMetadata as parseLocationFallback } from './locationParser.js'
+import { getAllLocationsAsync, getLocationWithMetadata as parseLocationFallback } from './locationParser.js'
 
 // Cache for geocoded data
 let geocodedDataCache = null
@@ -352,13 +352,14 @@ export async function createGroupedLocationOptionsWithGeodata(jobsOrLocations) {
     const locationJobCounts = new Map()
 
     // Only count ACTIVE jobs (exclude removed/paused jobs)
-    jobs.forEach(job => {
-      // Skip inactive jobs
-      if (job.status === 'removed' || job.status === 'paused') {
-        return
-      }
+    const activeJobs = jobs.filter(job => job.status !== 'removed' && job.status !== 'paused')
 
-      const jobFormattedLocations = getAllLocations(job.location)
+    // Process all jobs async to ensure geocoded cache is used consistently
+    const jobLocationArrays = await Promise.all(
+      activeJobs.map(async job => await getAllLocationsAsync(job.location))
+    )
+
+    jobLocationArrays.forEach(jobFormattedLocations => {
       jobFormattedLocations.forEach(formattedLoc => {
         locationJobCounts.set(formattedLoc, (locationJobCounts.get(formattedLoc) || 0) + 1)
       })
