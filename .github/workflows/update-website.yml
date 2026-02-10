@@ -1,0 +1,153 @@
+name: Data Processing & Deploy
+
+# This is the "SLOW" workflow for data updates and AI processing
+# - Syncs jobs from Google Sheets
+# - Processes up to 500 jobs with AI
+# - Geocodes new locations
+# - Commits data back to repo
+# - Builds and deploys to GitHub Pages
+#
+# For code-only changes (UI, components, styles), use deploy-fast.yml instead
+# That workflow skips data sync and AI processing for faster deployments
+
+on:
+  # Manual trigger only - use this for data updates and AI reprocessing
+  workflow_dispatch:
+
+  # Hourly runs disabled - 97.6% of jobs already processed
+  # Re-enable when needed for ongoing updates
+  # schedule:
+  #   - cron: '0 * * * *'
+
+jobs:
+  process-data-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60  # Extended for AI processing (500 jobs)
+
+    # Grant GITHUB_TOKEN write permissions for data commits and GitHub Pages deployment
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+
+    # Prevent concurrent data processing runs
+    concurrency:
+      group: "data-processing"
+      cancel-in-progress: false
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Create service account credentials file
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          # Create config directory to match scraper path
+          mkdir -p ../job-scraping/config
+          echo "$GOOGLE_SERVICE_ACCOUNT_JSON" > ../job-scraping/config/service_account.json
+          chmod 600 ../job-scraping/config/service_account.json
+
+      - name: Sync and process jobs with AI
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          # Create logs directory
+          mkdir -p logs
+          # Run full data pipeline:
+          # 1. Export jobs from Google Sheets
+          # 2. Process up to 500 jobs with AI (structured descriptions)
+          # This is the slowest step - takes ~30-45 minutes for full batch
+          npm run sync-process -- --limit=500
+
+      - name: Geocode new locations
+        env:
+          VITE_MAPBOX_TOKEN: ${{ secrets.VITE_MAPBOX_TOKEN }}
+        run: node scripts/geocode-missing.js --local
+
+      - name: Commit updated jobs data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/data/jobs.json public/data/locations-geocoded.json
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            UPDATED=$(jq '[.[] | select(.structuredDescription != null)] | length' public/data/jobs.json)
+            TOTAL=$(jq 'length' public/data/jobs.json)
+            git commit -m "Update AI-processed jobs data ($UPDATED/$TOTAL processed)"
+            git push
+          fi
+
+      - name: Build website
+        env:
+          VITE_MAPBOX_TOKEN: ${{ secrets.VITE_MAPBOX_TOKEN }}
+          VITE_ONET_API_KEY: ${{ secrets.VITE_ONET_API_KEY }}
+          VITE_ONET_BASE_URL: https://api-v2.onetcenter.org
+          VITE_AI_PROXY_URL: https://refreshing-vitality-production-3c80.up.railway.app
+        run: npm run build
+
+      - name: Clean up credentials
+        if: always()
+        run: |
+          rm -f ../job-scraping/config/service_account.json
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: Verify dist contents before upload
+        run: |
+          echo "📦 Contents of dist/ directory:"
+          find dist -type f | sort
+          echo ""
+          echo "📊 File counts:"
+          echo "  Total files: $(find dist -type f | wc -l)"
+          echo "  JavaScript files: $(find dist -name "*.js" | wc -l)"
+          echo "  CSS files: $(find dist -name "*.css" | wc -l)"
+          echo "  Data files: $(find dist/data -type f | wc -l)"
+          echo "  Asset files: $(find dist/assets -type f | wc -l)"
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'dist'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Upload jobs.json as artifact (for debugging)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jobs-data-${{ github.run_id }}
+          path: public/data/jobs.json
+          retention-days: 7
+
+      # Optional: Report statistics
+      - name: Report deployment stats
+        if: success()
+        run: |
+          if [ -f public/data/jobs.json ]; then
+            JOB_COUNT=$(jq 'length' public/data/jobs.json)
+            AI_PROCESSED=$(jq '[.[] | select(.structuredDescription != null)] | length' public/data/jobs.json)
+            echo "✅ Deployed successfully with $JOB_COUNT jobs"
+            echo "🤖 AI-processed descriptions: $AI_PROCESSED/$JOB_COUNT"
+            echo "🌐 Site URL: ${{ steps.deployment.outputs.page_url }}"
+          fi
+
+      - name: Report failure
+        if: failure()
+        run: |
+          echo "::error::Website update failed. Check logs for details."
+          echo "Run ID: ${{ github.run_id }}"
+          echo "Workflow: ${{ github.workflow }}"

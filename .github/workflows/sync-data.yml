@@ -1,0 +1,153 @@
+name: Auto Data Sync (No AI)
+
+# This workflow auto-syncs job data from Google Sheets daily WITHOUT AI processing
+# - Exports fresh jobs from Google Sheets
+# - NO AI processing (fast, simple data sync)
+# - Optional geocoding for new locations
+# - Commits updated data
+# - Builds and deploys to GitHub Pages
+#
+# Use this for daily data refresh. For AI processing, use update-website.yml instead.
+
+on:
+  # Daily at 10 AM UTC (after scraping completes at 9 AM UTC)
+  schedule:
+    - cron: '0 10 * * *'
+
+  # Manual trigger option
+  workflow_dispatch:
+
+jobs:
+  sync-data-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15  # Fast without AI processing (~5-10 minutes)
+
+    # Grant GITHUB_TOKEN write permissions for data commits and GitHub Pages deployment
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+
+    # Prevent concurrent data sync runs
+    concurrency:
+      group: "data-sync"
+      cancel-in-progress: false
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Create service account credentials file
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          # Create config directory to match scraper path
+          mkdir -p ../job-scraping/config
+          echo "$GOOGLE_SERVICE_ACCOUNT_JSON" > ../job-scraping/config/service_account.json
+          chmod 600 ../job-scraping/config/service_account.json
+
+      - name: Export jobs from Google Sheets
+        run: |
+          # Export fresh job data from Google Sheets (no AI processing)
+          # This is fast - just data sync from spreadsheet
+          npm run export-jobs
+
+      - name: Geocode new locations (optional)
+        env:
+          VITE_MAPBOX_TOKEN: ${{ secrets.VITE_MAPBOX_TOKEN }}
+        run: |
+          # Only geocode if we have locations that need it
+          # Skip if this takes too long - can be done separately
+          node scripts/geocode-missing.js --local || echo "Geocoding skipped or failed (non-blocking)"
+        continue-on-error: true
+
+      - name: Commit updated jobs data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/data/jobs.json public/data/locations-geocoded.json
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            TOTAL=$(jq 'length' public/data/jobs.json)
+            AI_PROCESSED=$(jq '[.[] | select(.structuredDescription != null)] | length' public/data/jobs.json)
+            git commit -m "Auto data sync: $TOTAL jobs ($AI_PROCESSED AI-processed)"
+            git push
+          fi
+
+      - name: Build website
+        env:
+          VITE_MAPBOX_TOKEN: ${{ secrets.VITE_MAPBOX_TOKEN }}
+          VITE_ONET_API_KEY: ${{ secrets.VITE_ONET_API_KEY }}
+          VITE_ONET_BASE_URL: https://api-v2.onetcenter.org
+          VITE_AI_PROXY_URL: https://refreshing-vitality-production-3c80.up.railway.app
+        run: npm run build
+
+      - name: Clean up credentials
+        if: always()
+        run: |
+          rm -f ../job-scraping/config/service_account.json
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: Verify dist contents before upload
+        run: |
+          echo "📦 Contents of dist/ directory:"
+          find dist -type f | sort
+          echo ""
+          echo "📊 File counts:"
+          echo "  Total files: $(find dist -type f | wc -l)"
+          echo "  JavaScript files: $(find dist -name "*.js" | wc -l)"
+          echo "  CSS files: $(find dist -name "*.css" | wc -l)"
+          echo "  Data files: $(find dist/data -type f | wc -l)"
+          echo "  Asset files: $(find dist/assets -type f | wc -l)"
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'dist'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Upload jobs.json as artifact (for debugging)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jobs-data-${{ github.run_id }}
+          path: public/data/jobs.json
+          retention-days: 7
+
+      # Report statistics
+      - name: Report deployment stats
+        if: success()
+        run: |
+          if [ -f public/data/jobs.json ]; then
+            JOB_COUNT=$(jq 'length' public/data/jobs.json)
+            AI_PROCESSED=$(jq '[.[] | select(.structuredDescription != null)] | length' public/data/jobs.json)
+            echo "✅ Auto data sync deployed successfully"
+            echo "📊 Total jobs: $JOB_COUNT"
+            echo "🤖 AI-processed descriptions: $AI_PROCESSED/$JOB_COUNT"
+            echo "🌐 Site URL: ${{ steps.deployment.outputs.page_url }}"
+            echo ""
+            echo "ℹ️  This was a data sync only - no AI processing."
+            echo "   To process jobs with AI, use the 'Data Processing & Deploy' workflow."
+          fi
+
+      - name: Report failure
+        if: failure()
+        run: |
+          echo "::error::Auto data sync failed. Check logs for details."
+          echo "Run ID: ${{ github.run_id }}"
+          echo "Workflow: ${{ github.workflow }}"

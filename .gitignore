@@ -1,0 +1,38 @@
+# Planning (GSD)
+.planning/
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Exported data (regenerated from Google Sheets)
+
+# Backup files (created by scripts, don't commit)
+public/data/*.backup.json
+*.backup.json
+
+# Geocoded locations (should be committed after running geocode script)
+# public/data/locations-geocoded.json - DO NOT ignore this file!
