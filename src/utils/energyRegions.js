@@ -5,6 +5,8 @@
  * Based on industry-standard oil & gas operational areas
  */
 
+import { getAllLocations } from './locationParser.js'
+
 /**
  * Top 5 Energy Regions (US/UK Focus)
  * Priority regions for Moblyze job seekers
@@ -25,9 +27,15 @@ export const TOP_ENERGY_REGIONS = [
       'Baton Rouge, LA',
       'Lake Charles, LA',
       'Houma, LA',
+      'Morgan City, LA',
+      'Freeport, TX',
+      'Texas City, TX',
+      'Pasadena, TX',
+      'Baytown, TX',
+      'Channelview, TX',
+      'Deer Park, TX',
       'Gulf of Mexico'
     ],
-    states: ['TX', 'LA', 'MS', 'AL', 'FL'],
     offshore: true,
     keywords: ['gulf', 'houston', 'offshore', 'new orleans', 'lafayette']
   },
@@ -43,9 +51,12 @@ export const TOP_ENERGY_REGIONS = [
       'Andrews, TX',
       'Big Spring, TX',
       'Monahans, TX',
-      'Fort Stockton, TX'
+      'Fort Stockton, TX',
+      'Kermit, TX',
+      'Seminole, TX',
+      'Hobbs, NM',
+      'Lovington, NM'
     ],
-    states: ['TX', 'NM'],
     keywords: ['permian', 'midland', 'odessa', 'carlsbad']
   },
   {
@@ -72,9 +83,12 @@ export const TOP_ENERGY_REGIONS = [
       'Canonsburg, PA',
       'Morgantown, WV',
       'Wheeling, WV',
-      'Charleston, WV'
+      'Charleston, WV',
+      'Washington, PA',
+      'Waynesburg, PA',
+      'Clarksburg, WV',
+      'Bridgeport, WV'
     ],
-    states: ['PA', 'OH', 'WV'],
     keywords: ['appalachia', 'marcellus', 'utica', 'pittsburgh', 'pennsylvania']
   },
   {
@@ -86,7 +100,14 @@ export const TOP_ENERGY_REGIONS = [
       'Prudhoe Bay, AK',
       'Fairbanks, AK',
       'Kenai, AK',
-      'Valdez, AK'
+      'Valdez, AK',
+      'North Slope, AK',
+      'Deadhorse, AK',
+      'Barrow, AK',
+      'Homer, AK',
+      'Palmer, AK',
+      'Wasilla, AK',
+      'Juneau, AK'
     ],
     states: ['AK'],
     keywords: ['alaska', 'anchorage', 'prudhoe', 'fairbanks']
@@ -139,9 +160,13 @@ export const ADDITIONAL_ENERGY_REGIONS = [
       'Denver, CO',
       'Casper, WY',
       'Cheyenne, WY',
-      'Grand Junction, CO'
+      'Grand Junction, CO',
+      'Pinedale, WY',
+      'Rock Springs, WY',
+      'Vernal, UT',
+      'Rangely, CO',
+      'Rifle, CO'
     ],
-    states: ['CO', 'WY'],
     keywords: ['rockies', 'denver', 'colorado', 'wyoming', 'casper']
   },
   {
@@ -152,10 +177,40 @@ export const ADDITIONAL_ENERGY_REGIONS = [
       'Williston, ND',
       'Dickinson, ND',
       'Watford City, ND',
-      'Sidney, MT'
+      'Sidney, MT',
+      'Tioga, ND',
+      'Stanley, ND'
     ],
-    states: ['ND', 'MT'],
     keywords: ['bakken', 'williston', 'north dakota']
+  },
+  {
+    id: 'eagle-ford',
+    name: 'Eagle Ford',
+    description: 'South Texas shale play',
+    locations: [
+      'San Antonio, TX',
+      'Laredo, TX',
+      'Pleasanton, TX',
+      'Cotulla, TX',
+      'Karnes City, TX',
+      'Gonzales, TX',
+      'Cuero, TX',
+      'Victoria, TX'
+    ],
+    keywords: ['eagle ford']
+  },
+  {
+    id: 'dj-basin',
+    name: 'DJ Basin',
+    description: 'Denver-Julesburg Basin, Colorado/Wyoming',
+    locations: [
+      'Greeley, CO',
+      'Weld County, CO',
+      'Brighton, CO',
+      'Fort Lupton, CO',
+      'Frederick, CO'
+    ],
+    keywords: ['dj basin', 'denver-julesburg', 'wattenberg']
   },
   {
     id: 'western-canada',
@@ -205,7 +260,7 @@ export function getRegionLocations(region, allLocations) {
   allLocations.forEach(location => {
     const locationLower = location.toLowerCase()
 
-    // Check if location matches any of the region's explicit locations
+    // 1. Check if location matches any of the region's explicit locations
     const matchesExplicit = region.locations.some(regionLoc => {
       const regionLocLower = regionLoc.toLowerCase()
       const cityName = regionLocLower.split(',')[0].trim()
@@ -219,57 +274,46 @@ export function getRegionLocations(region, allLocations) {
       return
     }
 
-    // Check if location matches region keywords (be more careful here)
+    // 2. Check if location matches region keywords
+    // For international regions (those with `countries`), keywords must also
+    // pass a country check to prevent cross-country bleeding (e.g., "aberdeen"
+    // in North Sea matching "Aberdeen, MD" in the US).
     const matchesKeyword = region.keywords?.some(keyword => {
       const keywordLower = keyword.toLowerCase()
-      // For multi-word keywords, require exact match
+      let keywordFound = false
+      // For multi-word keywords, require substring match
       if (keywordLower.includes(' ')) {
-        return locationLower.includes(keywordLower)
+        keywordFound = locationLower.includes(keywordLower)
+      } else {
+        // For single word keywords, use word boundary
+        const pattern = new RegExp(`(^|[\\s-])${keywordLower}([\\s,-]|$)`, 'i')
+        keywordFound = pattern.test(location)
       }
-      // For single word keywords, use word boundary
-      const pattern = new RegExp(`(^|[\\s-])${keywordLower}([\\s,-]|$)`, 'i')
-      return pattern.test(location)
+      return keywordFound
     })
 
     if (matchesKeyword) {
+      // If the region has countries defined, verify the location is in one of
+      // those countries before accepting the keyword match. This prevents
+      // international keywords from matching domestic US locations.
+      if (region.countries) {
+        const locationInCountry = _locationMatchesCountries(location, locationLower, region)
+        if (locationInCountry) {
+          matches.add(location)
+        }
+        // Keyword matched but wrong country - skip this location
+        return
+      }
+      // Domestic region with no countries constraint - keyword match is sufficient
       matches.add(location)
       return
     }
 
-    // For regions with state codes, match locations in those states
-    // Only match if it's a US/CA region to avoid false matches
-    if (region.states && !region.countries) {
-      const matchesState = region.states.some(stateCode => {
-        const stateCodeLower = stateCode.toLowerCase()
-        // Match "City, TX" or "US-TX-City" patterns with word boundaries
-        return locationLower.includes(`, ${stateCodeLower}`) ||
-               locationLower.includes(`, ${stateCodeLower},`) ||
-               new RegExp(`-${stateCodeLower}-`, 'i').test(location)
-      })
-
-      if (matchesState) {
-        matches.add(location)
-        return
-      }
-    }
-
-    // For regions with country codes, match locations in those countries
+    // 3. For regions with country codes, match locations in those countries
+    // (State-based matching has been removed to avoid overly broad matches.
+    // US domestic regions rely on explicit locations and keywords instead.)
     if (region.countries) {
-      const matchesCountry = region.countries.some(countryCode => {
-        const countryCodeLower = countryCode.toLowerCase()
-        // Match country code at start like "AE-ABU DHABI" with word boundary
-        const startsWithCountry = new RegExp(`^${countryCodeLower}-`, 'i').test(location)
-        // For Canada, also check province codes if states are defined
-        if (countryCode === 'CA' && region.states) {
-          const matchesProvince = region.states.some(provCode =>
-            new RegExp(`-${provCode.toLowerCase()}-`, 'i').test(location) ||
-            locationLower.includes(`, ${provCode.toLowerCase()},`)
-          )
-          return startsWithCountry || matchesProvince
-        }
-        return startsWithCountry
-      })
-
+      const matchesCountry = _locationMatchesCountries(location, locationLower, region)
       if (matchesCountry) {
         matches.add(location)
       }
@@ -280,22 +324,141 @@ export function getRegionLocations(region, allLocations) {
 }
 
 /**
+ * Find all location option VALUES that match a given region, using option
+ * metadata for reliable matching.
+ *
+ * This is the preferred method for region pill selection because it matches
+ * against the same option values used by the dropdown, guaranteeing that
+ * selected values will be recognized by react-select. The older
+ * getRegionLocations() relies on extractAllLocations() which can produce
+ * different formatted strings due to async geodata race conditions.
+ *
+ * @param {Object} region - Region definition from TOP_ENERGY_REGIONS / ADDITIONAL_ENERGY_REGIONS
+ * @param {Array} locationOptions - Grouped react-select options from createGroupedLocationOptionsWithGeodata
+ * @returns {Array<string>} - Matching option values (deduplicated)
+ */
+export function getRegionLocationValues(region, locationOptions) {
+  const matches = new Set()
+
+  // Flatten grouped options into a single list
+  const flatOptions = locationOptions.flatMap(group => group.options || [])
+
+  flatOptions.forEach(option => {
+    const value = option.value
+    const meta = option.metadata || {}
+    const valueLower = value.toLowerCase()
+
+    // --- Metadata-based matching (most reliable) ---
+
+    // Match by state code for US domestic regions that define states
+    if (region.states && !region.countries && meta.countryCode === 'US') {
+      const stateUpper = (meta.stateCode || '').toUpperCase()
+      if (region.states.includes(stateUpper)) {
+        matches.add(value)
+        return
+      }
+    }
+
+    // Match by country code for international regions
+    if (region.countries && meta.countryCode) {
+      const metaCC = meta.countryCode.toUpperCase()
+      if (region.countries.includes(metaCC)) {
+        // For Canada with province constraints, also check province
+        if (metaCC === 'CA' && region.states) {
+          const provUpper = (meta.stateCode || '').toUpperCase()
+          if (region.states.includes(provUpper)) {
+            matches.add(value)
+          }
+          return
+        }
+        matches.add(value)
+        return
+      }
+    }
+
+    // --- String-based matching (fallback for options without metadata) ---
+
+    // Check explicit location city names
+    const matchesExplicit = region.locations.some(regionLoc => {
+      const cityName = regionLoc.split(',')[0].trim().toLowerCase()
+      const pattern = new RegExp(`(^|[\\s-])${cityName}([\\s,-]|$)`, 'i')
+      return pattern.test(value)
+    })
+
+    if (matchesExplicit) {
+      matches.add(value)
+      return
+    }
+
+    // Check keywords
+    const matchesKeyword = region.keywords?.some(keyword => {
+      const keywordLower = keyword.toLowerCase()
+      if (keywordLower.includes(' ')) {
+        return valueLower.includes(keywordLower)
+      }
+      const pattern = new RegExp(`(^|[\\s-])${keywordLower}([\\s,-]|$)`, 'i')
+      return pattern.test(value)
+    })
+
+    if (matchesKeyword) {
+      if (region.countries) {
+        // International region: verify country
+        const locationInCountry = _locationMatchesCountries(value, valueLower, region)
+        if (locationInCountry) {
+          matches.add(value)
+        }
+      } else {
+        matches.add(value)
+      }
+    }
+  })
+
+  return Array.from(matches)
+}
+
+/**
+ * Helper: Check if a location string matches any of the region's countries.
+ * Handles country code prefixes (e.g., "AE-ABU DHABI") and Canadian province codes.
+ *
+ * @param {string} location - Original location string
+ * @param {string} locationLower - Lowercased location string
+ * @param {Object} region - Region definition with countries (and optionally states for CA)
+ * @returns {boolean}
+ */
+function _locationMatchesCountries(location, locationLower, region) {
+  return region.countries.some(countryCode => {
+    const countryCodeLower = countryCode.toLowerCase()
+    // Match country code at start like "AE-ABU DHABI" with word boundary
+    const startsWithCountry = new RegExp(`^${countryCodeLower}-`, 'i').test(location)
+    // For Canada, also check province codes if states are defined
+    if (countryCode === 'CA' && region.states) {
+      const matchesProvince = region.states.some(provCode =>
+        new RegExp(`-${provCode.toLowerCase()}-`, 'i').test(location) ||
+        locationLower.includes(`, ${provCode.toLowerCase()},`)
+      )
+      return startsWithCountry || matchesProvince
+    }
+    return startsWithCountry
+  })
+}
+
+/**
  * Get all unique locations from jobs data that can be used for region matching
+ * Returns FORMATTED locations to maintain consistency with the filter system
  *
  * @param {Array} jobs - Jobs array
- * @returns {Array} - Array of unique location strings
+ * @returns {Array} - Array of unique FORMATTED location strings
  */
 export function extractAllLocations(jobs) {
   const locations = new Set()
 
   jobs.forEach(job => {
     if (job.location) {
-      // Split multi-location strings
-      const jobLocations = job.location.split('\n')
-      jobLocations.forEach(loc => {
-        const cleaned = loc.replace(/^locations\s*/i, '').trim()
-        if (cleaned && cleaned.toLowerCase() !== 'locations') {
-          locations.add(cleaned)
+      // Get formatted locations from the job using the imported function
+      const formattedLocations = getAllLocations(job.location)
+      formattedLocations.forEach(formattedLoc => {
+        if (formattedLoc) {
+          locations.add(formattedLoc)
         }
       })
     }

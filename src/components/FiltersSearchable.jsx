@@ -13,7 +13,7 @@ import Select from 'react-select'
 import { createGroupedLocationOptions } from '../utils/locationOptions'
 import { createGroupedLocationOptionsWithGeodata, getTopLocationsFormatted } from '../utils/locationGeodata'
 import { getTopCompanies, getTopLocations, getTopSkills } from '../hooks/useJobs'
-import { TOP_ENERGY_REGIONS, ADDITIONAL_ENERGY_REGIONS, getRegionLocations, extractAllLocations } from '../utils/energyRegions'
+import { TOP_ENERGY_REGIONS, ADDITIONAL_ENERGY_REGIONS, getRegionLocationValues } from '../utils/energyRegions'
 
 /**
  * Quick select pills component for popular filter options
@@ -84,8 +84,13 @@ function QuickSelectPills({ items, selectedItems, onSelect, label }) {
 /**
  * Energy region pills component for major global energy regions
  * Styled consistently with other filter pills (gray theme)
+ *
+ * Uses locationOptions (from the dropdown) as the source of truth for matching,
+ * so that selected values always correspond to actual dropdown option values.
+ * This prevents the format mismatch between extractAllLocations (sync, may use
+ * fallback parser) and dropdown option values (async, always use geodata).
  */
-function EnergyRegionPills({ regions, selectedLocations, onSelect, allLocations, label }) {
+function EnergyRegionPills({ regions, selectedLocations, onSelect, locationOptions, label }) {
   const [showAll, setShowAll] = useState(false)
 
   // Show 5 regions initially, expandable
@@ -94,11 +99,12 @@ function EnergyRegionPills({ regions, selectedLocations, onSelect, allLocations,
   const hasMore = regions.length > displayLimit
 
   const handleRegionClick = (region) => {
-    // Get all locations that match this region
-    const regionLocations = getRegionLocations(region, allLocations)
+    // Get all dropdown option values that match this region
+    const regionLocations = getRegionLocationValues(region, locationOptions)
 
     // Check if all region locations are currently selected
-    const allSelected = regionLocations.every(loc => selectedLocations.includes(loc))
+    const allSelected = regionLocations.length > 0 &&
+                       regionLocations.every(loc => selectedLocations.includes(loc))
 
     if (allSelected) {
       // Remove all region locations
@@ -117,8 +123,8 @@ function EnergyRegionPills({ regions, selectedLocations, onSelect, allLocations,
     <div className="mb-2">
       <div className="flex flex-wrap gap-1.5">
         {visibleRegions.map((region) => {
-          // Check if this region is selected (any of its locations are selected)
-          const regionLocations = getRegionLocations(region, allLocations)
+          // Check if this region is selected (all of its locations are selected)
+          const regionLocations = getRegionLocationValues(region, locationOptions)
           const allSelected = regionLocations.length > 0 &&
                              regionLocations.every(loc => selectedLocations.includes(loc))
 
@@ -170,9 +176,6 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
   const [topLocationsFormatted, setTopLocationsFormatted] = useState([])
   const [topCompanies, setTopCompanies] = useState([])
   const [topSkills, setTopSkills] = useState([])
-
-  // Extract all unique locations from jobs for region matching
-  const allLocations = useMemo(() => extractAllLocations(jobs), [jobs])
 
   // Combine top 5 and additional regions
   const allEnergyRegions = useMemo(
@@ -456,7 +459,7 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
             regions={allEnergyRegions}
             selectedLocations={filters.locations || []}
             onSelect={(newLocations) => onFilterChange({ ...filters, locations: newLocations })}
-            allLocations={allLocations}
+            locationOptions={locationOptions}
             label="Popular regions"
           />
 

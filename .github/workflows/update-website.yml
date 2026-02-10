@@ -68,6 +68,11 @@ jobs:
           # Run full pipeline: export from Sheets + AI processing
           npm run sync-process -- --limit=200
 
+      - name: Geocode new locations
+        env:
+          VITE_MAPBOX_TOKEN: ${{ secrets.VITE_MAPBOX_TOKEN }}
+        run: node scripts/geocode-missing.js --local
+
       - name: Build website
         env:
           VITE_MAPBOX_TOKEN: ${{ secrets.VITE_MAPBOX_TOKEN }}
