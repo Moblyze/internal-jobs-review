@@ -23,6 +23,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10  # Should complete in ~2-3 minutes
 
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     # Grant GITHUB_TOKEN write permissions for GitHub Pages deployment
     permissions:
       contents: read
