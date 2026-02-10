@@ -326,6 +326,23 @@ export async function getTopSkills(jobs, limit = 5) {
     ...ONET_SKILLS, ...ONET_KNOWLEDGE, ...ONET_ABILITIES,
   ].map(s => s.toLowerCase()));
 
+  // Generic/soft skills from INDUSTRY_SKILLS that are too broad for popular pills.
+  // These are valid skills for job cards but not useful as filter pills because
+  // they appear across nearly every job and don't help users narrow results
+  // to specific energy-industry roles.
+  const GENERIC_PILLS_EXCLUSIONS = new Set([
+    'communication', 'oral communication', 'written communication', 'interpersonal communication',
+    'leadership', 'team leadership', 'team building', 'teamwork',
+    'problem solving', 'decision making', 'analytical thinking',
+    'mentoring', 'coaching', 'conflict resolution',
+    'customer service', 'stakeholder engagement',
+    'documentation', 'planning', 'scheduling', 'budgeting', 'forecasting',
+    'presentation', 'report writing', 'technical writing',
+    'strategic planning', 'business development', 'financial analysis',
+    'procurement', 'logistics', 'audit',
+    'continuous improvement', 'organizational skills', 'attention to detail',
+  ]);
+
   const skillCounts = {};
 
   // Only count ACTIVE jobs (exclude removed/paused jobs)
@@ -339,6 +356,8 @@ export async function getTopSkills(jobs, limit = 5) {
     validSkills.forEach(skill => {
       // Skip generic O*NET base skills for popular pills
       if (genericSkills.has(skill.toLowerCase())) return;
+      // Skip generic soft/business skills that aren't useful as filter pills
+      if (GENERIC_PILLS_EXCLUSIONS.has(skill.toLowerCase())) return;
       skillCounts[skill] = (skillCounts[skill] || 0) + 1;
     });
   });
