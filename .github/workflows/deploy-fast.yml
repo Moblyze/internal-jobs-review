@@ -1,0 +1,115 @@
+name: Fast Deploy (Code Only)
+
+on:
+  # Deploy on code changes only - no data processing
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - '*.config.js'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'index.html'
+      # Explicitly exclude data files to prevent triggering on data updates
+      - '!public/data/**'
+
+  # Allow manual triggering
+  workflow_dispatch:
+
+jobs:
+  deploy-code:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10  # Should complete in ~2-3 minutes
+
+    # Grant GITHUB_TOKEN write permissions for GitHub Pages deployment
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    # Prevent concurrent deployments
+    concurrency:
+      group: "pages"
+      cancel-in-progress: false
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify existing data files
+        run: |
+          echo "📊 Checking for existing data files..."
+          if [ -f public/data/jobs.json ]; then
+            JOB_COUNT=$(jq 'length' public/data/jobs.json)
+            AI_PROCESSED=$(jq '[.[] | select(.structuredDescription != null)] | length' public/data/jobs.json)
+            echo "✅ Found jobs.json with $JOB_COUNT jobs ($AI_PROCESSED AI-processed)"
+          else
+            echo "⚠️ No jobs.json found - build will proceed with empty data"
+          fi
+
+          if [ -f public/data/locations-geocoded.json ]; then
+            LOCATION_COUNT=$(jq 'length' public/data/locations-geocoded.json)
+            echo "✅ Found locations-geocoded.json with $LOCATION_COUNT locations"
+          else
+            echo "⚠️ No locations-geocoded.json found"
+          fi
+
+      - name: Build website
+        env:
+          VITE_MAPBOX_TOKEN: ${{ secrets.VITE_MAPBOX_TOKEN }}
+          VITE_ONET_API_KEY: ${{ secrets.VITE_ONET_API_KEY }}
+          VITE_ONET_BASE_URL: https://api-v2.onetcenter.org
+          VITE_AI_PROXY_URL: https://refreshing-vitality-production-3c80.up.railway.app
+        run: npm run build
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: Verify dist contents before upload
+        run: |
+          echo "📦 Contents of dist/ directory:"
+          find dist -type f | sort
+          echo ""
+          echo "📊 File counts:"
+          echo "  Total files: $(find dist -type f | wc -l)"
+          echo "  JavaScript files: $(find dist -name "*.js" | wc -l)"
+          echo "  CSS files: $(find dist -name "*.css" | wc -l)"
+          echo "  Data files: $(find dist/data -type f 2>/dev/null | wc -l || echo '0')"
+          echo "  Asset files: $(find dist/assets -type f 2>/dev/null | wc -l || echo '0')"
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'dist'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Report deployment stats
+        if: success()
+        run: |
+          echo "✅ Fast deployment completed successfully"
+          echo "🚀 Deployment type: Code-only (no data processing)"
+          echo "🌐 Site URL: ${{ steps.deployment.outputs.page_url }}"
+          echo ""
+          echo "ℹ️  This workflow deployed code changes using existing data files."
+          echo "   To update job data, use the 'Update Website Data' workflow."
+
+      - name: Report failure
+        if: failure()
+        run: |
+          echo "::error::Fast deployment failed. Check logs for details."
+          echo "Run ID: ${{ github.run_id }}"
+          echo "Workflow: ${{ github.workflow }}"

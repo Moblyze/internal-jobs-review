@@ -1,40 +1,38 @@
-name: Update Website Data
+name: Data Processing & Deploy
+
+# This is the "SLOW" workflow for data updates and AI processing
+# - Syncs jobs from Google Sheets
+# - Processes up to 200 jobs with AI
+# - Geocodes new locations
+# - Commits data back to repo
+# - Builds and deploys to GitHub Pages
+#
+# For code-only changes (UI, components, styles), use deploy-fast.yml instead
+# That workflow skips data sync and AI processing for faster deployments
 
 on:
+  # Manual trigger only - use this for data updates and AI reprocessing
+  workflow_dispatch:
+
   # Hourly runs disabled - 97.6% of jobs already processed
   # Re-enable when needed for ongoing updates
   # schedule:
   #   - cron: '0 * * * *'
 
-  # Allow manual triggering from GitHub Actions UI
-  workflow_dispatch:
-
-  # NOTE: Push trigger disabled to prevent AI reprocessing on every code change
-  # Re-enable after initial AI processing is complete and jobs.json is committed
-  # push:
-  #   branches:
-  #     - main
-  #   paths:
-  #     - 'src/**'
-  #     - 'public/**'
-  #     - 'scripts/**'
-  #     - 'package.json'
-  #     - 'vite.config.js'
-
 jobs:
-  export-and-deploy:
+  process-data-and-deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 60  # Increased for initial AI processing (normally <5min)
+    timeout-minutes: 60  # Extended for AI processing (200 jobs)
 
-    # Grant GITHUB_TOKEN write permissions for GitHub Pages deployment
+    # Grant GITHUB_TOKEN write permissions for data commits and GitHub Pages deployment
     permissions:
       contents: write
       pages: write
       id-token: write
 
-    # Prevent concurrent deployments
+    # Prevent concurrent data processing runs
     concurrency:
-      group: "pages"
+      group: "data-processing"
       cancel-in-progress: false
 
     steps:
@@ -65,7 +63,10 @@ jobs:
         run: |
           # Create logs directory
           mkdir -p logs
-          # Run full pipeline: export from Sheets + AI processing
+          # Run full data pipeline:
+          # 1. Export jobs from Google Sheets
+          # 2. Process up to 200 jobs with AI (structured descriptions)
+          # This is the slowest step - takes ~30-45 minutes for full batch
           npm run sync-process -- --limit=200
 
       - name: Geocode new locations
