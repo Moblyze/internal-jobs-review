@@ -50,6 +50,8 @@ function JobListPage() {
   const [locationOptions, setLocationOptions] = useState([])
   const [skills, setSkills] = useState([])
   const [certifications, setCertifications] = useState([])
+  // Precomputed map of job ID → validated canonical skill names for consistent filter matching
+  const [validatedSkillsByJob, setValidatedSkillsByJob] = useState(new Map())
 
   // State for roles (loaded async)
   const [roles, setRoles] = useState([])
@@ -69,15 +71,25 @@ function JobListPage() {
         setLocationOptions([])
       })
 
-      // Load skills
+      // Load skills and precompute validated skills per job for filter matching
       console.log('[JobListPage] Starting to load skills from', jobs.length, 'jobs');
-      getUniqueSkills(jobs).then(processedSkills => {
+      getUniqueSkills(jobs).then(async processedSkills => {
         console.log('[JobListPage] Skills processed:', processedSkills.length, 'skills');
-        console.log('[JobListPage] First 10 skills:', processedSkills.slice(0, 10));
         setSkills(processedSkills);
+
+        // Build per-job validated skills map so filter uses same canonical names as dropdown
+        const { initializeONet } = await import('../utils/onetClient')
+        await initializeONet()
+        const { filterValidSkills } = await import('../utils/skillValidator')
+        const map = new Map()
+        jobs.forEach(job => {
+          if (job.skills && job.skills.length > 0) {
+            map.set(job.id, filterValidSkills(job.skills))
+          }
+        })
+        setValidatedSkillsByJob(map)
       }).catch(err => {
         console.error('[JobListPage] Failed to load skills:', err);
-        console.error('[JobListPage] Error stack:', err.stack);
         setSkills([])
       })
 
@@ -159,9 +171,10 @@ function JobListPage() {
           if (!hasLocation) return false
         }
 
-        // Skills filter (job must have at least one selected skill, case-insensitive)
+        // Skills filter (uses precomputed canonical names for consistent matching)
         if (filters.skills.length > 0) {
-          const jobSkillsLower = (job.skills || []).map(s => s.toLowerCase())
+          const canonicalSkills = validatedSkillsByJob.get(job.id) || job.skills || []
+          const jobSkillsLower = canonicalSkills.map(s => s.toLowerCase())
           const hasSkill = filters.skills.some(skill => jobSkillsLower.includes(skill.toLowerCase()))
           if (!hasSkill) return false
         }
