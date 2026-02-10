@@ -120,6 +120,13 @@ Your task is to analyze messy, poorly formatted job descriptions and restructure
    - Break up dense text into digestible chunks
    - Prioritize the most important information first
 
+5. **Extract skills from the description:**
+   - Identify 5-15 specific, relevant skills mentioned in the job description
+   - Focus on: technical skills, tools, software, certifications, domain knowledge, methodologies
+   - Each skill should be 1-3 words (e.g., "Project Management", "AutoCAD", "Welding", "Python")
+   - Do NOT include: soft skills like "teamwork", experience requirements, degree requirements, or job responsibilities
+   - Only extract skills that are explicitly mentioned in the text
+
 **Output format:**
 Return ONLY a valid JSON object (no markdown, no code blocks) with this structure:
 {
@@ -134,7 +141,8 @@ Return ONLY a valid JSON object (no markdown, no code blocks) with this structur
       "type": "list",
       "content": ["First item", "Second item", "Third item"]
     }
-  ]
+  ],
+  "extractedSkills": ["Skill 1", "Skill 2", "Skill 3"]
 }
 
 **Important:**
@@ -322,8 +330,16 @@ export async function restructureJobDescription(rawDescription, options = {}) {
       }
     }
 
-    // Return structured description
-    return parsed;
+    // Extract skills (default to empty array for backward compatibility)
+    const extractedSkills = Array.isArray(parsed.extractedSkills)
+      ? parsed.extractedSkills.filter(s => typeof s === 'string' && s.trim().length > 0)
+      : [];
+
+    // Return structured description with extracted skills
+    return {
+      sections: parsed.sections,
+      extractedSkills,
+    };
   } catch (error) {
     console.error('Error restructuring job description:', error);
 
@@ -336,6 +352,7 @@ export async function restructureJobDescription(rawDescription, options = {}) {
           content: trimmed,
         },
       ],
+      extractedSkills: [],
       error: error.message || 'Unknown error occurred during AI processing',
     };
   }

@@ -34,6 +34,8 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { google } from 'googleapis';
 
+import { processSkills } from '../src/utils/skillValidator.js';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -254,7 +256,8 @@ async function processJobDescription(job, restructureFunction) {
 
     return {
       success: true,
-      structuredDescription
+      structuredDescription,
+      extractedSkills: structuredDescription.extractedSkills || [],
     };
 
   } catch (error) {
@@ -334,6 +337,7 @@ async function main() {
     aiSucceeded: 0,
     aiFailed: 0,
     aiSkipped: 0,
+    skillsExtracted: 0,
   };
 
   try {
@@ -430,6 +434,22 @@ async function main() {
         stats.aiSkipped++;
       } else if (result.success) {
         jobsData[jobIndex].structuredDescription = result.structuredDescription;
+
+        // Merge AI-extracted skills with existing sheet-imported skills
+        const aiSkills = result.extractedSkills || [];
+        const validatedAiSkills = processSkills(aiSkills);
+        const existingSkills = jobsData[jobIndex].skills || [];
+        const seen = new Set(existingSkills.map(s => s.toLowerCase()));
+        const merged = [...existingSkills];
+        for (const skill of validatedAiSkills) {
+          if (!seen.has(skill.toLowerCase())) {
+            seen.add(skill.toLowerCase());
+            merged.push(skill);
+          }
+        }
+        jobsData[jobIndex].skills = merged;
+        stats.skillsExtracted += validatedAiSkills.length;
+
         stats.aiSucceeded++;
 
         // Periodic save
@@ -475,6 +495,7 @@ async function main() {
     log(`  • Successfully processed: ${stats.aiSucceeded}`);
     log(`  • Failed: ${stats.aiFailed}`);
     log(`  • Skipped (no description): ${stats.aiSkipped}`);
+    log(`  • Skills extracted by AI: ${stats.skillsExtracted}`);
     log(`  • Duration: ${duration}s`);
 
     // Cost estimation
