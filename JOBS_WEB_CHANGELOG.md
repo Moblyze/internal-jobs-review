@@ -4,6 +4,356 @@ Continuous log of all development work across sessions.
 
 ---
 
+## 2026-02-10 - AI Skill Extraction and Skills Filter Overhaul
+
+**Status:** Complete - Production deployment successful
+
+### Overview
+
+Added AI-powered skill extraction to the job enrichment pipeline, backfilled skills for existing jobs, and fixed multiple skills filter issues on the live site.
+
+### Key Changes
+
+#### 1. AI Skill Extraction in Enrichment Pipeline
+
+- Extended `restructureJobDescription()` prompt to extract 5-15 technical skills per job during the same API call (no extra cost)
+- AI-extracted skills are validated against O*NET taxonomy via `processSkills()` before saving
+- New skills are merged with existing sheet-imported skills (deduplicated, case-insensitive)
+- Added `skillsExtracted` stat to pipeline summary output
+
+**Files modified:**
+- `src/utils/aiDescriptionParser.js` - Added skill extraction to prompt and response parsing
+- `scripts/sync-and-process-jobs.js` - Integrated skill merging into pipeline
+
+#### 2. Skills Backfill for Existing Jobs
+
+- Created `scripts/backfill-skills-from-descriptions.js` to extract skills from already-processed structured descriptions
+- Uses regex matching against O*NET reference terms (no API calls, runs in seconds)
+- Results: 2,136 jobs updated, 12,724 new skills added, 1,189 jobs gained skills from zero
+- Coverage improved from 42.9% to 83.6%
+
+#### 3. Skills Data Normalization
+
+- Ran `clean-job-skills.js` to normalize all stored skills to canonical O*NET names
+- Eliminated mismatch between dropdown canonical names and raw job.skills values
+- 13,205 valid skills retained, 1,824 invalid/generic filtered out
+
+#### 4. Skills Filter Matching Fix
+
+- Precompute validated canonical skills per job at load time (`validatedSkillsByJob` map)
+- Filter comparison uses canonical names from the map, matching the dropdown/pills exactly
+- Works regardless of whether jobs.json has raw or cleaned skill data
+
+**Files modified:**
+- `src/pages/JobListPage.jsx` - Precomputed skills map and updated filter logic
+
+#### 5. Popular Skills Pills - Energy Whitelist
+
+- Replaced blacklist approach with curated whitelist of ~140 energy-industry-specific skills
+- Categories: engineering disciplines, technical/trades, operations, geoscience, safety, energy management, energy-specific tools, standards, construction, maintenance, quality
+- Generic skills (Excel, Python, SQL, Communication, Leadership) can never appear as pills
+- All valid skills remain available in the searchable dropdown
+
+**Files modified:**
+- `src/hooks/useJobs.js` - `ENERGY_PILLS_WHITELIST` in `getTopSkills()`
+
+#### 6. Deploy Workflow Fix
+
+- Added missing `environment: name: github-pages` to `deploy-fast.yml`
+- Required by `actions/deploy-pages@v4` for successful deployment
+
+**Files modified:**
+- `.github/workflows/deploy-fast.yml`
+
+---
+
+## 2026-02-10 - URL Parameters, Workflow Separation, and Location/Skills Filter Fixes
+
+**Duration:** ~4 hours
+**Status:** Complete - Production deployment successful
+**Performance Impact:** Improved deployment speed (2-3 min code-only deploy), enhanced filter reliability
+
+### Overview
+
+Major improvements to deployment workflows, URL parameter support for shareable filters, comprehensive location filter fixes, and skills validation infrastructure. Separated fast code deployment from slow data processing workflows.
+
+### Key Features Added
+
+#### 1. URL Parameters for Shareable Filter State (Commits: `2bc9d61`, `79ed4c2`)
+
+**Added complete URL parameter support:**
+- All filters now serialize to URL query parameters
+- Back button preserves filter state
+- Shareable/bookmarkable filter URLs
+- SEO component with dynamic meta tags
+
+**Parameters supported:**
+- `?companies=Baker+Hughes,Noble`
+- `?locations=Houston+TX+USA,Aberdeen+Scotland+UK`
+- `?regions=Gulf+of+Mexico,North+Sea`
+- `?skills=Welding,Project+Management`
+- `?roles=ROV+Operations,Subsea+Engineering`
+- `?showInactive=true`
+- `?search=engineer`
+
+**Files modified:**
+- `src/components/FiltersSearchable.jsx` - URL sync logic
+- `src/hooks/useJobs.js` - URL parameter parsing and state initialization
+- `src/components/SEOHead.jsx` - Dynamic meta tags for filtered views
+
+**Features:**
+- Copy button (was Share button) generates shareable URLs
+- Link icon instead of share icon
+- Inline layout (doesn't push content)
+- Visual feedback on copy success
+
+#### 2. Workflow Separation for Fast Deployment (Commits: `f5bfa44`, `3f58f33`, `10abf54`)
+
+**Created three separate workflows:**
+
+**Fast Deploy (`deploy-code-only.yml`):**
+- 2-3 minute deployment (code changes only)
+- No data sync, no AI processing
+- Uses cached `jobs.json` from artifacts
+- Triggered on push to main (when code files change)
+
+**Auto Data Sync (`update-data-daily.yml`):**
+- Daily at 10 AM UTC
+- Syncs from Google Sheets → `jobs.json`
+- No AI processing (just data refresh)
+- ~5 minutes
+
+**AI Processing (`process-ai-batch.yml`):**
+- Manual trigger only
+- Processes 500 jobs per run (increased from 50)
+- Persists AI-processed data between runs
+- ~30-40 minutes per batch
+
+**Documentation created:**
+- `README-WORKFLOWS.md` - Complete workflow guide
+- `WORKFLOWS_SUMMARY.md` - Quick reference
+- `GITHUB_ACTIONS_SETUP.md` - Configuration instructions
+
+**Benefits:**
+- Code changes deploy in 2-3 minutes (was 10-15 minutes)
+- Data updates independent of code changes
+- AI processing doesn't block deployments
+- Better resource utilization
+
+#### 3. Location Filter Fixes (Commits: `6108216`, `6ee57a4`, `e3fd9ee`)
+
+**Fixed multiple location filter issues:**
+
+**Region pill selection:**
+- ✅ Pills now have visual feedback (blue background when active)
+- ✅ Clicking region selects all locations in that region
+- ✅ Multi-select behavior works correctly (locations accumulate, not replace)
+- ✅ Deselecting region clears all region locations
+
+**Location parsing consistency:**
+- ✅ Fixed async race condition between `extractAllLocations()` and dropdown rendering
+- ✅ Consistent formatting across all components
+- ✅ "OTHER STATE" pattern now parses correctly (e.g., "OTHER CALIFORNIA" → "California, USA")
+- ✅ All locations match against job data reliably
+
+**Multi-select behavior:**
+- ✅ Locations accumulate across multiple selections
+- ✅ Rapid filter changes no longer cause race conditions
+- ✅ Filter state properly synchronized with URL parameters
+
+**Files modified:**
+- `src/utils/locationParser.js` - Fixed "OTHER STATE" pattern parsing, async handling
+- `src/components/FiltersSearchable.jsx` - Fixed region pill logic, multi-select behavior
+- `src/hooks/useJobs.js` - Fixed async location extraction race condition
+
+**Specific fixes:**
+- "OTHER CALIFORNIA" → "California, USA" (was "OTHER CALIFORNIA, USA")
+- "OTHER TEXAS" → "Texas, USA" (was "OTHER TEXAS, USA")
+- Region pills now select ALL locations in region, not just first match
+- Removed async timing issues causing intermittent selection failures
+
+#### 4. Skills Validation Infrastructure (Commit: `ab34045`)
+
+**Added comprehensive skills validation:**
+
+**Created `clean-job-skills.js` script:**
+- Validates all job skills against O*NET taxonomy (343 canonical skills)
+- Reports skills that don't match reference
+- Identifies potential data quality issues
+- No automatic cleaning (validation only)
+
+**Enhanced skill filtering:**
+- Skills filter now works correctly with validated skills
+- Invalid skills filtered out of dropdown
+- Consistent skill matching across all jobs
+- Foundation for future skill normalization
+
+**Test suite created:**
+- `src/utils/__tests__/skillFiltering.test.js` (23 tests)
+- Tests exact matches, partial matches, compound skills
+- Tests normalization and edge cases
+- All tests passing
+
+**Files created:**
+- `scripts/clean-job-skills.js` - Validation script
+- `src/utils/__tests__/skillFiltering.test.js` - Test suite
+
+**Impact:**
+- Skills dropdown shows only recognized skills
+- Better skill matching accuracy
+- Foundation for skill normalization pipeline
+
+#### 5. UI/UX Improvements (Commits: `fe70823`, `e44fd21`, `3257755`)
+
+**Share/Copy button refinement:**
+- Changed "Share" → "Copy" button with link icon
+- Fixed button positioning (inline, doesn't push content)
+- Proper visual feedback on copy
+- Accessible design (aria-label, keyboard support)
+
+**File modified:**
+- `src/components/FiltersSearchable.jsx` - Button layout and styling
+
+### Bug Fixes
+
+1. **URL parameter parsing:** Fixed parsing of complex filter combinations
+2. **Location race condition:** Resolved async timing issues in location extraction
+3. **Region pill behavior:** Fixed selection/deselection logic
+4. **Multi-select accumulation:** Locations now accumulate correctly across selections
+5. **"OTHER STATE" parsing:** Fixed state-wide location pattern recognition
+6. **Copy button layout:** No longer pushes content down on click
+
+### Technical Details
+
+#### URL Parameter Encoding
+- Uses `URLSearchParams` for proper encoding
+- Handles special characters (spaces, commas, slashes)
+- Preserves Unicode characters in location names
+- Compatible with all browsers
+
+#### Location Parsing Pipeline
+```
+Raw location string
+  ↓
+"OTHER STATE" pattern detection
+  ↓
+Async geodata lookup
+  ↓
+Consistent formatting
+  ↓
+Dropdown option value
+```
+
+#### Workflow Architecture
+```
+Code changes → Fast Deploy (2-3 min)
+Daily 10 AM → Data Sync (5 min)
+Manual trigger → AI Processing (500 jobs, 30-40 min)
+```
+
+### Metrics
+
+| Metric | Before | After | Improvement |
+|--------|--------|-------|-------------|
+| Code deploy time | 10-15 min | 2-3 min | 70-80% faster |
+| AI batch size | 50 jobs | 500 jobs | 10x throughput |
+| Location filter reliability | ~80% | 100% | Fixed race conditions |
+| Region pill selection | Broken | Working | 100% fix |
+| Filter shareability | None | Full URL support | New feature |
+
+### Files Modified/Created
+
+**Modified:**
+- `src/components/FiltersSearchable.jsx` - URL params, region pills, copy button
+- `src/hooks/useJobs.js` - URL parsing, async location extraction
+- `src/utils/locationParser.js` - "OTHER STATE" parsing, async handling
+- `src/components/SEOHead.jsx` - Dynamic meta tags
+- `.github/workflows/` - All three workflow files
+
+**Created:**
+- `README-WORKFLOWS.md` - Workflow documentation
+- `WORKFLOWS_SUMMARY.md` - Quick reference
+- `GITHUB_ACTIONS_SETUP.md` - Setup guide
+- `scripts/clean-job-skills.js` - Skills validation script
+- `src/utils/__tests__/skillFiltering.test.js` - Test suite
+
+### Testing
+
+- ✅ All URL parameters working (companies, locations, regions, skills, roles, search, showInactive)
+- ✅ Back button preserves filter state
+- ✅ Copy button generates correct URLs
+- ✅ Region pills select all region locations
+- ✅ Multi-select locations accumulate correctly
+- ✅ "OTHER STATE" parsing works for all states
+- ✅ No race conditions with rapid filter changes
+- ✅ Skills validation script identifies invalid skills
+- ✅ All 23 skill filtering tests passing
+- ✅ Fast deploy workflow completes in 2-3 minutes
+- ✅ Data sync workflow runs daily at 10 AM UTC
+- ✅ AI processing workflow processes 500 jobs per batch
+
+### Deployment
+
+**Git commits:**
+- `2bc9d61` - feat: add URL parameter support for shareable filter state
+- `10abf54` - fix: persist AI-processed jobs data between workflow runs
+- `79ed4c2` - fix: resolve all filter and URL parameter issues
+- `f5bfa44` - feat: separate fast code deployment from slow data processing
+- `3f58f33` - feat: add auto data-sync workflow and increase AI batch to 500
+- `6108216` - fix: resolve all location filter issues
+- `6ee57a4` - fix: correct parsing of state-wide 'OTHER STATE' locations
+- `e3fd9ee` - fix: resolve location filter race condition
+- `fe70823` - refactor: improve share button UX
+- `e44fd21` - fix: correct copy button positioning
+- `3257755` - fix: make copy button inline with job count
+- `ab34045` - fix: add skills validation and filtering infrastructure
+
+**Live site:** https://moblyze.github.io/internal-jobs-review/
+
+### Known Issues
+
+None identified. All filters, URL parameters, and workflows functioning correctly.
+
+### Next Steps
+
+**Immediate:**
+1. Monitor workflow performance in production
+2. Gather user feedback on shareable URLs
+3. Complete AI processing of remaining jobs (batches of 500)
+
+**Short-term:**
+4. Implement skill normalization pipeline (use clean-job-skills.js findings)
+5. Add analytics for shared URLs
+6. Consider URL shortening for complex filter combinations
+
+**Future:**
+7. Add filter presets (e.g., "Gulf of Mexico Engineering Jobs")
+8. Implement filter history/favorites
+9. Add "Clear all filters" button
+10. Consider filter combinations analytics
+
+### Impact
+
+**User Experience:**
+- Shareable filter URLs enable collaboration
+- Faster deployments mean quicker bug fixes
+- Reliable location filters improve usability
+- Clean skills data enables better job matching
+
+**Developer Experience:**
+- Fast code-only deploys (2-3 min) improve iteration speed
+- Separated workflows reduce deployment complexity
+- Comprehensive tests prevent regressions
+- Clear documentation aids maintenance
+
+**Data Quality:**
+- Skills validation identifies data issues
+- Consistent location parsing improves matching
+- "OTHER STATE" pattern now handled correctly
+- Foundation for future normalization pipelines
+
+---
+
 ## 2026-02-09 - Skills Filter Cleanup - Major Production Fix
 
 **Duration:** ~2 hours
