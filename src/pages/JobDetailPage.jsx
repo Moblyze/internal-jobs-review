@@ -10,6 +10,7 @@ import Breadcrumbs from '../components/Breadcrumbs'
 import JobCard from '../components/JobCard'
 import StructuredJobDescription from '../components/StructuredJobDescription'
 import EnhanceWithAIButton from '../components/EnhanceWithAIButton'
+import TranslateButton from '../components/TranslateButton'
 
 function JobDetailPage() {
   const { jobSlug } = useParams()
@@ -167,7 +168,10 @@ function JobDetailPage() {
       {/* Job Description */}
       <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-semibold text-gray-900">Job Description</h2>
+          <div className="flex items-center gap-3">
+            <h2 className="text-xl font-semibold text-gray-900">Job Description</h2>
+            <TranslateButton text={job.description} />
+          </div>
 
           {/* Toggle Button and Badge OR Enhance Button */}
           {hasStructuredDescription ? (

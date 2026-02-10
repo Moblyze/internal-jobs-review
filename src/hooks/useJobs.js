@@ -456,6 +456,7 @@ async function loadOccupationMappings() {
  */
 export async function getEnergyRoles(jobs) {
   const { getEnergyRole, ENERGY_ROLES } = await import('../utils/energyRoles');
+  const { matchEnergyRole } = await import('../utils/energyJobMatcher');
   const mappings = await loadOccupationMappings();
   const roleCounts = {};
 
@@ -466,20 +467,33 @@ export async function getEnergyRoles(jobs) {
       return;
     }
 
-    const mapping = mappings[job.id];
-    if (!mapping) return;
+    let roleId = null;
 
-    // Use role_id from keyword matching if available, otherwise use onet_code
-    let role;
-    if (mapping.role_id) {
-      // Direct role ID from keyword matcher
-      role = { id: mapping.role_id, ...ENERGY_ROLES[mapping.role_id] };
-    } else {
-      // Fall back to O*NET code matching
-      role = getEnergyRole(mapping.onet_code);
+    // First try: pre-computed occupation mappings (AI-enhanced, from job-occupations.json)
+    const mapping = mappings[job.id];
+    if (mapping) {
+      if (mapping.role_id) {
+        roleId = mapping.role_id;
+      } else if (mapping.onet_code) {
+        const role = getEnergyRole(mapping.onet_code);
+        roleId = role.id;
+      }
     }
 
-    roleCounts[role.id] = (roleCounts[role.id] || 0) + 1;
+    // Fallback: keyword-based matching for unmapped jobs
+    if (!roleId) {
+      const keywordMatch = matchEnergyRole(job.title, '');
+      if (keywordMatch) {
+        roleId = keywordMatch.roleId;
+      }
+    }
+
+    if (!roleId) return;
+
+    // Ensure this role exists in ENERGY_ROLES
+    if (!ENERGY_ROLES[roleId]) return;
+
+    roleCounts[roleId] = (roleCounts[roleId] || 0) + 1;
   });
 
   // Return roles sorted by count (descending), but "other" always goes last
@@ -513,26 +527,37 @@ export async function filterJobsByRole(jobs, roleIds) {
   }
 
   const { getEnergyRole, ENERGY_ROLES } = await import('../utils/energyRoles');
+  const { matchEnergyRole } = await import('../utils/energyJobMatcher');
   const mappings = await loadOccupationMappings();
 
   // Normalize to array
   const roleIdsArray = Array.isArray(roleIds) ? roleIds : [roleIds];
 
   return jobs.filter(job => {
-    const mapping = mappings[job.id];
-    if (!mapping) return false;
+    let roleId = null;
 
-    // Use role_id from keyword matching if available, otherwise use onet_code
-    let role;
-    if (mapping.role_id) {
-      // Direct role ID from keyword matcher
-      role = { id: mapping.role_id, ...ENERGY_ROLES[mapping.role_id] };
-    } else {
-      // Fall back to O*NET code matching
-      role = getEnergyRole(mapping.onet_code);
+    // First try: pre-computed occupation mappings
+    const mapping = mappings[job.id];
+    if (mapping) {
+      if (mapping.role_id) {
+        roleId = mapping.role_id;
+      } else if (mapping.onet_code) {
+        const role = getEnergyRole(mapping.onet_code);
+        roleId = role.id;
+      }
     }
 
-    return roleIdsArray.includes(role.id);
+    // Fallback: keyword-based matching for unmapped jobs
+    if (!roleId) {
+      const keywordMatch = matchEnergyRole(job.title, '');
+      if (keywordMatch) {
+        roleId = keywordMatch.roleId;
+      }
+    }
+
+    if (!roleId) return false;
+
+    return roleIdsArray.includes(roleId);
   });
 }
 

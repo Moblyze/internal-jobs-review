@@ -24,13 +24,17 @@ export function useFilterParams() {
     const employmentTypes = searchParams.get('employmentTypes')
     const showInactive = searchParams.get('showInactive')
 
+    // Parse using pipe delimiter (|) — consistent with serialization
+    // Also support comma for backward compatibility with old bookmarked URLs
+    const splitParam = (val) => val ? val.split(/[|,]/).filter(Boolean) : []
+
     return {
-      companies: companies ? companies.split(',').filter(Boolean) : [],
-      locations: locations ? locations.split(',').filter(Boolean) : [],
-      skills: skills ? skills.split(',').filter(Boolean) : [],
-      certifications: certifications ? certifications.split(',').filter(Boolean) : [],
-      roles: roles ? roles.split(',').filter(Boolean) : [],
-      employmentTypes: employmentTypes ? employmentTypes.split(',').filter(Boolean) : [],
+      companies: splitParam(companies),
+      locations: splitParam(locations),
+      skills: splitParam(skills),
+      certifications: splitParam(certifications),
+      roles: splitParam(roles),
+      employmentTypes: splitParam(employmentTypes),
       showInactive: showInactive === 'true'
     }
   }, [searchParams])
@@ -60,7 +64,7 @@ export function useFilterParams() {
       params.set('roles', newFilters.roles.join('|'))
     }
     if (newFilters.employmentTypes?.length > 0) {
-      params.set('employmentTypes', newFilters.employmentTypes.join(','))
+      params.set('employmentTypes', newFilters.employmentTypes.join('|'))
     }
     if (newFilters.showInactive) {
       params.set('showInactive', 'true')
@@ -124,7 +128,7 @@ export function buildFilterUrl(baseUrl, filters) {
     params.set('roles', filters.roles.join('|'))
   }
   if (filters.employmentTypes?.length > 0) {
-    params.set('employmentTypes', filters.employmentTypes.join(','))
+    params.set('employmentTypes', filters.employmentTypes.join('|'))
   }
   if (filters.showInactive) {
     params.set('showInactive', 'true')
