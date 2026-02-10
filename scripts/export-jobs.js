@@ -21,20 +21,22 @@ const SPREADSHEET_NAME = 'Job Scraping Results'; // Must match .env in job-scrap
 const OUTPUT_PATH = path.join(__dirname, '../public/data/jobs.json');
 
 // Column mapping (matches JobPosting.to_sheet_row() order from scraper)
+// Updated: Employment Type added at column 10, shifting Status/StatusChanged/ScrapedAt
 const COLUMNS = {
   TITLE: 0,
   COMPANY: 1,
   LOCATION: 2,
   DESCRIPTION: 3,
   URL: 4,
-  REQUISITION_ID: 5,  // Added - was missing!
+  REQUISITION_ID: 5,
   POSTED_DATE: 6,
   SKILLS: 7,
   CERTIFICATIONS: 8,
   SALARY: 9,
-  STATUS: 10,
-  STATUS_CHANGED_DATE: 11,
-  SCRAPED_AT: 12
+  EMPLOYMENT_TYPE: 10,
+  STATUS: 11,
+  STATUS_CHANGED_DATE: 12,
+  SCRAPED_AT: 13
 };
 
 async function authenticate() {
@@ -81,6 +83,7 @@ function parseRow(row, sheetName, columnMap) {
     skills: getCol('Skills') ? getCol('Skills').split(';').map(s => s.trim()).filter(Boolean) : [],
     certifications: getCol('Certifications') ? getCol('Certifications').split(';').map(c => c.trim()).filter(Boolean) : [],
     salary: getCol('Salary'),
+    employmentType: getCol('Employment Type') || null,
     status: getCol('Status') || 'active',
     statusChangedDate: getCol('Status Changed Date'),
     scrapedAt: getCol('Scraped At'),
@@ -105,7 +108,7 @@ async function fetchAllJobs(auth) {
 
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: spreadsheet.data.spreadsheetId,
-      range: `${sheetName}!A:M`, // All columns from the sheet (A-M = 13 columns)
+      range: `${sheetName}!A:N`, // All columns from the sheet (A-N = 14 columns, includes Employment Type)
     });
 
     const rows = response.data.values || [];

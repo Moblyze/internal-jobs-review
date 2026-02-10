@@ -126,6 +126,24 @@ function JobDetailPage() {
         </div>
 
         <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600">
+          {job.employmentType && (
+            <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${
+              job.employmentType === 'Contractor'
+                ? 'bg-orange-100 text-orange-800'
+                : job.employmentType === 'Full-Time'
+                ? 'bg-green-100 text-green-800'
+                : job.employmentType === 'Part-Time'
+                ? 'bg-purple-100 text-purple-800'
+                : job.employmentType === 'Temporary'
+                ? 'bg-yellow-100 text-yellow-800'
+                : job.employmentType === 'Internship'
+                ? 'bg-teal-100 text-teal-800'
+                : 'bg-gray-100 text-gray-800'
+            }`}>
+              {job.employmentType}
+            </span>
+          )}
+
           {job.postedDate && (
             <div className="flex items-center">
               <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">

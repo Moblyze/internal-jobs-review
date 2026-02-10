@@ -25,6 +25,26 @@ function JobListPage() {
   // Get unique values for filters (sync)
   const companies = useMemo(() => getUniqueCompanies(jobs), [jobs])
 
+  // Get unique employment types (sync — simple extraction from job data)
+  const employmentTypes = useMemo(() => {
+    const types = new Set()
+    jobs.forEach(job => {
+      if (job.employmentType) {
+        types.add(job.employmentType)
+      }
+    })
+    // Sort with most common first: Full-Time, Contractor, Part-Time, Temporary, Internship
+    const sortOrder = ['Full-Time', 'Contractor', 'Part-Time', 'Temporary', 'Internship']
+    return [...types].sort((a, b) => {
+      const aIdx = sortOrder.indexOf(a)
+      const bIdx = sortOrder.indexOf(b)
+      if (aIdx === -1 && bIdx === -1) return a.localeCompare(b)
+      if (aIdx === -1) return 1
+      if (bIdx === -1) return -1
+      return aIdx - bIdx
+    })
+  }, [jobs])
+
   // State for async filter data
   const [locations, setLocations] = useState([])
   const [locationOptions, setLocationOptions] = useState([])
@@ -153,6 +173,13 @@ function JobListPage() {
             jobCertifications.includes(cert)
           )
           if (!hasCertification) return false
+        }
+
+        // Employment type filter
+        if (filters.employmentTypes?.length > 0) {
+          if (!job.employmentType || !filters.employmentTypes.includes(job.employmentType)) {
+            return false
+          }
         }
 
         return true
@@ -345,12 +372,11 @@ function JobListPage() {
           )}
         </div>
         <div className="flex items-center justify-between">
-          <p className="text-gray-600">
-            Showing {filteredJobs.length} of {jobs.length} jobs
-          </p>
-          <div className="flex items-center gap-4">
-            {/* Share Filter Button - appears when any filters are active */}
-            {(filters.companies?.length > 0 || filters.locations?.length > 0 || filters.regions?.length > 0 || filters.skills?.length > 0 || filters.certifications?.length > 0 || filters.roles?.length > 0) && (
+          <div className="flex items-center gap-3">
+            <p className="text-gray-600">
+              Showing {filteredJobs.length} of {jobs.length} jobs
+            </p>
+            {(filters.companies?.length > 0 || filters.locations?.length > 0 || filters.skills?.length > 0 || filters.certifications?.length > 0 || filters.roles?.length > 0 || filters.employmentTypes?.length > 0) && (
               <ShareFilterButton />
             )}
             {inactiveJobsCount > 0 && (
@@ -379,6 +405,7 @@ function JobListPage() {
             skills={skills}
             certifications={certifications}
             roles={roles}
+            employmentTypes={employmentTypes}
             jobs={jobs}
           />
         </div>

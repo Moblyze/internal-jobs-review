@@ -21,15 +21,16 @@ export function useFilterParams() {
     const skills = searchParams.get('skills')
     const certifications = searchParams.get('certifications')
     const roles = searchParams.get('roles')
+    const employmentTypes = searchParams.get('employmentTypes')
     const showInactive = searchParams.get('showInactive')
 
     return {
-      companies: companies ? companies.split('|').filter(Boolean) : [],
-      locations: locations ? locations.split('|').filter(Boolean) : [],
-      regions: regions ? regions.split('|').filter(Boolean) : [],
-      skills: skills ? skills.split('|').filter(Boolean) : [],
-      certifications: certifications ? certifications.split('|').filter(Boolean) : [],
-      roles: roles ? roles.split('|').filter(Boolean) : [],
+      companies: companies ? companies.split(',').filter(Boolean) : [],
+      locations: locations ? locations.split(',').filter(Boolean) : [],
+      skills: skills ? skills.split(',').filter(Boolean) : [],
+      certifications: certifications ? certifications.split(',').filter(Boolean) : [],
+      roles: roles ? roles.split(',').filter(Boolean) : [],
+      employmentTypes: employmentTypes ? employmentTypes.split(',').filter(Boolean) : [],
       showInactive: showInactive === 'true'
     }
   }, [searchParams])
@@ -57,6 +58,9 @@ export function useFilterParams() {
     }
     if (newFilters.roles?.length > 0) {
       params.set('roles', newFilters.roles.join('|'))
+    }
+    if (newFilters.employmentTypes?.length > 0) {
+      params.set('employmentTypes', newFilters.employmentTypes.join(','))
     }
     if (newFilters.showInactive) {
       params.set('showInactive', 'true')
@@ -118,6 +122,9 @@ export function buildFilterUrl(baseUrl, filters) {
   }
   if (filters.roles?.length > 0) {
     params.set('roles', filters.roles.join('|'))
+  }
+  if (filters.employmentTypes?.length > 0) {
+    params.set('employmentTypes', filters.employmentTypes.join(','))
   }
   if (filters.showInactive) {
     params.set('showInactive', 'true')

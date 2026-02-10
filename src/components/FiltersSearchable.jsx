@@ -158,7 +158,7 @@ function EnergyRegionPills({ regions, selectedRegions, onRegionSelect, label }) 
   )
 }
 
-function FiltersSearchable({ filters, onFilterChange, companies, locations, skills, certifications, roles = [], jobs = [] }) {
+function FiltersSearchable({ filters, onFilterChange, companies, locations, skills, certifications, roles = [], employmentTypes = [], jobs = [] }) {
   const [isExpanded, setIsExpanded] = useState(false)
   const [locationOptions, setLocationOptions] = useState([])
   const [topLocationsFormatted, setTopLocationsFormatted] = useState([])
@@ -228,6 +228,11 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
     return certifications.map(cert => ({ label: cert, value: cert }))
   }, [certifications])
 
+  const employmentTypeOptions = useMemo(() =>
+    employmentTypes.map(type => ({ label: type, value: type })),
+    [employmentTypes]
+  )
+
   const roleOptions = useMemo(() => {
     if (roles.length === 0) return []
 
@@ -275,6 +280,11 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
       })
       .filter(Boolean)
   }, [filters.certifications, certificationOptions])
+
+  const selectedEmploymentTypes = useMemo(() =>
+    (filters.employmentTypes || []).map(t => ({ label: t, value: t })),
+    [filters.employmentTypes]
+  )
 
   const selectedRoles = useMemo(() => {
     return (filters.roles || [])
@@ -380,6 +390,13 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
     })
   }
 
+  const handleEmploymentTypeChange = (selected) => {
+    onFilterChange({
+      ...filters,
+      employmentTypes: selected ? selected.map(opt => opt.value) : []
+    })
+  }
+
   const handleRoleChange = (selected) => {
     onFilterChange({
       ...filters,
@@ -388,16 +405,16 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
   }
 
   const clearFilters = () => {
-    onFilterChange({ companies: [], locations: [], regions: [], skills: [], certifications: [], roles: [], showInactive: filters.showInactive })
+    onFilterChange({ companies: [], locations: [], skills: [], certifications: [], roles: [], employmentTypes: [], showInactive: filters.showInactive })
   }
 
   const activeFilterCount =
-    ((filters.companies?.length || 0) > 0 ? 1 : 0) +
-    ((filters.locations?.length || 0) > 0 ? 1 : 0) +
-    ((filters.regions?.length || 0) > 0 ? 1 : 0) +
-    ((filters.skills?.length || 0) > 0 ? 1 : 0) +
-    ((filters.certifications?.length || 0) > 0 ? 1 : 0) +
-    ((filters.roles?.length || 0) > 0 ? 1 : 0)
+    (filters.companies?.length || 0) +
+    (filters.locations?.length || 0) +
+    (filters.skills?.length || 0) +
+    (filters.certifications?.length || 0) +
+    (filters.roles?.length || 0) +
+    (filters.employmentTypes?.length || 0)
 
   return (
     <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 mb-6">
@@ -455,6 +472,43 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
 
         {/* Divider */}
         <div className="border-t border-gray-200 my-4"></div>
+
+        {/* Employment Type Filter */}
+        {employmentTypeOptions.length > 0 && (
+          <>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Employment Type
+              </label>
+              <QuickSelectPills
+                items={employmentTypes}
+                selectedItems={filters.employmentTypes || []}
+                onSelect={(newTypes) => onFilterChange({ ...filters, employmentTypes: newTypes })}
+                label="Employment types"
+              />
+              {employmentTypeOptions.length > 5 && (
+                <Select
+                  isMulti
+                  value={selectedEmploymentTypes}
+                  onChange={handleEmploymentTypeChange}
+                  options={employmentTypeOptions}
+                  styles={selectStyles}
+                  placeholder="Search employment types..."
+                  isClearable={false}
+                  closeMenuOnSelect={false}
+                  className="text-sm"
+                />
+              )}
+              {selectedEmploymentTypes.length > 0 && (
+                <p className="text-xs text-gray-500 mt-1">
+                  {selectedEmploymentTypes.length} {selectedEmploymentTypes.length === 1 ? 'type' : 'types'} selected
+                </p>
+              )}
+            </div>
+            {/* Divider */}
+            <div className="border-t border-gray-200 my-4"></div>
+          </>
+        )}
 
         {/* Location Filter */}
         <div>
