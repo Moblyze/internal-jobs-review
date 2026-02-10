@@ -183,8 +183,8 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
         const topLocs = await getTopLocationsFormatted(jobs, 10)
         setTopLocationsFormatted(topLocs)
 
-        // Get top companies and skills
-        const companies = await getTopCompanies(jobs, 10)
+        // Get top companies - show all since we have a manageable number
+        const companies = await getTopCompanies(jobs, 50)
         setTopCompanies(companies)
 
         const skills = await getTopSkills(jobs, 10)
@@ -194,7 +194,7 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
         // Fallback to old method
         setLocationOptions(createGroupedLocationOptions(locations))
         getTopLocations(jobs, 10).then(setTopLocationsFormatted).catch(console.error)
-        getTopCompanies(jobs, 10).then(setTopCompanies).catch(console.error)
+        getTopCompanies(jobs, 50).then(setTopCompanies).catch(console.error)
         getTopSkills(jobs, 10).then(setTopSkills).catch(console.error)
       }
     }
