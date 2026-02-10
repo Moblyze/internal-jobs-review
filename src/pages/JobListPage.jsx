@@ -340,10 +340,6 @@ function JobListPage() {
               <p className="text-xs text-gray-500">
                 Last refreshed: {format(lastUpdated, 'd MMM, yyyy')} at {format(lastUpdated, 'h:mm a')} ({formatDistanceToNow(lastUpdated, { addSuffix: true, includeSeconds: false })})
               </p>
-              {/* Share Filter Button - appears when any filters are active */}
-              {(filters.companies?.length > 0 || filters.locations?.length > 0 || filters.regions?.length > 0 || filters.skills?.length > 0 || filters.certifications?.length > 0 || filters.roles?.length > 0) && (
-                <ShareFilterButton />
-              )}
             </div>
           )}
         </div>
@@ -351,17 +347,23 @@ function JobListPage() {
           <p className="text-gray-600">
             Showing {filteredJobs.length} of {jobs.length} jobs
           </p>
-          {inactiveJobsCount > 0 && (
-            <label className="flex items-center cursor-pointer">
-              <input
-                type="checkbox"
-                checked={filters.showInactive}
-                onChange={(e) => setFilters({ ...filters, showInactive: e.target.checked })}
-                className="w-4 h-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500 mr-2"
-              />
-              <span className="text-sm text-gray-700">Show inactive jobs ({inactiveJobsCount})</span>
-            </label>
-          )}
+          <div className="flex items-center gap-4">
+            {/* Share Filter Button - appears when any filters are active */}
+            {(filters.companies?.length > 0 || filters.locations?.length > 0 || filters.regions?.length > 0 || filters.skills?.length > 0 || filters.certifications?.length > 0 || filters.roles?.length > 0) && (
+              <ShareFilterButton />
+            )}
+            {inactiveJobsCount > 0 && (
+              <label className="flex items-center cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={filters.showInactive}
+                  onChange={(e) => setFilters({ ...filters, showInactive: e.target.checked })}
+                  className="w-4 h-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500 mr-2"
+                />
+                <span className="text-sm text-gray-700">Show inactive jobs ({inactiveJobsCount})</span>
+              </label>
+            )}
+          </div>
         </div>
       </div>
 
