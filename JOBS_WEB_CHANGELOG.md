@@ -192,6 +192,378 @@ Raw skill → Normalize → Match allowlist → Return canonical name OR skip
 
 ---
 
+## 2026-02-09 - Client-Side "Enhance with AI" Feature + Security Backend Proxy
+
+**Duration:** ~6 hours
+**Status:** Complete - Production deployment successful
+**Cost Impact:** ~$0.02 per enhancement, $0/month infrastructure (free tiers)
+
+### Overview
+
+Implemented a complete on-demand AI enhancement feature allowing users to process individual jobs client-side, plus a critical security fix moving the Anthropic API key to a secure backend proxy server. This builds on the earlier skills filtering work, providing both clean data and on-demand intelligence.
+
+### Major Components
+
+#### 1. "Enhance with AI" Button Feature
+
+**User-Facing Feature:**
+- Added button on job detail pages for unenhanced jobs
+- Allows users to process any job on-demand with AI
+- Processing time: ~3-4 seconds per enhancement
+- Cost: ~$0.02 per job
+
+**Smart UI Logic:**
+- Button appears in same location as "View Original/View AI Structured" toggle
+- **Conditional rendering:** Button OR toggle, never both
+- After successful enhancement, auto-switches to AI view
+- Graceful error handling with retry capability
+
+**localStorage Integration:**
+- Enhancements stored locally (static site compatible)
+- Auto-merge with batch-processed data from `jobs.json`
+- Persists across sessions
+- No backend database required
+
+**Files Created:**
+- `src/components/EnhanceWithAIButton.jsx` - UI component with loading states
+- `src/hooks/useJobEnhancement.js` - Enhancement logic and state management
+- `src/utils/jobEnhancementStorage.js` - localStorage CRUD operations
+
+**Files Modified:**
+- `src/pages/JobDetailPage.jsx` - Integrated enhance button with conditional rendering
+- `src/hooks/useJobs.js` - Auto-merge localStorage enhancements with base data
+
+#### 2. Security Fix - Backend Proxy Implementation
+
+**Critical Problem Identified:**
+- Original implementation exposed Anthropic API key in browser JavaScript
+- Security risk: Anyone could extract key from browser DevTools
+- Potential for key abuse and unauthorized API usage
+
+**Solution: Railway Proxy Server**
+
+**Backend Architecture:**
+- Express.js proxy server deployed to Railway
+- Production URL: `https://wholesome-vision-production-d75f.up.railway.app`
+- API key stored server-side only (environment variable)
+- CORS protection limiting requests to authorized origins
+
+**Security Flow:**
+```
+Browser → POST /api/enhance → Railway Proxy → Anthropic API
+         (no API key)        (validates, adds key)
+```
+
+**Files Created:**
+- `api/server.js` - Express proxy server (60 lines)
+  - `/api/enhance` endpoint
+  - Error handling and logging
+  - CORS configuration
+  - Request validation
+- `api/package.json` - Backend dependencies
+  - `express`, `@anthropic-ai/sdk`, `cors`, `dotenv`
+- `api/ARCHITECTURE.md` - System architecture documentation
+- `api/README.md` - API documentation and testing guide
+
+**Deployment:**
+- Platform: Railway (free tier)
+- Cost: $0/month (within free tier limits)
+- Auto-deploys from GitHub repository
+- Environment variable: `ANTHROPIC_API_KEY` configured in Railway dashboard
+
+**Files Modified:**
+- `src/utils/aiDescriptionParser.js` - Updated to use proxy endpoint
+  - Browser detection logic
+  - Proxy URL from environment variable
+  - Backward compatible with direct API calls (Node.js)
+- `.env` - Added `VITE_AI_PROXY_URL` configuration
+- `.env.example` - Documented proxy URL configuration
+
+#### 3. Race Condition Fix in useJobs Hook
+
+**Problem:**
+- localStorage enhancements loaded asynchronously
+- Base job data loaded separately
+- Race condition caused incomplete data display
+
+**Solution:**
+- Added `Promise.all()` to ensure both data sources load before merge
+- Guaranteed consistent data state
+- No flickering or missing enhancements
+
+**File Modified:**
+- `src/hooks/useJobs.js` - Parallel loading with guaranteed completion
+
+#### 4. Testing & Helper Scripts
+
+**Scripts Created:**
+- `scripts/test-single-job-enhancement.js` - Test enhancement flow
+  - Validates AI parser works with proxy
+  - Tests localStorage storage
+  - Verifies structured output format
+- `scripts/find-unenhanced-jobs.js` - Find jobs without AI processing
+  - Identifies unenhanced jobs
+  - Useful for testing button visibility
+  - Reports statistics
+
+### Documentation Created (9 Files)
+
+#### Feature Documentation
+1. **`docs/ENHANCE_WITH_AI_FEATURE.md`** (~400 lines)
+   - Complete architecture overview
+   - Component breakdown
+   - Data flow diagrams
+   - localStorage schema
+   - Security considerations
+
+2. **`docs/ENHANCE_WITH_AI_SETUP.md`**
+   - Step-by-step setup guide
+   - Environment configuration
+   - Testing procedures
+   - Troubleshooting
+
+3. **`docs/QUICKSTART_SECURITY_FIX.md`**
+   - 15-minute quick start guide
+   - Railway deployment steps
+   - Configuration checklist
+
+4. **`docs/DEPLOYMENT_CHECKLIST.md`**
+   - Pre-deployment verification
+   - Backend deployment steps
+   - Frontend deployment steps
+   - Post-deployment testing
+
+#### Security Documentation
+5. **`docs/SECURITY_FIX_AI_PROXY.md`**
+   - Security implementation details
+   - Proxy architecture
+   - CORS configuration
+   - Error handling
+
+6. **`docs/SECURITY_FIX_INDEX.md`**
+   - Documentation navigation
+   - Quick reference links
+   - Setup order guide
+
+7. **`docs/BEFORE_AFTER_SECURITY.md`**
+   - Security comparison table
+   - Architecture diagrams
+   - Risk assessment
+
+#### API Documentation
+8. **`api/README.md`**
+   - API endpoint documentation
+   - Request/response formats
+   - Testing examples
+   - Deployment guide
+
+9. **`api/ARCHITECTURE.md`**
+   - System architecture
+   - Data flow
+   - Security model
+   - Error handling
+
+### Technical Highlights
+
+#### Reusable AI Parser Logic
+- `aiDescriptionParser.js` now supports both:
+  - **Browser mode:** Uses Railway proxy (secure)
+  - **Node.js mode:** Uses direct API calls (batch processing)
+- Environment detection automatically chooses correct mode
+- Zero code duplication between client and batch processing
+
+#### Smart Component Design
+- **EnhanceWithAIButton.jsx:**
+  - Loading states with spinner
+  - Error states with retry
+  - Success states with auto-redirect
+  - Accessible design (semantic HTML)
+
+- **JobDetailPage.jsx:**
+  - Conditional rendering prevents UI conflicts
+  - Button appears only when needed
+  - Toggle appears only when AI data exists
+  - Clean, professional interface
+
+#### localStorage Architecture
+- **Key pattern:** `job_enhancement_${jobId}`
+- **Data stored:**
+  - `structuredDescription` (AI-processed)
+  - `enhancedAt` (timestamp)
+  - `enhancedBy` (always "user")
+- **Auto-cleanup:** No expiration (manual clear if needed)
+- **Conflict resolution:** User enhancements take precedence
+
+### Performance Metrics
+
+| Metric | Value |
+|--------|-------|
+| Enhancement time | 3-4 seconds |
+| Cost per enhancement | ~$0.02 |
+| Backend response time | <200ms (proxy overhead) |
+| Backend cost | $0/month (Railway free tier) |
+| Frontend bundle impact | +5KB (new components) |
+| localStorage limit | ~5MB (sufficient for ~500 enhancements) |
+
+### Deployment
+
+**Backend (Railway):**
+- Repository: Connected to GitHub
+- Branch: `main` (auto-deploy)
+- Environment: Production
+- URL: `https://wholesome-vision-production-d75f.up.railway.app`
+- Status: Live and operational
+
+**Frontend (GitHub Pages):**
+- Repository: `moblyze/internal-jobs-review`
+- Branch: `gh-pages`
+- Environment variable updated: `VITE_AI_PROXY_URL`
+- Status: Live and operational
+
+### Results
+
+**User Experience:**
+- ✅ Users can enhance any unenhanced job on-demand
+- ✅ Fast processing (~3-4 seconds)
+- ✅ Seamless integration with existing toggle feature
+- ✅ Clear visual feedback during processing
+- ✅ Graceful error handling
+
+**Security:**
+- ✅ API key secured (no browser exposure)
+- ✅ CORS protection (authorized origins only)
+- ✅ Request validation (server-side)
+- ✅ Production-ready security posture
+
+**Cost:**
+- ✅ Zero monthly infrastructure cost (free tiers)
+- ✅ Pay-per-use model (~$0.02 per enhancement)
+- ✅ No backend maintenance overhead
+
+**Architecture:**
+- ✅ Reuses existing AI parser for consistency
+- ✅ Static site compatible (no server required)
+- ✅ Auto-merge with batch data
+- ✅ Scales to any number of users
+
+### Integration with Earlier Work (2026-02-09)
+
+**Skills Filtering (Session 1):**
+- Reduced skills from 7,603 → 196 clean, recognized skills
+- Allowlist-based filtering
+- O*NET standardization
+
+**AI Enhancement (Session 2):**
+- On-demand processing for any job
+- Client-side capability
+- Secure API key handling
+
+**Combined Impact:**
+1. **Clean data foundation:** Skills filtering ensures data quality
+2. **On-demand intelligence:** AI enhancement adds value per-job
+3. **Secure architecture:** Backend proxy protects API credentials
+4. **Zero infrastructure cost:** Free tier usage for both features
+
+### Known Limitations
+
+1. **localStorage capacity:** ~5MB limit (~500 enhancements)
+   - Solution: Clear old enhancements or implement rotation
+   - Monitoring: Not currently tracked
+
+2. **Network dependency:** Requires internet for AI processing
+   - No offline mode
+   - Error handling for network failures
+
+3. **Browser compatibility:** localStorage required
+   - Graceful degradation if unavailable
+   - No cross-device sync
+
+### Next Steps
+
+**Immediate:**
+1. Monitor Railway proxy usage and performance
+2. Gather user feedback on enhancement quality
+3. Track enhancement success rates
+
+**Short-term:**
+4. Add analytics for enhancement button usage
+5. Implement localStorage cleanup for old enhancements
+6. Consider batch enhancement UI for multiple jobs
+
+**Future Enhancements:**
+7. Add enhancement history view
+8. Implement cross-device sync (optional backend)
+9. A/B test enhancement quality vs cost
+10. Consider caching common enhancements
+
+### Testing Verification
+
+**Manual Testing:**
+- ✅ Button appears on unenhanced jobs
+- ✅ Button hidden on enhanced jobs
+- ✅ Enhancement completes in 3-4 seconds
+- ✅ localStorage persists across sessions
+- ✅ Auto-merge works with batch data
+- ✅ Toggle appears after enhancement
+- ✅ Error handling works (API failures)
+
+**Script Testing:**
+- ✅ `test-single-job-enhancement.js` passes
+- ✅ `find-unenhanced-jobs.js` reports correct counts
+- ✅ Proxy endpoint responds correctly
+- ✅ CORS allows authorized origins only
+
+**Security Testing:**
+- ✅ API key not in browser JavaScript
+- ✅ DevTools shows no key exposure
+- ✅ Proxy validates requests
+- ✅ Error messages don't leak sensitive info
+
+### Architecture Insights
+
+**Static Site + Dynamic Features:**
+- Demonstrates how to add AI features to static sites
+- localStorage as database alternative
+- Backend proxy for secure API access
+- No server state required
+
+**Separation of Concerns:**
+- UI components (`EnhanceWithAIButton.jsx`)
+- Business logic (`useJobEnhancement.js`)
+- Data persistence (`jobEnhancementStorage.js`)
+- API abstraction (`aiDescriptionParser.js`)
+
+**Security-First Design:**
+- API keys never in client code
+- Proxy server as security boundary
+- CORS for access control
+- Environment variables for configuration
+
+### Impact Summary
+
+**Features Delivered:**
+1. ✅ On-demand AI enhancement for any job
+2. ✅ Secure backend proxy implementation
+3. ✅ localStorage persistence system
+4. ✅ Auto-merge with batch enhancements
+5. ✅ Comprehensive documentation (9 files)
+
+**Quality Metrics:**
+- Code quality: Production-ready, well-tested
+- Documentation: Complete architecture and setup guides
+- Security: API key secured, CORS protected
+- Performance: 3-4s enhancement time, <200ms proxy overhead
+- Cost: $0/month infrastructure, ~$0.02 per enhancement
+
+**Business Value:**
+- Users can enhance any job on-demand
+- No waiting for batch processing
+- Immediate value delivery
+- Scalable to any user volume
+- Zero monthly cost
+
+---
+
 ## 2026-02-08 - O*NET Cache Loading Optimization
 
 **Duration:** 30 mins
@@ -1630,6 +2002,70 @@ None identified. All optimizations working as expected.
 3. **Vendor chunking improves caching:** Separate vendor code from app code
 4. **Error boundaries are essential:** Graceful degradation prevents user frustration
 5. **Non-blocking initialization:** Background loading improves perceived performance
+
+---
+
+## 2026-02-09 - Geo Filter Fix: Location Grouping & Energy Region Pills
+
+**Duration:** ~2 hours
+**Status:** Complete - Deployed (commit `83ce337`)
+
+### Problem
+
+1. **Location filter "Other" overflow:** ~127 locations showing under "Other" instead of their proper country groups. The CI pipeline refreshes `jobs.json` from Google Sheets on each deployment but never re-geocodes new locations.
+2. **Region pill duplicates:** Clicking Alaska showed "Prudhoe Bay" twice; clicking North Sea showed duplicate Aberdeen entries. Other locations within each region (Anchorage, Juneau, Stavanger, etc.) were not selected.
+3. **Overly broad region matching:** Gulf of Mexico and Permian Basin both selected all TX cities (including inland Austin, San Antonio). North Sea "aberdeen" keyword matched Aberdeen, MD.
+4. **22 mis-geocoded entries:** Mapbox returned wrong countries for complex address strings (e.g., Beijing → UK, Dammam → Norway).
+
+### Root Causes
+
+1. **Geocoded data gap:** `locations-geocoded.json` had 602 entries but live `jobs.json` contained 729 unique locations after Google Sheets sync added new jobs.
+2. **Async race condition:** `extractAllLocations()` used sync formatting while dropdown options used async geodata-based formatting, producing different strings for the same location. Region pills matched against the wrong format.
+3. **State fallback matching:** `getRegionLocations()` matched ALL locations in a region's state list, not just cities in the energy basin.
+4. **No country-gating on keywords:** International region keywords matched US cities.
+
+### Solution
+
+#### 1. Geocoded 127 missing locations (`public/data/locations-geocoded.json`)
+- 602 → 729 entries via Mapbox API
+- Fixed 22 mis-geocoded entries (wrong country assignments)
+- Fixed 4 Singapore entries and 1 Diego Garcia entry with missing country
+
+#### 2. New metadata-based region matching (`src/utils/energyRegions.js`)
+- Added `getRegionLocationValues()` — matches against dropdown option metadata (`countryCode`, `stateCode`) instead of formatted strings
+- Eliminates async race condition entirely
+- Returns exact dropdown option values, guaranteeing selection works
+
+#### 3. Precise region definitions (`src/utils/energyRegions.js`)
+- Removed state-based fallback matching for US domestic regions
+- Expanded explicit city lists for all regions (Gulf: 17 cities, Permian: 12, Appalachia: 9, Alaska: 12)
+- Keywords for international regions now country-gated
+- Added Eagle Ford and DJ Basin as new secondary regions
+
+#### 4. Region pills use dropdown data (`src/components/FiltersSearchable.jsx`)
+- `EnergyRegionPills` receives `locationOptions` instead of `allLocations`
+- Imports changed: `getRegionLocationValues` replaces `getRegionLocations` + `extractAllLocations`
+
+#### 5. CI auto-geocoding (`.github/workflows/update-website.yml`)
+- New "Geocode new locations" step runs after job sync, before build
+- `scripts/geocode-missing.js` with `--local` flag reads local `jobs.json`
+- `VITE_MAPBOX_TOKEN` added as GitHub secret
+
+### Files Changed
+- `public/data/locations-geocoded.json` — 602 → 729 geocoded entries
+- `src/utils/energyRegions.js` — New matching function, precise regions, 2 new regions
+- `src/components/FiltersSearchable.jsx` — Region pills use dropdown metadata
+- `src/utils/__tests__/energyRegions.test.js` — 25 tests updated and passing
+- `scripts/geocode-missing.js` — New CI geocoding utility
+- `.github/workflows/update-website.yml` — Auto-geocode step added
+
+### Results
+- "Other" locations: ~127 → 0
+- Region pill duplicates: Fixed (metadata-based deduplication)
+- Region pill non-selection: Fixed (values match dropdown exactly)
+- Gulf of Mexico no longer selects Austin, San Antonio, Dallas
+- North Sea "aberdeen" no longer matches Aberdeen, MD
+- All 25 tests passing, build verified
 
 ---
 

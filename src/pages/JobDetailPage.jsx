@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useSearchParams, Link } from 'react-router-dom'
 import { useJobs, getSimilarJobs } from '../hooks/useJobs'
 import { formatDate, companyToSlug, findJobBySlug } from '../utils/formatters'
 import { formatJobDescription } from '../utils/contentFormatter'
@@ -14,6 +14,8 @@ import EnhanceWithAIButton from '../components/EnhanceWithAIButton'
 function JobDetailPage() {
   const { jobSlug } = useParams()
   const { jobs, loading, error } = useJobs()
+  const [searchParams] = useSearchParams()
+  const searchString = searchParams.toString()
 
   // State must be declared before any conditional returns (React hooks rule)
   const [descriptionView, setDescriptionView] = useState('ai')
@@ -99,12 +101,12 @@ function JobDetailPage() {
         </h1>
 
         <div className="flex flex-wrap items-center gap-4 mb-4">
-          <a
-            href={`/companies/${companyToSlug(job.company)}`}
+          <Link
+            to={`/companies/${companyToSlug(job.company)}${searchString ? `?${searchString}` : ''}`}
             className="text-blue-600 hover:text-blue-700 font-medium text-lg"
           >
             {job.company}
-          </a>
+          </Link>
 
           {locations.length > 0 && (
             <div className="flex flex-wrap gap-2">

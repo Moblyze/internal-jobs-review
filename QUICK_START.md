@@ -1,11 +1,11 @@
-# Searchable Filters - Quick Start Guide
+# URL Filters - Quick Start Guide
 
-## What Changed?
+## What's New?
 
-Replaced checkbox lists with searchable dropdowns for filtering jobs.
+Added URL parameter support for job filters. Users can now bookmark, share, and navigate filtered job searches.
 
-**Before**: Scroll through 100+ checkboxes
-**After**: Type to search and select
+**Before**: Filters only in UI, lost on refresh
+**After**: Filters in URL, shareable and persistent
 
 ## Try It Now
 
@@ -14,47 +14,101 @@ cd /Users/jesse/Dropbox/development/moblyze/moblyze-jobs-web
 npm run dev
 ```
 
-Visit http://localhost:5173 and try:
-1. Click "Location" dropdown
-2. Type "hous" - see Houston appear instantly
-3. Click to select
-4. Repeat for multiple cities
+### Test the Feature
+
+1. Open http://localhost:5173/internal-jobs-review/
+2. Select a filter (e.g., Location: Texas)
+3. Watch URL update to `/?locations=Texas`
+4. Refresh page - filter persists
+5. Click "Share" button - URL copied to clipboard
+6. Open in new tab - same filtered results
 
 ## Key Features
 
-- **Type to search** - No more scrolling
-- **Multi-select** - Pick multiple options
-- **Mobile-friendly** - Works great on phones
-- **Fast** - Handles 100+ options smoothly
+- **Shareable URLs** - Copy and share filtered searches
+- **Persistent Filters** - Survive page refresh
+- **Browser Navigation** - Back/forward buttons work
+- **SEO-Friendly** - Clean URLs for search engines
+- **No Dependencies** - Uses React Router built-in
+
+## Quick Usage
+
+### For Developers
+
+```javascript
+import { useFilterParams } from '../hooks/useFilterParams'
+
+function MyPage() {
+  const { filters, setFilters } = useFilterParams()
+
+  return (
+    <FiltersSearchable
+      filters={filters}
+      onFilterChange={setFilters}
+    />
+  )
+}
+```
+
+### For Testing
+
+```bash
+# Single filter
+http://localhost:5173/internal-jobs-review/?locations=Texas
+
+# Multiple filters
+http://localhost:5173/internal-jobs-review/?locations=Texas,California&skills=Welding
+
+# Company page with filters
+http://localhost:5173/internal-jobs-review/companies/tesla?locations=Texas
+```
 
 ## Files Changed
 
-### Modified
-- `src/components/Filters.jsx` - Added searchable dropdowns
-- `package.json` - Added react-select dependency
-- `README.md` - Updated features list
+### Created
+- `src/hooks/useFilterParams.js` - Custom hook for URL sync
+- `src/components/SEO.jsx` - Dynamic meta tags
+- `src/components/ShareFilterButton.jsx` - URL copy button
 
-### Documentation Added
-- `SEARCHABLE_FILTERS_SUMMARY.md` - Complete overview
-- `SEARCHABLE_FILTERS_IMPLEMENTATION.md` - Technical details
-- `FILTER_COMPARISON.md` - Before/after comparison
-- `TEST_CHECKLIST.md` - Testing guide
+### Modified
+- `src/pages/JobListPage.jsx` - Uses URL params instead of useState
+- `src/pages/CompanyPage.jsx` - Added filter support
+
+### Documentation
+- `URL_FILTERS_SUMMARY.md` - Quick overview
+- `URL_FILTERS_IMPLEMENTATION.md` - Complete details
+- `URL_FILTER_ARCHITECTURE.md` - Technical architecture
+- `TEST_URLS.md` - Test case URLs
 - `QUICK_START.md` - This file
 
-## Testing
+## Testing Checklist
 
 ```bash
-# Build to verify no errors
-npm run build
+# Build verification
+npm run build  # Should succeed with no errors
 
-# Start dev server
-npm run dev
+# Manual testing
+- [ ] Apply filter → URL updates
+- [ ] Refresh page → Filter persists
+- [ ] Click Share → URL copies
+- [ ] Browser back → Returns to previous page
+- [ ] New tab with URL → Filters restore
+```
 
-# Test in browser
-# - Type to search locations
-# - Select multiple items
-# - Test on mobile (resize browser)
-# - Verify filtering works
+## Example URLs
+
+```
+# Filter by location
+/?locations=Texas
+
+# Multiple locations
+/?locations=Texas,California,Oklahoma
+
+# Combined filters
+/?companies=Tesla&locations=Texas&roles=Solar%20Technician
+
+# Company page
+/companies/tesla?locations=Texas&skills=Welding
 ```
 
 ## Documentation
@@ -62,29 +116,21 @@ npm run dev
 | File | Purpose |
 |------|---------|
 | QUICK_START.md | This quick guide |
-| SEARCHABLE_FILTERS_SUMMARY.md | Complete implementation summary |
-| SEARCHABLE_FILTERS_IMPLEMENTATION.md | Technical details & code |
-| FILTER_COMPARISON.md | UX before/after analysis |
-| TEST_CHECKLIST.md | Manual testing checklist |
+| URL_FILTERS_SUMMARY.md | Implementation overview |
+| URL_FILTERS_IMPLEMENTATION.md | Full technical details |
+| URL_FILTER_ARCHITECTURE.md | Architecture diagrams |
+| TEST_URLS.md | Comprehensive test cases |
 
 ## Need Help?
 
-1. Check `SEARCHABLE_FILTERS_SUMMARY.md` for overview
-2. See `TEST_CHECKLIST.md` for testing steps
-3. Review `FILTER_COMPARISON.md` for UX details
-
-## Rollback
-
-If you need to revert:
-
-```bash
-npm uninstall react-select
-git checkout HEAD -- src/components/Filters.jsx package.json
-npm install
-```
+1. Check `URL_FILTERS_SUMMARY.md` for overview
+2. See `TEST_URLS.md` for test URLs
+3. Review `URL_FILTER_ARCHITECTURE.md` for technical details
 
 ## Status
 
 ✅ Implementation complete
-✅ Build succeeds
+✅ Build succeeds (verified)
+✅ Zero new dependencies
+✅ Fully backward compatible
 ✅ Ready for testing

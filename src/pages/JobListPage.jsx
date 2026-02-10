@@ -2,23 +2,19 @@ import { useState, useMemo, useEffect } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { format, formatDistanceToNow } from 'date-fns'
 import { useJobs, getUniqueCompanies, getUniqueLocations, getUniqueSkills, getUniqueCertifications, getCertificationsWithCounts, getEnergyRoles, filterJobsByRole } from '../hooks/useJobs'
+import { useFilterParams } from '../hooks/useFilterParams'
 import { getAllLocations } from '../utils/locationParser'
 import { extractJobCertifications } from '../utils/certificationExtractor'
 import FiltersSearchable from '../components/FiltersSearchable'
 import JobCard from '../components/JobCard'
+import SEO from '../components/SEO'
+import ShareFilterButton from '../components/ShareFilterButton'
 
 const JOBS_PER_PAGE = 24
 
 function JobListPage() {
   const { jobs, loading, error, lastUpdated, refresh, geocodingStatus } = useJobs()
-  const [filters, setFilters] = useState({
-    companies: [],
-    locations: [],
-    skills: [],
-    certifications: [],
-    roles: [],
-    showInactive: false // Only show active jobs by default
-  })
+  const { filters, setFilters } = useFilterParams()
   const [displayedCount, setDisplayedCount] = useState(JOBS_PER_PAGE)
   const [showBackToTop, setShowBackToTop] = useState(false)
   const [currentTime, setCurrentTime] = useState(Date.now())
@@ -170,6 +166,35 @@ function JobListPage() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
+  // Generate SEO-friendly title and description based on active filters
+  const seoTitle = useMemo(() => {
+    const parts = []
+    if (filters.roles?.length > 0) {
+      parts.push(filters.roles.slice(0, 2).join(', '))
+    }
+    if (filters.locations?.length > 0) {
+      parts.push(filters.locations.slice(0, 2).join(', '))
+    }
+    if (parts.length > 0) {
+      return `${parts.join(' - ')} Jobs`
+    }
+    return 'Job Opportunities'
+  }, [filters])
+
+  const seoDescription = useMemo(() => {
+    const parts = [`${filteredJobs.length} jobs available`]
+    if (filters.companies?.length > 0) {
+      parts.push(`at ${filters.companies.slice(0, 3).join(', ')}`)
+    }
+    if (filters.locations?.length > 0) {
+      parts.push(`in ${filters.locations.slice(0, 3).join(', ')}`)
+    }
+    if (filters.skills?.length > 0) {
+      parts.push(`requiring ${filters.skills.slice(0, 3).join(', ')}`)
+    }
+    return parts.join(' ')
+  }, [filters, filteredJobs.length])
+
   const handleRefresh = async () => {
     console.log('[JobListPage] Refresh button clicked - triggering data refresh');
     setShowRefreshSuccess(false);
@@ -202,6 +227,11 @@ function JobListPage() {
 
   return (
     <div>
+      <SEO
+        title={seoTitle}
+        description={seoDescription}
+      />
+
       {/* Geocoding Status Notification */}
       {geocodingStatus && (
         <div className={`mb-4 rounded-lg p-4 border ${
@@ -266,9 +296,14 @@ function JobListPage() {
           )}
         </div>
         <div className="flex items-center justify-between">
-          <p className="text-gray-600">
-            Showing {filteredJobs.length} of {jobs.length} jobs
-          </p>
+          <div className="flex items-center gap-3">
+            <p className="text-gray-600">
+              Showing {filteredJobs.length} of {jobs.length} jobs
+            </p>
+            {(filters.companies?.length > 0 || filters.locations?.length > 0 || filters.skills?.length > 0 || filters.certifications?.length > 0 || filters.roles?.length > 0) && (
+              <ShareFilterButton />
+            )}
+          </div>
           {inactiveJobsCount > 0 && (
             <label className="flex items-center cursor-pointer">
               <input

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { timeAgo, companyToSlug, jobToSlug } from '../utils/formatters'
 import { filterValidSkills } from '../utils/skillValidator'
 import { formatLocation } from '../utils/locationParser'
@@ -6,10 +6,12 @@ import { ensureCleanText } from '../utils/htmlCleaner'
 
 function JobCard({ job }) {
   const jobSlug = jobToSlug(job.company, job.title);
+  const [searchParams] = useSearchParams();
+  const searchString = searchParams.toString();
 
   return (
     <Link
-      to={`/jobs/${jobSlug}`}
+      to={`/jobs/${jobSlug}${searchString ? `?${searchString}` : ''}`}
       className="block bg-white rounded-lg shadow-sm border border-gray-200 p-4 hover:shadow-md hover:border-blue-300 transition-all"
     >
       <div className="flex items-start justify-between gap-2 mb-2">
@@ -30,7 +32,7 @@ function JobCard({ job }) {
 
       <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-3">
         <Link
-          to={`/companies/${companyToSlug(job.company)}`}
+          to={`/companies/${companyToSlug(job.company)}${searchString ? `?${searchString}` : ''}`}
           onClick={(e) => e.stopPropagation()}
           className="text-blue-600 hover:text-blue-700 font-medium text-sm"
         >
