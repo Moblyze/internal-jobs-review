@@ -68,12 +68,17 @@ function tryGeocoded(locationStr) {
 
   const { city, state, stateCode, country, countryCode } = geo
 
-  // Handle state-wide locations (city is null, e.g., "OTHER TEXAS" → "Texas")
-  if (!city && state && countryCode === 'US') {
+  // Handle "OTHER [STATE]" patterns as state-wide locations
+  // Examples: "US-AL-OTHER ALABAMA", "US-TX-OTHER TEXAS"
+  // Even if geocoder returned a city, treat these as state-wide
+  const isOtherStatePattern = cleanedStr.match(/^[A-Z]{2}-[A-Z]{2}-OTHER\s+/i)
+
+  // Handle state-wide locations (city is null OR "OTHER STATE" pattern)
+  if ((!city || isOtherStatePattern) && state && countryCode === 'US') {
     return state
   }
 
-  if (!city && state && countryCode === 'CA') {
+  if ((!city || isOtherStatePattern) && state && countryCode === 'CA') {
     return `${state}, Canada`
   }
 
