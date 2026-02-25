@@ -1,0 +1,90 @@
+name: Auto-Fix Failed Workflow
+
+on:
+  workflow_run:
+    workflows:
+      - "Auto Data Sync (No AI)"
+      - "Fast Deploy (Code Only)"
+      - "Data Processing & Deploy"
+    types:
+      - completed
+
+jobs:
+  auto-fix:
+    if: github.event.workflow_run.conclusion == 'failure'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      id-token: write
+      actions: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get failure logs
+        id: logs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          RUN_ID=${{ github.event.workflow_run.id }}
+          WORKFLOW_NAME="${{ github.event.workflow_run.name }}"
+          echo "run_id=$RUN_ID" >> "$GITHUB_OUTPUT"
+          echo "workflow_name=$WORKFLOW_NAME" >> "$GITHUB_OUTPUT"
+
+          LOGS=$(gh run view "$RUN_ID" --log-failed 2>&1 | tail -200)
+          {
+            echo "failed_logs<<LOGS_EOF"
+            echo "$LOGS"
+            echo "LOGS_EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Run Claude Code to fix
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            A GitHub Actions workflow has failed and needs to be fixed.
+
+            **Workflow:** ${{ steps.logs.outputs.workflow_name }}
+            **Run ID:** ${{ steps.logs.outputs.run_id }}
+            **Run URL:** ${{ github.event.workflow_run.html_url }}
+            **Repository:** ${{ github.repository }}
+
+            **Failure logs (last 200 lines):**
+            ```
+            ${{ steps.logs.outputs.failed_logs }}
+            ```
+
+            Instructions:
+            1. Analyze the failure logs to identify the root cause
+            2. Search the codebase for the relevant files
+            3. Make the MINIMAL fix needed to resolve the failure
+            4. Create a new branch named fix/auto-fix-${{ steps.logs.outputs.run_id }}
+            5. Commit the fix with a clear message explaining what failed and why
+            6. Create a pull request with this body format:
+
+            ## Summary
+            Auto-fix for failed workflow: ${{ steps.logs.outputs.workflow_name }} (run #${{ steps.logs.outputs.run_id }})
+
+            ## Failure Analysis
+            [Explain what failed and the root cause]
+
+            ## Key Changes
+            [List each file changed and why]
+
+            ## Testing
+            - Fix addresses the specific error from the failed run logs
+            - [Any other verification you performed]
+
+            Use gh pr create to create the pull request.
+            Do NOT push directly to main.
+          claude_args: |
+            --model claude-sonnet-4-20250514
+            --max-turns 20
+            --allowedTools "Read,Write,Edit,Bash(git:*),Bash(gh:*),Bash(python:*),Bash(pip:*),Bash(node:*),Bash(npm:*),Bash(cat:*),Bash(ls:*),Glob,Grep"
