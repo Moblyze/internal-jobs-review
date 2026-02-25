@@ -24,6 +24,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60  # Extended for AI processing (500 jobs)
 
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     # Grant GITHUB_TOKEN write permissions for data commits and GitHub Pages deployment
     permissions:
       contents: write
