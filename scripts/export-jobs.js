@@ -18,6 +18,7 @@ const __dirname = path.dirname(__filename);
 // Configuration
 const CREDENTIALS_PATH = path.join(__dirname, '../../job-scraping/config/service_account.json');
 const SPREADSHEET_NAME = 'Job Scraping Results'; // Must match .env in job-scraping
+const AGGREGATOR_SPREADSHEET_ID = '1xb3QBZG9Dtkyo_UmOGu3Oc3zMr2Cg1ohOyt-cd3WT7Y';
 const OUTPUT_PATH = path.join(__dirname, '../public/data/jobs.json');
 
 // Column mapping (matches JobPosting.to_sheet_row() order from scraper)
@@ -163,15 +164,100 @@ async function getSpreadsheetId(sheets) {
   return response.data.files[0].id;
 }
 
+// Aggregator Jobs sheet column mapping (16 cols: A-P)
+const AGGREGATOR_COLUMNS = {
+  JOB_ID: 0, TITLE: 1, COMPANY: 2, LOCATION: 3, DESCRIPTION: 4,
+  URL: 5, SOURCE: 6, POSTED_DATE: 7, SKILLS: 8, CERTIFICATIONS: 9,
+  SALARY: 10, EMPLOYMENT_TYPE: 11, PROFILE: 12, STATUS: 13,
+  STATUS_CHANGED_DATE: 14, SCRAPED_AT: 15
+};
+
+// Map aggregator employment types to review site enum
+const EMP_TYPE_MAP = {
+  'Contract': 'Contractor',
+  'Temporary': 'Temporary',
+  'Full-time': 'Full-Time',
+  'Part-time': 'Part-Time',
+  'Temp-to-Hire': 'Contractor',
+  'Unknown': null,
+};
+
+function parseAggregatorRow(row) {
+  if (!row || row.length < 6) return null;
+
+  const title = row[AGGREGATOR_COLUMNS.TITLE];
+  const url = row[AGGREGATOR_COLUMNS.URL];
+  if (!title || !url) return null;
+
+  const rawEmpType = row[AGGREGATOR_COLUMNS.EMPLOYMENT_TYPE] || '';
+  const skills = row[AGGREGATOR_COLUMNS.SKILLS] || '';
+  const certs = row[AGGREGATOR_COLUMNS.CERTIFICATIONS] || '';
+
+  return {
+    id: `agg-${row[AGGREGATOR_COLUMNS.JOB_ID] || url}`.replace(/[^a-zA-Z0-9-]/g, '-').toLowerCase(),
+    title,
+    company: row[AGGREGATOR_COLUMNS.COMPANY] || '',
+    location: row[AGGREGATOR_COLUMNS.LOCATION] || '',
+    description: row[AGGREGATOR_COLUMNS.DESCRIPTION] || '',
+    url,
+    requisitionId: null,
+    postedDate: row[AGGREGATOR_COLUMNS.POSTED_DATE] || null,
+    skills: skills ? skills.split(';').map(s => s.trim()).filter(Boolean) : [],
+    certifications: certs ? certs.split(';').map(c => c.trim()).filter(Boolean) : [],
+    salary: row[AGGREGATOR_COLUMNS.SALARY] || null,
+    employmentType: EMP_TYPE_MAP[rawEmpType] ?? null,
+    status: (row[AGGREGATOR_COLUMNS.STATUS] || 'active').toLowerCase(),
+    statusChangedDate: row[AGGREGATOR_COLUMNS.STATUS_CHANGED_DATE] || null,
+    scrapedAt: row[AGGREGATOR_COLUMNS.SCRAPED_AT] || null,
+    source: row[AGGREGATOR_COLUMNS.SOURCE] || null,
+    profile: row[AGGREGATOR_COLUMNS.PROFILE] || null,
+  };
+}
+
+async function fetchAggregatorJobs(auth) {
+  const sheets = google.sheets({ version: 'v4', auth });
+
+  console.log('📊 Fetching aggregator jobs...');
+  try {
+    const response = await sheets.spreadsheets.values.get({
+      spreadsheetId: AGGREGATOR_SPREADSHEET_ID,
+      range: 'Aggregator Jobs!A2:P', // Skip header row
+    });
+
+    const rows = response.data.values || [];
+    const jobs = rows.map(parseAggregatorRow).filter(j => j !== null);
+
+    // Filter stale jobs (>90 days old)
+    const cutoff = new Date();
+    cutoff.setDate(cutoff.getDate() - 90);
+    const fresh = jobs.filter(j => {
+      if (!j.postedDate) return true;
+      const d = new Date(j.postedDate);
+      return isNaN(d.getTime()) || d >= cutoff;
+    });
+
+    console.log(`  Found ${jobs.length} aggregator jobs, ${fresh.length} after stale filter`);
+    return fresh;
+  } catch (error) {
+    console.warn(`  ⚠️  Could not fetch aggregator jobs: ${error.message}`);
+    return [];
+  }
+}
+
 async function main() {
   try {
     console.log('🔐 Authenticating with Google Sheets...');
     const auth = await authenticate();
 
-    console.log('📊 Fetching jobs from Google Sheets...');
-    const jobs = await fetchAllJobs(auth);
+    console.log('📊 Fetching employer jobs from Google Sheets...');
+    const employerJobs = await fetchAllJobs(auth);
 
-    console.log(`\n✅ Successfully fetched ${jobs.length} total jobs`);
+    const aggregatorJobs = await fetchAggregatorJobs(auth);
+
+    // Merge (employer first, then aggregator)
+    const jobs = [...employerJobs, ...aggregatorJobs];
+
+    console.log(`\n✅ Successfully fetched ${jobs.length} total jobs (${employerJobs.length} employer + ${aggregatorJobs.length} aggregator)`);
 
     // Ensure output directory exists
     const outputDir = path.dirname(OUTPUT_PATH);
