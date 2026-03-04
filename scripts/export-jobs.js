@@ -101,9 +101,14 @@ async function fetchAllJobs(auth) {
 
   const allJobs = [];
 
-  // Fetch data from each worksheet (company)
+  // Fetch data from each worksheet (company), skip Aggregator Jobs tab (handled separately)
   for (const sheet of spreadsheet.data.sheets) {
     const sheetName = sheet.properties.title;
+
+    if (sheetName === 'Aggregator Jobs') {
+      console.log(`Skipping "${sheetName}" (handled by aggregator fetch)`);
+      continue;
+    }
 
     console.log(`Fetching jobs from "${sheetName}"...`);
 
