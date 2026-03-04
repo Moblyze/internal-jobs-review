@@ -22,6 +22,8 @@ export function useFilterParams() {
     const certifications = searchParams.get('certifications')
     const roles = searchParams.get('roles')
     const employmentTypes = searchParams.get('employmentTypes')
+    const sources = searchParams.get('sources')
+    const profiles = searchParams.get('profiles')
     const showInactive = searchParams.get('showInactive')
 
     // Parse using pipe delimiter (|) — consistent with serialization
@@ -35,6 +37,8 @@ export function useFilterParams() {
       certifications: splitParam(certifications),
       roles: splitParam(roles),
       employmentTypes: splitParam(employmentTypes),
+      sources: splitParam(sources),
+      profiles: splitParam(profiles),
       showInactive: showInactive === 'true'
     }
   }, [searchParams])
@@ -65,6 +69,12 @@ export function useFilterParams() {
     }
     if (newFilters.employmentTypes?.length > 0) {
       params.set('employmentTypes', newFilters.employmentTypes.join('|'))
+    }
+    if (newFilters.sources?.length > 0) {
+      params.set('sources', newFilters.sources.join('|'))
+    }
+    if (newFilters.profiles?.length > 0) {
+      params.set('profiles', newFilters.profiles.join('|'))
     }
     if (newFilters.showInactive) {
       params.set('showInactive', 'true')
@@ -129,6 +139,12 @@ export function buildFilterUrl(baseUrl, filters) {
   }
   if (filters.employmentTypes?.length > 0) {
     params.set('employmentTypes', filters.employmentTypes.join('|'))
+  }
+  if (filters.sources?.length > 0) {
+    params.set('sources', filters.sources.join('|'))
+  }
+  if (filters.profiles?.length > 0) {
+    params.set('profiles', filters.profiles.join('|'))
   }
   if (filters.showInactive) {
     params.set('showInactive', 'true')

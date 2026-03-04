@@ -158,7 +158,7 @@ function EnergyRegionPills({ regions, selectedRegions, onRegionSelect, label }) 
   )
 }
 
-function FiltersSearchable({ filters, onFilterChange, companies, locations, skills, certifications, roles = [], employmentTypes = [], jobs = [] }) {
+function FiltersSearchable({ filters, onFilterChange, companies, locations, skills, certifications, roles = [], employmentTypes = [], jobs = [], sources = [], profiles = [] }) {
   const [isExpanded, setIsExpanded] = useState(false)
   const [locationOptions, setLocationOptions] = useState([])
   const [topLocationsFormatted, setTopLocationsFormatted] = useState([])
@@ -242,6 +242,16 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
     }))
   }, [roles])
 
+  const sourceOptions = useMemo(() =>
+    sources.map(s => ({ label: `${s.name} (${s.count})`, value: s.name })),
+    [sources]
+  )
+
+  const profileOptions = useMemo(() =>
+    profiles.map(p => ({ label: `${p.name} (${p.count})`, value: p.name })),
+    [profiles]
+  )
+
   // Convert selected values to react-select format
   const selectedCompanies = useMemo(() =>
     (filters.companies || []).map(c => ({ label: c, value: c })),
@@ -295,6 +305,24 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
       })
       .filter(Boolean)
   }, [filters.roles, roleOptions])
+
+  const selectedSources = useMemo(() => {
+    return (filters.sources || [])
+      .map(name => {
+        const fullOption = sourceOptions.find(opt => opt.value === name)
+        return fullOption || { label: name, value: name }
+      })
+      .filter(Boolean)
+  }, [filters.sources, sourceOptions])
+
+  const selectedProfiles = useMemo(() => {
+    return (filters.profiles || [])
+      .map(name => {
+        const fullOption = profileOptions.find(opt => opt.value === name)
+        return fullOption || { label: name, value: name }
+      })
+      .filter(Boolean)
+  }, [filters.profiles, profileOptions])
 
   // Custom styles matching Tailwind theme
   const selectStyles = {
@@ -404,8 +432,22 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
     })
   }
 
+  const handleSourceChange = (selected) => {
+    onFilterChange({
+      ...filters,
+      sources: selected ? selected.map(opt => opt.value) : []
+    })
+  }
+
+  const handleProfileChange = (selected) => {
+    onFilterChange({
+      ...filters,
+      profiles: selected ? selected.map(opt => opt.value) : []
+    })
+  }
+
   const clearFilters = () => {
-    onFilterChange({ companies: [], locations: [], skills: [], certifications: [], roles: [], employmentTypes: [], showInactive: filters.showInactive })
+    onFilterChange({ companies: [], locations: [], skills: [], certifications: [], roles: [], employmentTypes: [], sources: [], profiles: [], showInactive: filters.showInactive })
   }
 
   const activeFilterCount =
@@ -414,7 +456,9 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
     (filters.skills?.length || 0) +
     (filters.certifications?.length || 0) +
     (filters.roles?.length || 0) +
-    (filters.employmentTypes?.length || 0)
+    (filters.employmentTypes?.length || 0) +
+    (filters.sources?.length || 0) +
+    (filters.profiles?.length || 0)
 
   return (
     <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 mb-6">
@@ -629,6 +673,63 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
             </p>
           )}
         </div>
+
+        {/* Divider */}
+        <div className="border-t border-gray-200 my-4"></div>
+
+        {/* Source Filter */}
+        {sourceOptions.length > 0 && (
+          <>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Source
+              </label>
+              <Select
+                isMulti
+                value={selectedSources}
+                onChange={handleSourceChange}
+                options={sourceOptions}
+                styles={selectStyles}
+                placeholder={`Filter by ${sourceOptions.length} sources...`}
+                isClearable={false}
+                closeMenuOnSelect={false}
+                className="text-sm"
+              />
+              {selectedSources.length > 0 && (
+                <p className="text-xs text-gray-500 mt-1">
+                  {selectedSources.length} {selectedSources.length === 1 ? 'source' : 'sources'} selected
+                </p>
+              )}
+            </div>
+            {/* Divider */}
+            <div className="border-t border-gray-200 my-4"></div>
+          </>
+        )}
+
+        {/* Profile Filter */}
+        {profileOptions.length > 0 && (
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Search Profile
+            </label>
+            <Select
+              isMulti
+              value={selectedProfiles}
+              onChange={handleProfileChange}
+              options={profileOptions}
+              styles={selectStyles}
+              placeholder={`Filter by ${profileOptions.length} profiles...`}
+              isClearable={false}
+              closeMenuOnSelect={false}
+              className="text-sm"
+            />
+            {selectedProfiles.length > 0 && (
+              <p className="text-xs text-gray-500 mt-1">
+                {selectedProfiles.length} {selectedProfiles.length === 1 ? 'profile' : 'profiles'} selected
+              </p>
+            )}
+          </div>
+        )}
       </div>
     </div>
   )

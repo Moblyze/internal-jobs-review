@@ -184,7 +184,7 @@ const EMP_TYPE_MAP = {
   'Full-time': 'Full-Time',
   'Part-time': 'Part-Time',
   'Temp-to-Hire': 'Contractor',
-  'Unknown': null,
+  'Unknown': 'Other',
 };
 
 function parseAggregatorRow(row) {

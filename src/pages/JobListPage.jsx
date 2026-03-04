@@ -45,6 +45,32 @@ function JobListPage() {
     })
   }, [jobs])
 
+  // Compute source and profile options from jobs (sync — simple field extraction)
+  const sources = useMemo(() => {
+    const counts = {}
+    jobs.forEach(job => {
+      if (job.status === 'removed' || job.status === 'paused') return
+      const src = job.source || 'direct'
+      counts[src] = (counts[src] || 0) + 1
+    })
+    return Object.entries(counts)
+      .map(([name, count]) => ({ name, count }))
+      .sort((a, b) => b.count - a.count)
+  }, [jobs])
+
+  const searchProfiles = useMemo(() => {
+    const counts = {}
+    jobs.forEach(job => {
+      if (job.status === 'removed' || job.status === 'paused') return
+      if (job.profile) {
+        counts[job.profile] = (counts[job.profile] || 0) + 1
+      }
+    })
+    return Object.entries(counts)
+      .map(([name, count]) => ({ name, count }))
+      .sort((a, b) => b.count - a.count)
+  }, [jobs])
+
   // State for async filter data
   const [locations, setLocations] = useState([])
   const [locationOptions, setLocationOptions] = useState([])
@@ -191,6 +217,21 @@ function JobListPage() {
         // Employment type filter
         if (filters.employmentTypes?.length > 0) {
           if (!job.employmentType || !filters.employmentTypes.includes(job.employmentType)) {
+            return false
+          }
+        }
+
+        // Source filter (jobs without source field are "direct")
+        if (filters.sources?.length > 0) {
+          const jobSource = job.source || 'direct'
+          if (!filters.sources.includes(jobSource)) {
+            return false
+          }
+        }
+
+        // Profile filter (only aggregator jobs have profiles)
+        if (filters.profiles?.length > 0) {
+          if (!job.profile || !filters.profiles.includes(job.profile)) {
             return false
           }
         }
@@ -389,7 +430,7 @@ function JobListPage() {
             <p className="text-gray-600">
               Showing {filteredJobs.length} of {jobs.length} jobs
             </p>
-            {(filters.companies?.length > 0 || filters.locations?.length > 0 || filters.skills?.length > 0 || filters.certifications?.length > 0 || filters.roles?.length > 0 || filters.employmentTypes?.length > 0) && (
+            {(filters.companies?.length > 0 || filters.locations?.length > 0 || filters.skills?.length > 0 || filters.certifications?.length > 0 || filters.roles?.length > 0 || filters.employmentTypes?.length > 0 || filters.sources?.length > 0 || filters.profiles?.length > 0) && (
               <ShareFilterButton />
             )}
             {inactiveJobsCount > 0 && (
@@ -419,6 +460,8 @@ function JobListPage() {
             certifications={certifications}
             roles={roles}
             employmentTypes={employmentTypes}
+            sources={sources}
+            profiles={searchProfiles}
             jobs={jobs}
           />
         </div>
