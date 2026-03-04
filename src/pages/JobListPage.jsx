@@ -236,6 +236,11 @@ function JobListPage() {
           }
         }
 
+        // App-ready filter (jobs suitable for seeding in the mobile app)
+        if (filters.appReadyOnly && !job.appReady) {
+          return false
+        }
+
         return true
       })
 
@@ -444,6 +449,15 @@ function JobListPage() {
                 <span className="text-sm text-gray-700">Show inactive jobs ({inactiveJobsCount})</span>
               </label>
             )}
+            <label className="flex items-center cursor-pointer">
+              <input
+                type="checkbox"
+                checked={filters.appReadyOnly || false}
+                onChange={(e) => setFilters({ ...filters, appReadyOnly: e.target.checked })}
+                className="w-4 h-4 text-green-600 rounded border-gray-300 focus:ring-green-500 mr-2"
+              />
+              <span className="text-sm text-gray-700 font-medium">App-ready only ({jobs.filter(j => j.appReady).length})</span>
+            </label>
           </div>
         </div>
       </div>
