@@ -79,15 +79,19 @@ The data pipeline is handled by `scripts/export-jobs.js`. It runs as an npm scri
 
 The `isAppReady()` function determines whether a job is suitable for seeding into the Moblyze mobile app. It is computed during the export step and stored as a boolean `appReady` field on each job object.
 
-### Criteria (all must be true)
+### Criteria (all must pass)
 
 1. **Has a title** -- `job.title` is truthy.
 2. **Has a company** -- `job.company` is truthy.
 3. **Has a location** -- `job.location` is truthy.
 4. **Description is substantial** -- `job.description.length > 50` characters.
-5. **Not Full-Time** -- `job.employmentType !== 'Full-Time'`. Moblyze focuses on contract, temporary, and other non-permanent roles.
+5. **Not Full-Time or Internship** -- `job.employmentType` must not be `'Full-Time'` or `'Internship'`.
+6. **No annual salary** -- Salary must not contain `/yr`, `per year`, or `annual` (annual pay implies full-time).
+7. **Has a valid profile OR recognized certifications** -- The job must have a search profile matching one of the 10 app role categories (subsea_oil_gas, rope_access, energy_trades, etc.), OR its certifications must include at least one app-recognized certification (API, IRATA, CSWIP, BOSIET, CDL, OSHA, TWIC, NCCER, AWS, CWI, ASNT, NDE/NDT, IWCF, WellSharp, GWO, OPITO, STCW, Rigger, etc.).
 
 If any criterion fails, the job is marked `appReady: false`.
+
+**Current stats:** 543 app-ready out of 4,871 total (470 Contractor, 72 Other, 1 Temporary).
 
 ---
 
