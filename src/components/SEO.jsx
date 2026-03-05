@@ -47,6 +47,40 @@ function SEO({ title, description, canonical }) {
 
   }, [title, description, canonical, location.pathname])
 
+  // Inject site-wide structured data (WebSite + Organization) once
+  useEffect(() => {
+    // Only add if not already present
+    if (document.querySelector('script[data-schema="site-wide"]')) return
+
+    const siteSchema = [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: 'Moblyze Jobs',
+        url: window.location.origin,
+        description: 'Find job opportunities in skilled trades and energy sectors',
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: 'Moblyze',
+        url: 'https://moblyze.me',
+        description: 'Moblyze connects job seekers with opportunities in skilled trades and energy sectors.',
+      },
+    ]
+
+    const script = document.createElement('script')
+    script.type = 'application/ld+json'
+    script.setAttribute('data-schema', 'site-wide')
+    script.textContent = JSON.stringify(siteSchema)
+    document.head.appendChild(script)
+
+    return () => {
+      const el = document.querySelector('script[data-schema="site-wide"]')
+      if (el) document.head.removeChild(el)
+    }
+  }, [])
+
   return null
 }
 

@@ -12,6 +12,104 @@ import StructuredJobDescription from '../components/StructuredJobDescription'
 import EnhanceWithAIButton from '../components/EnhanceWithAIButton'
 import TranslateButton from '../components/TranslateButton'
 
+/**
+ * Map app employment type values to schema.org EmploymentType values
+ */
+function mapEmploymentType(type) {
+  if (!type) return undefined
+  const mapping = {
+    'Full-Time': 'FULL_TIME',
+    'Part-Time': 'PART_TIME',
+    'Contractor': 'CONTRACTOR',
+    'Temporary': 'TEMPORARY',
+    'Internship': 'INTERN',
+  }
+  return mapping[type] || undefined
+}
+
+/**
+ * Parse a location string like "Houston, TX" into addressLocality and addressRegion
+ */
+function parseLocationForSchema(locationStr) {
+  if (!locationStr) return null
+  const parts = locationStr.split(',').map(p => p.trim())
+  const address = { '@type': 'PostalAddress' }
+  if (parts.length >= 2) {
+    address.addressLocality = parts[0]
+    address.addressRegion = parts[1]
+  } else {
+    address.addressLocality = parts[0]
+  }
+  return address
+}
+
+/**
+ * Build schema.org JobPosting structured data from a job object
+ */
+function buildJobPostingSchema(job, locations) {
+  const postedDate = job.postedDate ? new Date(job.postedDate) : null
+  const postedIso = postedDate ? postedDate.toISOString().split('T')[0] : undefined
+
+  let validThrough
+  if (postedDate) {
+    const expiry = new Date(postedDate)
+    expiry.setDate(expiry.getDate() + 90)
+    validThrough = expiry.toISOString().split('T')[0]
+  }
+
+  const schema = {
+    '@context': 'https://schema.org/',
+    '@type': 'JobPosting',
+    title: job.title,
+    description: job.description,
+    datePosted: postedIso,
+    validThrough,
+    hiringOrganization: {
+      '@type': 'Organization',
+      name: job.company,
+    },
+  }
+
+  const employmentType = mapEmploymentType(job.employmentType)
+  if (employmentType) {
+    schema.employmentType = employmentType
+  }
+
+  // Job location(s)
+  if (locations && locations.length > 0) {
+    const schemaLocations = locations.map(loc => ({
+      '@type': 'Place',
+      address: parseLocationForSchema(loc),
+    }))
+    schema.jobLocation = schemaLocations.length === 1 ? schemaLocations[0] : schemaLocations
+  }
+
+  // Salary
+  if (job.salary) {
+    schema.baseSalary = {
+      '@type': 'MonetaryAmount',
+      currency: 'USD',
+      value: {
+        '@type': 'QuantitativeValue',
+        value: job.salary,
+      },
+    }
+  }
+
+  // Skills
+  const validSkills = filterValidSkills(job.skills)
+  if (validSkills.length > 0) {
+    schema.skills = validSkills.join(', ')
+  }
+
+  // Direct apply URL
+  if (job.url) {
+    schema.url = job.url
+  }
+
+  return schema
+}
+
 function JobDetailPage() {
   const { jobSlug } = useParams()
   const { jobs, loading, error } = useJobs()
@@ -36,6 +134,23 @@ function JobDetailPage() {
       })
     }
   }, [jobs, job])
+
+  // Inject schema.org JobPosting structured data
+  useEffect(() => {
+    if (!job) return
+
+    const locations = getAllLocations(job.location)
+    const schema = buildJobPostingSchema(job, locations)
+    const script = document.createElement('script')
+    script.type = 'application/ld+json'
+    script.setAttribute('data-schema', 'job-posting')
+    script.textContent = JSON.stringify(schema)
+    document.head.appendChild(script)
+
+    return () => {
+      document.head.removeChild(script)
+    }
+  }, [job])
 
   if (loading) {
     return (
