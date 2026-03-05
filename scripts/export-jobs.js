@@ -228,14 +228,50 @@ function parseAggregatorRow(row) {
   return job;
 }
 
+// Valid search profiles that map to app role categories
+const APP_VALID_PROFILES = new Set([
+  'subsea_oil_gas', 'rope_access', 'energy_trades', 'survey_geophysical',
+  'ndt_inspection', 'drilling_operations', 'marine_offshore_ops',
+  'pipeline_mechanical', 'industrial_construction', 'process_plant_operations',
+]);
+
+// Certifications recognized by the app (subset — matches certification extractor categories)
+const APP_CERT_KEYWORDS = [
+  'API', 'IRATA', 'CSWIP', 'BOSIET', 'HUET', 'FOET', 'NEBOSH', 'COMPEX',
+  'NACE', 'CDL', 'OSHA', 'TWIC', 'NCCER', 'AWS', 'CWI', 'ASNT', 'NDE',
+  'NDT', 'IWCF', 'WellSharp', 'GWO', 'OPITO', 'STCW', 'Rigger',
+];
+
 /**
  * Determine if a job is suitable for app seeding.
- * Criteria: non-Full-Time, has title/company/location, description > 50 chars.
+ *
+ * Criteria (all must pass):
+ * 1. Has title, company, location
+ * 2. Description > 50 chars
+ * 3. Employment type is NOT Full-Time or Internship
+ * 4. Salary does not indicate annual/full-time pay (e.g. "/yr", "per year")
+ * 5. Has a valid profile OR has recognized certifications
  */
 function isAppReady(job) {
+  // Required fields
   if (!job.title || !job.company || !job.location) return false;
   if ((job.description || '').length < 50) return false;
-  if (job.employmentType === 'Full-Time') return false;
+
+  // Excluded employment types
+  if (job.employmentType === 'Full-Time' || job.employmentType === 'Internship') return false;
+
+  // Annual salary implies full-time
+  const salary = (job.salary || '').toLowerCase();
+  if (salary && (/\/yr\b/.test(salary) || /per\s+year/.test(salary) || /annual/.test(salary))) return false;
+
+  // Must have a valid profile OR recognized certifications
+  const hasValidProfile = job.profile && APP_VALID_PROFILES.has(job.profile);
+  const certs = job.certifications || [];
+  const certsStr = Array.isArray(certs) ? certs.join(' ') : String(certs);
+  const hasAppCerts = APP_CERT_KEYWORDS.some(kw => certsStr.toLowerCase().includes(kw.toLowerCase()));
+
+  if (!hasValidProfile && !hasAppCerts) return false;
+
   return true;
 }
 
