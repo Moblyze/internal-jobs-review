@@ -168,17 +168,17 @@ function JobDetailPage() {
 
       {/* Job Description */}
       <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
           <div className="flex items-center gap-3">
-            <h2 className="text-xl font-semibold text-gray-900">Job Description</h2>
+            <h2 className="text-xl font-semibold text-gray-900 whitespace-nowrap">Job Description</h2>
             <TranslateButton text={job.description} onTranslated={setTranslatedDescription} />
           </div>
 
           {/* Toggle Button and Badge OR Enhance Button */}
           {hasStructuredDescription ? (
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
               {/* Version Badge */}
-              <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${
+              <span className={`inline-flex items-center px-2 py-0.5 sm:px-3 sm:py-1 rounded-full text-xs font-medium ${
                 descriptionView === 'ai'
                   ? 'bg-green-100 text-green-800'
                   : 'bg-gray-100 text-gray-800'
@@ -198,9 +198,9 @@ function JobDetailPage() {
               {/* Toggle Button */}
               <button
                 onClick={() => setDescriptionView(descriptionView === 'ai' ? 'original' : 'ai')}
-                className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+                className="inline-flex items-center px-2.5 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors whitespace-nowrap"
               >
-                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
                 </svg>
                 {descriptionView === 'ai' ? 'View Original' : 'View AI-Structured'}

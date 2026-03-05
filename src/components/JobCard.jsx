@@ -30,46 +30,48 @@ function JobCard({ job }) {
         )}
       </div>
 
-      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-3">
-        <Link
-          to={`/companies/${companyToSlug(job.company)}${searchString ? `?${searchString}` : ''}`}
-          onClick={(e) => e.stopPropagation()}
-          className="text-blue-600 hover:text-blue-700 font-medium text-sm"
-        >
-          {job.company}
-        </Link>
+      <div className="mb-3">
+        <div className="flex items-center flex-wrap gap-x-4 gap-y-1">
+          <Link
+            to={`/companies/${companyToSlug(job.company)}${searchString ? `?${searchString}` : ''}`}
+            onClick={(e) => e.stopPropagation()}
+            className="text-blue-600 hover:text-blue-700 font-medium text-sm"
+          >
+            {job.company}
+          </Link>
 
-        {(() => {
-          const formattedLocation = formatLocation(job.location);
-          if (!formattedLocation) return null;
+          {(() => {
+            const formattedLocation = formatLocation(job.location);
+            if (!formattedLocation) return null;
 
-          return (
-            <div className="flex items-center text-gray-600 text-sm">
-              <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"></path>
-              </svg>
-              {formattedLocation}
-            </div>
-          );
-        })()}
+            return (
+              <div className="flex items-center text-gray-600 text-sm">
+                <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"></path>
+                </svg>
+                {formattedLocation}
+              </div>
+            );
+          })()}
 
-        {job.employmentType && (
-          <span className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium whitespace-nowrap ${
-            job.employmentType === 'Contractor'
-              ? 'bg-orange-100 text-orange-800'
-              : job.employmentType === 'Full-Time'
-              ? 'bg-green-100 text-green-800'
-              : job.employmentType === 'Part-Time'
-              ? 'bg-purple-100 text-purple-800'
-              : job.employmentType === 'Temporary'
-              ? 'bg-yellow-100 text-yellow-800'
-              : job.employmentType === 'Internship'
-              ? 'bg-teal-100 text-teal-800'
-              : 'bg-gray-100 text-gray-800'
-          }`}>
-            {job.employmentType}
-          </span>
-        )}
+          {job.employmentType && (
+            <span className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium whitespace-nowrap ${
+              job.employmentType === 'Contractor'
+                ? 'bg-orange-100 text-orange-800'
+                : job.employmentType === 'Full-Time'
+                ? 'bg-green-100 text-green-800'
+                : job.employmentType === 'Part-Time'
+                ? 'bg-purple-100 text-purple-800'
+                : job.employmentType === 'Temporary'
+                ? 'bg-yellow-100 text-yellow-800'
+                : job.employmentType === 'Internship'
+                ? 'bg-teal-100 text-teal-800'
+                : 'bg-gray-100 text-gray-800'
+            }`}>
+              {job.employmentType}
+            </span>
+          )}
+        </div>
       </div>
 
       {job.description && (() => {

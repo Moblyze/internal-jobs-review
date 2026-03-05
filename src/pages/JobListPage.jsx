@@ -404,61 +404,66 @@ function JobListPage() {
       )}
 
       <div className="mb-6">
-        <div className="flex items-start justify-between mb-2">
-          <h1 className="text-3xl font-bold text-gray-900">
-            Job Opportunities
-          </h1>
-          {lastUpdated && (
-            <div className="flex flex-col items-end gap-2">
-              <div className="flex items-center gap-2">
+        <div className="mb-2">
+          <div className="flex items-center justify-between">
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
+              Job Opportunities
+            </h1>
+            {lastUpdated && (
+              <div className="flex items-center gap-2 shrink-0 ml-4">
                 <button
                   onClick={handleRefresh}
                   disabled={loading}
-                  className="px-3 py-1.5 text-sm font-medium text-blue-600 hover:text-blue-700 hover:bg-blue-50 border border-blue-300 rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="px-3 py-1.5 text-sm font-medium text-blue-600 hover:text-blue-700 hover:bg-blue-50 border border-blue-300 rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
                 >
-                  {loading ? 'Refreshing...' : 'Refresh Jobs'}
+                  {loading ? 'Refreshing...' : 'Refresh'}
                 </button>
                 {showRefreshSuccess && (
                   <span className="text-green-600 text-sm font-medium animate-fade-in">
-                    ✓ Refreshed
+                    ✓
                   </span>
                 )}
               </div>
-              <p className="text-xs text-gray-500">
-                Last refreshed: {format(lastUpdated, 'd MMM, yyyy')} at {format(lastUpdated, 'h:mm a')} ({formatDistanceToNow(lastUpdated, { addSuffix: true, includeSeconds: false })})
-              </p>
-            </div>
+            )}
+          </div>
+          {lastUpdated && (
+            <p className="text-xs text-gray-500 mt-1">
+              Updated {format(lastUpdated, 'd MMM, yyyy')} at {format(lastUpdated, 'h:mm a')} ({formatDistanceToNow(lastUpdated, { addSuffix: true, includeSeconds: false })})
+            </p>
           )}
         </div>
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <p className="text-gray-600">
-              Showing {filteredJobs.length} of {jobs.length} jobs
-            </p>
-            {(filters.companies?.length > 0 || filters.locations?.length > 0 || filters.skills?.length > 0 || filters.certifications?.length > 0 || filters.roles?.length > 0 || filters.employmentTypes?.length > 0 || filters.sources?.length > 0 || filters.profiles?.length > 0) && (
-              <ShareFilterButton />
-            )}
-            {inactiveJobsCount > 0 && (
-              <label className="flex items-center cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={filters.showInactive}
-                  onChange={(e) => setFilters({ ...filters, showInactive: e.target.checked })}
-                  className="w-4 h-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500 mr-2"
-                />
-                <span className="text-sm text-gray-700">Show inactive jobs ({inactiveJobsCount})</span>
-              </label>
-            )}
+        <div className="flex items-center gap-3 flex-wrap">
+          <p className="text-gray-600">
+            Showing {filteredJobs.length} of {jobs.length} jobs
+          </p>
+          {(filters.companies?.length > 0 || filters.locations?.length > 0 || filters.skills?.length > 0 || filters.certifications?.length > 0 || filters.roles?.length > 0 || filters.employmentTypes?.length > 0 || filters.sources?.length > 0 || filters.profiles?.length > 0) && (
+            <ShareFilterButton />
+          )}
+          {inactiveJobsCount > 0 && (
             <label className="flex items-center cursor-pointer">
+              <input
+                type="checkbox"
+                checked={filters.showInactive}
+                onChange={(e) => setFilters({ ...filters, showInactive: e.target.checked })}
+                className="w-4 h-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500 mr-2"
+              />
+              <span className="text-sm text-gray-700">Show inactive jobs ({inactiveJobsCount})</span>
+            </label>
+          )}
+        </div>
+        <div className="mt-3">
+          <label className="inline-flex items-center cursor-pointer">
+            <div className="relative">
               <input
                 type="checkbox"
                 checked={filters.appReadyOnly || false}
                 onChange={(e) => setFilters({ ...filters, appReadyOnly: e.target.checked })}
-                className="w-4 h-4 text-green-600 rounded border-gray-300 focus:ring-green-500 mr-2"
+                className="sr-only peer"
               />
-              <span className="text-sm text-gray-700 font-medium">App-ready only ({jobs.filter(j => j.appReady).length})</span>
-            </label>
-          </div>
+              <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-green-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-green-500"></div>
+            </div>
+            <span className="ml-2 text-sm font-medium text-gray-700">App-ready ({jobs.filter(j => j.appReady).length})</span>
+          </label>
         </div>
       </div>
 

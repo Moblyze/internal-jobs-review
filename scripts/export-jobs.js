@@ -72,7 +72,7 @@ function parseRow(row, sheetName, columnMap) {
     return null;
   }
 
-  return {
+  const job = {
     id: `${sheetName}-${url}`.replace(/[^a-zA-Z0-9-]/g, '-').toLowerCase(),
     title: title,
     company: getCol('Company') || sheetName,
@@ -89,6 +89,8 @@ function parseRow(row, sheetName, columnMap) {
     statusChangedDate: getCol('Status Changed Date'),
     scrapedAt: getCol('Scraped At'),
   };
+  job.appReady = isAppReady(job);
+  return job;
 }
 
 async function fetchAllJobs(auth) {
@@ -178,13 +180,18 @@ const AGGREGATOR_COLUMNS = {
 };
 
 // Map aggregator employment types to review site enum
+// Handles both raw scraper values and cleaned values from the upload pipeline
 const EMP_TYPE_MAP = {
   'Contract': 'Contractor',
+  'Contractor': 'Contractor',
   'Temporary': 'Temporary',
   'Full-time': 'Full-Time',
+  'Full-Time': 'Full-Time',
   'Part-time': 'Part-Time',
+  'Part-Time': 'Part-Time',
   'Temp-to-Hire': 'Contractor',
   'Unknown': 'Other',
+  'Other': 'Other',
 };
 
 function parseAggregatorRow(row) {
@@ -198,7 +205,7 @@ function parseAggregatorRow(row) {
   const skills = row[AGGREGATOR_COLUMNS.SKILLS] || '';
   const certs = row[AGGREGATOR_COLUMNS.CERTIFICATIONS] || '';
 
-  return {
+  const job = {
     id: `agg-${row[AGGREGATOR_COLUMNS.JOB_ID] || url}`.replace(/[^a-zA-Z0-9-]/g, '-').toLowerCase(),
     title,
     company: row[AGGREGATOR_COLUMNS.COMPANY] || '',
@@ -217,6 +224,19 @@ function parseAggregatorRow(row) {
     source: row[AGGREGATOR_COLUMNS.SOURCE] || null,
     profile: row[AGGREGATOR_COLUMNS.PROFILE] || null,
   };
+  job.appReady = isAppReady(job);
+  return job;
+}
+
+/**
+ * Determine if a job is suitable for app seeding.
+ * Criteria: non-Full-Time, has title/company/location, description > 50 chars.
+ */
+function isAppReady(job) {
+  if (!job.title || !job.company || !job.location) return false;
+  if ((job.description || '').length < 50) return false;
+  if (job.employmentType === 'Full-Time') return false;
+  return true;
 }
 
 async function fetchAggregatorJobs(auth) {
@@ -262,7 +282,8 @@ async function main() {
     // Merge (employer first, then aggregator)
     const jobs = [...employerJobs, ...aggregatorJobs];
 
-    console.log(`\n✅ Successfully fetched ${jobs.length} total jobs (${employerJobs.length} employer + ${aggregatorJobs.length} aggregator)`);
+    const appReadyCount = jobs.filter(j => j.appReady).length;
+    console.log(`\n✅ Successfully fetched ${jobs.length} total jobs (${employerJobs.length} employer + ${aggregatorJobs.length} aggregator, ${appReadyCount} app-ready)`);
 
     // Ensure output directory exists
     const outputDir = path.dirname(OUTPUT_PATH);

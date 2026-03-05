@@ -21,9 +21,9 @@ import Anthropic from '@anthropic-ai/sdk';
 /**
  * Configuration
  */
-const AI_PROXY_URL = 
+const AI_PROXY_URL =
   typeof import.meta !== 'undefined' && import.meta.env
-    ? import.meta.env.VITE_AI_PROXY_URL || 'http://localhost:3000'
+    ? import.meta.env.VITE_AI_PROXY_URL || 'https://refreshing-vitality-production-3c80.up.railway.app'
     : 'http://localhost:3000';
 
 /**

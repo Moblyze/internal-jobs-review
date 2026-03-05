@@ -25,6 +25,7 @@ export function useFilterParams() {
     const sources = searchParams.get('sources')
     const profiles = searchParams.get('profiles')
     const showInactive = searchParams.get('showInactive')
+    const appReadyOnly = searchParams.get('appReadyOnly')
 
     // Parse using pipe delimiter (|) — consistent with serialization
     // Also support comma for backward compatibility with old bookmarked URLs
@@ -39,7 +40,8 @@ export function useFilterParams() {
       employmentTypes: splitParam(employmentTypes),
       sources: splitParam(sources),
       profiles: splitParam(profiles),
-      showInactive: showInactive === 'true'
+      showInactive: showInactive === 'true',
+      appReadyOnly: appReadyOnly === 'true'
     }
   }, [searchParams])
 
@@ -78,6 +80,9 @@ export function useFilterParams() {
     }
     if (newFilters.showInactive) {
       params.set('showInactive', 'true')
+    }
+    if (newFilters.appReadyOnly) {
+      params.set('appReadyOnly', 'true')
     }
 
     // Update URL and create a new history entry so back button works
@@ -148,6 +153,9 @@ export function buildFilterUrl(baseUrl, filters) {
   }
   if (filters.showInactive) {
     params.set('showInactive', 'true')
+  }
+  if (filters.appReadyOnly) {
+    params.set('appReadyOnly', 'true')
   }
 
   const queryString = params.toString()
