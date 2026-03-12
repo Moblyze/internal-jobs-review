@@ -1,0 +1,35 @@
+# Job Scraping System - Python Dependencies
+
+# Browser automation for JavaScript-rendered sites
+playwright>=1.49
+
+# Data validation and schema definition
+pydantic>=2.0
+
+# Google Sheets API client
+gspread>=6.1.4
+
+# Retry logic with exponential backoff
+tenacity>=9.0
+
+# Environment variable management
+python-dotenv>=1.0
+
+# Structured logging
+structlog>=24.0
+
+# Google authentication (required by gspread for service account auth)
+google-auth>=2.0
+
+# YAML configuration file loading
+pyyaml>=6.0
+
+# Flexible date parsing for various date formats
+dateparser>=1.2
+
+# Job aggregator APIs
+python-jobspy>=1.1
+httpx>=0.27
+
+# HTML parsing for web scraping adapters
+beautifulsoup4>=4.12
