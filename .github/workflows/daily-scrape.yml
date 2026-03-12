@@ -21,11 +21,21 @@ on:
         required: false
         type: boolean
         default: false
+      skip_employer_scrapers:
+        description: 'Skip employer scrapers (run aggregators only)'
+        required: false
+        type: boolean
+        default: false
+      skip_aggregators:
+        description: 'Skip aggregator searches (run employer scrapers only)'
+        required: false
+        type: boolean
+        default: false
 
 jobs:
   scrape-jobs:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
     defaults:
       run:
         working-directory: scrapers
@@ -68,6 +78,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Install Playwright browsers
+        if: inputs.skip_employer_scrapers != true
         run: |
           playwright install chromium
 
@@ -79,7 +90,9 @@ jobs:
           echo "$GOOGLE_SERVICE_ACCOUNT_JSON" > config/service_account.json
           chmod 600 config/service_account.json
 
-      - name: Run job scraper
+      # ── Phase 1: Employer Scrapers (Workday, Avature, etc.) ──
+      - name: Run employer scrapers
+        if: inputs.skip_employer_scrapers != true
         env:
           GOOGLE_SERVICE_ACCOUNT_PATH: config/service_account.json
           GOOGLE_SHEETS_SPREADSHEET_NAME: ${{ secrets.GOOGLE_SHEETS_SPREADSHEET_NAME }}
@@ -101,6 +114,57 @@ jobs:
 
           echo "Running: $CMD"
           $CMD
+
+      # ── Phase 2: Aggregator Searches (Adzuna, Jooble, USAJobs, etc.) ──
+      - name: Run aggregator searches (all 10 profiles)
+        if: inputs.skip_aggregators != true
+        env:
+          ADZUNA_APP_ID: ${{ secrets.ADZUNA_APP_ID }}
+          ADZUNA_APP_KEY: ${{ secrets.ADZUNA_APP_KEY }}
+          JOOBLE_API_KEY: ${{ secrets.JOOBLE_API_KEY }}
+          USAJOBS_API_KEY: ${{ secrets.USAJOBS_API_KEY }}
+          USAJOBS_EMAIL: ${{ secrets.USAJOBS_EMAIL }}
+          LOG_LEVEL: INFO
+        run: |
+          PROFILES=(
+            subsea_oil_gas
+            rope_access
+            energy_trades
+            survey_geophysical
+            ndt_inspection
+            drilling_operations
+            marine_offshore_ops
+            pipeline_mechanical
+            industrial_construction
+            process_plant_operations
+          )
+
+          FAILED=0
+          SUCCEEDED=0
+
+          for PROFILE in "${PROFILES[@]}"; do
+            echo ""
+            echo "════════════════════════════════════════"
+            echo "  Aggregator search: $PROFILE"
+            echo "════════════════════════════════════════"
+            if python aggregator_cli.py search --profile "$PROFILE" --limit 50; then
+              SUCCEEDED=$((SUCCEEDED + 1))
+            else
+              echo "::warning::Aggregator profile '$PROFILE' failed"
+              FAILED=$((FAILED + 1))
+            fi
+          done
+
+          echo ""
+          echo "════════════════════════════════════════"
+          echo "  Aggregator Summary: $SUCCEEDED succeeded, $FAILED failed"
+          echo "════════════════════════════════════════"
+
+          # Fail the step only if ALL profiles failed
+          if [ "$SUCCEEDED" -eq 0 ] && [ "$FAILED" -gt 0 ]; then
+            echo "::error::All aggregator profiles failed"
+            exit 1
+          fi
 
       - name: Clean up credentials
         if: always()

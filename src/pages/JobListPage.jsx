@@ -471,19 +471,8 @@ function JobListPage() {
           {(filters.companies?.length > 0 || filters.locations?.length > 0 || filters.skills?.length > 0 || filters.certifications?.length > 0 || filters.roles?.length > 0 || filters.employmentTypes?.length > 0 || filters.sources?.length > 0 || filters.profiles?.length > 0 || filters.market?.length > 0) && (
             <ShareFilterButton />
           )}
-          {inactiveJobsCount > 0 && (
-            <label className="flex items-center cursor-pointer">
-              <input
-                type="checkbox"
-                checked={filters.showInactive}
-                onChange={(e) => setFilters({ ...filters, showInactive: e.target.checked })}
-                className="w-4 h-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500 mr-2"
-              />
-              <span className="text-sm text-gray-700">Show inactive jobs ({inactiveJobsCount})</span>
-            </label>
-          )}
         </div>
-        <div className="mt-3">
+        <div className="mt-3 flex flex-col gap-2">
           <label className="inline-flex items-center cursor-pointer">
             <div className="relative">
               <input
@@ -494,8 +483,22 @@ function JobListPage() {
               />
               <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-green-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-green-500"></div>
             </div>
-            <span className="ml-2 text-sm font-medium text-gray-700">App-ready ({jobs.filter(j => j.appReady).length})</span>
+            <span className="ml-2 text-sm font-medium text-gray-700">App Ready ({jobs.filter(j => j.appReady).length})</span>
           </label>
+          {inactiveJobsCount > 0 && (
+            <label className="inline-flex items-center cursor-pointer">
+              <div className="relative">
+                <input
+                  type="checkbox"
+                  checked={filters.showInactive || false}
+                  onChange={(e) => setFilters({ ...filters, showInactive: e.target.checked })}
+                  className="sr-only peer"
+                />
+                <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-green-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-green-500"></div>
+              </div>
+              <span className="ml-2 text-sm font-medium text-gray-700">Include Inactive ({inactiveJobsCount})</span>
+            </label>
+          )}
         </div>
       </div>
 

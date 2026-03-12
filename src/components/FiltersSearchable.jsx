@@ -186,33 +186,25 @@ function FocusMarketPills({ markets, selectedSlugs, onSelect }) {
       <div className="flex flex-wrap gap-2">
         {visibleMarkets.map((market) => {
           const isSelected = selectedSlugs.includes(market.slug)
-          const isPriority = market.isPriority
 
           return (
             <button
               key={market.slug}
               onClick={() => handlePillClick(market.slug)}
               className={`
-                px-3 py-1.5 rounded-full text-xs font-medium transition-all inline-flex items-center gap-1
+                px-3 py-1.5 rounded-full text-xs font-medium transition-all
                 ${isSelected
-                  ? isPriority
-                    ? 'bg-amber-600 text-white hover:bg-amber-700 ring-1 ring-amber-400'
-                    : 'bg-blue-600 text-white hover:bg-blue-700'
-                  : isPriority
-                    ? 'bg-amber-50 text-amber-800 hover:bg-amber-100 border border-amber-300'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-300'
+                  ? 'bg-blue-600 text-white hover:bg-blue-700'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-300'
                 }
               `}
               title={
                 isSelected
                   ? `Remove ${market.label}`
-                  : `Filter by ${market.label} (${market.count} jobs)${isPriority ? ' — Priority market' : ''}`
+                  : `Filter by ${market.label} (${market.count} jobs)`
               }
             >
               {market.label}
-              {isPriority && !isSelected && (
-                <span className="text-[10px] font-semibold text-amber-600 uppercase">NOW</span>
-              )}
             </button>
           )
         })}
@@ -587,6 +579,42 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
       </div>
 
       <div className={`space-y-4 ${isExpanded ? 'block' : 'hidden'} md:block`}>
+        {/* Focus Market Filter */}
+        {focusMarketOptions.length > 0 && (
+          <>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Focus Market
+              </label>
+              <FocusMarketPills
+                markets={focusMarkets}
+                selectedSlugs={filters.market || []}
+                onSelect={(newMarkets) => onFilterChange({ ...filters, market: newMarkets })}
+              />
+              {focusMarketOptions.length > 5 && (
+                <Select
+                  isMulti
+                  value={selectedMarkets}
+                  onChange={handleMarketChange}
+                  options={focusMarketOptions}
+                  styles={selectStyles}
+                  placeholder={`Filter by ${focusMarketOptions.length} markets...`}
+                  isClearable={false}
+                  closeMenuOnSelect={false}
+                  className="text-sm"
+                />
+              )}
+              {selectedMarkets.length > 0 && (
+                <p className="text-xs text-gray-500 mt-1">
+                  {selectedMarkets.length} {selectedMarkets.length === 1 ? 'market' : 'markets'} selected
+                </p>
+              )}
+            </div>
+            {/* Divider */}
+            <div className="border-t border-gray-200 my-4"></div>
+          </>
+        )}
+
         {/* Company Filter */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -802,42 +830,6 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
               {selectedSources.length > 0 && (
                 <p className="text-xs text-gray-500 mt-1">
                   {selectedSources.length} {selectedSources.length === 1 ? 'source' : 'sources'} selected
-                </p>
-              )}
-            </div>
-            {/* Divider */}
-            <div className="border-t border-gray-200 my-4"></div>
-          </>
-        )}
-
-        {/* Focus Market Filter */}
-        {focusMarketOptions.length > 0 && (
-          <>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Focus Market
-              </label>
-              <FocusMarketPills
-                markets={focusMarkets}
-                selectedSlugs={filters.market || []}
-                onSelect={(newMarkets) => onFilterChange({ ...filters, market: newMarkets })}
-              />
-              {focusMarketOptions.length > 5 && (
-                <Select
-                  isMulti
-                  value={selectedMarkets}
-                  onChange={handleMarketChange}
-                  options={focusMarketOptions}
-                  styles={selectStyles}
-                  placeholder={`Filter by ${focusMarketOptions.length} markets...`}
-                  isClearable={false}
-                  closeMenuOnSelect={false}
-                  className="text-sm"
-                />
-              )}
-              {selectedMarkets.length > 0 && (
-                <p className="text-xs text-gray-500 mt-1">
-                  {selectedMarkets.length} {selectedMarkets.length === 1 ? 'market' : 'markets'} selected
                 </p>
               )}
             </div>
