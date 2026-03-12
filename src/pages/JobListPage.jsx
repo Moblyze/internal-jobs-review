@@ -7,6 +7,7 @@ import { getAllLocationsAsync } from '../utils/locationParser'
 import { createGroupedLocationOptionsWithGeodata } from '../utils/locationGeodata'
 import { extractJobCertifications } from '../utils/certificationExtractor'
 import { ALL_ENERGY_REGIONS, getRegionLocationValues } from '../utils/energyRegions'
+import { getMarketLabel, PRIORITY_MARKET_SLUGS } from '../utils/focusMarkets'
 import FiltersSearchable from '../components/FiltersSearchable'
 import JobCard from '../components/JobCard'
 import SEO from '../components/SEO'
@@ -69,6 +70,30 @@ function JobListPage() {
     return Object.entries(counts)
       .map(([name, count]) => ({ name, count }))
       .sort((a, b) => b.count - a.count)
+  }, [jobs])
+
+  // Focus market options — derived from searchProfiles with human-readable labels
+  // Priority markets always appear first, then the rest sorted by job count
+  const focusMarkets = useMemo(() => {
+    const counts = {}
+    jobs.forEach(job => {
+      if (job.status === 'removed' || job.status === 'paused') return
+      if (job.profile) {
+        counts[job.profile] = (counts[job.profile] || 0) + 1
+      }
+    })
+    const all = Object.entries(counts).map(([slug, count]) => ({
+      slug,
+      label: getMarketLabel(slug),
+      count,
+      isPriority: PRIORITY_MARKET_SLUGS.includes(slug),
+    }))
+    // Priority markets first, then by count descending
+    return all.sort((a, b) => {
+      if (a.isPriority && !b.isPriority) return -1
+      if (!a.isPriority && b.isPriority) return 1
+      return b.count - a.count
+    })
   }, [jobs])
 
   // State for async filter data
@@ -232,6 +257,13 @@ function JobListPage() {
         // Profile filter (only aggregator jobs have profiles)
         if (filters.profiles?.length > 0) {
           if (!job.profile || !filters.profiles.includes(job.profile)) {
+            return false
+          }
+        }
+
+        // Focus market filter (maps to job.profile, uses human-readable URL param)
+        if (filters.market?.length > 0) {
+          if (!job.profile || !filters.market.includes(job.profile)) {
             return false
           }
         }
@@ -436,7 +468,7 @@ function JobListPage() {
           <p className="text-gray-600">
             Showing {filteredJobs.length} of {jobs.length} jobs
           </p>
-          {(filters.companies?.length > 0 || filters.locations?.length > 0 || filters.skills?.length > 0 || filters.certifications?.length > 0 || filters.roles?.length > 0 || filters.employmentTypes?.length > 0 || filters.sources?.length > 0 || filters.profiles?.length > 0) && (
+          {(filters.companies?.length > 0 || filters.locations?.length > 0 || filters.skills?.length > 0 || filters.certifications?.length > 0 || filters.roles?.length > 0 || filters.employmentTypes?.length > 0 || filters.sources?.length > 0 || filters.profiles?.length > 0 || filters.market?.length > 0) && (
             <ShareFilterButton />
           )}
           {inactiveJobsCount > 0 && (
@@ -481,6 +513,7 @@ function JobListPage() {
             employmentTypes={employmentTypes}
             sources={sources}
             profiles={searchProfiles}
+            focusMarkets={focusMarkets}
             jobs={jobs}
           />
         </div>

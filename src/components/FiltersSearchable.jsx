@@ -14,6 +14,7 @@ import { createGroupedLocationOptions } from '../utils/locationOptions'
 import { createGroupedLocationOptionsWithGeodata, getTopLocationsFormatted } from '../utils/locationGeodata'
 import { getTopCompanies, getTopLocations, getTopSkills } from '../hooks/useJobs'
 import { TOP_ENERGY_REGIONS, ADDITIONAL_ENERGY_REGIONS, getRegionLocationValues } from '../utils/energyRegions'
+import { PRIORITY_MARKET_SLUGS } from '../utils/focusMarkets'
 
 /**
  * Quick select pills component for popular filter options
@@ -158,7 +159,85 @@ function EnergyRegionPills({ regions, selectedRegions, onRegionSelect, label }) 
   )
 }
 
-function FiltersSearchable({ filters, onFilterChange, companies, locations, skills, certifications, roles = [], employmentTypes = [], jobs = [], sources = [], profiles = [] }) {
+/**
+ * Focus market pills with priority market highlighting
+ * Priority markets (NOW active) get an accent ring and "Priority" badge
+ */
+function FocusMarketPills({ markets, selectedSlugs, onSelect }) {
+  const [showAll, setShowAll] = useState(false)
+
+  // Show fewer items on mobile (3) vs desktop (5)
+  const displayLimit = typeof window !== 'undefined' && window.innerWidth < 768 ? 3 : 5
+  const visibleMarkets = showAll ? markets : markets.slice(0, displayLimit)
+  const hasMore = markets.length > displayLimit
+
+  const handlePillClick = (slug) => {
+    if (selectedSlugs.includes(slug)) {
+      onSelect(selectedSlugs.filter(s => s !== slug))
+    } else {
+      onSelect([...selectedSlugs, slug])
+    }
+  }
+
+  if (markets.length === 0) return null
+
+  return (
+    <div className="mb-2">
+      <div className="flex flex-wrap gap-2">
+        {visibleMarkets.map((market) => {
+          const isSelected = selectedSlugs.includes(market.slug)
+          const isPriority = market.isPriority
+
+          return (
+            <button
+              key={market.slug}
+              onClick={() => handlePillClick(market.slug)}
+              className={`
+                px-3 py-1.5 rounded-full text-xs font-medium transition-all inline-flex items-center gap-1
+                ${isSelected
+                  ? isPriority
+                    ? 'bg-amber-600 text-white hover:bg-amber-700 ring-1 ring-amber-400'
+                    : 'bg-blue-600 text-white hover:bg-blue-700'
+                  : isPriority
+                    ? 'bg-amber-50 text-amber-800 hover:bg-amber-100 border border-amber-300'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-300'
+                }
+              `}
+              title={
+                isSelected
+                  ? `Remove ${market.label}`
+                  : `Filter by ${market.label} (${market.count} jobs)${isPriority ? ' — Priority market' : ''}`
+              }
+            >
+              {market.label}
+              {isPriority && !isSelected && (
+                <span className="text-[10px] font-semibold text-amber-600 uppercase">NOW</span>
+              )}
+            </button>
+          )
+        })}
+        {hasMore && !showAll && (
+          <button
+            onClick={() => setShowAll(true)}
+            className="px-3 py-1.5 rounded-full text-xs font-medium text-blue-600 hover:text-blue-700 hover:bg-blue-50"
+          >
+            +{markets.length - displayLimit} more
+          </button>
+        )}
+        {hasMore && showAll && (
+          <button
+            onClick={() => setShowAll(false)}
+            className="px-3 py-1.5 rounded-full text-xs font-medium text-gray-600 hover:text-gray-700 hover:bg-gray-100"
+          >
+            Show less
+          </button>
+        )}
+      </div>
+    </div>
+  )
+}
+
+function FiltersSearchable({ filters, onFilterChange, companies, locations, skills, certifications, roles = [], employmentTypes = [], jobs = [], sources = [], profiles = [], focusMarkets = [] }) {
   const [isExpanded, setIsExpanded] = useState(false)
   const [locationOptions, setLocationOptions] = useState([])
   const [topLocationsFormatted, setTopLocationsFormatted] = useState([])
@@ -252,6 +331,14 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
     [profiles]
   )
 
+  const focusMarketOptions = useMemo(() =>
+    focusMarkets.map(m => ({
+      label: `${m.label} (${m.count})`,
+      value: m.slug,
+    })),
+    [focusMarkets]
+  )
+
   // Convert selected values to react-select format
   const selectedCompanies = useMemo(() =>
     (filters.companies || []).map(c => ({ label: c, value: c })),
@@ -323,6 +410,15 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
       })
       .filter(Boolean)
   }, [filters.profiles, profileOptions])
+
+  const selectedMarkets = useMemo(() => {
+    return (filters.market || [])
+      .map(slug => {
+        const fullOption = focusMarketOptions.find(opt => opt.value === slug)
+        return fullOption || { label: slug, value: slug }
+      })
+      .filter(Boolean)
+  }, [filters.market, focusMarketOptions])
 
   // Custom styles matching Tailwind theme
   const selectStyles = {
@@ -446,8 +542,15 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
     })
   }
 
+  const handleMarketChange = (selected) => {
+    onFilterChange({
+      ...filters,
+      market: selected ? selected.map(opt => opt.value) : []
+    })
+  }
+
   const clearFilters = () => {
-    onFilterChange({ companies: [], locations: [], skills: [], certifications: [], roles: [], employmentTypes: [], sources: [], profiles: [], showInactive: filters.showInactive })
+    onFilterChange({ companies: [], locations: [], skills: [], certifications: [], roles: [], employmentTypes: [], sources: [], profiles: [], market: [], showInactive: filters.showInactive })
   }
 
   const activeFilterCount =
@@ -458,7 +561,8 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
     (filters.roles?.length || 0) +
     (filters.employmentTypes?.length || 0) +
     (filters.sources?.length || 0) +
-    (filters.profiles?.length || 0)
+    (filters.profiles?.length || 0) +
+    (filters.market?.length || 0)
 
   return (
     <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 mb-6">
@@ -698,6 +802,42 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
               {selectedSources.length > 0 && (
                 <p className="text-xs text-gray-500 mt-1">
                   {selectedSources.length} {selectedSources.length === 1 ? 'source' : 'sources'} selected
+                </p>
+              )}
+            </div>
+            {/* Divider */}
+            <div className="border-t border-gray-200 my-4"></div>
+          </>
+        )}
+
+        {/* Focus Market Filter */}
+        {focusMarketOptions.length > 0 && (
+          <>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Focus Market
+              </label>
+              <FocusMarketPills
+                markets={focusMarkets}
+                selectedSlugs={filters.market || []}
+                onSelect={(newMarkets) => onFilterChange({ ...filters, market: newMarkets })}
+              />
+              {focusMarketOptions.length > 5 && (
+                <Select
+                  isMulti
+                  value={selectedMarkets}
+                  onChange={handleMarketChange}
+                  options={focusMarketOptions}
+                  styles={selectStyles}
+                  placeholder={`Filter by ${focusMarketOptions.length} markets...`}
+                  isClearable={false}
+                  closeMenuOnSelect={false}
+                  className="text-sm"
+                />
+              )}
+              {selectedMarkets.length > 0 && (
+                <p className="text-xs text-gray-500 mt-1">
+                  {selectedMarkets.length} {selectedMarkets.length === 1 ? 'market' : 'markets'} selected
                 </p>
               )}
             </div>
