@@ -1,0 +1,19 @@
+# Credentials
+config/service_account.json
+.env
+
+# SQLite state
+data/
+*.db
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Logs
+logs/
+
+# OS
+.DS_Store

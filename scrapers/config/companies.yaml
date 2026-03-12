@@ -1,0 +1,204 @@
+# Company-specific scraper configuration for Workday platforms
+#
+# Each company defines:
+# - name: Display name
+# - platform: ATS platform (workday, avature, successfactors)
+# - base_url: Workday portal URL
+# - rate_limit_delay: Seconds to wait between requests (avoid anti-bot detection)
+# - selectors: CSS/XPath selectors for data extraction
+# - sheet_name: Google Sheets worksheet name for this company
+
+companies:
+  baker_hughes:
+    name: "Baker Hughes"
+    platform: workday
+    base_url: "https://bakerhughes.wd5.myworkdayjobs.com/BakerHughes"
+    rate_limit_delay: 2.5
+    selectors:
+      # Workday uses data-automation-id attributes for testing (most stable)
+      job_list: '[data-automation-id="jobResults"]'
+      job_card: 'a[data-automation-id="jobTitle"]'
+      job_title: '[data-automation-id="jobPostingHeader"]'
+      location: '[data-automation-id="locations"]'
+      posted_date: '[data-automation-id="postedOn"]'
+      description: '[data-automation-id="jobPostingDescription"]'
+    sheet_name: "Baker Hughes"
+
+  noble_corporation:
+    name: "Noble Corporation"
+    platform: workday
+    base_url: "https://noblecorp.wd1.myworkdayjobs.com/noblecorp"
+    rate_limit_delay: 2.5
+    selectors:
+      job_list: '[data-automation-id="jobResults"]'
+      job_card: 'a[data-automation-id="jobTitle"]'
+      job_title: '[data-automation-id="jobPostingHeader"]'
+      location: '[data-automation-id="locations"]'
+      posted_date: '[data-automation-id="postedOn"]'
+      description: '[data-automation-id="jobPostingDescription"]'
+    sheet_name: "Noble Corporation"
+
+  kbr:
+    name: "KBR"
+    platform: workday
+    base_url: "https://kbr.wd5.myworkdayjobs.com/KBR_Careers"
+    rate_limit_delay: 2.5
+    selectors:
+      job_list: '[data-automation-id="jobResults"]'
+      job_card: 'a[data-automation-id="jobTitle"]'
+      job_title: '[data-automation-id="jobPostingHeader"]'
+      location: '[data-automation-id="locations"]'
+      posted_date: '[data-automation-id="postedOn"]'
+      description: '[data-automation-id="jobPostingDescription"]'
+    sheet_name: "KBR"
+
+  subsea7:
+    name: "Subsea7"
+    platform: avature
+    base_url: "https://careers.subsea7.com/go/All-Subsea7-Jobs/9310955/"
+    rate_limit_delay: 3.0
+    selectors:
+      # Discovered selectors from browser inspection (Plan 02-03)
+      job_list: "#job-tile-list"
+      job_card: "li.job-tile"
+      job_title: "a.jobTitle-link"
+      location: "#job-location, .jobGeoLocation"
+      posted_date: ".job-date, .date"
+      description: '[itemprop="description"]'
+      pagination_next: "a.next, a[rel='next'], .pagination a:last-child"
+    sheet_name: "Subsea7"
+
+  halliburton:
+    name: "Halliburton"
+    platform: successfactors
+    base_url: "https://careers.halliburton.com/search-jobs"
+    rate_limit_delay: 2.5
+    selectors:
+      search_results: "#search-results-list"
+      job_title_link: '[role="heading"] a'
+    sf_config:
+      company_id: "HALprod"
+      career_server: "career4"
+      apply_url_template: "https://career4.successfactors.com/sfcareer/jobreqcareer?jobId={job_id}&company=HALprod"
+      pagination_type: "page"  # Uses ?p=N pattern
+    records_per_page: 15
+    total_pages_estimate: 30
+    sheet_name: "Halliburton"
+
+  technipfmc:
+    name: "TechnipFMC"
+    platform: successfactors
+    base_url: "https://careers.technipfmc.com/search-jobs"
+    rate_limit_delay: 2.5
+    selectors:
+      search_results: "#search-results-list"
+      job_title_link: '[role="heading"] a'
+    sf_config:
+      company_id: "fmctechno"
+      career_server: "career41"
+      apply_url_template: "https://career41.sapsf.com/sfcareer/jobreqcareer?jobId={job_id}&company=fmctechno"
+      pagination_type: "startrow"  # Uses ?startrow=N pattern (N = (page-1) * records_per_page)
+    records_per_page: 25
+    total_pages_estimate: 7
+    sheet_name: "TechnipFMC"
+
+  schlumberger:
+    name: "Schlumberger"
+    platform: eightfold
+    base_url: "https://slb.eightfold.ai/careers"
+    rate_limit_delay: 2.5
+    eightfold_domain: "slb.com"
+    # Eightfold uses API-first approach, selectors not needed
+    selectors:
+      # Fallback selectors if browser scraping ever needed
+      job_list: '[data-testid="position-card"]'
+      job_title: '[data-testid="position-title"]'
+    sheet_name: "Schlumberger"
+
+  # === Wave 1: High-priority Workday additions (added 2026-02-10) ===
+
+  chevron:
+    name: "Chevron"
+    platform: workday
+    base_url: "https://chevron.wd5.myworkdayjobs.com/jobs"
+    rate_limit_delay: 2.5
+    selectors:
+      job_list: '[data-automation-id="jobResults"]'
+      job_card: 'a[data-automation-id="jobTitle"]'
+      job_title: '[data-automation-id="jobPostingHeader"]'
+      location: '[data-automation-id="locations"]'
+      posted_date: '[data-automation-id="postedOn"]'
+      description: '[data-automation-id="jobPostingDescription"]'
+    sheet_name: "Chevron"
+
+  conocophillips:
+    name: "ConocoPhillips"
+    platform: workday
+    base_url: "https://conocophillips.wd1.myworkdayjobs.com/External"
+    rate_limit_delay: 2.5
+    selectors:
+      job_list: '[data-automation-id="jobResults"]'
+      job_card: 'a[data-automation-id="jobTitle"]'
+      job_title: '[data-automation-id="jobPostingHeader"]'
+      location: '[data-automation-id="locations"]'
+      posted_date: '[data-automation-id="postedOn"]'
+      description: '[data-automation-id="jobPostingDescription"]'
+    sheet_name: "ConocoPhillips"
+
+  occidental_petroleum:
+    name: "Occidental Petroleum"
+    platform: workday
+    base_url: "https://oxy.wd5.myworkdayjobs.com/Corporate"
+    rate_limit_delay: 2.5
+    selectors:
+      job_list: '[data-automation-id="jobResults"]'
+      job_card: 'a[data-automation-id="jobTitle"]'
+      job_title: '[data-automation-id="jobPostingHeader"]'
+      location: '[data-automation-id="locations"]'
+      posted_date: '[data-automation-id="postedOn"]'
+      description: '[data-automation-id="jobPostingDescription"]'
+    sheet_name: "Occidental Petroleum"
+
+  marathon_petroleum:
+    name: "Marathon Petroleum"
+    platform: workday
+    base_url: "https://mpc.wd1.myworkdayjobs.com/MPCCareers"
+    rate_limit_delay: 2.5
+    selectors:
+      job_list: '[data-automation-id="jobResults"]'
+      job_card: 'a[data-automation-id="jobTitle"]'
+      job_title: '[data-automation-id="jobPostingHeader"]'
+      location: '[data-automation-id="locations"]'
+      posted_date: '[data-automation-id="postedOn"]'
+      description: '[data-automation-id="jobPostingDescription"]'
+    sheet_name: "Marathon Petroleum"
+
+  # === Wave 2: Reusing existing scraper types (added 2026-02-10) ===
+
+  worley:
+    name: "Worley"
+    platform: eightfold
+    base_url: "https://jobs.worley.com/careers"
+    rate_limit_delay: 2.5
+    eightfold_domain: "worley.com"
+    selectors:
+      job_list: '[data-testid="position-card"]'
+      job_title: '[data-testid="position-title"]'
+    sheet_name: "Worley"
+
+  phillips_66:
+    name: "Phillips 66"
+    platform: successfactors
+    base_url: "https://careers.phillips66.com/search-jobs"
+    rate_limit_delay: 2.5
+    selectors:
+      search_results: "#search-results-list"
+      job_title_link: '[role="heading"] a'
+    sf_config:
+      company_id: "P66prod"
+      career_server: "career4"
+      apply_url_template: "https://career4.successfactors.com/sfcareer/jobreqcareer?jobId={job_id}&company=P66prod"
+      pagination_type: "page"
+    records_per_page: 25
+    total_pages_estimate: 20
+    sheet_name: "Phillips 66"
