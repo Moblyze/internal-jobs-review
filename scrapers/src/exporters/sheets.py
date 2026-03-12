@@ -178,6 +178,16 @@ class SheetsExporter:
         # Convert jobs to rows
         rows = [job.to_sheet_row() for job in jobs]
 
+        # Auto-resize worksheet if needed to fit new rows
+        rows_needed = next_row + len(rows)
+        if rows_needed > worksheet.row_count:
+            new_size = rows_needed + 500  # Add buffer
+            logger.info(
+                f"Resizing worksheet {sheet_name}: "
+                f"{worksheet.row_count} → {new_size} rows"
+            )
+            worksheet.resize(rows=new_size)
+
         # Write in batches using explicit range notation (SHEETS-02)
         total_written = 0
         for i in range(0, len(rows), self.BATCH_SIZE):
