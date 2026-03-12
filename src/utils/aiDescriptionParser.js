@@ -120,12 +120,21 @@ Your task is to analyze messy, poorly formatted job descriptions and restructure
    - Break up dense text into digestible chunks
    - Prioritize the most important information first
 
-5. **Extract skills from the description:**
-   - Identify 5-15 specific, relevant skills mentioned in the job description
-   - Focus on: technical skills, tools, software, certifications, domain knowledge, methodologies
-   - Each skill should be 1-3 words (e.g., "Project Management", "AutoCAD", "Welding", "Python")
-   - Do NOT include: soft skills like "teamwork", experience requirements, degree requirements, or job responsibilities
-   - Only extract skills that are explicitly mentioned in the text
+5. **Extract O*NET-constrained skills from the description:**
+   - Identify 5-15 skills mentioned in the job description
+   - You MUST select skills ONLY from the following allowlist (273 terms):
+
+   **O*NET Skills:** Active Learning, Active Listening, Complex Problem Solving, Coordination, Critical Thinking, Equipment Maintenance, Equipment Selection, Installation, Instructing, Judgment and Decision Making, Learning Strategies, Management of Financial Resources, Management of Material Resources, Management of Personnel Resources, Mathematics, Monitoring, Negotiation, Operation Monitoring, Operation and Control, Operations Analysis, Persuasion, Programming, Quality Control Analysis, Reading Comprehension, Repairing, Science, Service Orientation, Social Perceptiveness, Speaking, Systems Analysis, Systems Evaluation, Technology Design, Time Management, Troubleshooting, Writing
+
+   **O*NET Knowledge:** Administration and Management, Biology, Building and Construction, Chemistry, Clerical, Communications and Media, Computers and Electronics, Customer and Personal Service, Design, Economics and Accounting, Education and Training, Engineering and Technology, English Language, Fine Arts, Food Production, Foreign Language, Geography, History and Archeology, Law and Government, Mathematics, Mechanical, Medicine and Dentistry, Personnel and Human Resources, Philosophy and Theology, Physics, Production and Processing, Psychology, Public Safety and Security, Sales and Marketing, Sociology and Anthropology, Telecommunications, Therapy and Counseling, Transportation
+
+   **O*NET Abilities:** Arm-Hand Steadiness, Auditory Attention, Category Flexibility, Control Precision, Deductive Reasoning, Depth Perception, Dynamic Flexibility, Dynamic Strength, Explosive Strength, Extent Flexibility, Far Vision, Finger Dexterity, Flexibility of Closure, Fluency of Ideas, Glare Sensitivity, Gross Body Coordination, Gross Body Equilibrium, Hearing Sensitivity, Inductive Reasoning, Information Ordering, Manual Dexterity, Mathematical Reasoning, Memorization, Multilimb Coordination, Near Vision, Night Vision, Number Facility, Oral Comprehension, Oral Expression, Originality, Perceptual Speed, Peripheral Vision, Problem Sensitivity, Rate Control, Reaction Time, Response Orientation, Selective Attention, Sound Localization, Spatial Orientation, Speech Clarity, Speech Recognition, Speed of Closure, Speed of Limb Movement, Stamina, Static Strength, Time Sharing, Trunk Strength, Visual Color Discrimination, Visualization, Wrist-Finger Speed, Written Comprehension, Written Expression
+
+   **Industry Skills:** Aerospace Engineering, Chemical Engineering, Civil Engineering, Electrical Engineering, Environmental Engineering, Mechanical Engineering, Petroleum Engineering, Process Engineering, Structural Engineering, Systems Engineering, Software Engineering, Industrial Engineering, Nuclear Engineering, Marine Engineering, Subsea Engineering, Pipeline Engineering, Reservoir Engineering, Drilling Engineering, Completions Engineering, Production Engineering, Facilities Engineering, Controls Engineering, Automation Engineering, Welding, Fabrication, Machining, Soldering, Brazing, Pipefitting, Rigging, Scaffolding, Electrical Wiring, Instrumentation, Calibration, Inspection, NDT, Non-Destructive Testing, Pressure Testing, Commissioning, Decommissioning, Hot Work, Confined Space Entry, Project Management, Program Management, Contract Management, Supply Chain Management, Vendor Management, Stakeholder Management, Risk Management, Change Management, Asset Management, Performance Management, Quality Management, Cost Management, Schedule Management, Scope Management, Resource Management, Construction Management, Maintenance Management, Operations Management, Workforce Planning, Succession Planning, Project Planning, Project Scheduling, Project Controls, Cost Estimation, Budget Management, HSE, Safety Management, Environmental Management, Process Safety, Occupational Safety, Incident Investigation, Risk Assessment, Hazard Analysis, Permit to Work, Lockout Tagout, Emergency Response, Fire Safety, AutoCAD, Revit, SolidWorks, CATIA, NX, Inventor, MicroStation, PDMS, E3D, SP3D, SmartPlant, Primavera, SAP, Oracle, Maximo, MATLAB, Python, SQL, Power BI, Tableau, Excel, Microsoft Office, SCADA, PLC, DCS, CAESAR II, STAAD Pro, ETABS, ANSYS, Aspen HYSYS, R, Java, JavaScript, C++, C#, Linux, AWS, Azure, GIS, ArcGIS, Data Analysis, Data Science, Machine Learning, Artificial Intelligence, Cloud Computing, Cybersecurity, Database Management, Network Administration, DevOps, Agile, Scrum, Software Development, Web Development, API Development, System Administration, IT Infrastructure, Strategic Planning, Business Development, Financial Analysis, Budgeting, Forecasting, Procurement, Logistics, Report Writing, Technical Writing, Presentation, Communication, Leadership, Team Leadership, Teamwork, Mentoring, Problem Solving, Decision Making, Analytical Thinking, Continuous Improvement, Lean, Six Sigma, Root Cause Analysis, Statistical Analysis, Customer Service, Regulatory Compliance, Audit, Documentation, Planning, Scheduling, Attention to Detail, Drilling, Completions, Production Operations, Well Testing, Well Intervention, Workover, Artificial Lift, Subsea Operations, Pipeline Operations, Offshore Operations, Onshore Operations, Upstream Operations, Midstream Operations, Downstream Operations, Refinery Operations, LNG, Geoscience, Geology, Geophysics, Petrophysics, Seismic Interpretation, Reservoir Simulation, Power Generation, Renewable Energy, Solar Energy, Wind Energy, Grid Operations, Transmission, Distribution, FEED, EPC, Turnaround, Crane Operations, Heavy Equipment Operation, Carpentry, Plumbing, HVAC, Refrigeration, Boiler Operations, Hydraulics, Pneumatics, Mechanical Maintenance, Electrical Maintenance, Preventive Maintenance, Predictive Maintenance, Reliability Engineering, API Standards, ASME Standards, ISO Standards, NFPA
+
+   - Do NOT invent skills outside this list
+   - Match the EXACT term from the allowlist (proper capitalization)
+   - Only include skills that are clearly relevant based on the description content
 
 **Output format:**
 Return ONLY a valid JSON object (no markdown, no code blocks) with this structure:
@@ -142,7 +151,7 @@ Return ONLY a valid JSON object (no markdown, no code blocks) with this structur
       "content": ["First item", "Second item", "Third item"]
     }
   ],
-  "extractedSkills": ["Skill 1", "Skill 2", "Skill 3"]
+  "onetSkills": ["Skill 1", "Skill 2", "Skill 3"]
 }
 
 **Important:**
@@ -210,7 +219,7 @@ export async function restructureJobDescription(rawDescription, options = {}) {
   const estimatedOutputTokens = Math.min(4096, Math.max(2048, Math.ceil(trimmed.length / 2)));
 
   const {
-    model = 'claude-sonnet-4-5-20250929',
+    model = 'claude-haiku-4-5-20251001',
     maxTokens = estimatedOutputTokens,
     timeout = 30000,
   } = options;
@@ -330,15 +339,21 @@ export async function restructureJobDescription(rawDescription, options = {}) {
       }
     }
 
-    // Extract skills (default to empty array for backward compatibility)
+    // Extract O*NET-constrained skills (default to empty array for backward compatibility)
+    const onetSkills = Array.isArray(parsed.onetSkills)
+      ? parsed.onetSkills.filter(s => typeof s === 'string' && s.trim().length > 0)
+      : [];
+
+    // Backward compatibility: also check extractedSkills field
     const extractedSkills = Array.isArray(parsed.extractedSkills)
       ? parsed.extractedSkills.filter(s => typeof s === 'string' && s.trim().length > 0)
       : [];
 
-    // Return structured description with extracted skills
+    // Return structured description with O*NET skills
     return {
       sections: parsed.sections,
-      extractedSkills,
+      onetSkills: onetSkills.length > 0 ? onetSkills : extractedSkills,
+      extractedSkills: onetSkills.length > 0 ? onetSkills : extractedSkills,
     };
   } catch (error) {
     console.error('Error restructuring job description:', error);
@@ -352,6 +367,7 @@ export async function restructureJobDescription(rawDescription, options = {}) {
           content: trimmed,
         },
       ],
+      onetSkills: [],
       extractedSkills: [],
       error: error.message || 'Unknown error occurred during AI processing',
     };

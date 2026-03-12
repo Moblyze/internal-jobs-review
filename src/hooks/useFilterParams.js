@@ -24,6 +24,7 @@ export function useFilterParams() {
     const employmentTypes = searchParams.get('employmentTypes')
     const sources = searchParams.get('sources')
     const profiles = searchParams.get('profiles')
+    const market = searchParams.get('market')
     const showInactive = searchParams.get('showInactive')
     const appReadyOnly = searchParams.get('appReadyOnly')
 
@@ -40,6 +41,7 @@ export function useFilterParams() {
       employmentTypes: splitParam(employmentTypes),
       sources: splitParam(sources),
       profiles: splitParam(profiles),
+      market: splitParam(market),
       showInactive: showInactive === 'true',
       appReadyOnly: appReadyOnly === 'true'
     }
@@ -77,6 +79,9 @@ export function useFilterParams() {
     }
     if (newFilters.profiles?.length > 0) {
       params.set('profiles', newFilters.profiles.join('|'))
+    }
+    if (newFilters.market?.length > 0) {
+      params.set('market', newFilters.market.join('|'))
     }
     if (newFilters.showInactive) {
       params.set('showInactive', 'true')
@@ -150,6 +155,9 @@ export function buildFilterUrl(baseUrl, filters) {
   }
   if (filters.profiles?.length > 0) {
     params.set('profiles', filters.profiles.join('|'))
+  }
+  if (filters.market?.length > 0) {
+    params.set('market', filters.market.join('|'))
   }
   if (filters.showInactive) {
     params.set('showInactive', 'true')

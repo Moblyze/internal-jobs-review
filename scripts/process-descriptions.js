@@ -55,6 +55,7 @@ function parseArgs() {
     dryRun: false,
     limit: null,
     skipProcessed: false,
+    appReadyOnly: false,
     batchSize: null,
     rateLimit: RATE_LIMIT_DELAY
   }
@@ -64,6 +65,8 @@ function parseArgs() {
       options.dryRun = true
     } else if (arg === '--skip-processed') {
       options.skipProcessed = true
+    } else if (arg === '--app-ready-only') {
+      options.appReadyOnly = true
     } else if (arg.startsWith('--limit=')) {
       options.limit = parseInt(arg.split('=')[1], 10)
     } else if (arg.startsWith('--batch-size=')) {
@@ -201,7 +204,10 @@ async function processJobDescription(job, restructureFunction, retryCount = 0) {
 
     return {
       success: true,
-      structuredDescription
+      structuredDescription: {
+        sections: structuredDescription.sections,
+        onetSkills: structuredDescription.onetSkills || structuredDescription.extractedSkills || [],
+      }
     }
 
   } catch (error) {
@@ -263,9 +269,15 @@ async function main() {
   // Filter jobs to process
   let jobsToProcess = jobsData
 
+  if (options.appReadyOnly) {
+    jobsToProcess = jobsData.filter(job => job.appReady === true)
+    console.log(`   ${jobsToProcess.length} app-ready jobs selected`)
+  }
+
   if (options.skipProcessed) {
-    jobsToProcess = jobsData.filter(job => !job.structuredDescription)
-    console.log(`   ${jobsToProcess.length} jobs need processing (${jobsData.length - jobsToProcess.length} already processed)`)
+    const before = jobsToProcess.length
+    jobsToProcess = jobsToProcess.filter(job => !job.structuredDescription)
+    console.log(`   ${jobsToProcess.length} jobs need processing (${before - jobsToProcess.length} already processed)`)
   }
 
   if (options.limit) {
@@ -325,8 +337,11 @@ async function main() {
     const result = await processJobDescription(job, restructureJobDescription)
 
     if (result.success) {
-      // Add structuredDescription to job
+      // Add structuredDescription and onetSkills to job
       jobsData[jobIndex].structuredDescription = result.structuredDescription
+      if (result.structuredDescription.onetSkills) {
+        jobsData[jobIndex].onetSkills = result.structuredDescription.onetSkills
+      }
       stats.succeeded++
       drawProgressBar(i + 1, stats.total, job.title || 'Untitled Job', 'success')
     } else {

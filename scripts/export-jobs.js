@@ -242,19 +242,41 @@ const APP_CERT_KEYWORDS = [
   'NDT', 'IWCF', 'WellSharp', 'GWO', 'OPITO', 'STCW', 'Rigger',
 ];
 
+// Non-trade role patterns to exclude from app seeding
+const NON_TRADE_TITLE_PATTERNS = [
+  /\badministrative\s+assistant\b/i, /\baccountant\b/i, /\baccounting\b/i,
+  /\b(?:HR|human\s+resources)\s+(?:coordinator|manager|assistant|specialist)\b/i,
+  /\bpayroll\b/i, /\bdemand\s+planner\b/i, /\breceptionist\b/i,
+];
+
 /**
  * Determine if a job is suitable for app seeding.
  *
  * Criteria (all must pass):
- * 1. Has title, company, location
- * 2. Description > 50 chars
- * 3. Employment type is NOT Full-Time or Internship
- * 4. Salary does not indicate annual/full-time pay (e.g. "/yr", "per year")
- * 5. Has a valid profile OR has recognized certifications
+ * 1. Status is not closed/deleted/archived
+ * 2. Has title (>= 3 chars), company, location (trimmed)
+ * 3. Title is not a test record or internal code
+ * 4. Description > 50 chars
+ * 5. Employment type is NOT Full-Time or Internship
+ * 6. Salary does not indicate annual/full-time pay (e.g. "/yr", "per year")
+ * 7. Has a valid profile OR has recognized certifications
+ * 8. Not a non-trade office role
+ * 9. Not stale (> 120 days old)
  */
 function isAppReady(job) {
-  // Required fields
-  if (!job.title || !job.company || !job.location) return false;
+  // Exclude closed/deleted/archived jobs
+  const status = (job.status || 'active').toLowerCase();
+  if (['closed', 'deleted', 'archived', 'pending'].includes(status)) return false;
+
+  // Required fields with trimmed whitespace check
+  const title = (job.title || '').trim();
+  const location = (job.location || '').trim();
+  if (title.length < 3 || !job.company || !location) return false;
+
+  // Filter test/dummy records (but not "Test Engineer", "Test Technician", etc.)
+  if (/^test\b/i.test(title) && !/engineer|technician|inspector|analyst|specialist|operator/i.test(title)) return false;
+  if (/^[A-Z0-9.\-]+$/.test(title)) return false;
+
   if ((job.description || '').length < 50) return false;
 
   // Excluded employment types
@@ -271,6 +293,20 @@ function isAppReady(job) {
   const hasAppCerts = APP_CERT_KEYWORDS.some(kw => certsStr.toLowerCase().includes(kw.toLowerCase()));
 
   if (!hasValidProfile && !hasAppCerts) return false;
+
+  // Exclude non-trade office roles
+  if (NON_TRADE_TITLE_PATTERNS.some(p => p.test(title))) return false;
+
+  // Stale job filter (> 120 days)
+  const dateStr = job.postedDate || job.scrapedAt;
+  if (dateStr) {
+    const jobDate = new Date(dateStr);
+    if (!isNaN(jobDate.getTime())) {
+      const cutoff = new Date();
+      cutoff.setDate(cutoff.getDate() - 120);
+      if (jobDate < cutoff) return false;
+    }
+  }
 
   return true;
 }
