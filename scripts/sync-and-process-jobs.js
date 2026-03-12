@@ -54,22 +54,8 @@ const SPREADSHEET_NAME = 'Job Scraping Results';
 const RATE_LIMIT_DELAY = 500; // 500ms between AI requests
 const SAVE_INTERVAL = 10; // Save progress every N jobs
 
-// Column mapping (matches export-jobs.js)
-const COLUMNS = {
-  TITLE: 0,
-  COMPANY: 1,
-  LOCATION: 2,
-  DESCRIPTION: 3,
-  URL: 4,
-  REQUISITION_ID: 5,
-  POSTED_DATE: 6,
-  SKILLS: 7,
-  CERTIFICATIONS: 8,
-  SALARY: 9,
-  STATUS: 10,
-  STATUS_CHANGED_DATE: 11,
-  SCRAPED_AT: 12
-};
+// Sheets to skip when fetching employer jobs (handled separately or not job data)
+const SKIP_SHEETS = ['Overview', 'Aggregator Jobs'];
 
 /**
  * Parse command-line arguments
@@ -135,28 +121,42 @@ async function authenticate() {
 }
 
 /**
- * Parse row from Google Sheets
+ * Parse row from Google Sheets using header-based column mapping
  */
-function parseRow(row, sheetName) {
-  if (!row[COLUMNS.TITLE] || row[COLUMNS.TITLE] === 'Title') {
+function parseRow(row, sheetName, columnMap) {
+  if (!row || row.length === 0) {
+    return null;
+  }
+
+  const getCol = (name) => {
+    const index = columnMap[name];
+    return index !== undefined ? (row[index] || null) : null;
+  };
+
+  const title = getCol('Title');
+  const url = getCol('URL');
+
+  // Skip if no title or URL
+  if (!title || !url) {
     return null;
   }
 
   return {
-    id: `${sheetName}-${row[COLUMNS.URL]}`.replace(/[^a-zA-Z0-9-]/g, '-').toLowerCase(),
-    title: row[COLUMNS.TITLE] || '',
-    company: row[COLUMNS.COMPANY] || sheetName,
-    location: row[COLUMNS.LOCATION] || '',
-    description: row[COLUMNS.DESCRIPTION] || '',
-    url: row[COLUMNS.URL] || '',
-    requisitionId: row[COLUMNS.REQUISITION_ID] || null,
-    postedDate: row[COLUMNS.POSTED_DATE] || null,
-    skills: row[COLUMNS.SKILLS] ? row[COLUMNS.SKILLS].split(';').map(s => s.trim()).filter(Boolean) : [],
-    certifications: row[COLUMNS.CERTIFICATIONS] ? row[COLUMNS.CERTIFICATIONS].split(';').map(c => c.trim()).filter(Boolean) : [],
-    salary: row[COLUMNS.SALARY] || null,
-    status: row[COLUMNS.STATUS] || 'active',
-    statusChangedDate: row[COLUMNS.STATUS_CHANGED_DATE] || null,
-    scrapedAt: row[COLUMNS.SCRAPED_AT] || null,
+    id: `${sheetName}-${url}`.replace(/[^a-zA-Z0-9-]/g, '-').toLowerCase(),
+    title: title,
+    company: getCol('Company') || sheetName,
+    location: getCol('Location') || '',
+    description: getCol('Description') || '',
+    url: url,
+    requisitionId: getCol('Requisition ID'),
+    postedDate: getCol('Posted Date'),
+    skills: getCol('Skills') ? getCol('Skills').split(';').map(s => s.trim()).filter(Boolean) : [],
+    certifications: getCol('Certifications') ? getCol('Certifications').split(';').map(c => c.trim()).filter(Boolean) : [],
+    salary: getCol('Salary'),
+    employmentType: getCol('Employment Type') || null,
+    status: getCol('Status') || 'active',
+    statusChangedDate: getCol('Status Changed Date'),
+    scrapedAt: getCol('Scraped At'),
   };
 }
 
@@ -194,16 +194,44 @@ async function fetchJobsFromSheets(auth) {
   for (const sheet of spreadsheet.data.sheets) {
     const sheetName = sheet.properties.title;
 
+    // Skip non-data sheets
+    if (SKIP_SHEETS.includes(sheetName)) {
+      log(`   Skipping "${sheetName}" (not employer data)`);
+      continue;
+    }
+
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: spreadsheet.data.spreadsheetId,
-      range: `${sheetName}!A:K`,
+      range: `${sheetName}!A:N`, // Full 14 columns (includes Employment Type)
     });
 
     const rows = response.data.values || [];
+
+    if (rows.length === 0) {
+      log(`   No data in ${sheetName}, skipping`);
+      continue;
+    }
+
+    // Build column map from header row
+    const headers = rows[0];
+    const columnMap = {};
+    headers.forEach((header, index) => {
+      columnMap[header] = index;
+    });
+
+    // Validate required columns exist
+    const required = ['Title', 'Company', 'URL'];
+    const missing = required.filter(col => columnMap[col] === undefined);
+    if (missing.length > 0) {
+      log(`   ⚠️  ${sheetName} missing required columns: ${missing.join(', ')}, skipping`);
+      continue;
+    }
+
     const jobs = rows.slice(1)
-      .map(row => parseRow(row, sheetName))
+      .map(row => parseRow(row, sheetName, columnMap))
       .filter(job => job !== null);
 
+    log(`   Found ${jobs.length} jobs from ${sheetName}`);
     allJobs.push(...jobs);
   }
 
