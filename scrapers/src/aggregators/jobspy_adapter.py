@@ -17,7 +17,7 @@ class JobSpyAggregator(BaseAggregator):
 
     def _map_country(self, country_code: str) -> str:
         """Map 2-letter code to jobspy country format."""
-        mapping = {"us": "USA", "gb": "UK", "au": "Australia", "ca": "Canada", "no": "Norway"}
+        mapping = {"us": "USA", "gb": "UK", "au": "Australia", "ca": "Canada", "no": "Norway", "ae": "UAE", "sg": "Singapore"}
         return mapping.get(country_code.lower(), country_code)
 
     def _map_job_type(self, job_type: str) -> str:

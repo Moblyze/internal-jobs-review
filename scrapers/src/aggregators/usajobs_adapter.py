@@ -74,16 +74,16 @@ class USAJobsAggregator(BaseAggregator):
                     if not title:
                         continue
 
-                    dedup_key = f"{title.lower()}|{company.lower()}"
-                    if dedup_key in seen:
-                        continue
-                    seen.add(dedup_key)
-
                     url = (desc.get("PositionURI") or "").strip()
                     if not url:
                         continue
 
                     location = (desc.get("PositionLocationDisplay") or "Unknown").strip()
+
+                    dedup_key = f"{title.lower()}|{company.lower()}|{location.lower()}"
+                    if dedup_key in seen:
+                        continue
+                    seen.add(dedup_key)
 
                     # Get description from UserArea
                     user_area = desc.get("UserArea", {}).get("Details", {})

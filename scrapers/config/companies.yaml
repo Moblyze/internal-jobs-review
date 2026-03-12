@@ -202,3 +202,71 @@ companies:
     records_per_page: 25
     total_pages_estimate: 20
     sheet_name: "Phillips 66"
+
+  # === Wave 3: Priority additions (added 2026-03-12) ===
+
+  bp:
+    name: "BP"
+    platform: workday
+    base_url: "https://bpinternational.wd3.myworkdayjobs.com/bpCareers"
+    rate_limit_delay: 2.5
+    selectors:
+      job_list: '[data-automation-id="jobResults"]'
+      job_card: 'a[data-automation-id="jobTitle"]'
+      job_title: '[data-automation-id="jobPostingHeader"]'
+      location: '[data-automation-id="locations"]'
+      posted_date: '[data-automation-id="postedOn"]'
+      description: '[data-automation-id="jobPostingDescription"]'
+    sheet_name: "BP"
+
+  exxonmobil:
+    name: "ExxonMobil"
+    platform: successfactors
+    base_url: "https://jobs.exxonmobil.com/search-jobs"
+    rate_limit_delay: 2.5
+    selectors:
+      search_results: "#search-results-list"
+      job_title_link: '[role="heading"] a'
+    sf_config:
+      company_id: "exxonmobilP"
+      career_server: "career4"
+      apply_url_template: "https://career4.successfactors.com/sfcareer/jobreqcareer?jobId={job_id}&company=exxonmobilP"
+      pagination_type: "page"
+    records_per_page: 25
+    total_pages_estimate: 22
+    sheet_name: "ExxonMobil"
+
+  transocean:
+    name: "Transocean"
+    platform: workday
+    base_url: "https://deepwater.wd1.myworkdayjobs.com/GlobalExternalCareerSite"
+    rate_limit_delay: 2.5
+    selectors:
+      job_list: '[data-automation-id="jobResults"]'
+      job_card: 'a[data-automation-id="jobTitle"]'
+      job_title: '[data-automation-id="jobPostingHeader"]'
+      location: '[data-automation-id="locations"]'
+      posted_date: '[data-automation-id="postedOn"]'
+      description: '[data-automation-id="jobPostingDescription"]'
+    sheet_name: "Transocean"
+
+  # NOTE: Bechtel uses a non-TalentBrew SuccessFactors frontend (table-based at jobs.bechtel.com/search/).
+  # The current SuccessFactors scraper relies on TalentBrew's console.log JSON extraction which
+  # won't work here. Needs custom extraction logic or a separate scraper approach.
+  # Disabled until scraper support is added.
+  # bechtel:
+  #   name: "Bechtel"
+  #   platform: successfactors
+  #   base_url: "https://jobs.bechtel.com/search/"
+  #   rate_limit_delay: 2.5
+  #   selectors:
+  #     search_results: "#search-results-list"
+  #     job_title_link: '[role="heading"] a'
+  #   sf_config:
+  #     company_id: "Bechtel"
+  #     career_server: "career4"
+  #     apply_url_template: "https://career4.successfactors.com/sfcareer/jobreqcareer?jobId={job_id}&company=Bechtel"
+  #     pagination_type: "page"
+  #   records_per_page: 25
+  #   total_pages_estimate: 24
+  #   sheet_name: "Bechtel"
