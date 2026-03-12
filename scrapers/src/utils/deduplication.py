@@ -309,6 +309,68 @@ class DeduplicationTracker:
 
         return updated_count
 
+    def reactivate_jobs(self, company: str, current_job_urls: set[str]) -> int:
+        """
+        Re-activate jobs that were marked removed but appear in current scrape.
+
+        Args:
+            company: Company name
+            current_job_urls: Set of URLs from current scraping run
+
+        Returns:
+            Number of jobs re-activated
+        """
+        if not current_job_urls:
+            return 0
+
+        now = datetime.utcnow().isoformat()
+        cursor = self.conn.cursor()
+
+        # Find removed jobs whose URLs are in the current scrape
+        url_hashes = [self._hash_url(url) for url in current_job_urls]
+        placeholders = ','.join('?' * len(url_hashes))
+        cursor.execute(f"""
+            UPDATE scraped_jobs
+            SET status = 'active',
+                status_changed_date = ?,
+                last_seen = ?
+            WHERE company = ?
+                AND status = 'removed'
+                AND url_hash IN ({placeholders})
+        """, [now, now, company] + url_hashes)
+
+        self.conn.commit()
+        count = cursor.rowcount
+        if count > 0:
+            logger.info(f"Re-activated {count} previously removed jobs for {company}")
+        return count
+
+    def update_last_seen_batch(self, company: str, current_job_urls: set[str]):
+        """
+        Update last_seen timestamp for all jobs in current scrape.
+
+        Args:
+            company: Company name
+            current_job_urls: Set of URLs from current scraping run
+        """
+        if not current_job_urls:
+            return
+
+        now = datetime.utcnow().isoformat()
+        cursor = self.conn.cursor()
+
+        url_hashes = [self._hash_url(url) for url in current_job_urls]
+        placeholders = ','.join('?' * len(url_hashes))
+        cursor.execute(f"""
+            UPDATE scraped_jobs
+            SET last_seen = ?
+            WHERE company = ?
+                AND url_hash IN ({placeholders})
+        """, [now, company] + url_hashes)
+
+        self.conn.commit()
+        logger.debug(f"Updated last_seen for {cursor.rowcount} jobs for {company}")
+
     def detect_removed_jobs(self, company: str, current_job_urls: set[str]) -> list[dict]:
         """
         Detect jobs that were active but are no longer in current scrape.

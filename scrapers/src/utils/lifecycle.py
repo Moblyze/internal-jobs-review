@@ -61,8 +61,30 @@ class JobLifecycleManager:
         # Extract URLs from current jobs
         current_urls = {str(job.url) for job in current_jobs}
 
+        # Safety threshold: if scrape returned very few results compared to
+        # known active jobs, skip removal to avoid wiping on transient failures
+        active_jobs = self.tracker.get_active_jobs_by_company(company)
+        active_count = len(active_jobs)
+
+        skip_removal = False
+        if active_count > 10 and len(current_urls) < active_count * 0.1:
+            logger.warning(
+                f"Safety threshold triggered for {company}: "
+                f"scrape returned {len(current_urls)} jobs but "
+                f"{active_count} are active in DB. Skipping removal."
+            )
+            skip_removal = True
+
+        # Re-activate jobs that reappeared after being marked removed
+        reactivated = self.tracker.reactivate_jobs(company, current_urls)
+        if reactivated > 0:
+            logger.info(f"Re-activated {reactivated} previously removed jobs for {company}")
+
+        # Update last_seen for all scraped jobs (not just new ones)
+        self.tracker.update_last_seen_batch(company, current_urls)
+
         # Detect removed jobs
-        removed_jobs = self.tracker.detect_removed_jobs(company, current_urls)
+        removed_jobs = [] if skip_removal else self.tracker.detect_removed_jobs(company, current_urls)
 
         # Mark jobs as removed in database
         removed_count = 0
