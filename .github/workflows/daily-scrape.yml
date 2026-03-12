@@ -124,6 +124,8 @@ jobs:
           JOOBLE_API_KEY: ${{ secrets.JOOBLE_API_KEY }}
           USAJOBS_API_KEY: ${{ secrets.USAJOBS_API_KEY }}
           USAJOBS_EMAIL: ${{ secrets.USAJOBS_EMAIL }}
+          GOOGLE_SERVICE_ACCOUNT_PATH: config/service_account.json
+          GOOGLE_SHEETS_SPREADSHEET_NAME: ${{ secrets.GOOGLE_SHEETS_SPREADSHEET_NAME }}
           LOG_LEVEL: INFO
         run: |
           PROFILES=(
@@ -147,7 +149,7 @@ jobs:
             echo "════════════════════════════════════════"
             echo "  Aggregator search: $PROFILE"
             echo "════════════════════════════════════════"
-            if python aggregator_cli.py search --profile "$PROFILE" --limit 50; then
+            if python aggregator_cli.py search --profile "$PROFILE" --limit 50 --export; then
               SUCCEEDED=$((SUCCEEDED + 1))
             else
               echo "::warning::Aggregator profile '$PROFILE' failed"

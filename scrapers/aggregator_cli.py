@@ -7,6 +7,7 @@ import os
 import yaml
 import logging
 from dotenv import load_dotenv
+from typing import Optional
 
 # Add project root to path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -23,6 +24,7 @@ from src.aggregators.oiljobfinder_adapter import OilJobFinderAggregator
 from src.aggregators.linemancentral_adapter import LinemanCentralAggregator
 from src.aggregators.dedup import AggregatorDedup
 from src.aggregators.relevance import RelevanceFilter
+from src.exporters.sheets import SheetsExporter
 
 # Load environment variables
 load_dotenv()
@@ -106,6 +108,19 @@ def cmd_count(args):
     print(f"  {'TOTAL':12s}  {total:,} jobs")
     print()
 
+def get_sheets_exporter() -> Optional[SheetsExporter]:
+    """Initialize Google Sheets exporter from environment variables."""
+    credentials_path = os.getenv('GOOGLE_SERVICE_ACCOUNT_PATH')
+    if not credentials_path:
+        print("  ERROR: GOOGLE_SERVICE_ACCOUNT_PATH env var not set. Cannot export to Sheets.")
+        return None
+    try:
+        return SheetsExporter(credentials_path)
+    except Exception as e:
+        print(f"  ERROR: Failed to initialize Sheets exporter: {e}")
+        return None
+
+
 def cmd_search(args):
     """Search sources and display results."""
     profiles = load_profiles()
@@ -168,6 +183,18 @@ def cmd_search(args):
 
     print(f"\n  Showing {min(len(filtered), args.limit)} of {len(filtered)} results\n")
 
+    # Export to Google Sheets if --export flag is set
+    if getattr(args, 'export', False) and filtered:
+        sheet_name = args.sheet_name or f"Aggregator - {args.profile}"
+        print(f"  Exporting {len(filtered[:args.limit])} jobs to Google Sheets worksheet: '{sheet_name}'...")
+        exporter = get_sheets_exporter()
+        if exporter:
+            try:
+                exported = exporter.export_jobs(filtered[:args.limit], sheet_name)
+                print(f"  Successfully exported {exported} jobs to '{sheet_name}'")
+            except Exception as e:
+                print(f"  ERROR: Export failed: {e}")
+
 def main():
     parser = argparse.ArgumentParser(description="Job Aggregator CLI")
     subparsers = parser.add_subparsers(dest="command", help="Command to run")
@@ -185,6 +212,8 @@ def main():
     search_parser.add_argument("--profile", required=True, help="Search profile name")
     search_parser.add_argument("--source", help="Specific source (default: all)")
     search_parser.add_argument("--limit", type=int, default=20, help="Max results (default: 20)")
+    search_parser.add_argument("--export", action="store_true", help="Export results to Google Sheets")
+    search_parser.add_argument("--sheet-name", type=str, help="Worksheet name for export (default: 'Aggregator - <profile>')")
 
     args = parser.parse_args()
 
