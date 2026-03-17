@@ -482,3 +482,99 @@ search_profiles:
       - "retail"
       - "pharmacy"
       - "restaurant"
+
+  # ------------------------------------------------------------------
+  # Company-specific search profiles
+  # ------------------------------------------------------------------
+
+  helix_energy:
+    keywords:
+      - "Helix Energy Solutions"
+      - "Helix ESG"
+      - "Helix Offshore"
+    job_types: ["contract", "temporary"]
+    countries: ["us", "gb"]
+    relevance_include:
+      - "helix"
+      - "offshore"
+      - "subsea"
+      - "well intervention"
+      - "robotics"
+      - "rov"
+      - "diving"
+      - "marine"
+      - "vessel"
+      - "pipeline"
+      - "decommissioning"
+    relevance_exclude:
+      - "helix healthcare"
+      - "helix sleep"
+      - "mattress"
+      - "school"
+      - "nurse"
+      - "medical"
+      - "retail"
+      - "dental"
+      - "pharmacy"
+
+  interocean:
+    keywords:
+      - "Interocean"
+      - "Interocean Marine Services"
+      - "Interocean Marine"
+    job_types: ["contract", "temporary"]
+    countries: ["us", "gb", "ae", "sg"]
+    relevance_include:
+      - "interocean"
+      - "marine"
+      - "offshore"
+      - "vessel"
+      - "ship"
+      - "crew"
+      - "maritime"
+      - "deck"
+      - "engine"
+      - "navigation"
+      - "dynamic positioning"
+      - "dpo"
+    relevance_exclude:
+      - "school"
+      - "nurse"
+      - "medical"
+      - "retail"
+      - "dental"
+      - "pharmacy"
+      - "restaurant"
+
+  altrad_sparrows:
+    keywords:
+      - "Altrad Sparrows"
+      - "Sparrows Group"
+      - "Altrad Alpha"
+    job_types: ["contract", "temporary"]
+    countries: ["us", "gb", "au", "ae"]
+    relevance_include:
+      - "altrad"
+      - "sparrows"
+      - "crane"
+      - "lifting"
+      - "rigging"
+      - "mechanical handling"
+      - "inspection"
+      - "offshore"
+      - "rope access"
+      - "industrial services"
+      - "maintenance"
+      - "scaffold"
+      - "insulation"
+      - "painting"
+    relevance_exclude:
+      - "sparrow hawk"
+      - "bird"
+      - "alpha dog"
+      - "school"
+      - "nurse"
+      - "medical"
+      - "retail"
+      - "dental"
+      - "pharmacy"

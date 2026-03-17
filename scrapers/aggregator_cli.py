@@ -22,6 +22,10 @@ from src.aggregators.roadtechs_adapter import RoadtechsAggregator
 from src.aggregators.energyjobline_adapter import EnergyJoblineAggregator
 from src.aggregators.oiljobfinder_adapter import OilJobFinderAggregator
 from src.aggregators.linemancentral_adapter import LinemanCentralAggregator
+from src.aggregators.energypeople_adapter import EnergyPeopleAggregator
+from src.aggregators.energyjobsearch_adapter import EnergyJobSearchAggregator
+from src.aggregators.ogvenergy_adapter import OGVEnergyAggregator
+from src.aggregators.oilgasvacancy_adapter import OilGasVacancyAggregator
 from src.aggregators.dedup import AggregatorDedup
 from src.aggregators.relevance import RelevanceFilter
 from src.exporters.sheets import SheetsExporter
@@ -42,6 +46,10 @@ AGGREGATORS = {
     "energyjobline": EnergyJoblineAggregator,
     "oiljobfinder": OilJobFinderAggregator,
     "linemancentral": LinemanCentralAggregator,
+    "energypeople": EnergyPeopleAggregator,
+    "energyjobsearch": EnergyJobSearchAggregator,
+    "ogvenergy": OGVEnergyAggregator,
+    "oilgasvacancy": OilGasVacancyAggregator,
 }
 
 def load_profiles(path="config/aggregators.yaml"):
