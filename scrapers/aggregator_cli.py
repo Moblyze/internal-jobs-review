@@ -26,6 +26,13 @@ from src.aggregators.energypeople_adapter import EnergyPeopleAggregator
 from src.aggregators.energyjobsearch_adapter import EnergyJobSearchAggregator
 from src.aggregators.ogvenergy_adapter import OGVEnergyAggregator
 from src.aggregators.oilgasvacancy_adapter import OilGasVacancyAggregator
+from src.aggregators.gcaptain_adapter import GCaptainAggregator
+from src.aggregators.oceancrew_adapter import OceanCrewAggregator
+from src.aggregators.riggaccess_adapter import RiggAccessAggregator
+from src.aggregators.irata_adapter import IRATAAggregator
+from src.aggregators.airswift_adapter import AirswiftAggregator
+from src.aggregators.nesfircroft_adapter import NESFircroftAggregator
+from src.aggregators.brunel_adapter import BrunelAggregator
 from src.aggregators.dedup import AggregatorDedup
 from src.aggregators.relevance import RelevanceFilter
 from src.exporters.sheets import SheetsExporter
@@ -50,6 +57,15 @@ AGGREGATORS = {
     "energyjobsearch": EnergyJobSearchAggregator,
     "ogvenergy": OGVEnergyAggregator,
     "oilgasvacancy": OilGasVacancyAggregator,
+    # Maritime / Rope Access (Tier 1)
+    "gcaptain": GCaptainAggregator,
+    "oceancrew": OceanCrewAggregator,
+    "riggaccess": RiggAccessAggregator,
+    "irata": IRATAAggregator,
+    # Major Staffing Agencies (Tier 2)
+    "airswift": AirswiftAggregator,
+    "nesfircroft": NESFircroftAggregator,
+    "brunel": BrunelAggregator,
 }
 
 def load_profiles(path="config/aggregators.yaml"):
