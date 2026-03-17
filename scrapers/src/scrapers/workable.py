@@ -7,7 +7,7 @@ Used by: Interocean Marine Services, and potentially other companies using Worka
 
 Strategy:
 1. Use direct POST to /api/v3/accounts/{slug}/jobs for job listings
-2. Use GET /api/v3/accounts/{slug}/jobs/{shortcode} for full job details
+2. Use GET /api/v1/accounts/{slug}/jobs/{shortcode} for full job details
 3. Parse JSON responses with structured job data
 4. Paginate using token-based pagination
 5. Extract job details (description, requirements) from individual job endpoints
@@ -38,13 +38,15 @@ class WorkableScraper(BaseScraper):
     than browser-based scraping.
 
     Listing endpoint: POST https://apply.workable.com/api/v3/accounts/{slug}/jobs
-    Detail endpoint:  GET  https://apply.workable.com/api/v3/accounts/{slug}/jobs/{shortcode}
+    Detail endpoint:  GET  https://apply.workable.com/api/v1/accounts/{slug}/jobs/{shortcode}
 
     The listing endpoint returns basic job metadata (title, location, code, dates).
     The detail endpoint returns full description, requirements, benefits, and employment type.
     """
 
     BASE_API_URL = "https://apply.workable.com/api/v3/accounts"
+    # Job detail endpoint uses v1, not v3
+    DETAIL_API_URL = "https://apply.workable.com/api/v1/accounts"
 
     def __init__(self, config: dict):
         """
@@ -276,7 +278,7 @@ class WorkableScraper(BaseScraper):
                 - benefits: HTML benefits section
                 - employment_type: Job type string
         """
-        url = f"{self.BASE_API_URL}/{self.slug}/jobs/{shortcode}"
+        url = f"{self.DETAIL_API_URL}/{self.slug}/jobs/{shortcode}"
 
         try:
             response = self.session.get(url, timeout=30)
