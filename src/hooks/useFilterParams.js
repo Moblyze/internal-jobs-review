@@ -29,8 +29,12 @@ export function useFilterParams() {
     const appReadyOnly = searchParams.get('appReadyOnly')
 
     // Parse using pipe delimiter (|) — consistent with serialization
-    // Also support comma for backward compatibility with old bookmarked URLs
-    const splitParam = (val) => val ? val.split(/[|,]/).filter(Boolean) : []
+    // Fall back to comma only for old bookmarked URLs that don't contain pipes
+    const splitParam = (val) => {
+      if (!val) return []
+      if (val.includes('|')) return val.split('|').filter(Boolean)
+      return val.split(',').filter(Boolean)
+    }
 
     return {
       companies: splitParam(companies),

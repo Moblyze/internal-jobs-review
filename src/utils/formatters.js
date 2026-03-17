@@ -34,7 +34,12 @@ export function timeAgo(dateString) {
 }
 
 export function companyToSlug(company) {
-  return company.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+  return company
+    .toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(/[^a-z0-9-]/g, '')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
 }
 
 export function slugToCompany(slug) {
