@@ -28,12 +28,12 @@ export function useFilterParams() {
     const showInactive = searchParams.get('showInactive')
     const appReadyOnly = searchParams.get('appReadyOnly')
 
-    // Parse using pipe delimiter (|) — consistent with serialization
-    // Fall back to comma only for old bookmarked URLs that don't contain pipes
+    // Parse using pipe delimiter (|) only — consistent with serialization
+    // No comma fallback: values like "Helix Energy Solutions Group, Inc"
+    // contain commas that must NOT be treated as delimiters
     const splitParam = (val) => {
       if (!val) return []
-      if (val.includes('|')) return val.split('|').filter(Boolean)
-      return val.split(',').filter(Boolean)
+      return val.split('|').filter(Boolean)
     }
 
     return {
