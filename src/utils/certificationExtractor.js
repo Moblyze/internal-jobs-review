@@ -365,6 +365,9 @@ function extractCertifications(text) {
   return Array.from(certifications)
 }
 
+// Cache for extractJobCertifications results (keyed by job.id)
+const jobCertCache = new Map()
+
 /**
  * Extract certifications from a job object
  * @param {Object} job - Job object with description and skills
@@ -372,6 +375,11 @@ function extractCertifications(text) {
  */
 export function extractJobCertifications(job) {
   if (!job) return []
+
+  // Check cache first (avoids re-running regex patterns on 15K descriptions during filtering)
+  if (job.id && jobCertCache.has(job.id)) {
+    return jobCertCache.get(job.id)
+  }
 
   const certifications = new Set()
 
@@ -391,7 +399,14 @@ export function extractJobCertifications(job) {
     })
   }
 
-  return Array.from(certifications).sort()
+  const result = Array.from(certifications).sort()
+
+  // Store in cache
+  if (job.id) {
+    jobCertCache.set(job.id, result)
+  }
+
+  return result
 }
 
 /**

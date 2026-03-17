@@ -8,12 +8,9 @@
  * - Mobile-friendly design
  */
 
-import { useState, useMemo, useEffect } from 'react'
+import { useState, useMemo } from 'react'
 import Select from 'react-select'
-import { createGroupedLocationOptions } from '../utils/locationOptions'
-import { createGroupedLocationOptionsWithGeodata, getTopLocationsFormatted } from '../utils/locationGeodata'
-import { getTopCompanies, getTopLocations, getTopSkills } from '../hooks/useJobs'
-import { TOP_ENERGY_REGIONS, ADDITIONAL_ENERGY_REGIONS, getRegionLocationValues } from '../utils/energyRegions'
+import { TOP_ENERGY_REGIONS, ADDITIONAL_ENERGY_REGIONS } from '../utils/energyRegions'
 import { PRIORITY_MARKET_SLUGS } from '../utils/focusMarkets'
 
 /**
@@ -229,48 +226,20 @@ function FocusMarketPills({ markets, selectedSlugs, onSelect }) {
   )
 }
 
-function FiltersSearchable({ filters, onFilterChange, companies, locations, skills, certifications, roles = [], employmentTypes = [], jobs = [], sources = [], profiles = [], focusMarkets = [] }) {
+function FiltersSearchable({ filters, onFilterChange, companies, locations, skills, certifications, roles = [], employmentTypes = [], jobs = [], sources = [], profiles = [], focusMarkets = [], precomputedLocationOptions = null, precomputedTopCompanies = null, precomputedTopLocations = null, precomputedTopSkills = null }) {
   const [isExpanded, setIsExpanded] = useState(false)
-  const [locationOptions, setLocationOptions] = useState([])
-  const [topLocationsFormatted, setTopLocationsFormatted] = useState([])
-  const [topCompanies, setTopCompanies] = useState([])
-  const [topSkills, setTopSkills] = useState([])
+
+  // Use precomputed data from JobListPage (avoids reprocessing 15K+ jobs)
+  const locationOptions = precomputedLocationOptions || []
+  const topLocationsFormatted = precomputedTopLocations || []
+  const topCompanies = precomputedTopCompanies || []
+  const topSkills = precomputedTopSkills || []
 
   // Combine top 5 and additional regions
   const allEnergyRegions = useMemo(
     () => [...TOP_ENERGY_REGIONS, ...ADDITIONAL_ENERGY_REGIONS],
     []
   )
-
-  // Load async filter data on mount
-  useEffect(() => {
-    async function loadFilterData() {
-      try {
-        // Use geocoded data for location grouping - pass jobs to extract raw locations
-        const options = await createGroupedLocationOptionsWithGeodata(jobs)
-        setLocationOptions(options)
-
-        // Get formatted top locations
-        const topLocs = await getTopLocationsFormatted(jobs, 10)
-        setTopLocationsFormatted(topLocs)
-
-        // Get top companies - show all since we have a manageable number
-        const companies = await getTopCompanies(jobs, 50)
-        setTopCompanies(companies)
-
-        const skills = await getTopSkills(jobs, 10)
-        setTopSkills(skills)
-      } catch (error) {
-        console.error('Error loading filter data:', error)
-        // Fallback to old method
-        setLocationOptions(createGroupedLocationOptions(locations))
-        getTopLocations(jobs, 10).then(setTopLocationsFormatted).catch(console.error)
-        getTopCompanies(jobs, 50).then(setTopCompanies).catch(console.error)
-        getTopSkills(jobs, 10).then(setTopSkills).catch(console.error)
-      }
-    }
-    loadFilterData()
-  }, [jobs, locations])
 
   // Create options for react-select
   const companyOptions = useMemo(() =>

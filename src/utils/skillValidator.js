@@ -846,10 +846,24 @@ export async function processSkillsAsync(skills, options = {}) {
   return deduplicated;
 }
 
+// Cache for filterValidSkills — keyed by stringified skills array.
+// With 15K jobs and ~24 visible cards re-rendering, this avoids
+// running the full normalize+validate+O*NET pipeline repeatedly.
+const filterValidSkillsCache = new Map()
+
 /**
- * Legacy function - now just calls processSkills
+ * Legacy function - now just calls processSkills with caching
  * Kept for backward compatibility
  */
 export function filterValidSkills(skills) {
-  return processSkills(skills);
+  if (!Array.isArray(skills) || skills.length === 0) return [];
+
+  // Create a cache key from the skills array
+  const key = skills.join('|');
+  const cached = filterValidSkillsCache.get(key);
+  if (cached) return cached;
+
+  const result = processSkills(skills);
+  filterValidSkillsCache.set(key, result);
+  return result;
 }

@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { mergeEnhancements } from '../utils/jobEnhancementStorage';
+import { companyToSlug } from '../utils/formatters';
 
 const LAST_UPDATED_KEY = 'jobs_last_updated';
 
@@ -21,10 +22,13 @@ export function useJobs() {
     setError(null);
     setGeocodingStatus(null);
 
+    // Use lightweight index file (no description/structuredDescription) for list view
+    // Full jobs.json is only loaded on-demand for detail pages
+    const dataFile = 'data/jobs-index.json';
     // Add cache-busting timestamp to ensure fresh data on manual refresh
     const url = forceRefresh
-      ? `${import.meta.env.BASE_URL}data/jobs.json?t=${Date.now()}`
-      : `${import.meta.env.BASE_URL}data/jobs.json`;
+      ? `${import.meta.env.BASE_URL}${dataFile}?t=${Date.now()}`
+      : `${import.meta.env.BASE_URL}${dataFile}`;
 
     if (forceRefresh) {
       console.log('[useJobs] Force refresh requested - fetching with cache-busting');
@@ -120,10 +124,62 @@ export function getJobById(jobs, jobId) {
   return jobs.find(job => job.id === jobId);
 }
 
+// Cache for full job data (loaded on-demand for detail pages)
+let fullJobsCache = null;
+let fullJobsPromise = null;
+
+/**
+ * Load full jobs data (with description) for detail pages.
+ * The index file strips descriptions for performance; this loads the full file on demand.
+ * Cached after first load.
+ */
+export async function loadFullJobData() {
+  if (fullJobsCache) return fullJobsCache;
+  if (fullJobsPromise) return fullJobsPromise;
+
+  fullJobsPromise = (async () => {
+    try {
+      const res = await fetch(`${import.meta.env.BASE_URL}data/jobs.json`);
+      if (!res.ok) throw new Error('Failed to load full job data');
+      const data = await res.json();
+      // Build a map of id -> full job for fast lookups
+      const map = new Map();
+      data.forEach(job => map.set(job.id, job));
+      fullJobsCache = map;
+      return map;
+    } catch (err) {
+      console.error('[useJobs] Error loading full job data:', err);
+      fullJobsPromise = null;
+      return new Map();
+    }
+  })();
+
+  return fullJobsPromise;
+}
+
+/**
+ * Get a job with its full description (loaded on-demand).
+ * Merges the index data with the full description from jobs.json.
+ *
+ * @param {Object} indexJob - Job from the index (may lack description)
+ * @returns {Promise<Object>} - Job with full description
+ */
+export async function getFullJob(indexJob) {
+  if (!indexJob) return null;
+  // If the job already has a full description, return as-is
+  if (indexJob.description && !indexJob.descriptionPreview) return indexJob;
+
+  const fullJobs = await loadFullJobData();
+  const fullJob = fullJobs.get(indexJob.id);
+  if (fullJob) {
+    return { ...indexJob, description: fullJob.description, structuredDescription: fullJob.structuredDescription };
+  }
+  return indexJob;
+}
+
 export function getJobsByCompany(jobs, companySlug) {
-  const company = companySlug.replace(/-/g, ' ');
   return jobs.filter(job =>
-    job.company.toLowerCase().replace(/\s+/g, '-') === companySlug
+    companyToSlug(job.company) === companySlug
   );
 }
 

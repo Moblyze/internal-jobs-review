@@ -644,6 +644,17 @@ export function getAllLocations(location) {
     .filter(Boolean);
 }
 
+// Result cache for getAllLocationsAsync — avoids re-parsing the same location string
+// across 15K+ jobs. Key = raw location string, Value = parsed location array.
+const locationResultCache = new Map()
+
+/**
+ * Clear the location result cache (e.g., after geocoded data is refreshed)
+ */
+export function clearLocationResultCache() {
+  locationResultCache.clear()
+}
+
 /**
  * Gets all locations as an array (async version that ensures geocoded cache is loaded)
  *
@@ -652,6 +663,10 @@ export function getAllLocations(location) {
  */
 export async function getAllLocationsAsync(location) {
   if (!location) return [];
+
+  // Check result cache first (same raw string => same parsed output)
+  const cached = locationResultCache.get(location)
+  if (cached) return cached
 
   // Ensure geocoded cache is loaded
   await loadGeocodedCache();
@@ -663,9 +678,14 @@ export async function getAllLocationsAsync(location) {
   });
 
   // Parse each location
-  return locations
+  const result = locations
     .map(loc => parseLocation(loc, false))
     .filter(Boolean);
+
+  // Store in cache
+  locationResultCache.set(location, result)
+
+  return result;
 }
 
 /**

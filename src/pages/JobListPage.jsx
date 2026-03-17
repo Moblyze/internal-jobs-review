@@ -107,26 +107,55 @@ function JobListPage() {
   // State for roles (loaded async)
   const [roles, setRoles] = useState([])
 
-  // Load async filter data when jobs change
+  // State for top items (computed once, passed to FiltersSearchable to avoid duplicate work)
+  const [topCompanies, setTopCompanies] = useState([])
+  const [topLocations, setTopLocations] = useState([])
+  const [topSkills, setTopSkills] = useState([])
+
+  // Show jobs immediately — set filteredJobs from jobs before filters load
+  const [filtersReady, setFiltersReady] = useState(false)
+
+  // Load async filter data when jobs change (non-blocking — jobs render immediately)
   useEffect(() => {
-    if (jobs.length > 0) {
-      // Load locations
-      getUniqueLocations(jobs).then(setLocations).catch(err => {
-        console.error('Failed to load locations:', err)
-        setLocations([])
-      })
+    if (jobs.length === 0) return
 
-      // Load location options for region matching
-      createGroupedLocationOptionsWithGeodata(jobs).then(setLocationOptions).catch(err => {
-        console.error('Failed to load location options:', err)
-        setLocationOptions([])
-      })
+    let cancelled = false
 
-      // Load skills and precompute validated skills per job for filter matching
-      console.log('[JobListPage] Starting to load skills from', jobs.length, 'jobs');
-      getUniqueSkills(jobs).then(async processedSkills => {
-        console.log('[JobListPage] Skills processed:', processedSkills.length, 'skills');
-        setSkills(processedSkills);
+    async function loadFilterData() {
+      // Phase 1: Fast filters (locations, certifications) — unblock rendering quickly
+      const [locationOptionsResult, locationsResult, certsResult, rolesResult] = await Promise.allSettled([
+        createGroupedLocationOptionsWithGeodata(jobs),
+        getUniqueLocations(jobs),
+        getCertificationsWithCounts(jobs),
+        getEnergyRoles(jobs),
+      ])
+
+      if (cancelled) return
+
+      if (locationOptionsResult.status === 'fulfilled') {
+        setLocationOptions(locationOptionsResult.value)
+        // Derive top locations from the grouped options (no extra computation)
+        const { getTopLocationsFormatted } = await import('../utils/locationGeodata')
+        getTopLocationsFormatted(jobs, 10).then(locs => {
+          if (!cancelled) setTopLocations(locs)
+        })
+      }
+      if (locationsResult.status === 'fulfilled') setLocations(locationsResult.value)
+      if (certsResult.status === 'fulfilled') setCertifications(certsResult.value)
+      if (rolesResult.status === 'fulfilled') setRoles(rolesResult.value)
+
+      // Compute top companies synchronously (fast — just counting)
+      const { getTopCompanies: getTopComps } = await import('../hooks/useJobs')
+      if (!cancelled) setTopCompanies(getTopComps(jobs, 50))
+
+      // Phase 2: Expensive skills processing (does not block filter display)
+      try {
+        console.log('[JobListPage] Starting to load skills from', jobs.length, 'jobs')
+        const processedSkills = await getUniqueSkills(jobs)
+        if (cancelled) return
+
+        console.log('[JobListPage] Skills processed:', processedSkills.length, 'skills')
+        setSkills(processedSkills)
 
         // Build per-job validated skills map so filter uses same canonical names as dropdown
         const { initializeONet } = await import('../utils/onetClient')
@@ -138,24 +167,23 @@ function JobListPage() {
             map.set(job.id, filterValidSkills(job.skills))
           }
         })
-        setValidatedSkillsByJob(map)
-      }).catch(err => {
-        console.error('[JobListPage] Failed to load skills:', err);
-        setSkills([])
-      })
+        if (!cancelled) setValidatedSkillsByJob(map)
 
-      // Load certifications
-      getCertificationsWithCounts(jobs).then(setCertifications).catch(err => {
-        console.error('Failed to load certifications:', err)
-        setCertifications([])
-      })
+        // Get top skills (uses already-loaded O*NET cache)
+        const { getTopSkills: getTopSkillsFn } = await import('../hooks/useJobs')
+        const ts = await getTopSkillsFn(jobs, 10)
+        if (!cancelled) setTopSkills(ts)
+      } catch (err) {
+        console.error('[JobListPage] Failed to load skills:', err)
+        if (!cancelled) setSkills([])
+      }
 
-      // Load roles
-      getEnergyRoles(jobs).then(setRoles).catch(err => {
-        console.error('Failed to load roles:', err)
-        setRoles([])
-      })
+      if (!cancelled) setFiltersReady(true)
     }
+
+    loadFilterData()
+
+    return () => { cancelled = true }
   }, [jobs])
 
   // Count inactive jobs
@@ -165,6 +193,41 @@ function JobListPage() {
 
   // Filter jobs (with role filtering handled asynchronously)
   const [filteredJobs, setFilteredJobs] = useState([])
+
+  // Pre-computed map of job.location -> parsed locations array (built once, used by filter)
+  const [jobLocationsCacheRef, setJobLocationsCacheRef] = useState(new Map())
+
+  // Build location cache when jobs load (runs once, not on every filter change)
+  useEffect(() => {
+    if (jobs.length === 0) return
+    let cancelled = false
+
+    async function buildLocationCache() {
+      const cache = new Map()
+      // Process in batches of 500 to avoid blocking main thread
+      for (let i = 0; i < jobs.length; i += 500) {
+        const batch = jobs.slice(i, i + 500)
+        await Promise.all(
+          batch.map(async (job) => {
+            if (job.location && !cache.has(job.location)) {
+              const locs = await getAllLocationsAsync(job.location)
+              cache.set(job.location, locs)
+            }
+          })
+        )
+        // Yield to main thread between batches
+        if (i + 500 < jobs.length) {
+          await new Promise(r => setTimeout(r, 0))
+        }
+      }
+      if (!cancelled) {
+        setJobLocationsCacheRef(cache)
+      }
+    }
+
+    buildLocationCache()
+    return () => { cancelled = true }
+  }, [jobs])
 
   useEffect(() => {
     let isCancelled = false
@@ -184,16 +247,8 @@ function JobListPage() {
         expandedLocations = [...new Set(expandedLocations)]
       }
 
-      // Pre-compute all job locations async (ensures geocoded cache is loaded)
-      const jobLocationsMap = new Map()
-      if (expandedLocations.length > 0) {
-        await Promise.all(
-          jobs.map(async (job) => {
-            const locations = await getAllLocationsAsync(job.location)
-            jobLocationsMap.set(job.id, locations)
-          })
-        )
-      }
+      // Use pre-built location cache (no async re-parsing per filter change)
+      const locationCacheReady = jobLocationsCacheRef.size > 0
 
       // Check if this effect was cancelled while async work was happening
       if (isCancelled) {
@@ -202,8 +257,6 @@ function JobListPage() {
 
       let result = jobs.filter((job) => {
         // Status filter (hide inactive unless toggled)
-        // Only filter out jobs with explicitly inactive statuses (removed, paused)
-        // Jobs with "active" or unknown statuses (like timestamps) are shown by default
         if (!filters.showInactive && (job.status === 'removed' || job.status === 'paused')) {
           return false
         }
@@ -215,7 +268,8 @@ function JobListPage() {
 
         // Location filter (includes expanded regions)
         if (expandedLocations.length > 0) {
-          const jobLocations = jobLocationsMap.get(job.id) || []
+          if (!locationCacheReady) return true // Don't filter by location until cache is ready
+          const jobLocations = jobLocationsCacheRef.get(job.location) || []
           const hasLocation = expandedLocations.some(filterLoc =>
             jobLocations.includes(filterLoc)
           )
@@ -295,7 +349,7 @@ function JobListPage() {
     return () => {
       isCancelled = true
     }
-  }, [jobs, filters, locationOptions])
+  }, [jobs, filters, locationOptions, jobLocationsCacheRef, validatedSkillsByJob])
 
   // Paginated jobs for display
   const visibleJobs = useMemo(() => {
@@ -518,6 +572,10 @@ function JobListPage() {
             profiles={searchProfiles}
             focusMarkets={focusMarkets}
             jobs={jobs}
+            precomputedLocationOptions={locationOptions}
+            precomputedTopCompanies={topCompanies}
+            precomputedTopLocations={topLocations}
+            precomputedTopSkills={topSkills}
           />
         </div>
 

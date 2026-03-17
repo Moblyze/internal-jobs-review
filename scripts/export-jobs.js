@@ -363,9 +363,28 @@ async function main() {
       fs.mkdirSync(outputDir, { recursive: true });
     }
 
-    // Write to JSON file
+    // Write to JSON file (full data for detail pages)
     fs.writeFileSync(OUTPUT_PATH, JSON.stringify(jobs, null, 2), 'utf8');
     console.log(`📝 Exported to ${OUTPUT_PATH}`);
+
+    // Write lightweight index file for list view (strips description + structuredDescription)
+    // This reduces initial payload from ~94MB to ~18MB
+    const INDEX_PATH = OUTPUT_PATH.replace('jobs.json', 'jobs-index.json');
+    const indexJobs = jobs.map(job => {
+      const { description, structuredDescription, ...rest } = job;
+      // Keep first 200 chars of description for card preview
+      if (description) {
+        rest.descriptionPreview = description
+          .replace(/<[^>]*>/g, '')    // Strip HTML
+          .replace(/\s+/g, ' ')       // Collapse whitespace
+          .trim()
+          .substring(0, 200);
+      }
+      return rest;
+    });
+    fs.writeFileSync(INDEX_PATH, JSON.stringify(indexJobs), 'utf8');
+    const indexSize = (fs.statSync(INDEX_PATH).size / 1024 / 1024).toFixed(1);
+    console.log(`📝 Exported index to ${INDEX_PATH} (${indexSize}MB)`);
 
     // Print summary by company
     const byCompany = jobs.reduce((acc, job) => {
