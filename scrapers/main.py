@@ -61,6 +61,24 @@ try:
 except ImportError:
     pass
 
+try:
+    from src.scrapers.workable import WorkableScraper
+    SCRAPER_REGISTRY['workable'] = WorkableScraper
+except ImportError:
+    pass
+
+try:
+    from src.scrapers.easyapply import EasyApplyScraper
+    SCRAPER_REGISTRY['easyapply'] = EasyApplyScraper
+except ImportError:
+    pass
+
+try:
+    from src.scrapers.taleo import TaleoScraper
+    SCRAPER_REGISTRY['taleo'] = TaleoScraper
+except ImportError:
+    pass
+
 
 def load_companies_config(config_path: str = 'config/companies.yaml') -> dict:
     """

@@ -250,6 +250,37 @@ companies:
       description: '[data-automation-id="jobPostingDescription"]'
     sheet_name: "Transocean"
 
+  # === Workable ATS companies ===
+
+  interocean:
+    name: "Interocean Marine Services"
+    platform: workable
+    base_url: "https://apply.workable.com/interocean/"
+    workable_slug: "interocean"
+    rate_limit_delay: 2.0
+    # Workable uses API-first approach, selectors not needed
+    selectors: {}
+    sheet_name: "Interocean Marine Services"
+
+  # === Taleo TBE platform (added 2026-03-17) ===
+
+  helix_energy:
+    name: "Helix Energy Solutions"
+    platform: taleo
+    base_url: "https://phf.tbe.taleo.net/phf01/ats/careers/v2/jobSearch?org=HELIXESG&cws=45"
+    rate_limit_delay: 2.5
+    taleo_config:
+      host: "phf.tbe.taleo.net"
+      instance: "phf01"
+      org: "HELIXESG"
+      cws: "45"
+    selectors:
+      # HTML fallback selectors (primary extraction uses RSS feed)
+      job_list: '.oracletaleocwsv2-accordion-group'
+      job_card: 'a.viewJobLink'
+      description: 'div[name="cwsJobDescription"]'
+    sheet_name: "Helix Energy Solutions"
+
   # NOTE: Bechtel uses a non-TalentBrew SuccessFactors frontend (table-based at jobs.bechtel.com/search/).
   # The current SuccessFactors scraper relies on TalentBrew's console.log JSON extraction which
   # won't work here. Needs custom extraction logic or a separate scraper approach.
@@ -270,3 +301,22 @@ companies:
   #   records_per_page: 25
   #   total_pages_estimate: 24
   #   sheet_name: "Bechtel"
+
+  # === EasyApply/GetHired platform ===
+
+  altrad_sparrows_us:
+    name: "Altrad Sparrows"
+    platform: easyapply
+    base_url: "https://altradsparrowsuscareers.easyapply.co/"
+    rate_limit_delay: 2.0
+    # EasyApply uses RSS feed for extraction; fetch_detail_pages enables
+    # JSON-LD parsing from individual job pages for employment type data.
+    fetch_detail_pages: true
+    # EasyApply uses RSS + JSON-LD, selectors not needed for primary extraction
+    selectors:
+      # Fallback selectors if HTML scraping ever needed
+      job_list: "#list"
+      job_card: "a.job_row"
+      job_title: "span.font_18"
+      location: "i.icon-map-marker + span"
+    sheet_name: "Altrad Sparrows"
