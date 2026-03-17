@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams, useSearchParams, Link } from 'react-router-dom'
-import { useJobs, getSimilarJobs } from '../hooks/useJobs'
+import { useJobs, getSimilarJobs, getFullJob } from '../hooks/useJobs'
 import { formatDate, companyToSlug, findJobBySlug } from '../utils/formatters'
 import { formatJobDescription } from '../utils/contentFormatter'
 import { getAllLocations } from '../utils/locationParser'
@@ -121,9 +121,23 @@ function JobDetailPage() {
   const [similarJobs, setSimilarJobs] = useState([])
   const [clientEnhancement, setClientEnhancement] = useState(null)
   const [translatedDescription, setTranslatedDescription] = useState(null)
+  const [fullJob, setFullJob] = useState(null)
 
   // Find job before useEffect (but after hooks)
-  const job = !loading && !error ? findJobBySlug(jobs, jobSlug) : null
+  const indexJob = !loading && !error ? findJobBySlug(jobs, jobSlug) : null
+
+  // Load full job data (with description) on demand for detail view
+  useEffect(() => {
+    if (indexJob) {
+      getFullJob(indexJob).then(setFullJob).catch(err => {
+        console.error('Failed to load full job data:', err)
+        setFullJob(indexJob) // Fallback to index data
+      })
+    }
+  }, [indexJob])
+
+  // Use full job if loaded, otherwise fall back to index data
+  const job = fullJob || indexJob
 
   // Load similar jobs when job changes - MUST be before conditional returns
   useEffect(() => {
