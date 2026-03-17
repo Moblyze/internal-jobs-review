@@ -12,7 +12,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { normalizeCompanyName, loadBrandVariations, detectPrefixGroups } from '../src/utils/companyNormalizer.js';
+import { normalizeCompanyName, loadBrandVariations, loadPDLCache, detectPrefixGroups } from '../src/utils/companyNormalizer.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -20,6 +20,7 @@ const __dirname = path.dirname(__filename);
 const JOBS_PATH = path.join(__dirname, '../public/data/jobs.json');
 const INDEX_PATH = path.join(__dirname, '../public/data/jobs-index.json');
 const COMPANIES_PATH = path.join(__dirname, '../public/data/companies.json');
+const PDL_CACHE_PATH = path.join(__dirname, '../public/data/pdl-company-cache.json');
 
 // Certification patterns (mirroring src/utils/certificationExtractor.js)
 const CERT_PATTERNS = {
@@ -86,6 +87,13 @@ if (fs.existsSync(COMPANIES_PATH)) {
   const companiesData = JSON.parse(fs.readFileSync(COMPANIES_PATH, 'utf8'));
   loadBrandVariations(companiesData.companies || []);
   console.log(`  Loaded ${(companiesData.companies || []).length} company profiles from companies.json`);
+}
+
+// ── Load PDL Company Cleaner cache into the normalizer ──────────────────────
+if (fs.existsSync(PDL_CACHE_PATH)) {
+  const pdlCacheData = JSON.parse(fs.readFileSync(PDL_CACHE_PATH, 'utf8'));
+  loadPDLCache(pdlCacheData);
+  console.log(`  Loaded PDL cache with ${Object.keys(pdlCacheData).length} entries`);
 }
 
 console.log('Reading jobs.json...');

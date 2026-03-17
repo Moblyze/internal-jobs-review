@@ -339,6 +339,97 @@ const EXPLICIT_GROUPS = {
   ],
 };
 
+// ── PDL Company Cleaner cache ───────────────────────────────────────────────
+// Maps raw company name (lowercase) → { canonical_name, pdl_id, industry, ... }
+let _pdlCache = null;         // raw cache data (name → PDL response)
+let _pdlCanonicalMap = null;  // lowercase raw name → title-cased canonical name
+
+/**
+ * Title-case a PDL canonical name (they return lowercase).
+ * Handles common acronyms in the energy sector.
+ */
+function _pdlTitleCase(str) {
+  if (!str) return str;
+  const specials = {
+    'slb': 'SLB', 'bp': 'BP', 'kbr': 'KBR', 'nov': 'NOV', 'edf': 'EDF',
+    'ge': 'GE', 'usa': 'USA', 'llc': 'LLC', 'plc': 'PLC', 'uk': 'UK',
+    'technipfmc': 'TechnipFMC', 'conocophillips': 'ConocoPhillips',
+    'exxonmobil': 'ExxonMobil', 'championx': 'ChampionX',
+  };
+  const lowerFull = str.toLowerCase().trim();
+  if (specials[lowerFull]) return specials[lowerFull];
+
+  return str.split(/(\s+)/).map(word => {
+    const lower = word.toLowerCase();
+    if (specials[lower]) return specials[lower];
+    if (word.length <= 1) return word;
+    if (word.startsWith('(') && word.endsWith(')')) {
+      const inner = word.slice(1, -1).toLowerCase();
+      return specials[inner] ? `(${specials[inner]})` : `(${inner.charAt(0).toUpperCase() + inner.slice(1)})`;
+    }
+    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+  }).join('');
+}
+
+/**
+ * Load the PDL Company Cleaner cache file.
+ * Call once before normalizing if you want PDL-enhanced resolution.
+ *
+ * @param {Object} cacheData - Parsed contents of pdl-company-cache.json
+ */
+export function loadPDLCache(cacheData) {
+  if (!cacheData || typeof cacheData !== 'object') return;
+
+  _pdlCache = cacheData;
+  _pdlCanonicalMap = new Map();
+
+  // Build a map: lowercase raw name → display name (title-cased PDL canonical)
+  // Group by pdl_id so all aliases of the same company resolve to one name
+  const byPdlId = new Map();
+
+  for (const [rawName, entry] of Object.entries(cacheData)) {
+    if (!entry || !entry.pdl_id || entry.score === 0) continue;
+
+    const id = entry.pdl_id;
+    if (!byPdlId.has(id)) {
+      byPdlId.set(id, {
+        displayName: _pdlTitleCase(entry.name),
+        pdlId: id,
+        industry: entry.industry || null,
+        rawNames: [],
+      });
+    }
+    byPdlId.get(id).rawNames.push(rawName);
+  }
+
+  // Map every raw name to its group's display name
+  for (const group of byPdlId.values()) {
+    for (const rawName of group.rawNames) {
+      _pdlCanonicalMap.set(rawName.toLowerCase().trim(), group.displayName);
+    }
+  }
+}
+
+/**
+ * Get PDL metadata for a company name (after loadPDLCache has been called).
+ *
+ * @param {string} name - Raw company name
+ * @returns {{ canonical_name: string, pdl_id: string, industry: string, size: string, website: string } | null}
+ */
+export function getPDLCompanyInfo(name) {
+  if (!_pdlCache || !name) return null;
+  const entry = _pdlCache[name] || _pdlCache[name.trim()];
+  if (!entry || !entry.pdl_id || entry.score === 0) return null;
+  return {
+    canonical_name: _pdlTitleCase(entry.name),
+    pdl_id: entry.pdl_id,
+    industry: entry.industry || null,
+    size: entry.size || null,
+    website: entry.website || null,
+    ticker: entry.ticker || null,
+  };
+}
+
 // ── Build reverse lookup: alias (lowercase) → canonical name ───────────────
 const _aliasToCanonical = new Map();
 
@@ -437,9 +528,10 @@ function toFuzzyKey(name) {
  * Normalise a company name to its canonical form.
  *
  * Resolution order:
- *   1. Exact match in alias map (case-insensitive)
- *   2. Match after stripping corporate suffixes
- *   3. Return the original name (trimmed) as-is
+ *   1. Exact match in EXPLICIT_GROUPS alias map (hand-curated, highest trust)
+ *   2. Match after stripping corporate suffixes against alias map
+ *   3. PDL Company Cleaner cache lookup (if loaded)
+ *   4. Return the original name (trimmed) as-is
  *
  * @param {string} name - Raw company name from a job posting
  * @returns {string} Canonical company name
@@ -449,17 +541,28 @@ export function normalizeCompanyName(name) {
   _buildAliasMap();
 
   const trimmed = name.trim();
+  const lowerTrimmed = trimmed.toLowerCase();
 
-  // 1. Exact match
-  const exactMatch = _aliasToCanonical.get(trimmed.toLowerCase());
+  // 1. Exact match in hand-curated alias map
+  const exactMatch = _aliasToCanonical.get(lowerTrimmed);
   if (exactMatch) return exactMatch;
 
-  // 2. Try after stripping suffixes
+  // 2. Try after stripping suffixes against alias map
   const stripped = stripSuffixes(trimmed);
   const strippedMatch = _aliasToCanonical.get(stripped.toLowerCase());
   if (strippedMatch) return strippedMatch;
 
-  // 3. Return trimmed original — no match found
+  // 3. PDL cache lookup
+  if (_pdlCanonicalMap) {
+    const pdlMatch = _pdlCanonicalMap.get(lowerTrimmed);
+    if (pdlMatch) return pdlMatch;
+
+    // Also try stripped version against PDL cache
+    const pdlStrippedMatch = _pdlCanonicalMap.get(stripped.toLowerCase());
+    if (pdlStrippedMatch) return pdlStrippedMatch;
+  }
+
+  // 4. Return trimmed original — no match found
   return trimmed;
 }
 
