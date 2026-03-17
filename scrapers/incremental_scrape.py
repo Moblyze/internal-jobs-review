@@ -92,6 +92,24 @@ try:
 except ImportError:
     pass
 
+try:
+    from src.scrapers.html_generic import HtmlGenericScraper
+    SCRAPER_REGISTRY['html_generic'] = HtmlGenericScraper
+except ImportError:
+    pass
+
+try:
+    from src.scrapers.cezanne import CezanneScraper
+    SCRAPER_REGISTRY['cezanne'] = CezanneScraper
+except ImportError:
+    pass
+
+try:
+    from src.scrapers.occupop import OccupopScraper
+    SCRAPER_REGISTRY['occupop'] = OccupopScraper
+except ImportError:
+    pass
+
 
 def load_companies_config(config_path: str = 'config/companies.yaml') -> dict:
     """Load company configurations from YAML file."""

@@ -369,3 +369,151 @@ companies:
       job_title: "span.font_18"
       location: "i.icon-map-marker + span"
     sheet_name: "Altrad Sparrows"
+
+  # === Generic HTML career pages (Playwright-based) ===
+
+  osm_thome:
+    name: "OSM Thome"
+    platform: html_generic
+    base_url: "https://jobs.osmthome.com/"
+    rate_limit_delay: 3.0
+    # OSM Thome uses a Vue/Quasar SPA for their job portal.
+    # Playwright is required to render JavaScript content.
+    selectors:
+      job_card: "a[href*='/job/'], .job-card, .q-card, .q-item"
+      job_title: ".q-item__label, .job-title, h3, h4"
+      job_link: "a"
+      job_location: ".q-item__caption, .location, .job-location"
+      description: ".job-description, .description, .q-page, main"
+      location: ".job-location, .location, [class*='location']"
+    html_config:
+      wait_for: ".q-page, .q-card, .q-item, a[href*='/job/']"
+      detail_wait_for: ".job-description, .description, .q-page"
+    sheet_name: "OSM Thome"
+
+  wellsafe_solutions:
+    name: "Wellsafe Solutions"
+    platform: html_generic
+    base_url: "https://www.wellsafesolutions.com/available-positions/"
+    rate_limit_delay: 3.0
+    # Wellsafe is a WordPress site. Job listings may be rendered via a WP plugin
+    # or embedded widget. Playwright handles dynamic content loading.
+    selectors:
+      job_card: ".job-item, .vacancy-item, article.post, .wpb_wrapper a[href*='position'], a[href*='vacancy']"
+      job_title: "h3, h2, .entry-title"
+      job_link: "a"
+      job_location: ".location, .job-location"
+      description: ".entry-content, .job-description, .wpb_wrapper, article, main"
+      location: ".job-location, .location, [class*='location']"
+    html_config:
+      wait_for: ".job-item, article, .wpb_wrapper"
+    sheet_name: "Wellsafe Solutions"
+
+  allrig_group:
+    name: "Allrig Group"
+    platform: html_generic
+    base_url: "https://allriggroup.com/en/careers/"
+    rate_limit_delay: 3.0
+    # Allrig uses CloudFront which blocks simple HTTP requests.
+    # Playwright with realistic browser headers is required.
+    selectors:
+      job_card: ".job-card, .career-item, .vacancy, article, a[href*='career'], a[href*='job'], a[href*='position']"
+      job_title: "h3, h2, h4, .title"
+      job_link: "a"
+      job_location: ".location, .job-location"
+      description: ".job-description, .description, .entry-content, article, main"
+      location: ".job-location, .location, [class*='location']"
+    html_config:
+      wait_for: ".job-card, .career-item, article, main"
+    sheet_name: "Allrig Group"
+
+  coast_renewable:
+    name: "Coast Renewable Services"
+    platform: html_generic
+    base_url: "https://coastrenewableservices.com/vacancies/"
+    rate_limit_delay: 2.5
+    # Coast Renewable is a WordPress site with custom job-item elements.
+    # Structure: div.job-item > div.main-content > h3 (title)
+    #            div.job-item > div.job-desc > a (detail link)
+    selectors:
+      job_card: "div.job-item"
+      job_title: "h3"
+      job_link: "div.job-desc a"
+      job_location: ".location, .job-location"
+      description: ".entry-content, .job-description, article, main"
+      location: ".job-location, .location, [class*='location']"
+    html_config:
+      wait_for: "div.job-item, div.job-output"
+      detail_wait_for: ".entry-content, article"
+    sheet_name: "Coast Renewable Services"
+
+  taurus_ig:
+    name: "Taurus Industrial Group"
+    platform: html_generic
+    base_url: "https://www.taurusig.com/careers"
+    rate_limit_delay: 3.0
+    # Taurus IG uses Squarespace. Career listings are rendered as blog/collection
+    # items via JavaScript. Playwright is required for content rendering.
+    selectors:
+      job_card: ".summary-item, .blog-item, .list-item, .collection-item, article.entry"
+      job_title: ".summary-title a, .entry-title a, h2 a, h3 a"
+      job_link: "a"
+      job_location: ".summary-metadata, .entry-morefrom"
+      description: ".entry-content, .sqs-block-content, article, main"
+      location: ".job-location, .location, [class*='location'], .entry-morefrom"
+    html_config:
+      wait_for: ".summary-item, .blog-item, .list-item, article, .sqs-layout"
+      detail_wait_for: ".entry-content, .sqs-block-content"
+    sheet_name: "Taurus Industrial Group"
+
+  pbs_offshore:
+    name: "PBS by Ponticelli"
+    platform: html_generic
+    base_url: "https://www.pbs-offshore.com/careers/"
+    rate_limit_delay: 3.0
+    # PBS is a WordPress + Elementor site. Jobs are loaded dynamically via JS
+    # into #job-post-container. Playwright is required.
+    selectors:
+      job_card: "#job-post-container .job-item, #job-post-container a, .job-post-container > div"
+      job_title: "h3, h4, .job-title"
+      job_link: "a"
+      job_location: ".location, .job-location"
+      description: ".entry-content, .job-description, .elementor-widget-container, article, main"
+      location: ".job-location, .location, [class*='location']"
+      employment_type: ".job-type, [class*='type']"
+    html_config:
+      wait_for: "#job-post-container, .job-post-container"
+      detail_wait_for: ".entry-content, .job-description"
+    sheet_name: "PBS by Ponticelli"
+
+  # === Cezanne OnDemand / Intervieweb ===
+
+  dron_dickson:
+    name: "Dron & Dickson"
+    platform: cezanne
+    base_url: "https://cezanneondemand.intervieweb.it/dronanddickson/en/career#702"
+    rate_limit_delay: 3.0
+    cezanne_config:
+      company_slug: "dronanddickson"
+      host: "cezanneondemand.intervieweb.it"
+    selectors:
+      job_card: ".annuncioRow, .job-row, .career-item, .vacancy-item, a[href*='vacancy'], .list-group-item"
+      description: ".annuncioDetail, .vacancy-detail, .job-description"
+      location: ".job-location, .location, [class*='location']"
+    sheet_name: "Dron & Dickson"
+
+  # === Occupop / Cezanne Recruitment ===
+
+  sulmara:
+    name: "Sulmara"
+    platform: occupop
+    base_url: "https://sulmara.occupop-careers.com/"
+    rate_limit_delay: 3.0
+    # Sulmara uses Occupop (Cezanne Recruitment) - a React SPA career page.
+    # Jobs are rendered client-side after hydration.
+    selectors:
+      job_card: "a[href*='/jobs/'], [class*='job-card'], [class*='JobCard'], .MuiCard-root"
+      description: ".job-description, [class*='description'], .MuiTypography-body1"
+      location: ".job-location, [class*='location']"
+      employment_type: ".job-type, [class*='type']"
+    sheet_name: "Sulmara"
