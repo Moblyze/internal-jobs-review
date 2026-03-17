@@ -132,7 +132,7 @@ jobs:
   aggregator-searches:
     if: inputs.skip_aggregators != true
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 120
     defaults:
       run:
         working-directory: scrapers
@@ -161,7 +161,7 @@ jobs:
           echo "$GOOGLE_SERVICE_ACCOUNT_JSON" > config/service_account.json
           chmod 600 config/service_account.json
 
-      - name: Run aggregator searches (all profiles)
+      - name: Run aggregator searches (all profiles, parallel batches)
         env:
           ADZUNA_APP_ID: ${{ secrets.ADZUNA_APP_ID }}
           ADZUNA_APP_KEY: ${{ secrets.ADZUNA_APP_KEY }}
@@ -172,6 +172,7 @@ jobs:
           GOOGLE_SHEETS_SPREADSHEET_NAME: ${{ secrets.GOOGLE_SHEETS_SPREADSHEET_NAME }}
           LOG_LEVEL: INFO
         run: |
+          # Run profiles in parallel batches of 4, with 10-min timeout per profile
           PROFILES=(
             subsea_oil_gas
             rope_access
@@ -190,18 +191,44 @@ jobs:
 
           FAILED=0
           SUCCEEDED=0
+          BATCH_SIZE=4
 
-          for PROFILE in "${PROFILES[@]}"; do
+          run_profile() {
+            local PROFILE=$1
+            echo "  Starting: $PROFILE"
+            if timeout 600 python aggregator_cli.py search --profile "$PROFILE" --limit 50 --export 2>&1; then
+              echo "  ✓ $PROFILE succeeded"
+              return 0
+            else
+              echo "  ✗ $PROFILE failed (exit $?)"
+              return 1
+            fi
+          }
+
+          for ((i=0; i<${#PROFILES[@]}; i+=BATCH_SIZE)); do
+            BATCH=("${PROFILES[@]:i:BATCH_SIZE}")
             echo ""
             echo "════════════════════════════════════════"
-            echo "  Aggregator search: $PROFILE"
+            echo "  Batch: ${BATCH[*]}"
             echo "════════════════════════════════════════"
-            if python aggregator_cli.py search --profile "$PROFILE" --limit 50 --export; then
-              SUCCEEDED=$((SUCCEEDED + 1))
-            else
-              echo "::warning::Aggregator profile '$PROFILE' failed"
-              FAILED=$((FAILED + 1))
-            fi
+
+            PIDS=()
+            BATCH_PROFILES=()
+            for PROFILE in "${BATCH[@]}"; do
+              run_profile "$PROFILE" &
+              PIDS+=($!)
+              BATCH_PROFILES+=("$PROFILE")
+            done
+
+            # Wait for batch to complete
+            for j in "${!PIDS[@]}"; do
+              if wait "${PIDS[$j]}"; then
+                SUCCEEDED=$((SUCCEEDED + 1))
+              else
+                echo "::warning::Aggregator profile '${BATCH_PROFILES[$j]}' failed"
+                FAILED=$((FAILED + 1))
+              fi
+            done
           done
 
           echo ""
