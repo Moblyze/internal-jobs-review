@@ -116,6 +116,12 @@ try:
 except ImportError:
     pass
 
+try:
+    from src.scrapers.adp import ADPScraper
+    SCRAPER_REGISTRY['adp'] = ADPScraper
+except ImportError:
+    pass
+
 
 def load_companies_config(config_path: str = 'config/companies.yaml') -> dict:
     """Load company configurations from YAML file."""

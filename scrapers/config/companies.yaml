@@ -462,21 +462,16 @@ companies:
 
   taurus_ig:
     name: "Taurus Industrial Group"
-    platform: html_generic
-    base_url: "https://www.taurusig.com/careers"
+    platform: adp
+    base_url: "https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=d096c643-dacd-480f-a2ad-6416f29abc6c&ccId=19000101_000001&lang=en_US"
     rate_limit_delay: 3.0
-    # Taurus IG uses Squarespace. Career listings are rendered as blog/collection
-    # items via JavaScript. Playwright is required for content rendering.
-    selectors:
-      job_card: ".summary-item, .blog-item, .list-item, .collection-item, article.entry"
-      job_title: ".summary-title a, .entry-title a, h2 a, h3 a"
-      job_link: "a"
-      job_location: ".summary-metadata, .entry-morefrom"
-      description: ".entry-content, .sqs-block-content, article, main"
-      location: ".job-location, .location, [class*='location'], .entry-morefrom"
-    html_config:
-      wait_for: ".summary-item, .blog-item, .list-item, article, .sqs-layout"
-      detail_wait_for: ".entry-content, .sqs-block-content"
+    # Taurus IG uses ADP Workforce Now for recruitment. The portal is a React SPA
+    # that loads job data through internal API services. Playwright renders the SPA
+    # and extracts job data from the DOM.
+    adp_config:
+      cid: "d096c643-dacd-480f-a2ad-6416f29abc6c"
+      cc_id: "19000101_000001"
+      lang: "en_US"
     sheet_name: "Taurus Industrial Group"
 
   pbs_offshore:
