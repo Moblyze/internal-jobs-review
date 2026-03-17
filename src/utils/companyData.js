@@ -91,10 +91,9 @@ export function getCompanyStats(jobs) {
     if (job.employmentType) {
       entry.employmentTypes.add(job.employmentType);
     }
-    if (job.source) {
-      entry.sources.add(job.source);
-      entry.sourceCounts[job.source] = (entry.sourceCounts[job.source] || 0) + 1;
-    }
+    const src = job.source || 'direct';
+    entry.sources.add(src);
+    entry.sourceCounts[src] = (entry.sourceCounts[src] || 0) + 1;
   });
 
   // Convert sets to arrays and sort by active job count
