@@ -103,6 +103,12 @@ try:
 except ImportError:
     pass
 
+try:
+    from src.scrapers.phenom import PhenomScraper
+    SCRAPER_REGISTRY['phenom'] = PhenomScraper
+except ImportError:
+    pass
+
 
 def load_companies_config(config_path: str = 'config/companies.yaml') -> dict:
     """

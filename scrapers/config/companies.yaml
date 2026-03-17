@@ -334,6 +334,19 @@ companies:
   #   total_pages_estimate: 24
   #   sheet_name: "Bechtel"
 
+  # === Phenom TXM platform ===
+
+  oceaneering:
+    name: "Oceaneering"
+    platform: phenom
+    base_url: "https://careers.oceaneering.com/global/en"
+    rate_limit_delay: 2.5
+    phenom_config:
+      ref_num: "OCINGLOBAL"
+    # Phenom uses server-rendered DDO data, selectors not needed for primary extraction
+    selectors: {}
+    sheet_name: "Oceaneering"
+
   # === Custom ASP.NET career portals ===
 
   rovop:
