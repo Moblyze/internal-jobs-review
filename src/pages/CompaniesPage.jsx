@@ -141,16 +141,25 @@ function CompaniesPage() {
   const [search, setSearch] = useState('')
   const [sortBy, setSortBy] = useState('jobs-desc')
   const [expandedCompany, setExpandedCompany] = useState(null)
-  const [selectedSlugs, setSelectedSlugs] = useState([])
-
   const MAX_COMPARE = 10
 
+  // Derive selectedSlugs from URL-based company filter (enables shareable links)
+  const selectedSlugs = useMemo(
+    () => (filters.companies || []).map(name => companyToSlug(name)),
+    [filters.companies]
+  )
+
   function toggleSelection(slug) {
-    setSelectedSlugs(prev => {
-      if (prev.includes(slug)) return prev.filter(s => s !== slug)
-      if (prev.length >= MAX_COMPARE) return prev
-      return [...prev, slug]
-    })
+    // Find the company name for this slug
+    const company = companyFilterOptions.find(o => companyToSlug(o.value) === slug)
+    const companyName = company ? company.value : slug
+    const currentCompanies = filters.companies || []
+
+    if (currentCompanies.includes(companyName)) {
+      setFilters({ ...filters, companies: currentCompanies.filter(c => c !== companyName) })
+    } else if (currentCompanies.length < MAX_COMPARE) {
+      setFilters({ ...filters, companies: [...currentCompanies, companyName] })
+    }
   }
 
   // Load company intelligence data
@@ -609,8 +618,6 @@ function CompaniesPage() {
   const handleCompanyFilterChange = (selected) => {
     const names = selected ? selected.map(o => o.value) : []
     setFilters({ ...filters, companies: names })
-    // Also update selectedSlugs for the matrix
-    setSelectedSlugs(names.map(name => companyToSlug(name)))
   }
 
   const activeFilterCount = useMemo(() =>
@@ -631,7 +638,7 @@ function CompaniesPage() {
       roles: [], employmentTypes: [], sources: [], profiles: [],
       market: [], showInactive: filters.showInactive
     })
-    setSelectedSlugs([])
+    // selectedSlugs derived from filters.companies — no separate state to clear
   }
 
   if (loading) {
@@ -834,7 +841,7 @@ function CompaniesPage() {
             </h2>
             {selectedSlugs.length > 0 && (
               <button
-                onClick={() => setSelectedSlugs([])}
+                onClick={() => setFilters({ ...filters, companies: [] })}
                 className="text-xs text-gray-500 hover:text-gray-700 font-medium"
               >
                 Show top 10
@@ -1255,7 +1262,7 @@ function CompaniesPage() {
               </div>
             </div>
             <button
-              onClick={() => setSelectedSlugs([])}
+              onClick={() => setFilters({ ...filters, companies: [] })}
               className="px-3 py-1.5 text-sm text-gray-600 hover:text-gray-800 font-medium border border-gray-300 rounded-lg"
             >
               Clear
