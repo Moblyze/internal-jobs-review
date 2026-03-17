@@ -543,6 +543,18 @@ function CompaniesPage() {
       .map(([name, count]) => ({ label: `${name} (${count})`, value: name }))
   }, [jobs])
 
+  // Company filter options (from unfiltered active jobs)
+  const companyFilterOptions = useMemo(() => {
+    const counts = {}
+    jobs.forEach(job => {
+      if (job.status === 'removed' || job.status === 'paused') return
+      if (job.company) counts[job.company] = (counts[job.company] || 0) + 1
+    })
+    return Object.entries(counts)
+      .sort((a, b) => b[1] - a[1])
+      .map(([name, count]) => ({ label: `${name} (${count})`, value: name }))
+  }, [jobs])
+
   // Selected values for react-select
   const selectedMarkets = useMemo(() =>
     (filters.market || []).map(slug => {
@@ -586,6 +598,21 @@ function CompaniesPage() {
     [filters.sources, sourceOptions]
   )
 
+  const selectedCompanyFilters = useMemo(() =>
+    (filters.companies || []).map(name => {
+      const opt = companyFilterOptions.find(o => o.value === name)
+      return opt || { label: name, value: name }
+    }),
+    [filters.companies, companyFilterOptions]
+  )
+
+  const handleCompanyFilterChange = (selected) => {
+    const names = selected ? selected.map(o => o.value) : []
+    setFilters({ ...filters, companies: names })
+    // Also update selectedSlugs for the matrix
+    setSelectedSlugs(names.map(name => companyToSlug(name)))
+  }
+
   const activeFilterCount = useMemo(() =>
     (filters.market?.length || 0) +
     (filters.certifications?.length || 0) +
@@ -604,6 +631,7 @@ function CompaniesPage() {
       roles: [], employmentTypes: [], sources: [], profiles: [],
       market: [], showInactive: filters.showInactive
     })
+    setSelectedSlugs([])
   }
 
   if (loading) {
@@ -654,6 +682,21 @@ function CompaniesPage() {
             </button>
           )}
         </div>
+        {/* Companies filter — own row for multi-select */}
+        <div className="mb-2">
+          <label className="block text-xs font-medium text-gray-500 mb-1">Companies</label>
+          <Select
+            isMulti
+            value={selectedCompanyFilters}
+            onChange={handleCompanyFilterChange}
+            options={companyFilterOptions}
+            styles={compactSelectStyles}
+            placeholder={`Select from ${companyFilterOptions.length} companies...`}
+            isClearable={false}
+            closeMenuOnSelect={false}
+          />
+        </div>
+
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2">
           {/* Focus Market */}
           <div>
