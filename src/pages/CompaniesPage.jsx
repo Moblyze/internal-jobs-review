@@ -384,7 +384,17 @@ function CompaniesPage() {
       (filters.companies?.length > 0)
   }, [filters])
 
-  // Summary metrics
+  // Unfiltered totals (for "of N" display)
+  const unfilteredTotals = useMemo(() => {
+    const allStats = getCompanyStats(jobs.filter(j => j.status !== 'removed' && j.status !== 'paused'))
+    return {
+      totalCompanies: allStats.length,
+      totalActiveJobs: allStats.reduce((sum, c) => sum + c.activeJobs, 0),
+      totalSources: new Set(allStats.flatMap(c => Object.keys(c.sourceCounts))).size,
+    }
+  }, [jobs])
+
+  // Summary metrics (from filtered data)
   const summaryMetrics = useMemo(() => {
     const totalCompanies = companyStats.length
     const totalActiveJobs = companyStats.reduce((sum, c) => sum + c.activeJobs, 0)
@@ -747,10 +757,12 @@ function CompaniesPage() {
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 text-center">
           <div className="text-3xl font-bold text-blue-600">{summaryMetrics.totalCompanies}</div>
           <div className="text-sm text-gray-600 mt-1">Companies</div>
+          {hasActiveFilters && <div className="text-xs text-gray-400">of {unfilteredTotals.totalCompanies}</div>}
         </div>
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 text-center">
           <div className="text-3xl font-bold text-green-600">{summaryMetrics.totalActiveJobs}</div>
           <div className="text-sm text-gray-600 mt-1">Active Jobs</div>
+          {hasActiveFilters && <div className="text-xs text-gray-400">of {unfilteredTotals.totalActiveJobs}</div>}
         </div>
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 text-center">
           <div className="text-3xl font-bold text-gray-400">{summaryMetrics.totalInactiveJobs}</div>
@@ -759,6 +771,7 @@ function CompaniesPage() {
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 text-center">
           <div className="text-3xl font-bold text-teal-600">{sourcesOverview.totalSources}</div>
           <div className="text-sm text-gray-600 mt-1">Job Sources</div>
+          {hasActiveFilters && <div className="text-xs text-gray-400">of {unfilteredTotals.totalSources}</div>}
         </div>
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 text-center">
           <div className="text-3xl font-bold text-indigo-600">{summaryMetrics.companiesWithIntel}</div>
