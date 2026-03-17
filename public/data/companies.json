@@ -109,6 +109,347 @@
       "brandVariations": ["ROVOP", "ROVOP Limited"],
       "scraperNotes": "Custom ASP.NET career portal — Playwright-based scraper. No API/RSS. Job URLs: /job/{slug}-{id}.aspx. Typical roles: ROV Pilot Technician, Tooling Technician, Superintendent.",
       "researchDate": "2026-03-17"
+    },
+    {
+      "name": "Oceaneering International",
+      "legalName": "Oceaneering International, Inc.",
+      "ticker": "NYSE: OII",
+      "website": "https://www.oceaneering.com",
+      "hq": "Houston, TX, USA",
+      "sector": "Subsea robotics, ROV services, engineered products, asset integrity, digital solutions for offshore energy",
+      "ats": [
+        {
+          "region": "Global",
+          "platform": "Phenom",
+          "url": "https://careers.oceaneering.com"
+        }
+      ],
+      "careersUrl": "https://careers.oceaneering.com",
+      "thirdPartyBoards": [
+        { "name": "Indeed", "url": "https://www.indeed.com/cmp/Oceaneering-International" },
+        { "name": "LinkedIn", "url": "https://www.linkedin.com/company/oceaneering/jobs" },
+        { "name": "Glassdoor", "url": "https://www.glassdoor.com/Jobs/Oceaneering-International-Jobs-E2663.htm" },
+        { "name": "Rigzone", "url": "https://www.rigzone.com/oil/company/oceaneering_international-123/" }
+      ],
+      "parentCompany": null,
+      "subsidiaries": [],
+      "brandVariations": ["Oceaneering", "Oceaneering International", "OII"],
+      "scraperNotes": "Phenom ATS at careers.oceaneering.com. Aggregator-only for now — direct scraper not yet built.",
+      "researchDate": "2026-03-17"
+    },
+    {
+      "name": "Petrofac",
+      "legalName": "Petrofac Limited",
+      "ticker": "LSE: PFC",
+      "website": "https://www.petrofac.com",
+      "hq": "London, UK",
+      "sector": "EPC services — engineering, procurement, construction, operations & maintenance for oil, gas, and renewables",
+      "ats": [
+        {
+          "region": "Global",
+          "platform": "Oracle Taleo (SelectMinds)",
+          "url": "https://petrofac.referrals.selectminds.com/"
+        }
+      ],
+      "careersUrl": "https://www.petrofac.com/careers/",
+      "thirdPartyBoards": [
+        { "name": "Indeed", "url": "https://www.indeed.com/cmp/Petrofac" },
+        { "name": "LinkedIn", "url": "https://www.linkedin.com/company/petrofac/jobs" },
+        { "name": "Glassdoor", "url": "https://www.glassdoor.com/Jobs/Petrofac-Jobs-E12596.htm" },
+        { "name": "Rigzone", "url": "https://www.rigzone.com/oil/company/petrofac-217/" }
+      ],
+      "parentCompany": null,
+      "subsidiaries": [],
+      "brandVariations": ["Petrofac", "Petrofac Limited", "Petrofac Engineering"],
+      "scraperNotes": "Oracle Taleo via SelectMinds referral portal. Taleo scraper configured.",
+      "researchDate": "2026-03-17"
+    },
+    {
+      "name": "LRQA",
+      "legalName": "LRQA Group Limited",
+      "ticker": null,
+      "website": "https://www.lrqa.com",
+      "hq": "London, UK",
+      "sector": "Inspection, certification, assurance, and cybersecurity services across energy, maritime, and industrial sectors",
+      "ats": [
+        {
+          "region": "Global",
+          "platform": "Oracle Taleo",
+          "url": "https://jobs.lrqa.com/"
+        }
+      ],
+      "careersUrl": "https://www.lrqa.com/careers/",
+      "thirdPartyBoards": [
+        { "name": "Indeed", "url": "https://www.indeed.com/cmp/Lrqa" },
+        { "name": "LinkedIn", "url": "https://www.linkedin.com/company/lrqa/jobs" },
+        { "name": "Glassdoor", "url": "https://www.glassdoor.com/Jobs/LRQA-Jobs-E9316.htm" }
+      ],
+      "parentCompany": null,
+      "subsidiaries": [],
+      "brandVariations": ["LRQA", "Lloyd's Register Quality Assurance", "LRQA Group"],
+      "scraperNotes": "Oracle Taleo at jobs.lrqa.com. Taleo scraper configured. Formerly part of Lloyd's Register.",
+      "researchDate": "2026-03-17"
+    },
+    {
+      "name": "OSM Thome",
+      "legalName": "OSM Thome Group",
+      "ticker": null,
+      "website": "https://www.osmthome.com",
+      "hq": "Arendal, Norway",
+      "sector": "Ship management — technical management, crewing, commercial management for offshore and maritime vessels",
+      "ats": [
+        {
+          "region": "Global",
+          "platform": "Custom",
+          "url": "https://jobs.osmthome.com"
+        }
+      ],
+      "careersUrl": "https://jobs.osmthome.com",
+      "thirdPartyBoards": [
+        { "name": "LinkedIn", "url": "https://www.linkedin.com/company/osm-thome/jobs" }
+      ],
+      "parentCompany": null,
+      "subsidiaries": [],
+      "brandVariations": ["OSM Thome", "OSM Maritime", "Thome Group", "OSM"],
+      "scraperNotes": "Custom career portal at jobs.osmthome.com. Aggregator-only for now.",
+      "researchDate": "2026-03-17"
+    },
+    {
+      "name": "Wellsafe Solutions",
+      "legalName": "Wellsafe Solutions Limited",
+      "ticker": null,
+      "website": "https://www.wellsafesolutions.com",
+      "hq": "Aberdeen, UK",
+      "sector": "Well decommissioning — plug and abandonment (P&A) services for offshore oil and gas",
+      "ats": [
+        {
+          "region": "Global",
+          "platform": "WordPress",
+          "url": "https://wellsafesolutions.com/available-positions/"
+        }
+      ],
+      "careersUrl": "https://wellsafesolutions.com/available-positions/",
+      "thirdPartyBoards": [
+        { "name": "LinkedIn", "url": "https://www.linkedin.com/company/wellsafe-solutions/jobs" }
+      ],
+      "parentCompany": null,
+      "subsidiaries": [],
+      "brandVariations": ["Wellsafe Solutions", "Wellsafe"],
+      "scraperNotes": "WordPress careers page. Aggregator-only — no direct scraper built.",
+      "researchDate": "2026-03-17"
+    },
+    {
+      "name": "Dron & Dickson",
+      "legalName": "Dron & Dickson Limited",
+      "ticker": null,
+      "website": "https://www.drondickson.com",
+      "hq": "Stirling, Scotland",
+      "sector": "Hazardous area electrical services — Ex inspection, ATEX/IECEx compliance, installation, maintenance",
+      "ats": [
+        {
+          "region": "Global",
+          "platform": "Cezanne OnDemand",
+          "url": "https://drondickson.com/careers/"
+        }
+      ],
+      "careersUrl": "https://drondickson.com/careers/",
+      "thirdPartyBoards": [
+        { "name": "LinkedIn", "url": "https://www.linkedin.com/company/dron-&-dickson/jobs" }
+      ],
+      "parentCompany": null,
+      "subsidiaries": [],
+      "brandVariations": ["Dron & Dickson", "Dron Dickson", "Dron and Dickson"],
+      "scraperNotes": "Cezanne OnDemand ATS. Aggregator-only for now.",
+      "researchDate": "2026-03-17"
+    },
+    {
+      "name": "Sulmara",
+      "legalName": "Sulmara Subsea Limited",
+      "ticker": null,
+      "website": "https://www.sulmara.com",
+      "hq": "Glasgow, UK",
+      "sector": "Subsea survey, positioning, and construction support services for offshore energy and renewables",
+      "ats": [
+        {
+          "region": "Global",
+          "platform": "CrewSmart / Occupop",
+          "url": "https://sulmara.com/people/"
+        }
+      ],
+      "careersUrl": "https://sulmara.com/people/",
+      "thirdPartyBoards": [
+        { "name": "LinkedIn", "url": "https://www.linkedin.com/company/sulmara/jobs" }
+      ],
+      "parentCompany": null,
+      "subsidiaries": [],
+      "brandVariations": ["Sulmara", "Sulmara Subsea"],
+      "scraperNotes": "Uses CrewSmart for crew management and Occupop for office roles. Aggregator-only.",
+      "researchDate": "2026-03-17"
+    },
+    {
+      "name": "Allrig Group",
+      "legalName": "Allrig Group B.V.",
+      "ticker": null,
+      "website": "https://www.allriggroup.com",
+      "hq": "Zaandam, Netherlands",
+      "sector": "Rig asset management — maintenance, overhaul, refurbishment, inspection of drilling equipment",
+      "ats": [
+        {
+          "region": "Global",
+          "platform": "Custom",
+          "url": "https://allriggroup.com/en/careers"
+        }
+      ],
+      "careersUrl": "https://allriggroup.com/en/careers",
+      "thirdPartyBoards": [
+        { "name": "LinkedIn", "url": "https://www.linkedin.com/company/allrig-group/jobs" }
+      ],
+      "parentCompany": null,
+      "subsidiaries": [],
+      "brandVariations": ["Allrig", "Allrig Group", "AllRig"],
+      "scraperNotes": "Custom careers page. Aggregator-only for now.",
+      "researchDate": "2026-03-17"
+    },
+    {
+      "name": "Coast Renewable Services",
+      "legalName": "Coast Renewable Services Limited",
+      "ticker": null,
+      "website": "https://www.coastrenewableservices.com",
+      "hq": "Dundee, Scotland",
+      "sector": "Onshore wind energy services — turbine maintenance, blade repair, gearbox services",
+      "ats": [
+        {
+          "region": "UK",
+          "platform": "WordPress",
+          "url": "https://coastrenewableservices.com/vacancies/"
+        }
+      ],
+      "careersUrl": "https://coastrenewableservices.com/vacancies/",
+      "thirdPartyBoards": [
+        { "name": "LinkedIn", "url": "https://www.linkedin.com/company/coast-renewable-services/jobs" }
+      ],
+      "parentCompany": null,
+      "subsidiaries": [],
+      "brandVariations": ["Coast Renewable Services", "Coast Renewable"],
+      "scraperNotes": "WordPress careers page. Aggregator-only.",
+      "researchDate": "2026-03-17"
+    },
+    {
+      "name": "Taurus Industrial Group",
+      "legalName": "Taurus Industrial Group, LLC",
+      "ticker": null,
+      "website": "https://www.taurusig.com",
+      "hq": "Houston, TX, USA",
+      "sector": "Industrial technology services — turnarounds, maintenance, scaffolding, insulation, coatings, fireproofing",
+      "ats": [
+        {
+          "region": "USA",
+          "platform": "Squarespace",
+          "url": "https://taurusig.com/careers"
+        }
+      ],
+      "careersUrl": "https://taurusig.com/careers",
+      "thirdPartyBoards": [
+        { "name": "Indeed", "url": "https://www.indeed.com/cmp/Taurus-Industrial-Group" },
+        { "name": "LinkedIn", "url": "https://www.linkedin.com/company/taurus-industrial-group/jobs" }
+      ],
+      "parentCompany": null,
+      "subsidiaries": [],
+      "brandVariations": ["Taurus Industrial Group", "Taurus IG"],
+      "scraperNotes": "Squarespace careers page. Aggregator-only.",
+      "researchDate": "2026-03-17"
+    },
+    {
+      "name": "PBS by Ponticelli",
+      "legalName": "PBS Offshore Limited",
+      "ticker": null,
+      "website": "https://www.pbs-offshore.com",
+      "hq": "Westhill, Aberdeen, UK",
+      "sector": "Offshore maintenance, construction, decommissioning, rope access, and fabric maintenance services",
+      "ats": [
+        {
+          "region": "UK",
+          "platform": "Custom",
+          "url": "https://pbs-offshore.com/careers/"
+        }
+      ],
+      "careersUrl": "https://pbs-offshore.com/careers/",
+      "thirdPartyBoards": [
+        { "name": "LinkedIn", "url": "https://www.linkedin.com/company/pbs-offshore/jobs" }
+      ],
+      "parentCompany": "Ponticelli Freres (Ponticelli Group)",
+      "subsidiaries": [],
+      "brandVariations": ["PBS by Ponticelli", "PBS Offshore", "Ponticelli"],
+      "scraperNotes": "Custom careers page. Aggregator-only.",
+      "researchDate": "2026-03-17"
+    },
+    {
+      "name": "IO Consulting",
+      "legalName": "IO Consulting Group Limited",
+      "ticker": null,
+      "website": "https://www.ioconsulting.com",
+      "hq": "London, UK",
+      "sector": "Energy consulting — front-end engineering (FEL/FEED), project management, subsea and offshore advisory",
+      "ats": [
+        {
+          "region": "Global",
+          "platform": "None (no ATS)",
+          "url": "https://ioconsulting.com"
+        }
+      ],
+      "careersUrl": "https://ioconsulting.com",
+      "thirdPartyBoards": [
+        { "name": "LinkedIn", "url": "https://www.linkedin.com/company/io-consulting/jobs" }
+      ],
+      "parentCompany": null,
+      "subsidiaries": [],
+      "brandVariations": ["IO Consulting", "IO Consulting Group"],
+      "scraperNotes": "No dedicated ATS or careers page. Aggregator-only.",
+      "researchDate": "2026-03-17"
+    },
+    {
+      "name": "Finnco",
+      "legalName": "Finnco Service Ltd",
+      "ticker": null,
+      "website": "https://www.finncoservice.com",
+      "hq": "Unknown",
+      "sector": "Energy innovation and services",
+      "ats": [
+        {
+          "region": "Global",
+          "platform": "None (no careers page)",
+          "url": "https://finncoservice.com"
+        }
+      ],
+      "careersUrl": "https://finncoservice.com",
+      "thirdPartyBoards": [],
+      "parentCompany": null,
+      "subsidiaries": [],
+      "brandVariations": ["Finnco", "Finnco Service"],
+      "scraperNotes": "No careers page or ATS detected. Aggregator-only.",
+      "researchDate": "2026-03-17"
+    },
+    {
+      "name": "Rig Integrity Solutions",
+      "legalName": "Rig Integrity Solutions, LLC",
+      "ticker": null,
+      "website": "https://www.rigintegritysolutions.com",
+      "hq": "Katy, TX, USA",
+      "sector": "Rig inspection — structural inspection, crane inspection, BOP inspection, API compliance for drilling rigs",
+      "ats": [
+        {
+          "region": "USA",
+          "platform": "Wix (no ATS)",
+          "url": "https://rigintegritysolutions.com"
+        }
+      ],
+      "careersUrl": "https://rigintegritysolutions.com",
+      "thirdPartyBoards": [],
+      "parentCompany": null,
+      "subsidiaries": [],
+      "brandVariations": ["Rig Integrity Solutions", "Rig Integrity"],
+      "scraperNotes": "Wix website with no dedicated careers page or ATS. Aggregator-only.",
+      "researchDate": "2026-03-17"
     }
   ]
 }

@@ -281,6 +281,38 @@ companies:
       description: 'div[name="cwsJobDescription"]'
     sheet_name: "Helix Energy Solutions"
 
+  petrofac:
+    name: "Petrofac"
+    platform: taleo
+    base_url: "https://petrofac.referrals.selectminds.com/"
+    rate_limit_delay: 2.5
+    taleo_config:
+      host: "petrofac.referrals.selectminds.com"
+      instance: "selectminds"
+      org: "Petrofac"
+      cws: null
+    selectors:
+      job_list: '.job-results'
+      job_card: 'a.job-link'
+      description: '.job-description'
+    sheet_name: "Petrofac"
+
+  lrqa:
+    name: "LRQA"
+    platform: taleo
+    base_url: "https://jobs.lrqa.com/"
+    rate_limit_delay: 2.5
+    taleo_config:
+      host: "jobs.lrqa.com"
+      instance: "taleo"
+      org: "LRQA"
+      cws: null
+    selectors:
+      job_list: '.job-results'
+      job_card: 'a.job-link'
+      description: '.job-description'
+    sheet_name: "LRQA"
+
   # NOTE: Bechtel uses a non-TalentBrew SuccessFactors frontend (table-based at jobs.bechtel.com/search/).
   # The current SuccessFactors scraper relies on TalentBrew's console.log JSON extraction which
   # won't work here. Needs custom extraction logic or a separate scraper approach.

@@ -603,3 +603,377 @@ search_profiles:
       - "retail"
       - "dental"
       - "pharmacy"
+
+  oceaneering:
+    keywords:
+      - "Oceaneering"
+      - "Oceaneering International"
+    job_types: ["contract", "temporary"]
+    countries: ["us", "gb", "no", "au", "ae"]
+    relevance_include:
+      - "oceaneering"
+      - "rov"
+      - "subsea"
+      - "remotely operated"
+      - "offshore"
+      - "diving"
+      - "marine"
+      - "inspection"
+      - "umbilical"
+      - "intervention"
+      - "robotics"
+      - "automation"
+    relevance_exclude:
+      - "school"
+      - "nurse"
+      - "medical"
+      - "retail"
+      - "dental"
+      - "pharmacy"
+
+  petrofac:
+    keywords:
+      - "Petrofac"
+      - "Petrofac Limited"
+      - "Petrofac Engineering"
+    job_types: ["contract", "temporary"]
+    countries: ["us", "gb", "ae", "my", "om"]
+    relevance_include:
+      - "petrofac"
+      - "epc"
+      - "engineering"
+      - "procurement"
+      - "construction"
+      - "offshore"
+      - "oil gas"
+      - "commissioning"
+      - "operations"
+      - "maintenance"
+      - "decommissioning"
+      - "brownfield"
+      - "greenfield"
+    relevance_exclude:
+      - "school"
+      - "nurse"
+      - "medical"
+      - "retail"
+      - "dental"
+      - "pharmacy"
+
+  lrqa:
+    keywords:
+      - "LRQA"
+      - "Lloyd's Register Quality Assurance"
+      - "LRQA Group"
+    job_types: ["contract", "temporary"]
+    countries: ["us", "gb", "ae", "sg"]
+    relevance_include:
+      - "lrqa"
+      - "inspection"
+      - "certification"
+      - "assurance"
+      - "audit"
+      - "surveyor"
+      - "marine"
+      - "offshore"
+      - "classification"
+      - "compliance"
+      - "quality"
+      - "ndt"
+    relevance_exclude:
+      - "school"
+      - "nurse"
+      - "medical"
+      - "retail"
+      - "dental"
+      - "pharmacy"
+
+  osm_thome:
+    keywords:
+      - "OSM Thome"
+      - "OSM Maritime"
+      - "Thome Group"
+    job_types: ["contract", "temporary"]
+    countries: ["no", "sg", "gb", "in"]
+    relevance_include:
+      - "osm"
+      - "thome"
+      - "ship management"
+      - "vessel"
+      - "marine"
+      - "maritime"
+      - "crew"
+      - "offshore"
+      - "tanker"
+      - "bulk"
+      - "fleet"
+      - "seafarer"
+    relevance_exclude:
+      - "school"
+      - "nurse"
+      - "medical"
+      - "retail"
+      - "dental"
+      - "pharmacy"
+
+  wellsafe_solutions:
+    keywords:
+      - "Wellsafe Solutions"
+      - "Wellsafe"
+    job_types: ["contract", "temporary"]
+    countries: ["gb", "no"]
+    relevance_include:
+      - "wellsafe"
+      - "well decommissioning"
+      - "plug and abandon"
+      - "p&a"
+      - "well intervention"
+      - "offshore"
+      - "drilling"
+      - "well control"
+      - "subsea"
+      - "well services"
+    relevance_exclude:
+      - "school"
+      - "nurse"
+      - "medical"
+      - "retail"
+      - "dental"
+      - "pharmacy"
+
+  dron_dickson:
+    keywords:
+      - "Dron & Dickson"
+      - "Dron Dickson"
+      - "Dron and Dickson"
+    job_types: ["contract", "temporary"]
+    countries: ["gb", "ae"]
+    relevance_include:
+      - "dron"
+      - "dickson"
+      - "hazardous area"
+      - "atex"
+      - "electrical"
+      - "ex inspection"
+      - "compex"
+      - "offshore"
+      - "industrial"
+      - "installation"
+      - "maintenance"
+    relevance_exclude:
+      - "school"
+      - "nurse"
+      - "medical"
+      - "retail"
+      - "dental"
+      - "pharmacy"
+
+  sulmara:
+    keywords:
+      - "Sulmara"
+      - "Sulmara Subsea"
+    job_types: ["contract", "temporary"]
+    countries: ["gb", "no", "au"]
+    relevance_include:
+      - "sulmara"
+      - "subsea"
+      - "survey"
+      - "positioning"
+      - "hydrographic"
+      - "geophysical"
+      - "offshore"
+      - "marine"
+      - "rov"
+      - "inspection"
+      - "construction support"
+    relevance_exclude:
+      - "school"
+      - "nurse"
+      - "medical"
+      - "retail"
+      - "dental"
+      - "pharmacy"
+
+  allrig:
+    keywords:
+      - "Allrig"
+      - "Allrig Group"
+      - "AllRig"
+    job_types: ["contract", "temporary"]
+    countries: ["nl", "gb", "us", "ae"]
+    relevance_include:
+      - "allrig"
+      - "rig"
+      - "drilling"
+      - "asset management"
+      - "offshore"
+      - "maintenance"
+      - "overhaul"
+      - "refurbishment"
+      - "equipment"
+      - "inspection"
+    relevance_exclude:
+      - "school"
+      - "nurse"
+      - "medical"
+      - "retail"
+      - "dental"
+      - "pharmacy"
+
+  coast_renewable:
+    keywords:
+      - "Coast Renewable Services"
+      - "Coast Renewable"
+    job_types: ["contract", "temporary"]
+    countries: ["gb"]
+    relevance_include:
+      - "coast renewable"
+      - "wind"
+      - "onshore wind"
+      - "turbine"
+      - "renewable"
+      - "blade"
+      - "maintenance"
+      - "technician"
+      - "gearbox"
+      - "generator"
+    relevance_exclude:
+      - "school"
+      - "nurse"
+      - "medical"
+      - "retail"
+      - "dental"
+      - "pharmacy"
+
+  taurus_ig:
+    keywords:
+      - "Taurus Industrial Group"
+      - "Taurus IG"
+    job_types: ["contract", "temporary"]
+    countries: ["us"]
+    relevance_include:
+      - "taurus"
+      - "industrial"
+      - "turnaround"
+      - "maintenance"
+      - "scaffolding"
+      - "insulation"
+      - "painting"
+      - "blasting"
+      - "coatings"
+      - "fireproofing"
+      - "refinery"
+      - "petrochemical"
+    relevance_exclude:
+      - "school"
+      - "nurse"
+      - "medical"
+      - "retail"
+      - "dental"
+      - "pharmacy"
+      - "zodiac"
+      - "astrology"
+
+  pbs_ponticelli:
+    keywords:
+      - "PBS Ponticelli"
+      - "PBS Offshore"
+      - "Ponticelli"
+    job_types: ["contract", "temporary"]
+    countries: ["gb", "no"]
+    relevance_include:
+      - "pbs"
+      - "ponticelli"
+      - "offshore"
+      - "maintenance"
+      - "construction"
+      - "decommissioning"
+      - "scaffolding"
+      - "rope access"
+      - "mechanical"
+      - "pipefitting"
+      - "fabric maintenance"
+    relevance_exclude:
+      - "pbs tv"
+      - "broadcast"
+      - "school"
+      - "nurse"
+      - "medical"
+      - "retail"
+      - "dental"
+      - "pharmacy"
+
+  io_consulting:
+    keywords:
+      - "IO Consulting"
+      - "IO Consulting Group"
+    job_types: ["contract", "temporary"]
+    countries: ["gb", "ae"]
+    relevance_include:
+      - "io consulting"
+      - "energy"
+      - "fel"
+      - "feed"
+      - "front end"
+      - "engineering"
+      - "consulting"
+      - "project management"
+      - "oil gas"
+      - "subsea"
+      - "offshore"
+    relevance_exclude:
+      - "school"
+      - "nurse"
+      - "medical"
+      - "retail"
+      - "dental"
+      - "pharmacy"
+      - "input output"
+
+  finnco:
+    keywords:
+      - "Finnco"
+      - "Finnco Service"
+    job_types: ["contract", "temporary"]
+    countries: ["gb", "no"]
+    relevance_include:
+      - "finnco"
+      - "energy"
+      - "innovation"
+      - "offshore"
+      - "oil gas"
+      - "engineering"
+      - "services"
+    relevance_exclude:
+      - "school"
+      - "nurse"
+      - "medical"
+      - "retail"
+      - "dental"
+      - "pharmacy"
+      - "finnish"
+
+  rig_integrity:
+    keywords:
+      - "Rig Integrity Solutions"
+      - "Rig Integrity"
+    job_types: ["contract", "temporary"]
+    countries: ["us"]
+    relevance_include:
+      - "rig integrity"
+      - "rig inspection"
+      - "drilling"
+      - "structural inspection"
+      - "ndt"
+      - "offshore"
+      - "crane inspection"
+      - "api"
+      - "bop"
+      - "well control"
+    relevance_exclude:
+      - "school"
+      - "nurse"
+      - "medical"
+      - "retail"
+      - "dental"
+      - "pharmacy"
