@@ -1,5 +1,6 @@
 import { Link, useSearchParams } from 'react-router-dom'
 import { timeAgo, companyToSlug, jobToSlug } from '../utils/formatters'
+import { normalizeCompanyName } from '../utils/companyNormalizer'
 import { filterValidSkills } from '../utils/skillValidator'
 import { formatLocation } from '../utils/locationParser'
 import { ensureCleanText } from '../utils/htmlCleaner'
@@ -34,11 +35,11 @@ function JobCard({ job }) {
       <div className="mb-3">
         <div className="flex items-center flex-wrap gap-x-4 gap-y-1">
           <Link
-            to={`/companies/${companyToSlug(job.company)}${searchString ? `?${searchString}` : ''}`}
+            to={`/companies/${companyToSlug(normalizeCompanyName(job.company))}${searchString ? `?${searchString}` : ''}`}
             onClick={(e) => e.stopPropagation()}
             className="text-blue-600 hover:text-blue-700 font-medium text-sm"
           >
-            {job.company}
+            {normalizeCompanyName(job.company)}
           </Link>
 
           {(() => {

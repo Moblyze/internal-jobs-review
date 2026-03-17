@@ -1,4 +1,5 @@
 import { companyToSlug } from './formatters';
+import { normalizeCompanyName, loadBrandVariations } from './companyNormalizer';
 
 // Cache for company intelligence data
 let companyIntelligence = null;
@@ -22,9 +23,13 @@ export async function loadCompanyIntelligence() {
       }
       const data = await res.json();
 
+      // Feed brand variations into the company normalizer
+      const companies = data.companies || [];
+      loadBrandVariations(companies);
+
       // Index by slug for fast lookup
       const indexed = {};
-      (data.companies || []).forEach(company => {
+      companies.forEach(company => {
         const slug = companyToSlug(company.name);
         indexed[slug] = company;
 
@@ -35,6 +40,12 @@ export async function loadCompanyIntelligence() {
             indexed[varSlug] = company;
           }
         });
+
+        // Also index by normalized name slug (so company detail pages resolve)
+        const normalizedSlug = companyToSlug(normalizeCompanyName(company.name));
+        if (!indexed[normalizedSlug]) {
+          indexed[normalizedSlug] = company;
+        }
       });
 
       companyIntelligence = indexed;
@@ -59,11 +70,15 @@ export function getCompanyStats(jobs) {
   jobs.forEach(job => {
     if (!job.company) return;
 
-    const slug = companyToSlug(job.company);
+    // Normalize company name to group variants together
+    const canonical = normalizeCompanyName(job.company);
+    const slug = companyToSlug(canonical);
+
     if (!companyMap[slug]) {
       companyMap[slug] = {
-        name: job.company,
+        name: canonical,
         slug,
+        aliases: new Set(),
         totalJobs: 0,
         activeJobs: 0,
         inactiveJobs: 0,
@@ -75,6 +90,10 @@ export function getCompanyStats(jobs) {
     }
 
     const entry = companyMap[slug];
+    // Track the raw name variant if it differs from the canonical
+    if (job.company !== canonical) {
+      entry.aliases.add(job.company);
+    }
     entry.totalJobs++;
 
     const isInactive = job.status === 'removed' || job.status === 'paused';
@@ -100,6 +119,7 @@ export function getCompanyStats(jobs) {
   return Object.values(companyMap)
     .map(c => ({
       ...c,
+      aliases: [...c.aliases],
       locations: [...c.locations],
       employmentTypes: [...c.employmentTypes],
       sources: [...c.sources],
@@ -116,11 +136,18 @@ export function getCompanyStats(jobs) {
  * Combines jobs data stats with intelligence data if available.
  */
 export function getCompanyDetail(companySlug, jobs) {
-  const companyJobs = jobs.filter(job => companyToSlug(job.company) === companySlug);
+  // Match jobs by normalised slug so that all variants are grouped together
+  const companyJobs = jobs.filter(job => {
+    const canonical = normalizeCompanyName(job.company);
+    return companyToSlug(canonical) === companySlug;
+  });
 
   if (companyJobs.length === 0) return null;
 
-  const name = companyJobs[0].company;
+  // Use the canonical name, not the first raw variant
+  const name = normalizeCompanyName(companyJobs[0].company);
+  const rawNames = new Set(companyJobs.map(j => j.company));
+  const aliases = [...rawNames].filter(n => n !== name);
 
   // Aggregate stats
   let activeJobs = 0;
@@ -165,6 +192,7 @@ export function getCompanyDetail(companySlug, jobs) {
   return {
     name,
     slug: companySlug,
+    aliases,
     totalJobs: companyJobs.length,
     activeJobs,
     inactiveJobs,

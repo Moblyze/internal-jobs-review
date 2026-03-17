@@ -10,6 +10,7 @@ import { ALL_ENERGY_REGIONS, getRegionLocationValues } from '../utils/energyRegi
 import { getMarketLabel, PRIORITY_MARKET_SLUGS } from '../utils/focusMarkets'
 import { getCompanyStats, getCompanyDetail, getATSBreakdown, getSourcesOverview, loadCompanyIntelligence } from '../utils/companyData'
 import { companyToSlug } from '../utils/formatters'
+import { normalizeCompanyName } from '../utils/companyNormalizer'
 import SEO from '../components/SEO'
 
 // ATS platform colors for badges
@@ -315,7 +316,7 @@ function CompaniesPage() {
         }
 
         // Company filter
-        if (filters.companies?.length > 0 && !filters.companies.includes(job.company)) {
+        if (filters.companies?.length > 0 && !filters.companies.includes(normalizeCompanyName(job.company))) {
           return false
         }
 
@@ -552,12 +553,15 @@ function CompaniesPage() {
       .map(([name, count]) => ({ label: `${name} (${count})`, value: name }))
   }, [jobs])
 
-  // Company filter options (from unfiltered active jobs)
+  // Company filter options (from unfiltered active jobs, with normalized names)
   const companyFilterOptions = useMemo(() => {
     const counts = {}
     jobs.forEach(job => {
       if (job.status === 'removed' || job.status === 'paused') return
-      if (job.company) counts[job.company] = (counts[job.company] || 0) + 1
+      if (job.company) {
+        const canonical = normalizeCompanyName(job.company)
+        counts[canonical] = (counts[canonical] || 0) + 1
+      }
     })
     return Object.entries(counts)
       .sort((a, b) => b[1] - a[1])

@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { mergeEnhancements } from '../utils/jobEnhancementStorage';
 import { companyToSlug } from '../utils/formatters';
+import { normalizeCompanyName } from '../utils/companyNormalizer';
 
 const LAST_UPDATED_KEY = 'jobs_last_updated';
 
@@ -178,18 +179,20 @@ export async function getFullJob(indexJob) {
 }
 
 export function getJobsByCompany(jobs, companySlug) {
-  return jobs.filter(job =>
-    companyToSlug(job.company) === companySlug
-  );
+  return jobs.filter(job => {
+    const canonical = normalizeCompanyName(job.company);
+    return companyToSlug(canonical) === companySlug;
+  });
 }
 
 export async function getSimilarJobs(jobs, currentJob, limit = 5) {
   if (!currentJob) return [];
 
-  // Priority 1: Same company
+  // Priority 1: Same company (using normalized names so variants are grouped)
+  const currentCanonical = normalizeCompanyName(currentJob.company);
   const sameCompany = jobs.filter(job =>
     job.id !== currentJob.id &&
-    job.company === currentJob.company
+    normalizeCompanyName(job.company) === currentCanonical
   );
 
   if (sameCompany.length >= limit) {
@@ -201,7 +204,7 @@ export async function getSimilarJobs(jobs, currentJob, limit = 5) {
   const currentJobLocations = await getAllLocationsAsync(currentJob.location);
 
   // Pre-compute locations for all candidate jobs
-  const candidateJobs = jobs.filter(job => job.id !== currentJob.id && job.company !== currentJob.company);
+  const candidateJobs = jobs.filter(job => job.id !== currentJob.id && normalizeCompanyName(job.company) !== currentCanonical);
   const jobLocationsMap = new Map();
   await Promise.all(
     candidateJobs.map(async job => {
@@ -239,8 +242,9 @@ export async function getSimilarJobs(jobs, currentJob, limit = 5) {
 
 export function getUniqueCompanies(jobs) {
   // Only include companies from ACTIVE jobs (exclude removed/paused jobs)
+  // Normalize names so variants are deduplicated
   const activeJobs = jobs.filter(job => job.status !== 'removed' && job.status !== 'paused');
-  const companies = [...new Set(activeJobs.map(job => job.company))];
+  const companies = [...new Set(activeJobs.map(job => normalizeCompanyName(job.company)))];
   return companies.sort();
 }
 
@@ -314,6 +318,7 @@ export function getTopCompanies(jobs, limit = 5) {
   const companyCounts = {};
 
   // Only count ACTIVE jobs (exclude removed/paused jobs)
+  // Normalize names so variants are grouped together
   jobs.forEach(job => {
     // Skip inactive jobs
     if (job.status === 'removed' || job.status === 'paused') {
@@ -321,7 +326,8 @@ export function getTopCompanies(jobs, limit = 5) {
     }
 
     if (job.company) {
-      companyCounts[job.company] = (companyCounts[job.company] || 0) + 1;
+      const canonical = normalizeCompanyName(job.company);
+      companyCounts[canonical] = (companyCounts[canonical] || 0) + 1;
     }
   });
 

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams, useSearchParams, Link } from 'react-router-dom'
 import { useJobs, getSimilarJobs, getFullJob } from '../hooks/useJobs'
 import { formatDate, companyToSlug, findJobBySlug } from '../utils/formatters'
+import { normalizeCompanyName } from '../utils/companyNormalizer'
 import { formatJobDescription } from '../utils/contentFormatter'
 import { getAllLocations } from '../utils/locationParser'
 import { filterValidSkills } from '../utils/skillValidator'
@@ -211,10 +212,11 @@ function JobDetailPage() {
     setDescriptionView('ai') // Auto-switch to AI view
   }
 
+  const displayCompany = normalizeCompanyName(job.company)
   const breadcrumbItems = [
     {
-      label: job.company,
-      href: `/companies/${companyToSlug(job.company)}`
+      label: displayCompany,
+      href: `/companies/${companyToSlug(displayCompany)}`
     },
     {
       label: job.title
@@ -233,10 +235,10 @@ function JobDetailPage() {
 
         <div className="flex flex-wrap items-center gap-4 mb-4">
           <Link
-            to={`/companies/${companyToSlug(job.company)}${searchString ? `?${searchString}` : ''}`}
+            to={`/companies/${companyToSlug(displayCompany)}${searchString ? `?${searchString}` : ''}`}
             className="text-blue-600 hover:text-blue-700 font-medium text-lg"
           >
-            {job.company}
+            {displayCompany}
           </Link>
 
           {locations.length > 0 && (

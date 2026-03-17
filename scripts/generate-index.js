@@ -12,12 +12,14 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { normalizeCompanyName, loadBrandVariations, detectPrefixGroups } from '../src/utils/companyNormalizer.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const JOBS_PATH = path.join(__dirname, '../public/data/jobs.json');
 const INDEX_PATH = path.join(__dirname, '../public/data/jobs-index.json');
+const COMPANIES_PATH = path.join(__dirname, '../public/data/companies.json');
 
 // Certification patterns (mirroring src/utils/certificationExtractor.js)
 const CERT_PATTERNS = {
@@ -79,14 +81,33 @@ function extractCertsFromText(text) {
   return Array.from(found);
 }
 
+// ── Load companies.json brand variations into the normalizer ────────────────
+if (fs.existsSync(COMPANIES_PATH)) {
+  const companiesData = JSON.parse(fs.readFileSync(COMPANIES_PATH, 'utf8'));
+  loadBrandVariations(companiesData.companies || []);
+  console.log(`  Loaded ${(companiesData.companies || []).length} company profiles from companies.json`);
+}
+
 console.log('Reading jobs.json...');
 const jobs = JSON.parse(fs.readFileSync(JOBS_PATH, 'utf8'));
 console.log(`  Loaded ${jobs.length} jobs (${(fs.statSync(JOBS_PATH).size / 1024 / 1024).toFixed(1)}MB)`);
 
 let certsExtracted = 0;
+let companiesNormalized = 0;
 
 const indexJobs = jobs.map(job => {
   const { description, structuredDescription, ...rest } = job;
+
+  // Normalize company name so variants are grouped in the index
+  if (rest.company) {
+    const canonical = normalizeCompanyName(rest.company);
+    if (canonical !== rest.company) {
+      // Keep original for debugging; overwrite displayed company
+      rest.companyRaw = rest.company;
+      rest.company = canonical;
+      companiesNormalized++;
+    }
+  }
 
   // Keep first 200 chars of description for card preview
   if (description) {
@@ -115,3 +136,18 @@ fs.writeFileSync(INDEX_PATH, JSON.stringify(indexJobs), 'utf8');
 const indexSize = (fs.statSync(INDEX_PATH).size / 1024 / 1024).toFixed(1);
 console.log(`Wrote ${INDEX_PATH} (${indexSize}MB)`);
 console.log(`  Pre-extracted certifications for ${certsExtracted} jobs`);
+console.log(`  Normalized company names for ${companiesNormalized} jobs`);
+
+// ── Report: detect un-mapped prefix groups for future seeding ───────────────
+const allCompanyNames = [...new Set(jobs.map(j => j.company).filter(Boolean))];
+const suggestions = detectPrefixGroups(allCompanyNames);
+if (suggestions.length > 0) {
+  console.log(`\n  Potential un-mapped company groups (review for EXPLICIT_GROUPS):`);
+  for (const { canonical, variants } of suggestions) {
+    // Only show groups that aren't already handled by the normalizer
+    const normalized = new Set(variants.map(v => normalizeCompanyName(v)));
+    if (normalized.size > 1) {
+      console.log(`    "${canonical}": ${variants.map(v => `"${v}"`).join(', ')}`);
+    }
+  }
+}

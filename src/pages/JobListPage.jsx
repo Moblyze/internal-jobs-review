@@ -8,6 +8,7 @@ import { createGroupedLocationOptionsWithGeodata } from '../utils/locationGeodat
 import { extractJobCertifications } from '../utils/certificationExtractor'
 import { ALL_ENERGY_REGIONS, getRegionLocationValues } from '../utils/energyRegions'
 import { getMarketLabel, PRIORITY_MARKET_SLUGS } from '../utils/focusMarkets'
+import { normalizeCompanyName } from '../utils/companyNormalizer'
 import FiltersSearchable from '../components/FiltersSearchable'
 import JobCard from '../components/JobCard'
 import SEO from '../components/SEO'
@@ -261,8 +262,8 @@ function JobListPage() {
           return false
         }
 
-        // Company filter
-        if (filters.companies.length > 0 && !filters.companies.includes(job.company)) {
+        // Company filter (compare against normalized name so variants match)
+        if (filters.companies.length > 0 && !filters.companies.includes(normalizeCompanyName(job.company))) {
           return false
         }
 

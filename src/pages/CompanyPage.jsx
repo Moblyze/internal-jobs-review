@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom'
 import { useJobs, getJobsByCompany } from '../hooks/useJobs'
 import { useFilterParams } from '../hooks/useFilterParams'
 import { slugToCompany } from '../utils/formatters'
+import { normalizeCompanyName } from '../utils/companyNormalizer'
 import { getAllLocationsAsync } from '../utils/locationParser'
 import { extractJobCertifications } from '../utils/certificationExtractor'
 import Breadcrumbs from '../components/Breadcrumbs'
@@ -36,7 +37,7 @@ function CompanyPage() {
 
   const companyJobs = getJobsByCompany(jobs, companySlug)
   const companyName = companyJobs.length > 0
-    ? companyJobs[0].company
+    ? normalizeCompanyName(companyJobs[0].company)
     : slugToCompany(companySlug)
 
   // State for filtered jobs and locations
