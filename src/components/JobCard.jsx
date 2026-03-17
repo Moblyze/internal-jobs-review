@@ -3,6 +3,7 @@ import { timeAgo, companyToSlug, jobToSlug } from '../utils/formatters'
 import { filterValidSkills } from '../utils/skillValidator'
 import { formatLocation } from '../utils/locationParser'
 import { ensureCleanText } from '../utils/htmlCleaner'
+import { extractJobCertifications } from '../utils/certificationExtractor'
 
 function JobCard({ job }) {
   const jobSlug = jobToSlug(job.company, job.title);
@@ -113,6 +114,29 @@ function JobCard({ job }) {
             {validSkills.length > 3 && (
               <span className="text-xs text-gray-500">
                 +{validSkills.length - 3} more
+              </span>
+            )}
+          </div>
+        );
+      })()}
+
+      {(() => {
+        const certs = extractJobCertifications(job);
+        if (certs.length === 0) return null;
+
+        return (
+          <div className="flex flex-wrap items-center gap-1.5 mb-3">
+            {certs.slice(0, 3).map((cert, index) => (
+              <span
+                key={index}
+                className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800"
+              >
+                {cert}
+              </span>
+            ))}
+            {certs.length > 3 && (
+              <span className="text-xs text-gray-500">
+                +{certs.length - 3} more
               </span>
             )}
           </div>
