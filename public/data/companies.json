@@ -1,0 +1,94 @@
+{
+  "companies": [
+    {
+      "name": "Helix Energy Solutions",
+      "legalName": "Helix Energy Solutions Group, Inc.",
+      "ticker": "NYSE: HLX",
+      "website": "https://helixesg.com",
+      "hq": "Houston, TX, USA",
+      "sector": "Offshore energy services — well intervention, robotics, decommissioning, production facilities",
+      "ats": [
+        {
+          "region": "Global",
+          "platform": "Oracle Taleo",
+          "url": "https://phf.tbe.taleo.net/phf01/ats/careers/v2/jobSearch?act=redirectCwsV2&cws=45&org=HELIXESG"
+        }
+      ],
+      "careersUrl": "https://helixesg.com/career/",
+      "thirdPartyBoards": [
+        { "name": "Indeed", "url": "https://www.indeed.com/cmp/Helix-Energy-Solutions-Group" },
+        { "name": "Glassdoor", "url": "https://www.glassdoor.com/Jobs/Helix-Energy-Solutions-Jobs-E6344.htm" },
+        { "name": "LinkedIn", "url": "https://www.linkedin.com/company/helix-energy-solutions-group/jobs" },
+        { "name": "ZipRecruiter", "url": "https://www.ziprecruiter.com/co/Helix-Offshore/Jobs" },
+        { "name": "Rigzone", "url": "https://www.rigzone.com/news/company/helix_energy_solutions-2571/" },
+        { "name": "OilGasVacancy", "url": "https://www.oilgasvacancy.com/helix-energy-jobs-careers-offshore-services/" }
+      ],
+      "parentCompany": null,
+      "subsidiaries": ["Helix Offshore Crewing Services Limited"],
+      "brandVariations": ["Helix Energy Solutions", "Helix Energy Solutions Group", "Helix ESG", "Helix Offshore"],
+      "scraperNotes": "Oracle Taleo — scraper needs to be built. Taleo org code: HELIXESG, CWS ID: 45.",
+      "researchDate": "2026-03-17"
+    },
+    {
+      "name": "Interocean Marine Services",
+      "legalName": "Interocean Marine Services Limited",
+      "ticker": null,
+      "website": "https://interocean.co.uk/",
+      "hq": "Aberdeen, Scotland",
+      "sector": "Offshore marine services — rig moves, marine warranty, mooring, survey & positioning, ROV services",
+      "ats": [
+        {
+          "region": "Global",
+          "platform": "Workable",
+          "url": "https://apply.workable.com/interocean/"
+        }
+      ],
+      "careersUrl": "https://apply.workable.com/interocean/",
+      "thirdPartyBoards": [
+        { "name": "OGV Energy", "url": "https://jobs.ogv.energy/company/interocean" },
+        { "name": "LinkedIn", "url": "https://uk.linkedin.com/company/interocean-marineservices" },
+        { "name": "FlexJobs", "url": "https://www.flexjobs.com/remote-jobs/company/interocean_marine_services" }
+      ],
+      "parentCompany": "Rigmar Group",
+      "subsidiaries": [],
+      "brandVariations": ["Interocean", "Interocean Marine Services", "Interocean Marine"],
+      "scraperNotes": "Workable — scraper needs to be built. URL pattern: apply.workable.com/interocean/",
+      "researchDate": "2026-03-17"
+    },
+    {
+      "name": "Altrad Sparrows",
+      "legalName": "Altrad Sparrows (formerly Sparrows Group)",
+      "ticker": null,
+      "website": "https://www.altradsparrows.com",
+      "hq": "Aberdeen, Scotland",
+      "sector": "Crane, lifting, and mechanical handling services for energy, offshore, and industrial sectors",
+      "ats": [
+        {
+          "region": "USA",
+          "platform": "EasyApply (GetHired)",
+          "url": "https://altradsparrowsuscareers.easyapply.co/"
+        },
+        {
+          "region": "Global (non-US)",
+          "platform": "Epicor HCM",
+          "url": "https://selfservice.sparrowsgroup.com/EpicorHCMCSS/default.aspx?Tab=ddb54a17-24f1-480a-8fe4-7e521f94c2ff"
+        }
+      ],
+      "careersUrl": "https://www.altradsparrows.com/careers",
+      "thirdPartyBoards": [
+        { "name": "Indeed", "url": "https://www.indeed.com/cmp/Altrad-Sparrows/jobs" },
+        { "name": "ZipRecruiter", "url": "https://www.ziprecruiter.com/co/altrad-sparrows/Jobs" },
+        { "name": "EnergyJobline", "url": "https://www.energyjobline.com/jobs/altrad-sparrows/scotland" },
+        { "name": "Energy Job Shop", "url": "https://www.energyjobshop.com/company/sparrows-group/" },
+        { "name": "Glassdoor", "url": "https://www.glassdoor.com/Jobs/Sparrows-Group-Jobs-E554711.htm" },
+        { "name": "Rigzone", "url": "https://www.rigzone.com/oil/jobs/featuredemployer/details/2928" },
+        { "name": "LinkedIn", "url": "https://www.linkedin.com/company/altradsparrows" }
+      ],
+      "parentCompany": "Altrad Group",
+      "subsidiaries": ["Altrad Alpha"],
+      "brandVariations": ["Altrad Sparrows", "Sparrows Group", "Altrad Alpha", "Sparrows", "Altrad Sparrows Recruitment — Americas"],
+      "scraperNotes": "US: EasyApply/GetHired — scraper needs to be built. Global: Epicor HCM — may have access restrictions. Must search BOTH 'Altrad Sparrows' AND 'Sparrows Group'.",
+      "researchDate": "2026-03-17"
+    }
+  ]
+}

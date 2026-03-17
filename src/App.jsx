@@ -8,6 +8,7 @@ const JobDetailPage = lazy(() => import('./pages/JobDetailPage'))
 const CompanyPage = lazy(() => import('./pages/CompanyPage'))
 const DescriptionDemoPage = lazy(() => import('./pages/DescriptionDemoPage'))
 const ComparisonTool = lazy(() => import('./pages/ComparisonTool'))
+const CompaniesPage = lazy(() => import('./pages/CompaniesPage'))
 
 // Error boundary component
 class ErrorBoundary extends Component {
@@ -114,6 +115,7 @@ function App() {
           <Routes>
             <Route path="/" element={<JobListPage />} />
             <Route path="/jobs/:jobSlug" element={<JobDetailPage />} />
+            <Route path="/companies" element={<CompaniesPage />} />
             <Route path="/companies/:companySlug" element={<CompanyPage />} />
             <Route path="/demo/description-formatting" element={<DescriptionDemoPage />} />
             <Route path="/compare" element={<ComparisonTool />} />

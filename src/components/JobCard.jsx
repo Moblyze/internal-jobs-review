@@ -74,15 +74,17 @@ function JobCard({ job }) {
         </div>
       </div>
 
-      {job.description && (() => {
-        // Get plain text description, strip HTML, collapse whitespace
-        const cleanDescription = typeof job.description === 'string'
-          ? ensureCleanText(job.description)
-          : '';
-
-        const plainText = cleanDescription
-          .replace(/\s+/g, ' ')  // Collapse multiple spaces/newlines
-          .trim();
+      {(job.descriptionPreview || job.description) && (() => {
+        // Use pre-computed preview from index file if available, otherwise fall back to full description
+        let plainText;
+        if (job.descriptionPreview) {
+          plainText = job.descriptionPreview;
+        } else {
+          const cleanDescription = typeof job.description === 'string'
+            ? ensureCleanText(job.description)
+            : '';
+          plainText = cleanDescription.replace(/\s+/g, ' ').trim();
+        }
 
         const preview = plainText.substring(0, 150);
         const needsEllipsis = plainText.length > 150;
