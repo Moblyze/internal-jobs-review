@@ -70,6 +70,7 @@ export function getCompanyStats(jobs) {
         locations: new Set(),
         employmentTypes: new Set(),
         sources: new Set(),
+        sourceCounts: {},
       };
     }
 
@@ -92,6 +93,7 @@ export function getCompanyStats(jobs) {
     }
     if (job.source) {
       entry.sources.add(job.source);
+      entry.sourceCounts[job.source] = (entry.sourceCounts[job.source] || 0) + 1;
     }
   });
 
@@ -102,6 +104,10 @@ export function getCompanyStats(jobs) {
       locations: [...c.locations],
       employmentTypes: [...c.employmentTypes],
       sources: [...c.sources],
+      // Sort sourceCounts descending by count
+      sourceCounts: Object.entries(c.sourceCounts)
+        .sort((a, b) => b[1] - a[1])
+        .reduce((obj, [source, count]) => { obj[source] = count; return obj; }, {}),
     }))
     .sort((a, b) => b.activeJobs - a.activeJobs);
 }
@@ -174,6 +180,47 @@ export function getCompanyDetail(companySlug, jobs) {
  * Get ATS platform breakdown across all companies with intelligence data.
  * Returns { platformName: count } for companies that have intelligence.
  */
+/**
+ * Get comparison data for multiple companies.
+ * Returns an array of enriched company objects with full detail + intelligence.
+ */
+export function getComparisonData(slugs, jobs, intelligence) {
+  return slugs.map(slug => {
+    const detail = getCompanyDetail(slug, jobs)
+    const intel = intelligence[slug] || null
+    return { ...detail, intel }
+  }).filter(Boolean)
+}
+
+/**
+ * Get aggregate source overview across all companies.
+ * Returns { totalSources, sourceTotals: [{ source, jobCount, companyCount }] }
+ */
+export function getSourcesOverview(companyStats) {
+  const sourceJobCounts = {};
+  const sourceCompanyCounts = {};
+
+  companyStats.forEach(company => {
+    Object.entries(company.sourceCounts).forEach(([source, count]) => {
+      sourceJobCounts[source] = (sourceJobCounts[source] || 0) + count;
+      sourceCompanyCounts[source] = (sourceCompanyCounts[source] || 0) + 1;
+    });
+  });
+
+  const sourceTotals = Object.keys(sourceJobCounts)
+    .map(source => ({
+      source,
+      jobCount: sourceJobCounts[source],
+      companyCount: sourceCompanyCounts[source],
+    }))
+    .sort((a, b) => b.jobCount - a.jobCount);
+
+  return {
+    totalSources: sourceTotals.length,
+    sourceTotals,
+  };
+}
+
 export function getATSBreakdown(companyStats, intelligence) {
   const platforms = {};
 
