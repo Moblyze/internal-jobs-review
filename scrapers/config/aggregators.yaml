@@ -578,3 +578,28 @@ search_profiles:
       - "retail"
       - "dental"
       - "pharmacy"
+
+  rovop:
+    keywords:
+      - "ROVOP"
+      - "ROVOP Limited"
+    job_types: ["contract", "temporary"]
+    countries: ["us", "gb", "au", "ae", "sg"]
+    relevance_include:
+      - "rovop"
+      - "rov"
+      - "remotely operated"
+      - "subsea"
+      - "pilot technician"
+      - "offshore"
+      - "survey"
+      - "inspection"
+      - "tooling"
+      - "superintendent"
+    relevance_exclude:
+      - "school"
+      - "nurse"
+      - "medical"
+      - "retail"
+      - "dental"
+      - "pharmacy"

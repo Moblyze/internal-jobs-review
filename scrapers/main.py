@@ -79,6 +79,12 @@ try:
 except ImportError:
     pass
 
+try:
+    from src.scrapers.rovop import ROVOPScraper
+    SCRAPER_REGISTRY['rovop'] = ROVOPScraper
+except ImportError:
+    pass
+
 
 def load_companies_config(config_path: str = 'config/companies.yaml') -> dict:
     """

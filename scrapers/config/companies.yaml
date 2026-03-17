@@ -302,6 +302,23 @@ companies:
   #   total_pages_estimate: 24
   #   sheet_name: "Bechtel"
 
+  # === Custom ASP.NET career portals ===
+
+  rovop:
+    name: "ROVOP"
+    platform: rovop
+    base_url: "https://jobs.rovop.com/jobs.aspx"
+    rate_limit_delay: 3.0
+    # ROVOP uses a custom ASP.NET career portal (not a known ATS platform).
+    # Playwright browser scraping is required; no API or RSS feed available.
+    selectors:
+      # Primary selectors - job links contain /job/ in href
+      job_link: 'a[href*="/job/"]'
+      # Fallback selectors for description extraction on detail pages
+      description: '.job-description, .description, [class*="description"], [itemprop="description"]'
+      location: '.job-location, .location, [class*="location"]'
+    sheet_name: "ROVOP"
+
   # === EasyApply/GetHired platform ===
 
   altrad_sparrows_us:

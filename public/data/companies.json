@@ -89,6 +89,26 @@
       "brandVariations": ["Altrad Sparrows", "Sparrows Group", "Altrad Alpha", "Sparrows", "Altrad Sparrows Recruitment — Americas"],
       "scraperNotes": "US: EasyApply/GetHired — scraper needs to be built. Global: Epicor HCM — may have access restrictions. Must search BOTH 'Altrad Sparrows' AND 'Sparrows Group'.",
       "researchDate": "2026-03-17"
+    },
+    {
+      "name": "ROVOP",
+      "legalName": "ROVOP Limited",
+      "website": "https://www.rovop.com",
+      "hq": "Aberdeen, Scotland",
+      "sector": "ROV services — subsea inspection, survey, construction support for oil & gas, offshore wind",
+      "ats": [
+        { "region": "Global", "platform": "Custom ASP.NET", "url": "https://jobs.rovop.com/jobs.aspx" }
+      ],
+      "careersUrl": "https://jobs.rovop.com/jobs.aspx",
+      "thirdPartyBoards": [
+        { "name": "LinkedIn", "url": "https://www.linkedin.com/company/rovop/jobs" },
+        { "name": "GulfTalent", "url": "https://www.gulftalent.com/companies/rovop" }
+      ],
+      "parentCompany": "Edison Chouest Offshore (Chouest Group) — acquired May 2024",
+      "subsidiaries": [],
+      "brandVariations": ["ROVOP", "ROVOP Limited"],
+      "scraperNotes": "Custom ASP.NET career portal — Playwright-based scraper. No API/RSS. Job URLs: /job/{slug}-{id}.aspx. Typical roles: ROV Pilot Technician, Tooling Technician, Superintendent.",
+      "researchDate": "2026-03-17"
     }
   ]
 }
