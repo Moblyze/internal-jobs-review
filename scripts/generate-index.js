@@ -165,6 +165,26 @@ if (fs.existsSync(JOBS_PATH) && isValidJson(JOBS_PATH)) {
   console.log('jobs.json not available (Git LFS pointer?), reading existing jobs-index.json...');
   indexJobs = JSON.parse(fs.readFileSync(INDEX_PATH, 'utf8'));
   console.log(`  Loaded ${indexJobs.length} jobs from existing index (${(fs.statSync(INDEX_PATH).size / 1024 / 1024).toFixed(1)}MB)`);
+
+  // Re-normalize company names (picks up new normalizer rules even when jobs.json is unavailable)
+  let reNormalized = 0;
+  indexJobs.forEach(job => {
+    if (job.company) {
+      const canonical = normalizeCompanyName(job.company);
+      if (canonical && canonical !== job.company) {
+        job.companyRaw = job.companyRaw || job.company;
+        job.company = canonical;
+        reNormalized++;
+      }
+    }
+  });
+  if (reNormalized > 0) {
+    console.log(`  Re-normalized ${reNormalized} company names`);
+    // Update the index file with re-normalized names
+    fs.writeFileSync(INDEX_PATH, JSON.stringify(indexJobs), 'utf8');
+    console.log(`  Updated ${INDEX_PATH}`);
+  }
+
   usedFallback = true;
 } else {
   console.error('ERROR: Neither jobs.json nor jobs-index.json available. Run npm run export-jobs first.');

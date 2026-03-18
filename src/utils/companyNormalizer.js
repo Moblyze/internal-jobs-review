@@ -537,10 +537,12 @@ function toFuzzyKey(name) {
  * @returns {string} Canonical company name
  */
 export function normalizeCompanyName(name) {
-  if (!name) return name;
+  if (!name) return name || '';
   _buildAliasMap();
 
-  const trimmed = name.trim();
+  // Clean leading/trailing dots, spaces, and other punctuation noise
+  const trimmed = name.trim().replace(/^[\s.·•,;:\-]+|[\s.·•,;:\-]+$/g, '').trim();
+  if (!trimmed) return name.trim(); // If cleaning removed everything, return original trimmed
   const lowerTrimmed = trimmed.toLowerCase();
 
   // 1. Exact match in hand-curated alias map

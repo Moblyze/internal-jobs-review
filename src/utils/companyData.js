@@ -1,5 +1,5 @@
 import { companyToSlug } from './formatters';
-import { normalizeCompanyName, loadBrandVariations } from './companyNormalizer';
+import { normalizeCompanyName, loadBrandVariations, loadPDLCache } from './companyNormalizer';
 
 // Cache for company intelligence data
 let companyIntelligence = null;
@@ -26,6 +26,18 @@ export async function loadCompanyIntelligence() {
       // Feed brand variations into the company normalizer
       const companies = data.companies || [];
       loadBrandVariations(companies);
+
+      // Load PDL company cache for enhanced name normalization
+      try {
+        const pdlRes = await fetch(`${import.meta.env.BASE_URL}data/pdl-company-cache.json`);
+        if (pdlRes.ok) {
+          const pdlData = await pdlRes.json();
+          loadPDLCache(pdlData);
+          console.log(`[companyData] Loaded PDL cache with ${Object.keys(pdlData).length} entries`);
+        }
+      } catch (pdlErr) {
+        console.warn('[companyData] PDL cache not available:', pdlErr.message);
+      }
 
       // Index by slug for fast lookup
       const indexed = {};
@@ -65,78 +77,87 @@ export async function loadCompanyIntelligence() {
  * Returns an array of company objects sorted by active job count descending.
  */
 export function getCompanyStats(jobs) {
-  const companyMap = {};
+  try {
+    const companyMap = {};
 
-  jobs.forEach(job => {
-    if (!job.company) return;
+    jobs.forEach(job => {
+      if (!job.company) return;
 
-    // Normalize company name to group variants together
-    const canonical = normalizeCompanyName(job.company);
-    const slug = companyToSlug(canonical);
+      // Normalize company name to group variants together
+      const canonical = normalizeCompanyName(job.company);
+      if (!canonical) return; // Skip if normalization returned falsy
 
-    if (!companyMap[slug]) {
-      companyMap[slug] = {
-        name: canonical,
-        slug,
-        aliases: new Set(),
-        totalJobs: 0,
-        activeJobs: 0,
-        inactiveJobs: 0,
-        locations: new Set(),
-        employmentTypes: new Set(),
-        sources: new Set(),
-        sourceCounts: {},
-      };
-    }
+      const slug = companyToSlug(canonical);
+      if (!slug) return; // Skip if slug generation failed
 
-    const entry = companyMap[slug];
-    if (!entry) return; // Safety check
+      if (!companyMap[slug]) {
+        companyMap[slug] = {
+          name: canonical,
+          slug,
+          aliases: new Set(),
+          totalJobs: 0,
+          activeJobs: 0,
+          inactiveJobs: 0,
+          locations: new Set(),
+          employmentTypes: new Set(),
+          sources: new Set(),
+          sourceCounts: {},
+        };
+      }
 
-    // Ensure Sets exist (defensive against partial initialization)
-    if (!entry.aliases) entry.aliases = new Set();
-    if (!entry.locations) entry.locations = new Set();
-    if (!entry.employmentTypes) entry.employmentTypes = new Set();
-    if (!entry.sources) entry.sources = new Set();
+      const entry = companyMap[slug];
+      if (!entry) return; // Safety check
 
-    // Track the raw name variant if it differs from the canonical
-    if (job.company !== canonical) {
-      entry.aliases.add(job.company);
-    }
-    entry.totalJobs++;
+      // Ensure Sets exist (defensive against partial initialization)
+      if (!entry.aliases || typeof entry.aliases.add !== 'function') entry.aliases = new Set();
+      if (!entry.locations || typeof entry.locations.add !== 'function') entry.locations = new Set();
+      if (!entry.employmentTypes || typeof entry.employmentTypes.add !== 'function') entry.employmentTypes = new Set();
+      if (!entry.sources || typeof entry.sources.add !== 'function') entry.sources = new Set();
+      if (!entry.sourceCounts || typeof entry.sourceCounts !== 'object') entry.sourceCounts = {};
 
-    const isInactive = job.status === 'removed' || job.status === 'paused';
-    if (isInactive) {
-      entry.inactiveJobs++;
-    } else {
-      entry.activeJobs++;
-    }
+      // Track the raw name variant if it differs from the canonical
+      if (job.company !== canonical) {
+        entry.aliases.add(job.company);
+      }
+      entry.totalJobs++;
 
-    if (job.location) {
-      entry.locations.add(job.location);
-    }
-    if (job.employmentType) {
-      entry.employmentTypes.add(job.employmentType);
-    }
-    const src = job.source || 'direct';
-    entry.sources.add(src);
-    entry.sourceCounts[src] = (entry.sourceCounts[src] || 0) + 1;
-  });
+      const isInactive = job.status === 'removed' || job.status === 'paused';
+      if (isInactive) {
+        entry.inactiveJobs++;
+      } else {
+        entry.activeJobs++;
+      }
 
-  // Convert sets to arrays and sort by active job count
-  return Object.values(companyMap)
-    .map(c => ({
-      ...c,
-      aliases: c.aliases ? [...c.aliases] : [],
-      locations: c.locations ? [...c.locations] : [],
-      employmentTypes: c.employmentTypes ? [...c.employmentTypes] : [],
-      sources: c.sources ? [...c.sources] : [],
-      sourceCounts: c.sourceCounts
-        ? Object.entries(c.sourceCounts)
-            .sort((a, b) => b[1] - a[1])
-            .reduce((obj, [source, count]) => { obj[source] = count; return obj; }, {})
-        : {},
-    }))
-    .sort((a, b) => b.activeJobs - a.activeJobs);
+      if (job.location) {
+        entry.locations.add(job.location);
+      }
+      if (job.employmentType) {
+        entry.employmentTypes.add(job.employmentType);
+      }
+      const src = job.source || 'direct';
+      entry.sources.add(src);
+      entry.sourceCounts[src] = (entry.sourceCounts[src] || 0) + 1;
+    });
+
+    // Convert sets to arrays and sort by active job count
+    return Object.values(companyMap)
+      .map(c => ({
+        ...c,
+        aliases: c.aliases instanceof Set ? [...c.aliases] : (Array.isArray(c.aliases) ? c.aliases : []),
+        locations: c.locations instanceof Set ? [...c.locations] : (Array.isArray(c.locations) ? c.locations : []),
+        employmentTypes: c.employmentTypes instanceof Set ? [...c.employmentTypes] : (Array.isArray(c.employmentTypes) ? c.employmentTypes : []),
+        sources: c.sources instanceof Set ? [...c.sources] : (Array.isArray(c.sources) ? c.sources : []),
+        sourceCounts: c.sourceCounts
+          ? Object.entries(c.sourceCounts)
+              .sort((a, b) => b[1] - a[1])
+              .reduce((obj, [source, count]) => { obj[source] = count; return obj; }, {})
+          : {},
+      }))
+      .sort((a, b) => b.activeJobs - a.activeJobs);
+  } catch (err) {
+    console.error('[getCompanyStats] Error computing company stats:', err);
+    return [];
+  }
 }
 
 /**
@@ -144,9 +165,12 @@ export function getCompanyStats(jobs) {
  * Combines jobs data stats with intelligence data if available.
  */
 export function getCompanyDetail(companySlug, jobs) {
+  try {
   // Match jobs by normalised slug so that all variants are grouped together
   const companyJobs = jobs.filter(job => {
+    if (!job.company) return false;
     const canonical = normalizeCompanyName(job.company);
+    if (!canonical) return false;
     return companyToSlug(canonical) === companySlug;
   });
 
@@ -209,6 +233,10 @@ export function getCompanyDetail(companySlug, jobs) {
     sources,
     jobs: companyJobs,
   };
+  } catch (err) {
+    console.error('[getCompanyDetail] Error computing company detail:', err);
+    return null;
+  }
 }
 
 /**
