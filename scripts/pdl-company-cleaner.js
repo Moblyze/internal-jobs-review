@@ -25,7 +25,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // ── Paths ───────────────────────────────────────────────────────────────────
-const JOBS_PATH = path.join(__dirname, '../public/data/jobs.json');
+// Use index file (lightweight) — jobs.json may be a Git LFS pointer locally
+const JOBS_PATH = path.join(__dirname, '../public/data/jobs-index.json');
+const JOBS_FULL_PATH = path.join(__dirname, '../public/data/jobs.json');
 const CACHE_PATH = path.join(__dirname, '../public/data/pdl-company-cache.json');
 const CANONICAL_PATH = path.join(__dirname, '../public/data/company-canonical-names.json');
 const ENV_PATH = path.join(__dirname, '../.env');
@@ -225,12 +227,14 @@ async function main() {
   console.log('='.repeat(60));
 
   // Load jobs
-  if (!fs.existsSync(JOBS_PATH)) {
-    console.error(`Jobs file not found: ${JOBS_PATH}`);
+  // Try index first (always valid locally), fall back to full jobs.json
+  const jobsFile = fs.existsSync(JOBS_PATH) ? JOBS_PATH : JOBS_FULL_PATH;
+  if (!fs.existsSync(jobsFile)) {
+    console.error(`Jobs file not found: ${JOBS_PATH} or ${JOBS_FULL_PATH}`);
     process.exit(1);
   }
 
-  const jobs = JSON.parse(fs.readFileSync(JOBS_PATH, 'utf8'));
+  const jobs = JSON.parse(fs.readFileSync(jobsFile, 'utf8'));
   const uniqueNames = [...new Set(jobs.map(j => j.company).filter(Boolean))].sort();
   console.log(`  Loaded ${jobs.length} jobs with ${uniqueNames.length} unique company names`);
 

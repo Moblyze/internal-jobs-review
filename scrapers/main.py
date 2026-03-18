@@ -115,6 +115,12 @@ try:
 except ImportError:
     pass
 
+try:
+    from src.scrapers.pbs_wordpress import PBSWordPressScraper
+    SCRAPER_REGISTRY['pbs_wordpress'] = PBSWordPressScraper
+except ImportError:
+    pass
+
 
 def load_companies_config(config_path: str = 'config/companies.yaml') -> dict:
     """

@@ -404,18 +404,18 @@ companies:
     platform: html_generic
     base_url: "https://jobs.osmthome.com/"
     rate_limit_delay: 3.0
-    # OSM Thome uses a Vue/Quasar SPA for their job portal.
-    # Playwright is required to render JavaScript content.
+    # OSM Thome uses a Vue/Quasar SPA. The listing page requires JS rendering,
+    # but we can extract job URLs from the sitemap XML and use Playwright for details.
     selectors:
-      job_card: "a[href*='/job/'], .job-card, .q-card, .q-item"
-      job_title: ".q-item__label, .job-title, h3, h4"
-      job_link: "a"
-      job_location: ".q-item__caption, .location, .job-location"
       description: ".job-description, .description, .q-page, main"
       location: ".job-location, .location, [class*='location']"
     html_config:
-      wait_for: ".q-page, .q-card, .q-item, a[href*='/job/']"
-      detail_wait_for: ".job-description, .description, .q-page"
+      # Use sitemap to get job listings instead of rendering the SPA
+      sitemap_url: "https://jobs.osmthome.com/sitemap.xml"
+      sitemap_job_pattern: "/jobs/"
+      # Wait for SPA content on detail pages
+      detail_wait_for: "body"
+      wait_for_network: true
     sheet_name: "OSM Thome"
 
   wellsafe_solutions:
@@ -423,17 +423,15 @@ companies:
     platform: html_generic
     base_url: "https://www.wellsafesolutions.com/available-positions/"
     rate_limit_delay: 3.0
-    # Wellsafe is a WordPress site. Job listings may be rendered via a WP plugin
-    # or embedded widget. Playwright handles dynamic content loading.
+    # Wellsafe is a WordPress site using Visual Composer. Jobs are in VC sections
+    # with h3 headings. We extract via the WP REST API for reliable parsing.
     selectors:
-      job_card: ".job-item, .vacancy-item, article.post, .wpb_wrapper a[href*='position'], a[href*='vacancy']"
-      job_title: "h3, h2, .entry-title"
-      job_link: "a"
-      job_location: ".location, .job-location"
       description: ".entry-content, .job-description, .wpb_wrapper, article, main"
       location: ".job-location, .location, [class*='location']"
     html_config:
-      wait_for: ".job-item, article, .wpb_wrapper"
+      # Use WordPress REST API to extract job listings from page content
+      wp_api_url: "https://www.wellsafesolutions.com/wp-json/wp/v2/pages/2140"
+      skip_detail_pages: true
     sheet_name: "Wellsafe Solutions"
 
   allrig_group:
@@ -497,38 +495,35 @@ companies:
 
   pbs_offshore:
     name: "PBS by Ponticelli"
-    platform: html_generic
-    base_url: "https://www.pbs-offshore.com/careers/"
+    platform: pbs_wordpress
+    base_url: "https://www.pbs-offshore.com"
     rate_limit_delay: 3.0
-    # PBS is a WordPress + Elementor site. Jobs are loaded dynamically via JS
-    # into #job-post-container. Playwright is required.
-    selectors:
-      job_card: "#job-post-container .job-item, #job-post-container a, .job-post-container > div"
-      job_title: "h3, h4, .job-title"
-      job_link: "a"
-      job_location: ".location, .job-location"
-      description: ".entry-content, .job-description, .elementor-widget-container, article, main"
-      location: ".job-location, .location, [class*='location']"
-      employment_type: ".job-type, [class*='type']"
-    html_config:
-      wait_for: "#job-post-container, .job-post-container"
-      detail_wait_for: ".entry-content, .job-description"
+    # PBS is a WordPress + Elementor site with a custom "job" post type.
+    # Jobs are accessible via WP REST API: /wp-json/wp/v2/job
+    # The careers page (/careers/) loads jobs via AJAX into #job-post-container.
+    # As of 2026-03-17, the REST API returns 0 jobs (no active listings).
+    # Using a dedicated scraper that queries the WP REST API directly.
+    pbs_config:
+      rest_endpoint: "/wp-json/wp/v2/job"
+      per_page: 100
+    selectors: {}
     sheet_name: "PBS by Ponticelli"
 
   # === Cezanne OnDemand / Intervieweb ===
 
   dron_dickson:
     name: "Dron & Dickson"
-    platform: cezanne
-    base_url: "https://cezanneondemand.intervieweb.it/dronanddickson/en/career#702"
+    platform: occupop
+    base_url: "https://dronanddickson.occupop-careers.com/"
     rate_limit_delay: 3.0
-    cezanne_config:
-      company_slug: "dronanddickson"
-      host: "cezanneondemand.intervieweb.it"
+    # Dron & Dickson moved from Cezanne OnDemand (Intervieweb) to Cezanne Recruitment
+    # (Occupop). The old intervieweb.it URL now shows a login page.
+    # This is a React SPA that loads job data client-side via Apollo GraphQL.
     selectors:
-      job_card: ".annuncioRow, .job-row, .career-item, .vacancy-item, a[href*='vacancy'], .list-group-item"
-      description: ".annuncioDetail, .vacancy-detail, .job-description"
-      location: ".job-location, .location, [class*='location']"
+      job_card: "a[href*='/jobs/'], [class*='job-card'], [class*='JobCard'], .MuiCard-root"
+      description: ".job-description, [class*='description'], .MuiTypography-body1"
+      location: ".job-location, [class*='location']"
+      employment_type: ".job-type, [class*='type']"
     sheet_name: "Dron & Dickson"
 
   # === Occupop / Cezanne Recruitment ===

@@ -34,9 +34,13 @@ Configuration in companies.yaml:
       title_from_link: false              # If true, get title from link text instead of job_title
 """
 
+import html
+import json
 import re
+import xml.etree.ElementTree as ET
 from typing import Optional
 from urllib.parse import urljoin
+from urllib.request import Request, urlopen
 
 import structlog
 from bs4 import BeautifulSoup
@@ -372,6 +376,9 @@ class HtmlGenericScraper(BaseScraper):
         Scans all links on the page for patterns indicating job detail pages
         (e.g., /job/, /vacancy/, /position/, /career/).
 
+        Also supports html_config.exclude_url_patterns — a list of regex patterns
+        to exclude specific URLs (e.g., the main careers page, open-application links).
+
         Args:
             page: Playwright page to scan
 
@@ -385,6 +392,9 @@ class HtmlGenericScraper(BaseScraper):
             '/opening/', '/role/',
         ]
 
+        # Load exclude patterns from config (regex patterns applied to href)
+        exclude_url_patterns = self.html_config.get('exclude_url_patterns', [])
+
         all_links = page.locator('a[href]')
         count = await all_links.count()
 
@@ -396,6 +406,12 @@ class HtmlGenericScraper(BaseScraper):
 
                 # Check if link matches job URL patterns
                 if any(pattern in href_lower for pattern in job_url_patterns):
+                    # Check if URL matches any exclude pattern
+                    if exclude_url_patterns and any(
+                        re.search(pattern, href) for pattern in exclude_url_patterns
+                    ):
+                        continue
+
                     title = (await link.inner_text(timeout=3000)).strip()
 
                     # Skip nav/utility links
@@ -403,7 +419,8 @@ class HtmlGenericScraper(BaseScraper):
                         continue
                     if any(skip in title.lower() for skip in [
                         'apply', 'login', 'register', 'back', 'home',
-                        'search', 'filter', 'sort', 'all jobs', 'view all'
+                        'search', 'filter', 'sort', 'all jobs', 'view all',
+                        'careers', 'open application',
                     ]):
                         continue
 
@@ -581,17 +598,161 @@ class HtmlGenericScraper(BaseScraper):
 
         return default
 
+    def _extract_listings_from_sitemap(self) -> list[dict]:
+        """
+        Extract job listings from an XML sitemap.
+
+        Parses the sitemap XML and extracts URLs matching the configured
+        job pattern. Title is derived from the URL slug.
+
+        Returns:
+            List of dicts with: title, url, company
+        """
+        sitemap_url = self.html_config.get('sitemap_url', '')
+        job_pattern = self.html_config.get('sitemap_job_pattern', '/jobs/')
+
+        if not sitemap_url:
+            return []
+
+        self.logger.info("fetching_sitemap", url=sitemap_url)
+
+        try:
+            req = Request(sitemap_url, headers={
+                'User-Agent': 'Mozilla/5.0 (compatible; JobScraper/1.0)'
+            })
+            resp = urlopen(req, timeout=30)
+            xml_content = resp.read().decode('utf-8')
+
+            # Parse XML
+            root = ET.fromstring(xml_content)
+            # Handle namespace
+            ns = {'sm': 'http://www.sitemaps.org/schemas/sitemap/0.9'}
+
+            listings = []
+            for url_elem in root.findall('sm:url', ns):
+                loc = url_elem.find('sm:loc', ns)
+                if loc is None or loc.text is None:
+                    continue
+
+                url = loc.text.strip()
+                if job_pattern not in url:
+                    continue
+
+                # Extract title from URL slug
+                parts = url.rstrip('/').split('/')
+                slug = parts[-1] if parts[-1] else parts[-2]
+                # Remove leading numeric ID if present (e.g., "526/wiper-..." pattern)
+                # The slug is already the last part after the ID
+                title = slug.replace('-', ' ').strip().title()
+
+                if not title or len(title) < 3:
+                    continue
+
+                listings.append({
+                    'title': title,
+                    'url': url,
+                    'company': self.company_name,
+                })
+
+            self.logger.info("sitemap_listings_extracted", count=len(listings))
+            return listings
+
+        except Exception as e:
+            self.logger.error("sitemap_fetch_failed", error=str(e))
+            return []
+
+    def _extract_listings_from_wp_api(self) -> list[dict]:
+        """
+        Extract job listings from a WordPress REST API page.
+
+        Parses the page content returned by WP REST API, extracting
+        job titles and locations from Visual Composer sections (h3 headings
+        followed by location text).
+
+        Returns:
+            List of dicts with: title, url, company, location, description
+        """
+        wp_api_url = self.html_config.get('wp_api_url', '')
+        if not wp_api_url:
+            return []
+
+        self.logger.info("fetching_wp_api", url=wp_api_url)
+
+        try:
+            req = Request(wp_api_url, headers={
+                'User-Agent': 'Mozilla/5.0 (compatible; JobScraper/1.0)'
+            })
+            resp = urlopen(req, timeout=30)
+            data = json.loads(resp.read())
+            content = html.unescape(data['content']['rendered'])
+
+            # Split content by VC column sections
+            sections = content.split('[/vc_column]')
+
+            listings = []
+            # Skip intro sections (header image, description, FAQ)
+            # Job sections have h3 with job title and text with "Location: ..."
+            skip_titles = {
+                'home', 'play your part', 'how do i submit', 'faq',
+                'join our team', 'widget area',
+            }
+
+            for section in sections:
+                # Extract h3 headings
+                h3_matches = re.findall(r'<h3[^>]*>(.*?)</h3>', section, re.DOTALL)
+                for h3_html in h3_matches:
+                    title = re.sub(r'<[^>]+>', '', h3_html).strip()
+                    if not title or len(title) < 3:
+                        continue
+                    if any(skip in title.lower() for skip in skip_titles):
+                        continue
+
+                    # Extract text content (strip HTML and VC shortcodes)
+                    text = re.sub(r'<[^>]+>', ' ', section)
+                    text = re.sub(r'\[.*?\]', '', text)
+                    text = ' '.join(text.split())
+
+                    # Look for location
+                    location = 'Location Not Specified'
+                    loc_match = re.search(
+                        r'Location\s*:\s*([A-Za-z][A-Za-z\s,/]+)',
+                        text, re.IGNORECASE
+                    )
+                    if loc_match:
+                        location = loc_match.group(1).strip()
+
+                    # Build a description from the section text
+                    description = text.strip()
+                    if len(description) < 20:
+                        description = f"{title} position at {self.company_name}. Location: {location}."
+
+                    listings.append({
+                        'title': title,
+                        'url': self.base_url,
+                        'company': self.company_name,
+                        'location': location,
+                        'description': description,
+                    })
+
+            self.logger.info("wp_api_listings_extracted", count=len(listings))
+            return listings
+
+        except Exception as e:
+            self.logger.error("wp_api_fetch_failed", error=str(e))
+            return []
+
     async def extract_all_jobs(self, max_jobs: Optional[int] = None) -> list[JobPosting]:
         """
         Main entry point: extract all jobs from career portal using Playwright.
 
         Process:
-        1. Navigate to career page and wait for content
-        2. Handle load more buttons / pagination
-        3. Extract job listing cards (title, URL)
-        4. Visit each job detail page for full descriptions
-        5. Validate through JobPosting model
-        6. Enrich with certifications
+        1. Check for sitemap or WP API extraction (no browser needed for listings)
+        2. Otherwise navigate to career page and wait for content
+        3. Handle load more buttons / pagination
+        4. Extract job listing cards (title, URL)
+        5. Visit each job detail page for full descriptions
+        6. Validate through JobPosting model
+        7. Enrich with certifications
 
         Args:
             max_jobs: Optional limit for testing
@@ -606,43 +767,59 @@ class HtmlGenericScraper(BaseScraper):
         self.logger.info("extraction_start", company=self.company_name, max_jobs=max_jobs)
 
         try:
-            context = await self._get_browser_context()
-            page = await context.new_page()
+            # Check for alternative extraction methods first (no browser needed)
+            all_listings = []
 
-            # Navigate to main listings page
-            await self._fetch_page(page, self.base_url)
-            await self._wait_for_content(page)
+            if self.html_config.get('wp_api_url'):
+                # WordPress REST API extraction (e.g., Wellsafe Solutions)
+                all_listings = self._extract_listings_from_wp_api()
+                skip_detail_pages = True  # WP API provides all data we need
 
-            # Handle load more buttons
-            await self._handle_load_more(page)
+            elif self.html_config.get('sitemap_url'):
+                # Sitemap-based extraction (e.g., OSM Thome)
+                all_listings = self._extract_listings_from_sitemap()
 
-            # Extract listings from first page
-            all_listings = await self.extract_job_listings(page)
+            page = None
 
-            # Handle pagination if configured
-            if self.selectors.get('pagination_next'):
-                pages_visited = 1
-                max_pages = 10
+            if not all_listings:
+                # Fall back to browser-based extraction
+                context = await self._get_browser_context()
+                page = await context.new_page()
 
-                while pages_visited < max_pages:
-                    try:
-                        next_selector = self.selectors['pagination_next']
-                        next_link = page.locator(next_selector).first
-                        if await next_link.count() > 0 and await next_link.is_visible(timeout=3000):
-                            await next_link.click()
-                            await self._wait_for_content(page)
-                            await self._rate_limit()
+                # Navigate to main listings page
+                await self._fetch_page(page, self.base_url)
+                await self._wait_for_content(page)
 
-                            page_listings = await self.extract_job_listings(page)
-                            if not page_listings:
+                # Handle load more buttons
+                await self._handle_load_more(page)
+
+                # Extract listings from first page
+                all_listings = await self.extract_job_listings(page)
+
+                # Handle pagination if configured (only when using browser)
+                if self.selectors.get('pagination_next'):
+                    pages_visited = 1
+                    max_pages = 10
+
+                    while pages_visited < max_pages:
+                        try:
+                            next_selector = self.selectors['pagination_next']
+                            next_link = page.locator(next_selector).first
+                            if await next_link.count() > 0 and await next_link.is_visible(timeout=3000):
+                                await next_link.click()
+                                await self._wait_for_content(page)
+                                await self._rate_limit()
+
+                                page_listings = await self.extract_job_listings(page)
+                                if not page_listings:
+                                    break
+                                all_listings.extend(page_listings)
+                                pages_visited += 1
+                                self.logger.info("pagination_page", page=pages_visited, new_listings=len(page_listings))
+                            else:
                                 break
-                            all_listings.extend(page_listings)
-                            pages_visited += 1
-                            self.logger.info("pagination_page", page=pages_visited, new_listings=len(page_listings))
-                        else:
+                        except Exception:
                             break
-                    except Exception:
-                        break
 
             if not all_listings:
                 self.logger.warning("no_jobs_found", url=self.base_url)
@@ -659,6 +836,11 @@ class HtmlGenericScraper(BaseScraper):
                     job_data = {**listing}
 
                     if not skip_detail_pages and listing.get('url'):
+                        # Ensure browser is available for detail page extraction
+                        if page is None:
+                            context = await self._get_browser_context()
+                            page = await context.new_page()
+
                         if idx > 0:
                             await self._rate_limit()
 
