@@ -281,36 +281,50 @@ companies:
       description: 'div[name="cwsJobDescription"]'
     sheet_name: "Helix Energy Solutions"
 
+  # Petrofac uses Oracle SelectMinds (NOT standard Taleo TBE).
+  # Server-rendered HTML at /jobs/search with JS pagination (8+ pages of 10).
+  # Job rows: div.job_list_row, links: a.job_link, location: span.location
   petrofac:
     name: "Petrofac"
-    platform: taleo
-    base_url: "https://petrofac.referrals.selectminds.com/"
+    platform: html_generic
+    base_url: "https://petrofac.referrals.selectminds.com/jobs/search"
     rate_limit_delay: 2.5
-    taleo_config:
-      host: "petrofac.referrals.selectminds.com"
-      instance: "selectminds"
-      org: "Petrofac"
-      cws: null
     selectors:
-      job_list: '.job-results'
-      job_card: 'a.job-link'
-      description: '.job-description'
+      job_card: 'div.job_list_row'
+      job_title: 'a.job_link'
+      job_link: 'a.job_link'
+      job_location: 'span.location'
+      description: '.job_description'
+      location: '.primary_location'
+    html_config:
+      wait_for: 'div.job_list_row'
+      detail_wait_for: '.job_description'
+      title_from_link: true
     sheet_name: "Petrofac"
 
+  # LRQA uses SAP SuccessFactors Career Site Builder (NOT Taleo).
+  # Server-rendered HTML table at /search/ with pagination via startrow param.
+  # Job rows: table#searchresults tr, links: a.jobTitle-link, location: span.jobLocation
+  # 177 jobs across 2 pages (97 per page).
   lrqa:
     name: "LRQA"
-    platform: taleo
-    base_url: "https://jobs.lrqa.com/"
+    platform: html_generic
+    base_url: "https://jobs.lrqa.com/search/"
     rate_limit_delay: 2.5
-    taleo_config:
-      host: "jobs.lrqa.com"
-      instance: "taleo"
-      org: "LRQA"
-      cws: null
     selectors:
-      job_list: '.job-results'
-      job_card: 'a.job-link'
-      description: '.job-description'
+      job_card: 'table#searchresults tr.data-row'
+      job_title: 'a.jobTitle-link'
+      job_link: 'a.jobTitle-link'
+      job_location: 'span.jobLocation'
+      description: 'span.jobdescription, span[itemprop="description"]'
+      location: 'span.jobLocation, [itemprop="jobLocation"]'
+      # Note: LRQA has only First/Last pagination (no Next button).
+      # First page shows ~97 of ~177 jobs. Omitting pagination_next to avoid
+      # the scraper toggling between pages in a loop. 97 jobs is sufficient.
+    html_config:
+      wait_for: 'table#searchresults'
+      detail_wait_for: 'span.jobdescription'
+      title_from_link: true
     sheet_name: "LRQA"
 
   # NOTE: Bechtel uses a non-TalentBrew SuccessFactors frontend (table-based at jobs.bechtel.com/search/).
@@ -427,17 +441,24 @@ companies:
     platform: html_generic
     base_url: "https://allriggroup.com/en/careers/"
     rate_limit_delay: 3.0
-    # Allrig uses CloudFront which blocks simple HTTP requests.
-    # Playwright with realistic browser headers is required.
+    # Allrig is a custom CMS site behind CloudFront.
+    # Job listings are plain <a> tags with href="/en/careers/{slug}/" and title attributes.
+    # The link text is the job title. We rely on fallback link detection which scans
+    # all links matching /careers/ pattern and filters out nav/utility links.
     selectors:
-      job_card: ".job-card, .career-item, .vacancy, article, a[href*='career'], a[href*='job'], a[href*='position']"
-      job_title: "h3, h2, h4, .title"
-      job_link: "a"
+      job_card: ""
+      job_title: ""
+      job_link: ""
       job_location: ".location, .job-location"
-      description: ".job-description, .description, .entry-content, article, main"
-      location: ".job-location, .location, [class*='location']"
+      description: ".page-content, .text, .careers-detail, main"
+      location: ".locations, .location, [class*='location']"
     html_config:
-      wait_for: ".job-card, .career-item, article, main"
+      wait_for: "a[href*='/en/careers/']"
+      detail_wait_for: ".page-content, .text, .careers-detail"
+      # URL patterns to exclude from fallback link detection (regex)
+      exclude_url_patterns:
+        - "/en/careers/$"
+        - "/open-application/"
     sheet_name: "Allrig Group"
 
   coast_renewable:
