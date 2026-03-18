@@ -90,6 +90,14 @@ export function getCompanyStats(jobs) {
     }
 
     const entry = companyMap[slug];
+    if (!entry) return; // Safety check
+
+    // Ensure Sets exist (defensive against partial initialization)
+    if (!entry.aliases) entry.aliases = new Set();
+    if (!entry.locations) entry.locations = new Set();
+    if (!entry.employmentTypes) entry.employmentTypes = new Set();
+    if (!entry.sources) entry.sources = new Set();
+
     // Track the raw name variant if it differs from the canonical
     if (job.company !== canonical) {
       entry.aliases.add(job.company);
@@ -104,7 +112,6 @@ export function getCompanyStats(jobs) {
     }
 
     if (job.location) {
-      // Store raw location for counting — avoid async parsing here
       entry.locations.add(job.location);
     }
     if (job.employmentType) {
