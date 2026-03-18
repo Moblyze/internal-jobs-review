@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect, Component } from 'react'
 import { Link } from 'react-router-dom'
 import Select from 'react-select'
-import { useJobs, getUniqueCompanies, getUniqueLocations, getUniqueSkills, getCertificationsWithCounts, getEnergyRoles, filterJobsByRole } from '../hooks/useJobs'
+import { useJobs, useFilterOptions, getUniqueCompanies, getUniqueLocations, getUniqueSkills, getCertificationsWithCounts, getEnergyRoles, filterJobsByRole } from '../hooks/useJobs'
 import { useFilterParams } from '../hooks/useFilterParams'
 import { getAllLocationsAsync } from '../utils/locationParser'
 import { createGroupedLocationOptionsWithGeodata } from '../utils/locationGeodata'
@@ -137,6 +137,7 @@ const compactSelectStyles = {
 
 function CompaniesPage() {
   const { jobs, loading, error } = useJobs()
+  const filterOptions = useFilterOptions()
   const { filters, setFilters } = useFilterParams()
   const [intelligence, setIntelligence] = useState({})
   const [search, setSearch] = useState('')
@@ -168,10 +169,23 @@ function CompaniesPage() {
     loadCompanyIntelligence().then(setIntelligence)
   }, [])
 
-  // ── Filter data loading (mirrors JobListPage approach) ──
+  // ── Filter data loading (uses pre-computed filter-options.json when available) ──
 
-  // Employment types from all jobs
+  // Employment types: use pre-computed, fall back to runtime
   const employmentTypes = useMemo(() => {
+    if (filterOptions?.employmentTypes) {
+      const sortOrder = ['Full-Time', 'Contractor', 'Part-Time', 'Temporary', 'Internship']
+      return filterOptions.employmentTypes
+        .map(et => et.name)
+        .sort((a, b) => {
+          const aIdx = sortOrder.indexOf(a)
+          const bIdx = sortOrder.indexOf(b)
+          if (aIdx === -1 && bIdx === -1) return a.localeCompare(b)
+          if (aIdx === -1) return 1
+          if (bIdx === -1) return -1
+          return aIdx - bIdx
+        })
+    }
     const types = new Set()
     jobs.forEach(job => {
       if (job.employmentType) types.add(job.employmentType)
@@ -185,10 +199,11 @@ function CompaniesPage() {
       if (bIdx === -1) return -1
       return aIdx - bIdx
     })
-  }, [jobs])
+  }, [filterOptions, jobs])
 
-  // Focus market options
+  // Focus market options: use pre-computed, fall back to runtime
   const focusMarkets = useMemo(() => {
+    if (filterOptions?.focusMarkets) return filterOptions.focusMarkets
     const counts = {}
     jobs.forEach(job => {
       if (job.status === 'removed' || job.status === 'paused') return
@@ -207,7 +222,7 @@ function CompaniesPage() {
       if (!a.isPriority && b.isPriority) return 1
       return b.count - a.count
     })
-  }, [jobs])
+  }, [filterOptions, jobs])
 
   // Async filter data
   const [locationOptions, setLocationOptions] = useState([])
@@ -215,19 +230,34 @@ function CompaniesPage() {
   const [certifications, setCertifications] = useState([])
   const [validatedSkillsByJob, setValidatedSkillsByJob] = useState(new Map())
 
+  // Initialize certifications from pre-computed data if available
+  useEffect(() => {
+    if (filterOptions?.certifications && certifications.length === 0) {
+      setCertifications(filterOptions.certifications)
+    }
+  }, [filterOptions])
+
   useEffect(() => {
     if (jobs.length === 0) return
     let cancelled = false
 
     async function loadFilterData() {
-      const [locationOptionsResult, certsResult] = await Promise.allSettled([
+      const [locationOptionsResult] = await Promise.allSettled([
         createGroupedLocationOptionsWithGeodata(jobs),
-        getCertificationsWithCounts(jobs),
       ])
 
       if (cancelled) return
       if (locationOptionsResult.status === 'fulfilled') setLocationOptions(locationOptionsResult.value)
-      if (certsResult.status === 'fulfilled') setCertifications(certsResult.value)
+
+      // Load certifications async only if not pre-computed
+      if (!filterOptions?.certifications) {
+        try {
+          const certsResult = await getCertificationsWithCounts(jobs)
+          if (!cancelled) setCertifications(certsResult)
+        } catch (err) {
+          console.error('[CompaniesPage] Failed to load certifications:', err)
+        }
+      }
 
       // Phase 2: Skills (expensive)
       try {
@@ -253,7 +283,7 @@ function CompaniesPage() {
 
     loadFilterData()
     return () => { cancelled = true }
-  }, [jobs])
+  }, [jobs, filterOptions])
 
   // Location cache for filtering
   const [jobLocationsCacheRef, setJobLocationsCacheRef] = useState(new Map())

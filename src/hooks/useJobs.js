@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { mergeEnhancements } from '../utils/jobEnhancementStorage';
+import { decodeLiteIndex } from '../utils/liteIndexDecoder';
 import { companyToSlug } from '../utils/formatters';
 import { normalizeCompanyName } from '../utils/companyNormalizer';
 
@@ -7,6 +8,59 @@ const LAST_UPDATED_KEY = 'jobs_last_updated';
 
 // Lazy-load utility modules to enable code splitting
 const getGeocoderModule = () => import('../utils/geocoder');
+
+// ── Singleton filter options cache ──────────────────────────────────────────
+let filterOptionsCache = null;
+let filterOptionsPromise = null;
+
+/**
+ * Load pre-computed filter options (tiny file, loads instantly).
+ * Cached after first load.
+ */
+export async function loadFilterOptions() {
+  if (filterOptionsCache) return filterOptionsCache;
+  if (filterOptionsPromise) return filterOptionsPromise;
+
+  filterOptionsPromise = (async () => {
+    try {
+      const res = await fetch(`${import.meta.env.BASE_URL}data/filter-options.json`);
+      if (!res.ok) {
+        console.warn('[useJobs] filter-options.json not found, falling back to runtime computation');
+        return null;
+      }
+      const data = await res.json();
+      filterOptionsCache = data;
+      console.log(`[useJobs] Loaded pre-computed filter options (${data.totalJobs} jobs, ${data.companies.length} companies)`);
+      return data;
+    } catch (err) {
+      console.warn('[useJobs] Failed to load filter-options.json:', err.message);
+      filterOptionsPromise = null;
+      return null;
+    }
+  })();
+
+  return filterOptionsPromise;
+}
+
+/**
+ * Hook to access pre-computed filter options.
+ * Returns null while loading, then the filter options object.
+ */
+export function useFilterOptions() {
+  const [options, setOptions] = useState(filterOptionsCache);
+
+  useEffect(() => {
+    if (filterOptionsCache) {
+      setOptions(filterOptionsCache);
+      return;
+    }
+    loadFilterOptions().then(data => {
+      if (data) setOptions(data);
+    });
+  }, []);
+
+  return options;
+}
 
 export function useJobs() {
   const [jobs, setJobs] = useState([]);
@@ -23,30 +77,52 @@ export function useJobs() {
     setError(null);
     setGeocodingStatus(null);
 
-    // Use lightweight index file (no description/structuredDescription) for list view
-    // Full jobs.json is only loaded on-demand for detail pages
-    const dataFile = 'data/jobs-index.json';
-    // Add cache-busting timestamp to ensure fresh data on manual refresh
-    const url = forceRefresh
-      ? `${import.meta.env.BASE_URL}${dataFile}?t=${Date.now()}`
-      : `${import.meta.env.BASE_URL}${dataFile}`;
+    // Start loading filter options in parallel (tiny file, instant)
+    loadFilterOptions();
+
+    // Try lite index first, fall back to legacy index
+    const liteFile = 'data/jobs-index-lite.json';
+    const legacyFile = 'data/jobs-index.json';
+    const cacheBust = forceRefresh ? `?t=${Date.now()}` : '';
 
     if (forceRefresh) {
       console.log('[useJobs] Force refresh requested - fetching with cache-busting');
     }
 
     try {
-      const res = await fetch(url, {
-        // Disable cache for manual refreshes
-        cache: forceRefresh ? 'no-store' : 'default'
-      });
+      let data;
+      let usedLite = false;
 
-      if (!res.ok) throw new Error('Failed to load jobs');
+      // Try lite index first
+      try {
+        const liteUrl = `${import.meta.env.BASE_URL}${liteFile}${cacheBust}`;
+        const res = await fetch(liteUrl, {
+          cache: forceRefresh ? 'no-store' : 'default'
+        });
+        if (res.ok) {
+          const liteData = await res.json();
+          if (liteData._version && liteData.jobs) {
+            data = decodeLiteIndex(liteData);
+            usedLite = true;
+            console.log(`[useJobs] Loaded lite index: ${data.length} jobs (decoded from dictionary format)`);
+          }
+        }
+      } catch (liteErr) {
+        console.warn('[useJobs] Lite index not available, falling back to legacy:', liteErr.message);
+      }
 
-      const data = await res.json();
+      // Fall back to legacy index
+      if (!data) {
+        const legacyUrl = `${import.meta.env.BASE_URL}${legacyFile}${cacheBust}`;
+        const res = await fetch(legacyUrl, {
+          cache: forceRefresh ? 'no-store' : 'default'
+        });
+        if (!res.ok) throw new Error('Failed to load jobs');
+        data = await res.json();
+        console.log(`[useJobs] Loaded legacy index: ${data.length} jobs`);
+      }
+
       const now = new Date();
-      console.log(`[useJobs] Successfully loaded ${data.length} jobs`);
-      console.log('[useJobs] First job sample:', data[0]);
 
       // Merge localStorage enhancements with jobs data
       const enhancedJobs = mergeEnhancements(data);
@@ -56,7 +132,7 @@ export function useJobs() {
       setLastUpdated(now);
       localStorage.setItem(LAST_UPDATED_KEY, now.toISOString());
       setLoading(false);
-      console.log('[useJobs] Loading state set to false, jobs set');
+      console.log(`[useJobs] Loading complete (${usedLite ? 'lite' : 'legacy'} format)`);
 
       // After loading jobs, check for new locations and auto-geocode them
       if (forceRefresh) {

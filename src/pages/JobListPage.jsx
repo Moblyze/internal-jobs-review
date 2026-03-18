@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { format, formatDistanceToNow } from 'date-fns'
-import { useJobs, getUniqueCompanies, getUniqueLocations, getUniqueSkills, getUniqueCertifications, getCertificationsWithCounts, getEnergyRoles, filterJobsByRole } from '../hooks/useJobs'
+import { useJobs, useFilterOptions, getUniqueCompanies, getUniqueLocations, getUniqueSkills, getUniqueCertifications, getCertificationsWithCounts, getEnergyRoles, filterJobsByRole } from '../hooks/useJobs'
 import { useFilterParams } from '../hooks/useFilterParams'
 import { getAllLocationsAsync } from '../utils/locationParser'
 import { createGroupedLocationOptionsWithGeodata } from '../utils/locationGeodata'
@@ -18,24 +18,43 @@ const JOBS_PER_PAGE = 24
 
 function JobListPage() {
   const { jobs, loading, error, lastUpdated, refresh, geocodingStatus } = useJobs()
+  const filterOptions = useFilterOptions()
   const { filters, setFilters } = useFilterParams()
   const [displayedCount, setDisplayedCount] = useState(JOBS_PER_PAGE)
   const [showBackToTop, setShowBackToTop] = useState(false)
   const [currentTime, setCurrentTime] = useState(Date.now())
   const [showRefreshSuccess, setShowRefreshSuccess] = useState(false)
 
-  // Get unique values for filters (sync)
-  const companies = useMemo(() => getUniqueCompanies(jobs), [jobs])
+  // ── Pre-computed filter options (instant from filter-options.json) ─────────
+  // These are available before jobs finish loading, making filters interactive immediately.
 
-  // Get unique employment types (sync — simple extraction from job data)
+  // Companies: use pre-computed list, fall back to runtime computation
+  const companies = useMemo(() => {
+    if (filterOptions?.companies) {
+      return filterOptions.companies.map(c => c.name).sort()
+    }
+    return getUniqueCompanies(jobs)
+  }, [filterOptions, jobs])
+
+  // Employment types: use pre-computed, fall back to runtime
   const employmentTypes = useMemo(() => {
+    if (filterOptions?.employmentTypes) {
+      const sortOrder = ['Full-Time', 'Contractor', 'Part-Time', 'Temporary', 'Internship']
+      return filterOptions.employmentTypes
+        .map(et => et.name)
+        .sort((a, b) => {
+          const aIdx = sortOrder.indexOf(a)
+          const bIdx = sortOrder.indexOf(b)
+          if (aIdx === -1 && bIdx === -1) return a.localeCompare(b)
+          if (aIdx === -1) return 1
+          if (bIdx === -1) return -1
+          return aIdx - bIdx
+        })
+    }
     const types = new Set()
     jobs.forEach(job => {
-      if (job.employmentType) {
-        types.add(job.employmentType)
-      }
+      if (job.employmentType) types.add(job.employmentType)
     })
-    // Sort with most common first: Full-Time, Contractor, Part-Time, Temporary, Internship
     const sortOrder = ['Full-Time', 'Contractor', 'Part-Time', 'Temporary', 'Internship']
     return [...types].sort((a, b) => {
       const aIdx = sortOrder.indexOf(a)
@@ -45,10 +64,11 @@ function JobListPage() {
       if (bIdx === -1) return -1
       return aIdx - bIdx
     })
-  }, [jobs])
+  }, [filterOptions, jobs])
 
-  // Compute source and profile options from jobs (sync — simple field extraction)
+  // Sources: use pre-computed, fall back to runtime
   const sources = useMemo(() => {
+    if (filterOptions?.sources) return filterOptions.sources
     const counts = {}
     jobs.forEach(job => {
       if (job.status === 'removed' || job.status === 'paused') return
@@ -58,9 +78,11 @@ function JobListPage() {
     return Object.entries(counts)
       .map(([name, count]) => ({ name, count }))
       .sort((a, b) => b.count - a.count)
-  }, [jobs])
+  }, [filterOptions, jobs])
 
+  // Search profiles: use pre-computed, fall back to runtime
   const searchProfiles = useMemo(() => {
+    if (filterOptions?.profiles) return filterOptions.profiles
     const counts = {}
     jobs.forEach(job => {
       if (job.status === 'removed' || job.status === 'paused') return
@@ -71,11 +93,11 @@ function JobListPage() {
     return Object.entries(counts)
       .map(([name, count]) => ({ name, count }))
       .sort((a, b) => b.count - a.count)
-  }, [jobs])
+  }, [filterOptions, jobs])
 
-  // Focus market options — derived from searchProfiles with human-readable labels
-  // Priority markets always appear first, then the rest sorted by job count
+  // Focus markets: use pre-computed, fall back to runtime
   const focusMarkets = useMemo(() => {
+    if (filterOptions?.focusMarkets) return filterOptions.focusMarkets
     const counts = {}
     jobs.forEach(job => {
       if (job.status === 'removed' || job.status === 'paused') return
@@ -89,45 +111,79 @@ function JobListPage() {
       count,
       isPriority: PRIORITY_MARKET_SLUGS.includes(slug),
     }))
-    // Priority markets first, then by count descending
     return all.sort((a, b) => {
       if (a.isPriority && !b.isPriority) return -1
       if (!a.isPriority && b.isPriority) return 1
       return b.count - a.count
     })
-  }, [jobs])
+  }, [filterOptions, jobs])
 
-  // State for async filter data
+  // Certifications: use pre-computed, fall back to async loading
+  const precomputedCertifications = useMemo(() => {
+    if (filterOptions?.certifications) {
+      return filterOptions.certifications
+    }
+    return null
+  }, [filterOptions])
+
+  // Top companies: derive from pre-computed company list (already sorted by count)
+  const precomputedTopCompanies = useMemo(() => {
+    if (filterOptions?.companies) {
+      return filterOptions.companies.slice(0, 50).map(c => c.name)
+    }
+    return []
+  }, [filterOptions])
+
+  // Inactive job count: use pre-computed or compute from jobs
+  const inactiveJobsCount = useMemo(() => {
+    if (filterOptions?.totalInactive !== undefined) return filterOptions.totalInactive
+    return jobs.filter(job => job.status === 'removed' || job.status === 'paused').length
+  }, [filterOptions, jobs])
+
+  // App-ready count: use pre-computed or compute from jobs
+  const appReadyCount = useMemo(() => {
+    if (filterOptions?.appReadyCount !== undefined) return filterOptions.appReadyCount
+    return jobs.filter(j => j.appReady).length
+  }, [filterOptions, jobs])
+
+  // ── Async filter data (locations, skills, roles — still need runtime computation) ──
+
   const [locations, setLocations] = useState([])
   const [locationOptions, setLocationOptions] = useState([])
   const [skills, setSkills] = useState([])
   const [certifications, setCertifications] = useState([])
-  // Precomputed map of job ID → validated canonical skill names for consistent filter matching
+  // Precomputed map of job ID -> validated canonical skill names for consistent filter matching
   const [validatedSkillsByJob, setValidatedSkillsByJob] = useState(new Map())
 
   // State for roles (loaded async)
   const [roles, setRoles] = useState([])
 
-  // State for top items (computed once, passed to FiltersSearchable to avoid duplicate work)
-  const [topCompanies, setTopCompanies] = useState([])
+  // State for top items that require async computation
   const [topLocations, setTopLocations] = useState([])
   const [topSkills, setTopSkills] = useState([])
 
-  // Show jobs immediately — set filteredJobs from jobs before filters load
+  // Show jobs immediately -- set filteredJobs from jobs before filters load
   const [filtersReady, setFiltersReady] = useState(false)
 
-  // Load async filter data when jobs change (non-blocking — jobs render immediately)
+  // Initialize certifications from pre-computed data if available
+  useEffect(() => {
+    if (precomputedCertifications && certifications.length === 0) {
+      setCertifications(precomputedCertifications)
+    }
+  }, [precomputedCertifications])
+
+  // Load async filter data when jobs change (non-blocking -- jobs render immediately)
   useEffect(() => {
     if (jobs.length === 0) return
 
     let cancelled = false
 
     async function loadFilterData() {
-      // Phase 1: Fast filters (locations, certifications) — unblock rendering quickly
-      const [locationOptionsResult, locationsResult, certsResult, rolesResult] = await Promise.allSettled([
+      // Phase 1: Fast filters (locations, roles) -- unblock rendering quickly
+      // Note: certifications now come from pre-computed filter-options.json
+      const [locationOptionsResult, locationsResult, rolesResult] = await Promise.allSettled([
         createGroupedLocationOptionsWithGeodata(jobs),
         getUniqueLocations(jobs),
-        getCertificationsWithCounts(jobs),
         getEnergyRoles(jobs),
       ])
 
@@ -142,12 +198,17 @@ function JobListPage() {
         })
       }
       if (locationsResult.status === 'fulfilled') setLocations(locationsResult.value)
-      if (certsResult.status === 'fulfilled') setCertifications(certsResult.value)
       if (rolesResult.status === 'fulfilled') setRoles(rolesResult.value)
 
-      // Compute top companies synchronously (fast — just counting)
-      const { getTopCompanies: getTopComps } = await import('../hooks/useJobs')
-      if (!cancelled) setTopCompanies(getTopComps(jobs, 50))
+      // If certifications weren't pre-computed, load them async
+      if (!precomputedCertifications) {
+        try {
+          const certsResult = await getCertificationsWithCounts(jobs)
+          if (!cancelled) setCertifications(certsResult)
+        } catch (err) {
+          console.error('[JobListPage] Failed to load certifications:', err)
+        }
+      }
 
       // Phase 2: Expensive skills processing (does not block filter display)
       try {
@@ -185,12 +246,7 @@ function JobListPage() {
     loadFilterData()
 
     return () => { cancelled = true }
-  }, [jobs])
-
-  // Count inactive jobs
-  const inactiveJobsCount = useMemo(() => {
-    return jobs.filter(job => job.status === 'removed' || job.status === 'paused').length
-  }, [jobs])
+  }, [jobs, precomputedCertifications])
 
   // Filter jobs (with role filtering handled asynchronously)
   const [filteredJobs, setFilteredJobs] = useState([])
@@ -538,7 +594,7 @@ function JobListPage() {
               />
               <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-green-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-green-500"></div>
             </div>
-            <span className="ml-2 text-sm font-medium text-gray-700">App Ready ({jobs.filter(j => j.appReady).length})</span>
+            <span className="ml-2 text-sm font-medium text-gray-700">App Ready ({appReadyCount})</span>
           </label>
           {inactiveJobsCount > 0 && (
             <label className="inline-flex items-center cursor-pointer">
@@ -574,7 +630,7 @@ function JobListPage() {
             focusMarkets={focusMarkets}
             jobs={jobs}
             precomputedLocationOptions={locationOptions}
-            precomputedTopCompanies={topCompanies}
+            precomputedTopCompanies={precomputedTopCompanies}
             precomputedTopLocations={topLocations}
             precomputedTopSkills={topSkills}
           />
