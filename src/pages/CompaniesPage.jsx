@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react'
+import { useState, useMemo, useEffect, Component } from 'react'
 import { Link } from 'react-router-dom'
 import Select from 'react-select'
 import { useJobs, getUniqueCompanies, getUniqueLocations, getUniqueSkills, getCertificationsWithCounts, getEnergyRoles, filterJobsByRole } from '../hooks/useJobs'
@@ -396,11 +396,16 @@ function CompaniesPage() {
 
   // Unfiltered totals (for "of N" display)
   const unfilteredTotals = useMemo(() => {
-    const allStats = getCompanyStats(jobs.filter(j => j.status !== 'removed' && j.status !== 'paused'))
-    return {
-      totalCompanies: allStats.length,
-      totalActiveJobs: allStats.reduce((sum, c) => sum + c.activeJobs, 0),
-      totalSources: new Set(allStats.flatMap(c => Object.keys(c.sourceCounts))).size,
+    try {
+      const allStats = getCompanyStats(jobs.filter(j => j.status !== 'removed' && j.status !== 'paused'))
+      return {
+        totalCompanies: allStats.length,
+        totalActiveJobs: allStats.reduce((sum, c) => sum + (c.activeJobs || 0), 0),
+        totalSources: new Set(allStats.flatMap(c => Object.keys(c.sourceCounts || {}))).size,
+      }
+    } catch (err) {
+      console.error('[CompaniesPage] Error computing unfilteredTotals:', err)
+      return { totalCompanies: 0, totalActiveJobs: 0, totalSources: 0 }
     }
   }, [jobs])
 
@@ -1500,4 +1505,45 @@ function CompanyIntelPanel({ intel, companyDetail }) {
   )
 }
 
-export default CompaniesPage
+class CompaniesErrorBoundary extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { hasError: false, error: null }
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true, error }
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.error('[CompaniesPage] Error caught by boundary:', error, errorInfo)
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="bg-red-50 border border-red-200 rounded-lg p-6 text-center">
+          <h2 className="text-lg font-semibold text-red-900 mb-2">Something went wrong</h2>
+          <p className="text-red-700 mb-4">{this.state.error?.message || 'An unexpected error occurred'}</p>
+          <button
+            onClick={() => { this.setState({ hasError: false, error: null }); window.location.reload() }}
+            className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
+          >
+            Reload Page
+          </button>
+        </div>
+      )
+    }
+    return this.props.children
+  }
+}
+
+function CompaniesPageWithBoundary() {
+  return (
+    <CompaniesErrorBoundary>
+      <CompaniesPage />
+    </CompaniesErrorBoundary>
+  )
+}
+
+export default CompaniesPageWithBoundary
