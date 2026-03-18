@@ -35,7 +35,8 @@ class OccupopScraper(BaseScraper):
     Scraper for Occupop / Cezanne Recruitment career pages.
 
     Occupop career pages are React SPAs that require JavaScript rendering.
-    The app loads job data and renders MUI (Material UI) components.
+    The app loads job data via Apollo GraphQL and renders MUI (Material UI)
+    components. The initial HTML only shows a loading spinner.
     """
 
     def __init__(self, config: dict):
@@ -49,6 +50,18 @@ class OccupopScraper(BaseScraper):
         super().__init__(config)
         self.base_url = config.get('base_url', '')
         self.selectors = config.get('selectors', {})
+
+    async def _fetch_page(self, page, url: str) -> None:
+        """
+        Override base _fetch_page to use 'domcontentloaded' instead of 'networkidle'.
+
+        Occupop/Cezanne Recruitment SPAs never reach network idle because they
+        maintain active WebSocket/polling connections for real-time updates.
+        Using 'domcontentloaded' allows us to proceed once the DOM is ready,
+        then wait for React hydration separately.
+        """
+        self.logger.info("fetching_page", url=url)
+        await page.goto(url, wait_until='domcontentloaded', timeout=30000)
 
     def _build_absolute_url(self, url: str) -> str:
         """Convert relative URL to absolute."""
@@ -75,11 +88,11 @@ class OccupopScraper(BaseScraper):
 
     async def extract_job_listings(self, page: Page) -> list[dict]:
         """
-        Extract job listings from the Occupop React SPA.
+        Extract job listings from the Occupop / Cezanne Recruitment React SPA.
 
-        Occupop renders jobs as clickable cards/list items with links to
-        detail pages. Common patterns include MUI Card components or
-        custom styled job listing elements.
+        These portals render jobs as clickable cards/list items with links to
+        detail pages. The SPA uses Apollo GraphQL to fetch job data after
+        initial page load.
 
         Args:
             page: Playwright page after SPA has hydrated
@@ -89,17 +102,106 @@ class OccupopScraper(BaseScraper):
         """
         listings = []
 
-        # Try configured selector first, then common Occupop patterns
+        # Strategy 1: Look for MUI job card containers with H3 title elements.
+        # Cezanne Recruitment renders jobs as MuiBox-root divs containing:
+        # H3 (title), P (type), DIV (details: company, location, date, category), HR
+        h3_elements = page.locator('.job-listing__container h3, [class*="job-listing"] h3')
+        h3_count = await h3_elements.count()
+
+        if h3_count == 0:
+            # Broader search: any H3 inside the main content area
+            # that looks like a job title (not navigation/header)
+            h3_elements = page.locator('#page-view h3')
+            h3_count = await h3_elements.count()
+
+        if h3_count > 0:
+            self.logger.info("job_h3_elements_found", count=h3_count)
+            for i in range(h3_count):
+                try:
+                    h3 = h3_elements.nth(i)
+                    title = (await h3.inner_text(timeout=3000)).strip()
+
+                    if not title or len(title) < 3:
+                        continue
+
+                    # Skip non-job headings
+                    if any(skip in title.lower() for skip in [
+                        'loading', 'are you ready', 'job listing',
+                        'cookie', 'privacy', '404',
+                    ]):
+                        continue
+
+                    # Get the parent container for location/type info
+                    parent = h3.locator('..')
+                    parent_text = ''
+                    try:
+                        parent_text = (await parent.inner_text(timeout=3000)).strip()
+                    except Exception:
+                        pass
+
+                    lines = [l.strip() for l in parent_text.split('\n') if l.strip()]
+
+                    # Parse card structure: title, type, company, location, date, category
+                    employment_type = ''
+                    location = ''
+                    for line in lines[1:]:
+                        line_lower = line.lower()
+                        if line_lower in ('full-time', 'part-time', 'contract', 'temporary', 'permanent', 'internship'):
+                            employment_type = line
+                        elif line == self.company_name:
+                            continue
+                        elif len(line) < 80 and not any(kw in line_lower for kw in [
+                            'apply', 'view', 'posted', 'ago', '202', 'commercial',
+                            'energy', 'risk', 'quality', 'marketing'
+                        ]):
+                            if not location:
+                                location = line
+
+                    listing = {
+                        'title': title,
+                        'url': self.base_url,
+                        'company': self.company_name,
+                        'description': parent_text or f"{title} position at {self.company_name}.",
+                    }
+                    if location:
+                        listing['location'] = location
+                    if employment_type:
+                        listing['employment_type'] = self._normalize_employment_type(employment_type)
+
+                    listings.append(listing)
+
+                except Exception as e:
+                    self.logger.debug("h3_extraction_failed", index=i, error=str(e))
+                    continue
+
+            if listings:
+                # Deduplicate and return
+                seen = set()
+                unique = []
+                for listing in listings:
+                    key = listing['title']
+                    if key not in seen:
+                        seen.add(key)
+                        unique.append(listing)
+                self.logger.info("unique_listings_extracted", count=len(unique))
+                return unique
+
+        # Strategy 2: Try anchor-based selectors (original approach)
         card_selector = self.selectors.get('job_card', '')
         selectors_to_try = [card_selector] if card_selector else []
         selectors_to_try.extend([
             'a[href*="/jobs/"]',
+            'a[href*="/job/"]',
             '[class*="job-card"]',
             '[class*="JobCard"]',
+            '[class*="jobCard"]',
             '[class*="vacancy"]',
             '[class*="position"]',
+            '[class*="VacancyCard"]',
+            '[class*="vacancyCard"]',
             '.MuiCard-root',
             '.MuiPaper-root a[href*="/jobs/"]',
+            '.MuiPaper-root a[href*="/job/"]',
         ])
 
         for selector in selectors_to_try:
@@ -195,12 +297,20 @@ class OccupopScraper(BaseScraper):
         """
         await self._fetch_page(page, job_url)
 
-        # Wait for SPA to render
+        # Wait for SPA to render the job detail content
         try:
-            await page.wait_for_load_state('networkidle', timeout=15000)
-            await page.wait_for_timeout(2000)
+            await page.wait_for_load_state('load', timeout=15000)
         except Exception:
             pass
+
+        # Wait for job description content to appear
+        try:
+            await page.wait_for_selector(
+                '[class*="description"], [class*="Description"], .MuiTypography-body1, article, main',
+                timeout=10000
+            )
+        except Exception:
+            await page.wait_for_timeout(3000)
 
         detail = {
             'description': '',
@@ -292,25 +402,53 @@ class OccupopScraper(BaseScraper):
             # Navigate and wait for SPA to hydrate
             await self._fetch_page(page, self.base_url)
 
+            # Wait for the page to finish loading scripts
             try:
-                await page.wait_for_load_state('networkidle', timeout=20000)
+                await page.wait_for_load_state('load', timeout=15000)
             except Exception:
                 pass
 
-            # Extra wait for React hydration
-            try:
-                await page.wait_for_timeout(5000)
-            except Exception:
-                pass
+            # Wait for the Apollo GraphQL data to load and React to render.
+            # The initial HTML shows "Loading..." - we need to wait for actual
+            # job content to appear after the SPA hydrates and fetches data.
+            job_selectors_to_wait = [
+                'a[href*="/jobs/"]',
+                'a[href*="/job/"]',
+                '[class*="job-card"]',
+                '[class*="JobCard"]',
+                '[class*="jobCard"]',
+                '[class*="VacancyCard"]',
+                '[class*="vacancyCard"]',
+                '[class*="vacancy"]',
+                '.MuiCard-root',
+            ]
 
-            # Try waiting for job content to appear
-            try:
-                await page.wait_for_selector(
-                    'a[href*="/jobs/"], [class*="job"], [class*="vacancy"]',
-                    timeout=10000
-                )
-            except Exception:
-                self.logger.debug("job_content_wait_timeout", note="Continuing with current state")
+            job_content_found = False
+            for selector in job_selectors_to_wait:
+                try:
+                    await page.wait_for_selector(selector, timeout=15000)
+                    job_content_found = True
+                    self.logger.debug("job_content_found", selector=selector)
+                    break
+                except Exception:
+                    continue
+
+            if not job_content_found:
+                # Last resort: wait for the "Loading..." text to disappear
+                self.logger.debug("no_job_selector_found", note="Waiting for loading to complete")
+                try:
+                    await page.wait_for_function(
+                        "() => !document.body.innerText.includes('Loading...')",
+                        timeout=15000
+                    )
+                except Exception:
+                    pass
+
+                # Extra wait for render
+                try:
+                    await page.wait_for_timeout(3000)
+                except Exception:
+                    pass
 
             # Extract listings
             all_listings = await self.extract_job_listings(page)
@@ -327,7 +465,11 @@ class OccupopScraper(BaseScraper):
                 try:
                     job_data = {**listing}
 
-                    if listing.get('url') and '/jobs/' in listing.get('url', ''):
+                    detail_url = listing.get('url', '')
+                    has_detail_page = detail_url and detail_url != self.base_url and (
+                        '/jobs/' in detail_url or '/job/' in detail_url
+                    )
+                    if has_detail_page:
                         if idx > 0:
                             await self._rate_limit()
 
