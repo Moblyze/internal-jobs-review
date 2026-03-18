@@ -126,14 +126,15 @@ export function getCompanyStats(jobs) {
   return Object.values(companyMap)
     .map(c => ({
       ...c,
-      aliases: [...c.aliases],
-      locations: [...c.locations],
-      employmentTypes: [...c.employmentTypes],
-      sources: [...c.sources],
-      // Sort sourceCounts descending by count
-      sourceCounts: Object.entries(c.sourceCounts)
-        .sort((a, b) => b[1] - a[1])
-        .reduce((obj, [source, count]) => { obj[source] = count; return obj; }, {}),
+      aliases: c.aliases ? [...c.aliases] : [],
+      locations: c.locations ? [...c.locations] : [],
+      employmentTypes: c.employmentTypes ? [...c.employmentTypes] : [],
+      sources: c.sources ? [...c.sources] : [],
+      sourceCounts: c.sourceCounts
+        ? Object.entries(c.sourceCounts)
+            .sort((a, b) => b[1] - a[1])
+            .reduce((obj, [source, count]) => { obj[source] = count; return obj; }, {})
+        : {},
     }))
     .sort((a, b) => b.activeJobs - a.activeJobs);
 }
@@ -235,7 +236,7 @@ export function getSourcesOverview(companyStats) {
   const sourceCompanyCounts = {};
 
   companyStats.forEach(company => {
-    Object.entries(company.sourceCounts).forEach(([source, count]) => {
+    Object.entries(company.sourceCounts || {}).forEach(([source, count]) => {
       sourceJobCounts[source] = (sourceJobCounts[source] || 0) + count;
       sourceCompanyCounts[source] = (sourceCompanyCounts[source] || 0) + 1;
     });
