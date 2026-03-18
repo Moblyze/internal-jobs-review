@@ -84,6 +84,14 @@ jobs:
         run: |
           playwright install chromium
 
+      - name: Restore dedup state
+        uses: actions/cache@v4
+        with:
+          path: scrapers/data/scraper_state.db
+          key: scraper-state-${{ github.run_id }}
+          restore-keys: |
+            scraper-state-
+
       - name: Create service account credentials file
         env:
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
@@ -114,6 +122,13 @@ jobs:
 
           echo "Running: $CMD"
           $CMD
+
+      - name: Save dedup state
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: scrapers/data/scraper_state.db
+          key: scraper-state-${{ github.run_id }}
 
       - name: Clean up credentials
         if: always()
@@ -152,6 +167,14 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install -r requirements.txt
+
+      - name: Restore dedup state
+        uses: actions/cache@v4
+        with:
+          path: scrapers/data/scraper_state.db
+          key: scraper-state-${{ github.run_id }}
+          restore-keys: |
+            scraper-state-
 
       - name: Create service account credentials file
         env:
@@ -256,6 +279,13 @@ jobs:
             echo "::error::All aggregator profiles failed"
             exit 1
           fi
+
+      - name: Save dedup state
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: scrapers/data/scraper_state.db
+          key: scraper-state-agg-${{ github.run_id }}
 
       - name: Clean up credentials
         if: always()

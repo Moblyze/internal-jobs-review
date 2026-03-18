@@ -352,10 +352,53 @@ async function main() {
     const aggregatorJobs = await fetchAggregatorJobs(auth);
 
     // Merge (employer first, then aggregator)
-    const jobs = [...employerJobs, ...aggregatorJobs];
+    const allJobs = [...employerJobs, ...aggregatorJobs];
+
+    // Deduplicate by URL first, then by company+title+location
+    const jobsByUrl = new Map();
+    allJobs.forEach(job => {
+      if (!job.url) return;
+      const existing = jobsByUrl.get(job.url);
+      if (!existing) {
+        jobsByUrl.set(job.url, job);
+      } else {
+        // Keep the one with the more recent scrapedAt date
+        const existingDate = new Date(existing.scrapedAt || '1970-01-01').getTime();
+        const newDate = new Date(job.scrapedAt || '1970-01-01').getTime();
+        if (newDate > existingDate) {
+          jobsByUrl.set(job.url, job);
+        }
+      }
+    });
+
+    // Second pass: deduplicate by company+title+location for jobs with different URLs but same content
+    const jobsByKey = new Map();
+    for (const job of jobsByUrl.values()) {
+      const key = [
+        (job.company || '').toLowerCase().trim(),
+        (job.title || '').toLowerCase().trim(),
+        (job.location || '').toLowerCase().trim(),
+      ].join('|');
+
+      const existing = jobsByKey.get(key);
+      if (!existing) {
+        jobsByKey.set(key, job);
+      } else {
+        const existingDate = new Date(existing.scrapedAt || existing.postedDate || '1970-01-01').getTime();
+        const newDate = new Date(job.scrapedAt || job.postedDate || '1970-01-01').getTime();
+        if (newDate > existingDate) {
+          jobsByKey.set(key, job);
+        }
+      }
+    }
+
+    const jobs = Array.from(jobsByKey.values());
+    const urlDupes = allJobs.length - jobsByUrl.size;
+    const keyDupes = jobsByUrl.size - jobs.length;
+    console.log(`\nDeduplication: ${allJobs.length} -> ${jobs.length} jobs (removed ${urlDupes} URL duplicates + ${keyDupes} content duplicates)`);
 
     const appReadyCount = jobs.filter(j => j.appReady).length;
-    console.log(`\n✅ Successfully fetched ${jobs.length} total jobs (${employerJobs.length} employer + ${aggregatorJobs.length} aggregator, ${appReadyCount} app-ready)`);
+    console.log(`\n✅ Successfully fetched ${jobs.length} unique jobs (${employerJobs.length} employer + ${aggregatorJobs.length} aggregator raw, ${appReadyCount} app-ready)`);
 
     // Ensure output directory exists
     const outputDir = path.dirname(OUTPUT_PATH);

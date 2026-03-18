@@ -100,6 +100,37 @@ if (fs.existsSync(PDL_CACHE_PATH)) {
   console.log(`  Loaded PDL cache with ${Object.keys(pdlCacheData).length} entries`);
 }
 
+// ── Deduplication: keep only the most recent entry per company+title+location ─
+function deduplicateJobs(jobs) {
+  const seen = new Map(); // key -> { index, scrapedAt }
+
+  jobs.forEach((job, i) => {
+    const company = (job.company || '').toLowerCase().trim();
+    const title = (job.title || '').toLowerCase().trim();
+    const location = (job.location || '').toLowerCase().trim();
+    const key = `${company}|${title}|${location}`;
+
+    // Pick the most recent entry: prefer scrapedAt, fall back to postedDate
+    const dateStr = job.scrapedAt || job.postedDate || '';
+    const ts = dateStr ? new Date(dateStr).getTime() : 0;
+
+    const existing = seen.get(key);
+    if (!existing || ts > existing.ts || (ts === existing.ts && i > existing.index)) {
+      seen.set(key, { index: i, ts });
+    }
+  });
+
+  const keepIndices = new Set(Array.from(seen.values()).map(v => v.index));
+  const deduped = jobs.filter((_, i) => keepIndices.has(i));
+  const removed = jobs.length - deduped.length;
+
+  if (removed > 0) {
+    console.log(`  Deduplication: ${jobs.length} -> ${deduped.length} jobs (removed ${removed} duplicates, ${(removed / jobs.length * 100).toFixed(1)}%)`);
+  }
+
+  return deduped;
+}
+
 // ── Determine data source: full jobs.json or existing jobs-index.json ────────
 // If jobs.json is unavailable (e.g. Git LFS pointer), fall back to jobs-index.json
 let indexJobs;
@@ -156,11 +187,15 @@ if (fs.existsSync(JOBS_PATH) && isValidJson(JOBS_PATH)) {
     return rest;
   });
 
+  console.log(`  Pre-extracted certifications for ${certsExtracted} jobs`);
+  console.log(`  Normalized company names for ${companiesNormalized} jobs`);
+
+  // Deduplicate before writing
+  indexJobs = deduplicateJobs(indexJobs);
+
   fs.writeFileSync(INDEX_PATH, JSON.stringify(indexJobs), 'utf8');
   const indexSize = (fs.statSync(INDEX_PATH).size / 1024 / 1024).toFixed(1);
   console.log(`Wrote ${INDEX_PATH} (${indexSize}MB)`);
-  console.log(`  Pre-extracted certifications for ${certsExtracted} jobs`);
-  console.log(`  Normalized company names for ${companiesNormalized} jobs`);
 } else if (fs.existsSync(INDEX_PATH) && isValidJson(INDEX_PATH)) {
   console.log('jobs.json not available (Git LFS pointer?), reading existing jobs-index.json...');
   indexJobs = JSON.parse(fs.readFileSync(INDEX_PATH, 'utf8'));
@@ -180,10 +215,14 @@ if (fs.existsSync(JOBS_PATH) && isValidJson(JOBS_PATH)) {
   });
   if (reNormalized > 0) {
     console.log(`  Re-normalized ${reNormalized} company names`);
-    // Update the index file with re-normalized names
-    fs.writeFileSync(INDEX_PATH, JSON.stringify(indexJobs), 'utf8');
-    console.log(`  Updated ${INDEX_PATH}`);
   }
+
+  // Deduplicate before writing
+  indexJobs = deduplicateJobs(indexJobs);
+
+  // Update the index file with re-normalized and deduplicated data
+  fs.writeFileSync(INDEX_PATH, JSON.stringify(indexJobs), 'utf8');
+  console.log(`  Updated ${INDEX_PATH}`);
 
   usedFallback = true;
 } else {
