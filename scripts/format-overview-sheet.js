@@ -296,6 +296,7 @@ async function main() {
         profileName: formatProfileName(sheetName),
         jobsFound: counts.total,
         active: counts.active,
+        inactive: counts.inactive,
         sources: sources.length > 0 ? sources.slice(0, 5).join(', ') : '—',
         lastRun: formatDate(counts.latestScraped),
       });
@@ -423,15 +424,16 @@ async function main() {
   // --- Section 2: Aggregator Summary ---
   const aggregatorSectionStart = allRows.length; // 0-indexed
   allRows.push(['AGGREGATOR SUMMARY', '', '', '', '', '']);
-  allRows.push(['Profile', 'Active Jobs', 'Total Jobs', 'Sources', 'Last Run', '']);
+  allRows.push(['Profile', 'Active Jobs', 'Inactive Jobs', 'Total Jobs', 'Sources', 'Last Run']);
 
-  let aggTotalActive = 0, aggTotalJobs = 0;
+  let aggTotalActive = 0, aggTotalInactive = 0, aggTotalJobs = 0;
   for (const agg of aggregatorData) {
-    allRows.push([agg.profileName, agg.active, agg.jobsFound, agg.sources, agg.lastRun, '']);
+    allRows.push([agg.profileName, agg.active, agg.inactive, agg.jobsFound, agg.sources, agg.lastRun]);
     aggTotalActive += agg.active;
+    aggTotalInactive += agg.inactive;
     aggTotalJobs += agg.jobsFound;
   }
-  allRows.push(['TOTAL', aggTotalActive, aggTotalJobs, '', '', '']);
+  allRows.push(['TOTAL', aggTotalActive, aggTotalInactive, aggTotalJobs, '', '']);
 
   const aggregatorSectionEnd = allRows.length;
 
