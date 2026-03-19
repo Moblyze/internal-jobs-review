@@ -24,7 +24,8 @@
     "generate-index": "node scripts/generate-index.js",
     "pdl-clean-companies": "node scripts/pdl-company-cleaner.js",
     "generate-matrix": "node scripts/generate-source-matrix.js",
-    "deduplicate-sheet": "node scripts/deduplicate-sheet.js"
+    "deduplicate-sheet": "node scripts/deduplicate-sheet.js",
+    "format-overview": "node scripts/format-overview-sheet.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.74.0",
