@@ -37,6 +37,9 @@ public/data/*.backup.json
 # Geocoded locations (should be committed after running geocode script)
 # public/data/locations-geocoded.json - DO NOT ignore this file!
 
+# Digest state (managed by CI cache)
+data/digest-state.json
+
 # Python (scrapers/)
 __pycache__/
 *.pyc

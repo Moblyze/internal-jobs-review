@@ -506,7 +506,7 @@ class HtmlGenericScraper(BaseScraper):
             except Exception:
                 pass
 
-        # Extract location
+        # Extract location from CSS selectors
         detail['location'] = await self._try_extract_field(
             page,
             self.selectors.get('location', ''),
@@ -515,10 +515,48 @@ class HtmlGenericScraper(BaseScraper):
                 '[class*="location"]', '[itemprop="jobLocation"]',
                 'td:has-text("Location") + td',
                 'dt:has-text("Location") + dd',
+                # Firefish/ASP.NET patterns (used by ROVOP and similar portals)
+                'li.job-details__location',
+                'li[id*="liLocation"]',
             ],
             field_name='location',
             default='Location Not Specified'
         )
+
+        # Fallback: extract location from page <title> tag
+        # Many career sites use "Job Title - Location | Company" format
+        if detail['location'] == 'Location Not Specified':
+            try:
+                page_title = await page.title()
+                if page_title and ' - ' in page_title:
+                    # Pattern: "Job Title - Location | Company Name"
+                    after_dash = page_title.split(' - ', 1)[1]
+                    # Remove company suffix (after | or at end)
+                    if '|' in after_dash:
+                        location_candidate = after_dash.split('|')[0].strip()
+                    else:
+                        location_candidate = after_dash.strip()
+                    if location_candidate and len(location_candidate) < 100:
+                        detail['location'] = location_candidate
+                        self.logger.debug(
+                            "location_from_page_title",
+                            title=page_title[:80],
+                            location=location_candidate
+                        )
+            except Exception:
+                pass
+
+        # Fallback: extract location from URL slug
+        if detail['location'] == 'Location Not Specified' and job_url:
+            slug = job_url.rstrip('/').split('/')[-1]
+            slug_location = self._extract_location_from_slug(slug)
+            if slug_location:
+                detail['location'] = slug_location
+                self.logger.debug(
+                    "location_from_url_slug",
+                    url=job_url[:80],
+                    location=slug_location
+                )
 
         # Extract employment type
         emp_type = await self._try_extract_field(
@@ -598,15 +636,177 @@ class HtmlGenericScraper(BaseScraper):
 
         return default
 
+    def _extract_location_from_slug(self, slug: str) -> str:
+        """
+        Extract location from a URL slug by matching known location keywords.
+
+        Many maritime/energy job sites encode the location as the last word(s)
+        in the URL slug, e.g. "3rd-engineer-offshore-pipe-layer-brazil" -> "Brazil".
+
+        Args:
+            slug: URL slug (hyphen-separated words)
+
+        Returns:
+            Extracted location string or empty string if none found
+        """
+        # Known location keywords commonly found in maritime/energy job slugs.
+        # These are checked case-insensitively against the last word(s) of the slug.
+        #
+        # Multi-word entries (with spaces) are checked as hyphenated slug segments.
+        # E.g., "saudi arabia" matches "...-saudi-arabia" at end of slug.
+        location_keywords = {
+            # Multi-word patterns (checked first)
+            'world wide': 'Worldwide',
+            'world-wide': 'Worldwide',
+            'worl wide': 'Worldwide',   # common typo in OSM Thome data
+            'worl-wide': 'Worldwide',
+            'north sea': 'North Sea',
+            'north sea trade': 'North Sea',
+            'saudi arabia': 'Saudi Arabia',
+            'united kingdom': 'United Kingdom',
+            'united states': 'United States',
+            'new zealand': 'New Zealand',
+            'south korea': 'South Korea',
+            'hong kong': 'Hong Kong',
+            'trinidad tobago': 'Trinidad & Tobago',
+            'papua new guinea': 'Papua New Guinea',
+            'middle east': 'Middle East',
+            'asia pacific': 'Asia-Pacific',
+            'west africa': 'West Africa',
+            'east africa': 'East Africa',
+            # Regions / generic (single word)
+            'worldwide': 'Worldwide',
+            'wordwide': 'Worldwide',  # common typo
+            'global': 'Global',
+            'international': 'International',
+            'offshore': 'Offshore',
+            'onshore': 'Onshore',
+            'remote': 'Remote',
+            # Countries & territories
+            'norway': 'Norway',
+            'norge': 'Norway',
+            'brazil': 'Brazil',
+            'brasil': 'Brazil',
+            'uk': 'United Kingdom',
+            'usa': 'United States',
+            'singapore': 'Singapore',
+            'india': 'India',
+            'australia': 'Australia',
+            'canada': 'Canada',
+            'qatar': 'Qatar',
+            'uae': 'United Arab Emirates',
+            'dubai': 'Dubai, UAE',
+            'abu dhabi': 'Abu Dhabi, UAE',
+            'saudi': 'Saudi Arabia',
+            'angola': 'Angola',
+            'nigeria': 'Nigeria',
+            'ghana': 'Ghana',
+            'egypt': 'Egypt',
+            'mexico': 'Mexico',
+            'trinidad': 'Trinidad & Tobago',
+            'guyana': 'Guyana',
+            'suriname': 'Suriname',
+            'malaysia': 'Malaysia',
+            'indonesia': 'Indonesia',
+            'thailand': 'Thailand',
+            'vietnam': 'Vietnam',
+            'philippines': 'Philippines',
+            'japan': 'Japan',
+            'korea': 'South Korea',
+            'china': 'China',
+            'taiwan': 'Taiwan',
+            'netherlands': 'Netherlands',
+            'germany': 'Germany',
+            'france': 'France',
+            'italy': 'Italy',
+            'spain': 'Spain',
+            'portugal': 'Portugal',
+            'greece': 'Greece',
+            'turkey': 'Turkey',
+            'cyprus': 'Cyprus',
+            'denmark': 'Denmark',
+            'sweden': 'Sweden',
+            'finland': 'Finland',
+            'poland': 'Poland',
+            'romania': 'Romania',
+            'croatia': 'Croatia',
+            'scotland': 'Scotland, UK',
+            'aberdeen': 'Aberdeen, UK',
+            'houston': 'Houston, TX',
+            'perth': 'Perth, Australia',
+            'apac': 'Asia-Pacific',
+            'emea': 'EMEA',
+            'americas': 'Americas',
+            'europe': 'Europe',
+            'africa': 'Africa',
+            'gulf': 'Gulf Region',
+            'caribbean': 'Caribbean',
+            'mediterranean': 'Mediterranean',
+            'arabia': 'Saudi Arabia',
+            'mozambique': 'Mozambique',
+            'namibia': 'Namibia',
+            'senegal': 'Senegal',
+            'mauritania': 'Mauritania',
+            'libya': 'Libya',
+            'iraq': 'Iraq',
+            'oman': 'Oman',
+            'bahrain': 'Bahrain',
+            'kuwait': 'Kuwait',
+            'brunei': 'Brunei',
+            'myanmar': 'Myanmar',
+            'bangladesh': 'Bangladesh',
+            'pakistan': 'Pakistan',
+            'colombia': 'Colombia',
+            'argentina': 'Argentina',
+            'chile': 'Chile',
+            'peru': 'Peru',
+            'ecuador': 'Ecuador',
+            'venezuela': 'Venezuela',
+            'ireland': 'Ireland',
+            'belgium': 'Belgium',
+            'luxembourg': 'Luxembourg',
+            'switzerland': 'Switzerland',
+            'austria': 'Austria',
+            'czech': 'Czech Republic',
+            'hungary': 'Hungary',
+            'bulgaria': 'Bulgaria',
+            'serbia': 'Serbia',
+            'malta': 'Malta',
+        }
+
+        slug_words = slug.lower().split('-')
+
+        # Filter out noise words that indicate unknown location
+        last_word = slug_words[-1] if slug_words else ''
+        if last_word in ('tba', 'tbc', 'tbd', 'na', 'copy', 'asap'):
+            # Check previous words instead, these are modifiers not locations
+            if len(slug_words) >= 2:
+                slug_words = slug_words[:-1]
+                last_word = slug_words[-1]
+            else:
+                return ''
+
+        # Check the last 1-4 words of the slug for location matches
+        # Start with longer matches first (more specific)
+        for num_words in range(min(4, len(slug_words)), 0, -1):
+            candidate = '-'.join(slug_words[-num_words:])
+            candidate_spaced = candidate.replace('-', ' ')
+            for keyword, location in location_keywords.items():
+                keyword_normalized = keyword.replace('-', ' ')
+                if keyword_normalized == candidate_spaced:
+                    return location
+
+        return ''
+
     def _extract_listings_from_sitemap(self) -> list[dict]:
         """
         Extract job listings from an XML sitemap.
 
         Parses the sitemap XML and extracts URLs matching the configured
-        job pattern. Title is derived from the URL slug.
+        job pattern. Title and location are derived from the URL slug.
 
         Returns:
-            List of dicts with: title, url, company
+            List of dicts with: title, url, company, location (if found)
         """
         sitemap_url = self.html_config.get('sitemap_url', '')
         job_pattern = self.html_config.get('sitemap_job_pattern', '/jobs/')
@@ -648,11 +848,23 @@ class HtmlGenericScraper(BaseScraper):
                 if not title or len(title) < 3:
                     continue
 
-                listings.append({
+                listing = {
                     'title': title,
                     'url': url,
                     'company': self.company_name,
-                })
+                }
+
+                # Try to extract location from slug (common in maritime job sites)
+                location = self._extract_location_from_slug(slug)
+                if location:
+                    listing['location'] = location
+                    self.logger.debug(
+                        "location_from_slug",
+                        slug=slug[:60],
+                        location=location
+                    )
+
+                listings.append(listing)
 
             self.logger.info("sitemap_listings_extracted", count=len(listings))
             return listings
@@ -852,7 +1064,16 @@ class HtmlGenericScraper(BaseScraper):
                         )
 
                         detail = await self.extract_job_detail(page, listing['url'])
+                        # Merge detail into listing, but preserve listing-level
+                        # location if detail page returned "Location Not Specified"
+                        listing_location = listing.get('location', '')
                         job_data = {**listing, **detail}
+                        if (
+                            job_data.get('location') == 'Location Not Specified'
+                            and listing_location
+                            and listing_location != 'Location Not Specified'
+                        ):
+                            job_data['location'] = listing_location
                     else:
                         # Use what we have from the listing
                         if 'description' not in job_data or not job_data.get('description'):

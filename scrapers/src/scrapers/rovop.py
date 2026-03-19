@@ -150,7 +150,66 @@ class ROVOPScraper(BaseScraper):
 
         self.logger.info("job_links_found", count=count, strategy="href_contains_job")
 
-        if count == 0:
+        # First, try Firefish card-based extraction (ROVOP's actual platform)
+        # Each job is a div.card--job with title in .card__title and location
+        # in li[id*="liLocation"]
+        cards = page.locator('div.card.card--job')
+        card_count = await cards.count()
+
+        if card_count > 0:
+            self.logger.info("firefish_cards_found", count=card_count)
+            for i in range(card_count):
+                try:
+                    card = cards.nth(i)
+
+                    # Extract title from .card__title
+                    title_elem = card.locator('.card__title').first
+                    title = ''
+                    if await title_elem.count() > 0:
+                        title = (await title_elem.inner_text(timeout=3000)).strip()
+
+                    # Extract URL from the card link
+                    link_elem = card.locator('a.card__full-card-link').first
+                    href = ''
+                    link_title = ''
+                    if await link_elem.count() > 0:
+                        href = await link_elem.get_attribute('href') or ''
+                        link_title = await link_elem.get_attribute('title') or ''
+                        if not title:
+                            title = (await link_elem.inner_text(timeout=3000)).strip()
+
+                    if not title or len(title) < 3:
+                        continue
+
+                    # Extract location from li[id*="liLocation"] within card
+                    location = ''
+                    loc_elem = card.locator('li[id*="liLocation"]').first
+                    if await loc_elem.count() > 0:
+                        location = (await loc_elem.inner_text(timeout=3000)).strip()
+
+                    # Fallback: extract location from link title attribute
+                    # Format: "Job Title in Location"
+                    if not location and link_title and ' in ' in link_title:
+                        location = link_title.split(' in ')[-1].strip()
+
+                    job_id = self._extract_job_id_from_url(href)
+
+                    listing = {
+                        'title': title,
+                        'url': self._build_absolute_url(href),
+                        'company': self.company_name,
+                        'requisition_id': job_id,
+                    }
+                    if location:
+                        listing['location'] = location
+
+                    listings.append(listing)
+
+                except Exception as e:
+                    self.logger.debug("card_extraction_failed", index=i, error=str(e))
+                    continue
+
+        elif count == 0:
             # Fallback: Try broader selectors
             # Look for any link with .aspx in href that's not a system page
             all_links = page.locator('a[href$=".aspx"]')
@@ -192,12 +251,22 @@ class ROVOPScraper(BaseScraper):
 
                     job_id = self._extract_job_id_from_url(href)
 
-                    listings.append({
+                    # Try to get location from link title attribute
+                    link_title = await link.get_attribute('title') or ''
+                    location = ''
+                    if link_title and ' in ' in link_title:
+                        location = link_title.split(' in ')[-1].strip()
+
+                    listing = {
                         'title': title,
                         'url': self._build_absolute_url(href),
                         'company': self.company_name,
                         'requisition_id': job_id,
-                    })
+                    }
+                    if location:
+                        listing['location'] = location
+
+                    listings.append(listing)
 
                 except Exception as e:
                     self.logger.debug("link_extraction_failed", index=i, error=str(e))
@@ -218,8 +287,10 @@ class ROVOPScraper(BaseScraper):
         """
         Try multiple selectors to extract job location from a detail page.
 
-        Since the exact HTML structure is unknown, this tries common patterns
-        used in ASP.NET job portals.
+        ROVOP uses a Firefish-powered career site with specific CSS classes:
+        - li.job-details__location on detail pages
+        - li[id*="liLocation"] (ASP.NET generated IDs)
+        - JSON-LD structured data with jobLocation
 
         Args:
             page: Playwright page showing job detail
@@ -228,6 +299,11 @@ class ROVOPScraper(BaseScraper):
             Location string or "Location Not Specified"
         """
         location_selectors = [
+            # Firefish-specific selectors (ROVOP's actual platform)
+            'li.job-details__location',
+            'li[id*="liLocation"]',
+            # Card listing selectors (also used on detail pages)
+            'li.card-color--text:has(i[title="Location"])',
             # Common ASP.NET/custom ATS patterns
             '.job-location',
             '.location',
@@ -264,6 +340,52 @@ class ROVOPScraper(BaseScraper):
                             return text
             except Exception:
                 continue
+
+        # Fallback: try extracting from JSON-LD structured data
+        try:
+            json_ld_scripts = page.locator('script[type="application/ld+json"]')
+            count = await json_ld_scripts.count()
+            for i in range(count):
+                try:
+                    import json
+                    content = await json_ld_scripts.nth(i).inner_text(timeout=3000)
+                    data = json.loads(content)
+                    if isinstance(data, dict):
+                        job_location = data.get('jobLocation', {})
+                        if isinstance(job_location, dict):
+                            address = job_location.get('address', {})
+                            if isinstance(address, dict):
+                                parts = []
+                                locality = address.get('addressLocality', '')
+                                region = address.get('addressRegion', '')
+                                country = address.get('addressCountry', '')
+                                if locality:
+                                    parts.append(locality)
+                                if region:
+                                    parts.append(region)
+                                if country:
+                                    parts.append(country)
+                                if parts:
+                                    location = ', '.join(parts)
+                                    self.logger.debug("location_from_jsonld", location=location)
+                                    return location
+                except Exception:
+                    continue
+        except Exception:
+            pass
+
+        # Fallback: try extracting from link title attribute
+        # ROVOP listing links have title="Job Title in Location"
+        try:
+            page_title = await page.title()
+            if page_title and ' in ' in page_title:
+                # Pattern: "Job Title in Location"
+                location = page_title.split(' in ')[-1].strip()
+                if location and len(location) < 50:
+                    self.logger.debug("location_from_title", location=location)
+                    return location
+        except Exception:
+            pass
 
         return "Location Not Specified"
 
@@ -526,8 +648,16 @@ class ROVOPScraper(BaseScraper):
                     # Get full details from the job page
                     detail = await self.extract_job_detail(page, listing['url'])
 
-                    # Merge listing data with detail data
+                    # Merge listing data with detail data, preserving listing-level
+                    # location if detail page returned "Location Not Specified"
+                    listing_location = listing.get('location', '')
                     job_data = {**listing, **detail}
+                    if (
+                        job_data.get('location') == 'Location Not Specified'
+                        and listing_location
+                        and listing_location != 'Location Not Specified'
+                    ):
+                        job_data['location'] = listing_location
 
                     # Ensure minimum description
                     if not job_data.get('description') or len(job_data['description']) < 10:
