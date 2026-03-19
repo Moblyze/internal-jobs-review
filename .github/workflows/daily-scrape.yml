@@ -300,9 +300,54 @@ jobs:
           path: scrapers/logs/
           retention-days: 7
 
-  # ── Summary job (runs after both complete) ──
-  report:
+  # ── Update Source Coverage Matrix (runs after both complete) ──
+  update-matrix:
     needs: [employer-scrapers, aggregator-searches]
+    if: always() && (needs.employer-scrapers.result == 'success' || needs.aggregator-searches.result == 'success')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: scrapers
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: scrapers/requirements.txt
+
+      - name: Install Python dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Create service account credentials file
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          mkdir -p config
+          echo "$GOOGLE_SERVICE_ACCOUNT_JSON" > config/service_account.json
+          chmod 600 config/service_account.json
+
+      - name: Update Source Coverage Matrix
+        env:
+          GOOGLE_SERVICE_ACCOUNT_PATH: config/service_account.json
+          GOOGLE_SHEETS_SPREADSHEET_NAME: ${{ secrets.GOOGLE_SHEETS_SPREADSHEET_NAME }}
+        run: |
+          python scripts/update_source_matrix.py
+
+      - name: Clean up credentials
+        if: always()
+        run: |
+          rm -f config/service_account.json
+
+  # ── Summary job (runs after all jobs complete) ──
+  report:
+    needs: [employer-scrapers, aggregator-searches, update-matrix]
     if: always()
     runs-on: ubuntu-latest
     steps:
@@ -313,6 +358,7 @@ jobs:
           echo "════════════════════════════════════════"
           echo "  Employer scrapers: ${{ needs.employer-scrapers.result }}"
           echo "  Aggregator searches: ${{ needs.aggregator-searches.result }}"
+          echo "  Source matrix update: ${{ needs.update-matrix.result }}"
           echo "════════════════════════════════════════"
 
           if [ "${{ needs.employer-scrapers.result }}" = "failure" ] && [ "${{ needs.aggregator-searches.result }}" = "failure" ]; then

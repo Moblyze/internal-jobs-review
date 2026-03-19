@@ -22,7 +22,8 @@
     "clean-skills": "node scripts/clean-job-skills.js",
     "verify-skills": "node scripts/verify-skills-fix.js",
     "generate-index": "node scripts/generate-index.js",
-    "pdl-clean-companies": "node scripts/pdl-company-cleaner.js"
+    "pdl-clean-companies": "node scripts/pdl-company-cleaner.js",
+    "generate-matrix": "node scripts/generate-source-matrix.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.74.0",
