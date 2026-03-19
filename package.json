@@ -23,7 +23,8 @@
     "verify-skills": "node scripts/verify-skills-fix.js",
     "generate-index": "node scripts/generate-index.js",
     "pdl-clean-companies": "node scripts/pdl-company-cleaner.js",
-    "generate-matrix": "node scripts/generate-source-matrix.js"
+    "generate-matrix": "node scripts/generate-source-matrix.js",
+    "deduplicate-sheet": "node scripts/deduplicate-sheet.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.74.0",
