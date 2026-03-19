@@ -39,6 +39,7 @@ public/data/*.backup.json
 
 # Digest state (managed by CI cache)
 data/digest-state.json
+data/weekly-digest-state.json
 
 # Python (scrapers/)
 __pycache__/

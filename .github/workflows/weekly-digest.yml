@@ -1,0 +1,73 @@
+name: Weekly Jobs Digest
+
+on:
+  # Run every Monday at 10am UTC (2am PST / 5am EST)
+  schedule:
+    - cron: '0 10 * * 1'
+
+  # Allow manual triggering from GitHub Actions UI
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run mode (build message but do not post to Slack)'
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  weekly-digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Create service account credentials file
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          mkdir -p config
+          echo "$GOOGLE_SERVICE_ACCOUNT_JSON" > config/service_account.json
+          chmod 600 config/service_account.json
+
+      - name: Restore weekly digest state
+        uses: actions/cache@v4
+        with:
+          path: data/weekly-digest-state.json
+          key: weekly-digest-state-${{ github.run_id }}
+          restore-keys: |
+            weekly-digest-state-
+
+      - name: Run Slack weekly digest
+        env:
+          GOOGLE_SERVICE_ACCOUNT_PATH: config/service_account.json
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
+        run: |
+          CMD="node scripts/slack-weekly-digest.js"
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            CMD="$CMD --dry-run"
+          fi
+          $CMD
+
+      - name: Save weekly digest state
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: data/weekly-digest-state.json
+          key: weekly-digest-state-${{ github.run_id }}
+
+      - name: Clean up credentials
+        if: always()
+        run: |
+          rm -f config/service_account.json
