@@ -9,6 +9,10 @@ Job detail pattern: https://jobs.energypeople.com/job/<id>/<slug>
 Pagination: ?search=<keyword>&page=<0-indexed>
 
 No API key required — this is a web scraper.
+
+DISABLED (2026-03-23): The jobs.energypeople.com subdomain refuses all connections
+(ECONNREFUSED). The main energypeople.com domain is still live but the Drupal job
+board subdomain appears to be decommissioned. Disable to avoid wasting CI time.
 """
 
 import re
@@ -51,8 +55,16 @@ class EnergyPeopleAggregator(BaseAggregator):
     def __init__(self):
         self._client: httpx.Client | None = None
 
+    # Adapter disabled since 2026-03-23: jobs.energypeople.com refuses all
+    # connections (ECONNREFUSED). The subdomain appears decommissioned.
+    # Re-enable if the job board subdomain comes back online.
+    DISABLED = True
+    DISABLED_REASON = "jobs.energypeople.com connection refused - subdomain appears decommissioned (since 2026-03-23)"
+
     def is_configured(self) -> bool:
-        """No API key needed — always configured."""
+        if self.DISABLED:
+            logger.info(f"EnergyPeople: DISABLED - {self.DISABLED_REASON}")
+            return False
         return True
 
     # ------------------------------------------------------------------

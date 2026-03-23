@@ -5,6 +5,11 @@ jobs. This adapter searches by keyword, parses the server-rendered HTML, and
 constructs clickthrough URLs using the J2C URL scheme.
 
 No API key is required. The adapter scrapes the public /members/more-jobs/ page.
+
+DISABLED (2026-03-23): The entire oiljobfinder.com domain returns 403 Forbidden
+for all requests, including the homepage. The site appears to be permanently
+blocking automated access or is offline. Disable to avoid wasting CI time and
+polluting logs with repeated 403 errors.
 """
 
 import re
@@ -37,8 +42,15 @@ class OilJobFinderAggregator(BaseAggregator):
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
     }
 
+    # Adapter disabled since 2026-03-23: oiljobfinder.com returns 403 on all
+    # URLs (homepage included).  Re-enable once the site is accessible again.
+    DISABLED = True
+    DISABLED_REASON = "oiljobfinder.com returns 403 Forbidden on all URLs (since 2026-03-23)"
+
     def is_configured(self) -> bool:
-        # No API key needed - scrapes public pages.
+        if self.DISABLED:
+            logger.info(f"OilJobFinder: DISABLED - {self.DISABLED_REASON}")
+            return False
         return True
 
     # ------------------------------------------------------------------

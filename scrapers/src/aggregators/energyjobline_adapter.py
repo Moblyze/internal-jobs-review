@@ -6,6 +6,11 @@ Uses httpx + BeautifulSoup to scrape search results and JSON-LD structured data
 from detail pages. Handles the site's bot verification challenge automatically.
 
 No API key required - this is a web scraper.
+
+DISABLED (2026-03-23): The site's bot verification now requires an interactive
+browser button press ("Press the button to continue") which cannot be solved by
+httpx. Would need Playwright or similar headless browser to bypass. Disable to
+avoid wasting CI time with failed bot challenges on every request.
 """
 
 import re
@@ -60,8 +65,16 @@ class EnergyJoblineAggregator(BaseAggregator):
         self._bot_token: str | None = None
         self._client: httpx.Client | None = None
 
+    # Adapter disabled since 2026-03-23: bot verification now requires an
+    # interactive browser button press that httpx cannot solve.  Would need
+    # Playwright integration to re-enable.
+    DISABLED = True
+    DISABLED_REASON = "energyjobline.com bot challenge requires interactive browser (since 2026-03-23)"
+
     def is_configured(self) -> bool:
-        """No API key needed - always configured."""
+        if self.DISABLED:
+            logger.info(f"EnergyJobline: DISABLED - {self.DISABLED_REASON}")
+            return False
         return True
 
     # ------------------------------------------------------------------
