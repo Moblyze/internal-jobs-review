@@ -15,37 +15,19 @@ function CompanyPage() {
   const { jobs, loading, error } = useJobs()
   const { filters } = useFilterParams()
 
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center min-h-[400px]">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading company jobs...</p>
-        </div>
-      </div>
-    )
-  }
+  // State for filtered jobs and locations — must be before any conditional returns
+  const [filteredJobs, setFilteredJobs] = useState([])
+  const [locations, setLocations] = useState([])
 
-  if (error) {
-    return (
-      <div className="bg-red-50 border border-red-200 rounded-lg p-6 text-center">
-        <h2 className="text-lg font-semibold text-red-900 mb-2">Error Loading Company</h2>
-        <p className="text-red-700">{error}</p>
-      </div>
-    )
-  }
-
-  const companyJobs = getJobsByCompany(jobs, companySlug)
+  const companyJobs = loading ? [] : getJobsByCompany(jobs, companySlug)
   const companyName = companyJobs.length > 0
     ? normalizeCompanyName(companyJobs[0].company)
     : slugToCompany(companySlug)
 
-  // State for filtered jobs and locations
-  const [filteredJobs, setFilteredJobs] = useState([])
-  const [locations, setLocations] = useState([])
-
   // Apply filters to company jobs (async to handle location parsing)
   useEffect(() => {
+    if (loading || companyJobs.length === 0) return
+
     async function applyFilters() {
       // Pre-compute all job locations async (ensures geocoded cache is loaded)
       const jobLocationsMap = new Map()
@@ -98,10 +80,12 @@ function CompanyPage() {
     }
 
     applyFilters()
-  }, [companyJobs, filters])
+  }, [companyJobs, filters, loading])
 
   // Get unique locations for this company (from all jobs, not just filtered)
   useEffect(() => {
+    if (loading || companyJobs.length === 0) return
+
     async function loadLocations() {
       const allLocationArrays = await Promise.all(
         companyJobs.map(async job => await getAllLocationsAsync(job.location))
@@ -111,10 +95,28 @@ function CompanyPage() {
       setLocations(uniqueLocations)
     }
 
-    if (companyJobs.length > 0) {
-      loadLocations()
-    }
-  }, [companyJobs])
+    loadLocations()
+  }, [companyJobs, loading])
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-[400px]">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading company jobs...</p>
+        </div>
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6 text-center">
+        <h2 className="text-lg font-semibold text-red-900 mb-2">Error Loading Company</h2>
+        <p className="text-red-700">{error}</p>
+      </div>
+    )
+  }
 
   const breadcrumbItems = [
     {
