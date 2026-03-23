@@ -59,6 +59,36 @@ const TARGET_EMPLOYERS = [
   'Rig Integrity Solutions',
 ];
 
+// ── Retry Helper ─────────────────────────────────────────────────────────────
+
+/**
+ * Retry an async function with exponential backoff on rate-limit errors.
+ * Google Sheets API returns HTTP 429 or errors with "Quota exceeded" on rate limits.
+ */
+async function withRetry(fn, { maxRetries = 5, initialDelayMs = 10_000 } = {}) {
+  for (let attempt = 0; attempt <= maxRetries; attempt++) {
+    try {
+      return await fn();
+    } catch (err) {
+      const isRateLimit =
+        err?.code === 429 ||
+        err?.status === 429 ||
+        err?.response?.status === 429 ||
+        (err?.message || '').includes('Quota exceeded') ||
+        (err?.message || '').includes('RATE_LIMIT_EXCEEDED') ||
+        (err?.message || '').includes('rateLimitExceeded');
+
+      if (!isRateLimit || attempt === maxRetries) {
+        throw err;
+      }
+
+      const delay = initialDelayMs * Math.pow(2, attempt);
+      console.log(`  Rate limited (attempt ${attempt + 1}/${maxRetries + 1}), retrying in ${Math.round(delay / 1000)}s...`);
+      await new Promise(resolve => setTimeout(resolve, delay));
+    }
+  }
+}
+
 // ── Google Sheets Auth ───────────────────────────────────────────────────────
 
 async function authenticate() {
@@ -90,79 +120,93 @@ async function authenticate() {
 async function readSheetData(authClient) {
   const sheets = google.sheets({ version: 'v4', auth: authClient });
 
-  // First, get all sheet names
-  const spreadsheet = await sheets.spreadsheets.get({
-    spreadsheetId: SPREADSHEET_ID,
-    fields: 'sheets.properties.title',
-  });
+  // First, get all sheet names (with retry for rate limits)
+  const spreadsheet = await withRetry(() =>
+    sheets.spreadsheets.get({
+      spreadsheetId: SPREADSHEET_ID,
+      fields: 'sheets.properties.title',
+    })
+  );
 
   const sheetTitles = spreadsheet.data.sheets.map(s => s.properties.title);
   const skipSheets = new Set(['Overview', 'Source Coverage Matrix', 'Target Companies', 'Aggregator Jobs', 'Template']);
 
-  const result = {};
-
+  // Build list of matched sheets so we can batch-fetch them all at once
+  const matchedSheets = []; // { title, employer }
   for (const title of sheetTitles) {
     if (skipSheets.has(title)) continue;
 
-    // Check if this sheet matches one of our target employers
     const matchedEmployer = TARGET_EMPLOYERS.find(emp =>
       title.toLowerCase().includes(emp.toLowerCase()) ||
       emp.toLowerCase().includes(title.toLowerCase()) ||
       normalise(title) === normalise(emp)
     );
 
-    if (!matchedEmployer) continue;
-
-    try {
-      const response = await sheets.spreadsheets.values.get({
-        spreadsheetId: SPREADSHEET_ID,
-        range: `'${title}'`,
-      });
-
-      const rows = response.data.values || [];
-      if (rows.length <= 1) {
-        result[matchedEmployer] = { active: new Set(), removed: new Set(), activeCount: 0, removedCount: 0 };
-        continue;
-      }
-
-      const headers = rows[0].map(h => h.trim().toLowerCase());
-      const titleCol = headers.indexOf('title');
-      const urlCol = headers.indexOf('url');
-      const statusCol = headers.indexOf('status');
-
-      if (titleCol === -1 || urlCol === -1) {
-        console.warn(`  Skipping "${title}": missing Title or URL column`);
-        continue;
-      }
-
-      const active = new Set();
-      const removed = new Set();
-
-      for (let i = 1; i < rows.length; i++) {
-        const row = rows[i];
-        const jobTitle = (row[titleCol] || '').trim();
-        const jobUrl = (row[urlCol] || '').trim();
-        if (!jobTitle || !jobUrl) continue;
-
-        const key = `${jobTitle}|||${jobUrl}`;
-        const status = statusCol !== -1 ? (row[statusCol] || '').trim().toLowerCase() : 'active';
-
-        if (status === 'removed' || status === 'inactive' || status === 'closed') {
-          removed.add(key);
-        } else {
-          active.add(key);
-        }
-      }
-
-      result[matchedEmployer] = {
-        active,
-        removed,
-        activeCount: active.size,
-        removedCount: removed.size,
-      };
-    } catch (err) {
-      console.warn(`  Error reading "${title}": ${err.message}`);
+    if (matchedEmployer) {
+      matchedSheets.push({ title, employer: matchedEmployer });
     }
+  }
+
+  if (matchedSheets.length === 0) return {};
+
+  // Use batchGet to fetch all matched sheets in a single API call
+  const ranges = matchedSheets.map(s => `'${s.title}'`);
+  console.log(`  Fetching ${ranges.length} sheets in a single batchGet call...`);
+
+  const batchResponse = await withRetry(() =>
+    sheets.spreadsheets.values.batchGet({
+      spreadsheetId: SPREADSHEET_ID,
+      ranges,
+    })
+  );
+
+  const result = {};
+  const valueRanges = batchResponse.data.valueRanges || [];
+
+  for (let idx = 0; idx < matchedSheets.length; idx++) {
+    const { title, employer } = matchedSheets[idx];
+    const rows = valueRanges[idx]?.values || [];
+
+    if (rows.length <= 1) {
+      result[employer] = { active: new Set(), removed: new Set(), activeCount: 0, removedCount: 0 };
+      continue;
+    }
+
+    const headers = rows[0].map(h => h.trim().toLowerCase());
+    const titleCol = headers.indexOf('title');
+    const urlCol = headers.indexOf('url');
+    const statusCol = headers.indexOf('status');
+
+    if (titleCol === -1 || urlCol === -1) {
+      console.warn(`  Skipping "${title}": missing Title or URL column`);
+      continue;
+    }
+
+    const active = new Set();
+    const removed = new Set();
+
+    for (let i = 1; i < rows.length; i++) {
+      const row = rows[i];
+      const jobTitle = (row[titleCol] || '').trim();
+      const jobUrl = (row[urlCol] || '').trim();
+      if (!jobTitle || !jobUrl) continue;
+
+      const key = `${jobTitle}|||${jobUrl}`;
+      const status = statusCol !== -1 ? (row[statusCol] || '').trim().toLowerCase() : 'active';
+
+      if (status === 'removed' || status === 'inactive' || status === 'closed') {
+        removed.add(key);
+      } else {
+        active.add(key);
+      }
+    }
+
+    result[employer] = {
+      active,
+      removed,
+      activeCount: active.size,
+      removedCount: removed.size,
+    };
   }
 
   return result;
