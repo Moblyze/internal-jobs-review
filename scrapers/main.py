@@ -18,6 +18,12 @@ Usage:
     python main.py --dry-run --max-jobs 5
 """
 
+# Default per-company timeout in seconds (45 minutes).
+# The overall GH Actions job timeout is 90 minutes. All companies run concurrently,
+# so the bottleneck is the slowest company. Companies with 1000+ jobs use
+# max_detail_pages in companies.yaml to cap detail page fetching.
+DEFAULT_COMPANY_TIMEOUT = 2700  # 45 minutes
+
 import argparse
 import asyncio
 import os
@@ -174,9 +180,10 @@ async def scrape_company(
             - duration_seconds: Scraping duration
     """
     company_name = config['name']
+    company_timeout = config.get('timeout_seconds', DEFAULT_COMPANY_TIMEOUT)
     start_time = datetime.utcnow()
 
-    logger.info("scrape_start", company=company_name, max_jobs=max_jobs, dry_run=dry_run)
+    logger.info("scrape_start", company=company_name, max_jobs=max_jobs, dry_run=dry_run, timeout_seconds=company_timeout)
 
     try:
         # Get scraper class from registry based on platform
@@ -197,9 +204,31 @@ async def scrape_company(
                 'error': f'Platform "{platform}" not supported (scraper not available)'
             }
 
-        # Create scraper and extract jobs
+        # Create scraper and extract jobs (with per-company timeout)
         scraper = scraper_class(config)
-        jobs = await scraper.extract_all_jobs(max_jobs=max_jobs)
+        try:
+            jobs = await asyncio.wait_for(
+                scraper.extract_all_jobs(max_jobs=max_jobs),
+                timeout=company_timeout
+            )
+        except asyncio.TimeoutError:
+            duration = (datetime.utcnow() - start_time).total_seconds()
+            logger.error(
+                "scrape_timeout",
+                company=company_name,
+                timeout_seconds=company_timeout,
+                duration_seconds=round(duration, 2)
+            )
+            return {
+                'company': company_name,
+                'total_extracted': 0,
+                'new_jobs': 0,
+                'removed_jobs': 0,
+                'exported': 0,
+                'duration_seconds': round(duration, 2),
+                'success': False,
+                'error': f'Timed out after {company_timeout}s'
+            }
 
         # Filter duplicates
         new_jobs = tracker.filter_new(jobs)

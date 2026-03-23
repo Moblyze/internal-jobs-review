@@ -43,6 +43,10 @@ companies:
     platform: workday
     base_url: "https://kbr.wd5.myworkdayjobs.com/KBR_Careers"
     rate_limit_delay: 2.5
+    # KBR has 1300+ jobs; fetching all detail pages takes 2+ hours.
+    # Cap at 200 most recent to stay within the 15-min per-company timeout.
+    max_detail_pages: 200
+    timeout_seconds: 1200
     selectors:
       job_list: '[data-automation-id="jobResults"]'
       job_card: 'a[data-automation-id="jobTitle"]'
@@ -404,6 +408,10 @@ companies:
     platform: html_generic
     base_url: "https://jobs.osmthome.com/"
     rate_limit_delay: 3.0
+    # OSM Thome sitemap has 1000+ jobs; fetching all detail pages takes 2+ hours.
+    # Cap at 200 most recent to stay within the 15-min per-company timeout.
+    max_detail_pages: 200
+    timeout_seconds: 1200
     # OSM Thome uses a Vue/Quasar SPA. The listing page requires JS rendering,
     # but we can extract job URLs from the sitemap XML and use Playwright for details.
     selectors:

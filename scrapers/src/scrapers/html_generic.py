@@ -1039,6 +1039,17 @@ class HtmlGenericScraper(BaseScraper):
 
             self.logger.info("total_listings_found", count=len(all_listings))
 
+            # Cap detail page fetching to avoid timeouts on large portals (e.g. OSM Thome sitemap has 1000+ jobs)
+            max_detail_pages = self.config.get('max_detail_pages')
+            if not skip_detail_pages and max_detail_pages and len(all_listings) > max_detail_pages:
+                self.logger.warning(
+                    "capping_detail_pages",
+                    total_listings=len(all_listings),
+                    max_detail_pages=max_detail_pages,
+                    note="Fetching only a subset of job detail pages to stay within timeout"
+                )
+                all_listings = all_listings[:max_detail_pages]
+
             # Limit for testing
             listings_to_process = all_listings[:max_jobs] if max_jobs else all_listings
 

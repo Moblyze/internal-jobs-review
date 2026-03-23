@@ -84,6 +84,17 @@ class WorkdayScraper(BaseScraper):
             if len(job_cards) < 50:
                 self.logger.warning("low_job_count", count=len(job_cards), note="Unexpectedly low job count - pagination may have failed")
 
+            # Cap detail page fetching to avoid timeouts on large portals (e.g. KBR has 1300+ jobs)
+            max_detail_pages = self.config.get('max_detail_pages')
+            if max_detail_pages and len(job_cards) > max_detail_pages:
+                self.logger.warning(
+                    "capping_detail_pages",
+                    total_listings=len(job_cards),
+                    max_detail_pages=max_detail_pages,
+                    note="Fetching only the most recent job detail pages to stay within timeout"
+                )
+                job_cards = job_cards[:max_detail_pages]
+
             # Extract details for each job
             for idx, job_card in enumerate(job_cards):
                 if max_jobs and len(jobs) >= max_jobs:
