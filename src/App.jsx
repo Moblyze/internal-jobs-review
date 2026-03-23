@@ -2,13 +2,30 @@ import { lazy, Suspense, Component } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
 
+// Retry wrapper for lazy imports — handles stale chunks after deploys
+function lazyWithRetry(importFn) {
+  return lazy(() =>
+    importFn().catch(() => {
+      // Chunk failed to load (likely stale hash after deploy) — force reload once
+      const key = 'chunk_reload'
+      if (!sessionStorage.getItem(key)) {
+        sessionStorage.setItem(key, '1')
+        window.location.reload()
+        return new Promise(() => {}) // never resolves, page is reloading
+      }
+      sessionStorage.removeItem(key)
+      return importFn() // retry once after reload, then let it fail naturally
+    })
+  )
+}
+
 // Lazy load route components
-const JobListPage = lazy(() => import('./pages/JobListPage'))
-const JobDetailPage = lazy(() => import('./pages/JobDetailPage'))
-const CompanyPage = lazy(() => import('./pages/CompanyPage'))
-const DescriptionDemoPage = lazy(() => import('./pages/DescriptionDemoPage'))
-const ComparisonTool = lazy(() => import('./pages/ComparisonTool'))
-const CompaniesPage = lazy(() => import('./pages/CompaniesPage'))
+const JobListPage = lazyWithRetry(() => import('./pages/JobListPage'))
+const JobDetailPage = lazyWithRetry(() => import('./pages/JobDetailPage'))
+const CompanyPage = lazyWithRetry(() => import('./pages/CompanyPage'))
+const DescriptionDemoPage = lazyWithRetry(() => import('./pages/DescriptionDemoPage'))
+const ComparisonTool = lazyWithRetry(() => import('./pages/ComparisonTool'))
+const CompaniesPage = lazyWithRetry(() => import('./pages/CompaniesPage'))
 
 // Error boundary component
 class ErrorBoundary extends Component {
