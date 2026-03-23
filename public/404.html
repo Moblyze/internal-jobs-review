@@ -6,9 +6,10 @@
   <script>
     // GitHub Pages SPA fallback
     // Store the current path and redirect to index.html
+    // Use cache-busting param to ensure fresh index.html after deploys
     sessionStorage.redirect = location.href;
+    window.location.replace('/internal-jobs-review/?_cb=' + Date.now());
   </script>
-  <meta http-equiv="refresh" content="0;URL='/internal-jobs-review/'">
 </head>
 <body>
   <!-- GitHub Pages 404 fallback for SPA routing -->
