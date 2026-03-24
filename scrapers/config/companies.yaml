@@ -408,22 +408,22 @@ companies:
     platform: html_generic
     base_url: "https://jobs.osmthome.com/"
     rate_limit_delay: 3.0
-    # OSM Thome sitemap has 1000+ jobs; fetching all detail pages takes 2+ hours.
-    # Cap at 200 most recent to stay within the 15-min per-company timeout.
-    max_detail_pages: 200
-    timeout_seconds: 1200
-    # OSM Thome uses a Vue/Quasar SPA. The listing page requires JS rendering,
-    # but we can extract job URLs from the sitemap XML and use Playwright for details.
+    # OSM Thome uses a Vue/Quasar SPA backed by a Laravel API at osmaportal.com.
+    # The API returns all job data (title, location, description, employment type)
+    # in paginated JSON — no browser or detail page visits needed.
     selectors:
       description: ".job-description, .description, .q-page, main"
       location: ".job-location, .location, [class*='location']"
     html_config:
-      # Use sitemap to get job listings instead of rendering the SPA
+      # Primary: use the portal API to get complete job data with locations
+      portal_api_url: "https://maritime.osmaportal.com/api/jobs"
+      portal_api_headers:
+        X-Job-Portal: "yes"
+      portal_per_page: 100
+      # Fallback: sitemap extraction (locations from URL slugs only)
       sitemap_url: "https://jobs.osmthome.com/sitemap.xml"
       sitemap_job_pattern: "/jobs/"
-      # Wait for SPA content on detail pages
-      detail_wait_for: "body"
-      wait_for_network: true
+      skip_detail_pages: true
     sheet_name: "OSM Thome"
 
   wellsafe_solutions:

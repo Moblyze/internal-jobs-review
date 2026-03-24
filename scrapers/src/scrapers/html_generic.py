@@ -798,6 +798,110 @@ class HtmlGenericScraper(BaseScraper):
 
         return ''
 
+    def _extract_listings_from_portal_api(self) -> list[dict]:
+        """
+        Extract job listings from a JSON portal API (e.g., OSM Thome / osmaportal.com).
+
+        Fetches all jobs from a paginated REST API that returns structured JSON
+        with title, location, description, and employment type. This avoids
+        the need for browser rendering or detail page visits.
+
+        Config (in html_config):
+            portal_api_url: Base API URL (e.g., "https://maritime.osmaportal.com/api/jobs")
+            portal_api_headers: Dict of headers to send (e.g., {"X-Job-Portal": "yes"})
+            portal_per_page: Results per page (default 100)
+
+        Returns:
+            List of dicts with: title, url, company, location, description,
+                                employment_type (complete data, no detail pages needed)
+        """
+        api_url = self.html_config.get('portal_api_url', '')
+        if not api_url:
+            return []
+
+        headers = self.html_config.get('portal_api_headers', {})
+        per_page = self.html_config.get('portal_per_page', 100)
+
+        self.logger.info("fetching_portal_api", url=api_url, per_page=per_page)
+
+        listings = []
+        page_num = 1
+        max_pages = 50  # Safety limit
+
+        try:
+            while page_num <= max_pages:
+                page_url = f"{api_url}?page={page_num}&per_page={per_page}"
+                req = Request(page_url, headers={
+                    'User-Agent': 'Mozilla/5.0 (compatible; JobScraper/1.0)',
+                    'Accept': 'application/json',
+                    **headers,
+                })
+                resp = urlopen(req, timeout=30)
+                data = json.loads(resp.read().decode('utf-8'))
+
+                jobs = data.get('data', [])
+                if not jobs:
+                    break
+
+                for job in jobs:
+                    # Skip inactive/expired jobs
+                    if not job.get('is_active', True) or job.get('is_expired', False):
+                        continue
+
+                    title = job.get('name', '').strip()
+                    if not title:
+                        continue
+
+                    slug = job.get('slug', '')
+                    job_id = job.get('id', '')
+                    job_url = f"{self.base_url}jobs/{job_id}/{slug}" if job_id else ''
+
+                    # Extract location from the locations array
+                    locations = job.get('locations', [])
+                    location = ', '.join(
+                        loc.get('label', '') for loc in locations if loc.get('label')
+                    ) if locations else ''
+
+                    # Extract employment type
+                    emp_types = job.get('employment_types', [])
+                    employment_type = None
+                    if emp_types:
+                        raw_type = emp_types[0].get('label', '')
+                        employment_type = self._normalize_employment_type(raw_type)
+
+                    # Extract description (HTML) and clean it
+                    raw_desc = job.get('description', '') or job.get('excerpt', '') or ''
+                    description = self._clean_html(raw_desc) if raw_desc else ''
+
+                    listing = {
+                        'title': title,
+                        'url': job_url,
+                        'company': self.company_name,
+                        'location': location or 'Location Not Specified',
+                        'description': description or f"{title} position at {self.company_name}.",
+                        'employment_type': employment_type,
+                    }
+
+                    listings.append(listing)
+
+                # Check if there are more pages
+                meta = data.get('meta', {})
+                last_page = meta.get('last_page', 1)
+                if page_num >= last_page:
+                    break
+                page_num += 1
+
+            self.logger.info(
+                "portal_api_listings_extracted",
+                count=len(listings),
+                pages_fetched=page_num,
+            )
+            return listings
+
+        except Exception as e:
+            self.logger.error("portal_api_fetch_failed", error=str(e), page=page_num)
+            return listings  # Return whatever we got so far
+
     def _extract_listings_from_sitemap(self) -> list[dict]:
         """
         Extract job listings from an XML sitemap.
@@ -982,13 +1086,20 @@ class HtmlGenericScraper(BaseScraper):
             # Check for alternative extraction methods first (no browser needed)
             all_listings = []
 
-            if self.html_config.get('wp_api_url'):
+            if self.html_config.get('portal_api_url'):
+                # Portal JSON API extraction (e.g., OSM Thome / osmaportal.com)
+                # Returns complete data (title, location, description, employment type)
+                all_listings = self._extract_listings_from_portal_api()
+                if all_listings:
+                    skip_detail_pages = True  # API provides all data we need
+
+            if not all_listings and self.html_config.get('wp_api_url'):
                 # WordPress REST API extraction (e.g., Wellsafe Solutions)
                 all_listings = self._extract_listings_from_wp_api()
                 skip_detail_pages = True  # WP API provides all data we need
 
-            elif self.html_config.get('sitemap_url'):
-                # Sitemap-based extraction (e.g., OSM Thome)
+            if not all_listings and self.html_config.get('sitemap_url'):
+                # Sitemap-based extraction (fallback for OSM Thome if API fails)
                 all_listings = self._extract_listings_from_sitemap()
 
             page = None
