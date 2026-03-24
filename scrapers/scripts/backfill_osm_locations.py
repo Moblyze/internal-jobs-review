@@ -83,6 +83,8 @@ def main():
     # Find credentials
     cred_paths = [
         '../job-scraping/config/service_account.json',
+        '../../job-scraping/config/service_account.json',
+        os.path.expanduser('~/Dropbox/development/moblyze/job-scraping/config/service_account.json'),
         os.environ.get('GOOGLE_APPLICATION_CREDENTIALS', ''),
     ]
     cred_path = next((p for p in cred_paths if p and os.path.exists(p)), None)
@@ -100,7 +102,8 @@ def main():
     print("Connecting to Google Sheets...")
     credentials = Credentials.from_service_account_file(cred_path, scopes=SCOPES)
     gc = gspread.authorize(credentials)
-    spreadsheet = gc.open("Job Scraper Data")
+    spreadsheet_name = os.environ.get('GOOGLE_SHEETS_SPREADSHEET_NAME', 'Job Scraping Results')
+    spreadsheet = gc.open(spreadsheet_name)
     worksheet = spreadsheet.worksheet(SHEET_NAME)
 
     # Read all rows
@@ -156,7 +159,7 @@ def main():
     location_col_letter = 'C'  # Column C = Location (0-indexed col 2)
     batch = []
     for u in updates:
-        cell = f"'{SHEET_NAME}'!{location_col_letter}{u['row']}"
+        cell = f"{location_col_letter}{u['row']}"
         batch.append({'range': cell, 'values': [[u['new']]]})
 
     # Process in batches of 100 to avoid API limits
