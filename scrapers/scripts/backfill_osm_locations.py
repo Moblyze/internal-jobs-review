@@ -36,8 +36,9 @@ URL_COL = 4       # 'URL'
 
 
 def fetch_api_locations():
-    """Fetch all OSM jobs from the portal API and build a URL->location map."""
+    """Fetch all OSM jobs from the portal API and build URL->location and slug->location maps."""
     url_to_location = {}
+    slug_to_location = {}
     page = 1
 
     while page <= 50:
@@ -64,15 +65,18 @@ def fetch_api_locations():
                 loc.get('label', '') for loc in locations if loc.get('label')
             ) if locations else ''
 
-            if job_url and location:
-                url_to_location[job_url] = location
+            if location:
+                if job_url:
+                    url_to_location[job_url] = location
+                if slug:
+                    slug_to_location[slug] = location
 
         meta = data.get('meta', {})
         if page >= meta.get('last_page', 1):
             break
         page += 1
 
-    return url_to_location
+    return url_to_location, slug_to_location
 
 
 def main():
@@ -95,8 +99,8 @@ def main():
 
     # Fetch locations from API
     print("Fetching locations from OSM portal API...")
-    url_to_location = fetch_api_locations()
-    print(f"  Got locations for {len(url_to_location)} jobs")
+    url_to_location, slug_to_location = fetch_api_locations()
+    print(f"  Got locations for {len(url_to_location)} jobs (by URL), {len(slug_to_location)} (by slug)")
 
     # Connect to Google Sheets
     print("Connecting to Google Sheets...")
@@ -125,8 +129,14 @@ def main():
         ):
             continue
 
-        # Look up new location from API
+        # Look up new location from API — try exact URL first, then slug match
         new_location = url_to_location.get(url, '')
+        if not new_location and url:
+            # Extract slug from URL like https://jobs.osmthome.com/jobs/627/some-slug
+            parts = url.rstrip('/').split('/')
+            if len(parts) >= 2:
+                slug = parts[-1]
+                new_location = slug_to_location.get(slug, '')
         if not new_location:
             continue
 
