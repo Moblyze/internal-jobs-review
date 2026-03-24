@@ -66,6 +66,11 @@ function tryGeocoded(locationStr) {
     return null
   }
 
+  // Skip entries marked as non-locations (e.g., "Location Not Specified", "2 Locations")
+  if (geo._skip) {
+    return null
+  }
+
   const { city, state, stateCode, country, countryCode } = geo
 
   // Handle "OTHER [STATE]" patterns as state-wide locations

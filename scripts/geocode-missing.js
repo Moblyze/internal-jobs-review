@@ -104,14 +104,55 @@ async function geocodeLocation(query) {
 }
 
 /**
+ * Strings that are NOT real locations and should never be sent to Mapbox.
+ * These are placeholder values from scrapers, aggregators, or ATS systems.
+ */
+const NON_LOCATION_PATTERNS = [
+  /^location\s*not\s*specified$/i,
+  /^location\s*not\s*available$/i,
+  /^not\s*specified$/i,
+  /^not\s*available$/i,
+  /^n\/?a$/i,
+  /^tba$/i,
+  /^tbc$/i,
+  /^tbd$/i,
+  /^unknown$/i,
+  /^remote$/i,
+  /^multiple\s*locations?$/i,
+  /^various\s*locations?$/i,
+  /^\d+\s+locations?$/i,          // "2 Locations", "3 Locations", etc.
+  /^multi-location/i,             // "Multi-Location, United States", etc.
+  /^see\s*description$/i,
+  /^see\s*job\s*description$/i,
+  /^anywhere$/i,
+  /^flexible$/i,
+  /^global$/i,
+  /^worldwide$/i,
+  /^international$/i,
+  /^offshore$/i,
+  /^onshore$/i,
+];
+
+/**
+ * Check if a location string is a non-geocodable placeholder
+ */
+function isNonLocation(location) {
+  const cleaned = location.trim();
+  return NON_LOCATION_PATTERNS.some(pattern => pattern.test(cleaned));
+}
+
+/**
  * Build a better search query from the location string
  */
 function buildSearchQuery(location) {
   // Handle "+N more" suffixes
   let clean = location.replace(/\s*\+\d+\s*more…?$/i, '').trim();
 
-  // Handle "103 Oilfield, Libya" type strings
-  clean = clean.replace(/^\d+\s+/, '');
+  // Handle "103 Oilfield, Libya" type strings — but NOT "2 Locations" style
+  // Only strip leading digits when followed by a real place-like word
+  if (!/^\d+\s+locations?$/i.test(clean)) {
+    clean = clean.replace(/^\d+\s+/, '');
+  }
 
   // Handle raw format like "US-TX-HOUSTON-123 MAIN ST"
   const rawMatch = clean.match(/^([A-Z]{2})-([A-Z]{2,4})-(.+)/);
@@ -169,8 +210,15 @@ async function main() {
 
   for (let i = 0; i < missing.length; i++) {
     const location = missing[i];
-    const query = buildSearchQuery(location);
     const progress = `[${i + 1}/${missing.length}]`;
+
+    // Skip non-location placeholder strings (e.g., "Location Not Specified", "2 Locations")
+    if (isNonLocation(location)) {
+      console.log(`\n${progress} SKIPPED (non-location): ${location}`);
+      continue;
+    }
+
+    const query = buildSearchQuery(location);
 
     try {
       const result = await geocodeLocation(query);

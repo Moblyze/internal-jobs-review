@@ -169,17 +169,8 @@
     "confidence": 0.5
   },
   "2 Locations": {
-    "city": "Location",
-    "state": "West Virginia",
-    "stateCode": "WV",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 39.213886,
-      "longitude": -79.63678
-    },
-    "mapboxPlaceName": "Location, West Virginia, United States",
-    "confidence": 0.944444
+    "_skip": true,
+    "_reason": "Not a real location — means job is posted in 2 locations"
   },
   "360X Staffing": {
     "city": "Dorfen",
@@ -24160,30 +24151,12 @@
     "confidence": 1
   },
   "Location Not Specified": {
-    "city": "Location",
-    "state": "West Virginia",
-    "stateCode": "WV",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 39.213886,
-      "longitude": -79.63678
-    },
-    "mapboxPlaceName": "Location, West Virginia, United States",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Placeholder — scraper could not determine location"
   },
   "Location not specified": {
-    "city": "Location",
-    "state": "West Virginia",
-    "stateCode": "WV",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 39.213886,
-      "longitude": -79.63678
-    },
-    "mapboxPlaceName": "Location, West Virginia, United States",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Placeholder — scraper could not determine location"
   },
   "Location: Houston, US": {
     "original": "Location: Houston, US",
@@ -28244,17 +28217,8 @@
     "confidence": 0.551111
   },
   "Multi-Location, United States": {
-    "city": "Location",
-    "state": "West Virginia",
-    "stateCode": "WV",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 39.213886,
-      "longitude": -79.63678
-    },
-    "mapboxPlaceName": "Location, West Virginia, United States",
-    "confidence": 0.703704
+    "_skip": true,
+    "_reason": "Not a real location — means job is posted in multiple US locations"
   },
   "Mumbai, Maharashtra": {
     "original": "Mumbai, Maharashtra",

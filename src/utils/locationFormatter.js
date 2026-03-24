@@ -52,6 +52,12 @@ function formatWithGeocoded(locationStr, geocodedData) {
   }
 
   const geo = geocodedData[cleanedStr]
+
+  // Skip entries marked as non-locations (e.g., "Location Not Specified", "2 Locations")
+  if (geo._skip) {
+    return null
+  }
+
   const { city, state, stateCode, country, countryCode } = geo
 
   // Format based on country conventions

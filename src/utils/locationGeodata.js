@@ -61,6 +61,11 @@ export function formatLocationWithGeodata(location, geodata) {
     return location
   }
 
+  // Skip entries marked as non-locations (e.g., "Location Not Specified", "2 Locations")
+  if (geodata._skip) {
+    return location
+  }
+
   let { city, state, stateCode, country, countryCode } = geodata
 
   // Handle Singapore special case (city-state with null country in Mapbox data)
