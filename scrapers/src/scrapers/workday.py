@@ -13,6 +13,121 @@ from src.models.job import JobPosting
 from src.scrapers.base import BaseScraper
 
 
+# US state codes for expanding abbreviations in location output
+_US_STATES = {
+    'AL': 'Alabama', 'AK': 'Alaska', 'AZ': 'Arizona', 'AR': 'Arkansas',
+    'CA': 'California', 'CO': 'Colorado', 'CT': 'Connecticut', 'DE': 'Delaware',
+    'FL': 'Florida', 'GA': 'Georgia', 'HI': 'Hawaii', 'ID': 'Idaho',
+    'IL': 'Illinois', 'IN': 'Indiana', 'IA': 'Iowa', 'KS': 'Kansas',
+    'KY': 'Kentucky', 'LA': 'Louisiana', 'ME': 'Maine', 'MD': 'Maryland',
+    'MA': 'Massachusetts', 'MI': 'Michigan', 'MN': 'Minnesota', 'MS': 'Mississippi',
+    'MO': 'Missouri', 'MT': 'Montana', 'NE': 'Nebraska', 'NV': 'Nevada',
+    'NH': 'New Hampshire', 'NJ': 'New Jersey', 'NM': 'New Mexico', 'NY': 'New York',
+    'NC': 'North Carolina', 'ND': 'North Dakota', 'OH': 'Ohio', 'OK': 'Oklahoma',
+    'OR': 'Oregon', 'PA': 'Pennsylvania', 'RI': 'Rhode Island', 'SC': 'South Carolina',
+    'SD': 'South Dakota', 'TN': 'Tennessee', 'TX': 'Texas', 'UT': 'Utah',
+    'VT': 'Vermont', 'VA': 'Virginia', 'WA': 'Washington', 'WV': 'West Virginia',
+    'WI': 'Wisconsin', 'WY': 'Wyoming', 'DC': 'District of Columbia',
+}
+
+# Patterns that indicate address details (not city names) — used to detect
+# where the meaningful location parts end and street-level noise begins.
+_ADDRESS_INDICATORS = re.compile(
+    r'^\d|BLOCK|BLDG|BUILDING|FLOOR|SUITE|STE|UNIT|LOT|ROAD|RD\b|STREET|ST\b|'
+    r'AVENUE|AVE\b|BOULEVARD|BLVD\b|DRIVE|DR\b|LANE|LN\b|HIGHWAY|HWY\b|'
+    r'NO\.\s*\d|P\.?O\.?\s*BOX',
+    re.IGNORECASE,
+)
+
+
+def parse_workday_location(raw: str) -> str:
+    """Parse Workday's hyphen-delimited location format into clean text.
+
+    Workday locations typically follow the pattern:
+        {country}-{state/region}-{city}-{optional address details}
+
+    Examples:
+        'US-TX-HOUSTON-123 MAIN ST'         -> 'Houston, TX, US'
+        'AE-ABU DHABI-MUSSAFAH ATLAS MW4C'  -> 'Abu Dhabi, AE'
+        'GB-ENG-LONDON'                      -> 'London, England, GB'
+        'CN-CHANGZHOU-NO. 8 XI HU ROAD'     -> 'Changzhou, CN'
+        'XX-OTHER COUNTRY'                   -> 'Location Not Specified'
+
+    If the string doesn't look like Workday's format (no hyphens, or already
+    comma-separated), it is returned as-is.
+    """
+    if not raw or not raw.strip():
+        return 'Location Not Specified'
+
+    raw = raw.strip()
+
+    # Must have at least one hyphen to be Workday format
+    if '-' not in raw:
+        return raw
+
+    # If it contains commas but doesn't start with a 2-letter code + hyphen,
+    # it's probably already clean — pass through
+    if ',' in raw and not re.match(r'^[A-Z]{2}-', raw):
+        return raw
+
+    # Split on first hyphen to get country code
+    parts = raw.split('-')
+
+    # First part should be a 2-letter country code
+    country = parts[0].strip().upper()
+    if len(country) != 2:
+        # Doesn't look like Workday format
+        return raw
+
+    # Handle XX-OTHER / XX-UNSPECIFIED patterns
+    if country == 'XX':
+        return 'Location Not Specified'
+
+    remaining = parts[1:]
+
+    # Filter out address-detail segments from the end
+    meaningful = []
+    for segment in remaining:
+        segment = segment.strip()
+        if not segment:
+            continue
+        if _ADDRESS_INDICATORS.search(segment):
+            break  # Everything from here on is address noise
+        meaningful.append(segment)
+
+    if not meaningful:
+        # Only country code was meaningful (e.g., "US-" edge case)
+        return country
+
+    # Determine if second part is a state/region code or a city name.
+    # For US locations the second part is a 2-letter state code.
+    # For other countries it may be a region name or directly a city.
+    is_us = country == 'US'
+    second = meaningful[0].strip().upper()
+
+    if is_us and len(second) == 2 and second in _US_STATES:
+        state = second
+        city_parts = meaningful[1:]  # city is the third segment
+        if city_parts:
+            city = city_parts[0].strip().title()
+            return f"{city}, {state}, {country}"
+        else:
+            # Only state, no city (e.g., "US-TX")
+            return f"{state}, {country}"
+
+    # Non-US: check if second segment looks like a known region abbreviation
+    # (3-letter or longer region names like "ENG", "SCT", "NSW")
+    # If we have 2+ meaningful segments and the first is short, treat as region
+    if len(meaningful) >= 2 and len(meaningful[0].strip()) <= 4:
+        region = meaningful[0].strip().title()
+        city = meaningful[1].strip().title()
+        return f"{city}, {region}, {country}"
+
+    # Otherwise treat the first meaningful segment as the city
+    city = meaningful[0].strip().title()
+    return f"{city}, {country}"
+
+
 def extract_workday_requisition_id(url: str) -> Optional[str]:
     """
     Extract requisition ID from Workday job URL.
@@ -379,10 +494,11 @@ class WorkdayScraper(BaseScraper):
         # Location (required)
         try:
             location_elem = page.locator(selectors['location']).first
-            data['location'] = await location_elem.inner_text()
+            raw_location = await location_elem.inner_text()
+            data['location'] = parse_workday_location(raw_location)
         except Exception:
             # Try to find location anywhere on the page as fallback
-            data['location'] = 'Location not specified'
+            data['location'] = 'Location Not Specified'
 
         # Posted date (optional)
         try:

@@ -156,34 +156,16 @@
     "confidence": 0.8
   },
   "103 Oilfield, Libya": {
-    "city": null,
-    "state": null,
-    "stateCode": null,
-    "country": "Libya",
-    "countryCode": "LY",
-    "coordinates": {
-      "latitude": 27.043961,
-      "longitude": 18.02328
-    },
-    "mapboxPlaceName": "Libya",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "2 Locations": {
     "_skip": true,
     "_reason": "Not a real location — means job is posted in 2 locations"
   },
   "360X Staffing": {
-    "city": "Dorfen",
-    "state": "Bavaria",
-    "stateCode": "BY",
-    "country": "Germany",
-    "countryCode": "DE",
-    "coordinates": {
-      "latitude": 48.301034,
-      "longitude": 12.14393
-    },
-    "mapboxPlaceName": "Staffing, 84405 Dorfen, Germany",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "A.W. Chesterton Company": {
     "city": "Las Condes",
@@ -212,17 +194,8 @@
     "confidence": 1
   },
   "ACT Power Services": {
-    "city": "Menindee",
-    "state": "New South Wales",
-    "stateCode": "NSW",
-    "country": "Australia",
-    "countryCode": "AU",
-    "coordinates": {
-      "latitude": -32.462919,
-      "longitude": 142.360309
-    },
-    "mapboxPlaceName": "Powerline Service Trail, Menindee New South Wales 2879, Australia",
-    "confidence": 0.442857
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "AE-ABU DHABI-AL GHAITH HOLDING TOWER, AIRPORT ROAD": {
     "original": "AE-ABU DHABI-AL GHAITH HOLDING TOWER, AIRPORT ROAD",
@@ -323,17 +296,8 @@
     "confidence": 0.366667
   },
   "AE-OTHER UNITED ARAB EMIRATES": {
-    "city": null,
-    "state": null,
-    "stateCode": null,
-    "country": "United Arab Emirates",
-    "countryCode": "AE",
-    "coordinates": {
-      "latitude": 23.85206,
-      "longitude": 54.256172
-    },
-    "mapboxPlaceName": "United Arab Emirates",
-    "confidence": 1
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "AECOM": {
     "city": "Ecom Modji",
@@ -349,17 +313,8 @@
     "confidence": 0.9
   },
   "AIPC Energy": {
-    "city": "Gold Coast",
-    "state": "Queensland",
-    "stateCode": "QLD",
-    "country": "Australia",
-    "countryCode": "AU",
-    "coordinates": {
-      "latitude": -28.092258,
-      "longitude": 153.393951
-    },
-    "mapboxPlaceName": "Energy Circuit, Robina Queensland 4226, Australia",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "AO-LA-LUANDA-BOAVISTA SONILS OILFIELD SERVICE CENTER": {
     "city": "Luanda",
@@ -388,21 +343,8 @@
     "confidence": 1
   },
   "AO-OTHER ANGOLA": {
-    "original": "AO-OTHER ANGOLA",
-    "mapboxPlaceName": "Cangola, Uíge, Angola",
-    "city": "Cangola",
-    "state": "Uíge",
-    "stateCode": "UIG",
-    "country": "Angola",
-    "countryCode": "AO",
-    "coordinates": {
-      "longitude": 15.851528,
-      "latitude": -7.975421
-    },
-    "placeType": [
-      "place"
-    ],
-    "confidence": 0.628889
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "AR-Bueno Aires-Bueno Aires-Juana Manso Nro. 205, Piso 4, Ciudad Autonoma De": {
     "original": "AR-Bueno Aires-Bueno Aires-Juana Manso Nro. 205, Piso 4, Ciudad Autonoma De",
@@ -470,21 +412,8 @@
     "confidence": 0.772222
   },
   "AT-OTHER AUSTRIA": {
-    "original": "AT-OTHER AUSTRIA",
-    "mapboxPlaceName": "Austria Tabakstraße, 2410 Hainburg a.d. Donau, Austria",
-    "city": "Hainburg a.d. Donau",
-    "state": "Lower Austria",
-    "stateCode": "3",
-    "country": "Austria",
-    "countryCode": "AT",
-    "coordinates": {
-      "longitude": 16.952432,
-      "latitude": 48.141687
-    },
-    "placeType": [
-      "address"
-    ],
-    "confidence": 0.656667
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "AU-NT-BERRIMAH-EAST ARM WHARF": {
     "city": "Berrimah",
@@ -517,17 +446,8 @@
     "confidence": 0.673333
   },
   "AU-OTHER AUSTRALIA": {
-    "city": "Kingston SE",
-    "state": "South Australia",
-    "stateCode": "SA",
-    "country": "Australia",
-    "countryCode": "AU",
-    "coordinates": {
-      "latitude": -36.839645,
-      "longitude": 139.846077
-    },
-    "mapboxPlaceName": "Otter Drive, Kingston SE South Australia 5275, Australia",
-    "confidence": 0.726667
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "AU-QLD-BRISBANE-69 ANN STREET": {
     "city": "Brisbane",
@@ -714,17 +634,8 @@
     "confidence": 0.837222
   },
   "AVA Energy": {
-    "city": "Houston",
-    "state": "Texas",
-    "stateCode": "TX",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 29.768813,
-      "longitude": -95.62303
-    },
-    "mapboxPlaceName": "Energy Corridor, Houston, Texas, United States",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "AZ-BAKU-17 SALYAN HIGHWAY": {
     "original": "AZ-BAKU-17 SALYAN HIGHWAY",
@@ -776,17 +687,8 @@
     "confidence": 0.8
   },
   "AZ-OTHER AZERBAIJAN": {
-    "city": null,
-    "state": null,
-    "stateCode": null,
-    "country": "Azerbaijan",
-    "countryCode": "AZ",
-    "coordinates": {
-      "latitude": 40.4093,
-      "longitude": 49.8671
-    },
-    "mapboxPlaceName": "Azerbaijan, Azerbaijan",
-    "confidence": 0.8
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "Abbeville, LA": {
     "city": "Abbeville",
@@ -1269,17 +1171,8 @@
     "confidence": 1
   },
   "Acadian Contractors": {
-    "city": "رجم خشمان ومصلان",
-    "state": "Al Ahmadi",
-    "stateCode": "AH",
-    "country": "Kuwait",
-    "countryCode": "KW",
-    "coordinates": {
-      "latitude": 29.010974,
-      "longitude": 47.976461
-    },
-    "mapboxPlaceName": "طريق المقاولين, 61, رجم خشمان ومصلان, Al Ahmadi, Kuwait",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Acuren": {
     "city": "Acurenam",
@@ -1295,30 +1188,12 @@
     "confidence": 1
   },
   "Acuren Inc.": {
-    "city": "Incline Village",
-    "state": "Nevada",
-    "stateCode": "NV",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 39.24968,
-      "longitude": -119.952689
-    },
-    "mapboxPlaceName": "Incline Village, Nevada, United States",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Acuren Inspection, Inc.": {
-    "city": "Ince-in-Makerfield",
-    "state": "England",
-    "stateCode": "ENG",
-    "country": "United Kingdom",
-    "countryCode": "GB",
-    "coordinates": {
-      "latitude": 53.53631,
-      "longitude": -2.618373
-    },
-    "mapboxPlaceName": "Ince-in-Makerfield, Greater Manchester, England, United Kingdom",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Ad Dawhah, Qatar": {
     "original": "Ad Dawhah, Qatar",
@@ -1391,17 +1266,8 @@
     "confidence": 1
   },
   "Adecco US, Inc.": {
-    "city": "Incline Village",
-    "state": "Nevada",
-    "stateCode": "NV",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 39.24968,
-      "longitude": -119.952689
-    },
-    "mapboxPlaceName": "Incline Village, Nevada, United States",
-    "confidence": 0.656667
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Adelaide, South Australia, Australia": {
     "original": "Adelaide, South Australia, Australia",
@@ -1421,17 +1287,8 @@
     "confidence": 1
   },
   "Advanced Classroom Technologies": {
-    "city": "Zagersdorf",
-    "state": "Burgenland",
-    "stateCode": "1",
-    "country": "Austria",
-    "countryCode": "AT",
-    "coordinates": {
-      "latitude": 47.773286,
-      "longitude": 16.522585
-    },
-    "mapboxPlaceName": "Technologiestraße, 7012 Zagersdorf, Austria",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Advanced Integration Technology": {
     "city": "Schönberg",
@@ -1460,30 +1317,12 @@
     "confidence": 0.916667
   },
   "Aeis LLC": {
-    "city": "Issaquah",
-    "state": "Washington",
-    "stateCode": "WA",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 47.531192,
-      "longitude": -122.051994
-    },
-    "mapboxPlaceName": "Aires Place Northwest, Issaquah, Washington 98027, United States",
-    "confidence": 1
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Aerones Ltd.": {
-    "city": "Bhubaneswar",
-    "state": "Odisha",
-    "stateCode": "OR",
-    "country": "India",
-    "countryCode": "IN",
-    "coordinates": {
-      "latitude": 20.283223,
-      "longitude": 85.792416
-    },
-    "mapboxPlaceName": "Ltd Ln ، 751033 Bhubaneswar، India",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Aerotek": {
     "city": "Rancho Cordova",
@@ -1995,30 +1834,12 @@
     "confidence": 0.544444
   },
   "Allison Offshore Services": {
-    "city": "Jenbach",
-    "state": "Tyrol",
-    "stateCode": "7",
-    "country": "Austria",
-    "countryCode": "AT",
-    "coordinates": {
-      "latitude": 47.386605,
-      "longitude": 11.773631
-    },
-    "mapboxPlaceName": "Servicestraße Binderholz, 6200 Jenbach, Austria",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Allison Offshore Services LLC": {
-    "city": "Letchworth Garden City",
-    "state": "England",
-    "stateCode": "ENG",
-    "country": "United Kingdom",
-    "countryCode": "GB",
-    "coordinates": {
-      "latitude": 51.974178,
-      "longitude": -0.2105
-    },
-    "mapboxPlaceName": "Allison, Letchworth, Letchworth Garden City, SG6 2JT, United Kingdom",
-    "confidence": 0.388889
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Alpharetta, GA, USA": {
     "city": "Alpharetta",
@@ -2311,17 +2132,8 @@
     "confidence": 1
   },
   "Andritz AG": {
-    "city": "Graz",
-    "state": "Styria",
-    "stateCode": "6",
-    "country": "Austria",
-    "countryCode": "AT",
-    "coordinates": {
-      "latitude": 47.065379,
-      "longitude": 15.43066
-    },
-    "mapboxPlaceName": "Ägydigasse, 8020 Graz, Austria",
-    "confidence": 0.74
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Ankara, TR": {
     "original": "Ankara, TR",
@@ -2449,82 +2261,28 @@
     "confidence": 0.908519
   },
   "Apache Industrial Services, Inc.": {
-    "city": "Inca",
-    "state": "Balearic Islands",
-    "stateCode": "PM",
-    "country": "Spain",
-    "countryCode": "ES",
-    "coordinates": {
-      "latitude": 39.711876,
-      "longitude": 2.905136
-    },
-    "mapboxPlaceName": "Cl C-Industrial, 07300 Inca, Balearic Islands, Spain",
-    "confidence": 0.533333
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Apave America Inc.": {
-    "city": "Incline Village",
-    "state": "Nevada",
-    "stateCode": "NV",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 39.24968,
-      "longitude": -119.952689
-    },
-    "mapboxPlaceName": "Incline Village, Nevada, United States",
-    "confidence": 0.656667
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Apex Service Partners": {
-    "city": "Saskatoon",
-    "state": "Saskatchewan",
-    "stateCode": "SK",
-    "country": "Canada",
-    "countryCode": "CA",
-    "coordinates": {
-      "latitude": 52.192246,
-      "longitude": -106.67944
-    },
-    "mapboxPlaceName": "Apex Street, Saskatoon, Saskatchewan S7R 1C3, Canada",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Apex Systems": {
-    "city": "Apex",
-    "state": "North Carolina",
-    "stateCode": "NC",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 35.732508,
-      "longitude": -78.850329
-    },
-    "mapboxPlaceName": "Apex, North Carolina, United States",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Applied Technical Services": {
-    "city": "Jenbach",
-    "state": "Tyrol",
-    "stateCode": "7",
-    "country": "Austria",
-    "countryCode": "AT",
-    "coordinates": {
-      "latitude": 47.386605,
-      "longitude": 11.773631
-    },
-    "mapboxPlaceName": "Servicestraße Binderholz, 6200 Jenbach, Austria",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Applied Technical Services (Georgia)": {
-    "city": "Sea Island",
-    "state": "Georgia",
-    "stateCode": "GA",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 31.182309,
-      "longitude": -81.348786
-    },
-    "mapboxPlaceName": "Service Road, Sea Island, Georgia 31561, United States",
-    "confidence": 0.574074
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Arab, AL": {
     "city": "Arab",
@@ -2596,17 +2354,8 @@
     "confidence": 1
   },
   "Arctic Slope Regional Corporation": {
-    "city": "Anchorage",
-    "state": "Alaska",
-    "stateCode": "AK",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 61.145561,
-      "longitude": -149.876354
-    },
-    "mapboxPlaceName": "Arctic Slope Avenue, Anchorage, Alaska 99518, United States",
-    "confidence": 0.4
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Arden, NC, US": {
     "city": "Arden",
@@ -2981,17 +2730,8 @@
     "confidence": 1
   },
   "Aspect Land & Hydrographic Surveys Ltd": {
-    "city": "Biscarrosse",
-    "state": "Landes",
-    "stateCode": "40",
-    "country": "France",
-    "countryCode": "FR",
-    "coordinates": {
-      "latitude": 44.391696,
-      "longitude": -1.168671
-    },
-    "mapboxPlaceName": "Rue Du Ltdv Paris, 40600 Biscarrosse, France",
-    "confidence": 0.439481
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Assonet, MA": {
     "city": "Assonet",
@@ -3124,17 +2864,8 @@
     "confidence": 1
   },
   "Atlas Group Llc": {
-    "city": "Puente Alto",
-    "state": "Santiago Metropolitan Region",
-    "stateCode": "RM",
-    "country": "Chile",
-    "countryCode": "CL",
-    "coordinates": {
-      "latitude": -33.582902,
-      "longitude": -70.602871
-    },
-    "mapboxPlaceName": "Atlas, Puente Alto, Santiago Metropolitan Region 8150000, Chile",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Atyrau, Atyraū Oblysy": {
     "original": "Atyrau, Atyraū Oblysy",
@@ -3418,17 +3149,8 @@
     "confidence": 0.99
   },
   "Avail Staffing Company": {
-    "city": "Company Bay",
-    "state": "Otago",
-    "stateCode": "OTA",
-    "country": "New Zealand",
-    "countryCode": "NZ",
-    "coordinates": {
-      "latitude": -45.85501,
-      "longitude": 170.60115
-    },
-    "mapboxPlaceName": "Company Bay, Dunedin, Otago, New Zealand",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Avila Beach California United States": {
     "city": "Avila Beach",
@@ -3496,34 +3218,12 @@
     "confidence": 0.99
   },
   "Aztalan Bio LLC": {
-    "city": "Lomas de Cocoyoc",
-    "state": "Morelos",
-    "stateCode": "MOR",
-    "country": "Mexico",
-    "countryCode": "MX",
-    "coordinates": {
-      "latitude": 18.919432,
-      "longitude": -98.946827
-    },
-    "mapboxPlaceName": "Calle Aztlán, 62847 Lomas de Cocoyoc, Morelos, Mexico",
-    "confidence": 0.871429
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "BE-OTHER BELGIUM": {
-    "original": "BE-OTHER BELGIUM",
-    "mapboxPlaceName": "Othee, Awans, Liege, Belgium",
-    "city": "Othee",
-    "state": "Liege",
-    "stateCode": "WLG",
-    "country": "Belgium",
-    "countryCode": "BE",
-    "coordinates": {
-      "longitude": 5.467177,
-      "latitude": 50.716114
-    },
-    "placeType": [
-      "locality"
-    ],
-    "confidence": 0.633333
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "BGE": {
     "city": "Saint-Ouen-sur-Gartempe",
@@ -3569,21 +3269,8 @@
     "confidence": 0.604198
   },
   "BN-OTHER BRUNEI": {
-    "original": "BN-OTHER BRUNEI",
-    "mapboxPlaceName": "Brunei-Muara, Brunei",
-    "city": null,
-    "state": "Brunei-Muara",
-    "stateCode": "BM",
-    "country": "Brunei",
-    "countryCode": "BN",
-    "coordinates": {
-      "longitude": 114.941917,
-      "latitude": 4.96741
-    },
-    "placeType": [
-      "region"
-    ],
-    "confidence": 0.656667
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "BR-BA-CATU-RUA JOSE VISCO S/N": {
     "original": "BR-BA-CATU-RUA JOSE VISCO S/N",
@@ -3603,21 +3290,8 @@
     "confidence": 0.573333
   },
   "BR-OTHER BRAZIL": {
-    "original": "BR-OTHER BRAZIL",
-    "mapboxPlaceName": "B, Ponta Porã, Mato Grosso do Sul, Brazil",
-    "city": "Ponta Porã",
-    "state": "Mato Grosso do Sul",
-    "stateCode": "MS",
-    "country": "Brazil",
-    "countryCode": "BR",
-    "coordinates": {
-      "longitude": -55.68964,
-      "latitude": -22.56636
-    },
-    "placeType": [
-      "neighborhood"
-    ],
-    "confidence": 0.666667
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "BR-Parana-Curitiba-Rua Francisco Sobania 1300, Cidade Industrial": {
     "city": "Curitiba",
@@ -3799,17 +3473,8 @@
     "confidence": 1
   },
   "BWX Technologies": {
-    "city": "Zagersdorf",
-    "state": "Burgenland",
-    "stateCode": "1",
-    "country": "Austria",
-    "countryCode": "AT",
-    "coordinates": {
-      "latitude": 47.773286,
-      "longitude": 16.522585
-    },
-    "mapboxPlaceName": "Technologiestraße, 7012 Zagersdorf, Austria",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Bad Homburg vor der Hohe, Germany": {
     "city": "Bad Homburg vor der Höhe",
@@ -4136,17 +3801,8 @@
     "confidence": 1
   },
   "Barron Industries": {
-    "city": "Mauren",
-    "state": null,
-    "stateCode": null,
-    "country": "Liechtenstein",
-    "countryCode": "LI",
-    "coordinates": {
-      "latitude": 47.21037,
-      "longitude": 9.548778
-    },
-    "mapboxPlaceName": "Industriestrasse, 9486 Mauren, Liechtenstein",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Barrow Island, Western Australia, Australia": {
     "city": "Barrow Island",
@@ -4581,17 +4237,8 @@
     "confidence": 1
   },
   "Bechtel Corporation": {
-    "city": "Corporation Lands",
-    "state": "Wicklow",
-    "stateCode": "WW",
-    "country": "Ireland",
-    "countryCode": "IE",
-    "coordinates": {
-      "latitude": 52.975433,
-      "longitude": -6.039785
-    },
-    "mapboxPlaceName": "Corporation Lands, Wicklow, Wicklow, Ireland",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Beckley, WV": {
     "city": "Beckley",
@@ -4866,17 +4513,8 @@
     "confidence": 1
   },
   "Bering Marine Corporation": {
-    "city": "Baring",
-    "state": "Maine",
-    "stateCode": "ME",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 45.135695,
-      "longitude": -67.316058
-    },
-    "mapboxPlaceName": "Baring, Maine, United States",
-    "confidence": 0.611111
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Berkeley, IL": {
     "city": "Berkeley",
@@ -5290,30 +4928,12 @@
     "confidence": 1
   },
   "Bluewater Energy": {
-    "city": "Houston",
-    "state": "Texas",
-    "stateCode": "TX",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 29.768813,
-      "longitude": -95.62303
-    },
-    "mapboxPlaceName": "Energy Corridor, Houston, Texas, United States",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Bo-Mac Contractors, LTD": {
-    "city": "Ban Bo Mao",
-    "state": "Chumphon",
-    "stateCode": "86",
-    "country": "Thailand",
-    "countryCode": "TH",
-    "coordinates": {
-      "latitude": 10.694662,
-      "longitude": 99.358272
-    },
-    "mapboxPlaceName": "Ban Bo Mao, Pathio, Chumphon, Thailand",
-    "confidence": 0.458333
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Boca Raton, FL": {
     "city": "Boca Raton",
@@ -5450,17 +5070,8 @@
     "confidence": 1
   },
   "Bordelon Marine Personnel": {
-    "city": "Reims",
-    "state": "Marne",
-    "stateCode": "51",
-    "country": "France",
-    "countryCode": "FR",
-    "coordinates": {
-      "latitude": 49.244262,
-      "longitude": 4.067958
-    },
-    "mapboxPlaceName": "Parking Personnels Eisine, 51100 Reims, France",
-    "confidence": 0.562222
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Bordersville, Houston": {
     "city": "Humble",
@@ -5515,17 +5126,8 @@
     "confidence": 0.75
   },
   "Bosch Building Technologies LLC": {
-    "city": "building",
-    "state": "Ombella-M'Poko",
-    "stateCode": "MP",
-    "country": "Central African Republic",
-    "countryCode": "CF",
-    "coordinates": {
-      "latitude": 4.361855,
-      "longitude": 18.507679
-    },
-    "mapboxPlaceName": "building, Pélémongo, Ombella-M'Poko, Central African Republic",
-    "confidence": 0.388889
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Bossier City, LA": {
     "original": "Bossier City, LA",
@@ -5636,17 +5238,8 @@
     "confidence": 1
   },
   "Brand Industrial Services": {
-    "city": "Bland",
-    "state": "Missouri",
-    "stateCode": "MO",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 38.304234,
-      "longitude": -91.637745
-    },
-    "mapboxPlaceName": "Service Street, Bland, Missouri 65014, United States",
-    "confidence": 0.6025
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Brandenburg Kentucky United States": {
     "city": "Brandenburg",
@@ -5831,17 +5424,8 @@
     "confidence": 1
   },
   "Brightpath Associates LLC": {
-    "city": "Lapu-Lapu",
-    "state": null,
-    "stateCode": null,
-    "country": "Philippines",
-    "countryCode": "PH",
-    "coordinates": {
-      "latitude": 10.306767,
-      "longitude": 123.997661
-    },
-    "mapboxPlaceName": "Llc Gd Mactan, Lapu-Lapu, Philippines",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Brisbane, Australia": {
     "city": "Brisbane",
@@ -5913,17 +5497,8 @@
     "confidence": 1
   },
   "Bronco Energy Services": {
-    "city": "Jenbach",
-    "state": "Tyrol",
-    "stateCode": "7",
-    "country": "Austria",
-    "countryCode": "AT",
-    "coordinates": {
-      "latitude": 47.386605,
-      "longitude": 11.773631
-    },
-    "mapboxPlaceName": "Servicestraße Binderholz, 6200 Jenbach, Austria",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Brook Park": {
     "city": "Brook Park",
@@ -6611,30 +6186,12 @@
     "confidence": 0.74
   },
   "CAM Industrial Solutions": {
-    "city": "Los Andes",
-    "state": "Valparaíso",
-    "stateCode": "VS",
-    "country": "Chile",
-    "countryCode": "CL",
-    "coordinates": {
-      "latitude": -33.036648,
-      "longitude": -70.253291
-    },
-    "mapboxPlaceName": "Camino Industrial, Los Andes, Valparaíso 2100000, Chile",
-    "confidence": 0.574074
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "CCS Construction": {
-    "city": "St. John's",
-    "state": "Newfoundland and Labrador",
-    "stateCode": "NL",
-    "country": "Canada",
-    "countryCode": "CA",
-    "coordinates": {
-      "latitude": 47.50513,
-      "longitude": -52.7611
-    },
-    "mapboxPlaceName": "Construction Road, St. John's, Newfoundland and Labrador A1G 0B6, Canada",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "CDM Smith": {
     "city": "Memphis",
@@ -6650,17 +6207,8 @@
     "confidence": 0.944444
   },
   "CEI Engineering Associates": {
-    "city": "Cei",
-    "state": "Lugo",
-    "stateCode": "LU",
-    "country": "Spain",
-    "countryCode": "ES",
-    "coordinates": {
-      "latitude": 43.494507,
-      "longitude": -7.172748
-    },
-    "mapboxPlaceName": "Cei, Ribadeo, Lugo, Spain",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "CG-POINTE NOIRE-64 AVENUE JEAN MARIE MAVOUNGGOU": {
     "original": "CG-POINTE NOIRE-64 AVENUE JEAN MARIE MAVOUNGGOU",
@@ -6680,21 +6228,8 @@
     "confidence": 0.527037
   },
   "CH-OTHER SWITZERLAND": {
-    "original": "CH-OTHER SWITZERLAND",
-    "mapboxPlaceName": "Chemin De L'école, 2812 Movelier, Switzerland",
-    "city": "Movelier",
-    "state": "Jura",
-    "stateCode": "JU",
-    "country": "Switzerland",
-    "countryCode": "CH",
-    "coordinates": {
-      "longitude": 7.317207,
-      "latitude": 47.410882
-    },
-    "placeType": [
-      "address"
-    ],
-    "confidence": 0.666667
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "CH-ZH-ZURICH-TECHNOPARK STRASSE 1": {
     "city": "Zürich",
@@ -6736,17 +6271,8 @@
     "confidence": 0.8
   },
   "CM-OTHER CAMEROON": {
-    "city": null,
-    "state": null,
-    "stateCode": null,
-    "country": "Cameroon",
-    "countryCode": "CM",
-    "coordinates": {
-      "latitude": 4.0511,
-      "longitude": 9.7679
-    },
-    "mapboxPlaceName": "Cameroon, Cameroon",
-    "confidence": 0.8
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "CN-BEIJING-12 TAIYANGGONG MIDDLE RD, CHAOYANG DISTRICT": {
     "city": "Beijing",
@@ -6831,34 +6357,12 @@
     "confidence": 0.508519
   },
   "CN-OTHER CHINA": {
-    "city": null,
-    "state": null,
-    "stateCode": null,
-    "country": "China",
-    "countryCode": "CN",
-    "coordinates": {
-      "latitude": 39.9042,
-      "longitude": 116.4074
-    },
-    "mapboxPlaceName": "China, China",
-    "confidence": 0.8
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "CN-OTHER SHANDONG": {
-    "original": "CN-OTHER SHANDONG",
-    "mapboxPlaceName": "Shandong, China",
-    "city": null,
-    "state": "Shandong",
-    "stateCode": "SD",
-    "country": "China",
-    "countryCode": "CN",
-    "coordinates": {
-      "longitude": 118.196748,
-      "latitude": 35.989453
-    },
-    "placeType": [
-      "region"
-    ],
-    "confidence": 0.656667
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "CN-SHANGHAI-1, HUA TUO RD.": {
     "original": "CN-SHANGHAI-1, HUA TUO RD.",
@@ -7085,17 +6589,8 @@
     "confidence": 1
   },
   "CTD Staffing LLC": {
-    "city": "Dorfen",
-    "state": "Bavaria",
-    "stateCode": "BY",
-    "country": "Germany",
-    "countryCode": "DE",
-    "coordinates": {
-      "latitude": 48.301034,
-      "longitude": 12.14393
-    },
-    "mapboxPlaceName": "Staffing, 84405 Dorfen, Germany",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "CTR": {
     "city": "Lampung Tengah",
@@ -8161,17 +7656,8 @@
     "confidence": 1
   },
   "Celestar Corporation": {
-    "city": "Corporation",
-    "state": "Hhohho - Mbabane",
-    "stateCode": "HH",
-    "country": "Eswatini",
-    "countryCode": "SZ",
-    "coordinates": {
-      "latitude": -26.331587,
-      "longitude": 31.15636
-    },
-    "mapboxPlaceName": "Corporation, Hhohho - Mbabane, Eswatini",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Centennial": {
     "city": "Centennial",
@@ -8200,17 +7686,8 @@
     "confidence": 1
   },
   "Centerline Logistics Corporation": {
-    "city": "Corporation",
-    "state": "Hhohho - Mbabane",
-    "stateCode": "HH",
-    "country": "Eswatini",
-    "countryCode": "SZ",
-    "coordinates": {
-      "latitude": -26.331587,
-      "longitude": 31.15636
-    },
-    "mapboxPlaceName": "Corporation, Hhohho - Mbabane, Eswatini",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Centerville, GA": {
     "city": "Centerville",
@@ -8278,17 +7755,8 @@
     "confidence": 1
   },
   "Centuri Group": {
-    "city": "Valley",
-    "state": "Alabama",
-    "stateCode": "AL",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 32.75707,
-      "longitude": -85.2224
-    },
-    "mapboxPlaceName": "Century Rd, Valley, Alabama 36854, United States",
-    "confidence": 0.596429
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Cerritos, CA, US": {
     "city": "Cerritos",
@@ -8693,17 +8161,8 @@
     "confidence": 1
   },
   "Chemical Manufacturing Company, Inc.": {
-    "city": "Muvattupuzha",
-    "state": "Kerala",
-    "stateCode": "KL",
-    "country": "India",
-    "countryCode": "IN",
-    "coordinates": {
-      "latitude": 9.934861,
-      "longitude": 76.599343
-    },
-    "mapboxPlaceName": "Company Junction ، 686672 Muvattupuzha، India",
-    "confidence": 0.477273
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Chengdu, SC, CN": {
     "city": "Chengdu Shi",
@@ -9082,30 +8541,12 @@
     "confidence": 0.983539
   },
   "Chromalloy Corporation": {
-    "city": "Corporation Lands",
-    "state": "Wicklow",
-    "stateCode": "WW",
-    "country": "Ireland",
-    "countryCode": "IE",
-    "coordinates": {
-      "latitude": 52.975433,
-      "longitude": -6.039785
-    },
-    "mapboxPlaceName": "Corporation Lands, Wicklow, Wicklow, Ireland",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Chromalloy Gas Turbine, LLC": {
-    "city": "Fountain",
-    "state": "Colorado",
-    "stateCode": "CO",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 38.631893,
-      "longitude": -104.705007
-    },
-    "mapboxPlaceName": "Gas Turbine Road, Fountain, Colorado 80817, United States",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Cikarang, Indonesia": {
     "city": "Karawang",
@@ -9177,17 +8618,8 @@
     "confidence": 1
   },
   "Circulus Arab, PBLLC": {
-    "city": "عرب",
-    "state": "Ibb",
-    "stateCode": "IB",
-    "country": "Yemen",
-    "countryCode": "YE",
-    "coordinates": {
-      "latitude": 14.284571,
-      "longitude": 44.352534
-    },
-    "mapboxPlaceName": "عرب, Ibb, Yemen",
-    "confidence": 0.64
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "City of Fredericksburg": {
     "city": "Skandia",
@@ -9371,17 +8803,8 @@
     "confidence": 1
   },
   "Cleanleaf Energy": {
-    "city": "Gold Coast",
-    "state": "Queensland",
-    "stateCode": "QLD",
-    "country": "Australia",
-    "countryCode": "AU",
-    "coordinates": {
-      "latitude": -28.092258,
-      "longitude": 153.393951
-    },
-    "mapboxPlaceName": "Energy Circuit, Robina Queensland 4226, Australia",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Clear Lake, Texas": {
     "city": "Houston",
@@ -9643,17 +9066,8 @@
     "confidence": 1
   },
   "Colonna's Shipyard": {
-    "city": "Hong Kong",
-    "state": null,
-    "stateCode": null,
-    "country": null,
-    "countryCode": null,
-    "coordinates": {
-      "latitude": 22.285407,
-      "longitude": 114.214256
-    },
-    "mapboxPlaceName": "船塢里 Shipyard Lane, Dong Qu, Hong Kong",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Colony Ridge": {
     "city": "Delaware",
@@ -9872,17 +9286,8 @@
     "confidence": 0.475
   },
   "Commonwealth Fusion Systems": {
-    "city": "Charlotte",
-    "state": "North Carolina",
-    "stateCode": "NC",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 35.220264,
-      "longitude": -80.81084
-    },
-    "mapboxPlaceName": "Commonwealth, Charlotte, North Carolina, United States",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Commonwealth of VA Careers": {
     "city": "Charlottesville",
@@ -9911,17 +9316,8 @@
     "confidence": 0.9375
   },
   "Complete Logistical Services": {
-    "city": "Meridian",
-    "state": "Mississippi",
-    "stateCode": "MS",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 32.381035,
-      "longitude": -88.726494
-    },
-    "mapboxPlaceName": "Complete, Meridian, Mississippi, United States",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Component Repair": {
     "city": "Saint-Léonard-de-Noblat",
@@ -9937,17 +9333,8 @@
     "confidence": 0.5
   },
   "Component Repair Technologies": {
-    "city": "Zagersdorf",
-    "state": "Burgenland",
-    "stateCode": "1",
-    "country": "Austria",
-    "countryCode": "AT",
-    "coordinates": {
-      "latitude": 47.773286,
-      "longitude": 16.522585
-    },
-    "mapboxPlaceName": "Technologiestraße, 7012 Zagersdorf, Austria",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Concord": {
     "city": "Concord",
@@ -9976,17 +9363,8 @@
     "confidence": 1
   },
   "Condustrial, Inc.": {
-    "city": "Incheon",
-    "state": "Incheon",
-    "stateCode": "28",
-    "country": "South Korea",
-    "countryCode": "KR",
-    "coordinates": {
-      "latitude": 37.456,
-      "longitude": 126.7052
-    },
-    "mapboxPlaceName": "Incheon, South Korea",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Conroe": {
     "city": "Conroe",
@@ -10032,30 +9410,12 @@
     "confidence": 1
   },
   "Constellation Energy": {
-    "city": "Middle Sackville",
-    "state": "Nova Scotia",
-    "stateCode": "NS",
-    "country": "Canada",
-    "countryCode": "CA",
-    "coordinates": {
-      "latitude": 44.810014,
-      "longitude": -63.77602
-    },
-    "mapboxPlaceName": "Energy Road, Middle Sackville, Nova Scotia B4E 0X1, Canada",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Construction Recruiters America Staffing, Inc.": {
-    "city": "Piedmont",
-    "state": "South Carolina",
-    "stateCode": "SC",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 34.766126,
-      "longitude": -82.428247
-    },
-    "mapboxPlaceName": "Construction Drive, Piedmont, South Carolina 29673, United States",
-    "confidence": 0.548148
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Continental Tide": {
     "city": "Hampton",
@@ -10110,17 +9470,8 @@
     "confidence": 1
   },
   "Cooke Aquaculture Inc.": {
-    "city": "Cosby",
-    "state": "Tennessee",
-    "stateCode": "TN",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 35.806811,
-      "longitude": -83.229041
-    },
-    "mapboxPlaceName": "Incline Way, Cosby, Tennessee 37722, United States",
-    "confidence": 0.563333
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Coos County": {
     "city": "Coos",
@@ -10817,21 +10168,8 @@
     "confidence": 0.99
   },
   "DE-OTHER GERMANY": {
-    "original": "DE-OTHER GERMANY",
-    "mapboxPlaceName": "Düsseldorf, North Rhine-Westphalia, Germany",
-    "city": "Düsseldorf",
-    "state": "North Rhine-Westphalia",
-    "stateCode": "NW",
-    "country": "Germany",
-    "countryCode": "DE",
-    "coordinates": {
-      "longitude": 6.773766,
-      "latitude": 51.22615
-    },
-    "placeType": [
-      "place"
-    ],
-    "confidence": 0.666667
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "DE: Bochum - Wittener Str. 45": {
     "city": "Bochum",
@@ -10955,21 +10293,8 @@
     "confidence": 0.645556
   },
   "DZ-OTHER ALGERIA": {
-    "original": "DZ-OTHER ALGERIA",
-    "mapboxPlaceName": "Rn 44, 36, Bouteldja, El Tarf, Algeria",
-    "city": "Bouteldja",
-    "state": "El Tarf",
-    "stateCode": "36",
-    "country": "Algeria",
-    "countryCode": "DZ",
-    "coordinates": {
-      "longitude": 8.201722,
-      "latitude": 36.789435
-    },
-    "placeType": [
-      "address"
-    ],
-    "confidence": 0.656667
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "Dahlgren, Virginia": {
     "original": "Dahlgren, Virginia",
@@ -10989,17 +10314,8 @@
     "confidence": 1
   },
   "Daily Instruments Corporation": {
-    "city": "Corporation Lands",
-    "state": "Wicklow",
-    "stateCode": "WW",
-    "country": "Ireland",
-    "countryCode": "IE",
-    "coordinates": {
-      "latitude": 52.975433,
-      "longitude": -6.039785
-    },
-    "mapboxPlaceName": "Corporation Lands, Wicklow, Wicklow, Ireland",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Dale, IN, US": {
     "city": "Dale",
@@ -11106,17 +10422,8 @@
     "confidence": 1
   },
   "Dana Incorporated": {
-    "city": "ضانا",
-    "state": "Tafilah",
-    "stateCode": "AT",
-    "country": "Jordan",
-    "countryCode": "JO",
-    "coordinates": {
-      "latitude": 30.675192,
-      "longitude": 35.610282
-    },
-    "mapboxPlaceName": "ضانا, بصيرا, Tafilah, Jordan",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Danbury Connecticut United States": {
     "city": "Danbury",
@@ -11184,17 +10491,8 @@
     "confidence": 1
   },
   "Danos, LLC": {
-    "city": "Oranienburg",
-    "state": "Brandenburg",
-    "stateCode": "BB",
-    "country": "Germany",
-    "countryCode": "DE",
-    "coordinates": {
-      "latitude": 52.746706,
-      "longitude": 13.27054
-    },
-    "mapboxPlaceName": "Hans-Loch-Straße, 16515 Oranienburg, Germany",
-    "confidence": 0.9375
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Danville, Illinois, United States of America": {
     "city": "Danville",
@@ -11539,17 +10837,8 @@
     "confidence": 1
   },
   "Denver Staffing": {
-    "city": "Johannesburg",
-    "state": "Gauteng",
-    "stateCode": "GP",
-    "country": "South Africa",
-    "countryCode": "ZA",
-    "coordinates": {
-      "latitude": -26.20655,
-      "longitude": 28.09756
-    },
-    "mapboxPlaceName": "Denver, 2094, Johannesburg, Gauteng, South Africa",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Denver, CO": {
     "city": "Denver",
@@ -11686,17 +10975,8 @@
     "confidence": 0.944444
   },
   "Destinationone Consulting": {
-    "city": "Spremberg",
-    "state": "Brandenburg",
-    "stateCode": "BB",
-    "country": "Germany",
-    "countryCode": "DE",
-    "coordinates": {
-      "latitude": 51.559303,
-      "longitude": 14.33108
-    },
-    "mapboxPlaceName": "Consulring, 03130 Spremberg, Germany",
-    "confidence": 0.475
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Detroit Michigan United States": {
     "city": "Detroit",
@@ -11924,17 +11204,8 @@
     "confidence": 1
   },
   "Different Technologies Pty Ltd.": {
-    "city": "Perth",
-    "state": "Western Australia",
-    "stateCode": "WA",
-    "country": "Australia",
-    "countryCode": "AU",
-    "coordinates": {
-      "latitude": -31.950602,
-      "longitude": 115.824735
-    },
-    "mapboxPlaceName": "<Different>, Subiaco Western Australia 6008, Australia",
-    "confidence": 0.388889
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Dilley, TX": {
     "city": "Dilley",
@@ -12137,17 +11408,8 @@
     "confidence": 0.9375
   },
   "Dt Midstream Inc": {
-    "city": "İnciraltı",
-    "state": "İzmir",
-    "stateCode": "35",
-    "country": "Türkiye",
-    "countryCode": "TR",
-    "coordinates": {
-      "latitude": 38.40861,
-      "longitude": 27.035122
-    },
-    "mapboxPlaceName": "İnciraltı, Balçova, İzmir, Türkiye",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Dubai, AE": {
     "original": "Dubai, AE",
@@ -12223,43 +11485,16 @@
     "confidence": 1
   },
   "Ducommun Incorporated": {
-    "city": "Ollans",
-    "state": "Doubs",
-    "stateCode": "25",
-    "country": "France",
-    "countryCode": "FR",
-    "coordinates": {
-      "latitude": 47.416949,
-      "longitude": 6.24634
-    },
-    "mapboxPlaceName": "Chemin Du Communal, 25640 Ollans, France",
-    "confidence": 0.576667
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Ducommun, Inc.": {
-    "city": "İnciraltı",
-    "state": "İzmir",
-    "stateCode": "35",
-    "country": "Türkiye",
-    "countryCode": "TR",
-    "coordinates": {
-      "latitude": 38.40861,
-      "longitude": 27.035122
-    },
-    "mapboxPlaceName": "İnciraltı, Balçova, İzmir, Türkiye",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Duke Energy": {
-    "city": "Chapel Hill",
-    "state": "North Carolina",
-    "stateCode": "NC",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 35.937705,
-      "longitude": -79.080526
-    },
-    "mapboxPlaceName": "Duke Energy Corridor, Chapel Hill, North Carolina 27516, United States",
-    "confidence": 1
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Duliajan, India": {
     "city": "Duliajan",
@@ -12435,17 +11670,8 @@
     "confidence": 1
   },
   "Dycom Industries": {
-    "city": "Caudebec-lès-Elbeuf",
-    "state": "Seine-Maritime",
-    "stateCode": "76",
-    "country": "France",
-    "countryCode": "FR",
-    "coordinates": {
-      "latitude": 49.28751,
-      "longitude": 1.02576
-    },
-    "mapboxPlaceName": "Industries, Caudebec-lès-Elbeuf, Seine-Maritime, France",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Dynamic Engineering Consultants, PC": {
     "city": "Rio de Janeiro",
@@ -12538,17 +11764,8 @@
     "confidence": 0.615741
   },
   "EG-OTHER EGYPT": {
-    "city": "Gerga",
-    "state": "Sohag",
-    "stateCode": "SHG",
-    "country": "Egypt",
-    "countryCode": "EG",
-    "coordinates": {
-      "latitude": 26.333368,
-      "longitude": 31.890727
-    },
-    "mapboxPlaceName": "Egypt, 82, جرجا, Gerga, Sohag, Egypt",
-    "confidence": 0.656667
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "ENG, GB": {
     "city": "Piraquara",
@@ -12798,17 +12015,8 @@
     "confidence": 0.98
   },
   "Ed Wallach Search Group": {
-    "city": "Lagrange",
-    "state": "Georgia",
-    "stateCode": "GA",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 33.04411,
-      "longitude": -85.010404
-    },
-    "mapboxPlaceName": "Wallace Street, Lagrange, Georgia 30241, United States",
-    "confidence": 0.486772
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Eden": {
     "city": "Eden Prairie",
@@ -12876,17 +12084,8 @@
     "confidence": 0.97792
   },
   "Edison Chouest Offshore": {
-    "city": "Sarandí",
-    "state": "Buenos Aires Province",
-    "stateCode": "B",
-    "country": "Argentina",
-    "countryCode": "AR",
-    "coordinates": {
-      "latitude": -34.674287,
-      "longitude": -58.336801
-    },
-    "mapboxPlaceName": "Edison, Sarandí, Buenos Aires Province, B1872, Argentina",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Edmond, OK": {
     "city": "Edmond",
@@ -13178,17 +12377,8 @@
     "confidence": 1
   },
   "Elbit Systems of America": {
-    "city": "Lake Station",
-    "state": "Indiana",
-    "stateCode": "IN",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 41.56838,
-      "longitude": -87.295958
-    },
-    "mapboxPlaceName": "Of, Lake Station, Indiana 46405, United States",
-    "confidence": 0.592593
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Eldfisk, Norway": {
     "city": null,
@@ -13256,30 +12446,12 @@
     "confidence": 0.5
   },
   "Elite Business Resources, LLC": {
-    "city": "Beloit",
-    "state": "Wisconsin",
-    "stateCode": "WI",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 42.548601,
-      "longitude": -88.996066
-    },
-    "mapboxPlaceName": "Elise Street, Beloit, Wisconsin 53511, United States",
-    "confidence": 0.472593
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Elite Force Staffing": {
-    "city": "Force",
-    "state": "Ascoli Piceno",
-    "stateCode": "AP",
-    "country": "Italy",
-    "countryCode": "IT",
-    "coordinates": {
-      "latitude": 42.962875,
-      "longitude": 13.489347
-    },
-    "mapboxPlaceName": "Force, Ascoli Piceno, Italy",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Elk City, OK": {
     "city": "Elk City",
@@ -13481,69 +12653,24 @@
     "confidence": 1
   },
   "Endurance Energy": {
-    "city": "Middle Sackville",
-    "state": "Nova Scotia",
-    "stateCode": "NS",
-    "country": "Canada",
-    "countryCode": "CA",
-    "coordinates": {
-      "latitude": 44.810014,
-      "longitude": -63.77602
-    },
-    "mapboxPlaceName": "Energy Road, Middle Sackville, Nova Scotia B4E 0X1, Canada",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Energy Talent Search": {
-    "city": "Everton",
-    "state": "Arkansas",
-    "stateCode": "AR",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 36.06729,
-      "longitude": -92.88741
-    },
-    "mapboxPlaceName": "Energy Dr, Everton, Arkansas 72633, United States",
-    "confidence": 0.572222
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Energy Transfer": {
-    "city": "Saint Paul",
-    "state": "Minnesota",
-    "stateCode": "MN",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 44.964059,
-      "longitude": -93.185758
-    },
-    "mapboxPlaceName": "Transfer Road, Saint Paul, Minnesota 55114, United States",
-    "confidence": 0.69
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Energy Transfer LP": {
-    "city": "Scarborough",
-    "state": "Ontario",
-    "stateCode": "ON",
-    "country": "Canada",
-    "countryCode": "CA",
-    "coordinates": {
-      "latitude": 43.797191,
-      "longitude": -79.244075
-    },
-    "mapboxPlaceName": "Transfer Place, Scarborough, Ontario M1S 4L8, Canada",
-    "confidence": 0.54798
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Energy Transfer Partners, L.P.": {
-    "city": "Weston",
-    "state": "Wisconsin",
-    "stateCode": "WI",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 44.867369,
-      "longitude": -89.595042
-    },
-    "mapboxPlaceName": "Partners Lane, Weston, Wisconsin 54476, United States",
-    "confidence": 0.477273
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Enfield, CT": {
     "city": "Enfield",
@@ -13719,30 +12846,12 @@
     "confidence": 0.5
   },
   "Ethical Energy": {
-    "city": "Houston",
-    "state": "Texas",
-    "stateCode": "TX",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 29.768813,
-      "longitude": -95.62303
-    },
-    "mapboxPlaceName": "Energy Corridor, Houston, Texas, United States",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Ethical Energy Solar": {
-    "city": "Solares",
-    "state": "Cantabria",
-    "stateCode": "S",
-    "country": "Spain",
-    "countryCode": "ES",
-    "coordinates": {
-      "latitude": 43.38405,
-      "longitude": -3.737117
-    },
-    "mapboxPlaceName": "Solares, Medio Cudeyo, Cantabria, Spain",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Euless, TX, US": {
     "city": "Euless",
@@ -13883,17 +12992,8 @@
     "confidence": 1
   },
   "Everport Terminal Services": {
-    "city": "Greensboro",
-    "state": "North Carolina",
-    "stateCode": "NC",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 36.108673,
-      "longitude": -79.931979
-    },
-    "mapboxPlaceName": "North Service Road, Greensboro, North Carolina 27409, United States",
-    "confidence": 0.445752
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Exeter, NH": {
     "city": "Exeter",
@@ -14016,47 +13116,16 @@
     "confidence": 0.596667
   },
   "FR-OTHER FRANCE": {
-    "original": "FR-OTHER FRANCE",
-    "mapboxPlaceName": "France-Negresco, Nice, Alpes-Maritimes, France",
-    "city": "Nice",
-    "state": "Alpes-Maritimes",
-    "stateCode": "06",
-    "country": "France",
-    "countryCode": "FR",
-    "coordinates": {
-      "longitude": 7.264145,
-      "latitude": 43.696262
-    },
-    "placeType": [
-      "neighborhood"
-    ],
-    "confidence": 0.656667
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "Facility Solutions Group": {
-    "city": "Grenay",
-    "state": "Pas-de-Calais",
-    "stateCode": "62",
-    "country": "France",
-    "countryCode": "FR",
-    "coordinates": {
-      "latitude": 50.447807,
-      "longitude": 2.749042
-    },
-    "mapboxPlaceName": "Groupe Prin-Binue, Grenay, Pas-de-Calais, France",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Facility Solutions Group INC": {
-    "city": "Douglasville",
-    "state": "Georgia",
-    "stateCode": "GA",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 33.689849,
-      "longitude": -84.693292
-    },
-    "mapboxPlaceName": "Inca Court, Douglasville, Georgia 30135, United States",
-    "confidence": 0.392963
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Fahud, Oman": {
     "city": "Faud",
@@ -14210,30 +13279,12 @@
     "confidence": 1
   },
   "Faith Technologies": {
-    "city": "Zagersdorf",
-    "state": "Burgenland",
-    "stateCode": "1",
-    "country": "Austria",
-    "countryCode": "AT",
-    "coordinates": {
-      "latitude": 47.773286,
-      "longitude": 16.522585
-    },
-    "mapboxPlaceName": "Technologiestraße, 7012 Zagersdorf, Austria",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Faith Technologies Incorporated": {
-    "city": "Quezon City",
-    "state": null,
-    "stateCode": null,
-    "country": "Philippines",
-    "countryCode": "PH",
-    "coordinates": {
-      "latitude": 14.651935,
-      "longitude": 121.006769
-    },
-    "mapboxPlaceName": "Faith Street Apolonio Samson, Quezon City, Philippines",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Falco, AL": {
     "city": "Falco",
@@ -14570,17 +13621,8 @@
     "confidence": 1
   },
   "Findlay OH Aviation": {
-    "city": "Findlay",
-    "state": "Ohio",
-    "stateCode": "OH",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 41.039144,
-      "longitude": -83.650243
-    },
-    "mapboxPlaceName": "Findlay, Ohio, United States",
-    "confidence": 1
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Findlay OH Main Bldg": {
     "city": "Findlay",
@@ -14782,17 +13824,8 @@
     "confidence": 1
   },
   "Fluor Corporation": {
-    "city": "Corporation Lands",
-    "state": "Wicklow",
-    "stateCode": "WW",
-    "country": "Ireland",
-    "countryCode": "IE",
-    "coordinates": {
-      "latitude": 52.975433,
-      "longitude": -6.039785
-    },
-    "mapboxPlaceName": "Corporation Lands, Wicklow, Wicklow, Ireland",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Foggy Bottom, DC, US": {
     "city": "Washington",
@@ -15353,17 +14386,8 @@
     "confidence": 1
   },
   "Framatome GmbH": {
-    "city": "Ambh",
-    "state": "Jammu and Kashmir",
-    "stateCode": "JK",
-    "country": "India",
-    "countryCode": "IN",
-    "coordinates": {
-      "latitude": 32.837093,
-      "longitude": 74.72683
-    },
-    "mapboxPlaceName": "Ambh, Marh, Jammu, Jammu and Kashmir, India",
-    "confidence": 0.4375
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "France": {
     "original": "France",
@@ -15565,17 +14589,8 @@
     "confidence": 1
   },
   "Frontgrade Technologies": {
-    "city": "Zagersdorf",
-    "state": "Burgenland",
-    "stateCode": "1",
-    "country": "Austria",
-    "countryCode": "AT",
-    "coordinates": {
-      "latitude": 47.773286,
-      "longitude": 16.522585
-    },
-    "mapboxPlaceName": "Technologiestraße, 7012 Zagersdorf, Austria",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Fruita": {
     "city": "Fruita",
@@ -15647,17 +14662,8 @@
     "confidence": 0.5
   },
   "GA-OTHER GABON": {
-    "city": "Hortense",
-    "state": "Georgia",
-    "stateCode": "GA",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 31.316343,
-      "longitude": -81.741938
-    },
-    "mapboxPlaceName": "Otter Road, Hortense, Georgia 31543, United States",
-    "confidence": 0.563333
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "GA-PORT GENTIL-Route de Sogara Parcelle No. 160, Section PA": {
     "original": "GA-PORT GENTIL-Route de Sogara Parcelle No. 160, Section PA",
@@ -15954,51 +14960,16 @@
     "confidence": 0.459136
   },
   "GB-OTHER UNITED KINGDOM": {
-    "original": "GB-OTHER UNITED KINGDOM",
-    "mapboxPlaceName": "Othery, Somerset, England, United Kingdom",
-    "city": "Othery",
-    "state": "England",
-    "stateCode": "ENG",
-    "country": "United Kingdom",
-    "countryCode": "GB",
-    "coordinates": {
-      "longitude": -2.880543,
-      "latitude": 51.082043
-    },
-    "placeType": [
-      "locality"
-    ],
-    "confidence": 0.674074
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "GB-OTHER UNITED KINGDOM ENGLAND": {
-    "original": "GB-OTHER UNITED KINGDOM ENGLAND",
-    "mapboxPlaceName": "Othery, Somerset, England, United Kingdom",
-    "city": "Othery",
-    "state": "England",
-    "stateCode": "ENG",
-    "country": "United Kingdom",
-    "countryCode": "GB",
-    "coordinates": {
-      "longitude": -2.880543,
-      "latitude": 51.082043
-    },
-    "placeType": [
-      "locality"
-    ],
-    "confidence": 0.591111
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "GB-OTHER UNITED KINGDOM FIELD SCOTLAND ABERDEEN": {
-    "city": null,
-    "state": "Scotland",
-    "stateCode": "SCT",
-    "country": "United Kingdom",
-    "countryCode": "GB",
-    "coordinates": {
-      "latitude": 56.734282,
-      "longitude": -4.095892
-    },
-    "mapboxPlaceName": "Scotland, United Kingdom",
-    "confidence": 0.550847
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "GB-OX-ABINGDON-16 NORTH CENTRAL": {
     "original": "GB-OX-ABINGDON-16 NORTH CENTRAL",
@@ -16117,17 +15088,8 @@
     "confidence": 0.958333
   },
   "GEV Group": {
-    "city": "Grenay",
-    "state": "Pas-de-Calais",
-    "stateCode": "62",
-    "country": "France",
-    "countryCode": "FR",
-    "coordinates": {
-      "latitude": 50.447807,
-      "longitude": 2.749042
-    },
-    "mapboxPlaceName": "Groupe Prin-Binue, Grenay, Pas-de-Calais, France",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "GFT": {
     "city": "Surat",
@@ -16143,17 +15105,8 @@
     "confidence": 1
   },
   "GRUS Construction": {
-    "city": "Grues",
-    "state": "Vendée",
-    "stateCode": "85",
-    "country": "France",
-    "countryCode": "FR",
-    "coordinates": {
-      "latitude": 46.39763,
-      "longitude": -1.304012
-    },
-    "mapboxPlaceName": "Grues, Vendée, France",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "GSK": {
     "city": "Wavre",
@@ -16325,17 +15278,8 @@
     "confidence": 1
   },
   "Gardner-Watson Decking, Inc.": {
-    "city": "Thetford",
-    "state": "England",
-    "stateCode": "ENG",
-    "country": "United Kingdom",
-    "countryCode": "GB",
-    "coordinates": {
-      "latitude": 52.56933,
-      "longitude": 0.85205
-    },
-    "mapboxPlaceName": "Garner Close, Watton, Thetford, IP25 6HR, United Kingdom",
-    "confidence": 0.491711
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Garland United States": {
     "city": "Garland",
@@ -17587,30 +16531,12 @@
     "confidence": 1
   },
   "Gulf Coast Underground Inc": {
-    "city": "Naples",
-    "state": "Florida",
-    "stateCode": "FL",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 26.301279,
-      "longitude": -81.797643
-    },
-    "mapboxPlaceName": "Gulf Coast, Naples, Florida 34110, United States",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Gulf Coast Underground, LLC": {
-    "city": "Naples",
-    "state": "Florida",
-    "stateCode": "FL",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 26.301279,
-      "longitude": -81.797643
-    },
-    "mapboxPlaceName": "Gulf Coast, Naples, Florida 34110, United States",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Gulf Island": {
     "city": "Lewiston",
@@ -17742,17 +16668,8 @@
     "confidence": 0.763636
   },
   "HTH Communications LLC": {
-    "city": "St. Cloud",
-    "state": "Florida",
-    "stateCode": "FL",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 28.245972,
-      "longitude": -81.304385
-    },
-    "mapboxPlaceName": "North Communications Road, St. Cloud, Florida 34769, United States",
-    "confidence": 0.446502
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "HU-BU-BUDAPEST-VACI UT 117-119": {
     "original": "HU-BU-BUDAPEST-VACI UT 117-119",
@@ -18291,17 +17208,8 @@
     "confidence": 1
   },
   "Hawaii Staffing": {
-    "city": "Dorfen",
-    "state": "Bavaria",
-    "stateCode": "BY",
-    "country": "Germany",
-    "countryCode": "DE",
-    "coordinates": {
-      "latitude": 48.301034,
-      "longitude": 12.14393
-    },
-    "mapboxPlaceName": "Staffing, 84405 Dorfen, Germany",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Hawthorne": {
     "city": "Hawthorne",
@@ -18382,17 +17290,8 @@
     "confidence": 1
   },
   "HazTek Inc": {
-    "city": "İnciraltı",
-    "state": "İzmir",
-    "stateCode": "35",
-    "country": "Türkiye",
-    "countryCode": "TR",
-    "coordinates": {
-      "latitude": 38.40861,
-      "longitude": 27.035122
-    },
-    "mapboxPlaceName": "İnciraltı, Balçova, İzmir, Türkiye",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Hazelwood, MO": {
     "city": "Hazelwood",
@@ -18434,17 +17333,8 @@
     "confidence": 1
   },
   "Helix Energy Solutions Group, Inc": {
-    "city": "Костенец село",
-    "state": "Sofia",
-    "stateCode": "23",
-    "country": "Bulgaria",
-    "countryCode": "BG",
-    "coordinates": {
-      "latitude": 42.264347,
-      "longitude": 23.820543
-    },
-    "mapboxPlaceName": "Инчовица, Костенец село 2042, Bulgaria",
-    "confidence": 0.366667
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Hemet, CA": {
     "city": "Hemet",
@@ -18983,17 +17873,8 @@
     "confidence": 0.968333
   },
   "Hornbeck Offshore Operators": {
-    "city": "Hornbeck",
-    "state": "Louisiana",
-    "stateCode": "LA",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 31.325716,
-      "longitude": -93.398874
-    },
-    "mapboxPlaceName": "Hornbeck, Louisiana, United States",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Horncastle, ENG, GB": {
     "city": "Horncastle",
@@ -19419,17 +18300,8 @@
     "confidence": 0.472222
   },
   "Hughes Circuits Inc.": {
-    "city": "Melbourne",
-    "state": "Victoria",
-    "stateCode": "VIC",
-    "country": "Australia",
-    "countryCode": "AU",
-    "coordinates": {
-      "latitude": -37.687774,
-      "longitude": 145.072134
-    },
-    "mapboxPlaceName": "Hughes Circuit, Bundoora Victoria 3083, Australia",
-    "confidence": 0.554938
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Huizhou, Guangdong": {
     "original": "Huizhou, Guangdong",
@@ -19712,21 +18584,8 @@
     "confidence": 0.584444
   },
   "ID-OTHER INDONESIA": {
-    "original": "ID-OTHER INDONESIA",
-    "mapboxPlaceName": "Menanggal, 61382, Mojosari, Mojokerto, East Java, Indonesia",
-    "city": "Mojokerto",
-    "state": "East Java",
-    "stateCode": "JI",
-    "country": "Indonesia",
-    "countryCode": "ID",
-    "coordinates": {
-      "longitude": 112.54039,
-      "latitude": -7.509607
-    },
-    "placeType": [
-      "neighborhood"
-    ],
-    "confidence": 0.656667
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "ID-SM-BATAM-JALAN KERAPU NO. 14&15": {
     "original": "ID-SM-BATAM-JALAN KERAPU NO. 14&15",
@@ -19891,17 +18750,8 @@
     "confidence": 0.767778
   },
   "IN-OTHER INDIA": {
-    "city": null,
-    "state": null,
-    "stateCode": null,
-    "country": "India",
-    "countryCode": "IN",
-    "coordinates": {
-      "latitude": 28.6139,
-      "longitude": 77.209
-    },
-    "mapboxPlaceName": "India, India",
-    "confidence": 0.8
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "IN-TALOJA-SRV NO. 99/1A/3 & 99/1A/2 PT VILAGE VAVANJE RAIGAD DIS": {
     "city": "Taloja",
@@ -20085,17 +18935,8 @@
     "confidence": 0.917407
   },
   "IN: Pune - BP Business Solutions": {
-    "city": "Pune",
-    "state": "Maharashtra",
-    "stateCode": "MH",
-    "country": "India",
-    "countryCode": "IN",
-    "coordinates": {
-      "latitude": 18.515669,
-      "longitude": 73.856285
-    },
-    "mapboxPlaceName": "Pune, Maharashtra, India",
-    "confidence": 1
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "IN: Pune Yerwada Commerzone Campus": {
     "city": "Kalyan",
@@ -20167,17 +19008,8 @@
     "confidence": 1
   },
   "INTECSEA, Inc.": {
-    "city": "Incheon",
-    "state": "Incheon",
-    "stateCode": "28",
-    "country": "South Korea",
-    "countryCode": "KR",
-    "coordinates": {
-      "latitude": 37.456,
-      "longitude": 126.7052
-    },
-    "mapboxPlaceName": "Incheon, South Korea",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "IQ-AL BASRAH-CO BAKER HUGHES OPERATIONS BASE": {
     "city": null,
@@ -20193,17 +19025,8 @@
     "confidence": 0.527037
   },
   "IS International Services": {
-    "city": "Bengaluru",
-    "state": "Karnataka",
-    "stateCode": "KA",
-    "country": "India",
-    "countryCode": "IN",
-    "coordinates": {
-      "latitude": 13.005024,
-      "longitude": 77.548715
-    },
-    "mapboxPlaceName": "International Service Road W.O.C. Road Mahalaxmi Puram ، 560086 Bengaluru، India",
-    "confidence": 0.561027
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "IStick Capital Management": {
     "city": "Kuwait City",
@@ -20394,17 +19217,8 @@
     "confidence": 1
   },
   "Ichor Systems, Inc.": {
-    "city": "Belo Horizonte",
-    "state": "Minas Gerais",
-    "stateCode": "MG",
-    "country": "Brazil",
-    "countryCode": "BR",
-    "coordinates": {
-      "latitude": -19.905819,
-      "longitude": -43.999912
-    },
-    "mapboxPlaceName": "Inconfidência, 30820, Belo Horizonte, Minas Gerais, Brazil",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Idaho City": {
     "city": "Idaho City",
@@ -20446,17 +19260,8 @@
     "confidence": 1
   },
   "Imagineering Finishing Technologies": {
-    "city": "Zagersdorf",
-    "state": "Burgenland",
-    "stateCode": "1",
-    "country": "Austria",
-    "countryCode": "AT",
-    "coordinates": {
-      "latitude": 47.773286,
-      "longitude": 16.522585
-    },
-    "mapboxPlaceName": "Technologiestraße, 7012 Zagersdorf, Austria",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Immingham, England": {
     "city": "Immingham",
@@ -20658,17 +19463,8 @@
     "confidence": 0.99
   },
   "Industrial Trade Services": {
-    "city": "Warren",
-    "state": "Ohio",
-    "stateCode": "OH",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 41.158056,
-      "longitude": -80.891544
-    },
-    "mapboxPlaceName": "Industrial Trace, Warren, Ohio 44481, United States",
-    "confidence": 0.556134
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Ingleside": {
     "city": "Ingleside",
@@ -20727,17 +19523,8 @@
     "confidence": 1
   },
   "Ingredion Incorporated": {
-    "city": "San Jose",
-    "state": "California",
-    "stateCode": "CA",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 37.233233,
-      "longitude": -121.864505
-    },
-    "mapboxPlaceName": "Crossbrook Court, San Jose, California 95120, United States",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Insight Global": {
     "city": "Meerut",
@@ -20753,82 +19540,28 @@
     "confidence": 0.5
   },
   "Insitiform Technologies, LLC": {
-    "city": "Lapu-Lapu",
-    "state": null,
-    "stateCode": null,
-    "country": "Philippines",
-    "countryCode": "PH",
-    "coordinates": {
-      "latitude": 10.306767,
-      "longitude": 123.997661
-    },
-    "mapboxPlaceName": "Llc Gd Mactan, Lapu-Lapu, Philippines",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Integration Innovation, Inc.": {
-    "city": "Bristow",
-    "state": "Virginia",
-    "stateCode": "VA",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 38.734957,
-      "longitude": -77.583865
-    },
-    "mapboxPlaceName": "Inchberry Court, Bristow, Virginia 20136, United States",
-    "confidence": 0.49
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Integrity Staffing Services": {
-    "city": "Jenbach",
-    "state": "Tyrol",
-    "stateCode": "7",
-    "country": "Austria",
-    "countryCode": "AT",
-    "coordinates": {
-      "latitude": 47.386605,
-      "longitude": 11.773631
-    },
-    "mapboxPlaceName": "Servicestraße Binderholz, 6200 Jenbach, Austria",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "International Flavors & Fragrances Inc.": {
-    "city": "Eldorado",
-    "state": "Misiones",
-    "stateCode": "N",
-    "country": "Argentina",
-    "countryCode": "AR",
-    "coordinates": {
-      "latitude": -26.414434,
-      "longitude": -54.583831
-    },
-    "mapboxPlaceName": "Incienso, Eldorado, Misiones, N3380, Argentina",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "International Marine and Industrial Applicators": {
-    "city": "San Carlos",
-    "state": "California",
-    "stateCode": "CA",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 37.50966,
-      "longitude": -122.254525
-    },
-    "mapboxPlaceName": "Industrial Road, San Carlos, California 94070, United States",
-    "confidence": 0.346296
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "International Staff Consulting": {
-    "city": "International",
-    "state": "Khatlon",
-    "stateCode": "KT",
-    "country": "Tajikistan",
-    "countryCode": "TJ",
-    "coordinates": {
-      "latitude": 37.663947,
-      "longitude": 68.833206
-    },
-    "mapboxPlaceName": "International, Khatlon, Tajikistan",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "International, King County": {
     "city": "Seattle",
@@ -21043,17 +19776,8 @@
     "confidence": 1
   },
   "Ivy Staffing": {
-    "city": "Ivy",
-    "state": "Ontario",
-    "stateCode": "ON",
-    "country": "Canada",
-    "countryCode": "CA",
-    "coordinates": {
-      "latitude": 44.288026,
-      "longitude": -79.774738
-    },
-    "mapboxPlaceName": "Ivy, Thornton, Ontario, Canada",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Iwakuni, Yamaguchi, Japan": {
     "city": "岩国市",
@@ -21069,17 +19793,8 @@
     "confidence": 1
   },
   "J & J Worldwide Services": {
-    "city": "Gladstone",
-    "state": "Illinois",
-    "stateCode": "IL",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 40.849982,
-      "longitude": -91.051874
-    },
-    "mapboxPlaceName": "J&J Road, Gladstone, Illinois 61437, United States",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "JAB Recruitment": {
     "city": "Jab",
@@ -21155,21 +19870,8 @@
     "confidence": 0.517778
   },
   "JP-OTHER JAPAN": {
-    "original": "JP-OTHER JAPAN",
-    "mapboxPlaceName": "Japan",
-    "city": null,
-    "state": null,
-    "stateCode": null,
-    "country": "Japan",
-    "countryCode": "JP",
-    "coordinates": {
-      "longitude": 138.59223,
-      "latitude": 36.386493
-    },
-    "placeType": [
-      "country"
-    ],
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "JP: Nagoya": {
     "city": "名古屋市",
@@ -21644,17 +20346,8 @@
     "confidence": 1
   },
   "Jetson Home Inc.": {
-    "city": "Incasate",
-    "state": "Como",
-    "stateCode": "CO",
-    "country": "Italy",
-    "countryCode": "IT",
-    "coordinates": {
-      "latitude": 45.71994,
-      "longitude": 9.198006
-    },
-    "mapboxPlaceName": "Incasate, Carugo, Como, Italy",
-    "confidence": 0.603333
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Jewett, Ohio": {
     "city": "Jewett",
@@ -21709,17 +20402,8 @@
     "confidence": 0.5
   },
   "Joby Aviation": {
-    "city": "Detroit",
-    "state": "Michigan",
-    "stateCode": "MI",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 42.354786,
-      "longitude": -83.166338
-    },
-    "mapboxPlaceName": "Aviation, Detroit, Michigan, United States",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Johns Manville": {
     "city": "Waukegan",
@@ -21843,17 +20527,8 @@
     "confidence": 1
   },
   "Jp Services": {
-    "city": null,
-    "state": null,
-    "stateCode": null,
-    "country": "Japan",
-    "countryCode": "JP",
-    "coordinates": {
-      "latitude": 36.386493,
-      "longitude": 138.59223
-    },
-    "mapboxPlaceName": "Japan",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Jsm & Assoc": {
     "city": "Gunning",
@@ -21972,17 +20647,8 @@
     "confidence": 0.8
   },
   "KE-OTHER KENYA": {
-    "city": "Kenyawa-Poka",
-    "state": "Kajiado",
-    "stateCode": "10",
-    "country": "Kenya",
-    "countryCode": "KE",
-    "coordinates": {
-      "latitude": -2.131049,
-      "longitude": 37.44916
-    },
-    "mapboxPlaceName": "Kenyawa-Poka, Kajiado, Kenya",
-    "confidence": 0.656667
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "KIWA": {
     "city": "Tempe",
@@ -22024,30 +20690,12 @@
     "confidence": 0.9375
   },
   "KT Black Services": {
-    "city": "Black River",
-    "state": "Queensland",
-    "stateCode": "QLD",
-    "country": "Australia",
-    "countryCode": "AU",
-    "coordinates": {
-      "latitude": -19.267543,
-      "longitude": 146.558121
-    },
-    "mapboxPlaceName": "Mount Black Road, Black River Queensland 4818, Australia",
-    "confidence": 0.430556
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "KVP Energy Services": {
-    "city": "Energy",
-    "state": "Illinois",
-    "stateCode": "IL",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 37.775783,
-      "longitude": -89.026363
-    },
-    "mapboxPlaceName": "Energy, Illinois, United States",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "KW-AL AHMADI-BLDG NO. 13 14 15 & 16 EAST AHMADI": {
     "original": "KW-AL AHMADI-BLDG NO. 13 14 15 & 16 EAST AHMADI",
@@ -22110,21 +20758,8 @@
     "confidence": 0.533889
   },
   "KZ-OTHER KAZAKHSTAN": {
-    "original": "KZ-OTHER KAZAKHSTAN",
-    "mapboxPlaceName": "East Kazakhstan, Kazakhstan",
-    "city": null,
-    "state": "East Kazakhstan",
-    "stateCode": "VOS",
-    "country": "Kazakhstan",
-    "countryCode": "KZ",
-    "coordinates": {
-      "longitude": 82.627479,
-      "latitude": 49.948444
-    },
-    "placeType": [
-      "region"
-    ],
-    "confidence": 0.643333
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "Kakinada, India": {
     "city": "Kakinada",
@@ -22382,17 +21017,8 @@
     "confidence": 0.666667
   },
   "Keys Energy Services": {
-    "city": "Hughson",
-    "state": "California",
-    "stateCode": "CA",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 37.580261,
-      "longitude": -120.881858
-    },
-    "mapboxPlaceName": "East Service Road, Hughson, California 95326, United States",
-    "confidence": 0.448333
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Khaskheli, Pakistan": {
     "city": null,
@@ -22979,43 +21605,16 @@
     "confidence": 1
   },
   "L3Harris Technologies": {
-    "city": "Zagersdorf",
-    "state": "Burgenland",
-    "stateCode": "1",
-    "country": "Austria",
-    "countryCode": "AT",
-    "coordinates": {
-      "latitude": 47.773286,
-      "longitude": 16.522585
-    },
-    "mapboxPlaceName": "Technologiestraße, 7012 Zagersdorf, Austria",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "LEAD Staffing": {
-    "city": "Lead",
-    "state": "South Dakota",
-    "stateCode": "SD",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 44.352013,
-      "longitude": -103.766167
-    },
-    "mapboxPlaceName": "Lead, South Dakota, United States",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "LJA Engineering": {
-    "city": "New Orleans",
-    "state": "Louisiana",
-    "stateCode": "LA",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 29.936707,
-      "longitude": -90.1211
-    },
-    "mapboxPlaceName": "Engineering Road, New Orleans, Louisiana 70118, United States",
-    "confidence": 0.99
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "La Conner, WA": {
     "city": "La Conner",
@@ -23520,17 +22119,8 @@
     "confidence": 1
   },
   "Latrobe Specialty Metals Company LLC": {
-    "city": "Latrobe",
-    "state": "Pennsylvania",
-    "stateCode": "PA",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 40.316372,
-      "longitude": -79.384581
-    },
-    "mapboxPlaceName": "Latrobe, Pennsylvania, United States",
-    "confidence": 0.366667
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Latrobe, PA": {
     "city": "Latrobe",
@@ -23749,17 +22339,8 @@
     "confidence": 1
   },
   "Lewis Energy Group, LP": {
-    "city": "Lewes",
-    "state": "Delaware",
-    "stateCode": "DE",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 38.776383,
-      "longitude": -75.095319
-    },
-    "mapboxPlaceName": "Loop a, Lewes, Delaware 19958, United States",
-    "confidence": 0.552963
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Lexington Park, MD": {
     "city": "Lexington Park",
@@ -24271,17 +22852,8 @@
     "confidence": 1
   },
   "Logical Partners Staffing": {
-    "city": "Dorfen",
-    "state": "Bavaria",
-    "stateCode": "BY",
-    "country": "Germany",
-    "countryCode": "DE",
-    "coordinates": {
-      "latitude": 48.301034,
-      "longitude": 12.14393
-    },
-    "mapboxPlaceName": "Staffing, 84405 Dorfen, Germany",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Lomax": {
     "city": "La Porte",
@@ -24910,17 +23482,8 @@
     "confidence": 1
   },
   "Luhr Crosby, LLC": {
-    "city": "Crosby",
-    "state": "Texas",
-    "stateCode": "TX",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 29.904899,
-      "longitude": -95.063623
-    },
-    "mapboxPlaceName": "Crosby, Texas, United States",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Luling, Saint Charles Parish": {
     "city": "Luling",
@@ -25148,17 +23711,8 @@
     "confidence": 1
   },
   "MISTRAS Group, Inc.": {
-    "city": "Douglasville",
-    "state": "Georgia",
-    "stateCode": "GA",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 33.689849,
-      "longitude": -84.693292
-    },
-    "mapboxPlaceName": "Inca Court, Douglasville, Georgia 30135, United States",
-    "confidence": 0.443333
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "MN, US": {
     "city": null,
@@ -25264,22 +23818,8 @@
     "confidence": 0.725
   },
   "MX-OTHER MEXICO": {
-    "original": "MX-OTHER MEXICO",
-    "mapboxPlaceName": "Mexico City, Mexico",
-    "city": "Mexico City",
-    "state": "Mexico City",
-    "stateCode": "CMX",
-    "country": "Mexico",
-    "countryCode": "MX",
-    "coordinates": {
-      "longitude": -99.133178,
-      "latitude": 19.43263
-    },
-    "placeType": [
-      "region",
-      "place"
-    ],
-    "confidence": 0.656667
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "MX-QUE-OTHER QUERETARO": {
     "city": "Querétaro",
@@ -25425,21 +23965,8 @@
     "confidence": 0.471481
   },
   "MY-OTHER MALAYSIA": {
-    "original": "MY-OTHER MALAYSIA",
-    "mapboxPlaceName": "Laluan Kedua Malaysia–Singapura, Gelang Patah, Malaysia",
-    "city": "Gelang Patah",
-    "state": "Johor",
-    "stateCode": "01",
-    "country": "Malaysia",
-    "countryCode": "MY",
-    "coordinates": {
-      "longitude": 103.627535,
-      "latitude": 1.355034
-    },
-    "placeType": [
-      "address"
-    ],
-    "confidence": 0.656667
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "MY: Kuala Lumpur - Bangsar South Campus": {
     "city": "Kuala Lumpur",
@@ -25455,21 +23982,8 @@
     "confidence": 0.582593
   },
   "MZ-OTHER MOZAMBIQUE": {
-    "original": "MZ-OTHER MOZAMBIQUE",
-    "mapboxPlaceName": "Cidade Ilha de Mocambique, Nampula, Mozambique",
-    "city": "Cidade Ilha de Mocambique",
-    "state": "Nampula",
-    "stateCode": "N",
-    "country": "Mozambique",
-    "countryCode": "MZ",
-    "coordinates": {
-      "longitude": 40.737503,
-      "latitude": -15.033279
-    },
-    "placeType": [
-      "place"
-    ],
-    "confidence": 0.643333
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "Macae, BR": {
     "city": "Macaé",
@@ -25632,17 +24146,8 @@
     "confidence": 1
   },
   "Mag Staffing Llc": {
-    "city": "Mag",
-    "state": "Sibiu",
-    "stateCode": "SB",
-    "country": "Romania",
-    "countryCode": "RO",
-    "coordinates": {
-      "latitude": 45.81981,
-      "longitude": 23.956554
-    },
-    "mapboxPlaceName": "Mag, Săliște, Sibiu, Romania",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Magnolia": {
     "city": "Magnolia",
@@ -25723,17 +24228,8 @@
     "confidence": 0.666667
   },
   "Maine Offshore Wind Initiative": {
-    "city": "Winn",
-    "state": "Maine",
-    "stateCode": "ME",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 45.484927,
-      "longitude": -68.374604
-    },
-    "mapboxPlaceName": "Winn, Maine, United States",
-    "confidence": 0.545556
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Makati City Chevron 6750 Office": {
     "city": "Keaau",
@@ -25974,17 +24470,8 @@
     "confidence": 1
   },
   "ManpowerGroup Global, Inc.": {
-    "city": "Gondal",
-    "state": "Gujarat",
-    "stateCode": "GJ",
-    "country": "India",
-    "countryCode": "IN",
-    "coordinates": {
-      "latitude": 22.12736,
-      "longitude": 70.798889
-    },
-    "mapboxPlaceName": "Global Ind. Area Near Railway Station ، 360311 Gondal، India",
-    "confidence": 0.54537
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Mansfield": {
     "city": "Mansfield",
@@ -26138,17 +24625,8 @@
     "confidence": 1
   },
   "Marine Spill Response Corporation": {
-    "city": "Shapleigh",
-    "state": "Maine",
-    "stateCode": "ME",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 43.510925,
-      "longitude": -70.855181
-    },
-    "mapboxPlaceName": "Spill Way, Shapleigh, Maine 04076, United States",
-    "confidence": 0.498642
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "MarineMax Brand": {
     "city": "Brandon",
@@ -26164,17 +24642,8 @@
     "confidence": 0.5
   },
   "Maritime / Offshore": {
-    "city": "Skennars Head",
-    "state": "New South Wales",
-    "stateCode": "NSW",
-    "country": "Australia",
-    "countryCode": "AU",
-    "coordinates": {
-      "latitude": -28.833119,
-      "longitude": 153.599497
-    },
-    "mapboxPlaceName": "Offshore Avenue, Skennars Head New South Wales 2478, Australia",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Markham, Ontario, Canada": {
     "city": "Markham",
@@ -26609,17 +25078,8 @@
     "confidence": 1
   },
   "Menzies Aviation Careers": {
-    "city": "Detroit",
-    "state": "Michigan",
-    "stateCode": "MI",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 42.354786,
-      "longitude": -83.166338
-    },
-    "mapboxPlaceName": "Aviation, Detroit, Michigan, United States",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Merida, MX": {
     "original": "Merida, MX",
@@ -26916,30 +25376,12 @@
     "confidence": 1
   },
   "Michels Corporation": {
-    "city": "Corporation Lands",
-    "state": "Wicklow",
-    "stateCode": "WW",
-    "country": "Ireland",
-    "countryCode": "IE",
-    "coordinates": {
-      "latitude": 52.975433,
-      "longitude": -6.039785
-    },
-    "mapboxPlaceName": "Corporation Lands, Wicklow, Wicklow, Ireland",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Mid-Atlantic Energy Services": {
-    "city": "Mooresboro",
-    "state": "North Carolina",
-    "stateCode": "NC",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 35.200415,
-      "longitude": -81.835372
-    },
-    "mapboxPlaceName": "Mid Atlantic Road, Mooresboro, North Carolina 28114, United States",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Middleton, WI": {
     "city": "Middleton",
@@ -27145,17 +25587,8 @@
     "confidence": 1
   },
   "Mikel Inc": {
-    "city": "Mqabba",
-    "state": null,
-    "stateCode": null,
-    "country": "Malta",
-    "countryCode": "MT",
-    "coordinates": {
-      "latitude": 35.84235,
-      "longitude": 14.470062
-    },
-    "mapboxPlaceName": "Triq Mikelina Galea, Mqabba MQB, Malta",
-    "confidence": 1
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Milam Dairy": {
     "city": "Miami",
@@ -27210,17 +25643,8 @@
     "confidence": 1
   },
   "Milford Mining Company Utah LLC": {
-    "city": "Milford",
-    "state": "Utah",
-    "stateCode": "UT",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 38.392753,
-      "longitude": -113.011754
-    },
-    "mapboxPlaceName": "Milford, Utah, United States",
-    "confidence": 0.548148
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Milford, UT": {
     "city": "Milford",
@@ -27236,17 +25660,8 @@
     "confidence": 1
   },
   "Miller Pipeline": {
-    "city": "Texarkana",
-    "state": "Arkansas",
-    "stateCode": "AR",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 33.4106,
-      "longitude": -93.963889
-    },
-    "mapboxPlaceName": "Rolling Ridge Drive, Texarkana, Arkansas 71854, United States",
-    "confidence": 0.842
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Milton Keynes, ENG, GB": {
     "city": "Milton Keynes",
@@ -27461,17 +25876,8 @@
     "confidence": 1
   },
   "Mistras Group": {
-    "city": "Berre-l'Étang",
-    "state": "Bouches-du-Rhône",
-    "stateCode": "13",
-    "country": "France",
-    "countryCode": "FR",
-    "coordinates": {
-      "latitude": 43.479405,
-      "longitude": 5.169161
-    },
-    "mapboxPlaceName": "Groupe Louis Pasquet, 13130 Berre-l'Étang, France",
-    "confidence": 0.712857
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Mobile": {
     "city": "Mobile",
@@ -27841,17 +26247,8 @@
     "confidence": 1
   },
   "Moran Iron Works, Inc.": {
-    "city": "Incheon",
-    "state": "Incheon",
-    "stateCode": "28",
-    "country": "South Korea",
-    "countryCode": "KR",
-    "coordinates": {
-      "latitude": 37.456,
-      "longitude": 126.7052
-    },
-    "mapboxPlaceName": "Incheon, South Korea",
-    "confidence": 0.388889
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Morgan City, LA": {
     "city": "Morgan City",
@@ -27919,17 +26316,8 @@
     "confidence": 1
   },
   "Moss Construction Management": {
-    "city": "Rosario",
-    "state": "Santa Fe",
-    "stateCode": "S",
-    "country": "Argentina",
-    "countryCode": "AR",
-    "coordinates": {
-      "latitude": -32.940256,
-      "longitude": -60.687223
-    },
-    "mapboxPlaceName": "Moss, Rosario, Santa Fe, S2002, Argentina",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Moss Point, MS, US": {
     "city": "Moss Point",
@@ -28100,17 +26488,8 @@
     "confidence": 1
   },
   "Multi NV": {
-    "city": null,
-    "state": "Nevada",
-    "stateCode": "NV",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 40.07112,
-      "longitude": -116.598822
-    },
-    "mapboxPlaceName": "Nevada, United States",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Multi-Location, Australia": {
     "city": "Adelaide",
@@ -28342,17 +26721,8 @@
     "confidence": 1
   },
   "My3Tech Inc": {
-    "city": "Incheon",
-    "state": "Incheon",
-    "stateCode": "28",
-    "country": "South Korea",
-    "countryCode": "KR",
-    "coordinates": {
-      "latitude": 37.456,
-      "longitude": 126.7052
-    },
-    "mapboxPlaceName": "Incheon, South Korea",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Myrtle Beach, Horry County": {
     "city": "Myrtle Beach",
@@ -28381,30 +26751,12 @@
     "confidence": 1
   },
   "NA-Other Namibia": {
-    "city": null,
-    "state": null,
-    "stateCode": null,
-    "country": "Namibia",
-    "countryCode": "NA",
-    "coordinates": {
-      "latitude": -22.5609,
-      "longitude": 17.0658
-    },
-    "mapboxPlaceName": "Namibia, Namibia",
-    "confidence": 0.8
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "NAES Corporation": {
-    "city": "Corporation Lands",
-    "state": "Wicklow",
-    "stateCode": "WW",
-    "country": "Ireland",
-    "countryCode": "IE",
-    "coordinates": {
-      "latitude": 52.975433,
-      "longitude": -6.039785
-    },
-    "mapboxPlaceName": "Corporation Lands, Wicklow, Wicklow, Ireland",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "NCW": {
     "city": "Ncwano C",
@@ -28420,17 +26772,8 @@
     "confidence": 1
   },
   "ND Energy Services": {
-    "city": "Minot AFB",
-    "state": "North Dakota",
-    "stateCode": "ND",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 48.413017,
-      "longitude": -101.324664
-    },
-    "mapboxPlaceName": "Energy Avenue, Minot AFB, North Dakota 58704, United States",
-    "confidence": 0.59
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "NES Fircroft": {
     "city": "Artur Nogueira",
@@ -28472,21 +26815,8 @@
     "confidence": 0.405985
   },
   "NG-OTHER NIGERIA": {
-    "original": "NG-OTHER NIGERIA",
-    "mapboxPlaceName": "Nigerian Air Force Base, Fagge, Kano, Nigeria",
-    "city": "Nigerian Air Force Base",
-    "state": "Kano",
-    "stateCode": "KN",
-    "country": "Nigeria",
-    "countryCode": "NG",
-    "coordinates": {
-      "longitude": 8.52948,
-      "latitude": 12.0338
-    },
-    "placeType": [
-      "locality"
-    ],
-    "confidence": 0.656667
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "NG-PORT HARCOURT-125 TRANS-AMADI": {
     "original": "NG-PORT HARCOURT-125 TRANS-AMADI",
@@ -28519,30 +26849,12 @@
     "confidence": 0.99
   },
   "NGL Energy Partners": {
-    "city": "Cabuyao",
-    "state": "Laguna",
-    "stateCode": "LAG",
-    "country": "Philippines",
-    "countryCode": "PH",
-    "coordinates": {
-      "latitude": 14.234016,
-      "longitude": 121.103121
-    },
-    "mapboxPlaceName": "Energy Diezmo, Cabuyao, Laguna, Philippines",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "NGL Energy Partners LP": {
-    "city": "Weston",
-    "state": "Wisconsin",
-    "stateCode": "WI",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 44.867369,
-      "longitude": -89.595042
-    },
-    "mapboxPlaceName": "Partners Lane, Weston, Wisconsin 54476, United States",
-    "confidence": 0.477273
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "NL-DELFT-DELFTECHPARK 26": {
     "original": "NL-DELFT-DELFTECHPARK 26",
@@ -28562,21 +26874,8 @@
     "confidence": 0.99
   },
   "NL-OTHER NETHERLANDS": {
-    "original": "NL-OTHER NETHERLANDS",
-    "mapboxPlaceName": "Otter, 5508 MK Veldhoven, Netherlands",
-    "city": "Veldhoven",
-    "state": "North Brabant",
-    "stateCode": "NB",
-    "country": "Netherlands",
-    "countryCode": "NL",
-    "coordinates": {
-      "longitude": 5.384675,
-      "latitude": 51.434
-    },
-    "placeType": [
-      "address"
-    ],
-    "confidence": 0.633333
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "NL-SON EN BREUGEL-EKKERSRIJT 2052": {
     "original": "NL-SON EN BREUGEL-EKKERSRIJT 2052",
@@ -28626,30 +26925,12 @@
     "confidence": 0.582593
   },
   "NO-OTHER OFFSHORE (BH)": {
-    "city": null,
-    "state": null,
-    "stateCode": null,
-    "country": "Norway",
-    "countryCode": "NO",
-    "coordinates": {
-      "latitude": 58.97,
-      "longitude": 5.7331
-    },
-    "mapboxPlaceName": "Norway, Norway",
-    "confidence": 0.8
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "NO-OTHER OSLO (BH)": {
-    "city": "Oslo",
-    "state": "Oslo",
-    "stateCode": "03",
-    "country": "Norway",
-    "countryCode": "NO",
-    "coordinates": {
-      "latitude": 59.91333,
-      "longitude": 10.73897
-    },
-    "mapboxPlaceName": "Oslo, Norway",
-    "confidence": 0.582593
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "NO-ROGALAND-STAVANGER-MOSEIDVEIEN 35": {
     "original": "NO-ROGALAND-STAVANGER-MOSEIDVEIEN 35",
@@ -28776,17 +27057,8 @@
     "confidence": 0.425926
   },
   "NSC Staffing": {
-    "city": "Dorfen",
-    "state": "Bavaria",
-    "stateCode": "BY",
-    "country": "Germany",
-    "countryCode": "DE",
-    "coordinates": {
-      "latitude": 48.301034,
-      "longitude": 12.14393
-    },
-    "mapboxPlaceName": "Staffing, 84405 Dorfen, Germany",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Nabors": {
     "city": null,
@@ -28867,17 +27139,8 @@
     "confidence": 0.983539
   },
   "Nashville Staffing": {
-    "city": "Nashville",
-    "state": "Tennessee",
-    "stateCode": "TN",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 36.164518,
-      "longitude": -86.781073
-    },
-    "mapboxPlaceName": "Nashville, Tennessee, United States",
-    "confidence": 1
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Nashville, FL": {
     "city": "Pickerel",
@@ -28958,30 +27221,12 @@
     "confidence": 1
   },
   "Nautech Services Limited": {
-    "city": "Reynoldsburg",
-    "state": "Ohio",
-    "stateCode": "OH",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 39.981701,
-      "longitude": -82.772774
-    },
-    "mapboxPlaceName": "Limited Parkway, Reynoldsburg, Ohio 43068, United States",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Nauticus Robotics, Inc.": {
-    "city": "Guri-si",
-    "state": "Gyeonggi-do",
-    "stateCode": "41",
-    "country": "South Korea",
-    "countryCode": "KR",
-    "coordinates": {
-      "latitude": 37.60542,
-      "longitude": 127.13971
-    },
-    "mapboxPlaceName": "Inchang-dong, 11918, Guri-si, Gyeonggi-do, South Korea",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Nava, Coahulia, Mexico": {
     "city": "Nava",
@@ -29871,43 +28116,16 @@
     "confidence": 1
   },
   "Next Era Energy": {
-    "city": "Houston",
-    "state": "Texas",
-    "stateCode": "TX",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 29.768813,
-      "longitude": -95.62303
-    },
-    "mapboxPlaceName": "Energy Corridor, Houston, Texas, United States",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "NextEra Energy , Inc.": {
-    "city": "İnciraltı",
-    "state": "İzmir",
-    "stateCode": "35",
-    "country": "Türkiye",
-    "countryCode": "TR",
-    "coordinates": {
-      "latitude": 38.40861,
-      "longitude": 27.035122
-    },
-    "mapboxPlaceName": "İnciraltı, Balçova, İzmir, Türkiye",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "NextEra Energy Resources": {
-    "city": "Energy",
-    "state": "Illinois",
-    "stateCode": "IL",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 37.775783,
-      "longitude": -89.026363
-    },
-    "mapboxPlaceName": "Energy, Illinois, United States",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Niagara Falls": {
     "city": "Niagara Falls",
@@ -30048,17 +28266,8 @@
     "confidence": 1
   },
   "Nmts INC": {
-    "city": "Belo Horizonte",
-    "state": "Minas Gerais",
-    "stateCode": "MG",
-    "country": "Brazil",
-    "countryCode": "BR",
-    "coordinates": {
-      "latitude": -19.905819,
-      "longitude": -43.999912
-    },
-    "mapboxPlaceName": "Inconfidência, 30820, Belo Horizonte, Minas Gerais, Brazil",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Noble BlackHawk": {
     "original": "Noble BlackHawk",
@@ -30600,30 +28809,12 @@
     "confidence": 1
   },
   "Northrop Grumman Corp. (AU)": {
-    "city": "Corop",
-    "state": "Victoria",
-    "stateCode": "VIC",
-    "country": "Australia",
-    "countryCode": "AU",
-    "coordinates": {
-      "latitude": -36.45738,
-      "longitude": 144.7925
-    },
-    "mapboxPlaceName": "Corop, Victoria, Australia",
-    "confidence": 0.555556
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Northrop Grumman Corp. (JP)": {
-    "city": "Randolph",
-    "state": "Massachusetts",
-    "stateCode": "MA",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 42.147064,
-      "longitude": -71.046006
-    },
-    "mapboxPlaceName": "Corporal John L'heureux Circle, Randolph, Massachusetts 02368, United States",
-    "confidence": 0.464286
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Norwell, MA, US": {
     "city": "Norwell",
@@ -30998,17 +29189,8 @@
     "confidence": 1
   },
   "Oceaneering International, Inc.": {
-    "city": "West Bromwich",
-    "state": "England",
-    "stateCode": "ENG",
-    "country": "United Kingdom",
-    "countryCode": "GB",
-    "coordinates": {
-      "latitude": 52.525861,
-      "longitude": -2.024077
-    },
-    "mapboxPlaceName": "Phoenix International Industrial Estate, West Bromwich, B70 0AY, United Kingdom",
-    "confidence": 0.445752
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Oceania": {
     "city": "Paranaguá",
@@ -31132,73 +29314,24 @@
     "confidence": 1
   },
   "Offshore": {
-    "original": "Offshore",
-    "mapboxPlaceName": "Offshore Avenue, Skennars Head New South Wales 2478, Australia",
-    "city": "Skennars Head",
-    "state": "New South Wales",
-    "stateCode": "NSW",
-    "country": "Australia",
-    "countryCode": "AU",
-    "coordinates": {
-      "longitude": 153.59946,
-      "latitude": -28.833322
-    },
-    "placeType": [
-      "address"
-    ],
-    "confidence": 1
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Offshore - Gulf of Mexico": {
-    "city": "Marathon",
-    "state": "Florida",
-    "stateCode": "FL",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 24.733712,
-      "longitude": -81.029543
-    },
-    "mapboxPlaceName": "Gulf of Mexico Boulevard, Marathon, Florida 33050, United States",
-    "confidence": 0.611111
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Offshore - Malaysia": {
-    "city": "New Delhi",
-    "state": "Delhi",
-    "stateCode": "DL",
-    "country": "India",
-    "countryCode": "IN",
-    "coordinates": {
-      "latitude": 28.586926,
-      "longitude": 77.1888
-    },
-    "mapboxPlaceName": "Malaysia Embassy, Chanakyapuri, New Delhi, New Delhi, Delhi, India",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Offshore - Qatar": {
-    "city": "Qatar Bolagh",
-    "state": "Zanjan",
-    "stateCode": "11",
-    "country": "Iran",
-    "countryCode": "IR",
-    "coordinates": {
-      "latitude": 36.018041,
-      "longitude": 48.85598
-    },
-    "mapboxPlaceName": "Qatar Bolagh, Khodabandeh, Zanjan, Iran",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Offshore Wind": {
-    "city": "Murrells Inlet",
-    "state": "South Carolina",
-    "stateCode": "SC",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 33.586085,
-      "longitude": -79.019488
-    },
-    "mapboxPlaceName": "Offshore Drive, Murrells Inlet, South Carolina 29576, United States",
-    "confidence": 0.9
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Offshore, BR": {
     "original": "Offshore, BR",
@@ -31218,17 +29351,8 @@
     "confidence": 0.954545
   },
   "Offshore, Israel, Israel": {
-    "city": "Jerusalem",
-    "state": "Jerusalem District",
-    "stateCode": "JM",
-    "country": "Israel",
-    "countryCode": "IL",
-    "coordinates": {
-      "latitude": 31.778701,
-      "longitude": 35.210768
-    },
-    "mapboxPlaceName": "ישראל'ס, Jerusalem, Israel",
-    "confidence": 0.958333
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Offshore, SG": {
     "original": "Offshore, SG",
@@ -31261,30 +29385,12 @@
     "confidence": 1
   },
   "Offshore-Drilling Rig": {
-    "city": "Dartmoor",
-    "state": "Victoria",
-    "stateCode": "VIC",
-    "country": "Australia",
-    "countryCode": "AU",
-    "coordinates": {
-      "latitude": -37.972849,
-      "longitude": 141.215972
-    },
-    "mapboxPlaceName": "Drilling Rig Road, Dartmoor Victoria 3304, Australia",
-    "confidence": 0.574074
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Offshore-Heidelberg": {
-    "city": "Heidelberg",
-    "state": "Baden-Württemberg",
-    "stateCode": "BW",
-    "country": "Germany",
-    "countryCode": "DE",
-    "coordinates": {
-      "latitude": 49.409136,
-      "longitude": 8.694518
-    },
-    "mapboxPlaceName": "Heidelberg, Baden-Württemberg, Germany",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Offshore-Horn Mountain": {
     "city": "Raven",
@@ -31300,30 +29406,12 @@
     "confidence": 0.574074
   },
   "Offshore-Lucius": {
-    "city": "Bregenz",
-    "state": "Vorarlberg",
-    "stateCode": "8",
-    "country": "Austria",
-    "countryCode": "AT",
-    "coordinates": {
-      "latitude": 47.504058,
-      "longitude": 9.746111
-    },
-    "mapboxPlaceName": "Luciusweg, 6900 Bregenz, Austria",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Offshore-Marlin": {
-    "city": "Adelaide",
-    "state": "South Australia",
-    "stateCode": "SA",
-    "country": "Australia",
-    "countryCode": "AU",
-    "coordinates": {
-      "latitude": -35.281524,
-      "longitude": 138.456682
-    },
-    "mapboxPlaceName": "Offshore Avenue, Aldinga Beach South Australia 5173, Australia",
-    "confidence": 0.629167
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Offutt AFB, Nebraska": {
     "original": "Offutt AFB, Nebraska",
@@ -32060,64 +30148,20 @@
     "confidence": 1
   },
   "PE-OTHER PERU": {
-    "original": "PE-OTHER PERU",
-    "mapboxPlaceName": "Independencia, Ica, Peru",
-    "city": "Independencia",
-    "state": "Ica",
-    "stateCode": "ICA",
-    "country": "Peru",
-    "countryCode": "PE",
-    "coordinates": {
-      "longitude": -76.02463,
-      "latitude": -13.691881
-    },
-    "placeType": [
-      "place"
-    ],
-    "confidence": 0.656667
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "PH-OTHER PHILIPPINES": {
-    "city": "Davao City",
-    "state": null,
-    "stateCode": null,
-    "country": "Philippines",
-    "countryCode": "PH",
-    "coordinates": {
-      "latitude": 7.043098,
-      "longitude": 125.580791
-    },
-    "mapboxPlaceName": "Philippines Street Matina Aplaya, Davao City, Philippines",
-    "confidence": 0.656667
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "PIC Group, Inc.": {
-    "city": "Douglasville",
-    "state": "Georgia",
-    "stateCode": "GA",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 33.689849,
-      "longitude": -84.693292
-    },
-    "mapboxPlaceName": "Inca Court, Douglasville, Georgia 30135, United States",
-    "confidence": 0.443333
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "PL-OTHER POLAND": {
-    "original": "PL-OTHER POLAND",
-    "mapboxPlaceName": "Płaza, Powiat Chrzanowski, Lesser Poland Voivodeship, Poland",
-    "city": "Płaza",
-    "state": "Lesser Poland Voivodeship",
-    "stateCode": "12",
-    "country": "Poland",
-    "countryCode": "PL",
-    "coordinates": {
-      "longitude": 19.464296,
-      "latitude": 50.099007
-    },
-    "placeType": [
-      "place"
-    ],
-    "confidence": 0.666667
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "PL-PDK-RZESZOW-HANASIEWICZA 19": {
     "city": "Rzeszów",
@@ -32163,17 +30207,8 @@
     "confidence": 0.99
   },
   "PLH Group": {
-    "city": "Ornans",
-    "state": "Doubs",
-    "stateCode": "25",
-    "country": "France",
-    "countryCode": "FR",
-    "coordinates": {
-      "latitude": 47.09919,
-      "longitude": 6.139386
-    },
-    "mapboxPlaceName": "Place Du Groupe Mobile D'alsace, 25290 Ornans, France",
-    "confidence": 0.944444
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "POL, Drawsko Pomorskie, Drawsko Pomorskie Training Area, Pomorskie": {
     "city": "Drawsko Pomorskie",
@@ -32189,17 +30224,8 @@
     "confidence": 1
   },
   "PPI Quality & Engineering": {
-    "city": "Quality",
-    "state": "Georgia",
-    "stateCode": "GA",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 31.040903,
-      "longitude": -84.07344
-    },
-    "mapboxPlaceName": "Quality, Georgia, United States",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "PROtect": {
     "city": "Protection",
@@ -32215,17 +30241,8 @@
     "confidence": 1
   },
   "PROtect LLC": {
-    "city": "Lapu-Lapu",
-    "state": null,
-    "stateCode": null,
-    "country": "Philippines",
-    "countryCode": "PH",
-    "coordinates": {
-      "latitude": 10.306767,
-      "longitude": 123.997661
-    },
-    "mapboxPlaceName": "Llc Gd Mactan, Lapu-Lapu, Philippines",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Pacific Gas & Electric": {
     "city": "Eerste Rivier",
@@ -32254,17 +30271,8 @@
     "confidence": 0.483333
   },
   "Palacios Marine & Industrial": {
-    "city": "Paniza",
-    "state": "Zaragoza",
-    "stateCode": "Z",
-    "country": "Spain",
-    "countryCode": "ES",
-    "coordinates": {
-      "latitude": 41.284247,
-      "longitude": -1.211391
-    },
-    "mapboxPlaceName": "Calle Palacios Martinez, 50480 Paniza, Zaragoza, Spain",
-    "confidence": 0.554938
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Palm Bay, FL, US": {
     "city": "Palm Bay",
@@ -32725,17 +30733,8 @@
     "confidence": 0.5
   },
   "Pattern Energy Group": {
-    "city": "Energy",
-    "state": "Illinois",
-    "stateCode": "IL",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 37.775783,
-      "longitude": -89.026363
-    },
-    "mapboxPlaceName": "Energy, Illinois, United States",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Patterson, United States": {
     "city": "Patterson",
@@ -32837,17 +30836,8 @@
     "confidence": 0.677407
   },
   "Pearce Services": {
-    "city": "Pearce",
-    "state": "Australian Capital Territory",
-    "stateCode": "ACT",
-    "country": "Australia",
-    "countryCode": "AU",
-    "coordinates": {
-      "latitude": -35.36132,
-      "longitude": 149.08366
-    },
-    "mapboxPlaceName": "Pearce, Australian Capital Territory, Australia",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Pearl Harbor, Hawaii": {
     "original": "Pearl Harbor, Hawaii",
@@ -33156,17 +31146,8 @@
     "confidence": 1
   },
   "Phase2 Technology": {
-    "city": "Nottingham",
-    "state": "England",
-    "stateCode": "ENG",
-    "country": "United Kingdom",
-    "countryCode": "GB",
-    "coordinates": {
-      "latitude": 52.92003,
-      "longitude": -1.206
-    },
-    "mapboxPlaceName": "2 Technology Drive, Beeston, Nottingham, NG9 1LA, United Kingdom",
-    "confidence": 0.574074
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Phenix City, AL": {
     "city": "Phenix City",
@@ -33251,17 +31232,8 @@
     "confidence": 0.504815
   },
   "Pho Prime, LLC": {
-    "city": "Lockport",
-    "state": "Illinois",
-    "stateCode": "IL",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 41.577722,
-      "longitude": -87.996095
-    },
-    "mapboxPlaceName": "Prime Blvd, Lockport, Illinois 60441, United States",
-    "confidence": 0.692593
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Phoenix": {
     "city": "Phoenix",
@@ -33290,30 +31262,12 @@
     "confidence": 1
   },
   "Phoenix International Holdings Inc": {
-    "city": "Phoenix",
-    "state": "Arizona",
-    "stateCode": "AZ",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 33.545853,
-      "longitude": -112.11696
-    },
-    "mapboxPlaceName": "Vista Income Estates, Phoenix, Arizona, United States",
-    "confidence": 0.523333
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Phoenix International Holdings, Inc.": {
-    "city": "Phoenix",
-    "state": "Arizona",
-    "stateCode": "AZ",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 33.545853,
-      "longitude": -112.11696
-    },
-    "mapboxPlaceName": "Vista Income Estates, Phoenix, Arizona, United States",
-    "confidence": 0.523333
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Phoenix Paper Wickliffe": {
     "city": "Canoas",
@@ -34212,17 +32166,8 @@
     "confidence": 0.59
   },
   "Powerline Services": {
-    "city": "Menindee",
-    "state": "New South Wales",
-    "stateCode": "NSW",
-    "country": "Australia",
-    "countryCode": "AU",
-    "coordinates": {
-      "latitude": -32.462919,
-      "longitude": 142.360309
-    },
-    "mapboxPlaceName": "Powerline Service Trail, Menindee New South Wales 2879, Australia",
-    "confidence": 0.972222
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Powidz, Greater Poland, Poland": {
     "city": "Powidz",
@@ -34281,30 +32226,12 @@
     "confidence": 0.550154
   },
   "Precision Castparts Corp. (PCC)": {
-    "city": "Dumka",
-    "state": "Jharkhand",
-    "stateCode": "JH",
-    "country": "India",
-    "countryCode": "IN",
-    "coordinates": {
-      "latitude": 24.255444,
-      "longitude": 87.260566
-    },
-    "mapboxPlaceName": "Pcc Rd ، 814101 Dumka، India",
-    "confidence": 0.388889
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Precision Measurements, Inc.": {
-    "city": "Guri-si",
-    "state": "Gyeonggi-do",
-    "stateCode": "41",
-    "country": "South Korea",
-    "countryCode": "KR",
-    "coordinates": {
-      "latitude": 37.60542,
-      "longitude": 127.13971
-    },
-    "mapboxPlaceName": "Inchang-dong, 11918, Guri-si, Gyeonggi-do, South Korea",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Priceville": {
     "city": "Priceville",
@@ -34359,30 +32286,12 @@
     "confidence": 0.9
   },
   "PrimeFlight Aviation Services": {
-    "city": "Dearborn",
-    "state": "Michigan",
-    "stateCode": "MI",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 42.319389,
-      "longitude": -83.164217
-    },
-    "mapboxPlaceName": "Service Drive, Dearborn, Michigan 48126, United States",
-    "confidence": 0.469167
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Primergy Solar Management LLC": {
-    "city": "Solar",
-    "state": "Bavaria",
-    "stateCode": "BY",
-    "country": "Germany",
-    "countryCode": "DE",
-    "coordinates": {
-      "latitude": 49.183693,
-      "longitude": 11.213772
-    },
-    "mapboxPlaceName": "Solar, Hilpoltstein, Bavaria, Germany",
-    "confidence": 0.388889
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Primoris": {
     "city": "Houston",
@@ -34398,17 +32307,8 @@
     "confidence": 1
   },
   "Pro Mechanical Services": {
-    "city": "Jenbach",
-    "state": "Tyrol",
-    "stateCode": "7",
-    "country": "Austria",
-    "countryCode": "AT",
-    "coordinates": {
-      "latitude": 47.386605,
-      "longitude": 11.773631
-    },
-    "mapboxPlaceName": "Servicestraße Binderholz, 6200 Jenbach, Austria",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Proenergy": {
     "city": "Sedalia",
@@ -34506,17 +32406,8 @@
     "confidence": 1
   },
   "Prysmian Group": {
-    "city": "Grenay",
-    "state": "Pas-de-Calais",
-    "stateCode": "62",
-    "country": "France",
-    "countryCode": "FR",
-    "coordinates": {
-      "latitude": 50.447807,
-      "longitude": 2.749042
-    },
-    "mapboxPlaceName": "Groupe Prin-Binue, Grenay, Pas-de-Calais, France",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Pueblo Viejo, Guasave, Sinaloa": {
     "original": "Pueblo Viejo, Guasave, Sinaloa",
@@ -34683,21 +32574,8 @@
     "confidence": 0.8
   },
   "QA-OTHER QATAR": {
-    "original": "QA-OTHER QATAR",
-    "mapboxPlaceName": "قطر للصلب, مسيعيد, Al Wakrah, Qatar",
-    "city": "مسيعيد",
-    "state": "Al Wakrah",
-    "stateCode": "WA",
-    "country": "Qatar",
-    "countryCode": "QA",
-    "coordinates": {
-      "longitude": 51.57996,
-      "latitude": 24.948404
-    },
-    "placeType": [
-      "address"
-    ],
-    "confidence": 0.656667
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "Qingdao, Shandong, China": {
     "original": "Qingdao, Shandong, China",
@@ -34717,17 +32595,8 @@
     "confidence": 1
   },
   "Quanta Services": {
-    "city": "Jenbach",
-    "state": "Tyrol",
-    "stateCode": "7",
-    "country": "Austria",
-    "countryCode": "AT",
-    "coordinates": {
-      "latitude": 47.386605,
-      "longitude": 11.773631
-    },
-    "mapboxPlaceName": "Servicestraße Binderholz, 6200 Jenbach, Austria",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Quantico, Virginia": {
     "original": "Quantico, Virginia",
@@ -34855,17 +32724,8 @@
     "confidence": 0.985556
   },
   "R-2 Contractors": {
-    "city": "Guntramsdorf",
-    "state": "Lower Austria",
-    "stateCode": "3",
-    "country": "Austria",
-    "countryCode": "AT",
-    "coordinates": {
-      "latitude": 48.046605,
-      "longitude": 16.309082
-    },
-    "mapboxPlaceName": "Rudolf-Heintschel-Straße 2, 2353 Guntramsdorf, Austria",
-    "confidence": 0.574074
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "RMZ Ecoworld 32": {
     "city": "Bengaluru",
@@ -34881,21 +32741,8 @@
     "confidence": 1
   },
   "RO-OTHER ROMANIA": {
-    "original": "RO-OTHER ROMANIA",
-    "mapboxPlaceName": "Strada România Muncitoare, Craiova 200000, Dolj, Romania",
-    "city": "Craiova",
-    "state": "Dolj",
-    "stateCode": "DJ",
-    "country": "Romania",
-    "countryCode": "RO",
-    "coordinates": {
-      "longitude": 23.80122,
-      "latitude": 44.317379
-    },
-    "placeType": [
-      "address"
-    ],
-    "confidence": 0.656667
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "ROVs": {
     "city": "Tangstedt",
@@ -34911,17 +32758,8 @@
     "confidence": 1
   },
   "RTX Corporation": {
-    "city": "Corporation Lands",
-    "state": "Wicklow",
-    "stateCode": "WW",
-    "country": "Ireland",
-    "countryCode": "IE",
-    "coordinates": {
-      "latitude": 52.975433,
-      "longitude": -6.039785
-    },
-    "mapboxPlaceName": "Corporation Lands, Wicklow, Wicklow, Ireland",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Racine, WI, US": {
     "city": "Racine",
@@ -35240,17 +33078,8 @@
     "confidence": 1
   },
   "Redwood Electric Group": {
-    "city": "Lagrange",
-    "state": "Georgia",
-    "stateCode": "GA",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 32.997336,
-      "longitude": -85.096468
-    },
-    "mapboxPlaceName": "Redwood Drive, Lagrange, Georgia 30240, United States",
-    "confidence": 0.566667
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Reforma, Reforma, Chiapas": {
     "original": "Reforma, Reforma, Chiapas",
@@ -35283,17 +33112,8 @@
     "confidence": 1
   },
   "Reliant Energy": {
-    "city": "Weeze",
-    "state": "North Rhine-Westphalia",
-    "stateCode": "NW",
-    "country": "Germany",
-    "countryCode": "DE",
-    "coordinates": {
-      "latitude": 51.594523,
-      "longitude": 6.156936
-    },
-    "mapboxPlaceName": "Energy Road, 47652 Weeze, Germany",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Remote": {
     "city": "Juneau",
@@ -35404,17 +33224,8 @@
     "confidence": 1
   },
   "Republic Services": {
-    "city": "Overton",
-    "state": "Nevada",
-    "stateCode": "NV",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 36.382587,
-      "longitude": -114.888609
-    },
-    "mapboxPlaceName": "Access Republic Services, Overton, Nevada 89165, United States",
-    "confidence": 0.8
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Reston": {
     "city": "Reston",
@@ -36320,17 +34131,8 @@
     "confidence": 0.95
   },
   "Royal Bay Scaffold LLC": {
-    "city": "Bay",
-    "state": "Laguna",
-    "stateCode": "LAG",
-    "country": "Philippines",
-    "countryCode": "PH",
-    "coordinates": {
-      "latitude": 14.178554,
-      "longitude": 121.267337
-    },
-    "mapboxPlaceName": "Rosal Street Santo Domingo, Bay, Laguna, Philippines",
-    "confidence": 0.50963
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Royal Tunbridge Wells, Tunbridge Wells, UK": {
     "city": "Tunbridge Wells",
@@ -36432,21 +34234,8 @@
     "confidence": 0.549259
   },
   "SA-OTHER SAUDI ARABIA": {
-    "original": "SA-OTHER SAUDI ARABIA",
-    "mapboxPlaceName": "عذير, Al-Riyadh, Riyadh, Saudi Arabia",
-    "city": "Al-Riyadh",
-    "state": "Riyadh",
-    "stateCode": "01",
-    "country": "Saudi Arabia",
-    "countryCode": "SA",
-    "coordinates": {
-      "longitude": 46.754885,
-      "latitude": 24.723154
-    },
-    "placeType": [
-      "address"
-    ],
-    "confidence": 0.674074
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "SAAB Seaeye Tiger": {
     "city": "Sénèye",
@@ -36462,34 +34251,12 @@
     "confidence": 0.605556
   },
   "SECO Energy": {
-    "city": "Houston",
-    "state": "Texas",
-    "stateCode": "TX",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 29.768813,
-      "longitude": -95.62303
-    },
-    "mapboxPlaceName": "Energy Corridor, Houston, Texas, United States",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "SG-OTHER SINGAPORE": {
-    "original": "SG-OTHER SINGAPORE",
-    "mapboxPlaceName": "Singapore River, Singapore, Central Singapore Community Development Council",
-    "city": "Singapore River",
-    "state": null,
-    "stateCode": null,
-    "country": "Singapore",
-    "countryCode": "SG",
-    "coordinates": {
-      "longitude": 103.84094,
-      "latitude": 1.288799
-    },
-    "placeType": [
-      "locality"
-    ],
-    "confidence": 0.656667
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "SG-SINGAPORE-10 LOK YANG WAY": {
     "original": "SG-SINGAPORE-10 LOK YANG WAY",
@@ -36586,17 +34353,8 @@
     "confidence": 0.875
   },
   "SOCOTEC UK Limited": {
-    "city": "Bournemouth",
-    "state": "England",
-    "stateCode": "ENG",
-    "country": "United Kingdom",
-    "countryCode": "GB",
-    "coordinates": {
-      "latitude": 50.749298,
-      "longitude": -1.870247
-    },
-    "mapboxPlaceName": "Limited Road, Bournemouth, BH9 1SS, United Kingdom",
-    "confidence": 0.656667
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "SPATCO": {
     "city": "Ponta Grossa",
@@ -36612,30 +34370,12 @@
     "confidence": 0.916667
   },
   "SR-Other Suriname": {
-    "city": null,
-    "state": null,
-    "stateCode": null,
-    "country": "Suriname",
-    "countryCode": "SR",
-    "coordinates": {
-      "latitude": 5.852,
-      "longitude": -55.2038
-    },
-    "mapboxPlaceName": "Suriname, Suriname",
-    "confidence": 0.8
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "STABAN Engineering Corp": {
-    "city": "Corpus Christi",
-    "state": "Texas",
-    "stateCode": "TX",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 27.763557,
-      "longitude": -97.403291
-    },
-    "mapboxPlaceName": "Corpus Christi, Texas, United States",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "STAVANGER, NO": {
     "original": "STAVANGER, NO",
@@ -37087,17 +34827,8 @@
     "confidence": 1
   },
   "San Dieguito Engineering INC": {
-    "city": "Del Mar",
-    "state": "California",
-    "stateCode": "CA",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 32.980747,
-      "longitude": -117.24683
-    },
-    "mapboxPlaceName": "San Dieguito, Del Mar, California, United States",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "San Dimas, CA": {
     "city": "San Dimas",
@@ -38195,30 +35926,12 @@
     "confidence": 1
   },
   "Siemens Energy": {
-    "city": "Weeze",
-    "state": "North Rhine-Westphalia",
-    "stateCode": "NW",
-    "country": "Germany",
-    "countryCode": "DE",
-    "coordinates": {
-      "latitude": 51.594523,
-      "longitude": 6.156936
-    },
-    "mapboxPlaceName": "Energy Road, 47652 Weeze, Germany",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Siemens Energy, Inc.": {
-    "city": "İncili",
-    "state": "Jalilabad",
-    "stateCode": "CAL",
-    "country": "Azerbaijan",
-    "countryCode": "AZ",
-    "coordinates": {
-      "latitude": 39.139065,
-      "longitude": 48.431006
-    },
-    "mapboxPlaceName": "İncili, Jalilabad, Azerbaijan",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Sierra Pacific Power": {
     "city": "American Falls",
@@ -38445,17 +36158,8 @@
     "confidence": 1
   },
   "Skilled Trades Services": {
-    "city": "Trades",
-    "state": "Rhône",
-    "stateCode": "69",
-    "country": "France",
-    "countryCode": "FR",
-    "coordinates": {
-      "latitude": 46.274003,
-      "longitude": 4.562274
-    },
-    "mapboxPlaceName": "Trades, Rhône, France",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Slidell, LA": {
     "city": "Slidell",
@@ -38510,17 +36214,8 @@
     "confidence": 1
   },
   "Smith Painting Inc.": {
-    "city": "Kaitangata",
-    "state": "Otago",
-    "stateCode": "OTA",
-    "country": "New Zealand",
-    "countryCode": "NZ",
-    "coordinates": {
-      "latitude": -46.285208,
-      "longitude": 169.784019
-    },
-    "mapboxPlaceName": "Smith Road, Inch Clutha, Kaitangata 9281, New Zealand",
-    "confidence": 0.6
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Smithfield, West Virginia": {
     "city": "Smithfield",
@@ -38614,17 +36309,8 @@
     "confidence": 1
   },
   "Solon Corporation": {
-    "city": "Rocklin",
-    "state": "California",
-    "stateCode": "CA",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 38.788973,
-      "longitude": -121.214969
-    },
-    "mapboxPlaceName": "Corporation Road, Rocklin, California 95677, United States",
-    "confidence": 0.6628
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Solon, OH": {
     "city": "Solon",
@@ -39082,30 +36768,12 @@
     "confidence": 1
   },
   "Southwest Shipyard Lp": {
-    "city": "Fort Worth",
-    "state": "Texas",
-    "stateCode": "TX",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 32.676578,
-      "longitude": -97.234208
-    },
-    "mapboxPlaceName": "E Loop 820 S, Fort Worth, Texas 76119, United States",
-    "confidence": 0.333333
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Space Exploration Technologies Corp": {
-    "city": "Hendrik-Ido-Ambacht",
-    "state": "South Holland",
-    "stateCode": "ZH",
-    "country": "Netherlands",
-    "countryCode": "NL",
-    "coordinates": {
-      "latitude": 51.841236,
-      "longitude": 4.650912
-    },
-    "mapboxPlaceName": "Spade, 3341 RN Hendrik-Ido-Ambacht, Netherlands",
-    "confidence": 0.396296
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "SpaceX": {
     "city": "Hawthorne",
@@ -39173,17 +36841,8 @@
     "confidence": 1
   },
   "Spartan Solar": {
-    "city": "Ozark",
-    "state": "Missouri",
-    "stateCode": "MO",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 37.009193,
-      "longitude": -93.214392
-    },
-    "mapboxPlaceName": "South Solaira Street, Ozark, Missouri 65721, United States",
-    "confidence": 0.622143
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Spectrum": {
     "city": "Gilbert",
@@ -39830,17 +37489,8 @@
     "confidence": 1
   },
   "Stream Energy": {
-    "city": "Houston",
-    "state": "Texas",
-    "stateCode": "TX",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 29.768813,
-      "longitude": -95.62303
-    },
-    "mapboxPlaceName": "Energy Corridor, Houston, Texas, United States",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Structural": {
     "city": "Geelong",
@@ -39856,17 +37506,8 @@
     "confidence": 1
   },
   "Structural Group Inc.": {
-    "city": "İncili",
-    "state": "Jalilabad",
-    "stateCode": "CAL",
-    "country": "Azerbaijan",
-    "countryCode": "AZ",
-    "coordinates": {
-      "latitude": 39.139065,
-      "longitude": 48.431006
-    },
-    "mapboxPlaceName": "İncili, Jalilabad, Azerbaijan",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Stubblefield Illinois United States": {
     "city": "Stubblefield",
@@ -40146,17 +37787,8 @@
     "confidence": 0.75
   },
   "Summit Skilled Solutions": {
-    "city": "Summit",
-    "state": "England",
-    "stateCode": "ENG",
-    "country": "United Kingdom",
-    "countryCode": "GB",
-    "coordinates": {
-      "latitude": 53.661827,
-      "longitude": -2.083334
-    },
-    "mapboxPlaceName": "Summit, Greater Manchester, England, United Kingdom",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Sumter Electric Cooperative": {
     "city": "Sumter",
@@ -40444,17 +38076,8 @@
     "confidence": 1
   },
   "Synergy labor Solutions": {
-    "city": "Labor",
-    "state": null,
-    "stateCode": null,
-    "country": "Slovenia",
-    "countryCode": "SI",
-    "coordinates": {
-      "latitude": 45.475986,
-      "longitude": 13.772751
-    },
-    "mapboxPlaceName": "Labor, Koper, Slovenia",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Syracuse, NY": {
     "city": "Syracuse",
@@ -40565,17 +38188,8 @@
     "confidence": 0.5
   },
   "TEAM, Inc.": {
-    "city": "Incline Village",
-    "state": "Nevada",
-    "stateCode": "NV",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 39.233431,
-      "longitude": -119.932201
-    },
-    "mapboxPlaceName": "Steam Circle, Incline Village, Nevada 89451, United States",
-    "confidence": 0.85
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "TEi C": {
     "city": "Mansfeld",
@@ -40591,17 +38205,8 @@
     "confidence": 0.98
   },
   "TGS International Group": {
-    "city": "Hogansville",
-    "state": "Georgia",
-    "stateCode": "GA",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 33.180284,
-      "longitude": -84.907859
-    },
-    "mapboxPlaceName": "International Street, Hogansville, Georgia 30230, United States",
-    "confidence": 0.566667
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "TH-BAN BUNG-46/2 46/4 MOO 2": {
     "original": "TH-BAN BUNG-46/2 46/4 MOO 2",
@@ -40638,21 +38243,8 @@
     "confidence": 0.538148
   },
   "TH-OTHER THAILAND": {
-    "original": "TH-OTHER THAILAND",
-    "mapboxPlaceName": "ทางหลวงท้องถิ่น จบ.ถ 1-0006, 22000, Mueang Chanthaburi, Chanthaburi, Thailand",
-    "city": "Mueang Chanthaburi",
-    "state": "Chanthaburi",
-    "stateCode": "22",
-    "country": "Thailand",
-    "countryCode": "TH",
-    "coordinates": {
-      "longitude": 102.096374,
-      "latitude": 12.545471
-    },
-    "placeType": [
-      "address"
-    ],
-    "confidence": 0.656667
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "TH-SONGKHLA-120/10 M 1 SONGKHLA RANODE ROAD": {
     "original": "TH-SONGKHLA-120/10 M 1 SONGKHLA RANODE ROAD",
@@ -41060,17 +38652,8 @@
     "confidence": 0.666667
   },
   "Tarpon Specialty Services": {
-    "city": "Tarpon",
-    "state": "Virginia",
-    "stateCode": "VA",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 37.186073,
-      "longitude": -82.351265
-    },
-    "mapboxPlaceName": "Tarpon, Virginia, United States",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Taubate, Brazil": {
     "city": "Taubaté",
@@ -41112,30 +38695,12 @@
     "confidence": 0.579167
   },
   "Team Industrial Services": {
-    "city": "Cheyenne",
-    "state": "Wyoming",
-    "stateCode": "WY",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 41.123678,
-      "longitude": -104.754575
-    },
-    "mapboxPlaceName": "South Industrial Road, Cheyenne, Wyoming 82007, United States",
-    "confidence": 0.447173
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Technica Corporation": {
-    "city": "Tweed Heads South",
-    "state": "New South Wales",
-    "stateCode": "NSW",
-    "country": "Australia",
-    "countryCode": "AU",
-    "coordinates": {
-      "latitude": -28.206371,
-      "longitude": 153.537914
-    },
-    "mapboxPlaceName": "Corporation Circuit, Tweed Heads South New South Wales 2486, Australia",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Teeds Grove": {
     "city": "Teeds Grove",
@@ -41190,30 +38755,12 @@
     "confidence": 1
   },
   "Teledyne Technologies": {
-    "city": "Zagersdorf",
-    "state": "Burgenland",
-    "stateCode": "1",
-    "country": "Austria",
-    "countryCode": "AT",
-    "coordinates": {
-      "latitude": 47.773286,
-      "longitude": 16.522585
-    },
-    "mapboxPlaceName": "Technologiestraße, 7012 Zagersdorf, Austria",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Telephone & Data Systems": {
-    "city": "Rochester",
-    "state": "New York",
-    "stateCode": "NY",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 43.093112,
-      "longitude": -77.610784
-    },
-    "mapboxPlaceName": "Systems Road, Rochester, New York 14623, United States",
-    "confidence": 0.574074
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Tellico Plains": {
     "city": "Tellico Plains",
@@ -41350,17 +38897,8 @@
     "confidence": 1
   },
   "Tesscor Energy Services": {
-    "city": "Energy",
-    "state": "Illinois",
-    "stateCode": "IL",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 37.775783,
-      "longitude": -89.026363
-    },
-    "mapboxPlaceName": "Energy, Illinois, United States",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Tetra Tech": {
     "city": "Pécs",
@@ -41471,17 +39009,8 @@
     "confidence": 0.693704
   },
   "Texas Staffing": {
-    "city": "Richmond",
-    "state": "Texas",
-    "stateCode": "TX",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 29.653319,
-      "longitude": -95.692538
-    },
-    "mapboxPlaceName": "Staffin Way, Richmond, Texas 77407, United States",
-    "confidence": 0.95875
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Texas, US": {
     "original": "Texas, US",
@@ -41527,17 +39056,8 @@
     "confidence": 0.99
   },
   "ThayerMahan Inc": {
-    "city": "Incheon",
-    "state": "Incheon",
-    "stateCode": "28",
-    "country": "South Korea",
-    "countryCode": "KR",
-    "coordinates": {
-      "latitude": 37.456,
-      "longitude": 126.7052
-    },
-    "mapboxPlaceName": "Incheon, South Korea",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "The Boeing Company": {
     "city": "Río Tercero",
@@ -41683,56 +39203,20 @@
     "confidence": 1
   },
   "Third Coast Employee Services, LLC": {
-    "city": "Sherkston",
-    "state": "Ontario",
-    "stateCode": "ON",
-    "country": "Canada",
-    "countryCode": "CA",
-    "coordinates": {
-      "latitude": 42.866681,
-      "longitude": -79.130915
-    },
-    "mapboxPlaceName": "3rd, Sherkston, Ontario L0S 1R0, Canada",
-    "confidence": 0.366667
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Third Coast Services": {
-    "city": "Joliet",
-    "state": "Illinois",
-    "stateCode": "IL",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 41.451348,
-      "longitude": -88.093443
-    },
-    "mapboxPlaceName": "Third Coast Pkwy, Joliet, Illinois 60436, United States",
-    "confidence": 0.459259
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Third Coast Services LLC": {
-    "city": "Joliet",
-    "state": "Illinois",
-    "stateCode": "IL",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 41.451348,
-      "longitude": -88.093443
-    },
-    "mapboxPlaceName": "Third Coast Pkwy, Joliet, Illinois 60436, United States",
-    "confidence": 0.4
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Thompson Engineering": {
-    "city": "Buenos Aires",
-    "state": null,
-    "stateCode": null,
-    "country": "Argentina",
-    "countryCode": "AR",
-    "coordinates": {
-      "latitude": -34.626428,
-      "longitude": -58.439089
-    },
-    "mapboxPlaceName": "Thompson, Caballito, Buenos Aires, C1424, Argentina",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Thorntonville": {
     "city": "Thorntonville",
@@ -41882,30 +39366,12 @@
     "confidence": 1
   },
   "Tir Field Management LLC": {
-    "city": "Air Field",
-    "state": "Gulu",
-    "stateCode": "304",
-    "country": "Uganda",
-    "countryCode": "UG",
-    "coordinates": {
-      "latitude": 2.798212,
-      "longitude": 32.27048
-    },
-    "mapboxPlaceName": "Air Field, Gulu, Uganda",
-    "confidence": 0.472222
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Titan Materials Group": {
-    "city": "Anisacate",
-    "state": "Córdoba",
-    "stateCode": "X",
-    "country": "Argentina",
-    "countryCode": "AR",
-    "coordinates": {
-      "latitude": -31.713618,
-      "longitude": -64.427332
-    },
-    "mapboxPlaceName": "Titán, Anisacate, Córdoba, X5189, Argentina",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Titusville": {
     "city": "Titusville",
@@ -42116,30 +39582,12 @@
     "confidence": 1
   },
   "Trade Force Staffing": {
-    "city": "Devoll",
-    "state": "Korçë",
-    "stateCode": "06",
-    "country": "Albania",
-    "countryCode": "AL",
-    "coordinates": {
-      "latitude": 40.644897,
-      "longitude": 21.024633
-    },
-    "mapboxPlaceName": "Grade, 7006 Devoll, Albania",
-    "confidence": 0.6
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Trade Team LLC": {
-    "city": "Trade",
-    "state": "Tennessee",
-    "stateCode": "TN",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 36.349476,
-      "longitude": -81.745965
-    },
-    "mapboxPlaceName": "Trade, Tennessee, United States",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Trade, Alexandria City": {
     "city": "Alexandria",
@@ -42207,17 +39655,8 @@
     "confidence": 1
   },
   "Trendsetter Engineering, Inc.": {
-    "city": "İnciraltı",
-    "state": "İzmir",
-    "stateCode": "35",
-    "country": "Türkiye",
-    "countryCode": "TR",
-    "coordinates": {
-      "latitude": 38.40861,
-      "longitude": 27.035122
-    },
-    "mapboxPlaceName": "İnciraltı, Balçova, İzmir, Türkiye",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Trenton, NJ": {
     "city": "Trenton",
@@ -42246,30 +39685,12 @@
     "confidence": 0.5
   },
   "Tri-Lakes Services, Inc.": {
-    "city": "Tri-Lakes",
-    "state": "Indiana",
-    "stateCode": "IN",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 41.245186,
-      "longitude": -85.443344
-    },
-    "mapboxPlaceName": "Tri-Lakes, Indiana, United States",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Trident Maritime Systems,": {
-    "city": null,
-    "state": "Maritime",
-    "stateCode": "M",
-    "country": "Togo",
-    "countryCode": "TG",
-    "coordinates": {
-      "latitude": 6.423115,
-      "longitude": 1.210469
-    },
-    "mapboxPlaceName": "Maritime, Togo",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Trillium": {
     "city": "Kitchener",
@@ -42285,30 +39706,12 @@
     "confidence": 1
   },
   "Trillium Construction": {
-    "city": "Sherkston",
-    "state": "Ontario",
-    "stateCode": "ON",
-    "country": "Canada",
-    "countryCode": "CA",
-    "coordinates": {
-      "latitude": 42.866868,
-      "longitude": -79.128572
-    },
-    "mapboxPlaceName": "Trillium, Sherkston, Ontario L0S 1R0, Canada",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Trillium Construction Services": {
-    "city": "Wilbraham",
-    "state": "Massachusetts",
-    "stateCode": "MA",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 42.149369,
-      "longitude": -72.449861
-    },
-    "mapboxPlaceName": "Construction Service Road, Wilbraham, Massachusetts 01095, United States",
-    "confidence": 0.560406
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Trillium Constructionj": {
     "city": "Stoney Creek",
@@ -42410,17 +39813,8 @@
     "confidence": 0.5
   },
   "Trivent Safety Consulting": {
-    "city": "Spremberg",
-    "state": "Brandenburg",
-    "stateCode": "BB",
-    "country": "Germany",
-    "countryCode": "DE",
-    "coordinates": {
-      "latitude": 51.559303,
-      "longitude": 14.33108
-    },
-    "mapboxPlaceName": "Consulring, 03130 Spremberg, Germany",
-    "confidence": 0.40463
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Trout Run": {
     "city": "Trout Run",
@@ -42609,17 +40003,8 @@
     "confidence": 0.592593
   },
   "Turner Industries": {
-    "city": "Mauren",
-    "state": null,
-    "stateCode": null,
-    "country": "Liechtenstein",
-    "countryCode": "LI",
-    "coordinates": {
-      "latitude": 47.21037,
-      "longitude": 9.548778
-    },
-    "mapboxPlaceName": "Industriestrasse, 9486 Mauren, Liechtenstein",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Turtle Creek, PA": {
     "city": "Turtle Creek",
@@ -42674,17 +40059,8 @@
     "confidence": 0.5
   },
   "UIC Government Services and the Bowhead Family of Companies": {
-    "city": "New Delhi",
-    "state": "Delhi",
-    "stateCode": "DL",
-    "country": "India",
-    "countryCode": "IN",
-    "coordinates": {
-      "latitude": 28.703944,
-      "longitude": 77.135749
-    },
-    "mapboxPlaceName": "And Terrace ، 110034 New Delhi، India",
-    "confidence": 0.349647
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "UK": {
     "city": null,
@@ -42778,17 +40154,8 @@
     "confidence": 0.734
   },
   "US - Offshore": {
-    "city": "Ocean Pines",
-    "state": "Maryland",
-    "stateCode": "MD",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 38.38422,
-      "longitude": -75.156082
-    },
-    "mapboxPlaceName": "Offshore Lane, Ocean Pines, Maryland 21811, United States",
-    "confidence": 0.99
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "US Army Corps of Engineers": {
     "city": "Clark",
@@ -42804,30 +40171,12 @@
     "confidence": 1
   },
   "US Tsubaki Automotive, LLC": {
-    "city": "Chicopee",
-    "state": "Massachusetts",
-    "stateCode": "MA",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 42.181396,
-      "longitude": -72.553695
-    },
-    "mapboxPlaceName": "U.S. Tsubaki Automotive Llc, Chicopee, Massachusetts 01022, United States",
-    "confidence": 1
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "US Water Services Corporation": {
-    "city": "Mingo Junction",
-    "state": "Ohio",
-    "stateCode": "OH",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 40.324507,
-      "longitude": -80.614458
-    },
-    "mapboxPlaceName": "Corporation Street, Mingo Junction, Ohio 43938, United States",
-    "confidence": 0.582593
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "US – Remote": {
     "original": "US – Remote",
@@ -42860,17 +40209,8 @@
     "confidence": 0.956667
   },
   "US – Texas, Houston, Robotics Solutions": {
-    "city": "Houston",
-    "state": "Texas",
-    "stateCode": "TX",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 29.760496,
-      "longitude": -95.363433
-    },
-    "mapboxPlaceName": "Houston, Texas, United States",
-    "confidence": 0.99
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "US-AK-ANCHORAGE-795 EAST 94TH AVENUE": {
     "original": "US-AK-ANCHORAGE-795 EAST 94TH AVENUE",
@@ -44487,17 +41827,8 @@
     "confidence": 1
   },
   "US0767 Prysmian Cables and Systems Usa LLC": {
-    "city": "Enon",
-    "state": "Ohio",
-    "stateCode": "OH",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 39.880418,
-      "longitude": -83.933424
-    },
-    "mapboxPlaceName": "And, Enon, Ohio 45323, United States",
-    "confidence": 0.497355
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "US: Chicago": {
     "city": "Chicago",
@@ -44715,17 +42046,8 @@
     "confidence": 0.66821
   },
   "UTM Consultants Ltd": {
-    "city": "Bhubaneswar",
-    "state": "Odisha",
-    "stateCode": "OR",
-    "country": "India",
-    "countryCode": "IN",
-    "coordinates": {
-      "latitude": 20.283223,
-      "longitude": 85.792416
-    },
-    "mapboxPlaceName": "Ltd Ln ، 751033 Bhubaneswar، India",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "UZ-TASHKENT-TASHKENT-BOBUR STR. 73, YAKKASARAY DISTRICT": {
     "city": "Tashkent",
@@ -45441,17 +42763,8 @@
     "confidence": 0.563529
   },
   "VN-OTHER VIETNAM": {
-    "city": "Alto Hospicio",
-    "state": "Tarapacá",
-    "stateCode": "TA",
-    "country": "Chile",
-    "countryCode": "CL",
-    "coordinates": {
-      "latitude": -20.295119,
-      "longitude": -70.102524
-    },
-    "mapboxPlaceName": "Pasaje Vietnam, Alto Hospicio, Tarapacá 1130000, Chile",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Workday regional bucket code"
   },
   "VN-VUNG TAU CITY-65A 30/4 ROAD WARD 9": {
     "original": "VN-VUNG TAU CITY-65A 30/4 ROAD WARD 9",
@@ -45579,30 +42892,12 @@
     "confidence": 0.666667
   },
   "Valmont Industries": {
-    "city": "Folschviller",
-    "state": "Moselle",
-    "stateCode": "57",
-    "country": "France",
-    "countryCode": "FR",
-    "coordinates": {
-      "latitude": 49.085855,
-      "longitude": 6.678971
-    },
-    "mapboxPlaceName": "Parc Industriel Du Fürst, 57730 Folschviller, France",
-    "confidence": 0.62
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Valmont Industries, Inc.": {
-    "city": "İncili",
-    "state": "Jalilabad",
-    "stateCode": "CAL",
-    "country": "Azerbaijan",
-    "countryCode": "AZ",
-    "coordinates": {
-      "latitude": 39.139065,
-      "longitude": 48.431006
-    },
-    "mapboxPlaceName": "İncili, Jalilabad, Azerbaijan",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Vancouver, British Columbia, Canada": {
     "city": "Vancouver",
@@ -45800,17 +43095,8 @@
     "confidence": 0.96
   },
   "Vertiv's Electrical Reliability Service": {
-    "city": "Service Kollo",
-    "state": "Nana-Mambéré",
-    "stateCode": "NM",
-    "country": "Central African Republic",
-    "countryCode": "CF",
-    "coordinates": {
-      "latitude": 6.276571,
-      "longitude": 15.300115
-    },
-    "mapboxPlaceName": "Service Kollo, Nana-Mambéré, Central African Republic",
-    "confidence": 0.388889
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Verto People": {
     "city": null,
@@ -45852,17 +43138,8 @@
     "confidence": 1
   },
   "Via Logic LLC": {
-    "city": "Ponte Capriasca",
-    "state": "Ticino",
-    "stateCode": "TI",
-    "country": "Switzerland",
-    "countryCode": "CH",
-    "coordinates": {
-      "latitude": 46.05818,
-      "longitude": 8.952684
-    },
-    "mapboxPlaceName": "Via Logio, 6946 Ponte Capriasca, Switzerland",
-    "confidence": 0.542181
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Victoria, Victoria, TX": {
     "original": "Victoria, Victoria, TX",
@@ -46120,30 +43397,12 @@
     "confidence": 1
   },
   "Vistra Energy": {
-    "city": "Houston",
-    "state": "Texas",
-    "stateCode": "TX",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 29.768813,
-      "longitude": -95.62303
-    },
-    "mapboxPlaceName": "Energy Corridor, Houston, Texas, United States",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "VitalAire Canada Inc.": {
-    "city": "Hamilton",
-    "state": "Ontario",
-    "stateCode": "ON",
-    "country": "Canada",
-    "countryCode": "CA",
-    "coordinates": {
-      "latitude": 43.242043,
-      "longitude": -79.856415
-    },
-    "mapboxPlaceName": "Inch Park, Hamilton, Ontario, Canada",
-    "confidence": 0.656667
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Vitoria, BR": {
     "city": "Vitória",
@@ -46176,17 +43435,8 @@
     "confidence": 0.574074
   },
   "W. G. Yates & Sons Construction Company": {
-    "city": "Jalandhar",
-    "state": "Punjab",
-    "stateCode": "PB",
-    "country": "India",
-    "countryCode": "IN",
-    "coordinates": {
-      "latitude": 31.327041,
-      "longitude": 75.573288
-    },
-    "mapboxPlaceName": "W G ، 144001 Jalandhar، India",
-    "confidence": 0.425926
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Wake Forest, NC": {
     "city": "Wake Forest",
@@ -46215,17 +43465,8 @@
     "confidence": 1
   },
   "Walker Engineering, Inc.": {
-    "city": "Talking Rock",
-    "state": "Georgia",
-    "stateCode": "GA",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 34.51418,
-      "longitude": -84.44747
-    },
-    "mapboxPlaceName": "Incline Dr, Talking Rock, Georgia 30175, United States",
-    "confidence": 0.440667
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Walkerton": {
     "city": "Walkerton",
@@ -46607,17 +43848,8 @@
     "confidence": 1
   },
   "Weeks Marine, Inc.": {
-    "city": "Marina",
-    "state": "California",
-    "stateCode": "CA",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 36.665029,
-      "longitude": -121.787583
-    },
-    "mapboxPlaceName": "Inchon Court, Marina, California 93933, United States",
-    "confidence": 0.628889
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Weldon, IL": {
     "city": "Weldon",
@@ -46828,17 +44060,8 @@
     "confidence": 0.950741
   },
   "Westinghouse Electric Company, LLC": {
-    "city": "Córdoba",
-    "state": "Córdoba",
-    "stateCode": "X",
-    "country": "Argentina",
-    "countryCode": "AR",
-    "coordinates": {
-      "latitude": -31.465013,
-      "longitude": -64.088178
-    },
-    "mapboxPlaceName": "Westinghouse, Córdoba, Córdoba, X5020, Argentina",
-    "confidence": 0.388889
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Westlake, Calcasieu, LA": {
     "city": "Westlake",
@@ -47010,17 +44233,8 @@
     "confidence": 1
   },
   "Wide Effect Talent Solutions": {
-    "city": "Talent",
-    "state": "Oregon",
-    "stateCode": "OR",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 42.245499,
-      "longitude": -122.786352
-    },
-    "mapboxPlaceName": "Talent, Oregon, United States",
-    "confidence": 0.388889
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Williams": {
     "city": "Williamsburg",
@@ -47330,17 +44544,8 @@
     "confidence": 1
   },
   "Wisconsin Psychiatric Association Inc": {
-    "city": "Poynette",
-    "state": "Wisconsin",
-    "stateCode": "WI",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 43.439153,
-      "longitude": -89.404784
-    },
-    "mapboxPlaceName": "Inch Heights Road, Poynette, Wisconsin 53955, United States",
-    "confidence": 0.582593
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Woburn": {
     "city": "Woburn",
@@ -47395,30 +44600,12 @@
     "confidence": 1
   },
   "Wood Group": {
-    "city": "Lagrange",
-    "state": "Georgia",
-    "stateCode": "GA",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 33.041444,
-      "longitude": -84.874767
-    },
-    "mapboxPlaceName": "Wood Road, Lagrange, Georgia 30241, United States",
-    "confidence": 0.85
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Wood PLC": {
-    "city": "Wood Place",
-    "state": "Montana",
-    "stateCode": "MT",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 45.722477,
-      "longitude": -106.424484
-    },
-    "mapboxPlaceName": "Wood Place, Montana, United States",
-    "confidence": 1
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Woodcliff Lake, NJ": {
     "city": "Woodcliff Lake",
@@ -47533,17 +44720,8 @@
     "confidence": 1
   },
   "Xcel Energy": {
-    "city": "Houston",
-    "state": "Texas",
-    "stateCode": "TX",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 29.768813,
-      "longitude": -95.62303
-    },
-    "mapboxPlaceName": "Energy Corridor, Houston, Texas, United States",
-    "confidence": 0.5
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Xcel Ndt": {
     "city": "Ndtoua",
@@ -47731,17 +44909,8 @@
     "confidence": 0.99
   },
   "Zachry Group": {
-    "city": "Columbus",
-    "state": "Georgia",
-    "stateCode": "GA",
-    "country": "United States",
-    "countryCode": "US",
-    "coordinates": {
-      "latitude": 32.54804,
-      "longitude": -84.98966
-    },
-    "mapboxPlaceName": "Zachary Ct, Columbus, Georgia 31904, United States",
-    "confidence": 0.591667
+    "_skip": true,
+    "_reason": "Company name, not a location"
   },
   "Zanesville, OH": {
     "original": "Zanesville, OH",

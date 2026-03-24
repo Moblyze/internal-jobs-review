@@ -41,6 +41,155 @@ _COUNTY_RE = re.compile(
 )
 
 
+# ---------------------------------------------------------------------------
+# Company-name-in-location detection
+# ---------------------------------------------------------------------------
+
+# Corporate suffixes that indicate a string is a company name, not a location.
+# Sorted longest-first so regex alternation prefers longer matches.
+_CORPORATE_SUFFIXES = [
+    "Limited Liability Company",
+    "Proprietary Limited",
+    "Pty Ltd",
+    "Pty. Ltd.",
+    "Corp.",
+    "Corp",
+    "Inc.",
+    "Inc",
+    "LLC",
+    "L.L.C.",
+    "Ltd.",
+    "Ltd",
+    "LLP",
+    "L.L.P.",
+    "GmbH",
+    "S.A.",
+    "S.A",
+    "S.r.l.",
+    "S.r.l",
+    "B.V.",
+    "B.V",
+    "BV",
+    "N.V.",
+    "N.V",
+    "NV",
+    "AG",
+    "SE",
+    "PLC",
+    "Plc",
+    "P.L.C.",
+    "Pty",
+    "A/S",
+    "AS",
+    "GmbH & Co. KG",
+    "Co.",
+    "Company",
+    "& Co",
+    "Group",
+    "Holdings",
+    "Solutions",
+    "Services",
+    "Enterprises",
+    "International",
+    "Technologies",
+    "Engineering",
+    "Industries",
+    "Corporation",
+    "Associates",
+    "Consulting",
+    "Partners",
+]
+
+# Build a regex pattern from the suffixes (case-insensitive, word boundary)
+_CORPORATE_SUFFIX_RE = re.compile(
+    r"\b(?:" + "|".join(re.escape(s) for s in _CORPORATE_SUFFIXES) + r")\s*$",
+    re.IGNORECASE,
+)
+
+
+def _strings_similar(a: str, b: str, threshold: float = 0.7) -> bool:
+    """Check if two strings are similar using character-level overlap.
+
+    Uses Jaccard similarity on character trigrams. Returns True if the
+    similarity score exceeds the threshold.
+    """
+    if not a or not b:
+        return False
+    a_lower = a.lower().strip()
+    b_lower = b.lower().strip()
+
+    # Exact match
+    if a_lower == b_lower:
+        return True
+
+    # One is a substring of the other
+    if a_lower in b_lower or b_lower in a_lower:
+        return True
+
+    # Trigram similarity
+    def trigrams(s: str) -> set[str]:
+        return {s[i:i+3] for i in range(max(len(s) - 2, 1))}
+
+    t_a = trigrams(a_lower)
+    t_b = trigrams(b_lower)
+    if not t_a or not t_b:
+        return False
+
+    intersection = len(t_a & t_b)
+    union = len(t_a | t_b)
+    return (intersection / union) >= threshold
+
+
+def looks_like_company_name(location: str, company: str = "") -> bool:
+    """Detect if a location string is actually a company name.
+
+    Returns True if:
+    - The string ends with a corporate suffix (LLC, Inc, Corp, Ltd, etc.)
+    - The string is very similar to the job's company name
+
+    Args:
+        location: The location string to check.
+        company: The job's company name for similarity comparison.
+    """
+    if not location or not location.strip():
+        return False
+
+    loc = location.strip()
+
+    # Check for corporate suffixes
+    if _CORPORATE_SUFFIX_RE.search(loc):
+        return True
+
+    # Check similarity to company name
+    if company and _strings_similar(loc, company):
+        return True
+
+    return False
+
+
+def sanitize_location(location: str, company: str = "") -> str:
+    """Clean a location string, replacing company names with 'Unknown'.
+
+    Call this before or instead of normalize_location() to catch company
+    names that were accidentally placed in the location field.
+
+    Args:
+        location: Raw location string from scraper.
+        company: The job's company name (for similarity check).
+
+    Returns:
+        The original location if it looks valid, or 'Unknown' if it
+        looks like a company name.
+    """
+    if not location or not location.strip():
+        return "Unknown"
+
+    if looks_like_company_name(location, company):
+        return "Unknown"
+
+    return location
+
+
 def normalize_location(location: str) -> str:
     """Standardize location to 'City, State' (US) or 'City, Country' (intl).
 
@@ -417,9 +566,12 @@ def cleanup_job(job_dict: dict) -> dict:
     if "description" in cleaned:
         cleaned["description"] = strip_html(cleaned.get("description") or "")
 
-    # Location
+    # Location -- sanitize first (catch company names), then normalize
     if "location" in cleaned:
-        cleaned["location"] = normalize_location(cleaned.get("location") or "")
+        company = cleaned.get("company") or ""
+        cleaned["location"] = normalize_location(
+            sanitize_location(cleaned.get("location") or "", company)
+        )
 
     # Employment type
     if "employment_type" in cleaned:

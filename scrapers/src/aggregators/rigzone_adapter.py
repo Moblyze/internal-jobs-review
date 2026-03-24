@@ -5,6 +5,7 @@ from datetime import datetime
 from bs4 import BeautifulSoup
 from src.models.job import JobPosting
 from src.aggregators.base import BaseAggregator, AggregatorFilters
+from src.aggregators.cleanup import sanitize_location
 
 logger = logging.getLogger(__name__)
 
@@ -117,7 +118,8 @@ class RigzoneAggregator(BaseAggregator):
                 parts = [p.strip() for p in address_text.split("|") if p.strip()]
                 if len(parts) >= 2:
                     company = parts[0]
-                    location = parts[-1]
+                    # Validate that the last part is a real location, not a company name
+                    location = sanitize_location(parts[-1], company=company)
                 elif len(parts) == 1:
                     company = parts[0]
 

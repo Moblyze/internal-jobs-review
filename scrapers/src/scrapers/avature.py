@@ -338,10 +338,36 @@ class AvatureScraper(BaseScraper):
             self.logger.warning("description_extraction_failed", url=job_url, error=str(e))
 
         # Extract location from #job-location or .jobGeoLocation
+        # Avature multi-location jobs list several locations in child elements.
+        # inner_text() on the container concatenates them into one string
+        # (e.g. "Aberdeen (Westhill), GB Leer, DE Dubai, AE"), which Mapbox
+        # cannot geocode.  We grab only the FIRST child location instead.
         try:
             location_elem = page.locator('#job-location, .jobGeoLocation').first
-            location = await location_elem.inner_text()
-            detail['location'] = location.strip()
+            # Try to get individual location entries from child elements first
+            children = location_elem.locator('span, li, div, p, a')
+            child_count = await children.count()
+
+            if child_count > 1:
+                # Multiple child elements = multi-location job; take the first
+                first_location = await children.nth(0).inner_text()
+                first_location = first_location.strip().rstrip(',')
+                if first_location:
+                    detail['location'] = first_location
+                    self.logger.info(
+                        "multi_location_job_using_first",
+                        url=job_url,
+                        selected=first_location,
+                        total_locations=child_count,
+                    )
+                else:
+                    # Fallback: use full text
+                    location = await location_elem.inner_text()
+                    detail['location'] = location.strip()
+            else:
+                # Single location or no child structure - use full text
+                location = await location_elem.inner_text()
+                detail['location'] = location.strip()
         except Exception as e:
             self.logger.warning("location_extraction_failed", url=job_url, error=str(e))
 

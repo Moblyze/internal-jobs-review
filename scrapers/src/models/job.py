@@ -2,7 +2,7 @@
 
 from datetime import datetime
 from typing import Optional, Literal
-from pydantic import BaseModel, HttpUrl, Field, field_validator
+from pydantic import BaseModel, HttpUrl, Field, field_validator, model_validator
 
 
 class JobPosting(BaseModel):
@@ -53,6 +53,19 @@ class JobPosting(BaseModel):
         if not v or not v.strip():
             raise ValueError('Field cannot be empty or whitespace')
         return v.strip()
+
+    @model_validator(mode='after')
+    def sanitize_company_in_location(self) -> 'JobPosting':
+        """Replace location with 'Unknown' if it looks like a company name.
+
+        Catches cases where aggregator adapters accidentally put the company
+        name in the location field (e.g., 'Allison Offshore Services LLC'
+        instead of a real geographic location).
+        """
+        from src.aggregators.cleanup import looks_like_company_name
+        if looks_like_company_name(self.location, self.company):
+            self.location = "Unknown"
+        return self
 
     def to_sheet_row(self) -> list:
         """
