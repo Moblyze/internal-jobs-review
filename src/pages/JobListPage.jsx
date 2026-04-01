@@ -7,7 +7,7 @@ import { getAllLocationsAsync } from '../utils/locationParser'
 import { createGroupedLocationOptionsWithGeodata } from '../utils/locationGeodata'
 import { extractJobCertifications } from '../utils/certificationExtractor'
 import { ALL_ENERGY_REGIONS, getRegionLocationValues } from '../utils/energyRegions'
-import { getMarketLabel, PRIORITY_MARKET_SLUGS } from '../utils/focusMarkets'
+import { getMarketLabel, PRIORITY_MARKET_SLUGS, FOCUS_MARKET_LABELS } from '../utils/focusMarkets'
 import { normalizeCompanyName } from '../utils/companyNormalizer'
 import { FOCUS_COMPANIES } from '../utils/focusCompanies'
 import { normalizeEmploymentType, jobMatchesEmploymentTypes, CANONICAL_TYPES } from '../utils/employmentTypeNormalizer'
@@ -96,22 +96,29 @@ function JobListPage() {
       .sort((a, b) => b.count - a.count)
   }, [filterOptions, jobs])
 
-  // Focus markets: use pre-computed, fall back to runtime
+  // Focus markets: ensure all defined markets appear, even with 0 jobs
   const focusMarkets = useMemo(() => {
-    if (filterOptions?.focusMarkets) return filterOptions.focusMarkets
+    // Build counts from pre-computed or runtime data
     const counts = {}
-    jobs.forEach(job => {
-      if (job.status === 'removed' || job.status === 'paused') return
-      if (job.profile) {
-        counts[job.profile] = (counts[job.profile] || 0) + 1
-      }
-    })
-    const all = Object.entries(counts).map(([slug, count]) => ({
+    if (filterOptions?.focusMarkets) {
+      filterOptions.focusMarkets.forEach(m => { counts[m.slug] = m.count })
+    } else {
+      jobs.forEach(job => {
+        if (job.status === 'removed' || job.status === 'paused') return
+        if (job.profile) {
+          counts[job.profile] = (counts[job.profile] || 0) + 1
+        }
+      })
+    }
+
+    // Include all defined focus markets, filling in 0 for missing ones
+    const all = Object.entries(FOCUS_MARKET_LABELS).map(([slug, label]) => ({
       slug,
-      label: getMarketLabel(slug),
-      count,
+      label,
+      count: counts[slug] || 0,
       isPriority: PRIORITY_MARKET_SLUGS.includes(slug),
     }))
+
     return all.sort((a, b) => {
       if (a.isPriority && !b.isPriority) return -1
       if (!a.isPriority && b.isPriority) return 1
