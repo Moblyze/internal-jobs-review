@@ -9,6 +9,7 @@ import { extractJobCertifications } from '../utils/certificationExtractor'
 import { ALL_ENERGY_REGIONS, getRegionLocationValues } from '../utils/energyRegions'
 import { getMarketLabel, PRIORITY_MARKET_SLUGS } from '../utils/focusMarkets'
 import { normalizeCompanyName } from '../utils/companyNormalizer'
+import { normalizeEmploymentType, jobMatchesEmploymentTypes, CANONICAL_TYPES } from '../utils/employmentTypeNormalizer'
 import FiltersSearchable from '../components/FiltersSearchable'
 import JobCard from '../components/JobCard'
 import SEO from '../components/SEO'
@@ -36,34 +37,33 @@ function JobListPage() {
     return getUniqueCompanies(jobs)
   }, [filterOptions, jobs])
 
-  // Employment types: use pre-computed, fall back to runtime
+  // Employment types: normalize raw values into canonical categories
   const employmentTypes = useMemo(() => {
-    if (filterOptions?.employmentTypes) {
-      const sortOrder = ['Full-Time', 'Contractor', 'Part-Time', 'Temporary', 'Internship']
-      return filterOptions.employmentTypes
-        .map(et => et.name)
-        .sort((a, b) => {
-          const aIdx = sortOrder.indexOf(a)
-          const bIdx = sortOrder.indexOf(b)
-          if (aIdx === -1 && bIdx === -1) return a.localeCompare(b)
-          if (aIdx === -1) return 1
-          if (bIdx === -1) return -1
-          return aIdx - bIdx
-        })
-    }
-    const types = new Set()
-    jobs.forEach(job => {
-      if (job.employmentType) types.add(job.employmentType)
+    // Aggregate counts from pre-computed or runtime data
+    const source = filterOptions?.employmentTypes
+      ? filterOptions.employmentTypes
+      : (() => {
+          const counts = {}
+          jobs.forEach(job => {
+            if (job.status === 'removed' || job.status === 'paused') return
+            if (job.employmentType) {
+              counts[job.employmentType] = (counts[job.employmentType] || 0) + 1
+            }
+          })
+          return Object.entries(counts).map(([name, count]) => ({ name, count }))
+        })()
+
+    // Consolidate into canonical types
+    const canonicalCounts = {}
+    source.forEach(({ name, count }) => {
+      const normalized = normalizeEmploymentType(name)
+      if (normalized) {
+        canonicalCounts[normalized] = (canonicalCounts[normalized] || 0) + count
+      }
     })
-    const sortOrder = ['Full-Time', 'Contractor', 'Part-Time', 'Temporary', 'Internship']
-    return [...types].sort((a, b) => {
-      const aIdx = sortOrder.indexOf(a)
-      const bIdx = sortOrder.indexOf(b)
-      if (aIdx === -1 && bIdx === -1) return a.localeCompare(b)
-      if (aIdx === -1) return 1
-      if (bIdx === -1) return -1
-      return aIdx - bIdx
-    })
+
+    // Return in canonical order, only types that have jobs
+    return CANONICAL_TYPES.filter(t => canonicalCounts[t] > 0)
   }, [filterOptions, jobs])
 
   // Sources: use pre-computed, fall back to runtime
@@ -350,9 +350,9 @@ function JobListPage() {
           if (!hasCertification) return false
         }
 
-        // Employment type filter
+        // Employment type filter (compares against normalized canonical types)
         if (filters.employmentTypes?.length > 0) {
-          if (!job.employmentType || !filters.employmentTypes.includes(job.employmentType)) {
+          if (!jobMatchesEmploymentTypes(job, filters.employmentTypes)) {
             return false
           }
         }

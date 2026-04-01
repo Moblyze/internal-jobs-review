@@ -268,11 +268,6 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
     return certifications.map(cert => ({ label: cert, value: cert }))
   }, [certifications])
 
-  const employmentTypeOptions = useMemo(() =>
-    employmentTypes.map(type => ({ label: type, value: type })),
-    [employmentTypes]
-  )
-
   const roleOptions = useMemo(() => {
     if (roles.length === 0) return []
 
@@ -338,11 +333,6 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
       })
       .filter(Boolean)
   }, [filters.certifications, certificationOptions])
-
-  const selectedEmploymentTypes = useMemo(() =>
-    (filters.employmentTypes || []).map(t => ({ label: t, value: t })),
-    [filters.employmentTypes]
-  )
 
   const selectedRoles = useMemo(() => {
     return (filters.roles || [])
@@ -472,13 +462,6 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
     onFilterChange({
       ...filters,
       certifications: selected ? selected.map(opt => opt.value) : []
-    })
-  }
-
-  const handleEmploymentTypeChange = (selected) => {
-    onFilterChange({
-      ...filters,
-      employmentTypes: selected ? selected.map(opt => opt.value) : []
     })
   }
 
@@ -618,37 +601,39 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
         {/* Divider */}
         <div className="border-t border-gray-200 my-4"></div>
 
-        {/* Employment Type Filter */}
-        {employmentTypeOptions.length > 0 && (
+        {/* Employment Type Filter (pills only — 6 canonical types) */}
+        {employmentTypes.length > 0 && (
           <>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Employment Type
               </label>
-              <QuickSelectPills
-                items={employmentTypes}
-                selectedItems={filters.employmentTypes || []}
-                onSelect={(newTypes) => onFilterChange({ ...filters, employmentTypes: newTypes })}
-                label="Employment types"
-              />
-              {employmentTypeOptions.length > 5 && (
-                <Select
-                  isMulti
-                  value={selectedEmploymentTypes}
-                  onChange={handleEmploymentTypeChange}
-                  options={employmentTypeOptions}
-                  styles={selectStyles}
-                  placeholder={`Filter ${employmentTypeOptions.length} employment types...`}
-                  isClearable={false}
-                  closeMenuOnSelect={false}
-                  className="text-sm"
-                />
-              )}
-              {selectedEmploymentTypes.length > 0 && (
-                <p className="text-xs text-gray-500 mt-1">
-                  {selectedEmploymentTypes.length} {selectedEmploymentTypes.length === 1 ? 'type' : 'types'} selected
-                </p>
-              )}
+              <div className="flex flex-wrap gap-2">
+                {employmentTypes.map((type) => {
+                  const isSelected = (filters.employmentTypes || []).includes(type)
+                  return (
+                    <button
+                      key={type}
+                      onClick={() => {
+                        const current = filters.employmentTypes || []
+                        const newTypes = isSelected
+                          ? current.filter(t => t !== type)
+                          : [...current, type]
+                        onFilterChange({ ...filters, employmentTypes: newTypes })
+                      }}
+                      className={`
+                        px-3 py-1.5 rounded-full text-xs font-medium transition-all
+                        ${isSelected
+                          ? 'bg-blue-600 text-white hover:bg-blue-700'
+                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-300'
+                        }
+                      `}
+                    >
+                      {type}
+                    </button>
+                  )
+                })}
+              </div>
             </div>
             {/* Divider */}
             <div className="border-t border-gray-200 my-4"></div>
