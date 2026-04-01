@@ -17,6 +17,7 @@ export const FOCUS_MARKET_LABELS = {
   industrial_construction: 'Industrial Construction',
   process_plant_operations: 'Process & Plant',
   survey_geophysical: 'Survey & Geophysical',
+  decommissioning: 'Decommissioning',
 }
 
 /** Profile slugs that are actively being sourced right now */
