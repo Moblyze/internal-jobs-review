@@ -8,6 +8,7 @@ import { createGroupedLocationOptionsWithGeodata } from '../utils/locationGeodat
 import { extractJobCertifications } from '../utils/certificationExtractor'
 import { ALL_ENERGY_REGIONS, getRegionLocationValues } from '../utils/energyRegions'
 import { getMarketLabel, PRIORITY_MARKET_SLUGS, FOCUS_MARKET_LABELS } from '../utils/focusMarkets'
+import { jobMatchesMarkets, jobMatchesMarketContent, CONTENT_MATCHED_MARKETS } from '../utils/marketContentMatcher'
 import { normalizeCompanyName } from '../utils/companyNormalizer'
 import { FOCUS_COMPANIES } from '../utils/focusCompanies'
 import { normalizeEmploymentType, jobMatchesEmploymentTypes, CANONICAL_TYPES } from '../utils/employmentTypeNormalizer'
@@ -96,22 +97,30 @@ function JobListPage() {
       .sort((a, b) => b.count - a.count)
   }, [filterOptions, jobs])
 
-  // Focus markets: ensure all defined markets appear, even with 0 jobs
+  // Focus markets: ensure all defined markets appear, with content-based counts
   const focusMarkets = useMemo(() => {
-    // Build counts from pre-computed or runtime data
+    const activeJobs = jobs.filter(j => j.status !== 'removed' && j.status !== 'paused')
+
+    // Build profile-based counts from pre-computed or runtime data
     const counts = {}
     if (filterOptions?.focusMarkets) {
       filterOptions.focusMarkets.forEach(m => { counts[m.slug] = m.count })
     } else {
-      jobs.forEach(job => {
-        if (job.status === 'removed' || job.status === 'paused') return
+      activeJobs.forEach(job => {
         if (job.profile) {
           counts[job.profile] = (counts[job.profile] || 0) + 1
         }
       })
     }
 
-    // Include all defined focus markets, filling in 0 for missing ones
+    // For content-matched markets, count jobs matching by content (not just profile)
+    CONTENT_MATCHED_MARKETS.forEach(slug => {
+      const contentCount = activeJobs.filter(job => jobMatchesMarketContent(job, slug)).length
+      // Use the higher of profile count and content count
+      counts[slug] = Math.max(counts[slug] || 0, contentCount)
+    })
+
+    // Include all defined focus markets
     const all = Object.entries(FOCUS_MARKET_LABELS).map(([slug, label]) => ({
       slug,
       label,
@@ -378,9 +387,9 @@ function JobListPage() {
           }
         }
 
-        // Focus market filter (maps to job.profile, uses human-readable URL param)
+        // Focus market filter (matches by profile or content)
         if (filters.market?.length > 0) {
-          if (!job.profile || !filters.market.includes(job.profile)) {
+          if (!jobMatchesMarkets(job, filters.market)) {
             return false
           }
         }
