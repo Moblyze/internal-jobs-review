@@ -9,6 +9,7 @@ import { extractJobCertifications } from '../utils/certificationExtractor'
 import { ALL_ENERGY_REGIONS, getRegionLocationValues } from '../utils/energyRegions'
 import { getMarketLabel, PRIORITY_MARKET_SLUGS } from '../utils/focusMarkets'
 import { normalizeCompanyName } from '../utils/companyNormalizer'
+import { FOCUS_COMPANIES } from '../utils/focusCompanies'
 import { normalizeEmploymentType, jobMatchesEmploymentTypes, CANONICAL_TYPES } from '../utils/employmentTypeNormalizer'
 import FiltersSearchable from '../components/FiltersSearchable'
 import JobCard from '../components/JobCard'
@@ -126,13 +127,11 @@ function JobListPage() {
     return null
   }, [filterOptions])
 
-  // Top companies: derive from pre-computed company list (already sorted by count)
+  // Top companies: show focus companies that exist in the data
   const precomputedTopCompanies = useMemo(() => {
-    if (filterOptions?.companies) {
-      return filterOptions.companies.slice(0, 50).map(c => c.name)
-    }
-    return []
-  }, [filterOptions])
+    const companySet = new Set(companies)
+    return FOCUS_COMPANIES.filter(c => companySet.has(c))
+  }, [companies])
 
   // Inactive job count: use pre-computed or compute from jobs
   const inactiveJobsCount = useMemo(() => {
