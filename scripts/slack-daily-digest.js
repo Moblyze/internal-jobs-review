@@ -3,7 +3,7 @@
 /**
  * Slack Daily Digest for Client Jobs - Aggregated
  *
- * After each daily scrape, reads the Google Sheet for the 18 target employers,
+ * After each daily scrape, reads the Google Sheet for the 19 target employers,
  * compares against previous state, and posts a Slack message summarising
  * new jobs added and jobs removed.
  *
@@ -36,28 +36,56 @@ const STATE_FILE = path.join(__dirname, '../data/digest-state.json');
 const DEFAULT_CREDENTIALS_PATH = path.join(__dirname, '../../job-scraping/config/service_account.json');
 const DRY_RUN = process.argv.includes('--dry-run');
 
-// The 18 target employers and their expected worksheet tab names.
-// Keys are normalised names used in state; values are patterns to match tab titles.
+// The 19 target employers (alphabetical) and their expected worksheet tab names.
 const TARGET_EMPLOYERS = [
+  'Allrig Group',
+  'Altrad Sparrows',
+  'Coast Renewable Services',
+  'Dron & Dickson',
+  'Finnco',
   'Helix Energy Solutions',
   'Interocean Marine Services',
-  'Altrad Sparrows',
-  'ROVOP',
-  'Oceaneering',
-  'Petrofac',
-  'LRQA',
-  'OSM Thome',
-  'Wellsafe Solutions',
-  'Dron & Dickson',
-  'Sulmara',
-  'Allrig Group',
-  'Coast Renewable Services',
-  'Taurus Industrial Group',
-  'PBS by Ponticelli',
   'IO Consulting',
-  'Finnco',
+  'LRQA',
+  'Oceaneering',
+  'OSM Thome',
+  'Pareto',
+  'PBS by Ponticelli',
+  'Petrofac',
   'Rig Integrity Solutions',
+  'ROVOP',
+  'Sulmara',
+  'Taurus Industrial Group',
+  'Wellsafe Solutions',
 ];
+
+// Aliases for matching sheet tab names that don't contain the full employer name
+const TAB_ALIASES = {
+  'Rig Integrity Solutions': ['rig_integrity', 'rig integrity'],
+};
+
+// Short display names for the table (must stay under ~24 chars to fit)
+const DISPLAY_NAMES = {
+  'Allrig Group': 'Allrig Group',
+  'Altrad Sparrows': 'Altrad Sparrows',
+  'Coast Renewable Services': 'Coast Renewable',
+  'Dron & Dickson': 'Dron & Dickson',
+  'Finnco': 'Finnco',
+  'Helix Energy Solutions': 'Helix Energy',
+  'Interocean Marine Services': 'Interocean Marine',
+  'IO Consulting': 'IO Consulting',
+  'LRQA': 'LRQA',
+  'Oceaneering': 'Oceaneering',
+  'OSM Thome': 'OSM Thome',
+  'Pareto': 'Pareto',
+  'PBS by Ponticelli': 'PBS by Ponticelli',
+  'Petrofac': 'Petrofac',
+  'Rig Integrity Solutions': 'Rig Integrity',
+  'ROVOP': 'ROVOP',
+  'Sulmara': 'Sulmara',
+  'Taurus Industrial Group': 'Taurus Industrial',
+  'Wellsafe Solutions': 'Wellsafe Solutions',
+};
 
 // ── Retry Helper ─────────────────────────────────────────────────────────────
 
@@ -109,6 +137,26 @@ async function authenticate() {
   return auth.getClient();
 }
 
+// ── Job Classification ──────────────────────────────────────────────────────
+
+/**
+ * Classify a job into one of three market categories based on available fields.
+ * Returns: 'rope_access' | 'rov' | 'other'
+ */
+function classifyJob(title, description, skills, certifications, employmentType) {
+  const combined = `${title} ${description} ${skills} ${certifications} ${employmentType}`.toLowerCase();
+
+  if (combined.includes('rope access') || combined.includes('irata')) {
+    return 'rope_access';
+  }
+
+  if (/\brov\b/.test(combined)) {
+    return 'rov';
+  }
+
+  return 'other';
+}
+
 // ── Sheet Reading ────────────────────────────────────────────────────────────
 
 /**
@@ -129,22 +177,57 @@ async function readSheetData(authClient) {
   );
 
   const sheetTitles = spreadsheet.data.sheets.map(s => s.properties.title);
-  const skipSheets = new Set(['Overview', 'Source Coverage Matrix', 'Target Companies', 'Aggregator Jobs', 'Template']);
+  const skipSheets = new Set(['Overview', 'Source Coverage Matrix', 'Target Companies', 'Aggregator Jobs', 'Template', 'Client Jobs - Aggregated', '_Client Org Lookup', '_Roles', '_Certs', 'Run History']);
 
-  // Build list of matched sheets so we can batch-fetch them all at once
-  const matchedSheets = []; // { title, employer }
+  // Build list of matched sheets so we can batch-fetch them all at once.
+  // Prefer employer-specific tabs over Aggregator tabs to avoid double-counting.
+  const directMatches = new Map();     // employer -> { title, employer }
+  const aggregatorMatches = new Map(); // employer -> { title, employer }
+
   for (const title of sheetTitles) {
     if (skipSheets.has(title)) continue;
 
-    const matchedEmployer = TARGET_EMPLOYERS.find(emp =>
-      title.toLowerCase().includes(emp.toLowerCase()) ||
-      emp.toLowerCase().includes(title.toLowerCase()) ||
-      normalise(title) === normalise(emp)
-    );
+    const isAggregator = title.startsWith('Aggregator');
+
+    const titleLower = title.toLowerCase();
+    const titleNorm = normalise(title);
+
+    const matchedEmployer = TARGET_EMPLOYERS.find(emp => {
+      if (titleLower.includes(emp.toLowerCase()) ||
+          emp.toLowerCase().includes(titleLower) ||
+          titleNorm === normalise(emp) ||
+          titleNorm.includes(normalise(emp)) ||
+          normalise(emp).includes(titleNorm)) {
+        return true;
+      }
+      // Check aliases for edge cases
+      const aliases = TAB_ALIASES[emp];
+      if (aliases) {
+        return aliases.some(alias => titleLower.includes(alias));
+      }
+      return false;
+    });
 
     if (matchedEmployer) {
-      matchedSheets.push({ title, employer: matchedEmployer });
+      const entry = { title, employer: matchedEmployer };
+      if (isAggregator) {
+        if (!aggregatorMatches.has(matchedEmployer)) {
+          aggregatorMatches.set(matchedEmployer, entry);
+        }
+      } else {
+        // Direct tab takes priority; keep first match
+        if (!directMatches.has(matchedEmployer)) {
+          directMatches.set(matchedEmployer, entry);
+        }
+      }
     }
+  }
+
+  // Use direct tab when available, fall back to aggregator tab
+  const matchedSheets = [];
+  for (const employer of TARGET_EMPLOYERS) {
+    const match = directMatches.get(employer) || aggregatorMatches.get(employer);
+    if (match) matchedSheets.push(match);
   }
 
   if (matchedSheets.length === 0) return {};
@@ -168,7 +251,7 @@ async function readSheetData(authClient) {
     const rows = valueRanges[idx]?.values || [];
 
     if (rows.length <= 1) {
-      result[employer] = { active: new Set(), removed: new Set(), activeCount: 0, removedCount: 0 };
+      result[employer] = { active: new Set(), removed: new Set(), activeCount: 0, removedCount: 0, ropeAccessCount: 0, rovCount: 0, otherCount: 0 };
       continue;
     }
 
@@ -182,8 +265,16 @@ async function readSheetData(authClient) {
       continue;
     }
 
+    const descCol = headers.indexOf('description');
+    const skillsCol = headers.indexOf('skills');
+    const certsCol = headers.indexOf('certifications');
+    const empTypeCol = headers.indexOf('employment type');
+
     const active = new Set();
     const removed = new Set();
+    let ropeAccessCount = 0;
+    let rovCount = 0;
+    let otherCount = 0;
 
     for (let i = 1; i < rows.length; i++) {
       const row = rows[i];
@@ -197,7 +288,23 @@ async function readSheetData(authClient) {
       if (status === 'removed' || status === 'inactive' || status === 'closed') {
         removed.add(key);
       } else {
+        // Only classify if this is a new unique active job (avoid double-counting duplicates)
+        const isNew = !active.has(key);
         active.add(key);
+
+        if (isNew) {
+          const category = classifyJob(
+            jobTitle,
+            descCol !== -1 ? (row[descCol] || '') : '',
+            skillsCol !== -1 ? (row[skillsCol] || '') : '',
+            certsCol !== -1 ? (row[certsCol] || '') : '',
+            empTypeCol !== -1 ? (row[empTypeCol] || '') : '',
+          );
+
+          if (category === 'rope_access') ropeAccessCount++;
+          else if (category === 'rov') rovCount++;
+          else otherCount++;
+        }
       }
     }
 
@@ -206,6 +313,9 @@ async function readSheetData(authClient) {
       removed,
       activeCount: active.size,
       removedCount: removed.size,
+      ropeAccessCount,
+      rovCount,
+      otherCount,
     };
   }
 
@@ -237,6 +347,9 @@ function saveState(currentData) {
       removed: [...data.removed],
       activeCount: data.activeCount,
       removedCount: data.removedCount,
+      ropeAccessCount: data.ropeAccessCount,
+      rovCount: data.rovCount,
+      otherCount: data.otherCount,
     };
   }
 
@@ -249,51 +362,84 @@ function saveState(currentData) {
 // ── Diff Calculation ─────────────────────────────────────────────────────────
 
 function computeDiff(previous, current) {
-  const newJobs = {};       // employer -> count of new active jobs
-  const removedJobs = {};   // employer -> count of newly removed jobs
+  const rows = [];          // per-employer row data for the table
   let totalNew = 0;
   let totalRemoved = 0;
+  let totalLive = 0;
+  let totalRA = 0;
+  let totalROV = 0;
+  let totalOther = 0;
 
   for (const employer of TARGET_EMPLOYERS) {
     const prev = previous?.[employer];
     const curr = current[employer];
 
-    if (!curr) continue;
-
     const prevActive = new Set(prev?.active || []);
     const prevRemoved = new Set(prev?.removed || []);
 
-    // New jobs: in current active but not in previous active
     let newCount = 0;
-    for (const key of curr.active) {
-      if (!prevActive.has(key)) newCount++;
-    }
-
-    // Newly removed: in current removed but not in previous removed
     let removedCount = 0;
-    for (const key of curr.removed) {
-      if (!prevRemoved.has(key)) removedCount++;
+
+    if (curr) {
+      for (const key of curr.active) {
+        if (!prevActive.has(key)) newCount++;
+      }
+      for (const key of curr.removed) {
+        if (!prevRemoved.has(key)) removedCount++;
+      }
     }
 
-    if (newCount > 0) {
-      newJobs[employer] = newCount;
-      totalNew += newCount;
-    }
+    const live = curr?.activeCount || 0;
+    const ra = curr?.ropeAccessCount || 0;
+    const rov = curr?.rovCount || 0;
+    const other = curr?.otherCount || 0;
 
-    if (removedCount > 0) {
-      removedJobs[employer] = removedCount;
-      totalRemoved += removedCount;
-    }
+    totalNew += newCount;
+    totalRemoved += removedCount;
+    totalLive += live;
+    totalRA += ra;
+    totalROV += rov;
+    totalOther += other;
+
+    rows.push({
+      employer,
+      displayName: DISPLAY_NAMES[employer] || employer,
+      newCount,
+      removedCount,
+      live,
+      ra,
+      rov,
+      other,
+    });
   }
 
-  return { newJobs, removedJobs, totalNew, totalRemoved };
+  return { rows, totalNew, totalRemoved, totalLive, totalRA, totalROV, totalOther };
 }
 
 // ── Slack Message Building ───────────────────────────────────────────────────
 
-function buildSlackMessage(diff, isFirstRun) {
-  const blocks = [];
+/**
+ * Format a number for display: 0 → '—', positive → string
+ */
+function fmt(n) {
+  return n === 0 ? '—' : String(n);
+}
 
+/**
+ * Right-pad a string to a fixed width.
+ */
+function pad(s, width) {
+  return s + ' '.repeat(Math.max(0, width - s.length));
+}
+
+/**
+ * Left-pad a string to a fixed width (for numeric columns).
+ */
+function lpad(s, width) {
+  return ' '.repeat(Math.max(0, width - s.length)) + s;
+}
+
+function buildSlackMessage(diff, isFirstRun, currentData) {
   if (isFirstRun) {
     return {
       text: 'Daily Job Scan: initial baseline captured. Changes will be reported from the next run.',
@@ -316,77 +462,80 @@ function buildSlackMessage(diff, isFirstRun) {
     };
   }
 
-  if (diff.totalNew === 0 && diff.totalRemoved === 0) {
-    return {
-      text: 'Daily Job Scan: no changes today.',
-      blocks: [
-        {
-          type: 'section',
-          text: {
-            type: 'mrkdwn',
-            text: ':clipboard: *Daily Job Scan Complete*\nNo new jobs or removals detected across the 18 target employers today.',
-          },
-        },
-        {
-          type: 'section',
-          text: {
-            type: 'mrkdwn',
-            text: `<${SHEET_URL}|View sheet>`,
-          },
-        },
-      ],
-    };
-  }
+  // Build table
+  const COL = { name: 22, num: 4, cat: 6 };
+  const SEP = '  ';
 
-  // New jobs section
-  if (diff.totalNew > 0) {
-    const lines = Object.entries(diff.newJobs)
-      .sort((a, b) => b[1] - a[1])
-      .map(([emp, count]) => `• ${emp}: ${count} new`);
+  // Column widths
+  const W = { name: 22, small: 5, mid: 11 };
+  const DIV = ' │ ';
 
-    blocks.push({
-      type: 'section',
-      text: {
-        type: 'mrkdwn',
-        text: `:clipboard: *Daily Job Scan Complete*\n${diff.totalNew} new job${diff.totalNew === 1 ? '' : 's'} added:\n${lines.join('\n')}`,
-      },
-    });
-  }
+  const header =
+    pad('Client', W.name) + SEP +
+    lpad('+New', W.small) + SEP +
+    lpad('\uD83D\uDDD1\uFE0F', W.small) + SEP +
+    lpad('Live', W.small) + DIV +
+    lpad('Rope Access', W.mid) + SEP +
+    lpad('ROV', W.small) + SEP +
+    lpad('Other', W.small);
 
-  // Removed jobs section
-  if (diff.totalRemoved > 0) {
-    const lines = Object.entries(diff.removedJobs)
-      .sort((a, b) => b[1] - a[1])
-      .map(([emp, count]) => `• ${emp}: ${count} removed`);
+  const divider = '─'.repeat(header.length);
 
-    const header = diff.totalNew > 0 ? '' : ':clipboard: *Daily Job Scan Complete*\n';
+  const dataRows = diff.rows.map(r =>
+    pad(r.displayName, W.name) + SEP +
+    lpad(fmt(r.newCount), W.small) + SEP +
+    lpad(fmt(r.removedCount), W.small) + SEP +
+    lpad(fmt(r.live), W.small) + DIV +
+    lpad(fmt(r.ra), W.mid) + SEP +
+    lpad(fmt(r.rov), W.small) + SEP +
+    lpad(fmt(r.other), W.small)
+  );
 
-    blocks.push({
-      type: 'section',
-      text: {
-        type: 'mrkdwn',
-        text: `${header}:wastebasket: *Jobs Removed from Source Sites*\n${diff.totalRemoved} job${diff.totalRemoved === 1 ? '' : 's'} no longer active:\n${lines.join('\n')}`,
-      },
-    });
-  }
+  const totalsRow =
+    pad('TOTAL', W.name) + SEP +
+    lpad(String(diff.totalNew), W.small) + SEP +
+    lpad(String(diff.totalRemoved), W.small) + SEP +
+    lpad(String(diff.totalLive), W.small) + DIV +
+    lpad(String(diff.totalRA), W.mid) + SEP +
+    lpad(String(diff.totalROV), W.small) + SEP +
+    lpad(String(diff.totalOther), W.small);
 
-  // Link to sheet
-  blocks.push({
-    type: 'section',
-    text: {
-      type: 'mrkdwn',
-      text: `<${SHEET_URL}|Review sheet>`,
-    },
-  });
+  const table = [header, divider, ...dataRows, divider, totalsRow].join('\n');
+
+  const noChanges = diff.totalNew === 0 && diff.totalRemoved === 0;
+  const changeNote = noChanges ? '\n_No changes since last scan._' : '';
 
   // Build fallback text
   const parts = [];
-  if (diff.totalNew > 0) parts.push(`${diff.totalNew} new jobs added`);
-  if (diff.totalRemoved > 0) parts.push(`${diff.totalRemoved} jobs removed`);
+  if (diff.totalNew > 0) parts.push(`${diff.totalNew} new`);
+  if (diff.totalRemoved > 0) parts.push(`${diff.totalRemoved} removed`);
+  const summary = parts.length > 0 ? parts.join(', ') : 'no changes';
 
   return {
-    text: `Daily Job Scan: ${parts.join(', ')}`,
-    blocks,
+    text: `Daily Job Scan: ${summary}. ${diff.totalLive} active jobs.`,
+    blocks: [
+      {
+        type: 'section',
+        text: {
+          type: 'mrkdwn',
+          text: `:clipboard: *Daily Job Scan Complete — ${new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}*`,
+        },
+      },
+      {
+        type: 'section',
+        text: {
+          type: 'mrkdwn',
+          text: '```\n' + table + '\n```',
+        },
+      },
+      {
+        type: 'section',
+        text: {
+          type: 'mrkdwn',
+          text: changeNote + `\n<${SHEET_URL}|Review sheet>`,
+        },
+      },
+    ],
   };
 }
 
@@ -456,7 +605,7 @@ async function main() {
   console.log(`\nDiff: ${diff.totalNew} new, ${diff.totalRemoved} removed`);
 
   // 4. Build and send Slack message
-  const message = buildSlackMessage(diff, isFirstRun);
+  const message = buildSlackMessage(diff, isFirstRun, currentData);
   console.log('\nSlack message:');
   console.log(JSON.stringify(message, null, 2));
 
