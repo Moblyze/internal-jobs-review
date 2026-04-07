@@ -11,6 +11,7 @@ import { getMarketLabel, PRIORITY_MARKET_SLUGS, FOCUS_MARKET_LABELS } from '../u
 import { jobMatchesMarkets, jobMatchesMarketContent, CONTENT_MATCHED_MARKETS } from '../utils/marketContentMatcher'
 import { normalizeCompanyName } from '../utils/companyNormalizer'
 import { FOCUS_COMPANIES } from '../utils/focusCompanies'
+import { isAgencyJob } from '../utils/agencyBlocklist'
 import { normalizeEmploymentType, jobMatchesEmploymentTypes, CANONICAL_TYPES } from '../utils/employmentTypeNormalizer'
 import FiltersSearchable from '../components/FiltersSearchable'
 import JobCard from '../components/JobCard'
@@ -160,6 +161,11 @@ function JobListPage() {
     if (filterOptions?.appReadyCount !== undefined) return filterOptions.appReadyCount
     return jobs.filter(j => j.appReady).length
   }, [filterOptions, jobs])
+
+  // Agency jobs count: active jobs from blocked recruitment agencies
+  const agencyJobsCount = useMemo(() => {
+    return jobs.filter(j => j.status !== 'removed' && j.status !== 'paused' && isAgencyJob(j)).length
+  }, [jobs])
 
   // ── Async filter data (locations, skills, roles — still need runtime computation) ──
 
@@ -330,6 +336,11 @@ function JobListPage() {
       let result = jobs.filter((job) => {
         // Status filter (hide inactive unless toggled)
         if (!filters.showInactive && (job.status === 'removed' || job.status === 'paused')) {
+          return false
+        }
+
+        // Agency filter (hide agency jobs unless toggled on)
+        if (!filters.showAgencyJobs && isAgencyJob(job)) {
           return false
         }
 
@@ -611,6 +622,20 @@ function JobListPage() {
             </div>
             <span className="ml-2 text-sm font-medium text-gray-700">App Ready ({appReadyCount})</span>
           </label>
+          {agencyJobsCount > 0 && (
+            <label className="inline-flex items-center cursor-pointer">
+              <div className="relative">
+                <input
+                  type="checkbox"
+                  checked={filters.showAgencyJobs || false}
+                  onChange={(e) => setFilters({ ...filters, showAgencyJobs: e.target.checked })}
+                  className="sr-only peer"
+                />
+                <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-orange-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-orange-500"></div>
+              </div>
+              <span className="ml-2 text-sm font-medium text-gray-700">Show Agency Jobs ({agencyJobsCount})</span>
+            </label>
+          )}
           {inactiveJobsCount > 0 && (
             <label className="inline-flex items-center cursor-pointer">
               <div className="relative">

@@ -494,7 +494,7 @@ function FiltersSearchable({ filters, onFilterChange, companies, locations, skil
   }
 
   const clearFilters = () => {
-    onFilterChange({ companies: [], locations: [], skills: [], certifications: [], roles: [], employmentTypes: [], sources: [], profiles: [], market: [], showInactive: filters.showInactive })
+    onFilterChange({ companies: [], locations: [], skills: [], certifications: [], roles: [], employmentTypes: [], sources: [], profiles: [], market: [], showInactive: filters.showInactive, showAgencyJobs: filters.showAgencyJobs })
   }
 
   const activeFilterCount =

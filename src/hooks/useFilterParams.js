@@ -27,6 +27,7 @@ export function useFilterParams() {
     const market = searchParams.get('market')
     const showInactive = searchParams.get('showInactive')
     const appReadyOnly = searchParams.get('appReadyOnly')
+    const showAgencyJobs = searchParams.get('showAgencyJobs')
 
     // Parse using pipe delimiter (|) only — consistent with serialization
     // No comma fallback: values like "Helix Energy Solutions Group, Inc"
@@ -47,7 +48,8 @@ export function useFilterParams() {
       profiles: splitParam(profiles),
       market: splitParam(market),
       showInactive: showInactive === 'true',
-      appReadyOnly: appReadyOnly === 'true'
+      appReadyOnly: appReadyOnly === 'true',
+      showAgencyJobs: showAgencyJobs === 'true',
     }
   }, [searchParams])
 
@@ -92,6 +94,9 @@ export function useFilterParams() {
     }
     if (newFilters.appReadyOnly) {
       params.set('appReadyOnly', 'true')
+    }
+    if (newFilters.showAgencyJobs) {
+      params.set('showAgencyJobs', 'true')
     }
 
     // Update URL and create a new history entry so back button works
@@ -168,6 +173,9 @@ export function buildFilterUrl(baseUrl, filters) {
   }
   if (filters.appReadyOnly) {
     params.set('appReadyOnly', 'true')
+  }
+  if (filters.showAgencyJobs) {
+    params.set('showAgencyJobs', 'true')
   }
 
   const queryString = params.toString()
