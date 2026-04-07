@@ -604,6 +604,9 @@ function JobListPage() {
         <div className="flex items-center gap-3 flex-wrap">
           <p className="text-gray-600">
             Showing {filteredJobs.length} of {jobs.length} jobs
+            {!filters.showAgencyJobs && agencyJobsCount > 0 && (
+              <span className="text-orange-600 ml-1">({agencyJobsCount} agency jobs hidden)</span>
+            )}
           </p>
           {(filters.companies?.length > 0 || filters.locations?.length > 0 || filters.skills?.length > 0 || filters.certifications?.length > 0 || filters.roles?.length > 0 || filters.employmentTypes?.length > 0 || filters.sources?.length > 0 || filters.profiles?.length > 0 || filters.market?.length > 0) && (
             <ShareFilterButton />
@@ -633,7 +636,9 @@ function JobListPage() {
                 />
                 <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-orange-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-orange-500"></div>
               </div>
-              <span className="ml-2 text-sm font-medium text-gray-700">Show Agency Jobs ({agencyJobsCount})</span>
+              <span className="ml-2 text-sm font-medium text-gray-700">
+                {filters.showAgencyJobs ? `Agency Jobs Included (${agencyJobsCount})` : `Show Agency Jobs (${agencyJobsCount} hidden)`}
+              </span>
             </label>
           )}
           {inactiveJobsCount > 0 && (
