@@ -163,6 +163,10 @@
     "_skip": true,
     "_reason": "Not a real location — means job is posted in 2 locations"
   },
+  "3 Locations": {
+    "_skip": true,
+    "_reason": "non-location placeholder"
+  },
   "360X Staffing": {
     "_skip": true,
     "_reason": "Company name, not a location"
@@ -2015,6 +2019,19 @@
     "mapboxPlaceName": "Allentown, Pennsylvania, United States",
     "confidence": 1
   },
+  "Allentown, PA, US": {
+    "city": "Allentown",
+    "state": "Pennsylvania",
+    "stateCode": "PA",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 40.602245,
+      "longitude": -75.471776
+    },
+    "mapboxPlaceName": "Allentown, Pennsylvania, United States",
+    "confidence": 1
+  },
   "Allied Steel Buildings": {
     "city": "Steele",
     "state": "Alabama",
@@ -2129,6 +2146,19 @@
       "longitude": -95.244074
     },
     "mapboxPlaceName": "Alvin, Texas, United States",
+    "confidence": 1
+  },
+  "Amarillo, TX": {
+    "city": "Amarillo",
+    "state": "Texas",
+    "stateCode": "TX",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 35.207498,
+      "longitude": -101.835785
+    },
+    "mapboxPlaceName": "Amarillo, Texas, United States",
     "confidence": 1
   },
   "Amarillo, TX, US": {
@@ -3430,6 +3460,19 @@
     "mapboxPlaceName": "Austalsweg, 41334 Nettetal, Germany",
     "confidence": 1
   },
+  "Austin, MN, US": {
+    "city": "Austin",
+    "state": "Minnesota",
+    "stateCode": "MN",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 43.668336,
+      "longitude": -92.974815
+    },
+    "mapboxPlaceName": "Austin, Minnesota, United States",
+    "confidence": 1
+  },
   "Austin, TX": {
     "city": "Austin",
     "state": "Texas",
@@ -4350,6 +4393,19 @@
     "mapboxPlaceName": "Bangkok, Thailand",
     "confidence": 1
   },
+  "Barcelona, Anzoategui, Venezuela": {
+    "city": "Barcelona",
+    "state": "Anzoátegui",
+    "stateCode": "B",
+    "country": "Venezuela",
+    "countryCode": "VE",
+    "coordinates": {
+      "latitude": 10.132595,
+      "longitude": -64.681958
+    },
+    "mapboxPlaceName": "Barcelona, Simón Bolívar, Anzoátegui, Venezuela",
+    "confidence": 1
+  },
   "Barlow Branch": {
     "city": "Partridge",
     "state": "Kentucky",
@@ -4737,6 +4793,19 @@
       "longitude": -88.248582
     },
     "mapboxPlaceName": "Bayou La Batre, Alabama, United States",
+    "confidence": 1
+  },
+  "Bayport, Texas, United States": {
+    "city": "Trinity",
+    "state": "Texas",
+    "stateCode": "TX",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 30.942795,
+      "longitude": -95.312791
+    },
+    "mapboxPlaceName": "Bay Port, Trinity, Texas 75862, United States",
     "confidence": 1
   },
   "Baytown, TX": {
@@ -5849,6 +5918,19 @@
     "mapboxPlaceName": "Bogotá, Colombia",
     "confidence": 1
   },
+  "Bogota, NJ": {
+    "city": "Bogota",
+    "state": "New Jersey",
+    "stateCode": "NJ",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 40.876961,
+      "longitude": -74.025155
+    },
+    "mapboxPlaceName": "Bogota, New Jersey, United States",
+    "confidence": 1
+  },
   "Bogotá, Capital District, Colombia": {
     "city": "Bogotá",
     "state": "Bogotá",
@@ -6071,6 +6153,19 @@
       "longitude": -122.205337
     },
     "mapboxPlaceName": "Bothell, Washington, United States",
+    "confidence": 1
+  },
+  "Bowie, MD, US": {
+    "city": "Bowie",
+    "state": "Maryland",
+    "stateCode": "MD",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 38.946171,
+      "longitude": -76.733975
+    },
+    "mapboxPlaceName": "Bowie, Maryland, United States",
     "confidence": 1
   },
   "Bowmanville, Ontario, Canada": {
@@ -6335,6 +6430,19 @@
       "longitude": -70.975425
     },
     "mapboxPlaceName": "Bridgewater, Massachusetts, United States",
+    "confidence": 1
+  },
+  "Bridgman, MI, US": {
+    "city": "Bridgman",
+    "state": "Michigan",
+    "stateCode": "MI",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 41.942966,
+      "longitude": -86.55515
+    },
+    "mapboxPlaceName": "Bridgman, Michigan, United States",
     "confidence": 1
   },
   "Brighton, CO, US": {
@@ -6746,6 +6854,19 @@
     },
     "mapboxPlaceName": "Budapest, Budapest, 1138, Hungary",
     "confidence": 1
+  },
+  "Budapest, HU, 1134": {
+    "city": "Budapest",
+    "state": "Budapest",
+    "stateCode": "BU",
+    "country": "Hungary",
+    "countryCode": "HU",
+    "coordinates": {
+      "latitude": 47.497879,
+      "longitude": 19.040238
+    },
+    "mapboxPlaceName": "Budapest, Hungary",
+    "confidence": 0.666667
   },
   "Budapest, Hungary office": {
     "city": "Budapest",
@@ -7553,6 +7674,19 @@
     ],
     "confidence": 0.422658
   },
+  "CN: Shanghai Lubes Ctc": {
+    "city": "Shanghai",
+    "state": "Shanghai",
+    "stateCode": "SH",
+    "country": "China",
+    "countryCode": "CN",
+    "coordinates": {
+      "latitude": 31.232344,
+      "longitude": 121.469102
+    },
+    "mapboxPlaceName": "Shanghai, China",
+    "confidence": 0.582593
+  },
   "CN: Shanghai Office": {
     "city": "Shanghai",
     "state": "Shanghai",
@@ -7968,6 +8102,19 @@
       "longitude": -98.118658
     },
     "mapboxPlaceName": "Calumet, Oklahoma, United States",
+    "confidence": 1
+  },
+  "Camarillo, CA": {
+    "city": "Camarillo",
+    "state": "California",
+    "stateCode": "CA",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 34.216336,
+      "longitude": -119.037691
+    },
+    "mapboxPlaceName": "Camarillo, California, United States",
     "confidence": 1
   },
   "Camarillo, California": {
@@ -8774,6 +8921,19 @@
     "mapboxPlaceName": "Casa Grande, Arizona, United States",
     "confidence": 1
   },
+  "Casa Grande, AZ, US": {
+    "city": "Casa Grande",
+    "state": "Arizona",
+    "stateCode": "AZ",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 32.879574,
+      "longitude": -111.753493
+    },
+    "mapboxPlaceName": "Casa Grande, Arizona, United States",
+    "confidence": 1
+  },
   "Case Studies": {
     "city": "Case",
     "state": "Arkansas",
@@ -9109,6 +9269,19 @@
       "longitude": 76.78427
     },
     "mapboxPlaceName": "Chandigarh, Chandigarh, India",
+    "confidence": 1
+  },
+  "Chandler, AZ": {
+    "city": "Chandler",
+    "state": "Arizona",
+    "stateCode": "AZ",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 33.30232,
+      "longitude": -111.841421
+    },
+    "mapboxPlaceName": "Chandler, Arizona, United States",
     "confidence": 1
   },
   "Chandler, AZ, US": {
@@ -10641,6 +10814,19 @@
       "longitude": -83.037091
     },
     "mapboxPlaceName": "Colony Ridge Drive, Delaware, Ohio 43015, United States",
+    "confidence": 1
+  },
+  "Colorado Springs, CO": {
+    "city": "Colorado Springs",
+    "state": "Colorado",
+    "stateCode": "CO",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 38.83242,
+      "longitude": -104.821879
+    },
+    "mapboxPlaceName": "Colorado Springs, Colorado, United States",
     "confidence": 1
   },
   "Colorado Springs, CO, US": {
@@ -12657,6 +12843,19 @@
     "mapboxPlaceName": "Dehradun, Uttarakhand, India",
     "confidence": 1
   },
+  "Delray Beach, FL": {
+    "city": "Delray Beach",
+    "state": "Florida",
+    "stateCode": "FL",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 26.461647,
+      "longitude": -80.073103
+    },
+    "mapboxPlaceName": "Delray Beach, Florida, United States",
+    "confidence": 1
+  },
   "Delta Workforce": {
     "city": "Delta",
     "state": "Minas Gerais",
@@ -14008,6 +14207,19 @@
     "mapboxPlaceName": "East Point, Georgia, United States",
     "confidence": 1
   },
+  "Eastbrook, ME, US": {
+    "city": "Eastbrook",
+    "state": "Maine",
+    "stateCode": "ME",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 44.677504,
+      "longitude": -68.265573
+    },
+    "mapboxPlaceName": "Eastbrook, Maine, United States",
+    "confidence": 1
+  },
   "Eastchester, NY": {
     "city": "Eastchester",
     "state": "New York",
@@ -15284,6 +15496,19 @@
     "mapboxPlaceName": "Everett, Washington, United States",
     "confidence": 1
   },
+  "Everett, WA, US": {
+    "city": "Everett",
+    "state": "Washington",
+    "stateCode": "WA",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 47.979254,
+      "longitude": -122.208624
+    },
+    "mapboxPlaceName": "Everett, Washington, United States",
+    "confidence": 1
+  },
   "Everport Terminal Services": {
     "_skip": true,
     "_reason": "Company name, not a location"
@@ -15517,6 +15742,19 @@
       "longitude": -122.043241
     },
     "mapboxPlaceName": "Fairfield, California, United States",
+    "confidence": 1
+  },
+  "Fairfield, CT": {
+    "city": "Fairfield",
+    "state": "Connecticut",
+    "stateCode": "CT",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 41.141683,
+      "longitude": -73.256166
+    },
+    "mapboxPlaceName": "Fairfield, Connecticut, United States",
     "confidence": 1
   },
   "Fairforest, Spartanburg County": {
@@ -15761,6 +15999,19 @@
     "mapboxPlaceName": "Farmington Hills, Michigan, United States",
     "confidence": 1
   },
+  "Farmington, CT": {
+    "city": "Farmington",
+    "state": "Connecticut",
+    "stateCode": "CT",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 41.719942,
+      "longitude": -72.831739
+    },
+    "mapboxPlaceName": "Farmington, Connecticut, United States",
+    "confidence": 1
+  },
   "Farmington, NM": {
     "city": "Farmington",
     "state": "New Mexico",
@@ -15857,6 +16108,19 @@
     "confidence": 1
   },
   "Federal Way, King County": {
+    "city": "Federal Way",
+    "state": "Washington",
+    "stateCode": "WA",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 47.313167,
+      "longitude": -122.339212
+    },
+    "mapboxPlaceName": "Federal Way, Washington, United States",
+    "confidence": 1
+  },
+  "Federal Way, WA": {
     "city": "Federal Way",
     "state": "Washington",
     "stateCode": "WA",
@@ -18381,6 +18645,19 @@
     "mapboxPlaceName": "Gilbert, Arizona, United States",
     "confidence": 1
   },
+  "Gill, MA": {
+    "city": "Gill",
+    "state": "Massachusetts",
+    "stateCode": "MA",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 42.640964,
+      "longitude": -72.499504
+    },
+    "mapboxPlaceName": "Gill, Massachusetts, United States",
+    "confidence": 1
+  },
   "Gillett": {
     "city": "Gillette",
     "state": "Wyoming",
@@ -18405,6 +18682,19 @@
       "longitude": -105.502546
     },
     "mapboxPlaceName": "Gillette, Wyoming, United States",
+    "confidence": 1
+  },
+  "Girard, KS": {
+    "city": "Girard",
+    "state": "Kansas",
+    "stateCode": "KS",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 37.510826,
+      "longitude": -94.843436
+    },
+    "mapboxPlaceName": "Girard, Kansas, United States",
     "confidence": 1
   },
   "Gladewater": {
@@ -18526,6 +18816,19 @@
       "longitude": -76.622738
     },
     "mapboxPlaceName": "Glen Burnie, Maryland, United States",
+    "confidence": 1
+  },
+  "Glen Rock, PA": {
+    "city": "Glen Rock",
+    "state": "Pennsylvania",
+    "stateCode": "PA",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 39.793057,
+      "longitude": -76.730326
+    },
+    "mapboxPlaceName": "Glen Rock, Pennsylvania, United States",
     "confidence": 1
   },
   "Glendale Heights, DuPage County": {
@@ -18865,6 +19168,19 @@
     "mapboxPlaceName": "Grand Central, New York, New York 10017, United States",
     "confidence": 1
   },
+  "Grand Junction, CO, US": {
+    "city": "Grand Junction",
+    "state": "Colorado",
+    "stateCode": "CO",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 39.068314,
+      "longitude": -108.564442
+    },
+    "mapboxPlaceName": "Grand Junction, Colorado, United States",
+    "confidence": 1
+  },
   "Grand Rapids": {
     "city": "Grand Rapids",
     "state": "Michigan",
@@ -19064,6 +19380,19 @@
     "mapboxPlaceName": "Greeley, Colorado, United States",
     "confidence": 1
   },
+  "Greeley, CO, US, 80631": {
+    "city": "Greeley",
+    "state": "Colorado",
+    "stateCode": "CO",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 40.422649,
+      "longitude": -104.707781
+    },
+    "mapboxPlaceName": "Greeley, Colorado, United States",
+    "confidence": 0.75
+  },
   "Greeley, Colorado, United States of America": {
     "city": "Greeley",
     "state": "Colorado",
@@ -19157,6 +19486,32 @@
       "longitude": -79.791545
     },
     "mapboxPlaceName": "Greensboro, North Carolina, United States",
+    "confidence": 1
+  },
+  "Greensburg, PA": {
+    "city": "Greensburg",
+    "state": "Pennsylvania",
+    "stateCode": "PA",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 40.302449,
+      "longitude": -79.544255
+    },
+    "mapboxPlaceName": "Greensburg, Pennsylvania, United States",
+    "confidence": 1
+  },
+  "Greensburg, PA, US": {
+    "city": "Greensburg",
+    "state": "Pennsylvania",
+    "stateCode": "PA",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 40.302449,
+      "longitude": -79.544255
+    },
+    "mapboxPlaceName": "Greensburg, Pennsylvania, United States",
     "confidence": 1
   },
   "Greenville": {
@@ -19408,6 +19763,19 @@
       "longitude": 144.775597
     },
     "mapboxPlaceName": "Guam",
+    "confidence": 1
+  },
+  "Guangzhou, GD, CN": {
+    "city": "Guangzhou Shi",
+    "state": "Guangdong",
+    "stateCode": "GD",
+    "country": "China",
+    "countryCode": "CN",
+    "coordinates": {
+      "latitude": 23.125345,
+      "longitude": 113.27006
+    },
+    "mapboxPlaceName": "Guangzhou Shi, Guangdong, China",
     "confidence": 1
   },
   "Guatemala City, Guatemala, Guatemala": {
@@ -19899,6 +20267,19 @@
       "longitude": -94.304892
     },
     "mapboxPlaceName": "Hamshire, Texas, United States",
+    "confidence": 1
+  },
+  "Hamtramck, MI": {
+    "city": "Hamtramck",
+    "state": "Michigan",
+    "stateCode": "MI",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 42.392607,
+      "longitude": -83.050268
+    },
+    "mapboxPlaceName": "Hamtramck, Michigan, United States",
     "confidence": 1
   },
   "Hannover, ND, Germany": {
@@ -21063,6 +21444,19 @@
     },
     "mapboxPlaceName": "Hopland, California, United States",
     "confidence": 0.968333
+  },
+  "Hoquiam, Washington, United States of America": {
+    "city": "Hoquiam",
+    "state": "Washington",
+    "stateCode": "WA",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 46.975077,
+      "longitude": -123.886823
+    },
+    "mapboxPlaceName": "Hoquiam, Washington, United States",
+    "confidence": 1
   },
   "Hornbeck Offshore Operators": {
     "_skip": true,
@@ -24552,6 +24946,19 @@
     "mapboxPlaceName": "Kearney, Missouri, United States",
     "confidence": 1
   },
+  "Kearny, NJ": {
+    "city": "Kearny",
+    "state": "New Jersey",
+    "stateCode": "NJ",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 40.764783,
+      "longitude": -74.148186
+    },
+    "mapboxPlaceName": "Kearny, New Jersey, United States",
+    "confidence": 1
+  },
   "Keene": {
     "city": "Keene",
     "state": "New Hampshire",
@@ -24919,6 +25326,19 @@
     "mapboxPlaceName": "Kinetic Way, Nepean, Ontario K2J 0E1, Canada",
     "confidence": 0.928571
   },
+  "King of Prussia, PA": {
+    "city": "King of Prussia",
+    "state": "Pennsylvania",
+    "stateCode": "PA",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 40.091074,
+      "longitude": -75.384474
+    },
+    "mapboxPlaceName": "King of Prussia, Pennsylvania, United States",
+    "confidence": 1
+  },
   "King of Prussia, Pennsylvania": {
     "original": "King of Prussia, Pennsylvania",
     "mapboxPlaceName": "King of Prussia, Pennsylvania, United States",
@@ -25111,6 +25531,19 @@
       "longitude": 101.44537
     },
     "mapboxPlaceName": "Klang, Selangor, Malaysia",
+    "confidence": 1
+  },
+  "Knoxville, TN": {
+    "city": "Knoxville",
+    "state": "Tennessee",
+    "stateCode": "TN",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 35.961762,
+      "longitude": -83.916251
+    },
+    "mapboxPlaceName": "Knoxville, Tennessee, United States",
     "confidence": 1
   },
   "Knoxville, TN, US": {
@@ -25400,6 +25833,19 @@
     ],
     "confidence": 1
   },
+  "Kwinana, Western Australia, Australia": {
+    "city": "Kwinana Beach",
+    "state": "Western Australia",
+    "stateCode": "WA",
+    "country": "Australia",
+    "countryCode": "AU",
+    "coordinates": {
+      "latitude": -32.226994,
+      "longitude": 115.777214
+    },
+    "mapboxPlaceName": "Kwinana Beach, Western Australia, Australia",
+    "confidence": 0.988148
+  },
   "Kākināda, Andhra Pradesh": {
     "city": "Kakinada",
     "state": "Andhra Pradesh",
@@ -25566,6 +26012,19 @@
       "longitude": -95.019815
     },
     "mapboxPlaceName": "La Porte, Texas, United States",
+    "confidence": 1
+  },
+  "La Quinta, CA, US": {
+    "city": "La Quinta",
+    "state": "California",
+    "stateCode": "CA",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 33.677606,
+      "longitude": -116.303675
+    },
+    "mapboxPlaceName": "La Quinta, California, United States",
     "confidence": 1
   },
   "LaGrange, GA, US": {
@@ -25962,6 +26421,19 @@
     "mapboxPlaceName": "Lansing, Michigan, United States",
     "confidence": 1
   },
+  "Laredo, TX": {
+    "city": "Laredo",
+    "state": "Texas",
+    "stateCode": "TX",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 27.502862,
+      "longitude": -99.507568
+    },
+    "mapboxPlaceName": "Laredo, Texas, United States",
+    "confidence": 1
+  },
   "Largo, FL": {
     "city": "Largo",
     "state": "Florida",
@@ -26263,6 +26735,19 @@
     },
     "mapboxPlaceName": "Leigos, 28991, Saquarema, Rio de Janeiro, Brazil",
     "confidence": 0.916667
+  },
+  "Lemont, IL": {
+    "city": "Lemont",
+    "state": "Illinois",
+    "stateCode": "IL",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 41.674076,
+      "longitude": -88.000184
+    },
+    "mapboxPlaceName": "Lemont, Illinois, United States",
+    "confidence": 1
   },
   "Lenexa, KS": {
     "city": "Lenexa",
@@ -26785,6 +27270,19 @@
     "placeType": [
       "place"
     ],
+    "confidence": 1
+  },
+  "Livermore, CA, US": {
+    "city": "Livermore",
+    "state": "California",
+    "stateCode": "CA",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 37.682018,
+      "longitude": -121.768374
+    },
+    "mapboxPlaceName": "Livermore, California, United States",
     "confidence": 1
   },
   "Liverpool, Merseyside": {
@@ -28936,6 +29434,19 @@
     "mapboxPlaceName": "Maplewood, Minnesota, United States",
     "confidence": 1
   },
+  "Maputo, MZ": {
+    "city": "Maputo",
+    "state": "Maputo",
+    "stateCode": "MPM",
+    "country": "Mozambique",
+    "countryCode": "MZ",
+    "coordinates": {
+      "latitude": -25.966213,
+      "longitude": 32.56745
+    },
+    "mapboxPlaceName": "Maputo, Mozambique",
+    "confidence": 1
+  },
   "Maracaibo, Zulia, Venezuela": {
     "city": "Maracaibo",
     "state": "Zulia",
@@ -30106,6 +30617,19 @@
     "mapboxPlaceName": "East Midland, Midland, Texas, United States",
     "confidence": 0.825
   },
+  "Midland, TX, US, 79705 +2 more…": {
+    "city": "Midland",
+    "state": "Texas",
+    "stateCode": "TX",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 32.005356,
+      "longitude": -102.06172
+    },
+    "mapboxPlaceName": "East Midland, Midland, Texas, United States",
+    "confidence": 0.825
+  },
   "Midland, TX, US, 79705 +3 more…": {
     "city": "Midland",
     "state": "Texas",
@@ -30146,6 +30670,19 @@
     "confidence": 1
   },
   "Midland, United States": {
+    "city": "Midland",
+    "state": "Texas",
+    "stateCode": "TX",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 31.99743,
+      "longitude": -102.078056
+    },
+    "mapboxPlaceName": "Midland, Texas, United States",
+    "confidence": 1
+  },
+  "Midland, TX, United States": {
     "city": "Midland",
     "state": "Texas",
     "stateCode": "TX",
@@ -30303,6 +30840,19 @@
   "Miller Pipeline": {
     "_skip": true,
     "_reason": "Company name, not a location"
+  },
+  "Mills, WY, US": {
+    "city": "Mills",
+    "state": "Wyoming",
+    "stateCode": "WY",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 42.844006,
+      "longitude": -106.375573
+    },
+    "mapboxPlaceName": "Mills, Wyoming, United States",
+    "confidence": 1
   },
   "Milton Keynes, ENG, GB": {
     "city": "Milton Keynes",
@@ -32000,6 +32550,19 @@
     "mapboxPlaceName": "Naperville, Illinois, United States",
     "confidence": 1
   },
+  "Naples, FL": {
+    "city": "Naples",
+    "state": "Florida",
+    "stateCode": "FL",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 26.141905,
+      "longitude": -81.79484
+    },
+    "mapboxPlaceName": "Naples, Florida, United States",
+    "confidence": 1
+  },
   "Nashua": {
     "city": "Nashua",
     "state": "New Hampshire",
@@ -32383,6 +32946,19 @@
     },
     "mapboxPlaceName": "Neuquén, Neuquén, Argentina",
     "confidence": 0.75
+  },
+  "Nevada": {
+    "city": null,
+    "state": "Nevada",
+    "stateCode": "NV",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 40.07112,
+      "longitude": -116.598822
+    },
+    "mapboxPlaceName": "Nevada, United States",
+    "confidence": 1
   },
   "New Albany, OH, US": {
     "city": "New Albany",
@@ -35049,6 +35625,19 @@
     ],
     "confidence": 1
   },
+  "Old Ocean, TX, US": {
+    "city": "Old Ocean",
+    "state": "Texas",
+    "stateCode": "TX",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 29.079964,
+      "longitude": -95.749725
+    },
+    "mapboxPlaceName": "Old Ocean, Texas, United States",
+    "confidence": 1
+  },
   "Old Sixth Ward, Houston": {
     "city": "Houston",
     "state": "Texas",
@@ -35525,6 +36114,19 @@
     "mapboxPlaceName": "Owensboro, Kentucky, United States",
     "confidence": 1
   },
+  "Owensboro, Kentucky": {
+    "city": "Owensboro",
+    "state": "Kentucky",
+    "stateCode": "KY",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 37.772672,
+      "longitude": -87.111031
+    },
+    "mapboxPlaceName": "Owensboro, Kentucky, United States",
+    "confidence": 1
+  },
   "Oxford, MI": {
     "city": "Oxford",
     "state": "Mississippi",
@@ -35907,6 +36509,19 @@
     ],
     "confidence": 0.978222
   },
+  "Panorama City, CA": {
+    "city": "Panorama City",
+    "state": "California",
+    "stateCode": "CA",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 34.221522,
+      "longitude": -118.448862
+    },
+    "mapboxPlaceName": "Panorama City, California, United States",
+    "confidence": 1
+  },
   "Pape-Dawson Engineers": {
     "city": "Tantallon",
     "state": "Saskatchewan",
@@ -36000,6 +36615,19 @@
       "longitude": -95.277695
     },
     "mapboxPlaceName": "Park Place, Houston, Texas, United States",
+    "confidence": 1
+  },
+  "Parker, TX": {
+    "city": "Parker",
+    "state": "Texas",
+    "stateCode": "TX",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 33.055239,
+      "longitude": -96.621938
+    },
+    "mapboxPlaceName": "Parker, Texas, United States",
     "confidence": 1
   },
   "Parkersburg, WV, US": {
@@ -36967,6 +37595,19 @@
     "mapboxPlaceName": "Picayune, Mississippi, United States",
     "confidence": 1
   },
+  "Pickering, Ontario, Canada": {
+    "city": "Pickering",
+    "state": "Ontario",
+    "stateCode": "ON",
+    "country": "Canada",
+    "countryCode": "CA",
+    "coordinates": {
+      "latitude": 43.83763,
+      "longitude": -79.084694
+    },
+    "mapboxPlaceName": "Pickering, Ontario, Canada",
+    "confidence": 1
+  },
   "Piedmont, SC": {
     "city": "Piedmont",
     "state": "South Carolina",
@@ -37504,6 +38145,19 @@
     "mapboxPlaceName": "Pomeroy, Iowa, United States",
     "confidence": 1
   },
+  "Pomona, CA, United States": {
+    "city": "Pomona",
+    "state": "California",
+    "stateCode": "CA",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 34.057842,
+      "longitude": -117.750166
+    },
+    "mapboxPlaceName": "Pomona, California, United States",
+    "confidence": 1
+  },
   "Ponca City, OK, US, 74601": {
     "city": "Ponca City",
     "state": "Oklahoma",
@@ -37609,6 +38263,19 @@
     "confidence": 1
   },
   "Port Arthur": {
+    "city": "Port Arthur",
+    "state": "Texas",
+    "stateCode": "TX",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 29.87163,
+      "longitude": -93.933265
+    },
+    "mapboxPlaceName": "Port Arthur, Texas, United States",
+    "confidence": 1
+  },
+  "Port Arthur, Texas, United States of America": {
     "city": "Port Arthur",
     "state": "Texas",
     "stateCode": "TX",
@@ -37840,6 +38507,19 @@
       "longitude": -1.075614
     },
     "mapboxPlaceName": "Portsmouth, Portsmouth, England, United Kingdom",
+    "confidence": 1
+  },
+  "Portsmouth, NH": {
+    "city": "Portsmouth",
+    "state": "New Hampshire",
+    "stateCode": "NH",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 43.075964,
+      "longitude": -70.757099
+    },
+    "mapboxPlaceName": "Portsmouth, New Hampshire, United States",
     "confidence": 1
   },
   "Portsmouth, Rockingham County": {
@@ -39305,6 +39985,19 @@
     "confidence": 1
   },
   "Richardson, TX": {
+    "city": "Richardson",
+    "state": "Texas",
+    "stateCode": "TX",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 32.948362,
+      "longitude": -96.729796
+    },
+    "mapboxPlaceName": "Richardson, Texas, United States",
+    "confidence": 1
+  },
+  "Richardson, TX, US": {
     "city": "Richardson",
     "state": "Texas",
     "stateCode": "TX",
@@ -43329,6 +44022,19 @@
     "mapboxPlaceName": "Spacex Starlink Entrance, Hawthorne, California 90250, United States",
     "confidence": 1
   },
+  "Spain - Madrid": {
+    "city": "Madrid",
+    "state": "Madrid",
+    "stateCode": "M",
+    "country": "Spain",
+    "countryCode": "ES",
+    "coordinates": {
+      "latitude": 40.421345,
+      "longitude": -3.701219
+    },
+    "mapboxPlaceName": "Madrid, Madrid, Spain",
+    "confidence": 0.99
+  },
   "Spain - Remote": {
     "city": "Pueyo",
     "state": "Navarre",
@@ -43397,6 +44103,19 @@
   "Spartan Solar": {
     "_skip": true,
     "_reason": "Company name, not a location"
+  },
+  "Spartanburg, SC": {
+    "city": "Spartanburg",
+    "state": "South Carolina",
+    "stateCode": "SC",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 34.949572,
+      "longitude": -81.931681
+    },
+    "mapboxPlaceName": "Spartanburg, South Carolina, United States",
+    "confidence": 1
   },
   "Spectrum": {
     "city": "Gilbert",
@@ -45192,6 +45911,19 @@
     "mapboxPlaceName": "臺北市, Taipei, Taiwan",
     "confidence": 0.99
   },
+  "Takoradi, GH": {
+    "city": "Takoradi",
+    "state": "Western",
+    "stateCode": "WP",
+    "country": "Ghana",
+    "countryCode": "GH",
+    "coordinates": {
+      "latitude": 4.901209,
+      "longitude": -1.774001
+    },
+    "mapboxPlaceName": "Takoradi, Western, Ghana",
+    "confidence": 1
+  },
   "Talara, Peru": {
     "city": "Talara",
     "state": "Piura",
@@ -45682,6 +46414,19 @@
     },
     "mapboxPlaceName": "Pécs, Tátra Utca, 7627, Baranya County, Hungary",
     "confidence": 0.87
+  },
+  "Texarkana, TX, US": {
+    "city": "Texarkana",
+    "state": "Texas",
+    "stateCode": "TX",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 33.426071,
+      "longitude": -94.048557
+    },
+    "mapboxPlaceName": "Texarkana, Texas, United States",
+    "confidence": 1
   },
   "Texas": {
     "original": "Texas",
@@ -47009,6 +47754,19 @@
     },
     "mapboxPlaceName": "Tyler, Texas, United States",
     "confidence": 1
+  },
+  "Türkiye - Bursa": {
+    "city": "Bursa",
+    "state": "Bursa",
+    "stateCode": "16",
+    "country": "Türkiye",
+    "countryCode": "TR",
+    "coordinates": {
+      "latitude": 40.182737,
+      "longitude": 29.067548
+    },
+    "mapboxPlaceName": "Bursa, Türkiye",
+    "confidence": 0.99
   },
   "Türkiye - Istanbul": {
     "city": "Istanbul",
@@ -50031,6 +50789,19 @@
     "mapboxPlaceName": "Vallejo, California, United States",
     "confidence": 1
   },
+  "Vallejo, MX, MEX, MX": {
+    "city": "Vallejo",
+    "state": "San Luis Potosí",
+    "stateCode": "SLP",
+    "country": "Mexico",
+    "countryCode": "MX",
+    "coordinates": {
+      "latitude": 23.11618,
+      "longitude": -100.546805
+    },
+    "mapboxPlaceName": "Vallejo, Villa de Guadalupe, San Luis Potosí, Mexico",
+    "confidence": 0.592593
+  },
   "Valley Electric Association": {
     "city": "Hornbeck",
     "state": "Louisiana",
@@ -50271,6 +51042,19 @@
       "longitude": -80.399037
     },
     "mapboxPlaceName": "Vero Beach, Florida, United States",
+    "confidence": 1
+  },
+  "Verona, NJ": {
+    "city": "Verona",
+    "state": "New Jersey",
+    "stateCode": "NJ",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 40.832334,
+      "longitude": -74.247044
+    },
+    "mapboxPlaceName": "Verona, New Jersey, United States",
     "confidence": 1
   },
   "Vertek": {
@@ -51009,6 +51793,19 @@
     "mapboxPlaceName": "Washington Federal Way, Washington, Pennsylvania 15301, United States",
     "confidence": 1
   },
+  "Washington, DC, United States": {
+    "city": "Washington",
+    "state": "District of Columbia",
+    "stateCode": "DC",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 38.90253,
+      "longitude": -77.039386
+    },
+    "mapboxPlaceName": "Washington, District of Columbia, United States",
+    "confidence": 1
+  },
   "Wasilla, Matanuska-Susitna": {
     "city": "Wasilla",
     "state": "Alaska",
@@ -51277,6 +52074,19 @@
     "mapboxPlaceName": "West Africa Grove, Newport, NP19 4EA, United Kingdom",
     "confidence": 0.459259
   },
+  "West Columbia, SC": {
+    "city": "West Columbia",
+    "state": "South Carolina",
+    "stateCode": "SC",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 33.987943,
+      "longitude": -81.072938
+    },
+    "mapboxPlaceName": "West Columbia, South Carolina, United States",
+    "confidence": 1
+  },
   "West Florida Electric": {
     "city": "Lakewood",
     "state": "Colorado",
@@ -51444,6 +52254,19 @@
       "longitude": -80.714445
     },
     "mapboxPlaceName": "West Virginia, United States",
+    "confidence": 1
+  },
+  "West Warwick, RI, US": {
+    "city": "West Warwick",
+    "state": "Rhode Island",
+    "stateCode": "RI",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 41.707326,
+      "longitude": -71.52241
+    },
+    "mapboxPlaceName": "West Warwick, Rhode Island, United States",
     "confidence": 1
   },
   "Westchester, IL": {
@@ -51708,6 +52531,19 @@
       "longitude": -118.033841
     },
     "mapboxPlaceName": "Whittier, California, United States",
+    "confidence": 1
+  },
+  "Wichita Falls, TX, US": {
+    "city": "Wichita Falls",
+    "state": "Texas",
+    "stateCode": "TX",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 33.900175,
+      "longitude": -98.501835
+    },
+    "mapboxPlaceName": "Wichita Falls, Texas, United States",
     "confidence": 1
   },
   "Wichita, KS": {
@@ -52515,6 +53351,19 @@
       "place"
     ],
     "confidence": 0.707852
+  },
+  "York, PA": {
+    "city": "York",
+    "state": "Pennsylvania",
+    "stateCode": "PA",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 39.962462,
+      "longitude": -76.727707
+    },
+    "mapboxPlaceName": "York, Pennsylvania, United States",
+    "confidence": 1
   },
   "York, PA, US": {
     "city": "York",
