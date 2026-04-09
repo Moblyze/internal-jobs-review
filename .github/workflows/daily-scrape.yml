@@ -84,13 +84,14 @@ jobs:
         run: |
           playwright install chromium
 
-      - name: Restore dedup state
-        uses: actions/cache@v4
-        with:
-          path: scrapers/data/scraper_state.db
-          key: scraper-state-${{ github.run_id }}
-          restore-keys: |
-            scraper-state-
+      - name: Download dedup state from release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p data
+          gh release download scraper-state-latest -p scraper_state.db -D data/ 2>/dev/null \
+            && echo "Restored dedup state ($(wc -c < data/scraper_state.db) bytes)" \
+            || echo "No prior state found — starting fresh"
 
       - name: Create service account credentials file
         env:
@@ -123,12 +124,14 @@ jobs:
           echo "Running: $CMD"
           $CMD
 
-      - name: Save dedup state
-        uses: actions/cache/save@v4
+      - name: Upload dedup state artifact
+        uses: actions/upload-artifact@v4
         if: always()
         with:
+          name: scraper-state-employer
           path: scrapers/data/scraper_state.db
-          key: scraper-state-${{ github.run_id }}
+          retention-days: 1
+          if-no-files-found: ignore
 
       - name: Clean up credentials
         if: always()
@@ -168,13 +171,14 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Restore dedup state
-        uses: actions/cache@v4
-        with:
-          path: scrapers/data/scraper_state.db
-          key: scraper-state-${{ github.run_id }}
-          restore-keys: |
-            scraper-state-
+      - name: Download dedup state from release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p data
+          gh release download scraper-state-latest -p scraper_state.db -D data/ 2>/dev/null \
+            && echo "Restored dedup state ($(wc -c < data/scraper_state.db) bytes)" \
+            || echo "No prior state found — starting fresh"
 
       - name: Create service account credentials file
         env:
@@ -280,12 +284,14 @@ jobs:
             exit 1
           fi
 
-      - name: Save dedup state
-        uses: actions/cache/save@v4
+      - name: Upload dedup state artifact
+        uses: actions/upload-artifact@v4
         if: always()
         with:
+          name: scraper-state-aggregator
           path: scrapers/data/scraper_state.db
-          key: scraper-state-agg-${{ github.run_id }}
+          retention-days: 1
+          if-no-files-found: ignore
 
       - name: Clean up credentials
         if: always()
@@ -299,6 +305,55 @@ jobs:
           name: aggregator-logs-${{ github.run_id }}
           path: scrapers/logs/
           retention-days: 7
+
+  # ── Persist Dedup State (merge both jobs' state and upload to release) ──
+  persist-state:
+    needs: [employer-scrapers, aggregator-searches]
+    if: always() && (needs.employer-scrapers.result == 'success' || needs.aggregator-searches.result == 'success')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout merge script
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: scrapers/scripts/merge_state_dbs.py
+          sparse-checkout-cone-mode: false
+
+      - name: Download employer state
+        uses: actions/download-artifact@v4
+        with:
+          name: scraper-state-employer
+          path: state/employer/
+        continue-on-error: true
+
+      - name: Download aggregator state
+        uses: actions/download-artifact@v4
+        with:
+          name: scraper-state-aggregator
+          path: state/aggregator/
+        continue-on-error: true
+
+      - name: Merge state databases
+        run: |
+          python3 scrapers/scripts/merge_state_dbs.py \
+            state/employer/scraper_state.db \
+            state/aggregator/scraper_state.db \
+            scraper_state.db
+
+      - name: Upload merged state to release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Create the release if it doesn't exist yet
+          gh release view scraper-state-latest 2>/dev/null || \
+            gh release create scraper-state-latest \
+              --title "Scraper Dedup State" \
+              --notes "Persistent dedup state for the daily scraping workflow. Updated automatically after each run."
+
+          gh release upload scraper-state-latest scraper_state.db --clobber
+          echo "Uploaded merged state ($(wc -c < scraper_state.db) bytes)"
 
   # ── Update Source Coverage Matrix (runs after both complete) ──
   update-matrix:
@@ -350,6 +405,8 @@ jobs:
     needs: [employer-scrapers, aggregator-searches, update-matrix]
     if: always() && (needs.employer-scrapers.result == 'success' || needs.aggregator-searches.result == 'success')
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout repository
@@ -372,13 +429,14 @@ jobs:
           echo "$GOOGLE_SERVICE_ACCOUNT_JSON" > config/service_account.json
           chmod 600 config/service_account.json
 
-      - name: Restore digest state
-        uses: actions/cache@v4
-        with:
-          path: data/digest-state.json
-          key: digest-state-${{ github.run_id }}
-          restore-keys: |
-            digest-state-
+      - name: Download digest state from release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p data
+          gh release download scraper-state-latest -p digest-state.json -D data/ 2>/dev/null \
+            && echo "Restored digest state" \
+            || echo "No prior digest state — starting fresh"
 
       - name: Run Slack daily digest
         env:
@@ -387,12 +445,18 @@ jobs:
           SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
         run: node scripts/slack-daily-digest.js
 
-      - name: Save digest state
-        uses: actions/cache/save@v4
+      - name: Upload digest state to release
         if: always()
-        with:
-          path: data/digest-state.json
-          key: digest-state-${{ github.run_id }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -f data/digest-state.json ]; then
+            gh release view scraper-state-latest 2>/dev/null || \
+              gh release create scraper-state-latest \
+                --title "Scraper Dedup State" \
+                --notes "Persistent state for the daily scraping workflow."
+            gh release upload scraper-state-latest data/digest-state.json --clobber
+          fi
 
       - name: Clean up credentials
         if: always()
@@ -401,7 +465,7 @@ jobs:
 
   # ── Summary job (runs after all jobs complete) ──
   report:
-    needs: [employer-scrapers, aggregator-searches, update-matrix, slack-digest]
+    needs: [employer-scrapers, aggregator-searches, persist-state, update-matrix, slack-digest]
     if: always()
     runs-on: ubuntu-latest
     steps:
@@ -412,6 +476,7 @@ jobs:
           echo "════════════════════════════════════════"
           echo "  Employer scrapers: ${{ needs.employer-scrapers.result }}"
           echo "  Aggregator searches: ${{ needs.aggregator-searches.result }}"
+          echo "  Persist dedup state: ${{ needs.persist-state.result }}"
           echo "  Source matrix update: ${{ needs.update-matrix.result }}"
           echo "  Slack digest: ${{ needs.slack-digest.result }}"
           echo "════════════════════════════════════════"
