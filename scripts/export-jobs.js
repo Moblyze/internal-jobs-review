@@ -119,6 +119,9 @@ async function fetchAllJobs(auth) {
       range: `${sheetName}!A:N`, // All columns from the sheet (A-N = 14 columns, includes Employment Type)
     });
 
+    // Add 1 second delay between API calls to respect Google Sheets rate limits
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
     const rows = response.data.values || [];
 
     if (rows.length === 0) {
