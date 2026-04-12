@@ -93,6 +93,11 @@ function parseRow(row, sheetName, columnMap) {
   return job;
 }
 
+// Helper function to add delay between API requests to avoid rate limiting
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 async function fetchAllJobs(auth) {
   const sheets = google.sheets({ version: 'v4', auth });
 
@@ -113,6 +118,9 @@ async function fetchAllJobs(auth) {
     }
 
     console.log(`Fetching jobs from "${sheetName}"...`);
+
+    // Add delay to respect Google Sheets API rate limits (100 requests per 100 seconds per user)
+    await sleep(1100); // 1.1 second delay between requests
 
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: spreadsheet.data.spreadsheetId,
