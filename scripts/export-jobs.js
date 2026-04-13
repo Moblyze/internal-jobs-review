@@ -93,6 +93,11 @@ function parseRow(row, sheetName, columnMap) {
   return job;
 }
 
+// Add delay to avoid Google Sheets API rate limits
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 async function fetchAllJobs(auth) {
   const sheets = google.sheets({ version: 'v4', auth });
 
@@ -102,6 +107,7 @@ async function fetchAllJobs(auth) {
   });
 
   const allJobs = [];
+  let requestCount = 0;
 
   // Fetch data from each worksheet (company), skip Aggregator Jobs tab (handled separately)
   for (const sheet of spreadsheet.data.sheets) {
@@ -113,6 +119,13 @@ async function fetchAllJobs(auth) {
     }
 
     console.log(`Fetching jobs from "${sheetName}"...`);
+
+    // Add delay between requests to avoid rate limits (100 requests per 100 seconds per user)
+    // Wait 1.5 seconds between requests to be safe
+    if (requestCount > 0) {
+      await sleep(1500);
+    }
+    requestCount++;
 
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: spreadsheet.data.spreadsheetId,
