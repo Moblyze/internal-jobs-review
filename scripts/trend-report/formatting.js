@@ -41,7 +41,11 @@ const RAW_SUBSECTOR_LABEL_ROW_1_BASED = 76;
 const RAW_SUBSECTOR_HEADER_ROW_1_BASED = 77;
 const RAW_SUBSECTOR_FIRST_DATA_ROW_1_BASED = 78;
 const RAW_DATA_COL_WIDTH = 12;                   // A..L
-const SUBSECTOR_PREALLOCATED_WEEKS = 60;         // enough rows to cover ~1 year+
+// Pre-allocate 60 rows so chart 2 auto-picks up future weeks without needing
+// the script to re-tune ranges. Week refs beyond current data land on blank
+// or label cells — the ISNUMBER guard in the formula below returns NA() for
+// those so charts skip them silently.
+const SUBSECTOR_PREALLOCATED_WEEKS = 60;
 
 export async function formatDashboard(sheets, spreadsheetId, dashboardSheetId, dashboardTitle) {
   const rawChartData = buildRawChartDataValues();
@@ -103,18 +107,19 @@ function buildRawChartDataValues() {
   for (let weekIdx = 0; weekIdx < SUBSECTOR_PREALLOCATED_WEEKS; weekIdx++) {
     const rowNum = RAW_SUBSECTOR_FIRST_DATA_ROW_1_BASED + weekIdx;
     const weekSourceRow = RAW_TOTAL_QUERY_ROW_1_BASED + 1 + weekIdx;
-    // Week ref: NA() if the QUERY hasn't spilled that far yet. NA (rather
-    // than empty string) preserves the column's DATE type for chart X-axis
-    // inference — so chart 2's dates format identically to chart 1's.
-    const weekRef = `=IF(ISBLANK(A${weekSourceRow}), NA(), A${weekSourceRow})`;
+    // Week ref: only accept dates (numbers). Blank → NA. Label text → NA.
+    // Keeps the column's DATE type clean for chart X-axis formatting so
+    // chart 2's dates format identically to chart 1's.
+    const weekRef = `=IF(ISNUMBER(A${weekSourceRow}), A${weekSourceRow}, NA())`;
     const dataRow = [weekRef];
     for (let subIdx = 0; subIdx < FOCUS_MARKETS_ALPHABETICAL.length; subIdx++) {
       const colLetter = columnLetter(1 + subIdx);
       const checkboxRow = FIRST_CHECKBOX_ROW_1_BASED + subIdx;
-      // Propagate the NA from the week column so charts skip those rows.
+      // Default-show when the checkbox cell is blank (resilient to the
+      // filter area being wiped or not yet populated). Explicit FALSE hides.
       const formula =
         `=IF(ISNA($A${rowNum}), NA(), ` +
-        `IF($P$${checkboxRow}, ` +
+        `IF(OR($P$${checkboxRow}=TRUE, ISBLANK($P$${checkboxRow})), ` +
         `SUMIFS('${TREND_DATA}'!E:E, '${TREND_DATA}'!A:A, $A${rowNum}, ` +
         `'${TREND_DATA}'!B:B, "subsector", '${TREND_DATA}'!C:C, ${colLetter}$${RAW_SUBSECTOR_HEADER_ROW_1_BASED}), 0))`;
       dataRow.push(formula);
