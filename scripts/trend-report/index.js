@@ -105,10 +105,19 @@ async function main() {
 
   await ensureTab(sheets, SPREADSHEET_ID, TREND_DATA_TAB);
   const dashboardSheetId = await ensureTab(sheets, SPREADSHEET_ID, DASHBOARD_TAB);
+  // Trend Data is a full-tab refresh.
   await replaceTab(sheets, SPREADSHEET_ID, TREND_DATA_TAB, trendValues);
-  await replaceTab(sheets, SPREADSHEET_ID, DASHBOARD_TAB, dashboardValues);
+  // Jobs Weekly: targeted A:F update only — does NOT clear the tab. User's
+  // filter/definitions area (rows 18-46, cols P-S) stays untouched.
+  const dashboardEndRow = dashboardValues.length;
+  await sheets.spreadsheets.values.update({
+    spreadsheetId: SPREADSHEET_ID,
+    range: `${DASHBOARD_TAB}!A1:F${dashboardEndRow}`,
+    valueInputOption: 'USER_ENTERED',
+    requestBody: { values: dashboardValues },
+  });
   await formatDashboard(sheets, SPREADSHEET_ID, dashboardSheetId, DASHBOARD_TAB);
-  log(`wrote ${trendValues.length - 1} trend rows and dashboard (formatted, with charts) to sheet ${SPREADSHEET_ID}`);
+  log(`wrote ${trendValues.length - 1} trend rows and dashboard to sheet ${SPREADSHEET_ID}`);
 }
 
 function earliestScrapedAt(jobs) {

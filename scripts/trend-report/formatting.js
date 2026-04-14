@@ -2,23 +2,16 @@
 /**
  * Daily data refresh for the "Jobs Weekly" dashboard tab.
  *
- * Writes VALUES ONLY — never touches formatting, column widths, merges,
- * charts, or data validation. Jesse owns the visual design of the tab; this
- * script just keeps the data behind the charts + filter + rules table fresh.
+ * Writes VALUES ONLY to a single area — the raw chart data block at A60:L137.
+ * Jesse owns everything else on the tab (title row, main dashboard A:F
+ * sections, filter/checkboxes at P:S, definitions table, chart objects,
+ * column widths, merges, styling). This script never touches those.
  *
- * What it writes each run:
- *   P18:Q31  — filter panel values (checkbox TRUE + label per subsector)
- *   Q33:S46  — classification rules (header, explanation, 11 rows)
- *   A60:L88  — raw chart data: section label, Chart 1 QUERY formula, Chart 2
- *               per-subsector filter-gated SUMIFS
- *
- * Subsector formulas use ISBLANK to return empty for weeks that don't yet
- * exist in Trend Data, so the chart shows only real weeks without needing
- * the script to re-tune ranges as data grows.
+ * The filter checkbox column P21:P31 is REFERENCED by the script-written
+ * subsector formulas — so the filter location is load-bearing even though
+ * the script doesn't write to it. If you move the checkboxes, the formulas
+ * here must be updated in lockstep.
  */
-
-import { getMarketDefinitions } from '../focusMarketClassifier.js';
-import { FOCUS_MARKET_LABELS } from '../../src/utils/focusMarkets.js';
 
 const TREND_DATA = 'Trend Data';
 
@@ -36,13 +29,9 @@ const FOCUS_MARKETS_ALPHABETICAL = [
   'Survey & Geophysical',
 ];
 
-// Filter panel — columns P:Q
-const FILTER_PANEL_HEADER_ROW_1_BASED = 18;      // "Subsector filter"
+// Filter checkbox anchor — user-owned cells, not written by the script, but
+// referenced by the subsector SUMIFS formulas below.
 const FIRST_CHECKBOX_ROW_1_BASED = 21;           // P21..P31
-
-// Rules / definitions table — columns Q:S
-const RULES_HEADER_ROW_1_BASED = 33;
-const RULES_FIRST_DATA_ROW_1_BASED = 36;
 
 // Raw chart data — columns A:L, rows 60-137
 const RAW_SECTION_HEADER_ROW_1_BASED = 60;
@@ -55,14 +44,7 @@ const RAW_DATA_COL_WIDTH = 12;                   // A..L
 const SUBSECTOR_PREALLOCATED_WEEKS = 60;         // enough rows to cover ~1 year+
 
 export async function formatDashboard(sheets, spreadsheetId, dashboardSheetId, dashboardTitle) {
-  const filterPanel = buildFilterPanelValues();
-  const rulesTable = buildRulesTableValues();
   const rawChartData = buildRawChartDataValues();
-
-  const filterLastRow =
-    FIRST_CHECKBOX_ROW_1_BASED + FOCUS_MARKETS_ALPHABETICAL.length - 1;
-  const rulesLastRow =
-    RULES_FIRST_DATA_ROW_1_BASED + rulesTable.dataRows.length - 1;
   const rawLastRow =
     RAW_SUBSECTOR_FIRST_DATA_ROW_1_BASED + SUBSECTOR_PREALLOCATED_WEEKS - 1;
 
@@ -72,61 +54,12 @@ export async function formatDashboard(sheets, spreadsheetId, dashboardSheetId, d
       valueInputOption: 'USER_ENTERED',
       data: [
         {
-          range: `${dashboardTitle}!P${FILTER_PANEL_HEADER_ROW_1_BASED}:Q${filterLastRow}`,
-          values: filterPanel,
-        },
-        {
-          range: `${dashboardTitle}!Q${RULES_HEADER_ROW_1_BASED}:S${rulesLastRow}`,
-          values: [
-            ['Subsector classification rules', '', ''],
-            [rulesTable.explanation, '', ''],
-            ['Subsector', 'Include keywords (title match = 3×, description = 1×)', 'Exclude keywords (any title hit disqualifies)'],
-            ...rulesTable.dataRows,
-          ],
-        },
-        {
           range: `${dashboardTitle}!A${RAW_SECTION_HEADER_ROW_1_BASED}:L${rawLastRow}`,
           values: rawChartData,
         },
       ],
     },
   });
-}
-
-function buildFilterPanelValues() {
-  const rows = [];
-  rows.push(['Subsector filter', '']);
-  rows.push(['', '']);
-  rows.push(['', 'Subsector']);
-  for (const name of FOCUS_MARKETS_ALPHABETICAL) {
-    rows.push([true, name]);
-  }
-  return rows;
-}
-
-function buildRulesTableValues() {
-  const defs = getMarketDefinitions();
-  const defsBySlug = Object.fromEntries(defs.map((d) => [d.slug, d]));
-  const labelToSlug = Object.fromEntries(
-    Object.entries(FOCUS_MARKET_LABELS).map(([slug, label]) => [label, slug]),
-  );
-
-  const dataRows = [];
-  for (const label of FOCUS_MARKETS_ALPHABETICAL) {
-    const slug = labelToSlug[label];
-    const def = slug ? defsBySlug[slug] : null;
-    dataRows.push([
-      label,
-      def ? def.include.join(', ') : '— no classifier rules defined yet —',
-      def ? def.exclude.join(', ') : '—',
-    ]);
-  }
-
-  return {
-    explanation:
-      'Direct-employer jobs (Halliburton, BP, etc.) are classified by keyword matching on title + description — rules below. Title hits score 3×, description hits 1×; highest scorer wins. Any exclude keyword in the title disqualifies that market. Aggregator jobs inherit their subsector from the search profile they were scraped under (defined in scrapers/config/aggregators.yaml). The Decommissioning rules below are synced with src/utils/marketContentMatcher.js, which is what the website itself uses for the Decommissioning filter.',
-    dataRows,
-  };
 }
 
 /**
@@ -170,14 +103,17 @@ function buildRawChartDataValues() {
   for (let weekIdx = 0; weekIdx < SUBSECTOR_PREALLOCATED_WEEKS; weekIdx++) {
     const rowNum = RAW_SUBSECTOR_FIRST_DATA_ROW_1_BASED + weekIdx;
     const weekSourceRow = RAW_TOTAL_QUERY_ROW_1_BASED + 1 + weekIdx;
-    // Week ref: blank if the QUERY hasn't spilled that far yet.
-    const weekRef = `=IFERROR(IF(ISBLANK(A${weekSourceRow}), "", A${weekSourceRow}), "")`;
+    // Week ref: NA() if the QUERY hasn't spilled that far yet. NA (rather
+    // than empty string) preserves the column's DATE type for chart X-axis
+    // inference — so chart 2's dates format identically to chart 1's.
+    const weekRef = `=IF(ISBLANK(A${weekSourceRow}), NA(), A${weekSourceRow})`;
     const dataRow = [weekRef];
     for (let subIdx = 0; subIdx < FOCUS_MARKETS_ALPHABETICAL.length; subIdx++) {
       const colLetter = columnLetter(1 + subIdx);
       const checkboxRow = FIRST_CHECKBOX_ROW_1_BASED + subIdx;
+      // Propagate the NA from the week column so charts skip those rows.
       const formula =
-        `=IF(ISBLANK($A${rowNum}), "", ` +
+        `=IF(ISNA($A${rowNum}), NA(), ` +
         `IF($P$${checkboxRow}, ` +
         `SUMIFS('${TREND_DATA}'!E:E, '${TREND_DATA}'!A:A, $A${rowNum}, ` +
         `'${TREND_DATA}'!B:B, "subsector", '${TREND_DATA}'!C:C, ${colLetter}$${RAW_SUBSECTOR_HEADER_ROW_1_BASED}), 0))`;
