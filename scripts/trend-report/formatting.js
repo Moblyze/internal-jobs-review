@@ -14,7 +14,16 @@
  * reset to TRUE on each run.
  */
 
+import { getMarketDefinitions } from '../focusMarketClassifier.js';
+import { FOCUS_MARKET_LABELS } from '../../src/utils/focusMarkets.js';
+
 const TREND_DATA = 'Trend Data';
+
+// Rules table anchor: directly below filter panel.
+const RULES_HEADER_ROW_1_BASED = 93;      // A93
+const RULES_EXPLANATION_ROW_1_BASED = 94; // A94
+const RULES_COL_HEADER_ROW_1_BASED = 95;  // A95
+const RULES_FIRST_DATA_ROW_1_BASED = 96;  // A96
 
 const TITLE_ROW = 0;
 const META_ROWS = [1, 2];
@@ -80,6 +89,8 @@ async function writeChartSourceAndFilter(sheets, spreadsheetId, dashboardTitle) 
   const totalActive = buildTotalActiveSourceValues();
   const subsectorTable = buildSubsectorFilteredTable();
   const filterPanel = buildFilterPanelValues();
+  const rulesTable = buildRulesTableValues();
+  const lastRulesRow = RULES_FIRST_DATA_ROW_1_BASED + rulesTable.dataRows.length - 1;
 
   await sheets.spreadsheets.values.batchUpdate({
     spreadsheetId,
@@ -89,9 +100,43 @@ async function writeChartSourceAndFilter(sheets, spreadsheetId, dashboardTitle) 
         { range: `${dashboardTitle}!H1:I2`, values: totalActive },
         { range: `${dashboardTitle}!K1:V13`, values: subsectorTable },
         { range: `${dashboardTitle}!H${FILTER_PANEL_HEADER_ROW_1_BASED}:I91`, values: filterPanel },
+        {
+          range: `${dashboardTitle}!A${RULES_HEADER_ROW_1_BASED}:C${lastRulesRow}`,
+          values: [
+            ['Subsector classification rules', '', ''],
+            [rulesTable.explanation, '', ''],
+            ['Subsector', 'Include keywords (title match = 3×, description = 1×)', 'Exclude keywords (any title hit disqualifies)'],
+            ...rulesTable.dataRows,
+          ],
+        },
       ],
     },
   });
+}
+
+function buildRulesTableValues() {
+  const defs = getMarketDefinitions();
+  const defsBySlug = Object.fromEntries(defs.map(d => [d.slug, d]));
+  const labelToSlug = Object.fromEntries(
+    Object.entries(FOCUS_MARKET_LABELS).map(([slug, label]) => [label, slug]),
+  );
+
+  const dataRows = [];
+  for (const label of FOCUS_MARKETS_ALPHABETICAL) {
+    const slug = labelToSlug[label];
+    const def = slug ? defsBySlug[slug] : null;
+    dataRows.push([
+      label,
+      def ? def.include.join(', ') : '— no classifier rules defined yet —',
+      def ? def.exclude.join(', ') : '—',
+    ]);
+  }
+
+  return {
+    explanation:
+      'Direct-employer jobs (Halliburton, BP, etc.) are classified by keyword matching on title + description — rules below. Title hits score 3×, description hits 1×; highest scorer wins. Any exclude keyword in the title disqualifies that market. Aggregator jobs inherit their subsector from the search profile they were scraped under (defined in scrapers/config/aggregators.yaml). The Decommissioning rules below are synced with src/utils/marketContentMatcher.js, which is what the website itself uses for the Decommissioning filter.',
+    dataRows,
+  };
 }
 
 function buildTotalActiveSourceValues() {
@@ -343,6 +388,120 @@ function buildFormattingRequests(sheetId) {
         userEnteredFormat: { horizontalAlignment: 'CENTER' },
       },
       fields: 'userEnteredFormat.horizontalAlignment',
+    },
+  });
+
+  // ─── Rules table styling ────────────────────────────────────────────
+  const rulesHeaderRow0 = RULES_HEADER_ROW_1_BASED - 1;       // 92
+  const rulesExplanationRow0 = RULES_EXPLANATION_ROW_1_BASED - 1; // 93
+  const rulesColHeaderRow0 = RULES_COL_HEADER_ROW_1_BASED - 1;   // 94
+  const rulesFirstDataRow0 = RULES_FIRST_DATA_ROW_1_BASED - 1;   // 95
+  const rulesLastDataRow0Exclusive = rulesFirstDataRow0 + FOCUS_MARKETS_ALPHABETICAL.length;
+
+  // Section header: merge A:F, bold + pale blue
+  requests.push({
+    mergeCells: {
+      range: rowRange(sheetId, rulesHeaderRow0, 0, 6),
+      mergeType: 'MERGE_ALL',
+    },
+  });
+  requests.push({
+    repeatCell: {
+      range: rowRange(sheetId, rulesHeaderRow0, 0, 6),
+      cell: {
+        userEnteredFormat: {
+          textFormat: { bold: true, fontSize: 12, foregroundColor: NAVY },
+          backgroundColor: PALE_BLUE,
+          verticalAlignment: 'MIDDLE',
+        },
+      },
+      fields: 'userEnteredFormat(textFormat,backgroundColor,verticalAlignment)',
+    },
+  });
+  requests.push({
+    updateDimensionProperties: {
+      range: { sheetId, dimension: 'ROWS', startIndex: rulesHeaderRow0, endIndex: rulesHeaderRow0 + 1 },
+      properties: { pixelSize: 28 },
+      fields: 'pixelSize',
+    },
+  });
+
+  // Explanation: merge A:F, italic small gray, wrap
+  requests.push({
+    mergeCells: {
+      range: rowRange(sheetId, rulesExplanationRow0, 0, 6),
+      mergeType: 'MERGE_ALL',
+    },
+  });
+  requests.push({
+    repeatCell: {
+      range: rowRange(sheetId, rulesExplanationRow0, 0, 6),
+      cell: {
+        userEnteredFormat: {
+          textFormat: { italic: true, fontSize: 10, foregroundColor: { red: 0.3, green: 0.3, blue: 0.3 } },
+          wrapStrategy: 'WRAP',
+          verticalAlignment: 'TOP',
+          padding: { top: 4, bottom: 4, left: 4, right: 4 },
+        },
+      },
+      fields: 'userEnteredFormat(textFormat,wrapStrategy,verticalAlignment,padding)',
+    },
+  });
+
+  // Column headers: bold + bottom border
+  requests.push({
+    repeatCell: {
+      range: rowRange(sheetId, rulesColHeaderRow0, 0, 3),
+      cell: {
+        userEnteredFormat: {
+          textFormat: { bold: true, fontSize: 10 },
+          backgroundColor: { red: 0.96, green: 0.96, blue: 0.96 },
+          borders: { bottom: { style: 'SOLID', width: 1, color: BORDER_GRAY } },
+          wrapStrategy: 'WRAP',
+          verticalAlignment: 'TOP',
+        },
+      },
+      fields: 'userEnteredFormat(textFormat,backgroundColor,borders,wrapStrategy,verticalAlignment)',
+    },
+  });
+
+  // Data rows: wrap text, top-align
+  requests.push({
+    repeatCell: {
+      range: {
+        sheetId,
+        startRowIndex: rulesFirstDataRow0,
+        endRowIndex: rulesLastDataRow0Exclusive,
+        startColumnIndex: 0,
+        endColumnIndex: 3,
+      },
+      cell: {
+        userEnteredFormat: {
+          textFormat: { fontSize: 10 },
+          wrapStrategy: 'WRAP',
+          verticalAlignment: 'TOP',
+          padding: { top: 4, bottom: 4, left: 4, right: 4 },
+        },
+      },
+      fields: 'userEnteredFormat(textFormat,wrapStrategy,verticalAlignment,padding)',
+    },
+  });
+  // Bold the Subsector name column
+  requests.push({
+    repeatCell: {
+      range: {
+        sheetId,
+        startRowIndex: rulesFirstDataRow0,
+        endRowIndex: rulesLastDataRow0Exclusive,
+        startColumnIndex: 0,
+        endColumnIndex: 1,
+      },
+      cell: {
+        userEnteredFormat: {
+          textFormat: { bold: true, fontSize: 10 },
+        },
+      },
+      fields: 'userEnteredFormat.textFormat',
     },
   });
 
