@@ -15,6 +15,11 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Rate limiting to avoid Google Sheets API quota exceeded errors
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 // Configuration
 const CREDENTIALS_PATH = path.join(__dirname, '../../job-scraping/config/service_account.json');
 const SPREADSHEET_NAME = 'Job Scraping Results'; // Must match .env in job-scraping
@@ -101,6 +106,9 @@ async function fetchAllJobs(auth) {
     spreadsheetId: await getSpreadsheetId(sheets),
   });
 
+  // Add delay after initial metadata fetch
+  await delay(300);
+
   const allJobs = [];
 
   // Fetch data from each worksheet (company), skip Aggregator Jobs tab (handled separately)
@@ -149,6 +157,9 @@ async function fetchAllJobs(auth) {
 
     console.log(`  Found ${jobs.length} jobs from ${sheetName}`);
     allJobs.push(...jobs);
+
+    // Add delay to avoid Google Sheets API quota limits (300 requests/minute per user)
+    await delay(300);
   }
 
   return allJobs;
@@ -348,6 +359,10 @@ async function main() {
 
     console.log('📊 Fetching employer jobs from Google Sheets...');
     const employerJobs = await fetchAllJobs(auth);
+
+    // Add delay before fetching aggregator jobs to avoid quota limits
+    console.log('⏳ Pausing to avoid API rate limits...');
+    await delay(500);
 
     const aggregatorJobs = await fetchAggregatorJobs(auth);
 
