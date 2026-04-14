@@ -190,7 +190,7 @@ function buildChartRequests(sheetId) {
           spec: {
             title: 'New Job Postings by Week',
             basicChart: {
-              chartType: 'LINE',
+              chartType: 'COLUMN',
               legendPosition: 'NO_LEGEND',
               headerCount: 1,
               axis: [
