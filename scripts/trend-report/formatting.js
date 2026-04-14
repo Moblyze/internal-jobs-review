@@ -2,13 +2,16 @@
 /**
  * Dashboard styling + charts. Applied after replaceTab writes the raw values.
  *
- * Layout beyond the main A:F view:
+ * Layout beyond the main A:F view (Jesse moved the filter + rules table on
+ * 2026-04-14; this layout is pinned so daily reruns don't overwrite it):
  *   H1:I14   — total-new-postings chart source (QUERY spill)
  *   K1:V13   — per-subsector chart source (hardcoded 11 focus-market columns,
  *              each cell IF-gated by a checkbox so the BD team can toggle
  *              subsectors on/off)
- *   H78:I91  — filter panel: "Subsector filter" header, 11 checkboxes in H81:H91,
- *              labels in I81:I91 (rows map 1:1 to columns L..V in the chart data)
+ *   H78:J91  — classification rules table: header, explanation, 11 focus-market
+ *              rows with include + exclude keywords (directly under chart 2)
+ *   O59:P72  — subsector filter: checkboxes in O, labels in P (to the right
+ *              of chart 2)
  *
  * All operations are idempotent — re-applying is safe. Checkbox values are
  * reset to TRUE on each run.
@@ -18,12 +21,6 @@ import { getMarketDefinitions } from '../focusMarketClassifier.js';
 import { FOCUS_MARKET_LABELS } from '../../src/utils/focusMarkets.js';
 
 const TREND_DATA = 'Trend Data';
-
-// Rules table anchor: directly below filter panel.
-const RULES_HEADER_ROW_1_BASED = 93;      // A93
-const RULES_EXPLANATION_ROW_1_BASED = 94; // A94
-const RULES_COL_HEADER_ROW_1_BASED = 95;  // A95
-const RULES_FIRST_DATA_ROW_1_BASED = 96;  // A96
 
 const TITLE_ROW = 0;
 const META_ROWS = [1, 2];
@@ -48,12 +45,26 @@ const FOCUS_MARKETS_ALPHABETICAL = [
   'Survey & Geophysical',
 ];
 
-// Column L = index 11 in the subsector chart source. Checkbox for column L
-// lives at row 81, column H. Column M → row 82, etc.
-const FIRST_SUBSECTOR_COL = 11;          // 'L'
-const FIRST_CHECKBOX_ROW_1_BASED = 81;   // H81
-const FILTER_PANEL_HEADER_ROW_1_BASED = 78;
-const FILTER_PANEL_COL_LABEL_ROW_1_BASED = 80;
+// Filter panel — to the right of chart 2 (column O = checkbox, P = label).
+// "Subsector filter" header at O59, then col-label row at O61, then 11
+// checkbox rows from O62 through O72.
+const FILTER_CHECKBOX_COL_0 = 14;                    // 'O'
+const FILTER_LABEL_COL_0 = 15;                       // 'P'
+const FILTER_PANEL_HEADER_ROW_1_BASED = 59;          // O59
+const FILTER_PANEL_COL_LABEL_ROW_1_BASED = 61;       // O61
+const FIRST_CHECKBOX_ROW_1_BASED = 62;               // O62
+
+// Subsector chart source column layout — stays in K:V.
+const FIRST_SUBSECTOR_COL = 11;                      // 'L'
+
+// Rules table — directly under chart 2, columns H:J.
+// H78 header, H79 explanation, H80 col headers, H81..H91 data.
+const RULES_COL_START_0 = 7;                         // 'H'
+const RULES_COL_END_0 = 10;                          // J+1 (exclusive)
+const RULES_HEADER_ROW_1_BASED = 78;
+const RULES_EXPLANATION_ROW_1_BASED = 79;
+const RULES_COL_HEADER_ROW_1_BASED = 80;
+const RULES_FIRST_DATA_ROW_1_BASED = 81;
 
 // Palette
 const NAVY = { red: 0.12, green: 0.22, blue: 0.38 };
@@ -92,6 +103,9 @@ async function writeChartSourceAndFilter(sheets, spreadsheetId, dashboardTitle) 
   const rulesTable = buildRulesTableValues();
   const lastRulesRow = RULES_FIRST_DATA_ROW_1_BASED + rulesTable.dataRows.length - 1;
 
+  const filterLastRow =
+    FIRST_CHECKBOX_ROW_1_BASED + FOCUS_MARKETS_ALPHABETICAL.length - 1;
+
   await sheets.spreadsheets.values.batchUpdate({
     spreadsheetId,
     requestBody: {
@@ -99,9 +113,12 @@ async function writeChartSourceAndFilter(sheets, spreadsheetId, dashboardTitle) 
       data: [
         { range: `${dashboardTitle}!H1:I2`, values: totalActive },
         { range: `${dashboardTitle}!K1:V13`, values: subsectorTable },
-        { range: `${dashboardTitle}!H${FILTER_PANEL_HEADER_ROW_1_BASED}:I91`, values: filterPanel },
         {
-          range: `${dashboardTitle}!A${RULES_HEADER_ROW_1_BASED}:C${lastRulesRow}`,
+          range: `${dashboardTitle}!O${FILTER_PANEL_HEADER_ROW_1_BASED}:P${filterLastRow}`,
+          values: filterPanel,
+        },
+        {
+          range: `${dashboardTitle}!H${RULES_HEADER_ROW_1_BASED}:J${lastRulesRow}`,
           values: [
             ['Subsector classification rules', '', ''],
             [rulesTable.explanation, '', ''],
@@ -171,7 +188,7 @@ function buildSubsectorFilteredTable() {
       const colLetter = columnLetter(FIRST_SUBSECTOR_COL + i);
       const checkboxRow = FIRST_CHECKBOX_ROW_1_BASED + i;
       const formula =
-        `=IF($H$${checkboxRow}, ` +
+        `=IF($O$${checkboxRow}, ` +
         `SUMIFS('${TREND_DATA}'!E:E, '${TREND_DATA}'!A:A, $K${r}, ` +
         `'${TREND_DATA}'!B:B, "subsector", '${TREND_DATA}'!C:C, ${colLetter}$2), 0)`;
       row.push(formula);
@@ -224,12 +241,20 @@ function buildFormattingRequests(sheetId) {
   const requests = [];
 
   // Column widths
-  requests.push(setColumnWidth(sheetId, 0, 1, 280));  // A
-  requests.push(setColumnWidth(sheetId, 1, 2, 160));  // B
-  requests.push(setColumnWidth(sheetId, 2, 6, 110));  // C-F
-  requests.push(setColumnWidth(sheetId, 6, 7, 20));   // G gap
-  requests.push(setColumnWidth(sheetId, 7, 11, 100)); // H-K chart sources
-  requests.push(setColumnWidth(sheetId, 8, 9, 160));  // I: filter panel labels get width
+  requests.push(setColumnWidth(sheetId, 0, 1, 280));  // A: insight / section headers
+  requests.push(setColumnWidth(sheetId, 1, 2, 160));  // B: metric / active
+  requests.push(setColumnWidth(sheetId, 2, 6, 110));  // C-F: numeric columns
+  requests.push(setColumnWidth(sheetId, 6, 7, 20));   // G: visual gap
+  // H:J host chart 2 source (rows 1-13) + rules table (rows 78-91). Widths
+  // sized for the rules table — the chart source cells just render numbers
+  // and fit in wider cells fine.
+  requests.push(setColumnWidth(sheetId, 7, 8, 180));  // H: subsector name
+  requests.push(setColumnWidth(sheetId, 8, 9, 340));  // I: include keywords
+  requests.push(setColumnWidth(sheetId, 9, 10, 280)); // J: exclude keywords
+  requests.push(setColumnWidth(sheetId, 10, 14, 90)); // K-N: chart 2 subsector data
+  requests.push(setColumnWidth(sheetId, 14, 15, 50)); // O: filter checkbox
+  requests.push(setColumnWidth(sheetId, 15, 16, 180));// P: filter label
+  requests.push(setColumnWidth(sheetId, 16, 22, 90)); // Q-V: remaining chart 2 data
 
   // Main title
   requests.push({
@@ -317,22 +342,24 @@ function buildFormattingRequests(sheetId) {
     });
   }
 
-  // Filter panel styling
-  const filterHeaderRow0 = FILTER_PANEL_HEADER_ROW_1_BASED - 1;   // 77 (0-indexed)
-  const filterColLabelRow0 = FILTER_PANEL_COL_LABEL_ROW_1_BASED - 1; // 79
-  const firstCheckboxRow0 = FIRST_CHECKBOX_ROW_1_BASED - 1;       // 80
-  const lastCheckboxRow0 = firstCheckboxRow0 + FOCUS_MARKETS_ALPHABETICAL.length; // exclusive, = 91
+  // Filter panel styling — O:P columns (checkboxCol + labelCol)
+  const filterHeaderRow0 = FILTER_PANEL_HEADER_ROW_1_BASED - 1;
+  const filterColLabelRow0 = FILTER_PANEL_COL_LABEL_ROW_1_BASED - 1;
+  const firstCheckboxRow0 = FIRST_CHECKBOX_ROW_1_BASED - 1;
+  const lastCheckboxRow0 = firstCheckboxRow0 + FOCUS_MARKETS_ALPHABETICAL.length; // exclusive
+  const filterStartCol = FILTER_CHECKBOX_COL_0;
+  const filterEndCol = FILTER_LABEL_COL_0 + 1;
 
-  // "Subsector filter" header (H78:I78) — bold + pale blue bg
+  // "Subsector filter" header — merge O:P, bold + pale blue
   requests.push({
     mergeCells: {
-      range: rowRange(sheetId, filterHeaderRow0, 7, 9),
+      range: rowRange(sheetId, filterHeaderRow0, filterStartCol, filterEndCol),
       mergeType: 'MERGE_ALL',
     },
   });
   requests.push({
     repeatCell: {
-      range: rowRange(sheetId, filterHeaderRow0, 7, 9),
+      range: rowRange(sheetId, filterHeaderRow0, filterStartCol, filterEndCol),
       cell: {
         userEnteredFormat: {
           textFormat: { bold: true, fontSize: 11, foregroundColor: NAVY },
@@ -345,10 +372,10 @@ function buildFormattingRequests(sheetId) {
     },
   });
 
-  // Column-label row (H80:I80) — bold + bottom border
+  // Column-label row — bold + bottom border
   requests.push({
     repeatCell: {
-      range: rowRange(sheetId, filterColLabelRow0, 7, 9),
+      range: rowRange(sheetId, filterColLabelRow0, filterStartCol, filterEndCol),
       cell: {
         userEnteredFormat: {
           textFormat: { bold: true, fontSize: 10 },
@@ -359,15 +386,15 @@ function buildFormattingRequests(sheetId) {
     },
   });
 
-  // Checkbox cells (H81:H91) — data validation + center align
+  // Checkbox cells — data validation + center align
   requests.push({
     setDataValidation: {
       range: {
         sheetId,
         startRowIndex: firstCheckboxRow0,
         endRowIndex: lastCheckboxRow0,
-        startColumnIndex: 7,
-        endColumnIndex: 8,
+        startColumnIndex: FILTER_CHECKBOX_COL_0,
+        endColumnIndex: FILTER_CHECKBOX_COL_0 + 1,
       },
       rule: {
         condition: { type: 'BOOLEAN' },
@@ -381,8 +408,8 @@ function buildFormattingRequests(sheetId) {
         sheetId,
         startRowIndex: firstCheckboxRow0,
         endRowIndex: lastCheckboxRow0,
-        startColumnIndex: 7,
-        endColumnIndex: 8,
+        startColumnIndex: FILTER_CHECKBOX_COL_0,
+        endColumnIndex: FILTER_CHECKBOX_COL_0 + 1,
       },
       cell: {
         userEnteredFormat: { horizontalAlignment: 'CENTER' },
@@ -391,23 +418,23 @@ function buildFormattingRequests(sheetId) {
     },
   });
 
-  // ─── Rules table styling ────────────────────────────────────────────
-  const rulesHeaderRow0 = RULES_HEADER_ROW_1_BASED - 1;       // 92
-  const rulesExplanationRow0 = RULES_EXPLANATION_ROW_1_BASED - 1; // 93
-  const rulesColHeaderRow0 = RULES_COL_HEADER_ROW_1_BASED - 1;   // 94
-  const rulesFirstDataRow0 = RULES_FIRST_DATA_ROW_1_BASED - 1;   // 95
+  // ─── Rules table styling ─ columns H:J (7..10 exclusive) ────────────
+  const rulesHeaderRow0 = RULES_HEADER_ROW_1_BASED - 1;
+  const rulesExplanationRow0 = RULES_EXPLANATION_ROW_1_BASED - 1;
+  const rulesColHeaderRow0 = RULES_COL_HEADER_ROW_1_BASED - 1;
+  const rulesFirstDataRow0 = RULES_FIRST_DATA_ROW_1_BASED - 1;
   const rulesLastDataRow0Exclusive = rulesFirstDataRow0 + FOCUS_MARKETS_ALPHABETICAL.length;
 
-  // Section header: merge A:F, bold + pale blue
+  // Section header: merge H:J, bold + pale blue
   requests.push({
     mergeCells: {
-      range: rowRange(sheetId, rulesHeaderRow0, 0, 6),
+      range: rowRange(sheetId, rulesHeaderRow0, RULES_COL_START_0, RULES_COL_END_0),
       mergeType: 'MERGE_ALL',
     },
   });
   requests.push({
     repeatCell: {
-      range: rowRange(sheetId, rulesHeaderRow0, 0, 6),
+      range: rowRange(sheetId, rulesHeaderRow0, RULES_COL_START_0, RULES_COL_END_0),
       cell: {
         userEnteredFormat: {
           textFormat: { bold: true, fontSize: 12, foregroundColor: NAVY },
@@ -426,16 +453,16 @@ function buildFormattingRequests(sheetId) {
     },
   });
 
-  // Explanation: merge A:F, italic small gray, wrap
+  // Explanation: merge H:J, italic small gray, wrap
   requests.push({
     mergeCells: {
-      range: rowRange(sheetId, rulesExplanationRow0, 0, 6),
+      range: rowRange(sheetId, rulesExplanationRow0, RULES_COL_START_0, RULES_COL_END_0),
       mergeType: 'MERGE_ALL',
     },
   });
   requests.push({
     repeatCell: {
-      range: rowRange(sheetId, rulesExplanationRow0, 0, 6),
+      range: rowRange(sheetId, rulesExplanationRow0, RULES_COL_START_0, RULES_COL_END_0),
       cell: {
         userEnteredFormat: {
           textFormat: { italic: true, fontSize: 10, foregroundColor: { red: 0.3, green: 0.3, blue: 0.3 } },
@@ -448,10 +475,10 @@ function buildFormattingRequests(sheetId) {
     },
   });
 
-  // Column headers: bold + bottom border
+  // Column headers
   requests.push({
     repeatCell: {
-      range: rowRange(sheetId, rulesColHeaderRow0, 0, 3),
+      range: rowRange(sheetId, rulesColHeaderRow0, RULES_COL_START_0, RULES_COL_END_0),
       cell: {
         userEnteredFormat: {
           textFormat: { bold: true, fontSize: 10 },
@@ -472,8 +499,8 @@ function buildFormattingRequests(sheetId) {
         sheetId,
         startRowIndex: rulesFirstDataRow0,
         endRowIndex: rulesLastDataRow0Exclusive,
-        startColumnIndex: 0,
-        endColumnIndex: 3,
+        startColumnIndex: RULES_COL_START_0,
+        endColumnIndex: RULES_COL_END_0,
       },
       cell: {
         userEnteredFormat: {
@@ -486,15 +513,15 @@ function buildFormattingRequests(sheetId) {
       fields: 'userEnteredFormat(textFormat,wrapStrategy,verticalAlignment,padding)',
     },
   });
-  // Bold the Subsector name column
+  // Bold the Subsector name column (H)
   requests.push({
     repeatCell: {
       range: {
         sheetId,
         startRowIndex: rulesFirstDataRow0,
         endRowIndex: rulesLastDataRow0Exclusive,
-        startColumnIndex: 0,
-        endColumnIndex: 1,
+        startColumnIndex: RULES_COL_START_0,
+        endColumnIndex: RULES_COL_START_0 + 1,
       },
       cell: {
         userEnteredFormat: {
