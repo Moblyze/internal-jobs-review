@@ -25,7 +25,7 @@ import { formatDashboard } from './formatting.js';
 
 const SPREADSHEET_ID = '1xb3QBZG9Dtkyo_UmOGu3Oc3zMr2Cg1ohOyt-cd3WT7Y';
 const TREND_DATA_TAB = 'Trend Data';
-const DASHBOARD_TAB = 'BD Dashboard';
+const DASHBOARD_TAB = 'Jobs Weekly';
 const DIMENSIONS = ['employer', 'subsector', 'region', 'country'];
 
 const DRY_RUN = process.argv.includes('--dry-run');

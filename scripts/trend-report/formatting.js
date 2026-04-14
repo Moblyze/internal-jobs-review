@@ -23,9 +23,10 @@ import { FOCUS_MARKET_LABELS } from '../../src/utils/focusMarkets.js';
 const TREND_DATA = 'Trend Data';
 
 const TITLE_ROW = 0;
-const META_ROWS = [1, 2];
-const SECTION_HEADER_ROWS = [4, 11, 18, 31, 45];
-const COLUMN_HEADER_ROWS = [12, 19, 32, 46];
+// Section headers, column headers, and metadata rows are deliberately NOT
+// styled by the script — Jesse owns the visual formatting of those rows and
+// the script must not overwrite his customizations on each daily run. Values
+// still get refreshed (values.update preserves cell formatting).
 
 // Focus markets in alphabetical order. Must stay in lockstep with
 // FOCUS_MARKET_LABELS in src/utils/focusMarkets.js — these labels are what the
@@ -75,13 +76,23 @@ const BORDER_GRAY = { red: 0.6, green: 0.6, blue: 0.6 };
 export async function formatDashboard(sheets, spreadsheetId, dashboardSheetId, dashboardTitle) {
   await writeChartSourceAndFilter(sheets, spreadsheetId, dashboardTitle);
 
-  const existingCharts = await listExistingCharts(sheets, spreadsheetId, dashboardSheetId);
+  const { existingCharts, existingMerges } =
+    await fetchDashboardMeta(sheets, spreadsheetId, dashboardSheetId);
+
   const deleteRequests = existingCharts.map((chartId) => ({
     deleteEmbeddedObject: { objectId: chartId },
   }));
 
+  // Unmerge every merge on the tab (by its exact range), then let
+  // buildFormattingRequests re-establish the script's required merges
+  // (title, filter header, rules header, rules explanation).
+  const unmergeRequests = existingMerges.map((merge) => ({
+    unmergeCells: { range: merge },
+  }));
+
   const requests = [
     ...deleteRequests,
+    ...unmergeRequests,
     ...buildFormattingRequests(dashboardSheetId),
     ...buildChartRequests(dashboardSheetId),
   ];
@@ -90,6 +101,18 @@ export async function formatDashboard(sheets, spreadsheetId, dashboardSheetId, d
     spreadsheetId,
     requestBody: { requests },
   });
+}
+
+async function fetchDashboardMeta(sheets, spreadsheetId, dashboardSheetId) {
+  const meta = await sheets.spreadsheets.get({
+    spreadsheetId,
+    fields: 'sheets.properties.sheetId,sheets.charts.chartId,sheets.merges',
+  });
+  const sheet = meta.data.sheets.find((s) => s.properties.sheetId === dashboardSheetId);
+  return {
+    existingCharts: (sheet?.charts || []).map((c) => c.chartId),
+    existingMerges: sheet?.merges || [],
+  };
 }
 
 // ---------------------------------------------------------------------------
@@ -223,15 +246,6 @@ function buildFilterPanelValues() {
   return rows;
 }
 
-async function listExistingCharts(sheets, spreadsheetId, dashboardSheetId) {
-  const meta = await sheets.spreadsheets.get({
-    spreadsheetId,
-    fields: 'sheets.properties.sheetId,sheets.charts.chartId',
-  });
-  const sheet = meta.data.sheets.find((s) => s.properties.sheetId === dashboardSheetId);
-  if (!sheet || !sheet.charts) return [];
-  return sheet.charts.map((c) => c.chartId);
-}
 
 // ---------------------------------------------------------------------------
 // Formatting + data-validation requests
@@ -256,7 +270,8 @@ function buildFormattingRequests(sheetId) {
   requests.push(setColumnWidth(sheetId, 15, 16, 180));// P: filter label
   requests.push(setColumnWidth(sheetId, 16, 22, 90)); // Q-V: remaining chart 2 data
 
-  // Main title
+  // Main title — merge A:F (any prior merge already cleared by the global
+  // unmergeRequests in formatDashboard).
   requests.push({
     mergeCells: {
       range: rowRange(sheetId, TITLE_ROW, 0, 6),
@@ -285,62 +300,9 @@ function buildFormattingRequests(sheetId) {
     },
   });
 
-  // Metadata rows
-  for (const r of META_ROWS) {
-    requests.push({
-      repeatCell: {
-        range: rowRange(sheetId, r, 0, 6),
-        cell: {
-          userEnteredFormat: {
-            textFormat: { italic: true, fontSize: 9, foregroundColor: { red: 0.4, green: 0.4, blue: 0.4 } },
-          },
-        },
-        fields: 'userEnteredFormat.textFormat',
-      },
-    });
-  }
-
-  // Section headers
-  for (const r of SECTION_HEADER_ROWS) {
-    requests.push({
-      repeatCell: {
-        range: rowRange(sheetId, r, 0, 6),
-        cell: {
-          userEnteredFormat: {
-            textFormat: { bold: true, fontSize: 12, foregroundColor: NAVY },
-            backgroundColor: PALE_BLUE,
-            verticalAlignment: 'MIDDLE',
-          },
-        },
-        fields: 'userEnteredFormat(textFormat,backgroundColor,verticalAlignment)',
-      },
-    });
-    requests.push({
-      updateDimensionProperties: {
-        range: { sheetId, dimension: 'ROWS', startIndex: r, endIndex: r + 1 },
-        properties: { pixelSize: 28 },
-        fields: 'pixelSize',
-      },
-    });
-  }
-
-  // Column-header rows
-  for (const r of COLUMN_HEADER_ROWS) {
-    requests.push({
-      repeatCell: {
-        range: rowRange(sheetId, r, 0, 6),
-        cell: {
-          userEnteredFormat: {
-            textFormat: { bold: true, fontSize: 10 },
-            borders: {
-              bottom: { style: 'SOLID', width: 1, color: BORDER_GRAY },
-            },
-          },
-        },
-        fields: 'userEnteredFormat(textFormat,borders)',
-      },
-    });
-  }
+  // (Metadata rows, section headers, and column-header rows: intentionally
+  // left un-styled so Jesse's manual formatting persists across daily runs.
+  // See the note at the top of this file.)
 
   // Filter panel styling — O:P columns (checkboxCol + labelCol)
   const filterHeaderRow0 = FILTER_PANEL_HEADER_ROW_1_BASED - 1;
@@ -350,7 +312,7 @@ function buildFormattingRequests(sheetId) {
   const filterStartCol = FILTER_CHECKBOX_COL_0;
   const filterEndCol = FILTER_LABEL_COL_0 + 1;
 
-  // "Subsector filter" header — merge O:P, bold + pale blue
+  // "Subsector filter" header — merge O:P
   requests.push({
     mergeCells: {
       range: rowRange(sheetId, filterHeaderRow0, filterStartCol, filterEndCol),
@@ -425,7 +387,7 @@ function buildFormattingRequests(sheetId) {
   const rulesFirstDataRow0 = RULES_FIRST_DATA_ROW_1_BASED - 1;
   const rulesLastDataRow0Exclusive = rulesFirstDataRow0 + FOCUS_MARKETS_ALPHABETICAL.length;
 
-  // Section header: merge H:J, bold + pale blue
+  // Section header: merge H:J
   requests.push({
     mergeCells: {
       range: rowRange(sheetId, rulesHeaderRow0, RULES_COL_START_0, RULES_COL_END_0),
@@ -453,7 +415,7 @@ function buildFormattingRequests(sheetId) {
     },
   });
 
-  // Explanation: merge H:J, italic small gray, wrap
+  // Explanation: merge H:J
   requests.push({
     mergeCells: {
       range: rowRange(sheetId, rulesExplanationRow0, RULES_COL_START_0, RULES_COL_END_0),
