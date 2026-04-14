@@ -47,10 +47,31 @@ const RAW_DATA_COL_WIDTH = 12;                   // A..L
 // those so charts skip them silently.
 const SUBSECTOR_PREALLOCATED_WEEKS = 60;
 
+// ── Chart 3 (Employer Trends) ──────────────────────────────────────────────
+// Up to 10 employers picked via dropdowns at P36:P45.
+const EMPLOYER_DROPDOWN_FIRST_ROW_1_BASED = 36;    // P36
+const EMPLOYER_DROPDOWN_COUNT = 10;
+const EMPLOYER_RAW_LABEL_ROW_1_BASED = 200;
+const EMPLOYER_RAW_HEADER_ROW_1_BASED = 201;
+const EMPLOYER_RAW_FIRST_DATA_ROW_1_BASED = 202;
+const EMPLOYER_PREALLOCATED_WEEKS = 60;
+const EMPLOYER_RAW_COL_WIDTH = 1 + EMPLOYER_DROPDOWN_COUNT; // Week + 10 series
+// Helper list of unique employers (populated by QUERY, consumed by dropdowns).
+const EMPLOYER_LIST_CELL = 'V1';
+
 export async function formatDashboard(sheets, spreadsheetId, dashboardSheetId, dashboardTitle, weekCount = 0) {
   const rawChartData = buildRawChartDataValues(weekCount);
   const rawLastRow =
     RAW_SUBSECTOR_FIRST_DATA_ROW_1_BASED + SUBSECTOR_PREALLOCATED_WEEKS - 1;
+
+  const employerChartData = buildEmployerChartSource(weekCount);
+  const employerLastRow =
+    EMPLOYER_RAW_FIRST_DATA_ROW_1_BASED + EMPLOYER_PREALLOCATED_WEEKS - 1;
+  const employerLastCol = columnLetter(EMPLOYER_RAW_COL_WIDTH - 1); // 'K'
+
+  // Unique-employer helper list at V1 (spills down as Trend Data grows).
+  const employerListFormula =
+    `=SORT(UNIQUE(QUERY('${TREND_DATA}'!A:C, "select C where B = 'employer' label C ''", 1)))`;
 
   await sheets.spreadsheets.values.batchUpdate({
     spreadsheetId,
@@ -61,9 +82,72 @@ export async function formatDashboard(sheets, spreadsheetId, dashboardSheetId, d
           range: `${dashboardTitle}!A${RAW_SECTION_HEADER_ROW_1_BASED}:L${rawLastRow}`,
           values: rawChartData,
         },
+        {
+          range: `${dashboardTitle}!A${EMPLOYER_RAW_LABEL_ROW_1_BASED}:${employerLastCol}${employerLastRow}`,
+          values: employerChartData,
+        },
+        {
+          range: `${dashboardTitle}!${EMPLOYER_LIST_CELL}`,
+          values: [[employerListFormula]],
+        },
       ],
     },
   });
+}
+
+/**
+ * Chart 3 source at A200:K261.
+ *
+ *   A200  section label
+ *   A201  'Week' | B201..K201  = refs to dropdown cells P36..P45 (series
+ *                                labels; blank dropdown → blank label → chart
+ *                                skips that series entirely)
+ *   A202..A261  week refs (NA for weeks beyond current data)
+ *   B202..K261  SUMIFS per week per selected employer, NA when the matching
+ *                dropdown is empty so the chart line doesn't plot zeros.
+ */
+function buildEmployerChartSource(weekCount) {
+  const width = EMPLOYER_RAW_COL_WIDTH;
+  const pad = (row) => row.concat(new Array(Math.max(0, width - row.length)).fill(''));
+  const rows = [];
+
+  // Row 200: section label
+  rows.push(pad(['Chart 3 source — Employer Trends (dropdown-gated, select from P36:P45)']));
+
+  // Row 201: header row — 'Week' + 10 refs to dropdown cells
+  const headerRow = ['Week'];
+  for (let slot = 0; slot < EMPLOYER_DROPDOWN_COUNT; slot++) {
+    const dropdownCell = `P${EMPLOYER_DROPDOWN_FIRST_ROW_1_BASED + slot}`;
+    // Empty string for blank dropdowns so chart skips the series.
+    headerRow.push(`=IF(ISBLANK(${dropdownCell}), "", ${dropdownCell})`);
+  }
+  rows.push(pad(headerRow));
+
+  // Rows 202-261: data
+  for (let weekIdx = 0; weekIdx < EMPLOYER_PREALLOCATED_WEEKS; weekIdx++) {
+    const rowNum = EMPLOYER_RAW_FIRST_DATA_ROW_1_BASED + weekIdx;
+    let weekRef;
+    if (weekIdx < weekCount) {
+      const weekSourceRow = RAW_TOTAL_QUERY_ROW_1_BASED + 1 + weekIdx;
+      weekRef = `=A${weekSourceRow}`;
+    } else {
+      weekRef = '=NA()';
+    }
+    const dataRow = [weekRef];
+    for (let slot = 0; slot < EMPLOYER_DROPDOWN_COUNT; slot++) {
+      const seriesColLetter = columnLetter(1 + slot); // B..K
+      const headerCell = `${seriesColLetter}$${EMPLOYER_RAW_HEADER_ROW_1_BASED}`;
+      const formula =
+        `=IF(${headerCell}="", NA(), ` +
+        `IF(ISNA($A${rowNum}), NA(), ` +
+        `SUMIFS('${TREND_DATA}'!E:E, '${TREND_DATA}'!A:A, $A${rowNum}, ` +
+        `'${TREND_DATA}'!B:B, "employer", '${TREND_DATA}'!C:C, ${headerCell})))`;
+      dataRow.push(formula);
+    }
+    rows.push(pad(dataRow));
+  }
+
+  return rows;
 }
 
 /**
