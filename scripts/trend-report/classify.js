@@ -19,6 +19,8 @@ import { getMarketLabel } from '../../src/utils/focusMarkets.js';
 // Region data — mirrors TOP_ENERGY_REGIONS + ADDITIONAL_ENERGY_REGIONS from
 // src/utils/energyRegions.js. Kept as a local constant so this script runs in
 // Node without triggering the browser-only import chain in energyRegions.js.
+// DRIFT WARNING: if you add/change regions in energyRegions.js, update this
+// constant in lockstep. There is no automated sync between the two copies.
 // ---------------------------------------------------------------------------
 const ALL_ENERGY_REGIONS = [
   {
@@ -121,6 +123,8 @@ const ALL_ENERGY_REGIONS = [
 // Country name extraction — handles human-readable location strings like
 // "Houston, TX, United States" or "Riyadh, Saudi Arabia". Mirrors the country
 // name mappings in src/utils/locationParser.js but applied to formatted strings.
+// DRIFT WARNING: if country/state lists change in locationParser.js, update
+// knownCountries and usStateAbbrs here. There is no automated sync.
 // ---------------------------------------------------------------------------
 
 /**
