@@ -21,6 +21,7 @@ import { addMomentum } from './momentum.js';
 import { generateInsights } from './insights.js';
 import { authorize, ensureTab, replaceTab, loadJobs } from './sheets.js';
 import { buildDashboardValues } from './dashboard.js';
+import { formatDashboard } from './formatting.js';
 
 const SPREADSHEET_ID = '1xb3QBZG9Dtkyo_UmOGu3Oc3zMr2Cg1ohOyt-cd3WT7Y';
 const TREND_DATA_TAB = 'Trend Data';
@@ -103,10 +104,11 @@ async function main() {
   }
 
   await ensureTab(sheets, SPREADSHEET_ID, TREND_DATA_TAB);
-  await ensureTab(sheets, SPREADSHEET_ID, DASHBOARD_TAB);
+  const dashboardSheetId = await ensureTab(sheets, SPREADSHEET_ID, DASHBOARD_TAB);
   await replaceTab(sheets, SPREADSHEET_ID, TREND_DATA_TAB, trendValues);
   await replaceTab(sheets, SPREADSHEET_ID, DASHBOARD_TAB, dashboardValues);
-  log(`wrote ${trendValues.length - 1} trend rows and dashboard to sheet ${SPREADSHEET_ID}`);
+  await formatDashboard(sheets, SPREADSHEET_ID, dashboardSheetId, DASHBOARD_TAB);
+  log(`wrote ${trendValues.length - 1} trend rows and dashboard (formatted, with charts) to sheet ${SPREADSHEET_ID}`);
 }
 
 function earliestScrapedAt(jobs) {
