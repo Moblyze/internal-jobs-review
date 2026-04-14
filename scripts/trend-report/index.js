@@ -13,7 +13,7 @@
  */
 
 import { classifyJob } from './classify.js';
-import { getMarketLabel } from '../../src/utils/focusMarkets.js';
+import { FOCUS_MARKET_LABELS, getMarketLabel } from '../../src/utils/focusMarkets.js';
 import { listWeeksBetween, weekStartFor, formatWeekStart } from './weeks.js';
 import { replayJobsAcrossWeeks } from './replay.js';
 import { aggregateByDimension } from './aggregate.js';
@@ -47,11 +47,13 @@ async function main() {
     log(`${stats.tabErrors.length} tab read errors — first 3: ${JSON.stringify(stats.tabErrors.slice(0, 3))}`);
   }
 
-  // Classify each job. Aggregator rows already carry a profileSlug; prefer
-  // that over the classifier (the aggregator's assignment is authoritative).
+  // Classify each job. Aggregator rows carry a profileSlug, but only slugs
+  // that match one of the 11 real focus markets count as authoritative — the
+  // other aggregator tabs ("Aggregator - interocean", etc.) are company-scoped
+  // searches that should not leak into the subsector dimension.
   const decorated = rawJobs.map((j) => {
     const dims = classifyJob(j);
-    if (j.profileSlug) {
+    if (j.profileSlug && FOCUS_MARKET_LABELS[j.profileSlug]) {
       dims.focusMarketSlug = j.profileSlug;
       dims.focusMarketLabel = getMarketLabel(j.profileSlug);
     }
