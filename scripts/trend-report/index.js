@@ -2,9 +2,9 @@
 /**
  * Trend Report Builder
  *
- * Reads dist/data/jobs.json, reconstructs weekly active-job snapshots,
- * and writes to the "Trend Data" and "BD Dashboard" tabs of the
- * Job Scraping Results Sheet.
+ * Reads all source-job tabs from the Google Sheet, reconstructs weekly
+ * active-job snapshots via replay + aggregation, and writes two new tabs:
+ * "Trend Data" (long-format rows) and "BD Dashboard" (formulas + insights).
  *
  * Usage:
  *   node scripts/trend-report/index.js               # write to Sheet
@@ -12,11 +12,121 @@
  *   node scripts/trend-report/index.js --weeks=12    # only most recent N weeks
  */
 
+import { classifyJob } from './classify.js';
+import { getMarketLabel } from '../../src/utils/focusMarkets.js';
+import { listWeeksBetween, weekStartFor, formatWeekStart } from './weeks.js';
+import { replayJobsAcrossWeeks } from './replay.js';
+import { aggregateByDimension } from './aggregate.js';
+import { addMomentum } from './momentum.js';
+import { generateInsights } from './insights.js';
+import { authorize, ensureTab, replaceTab, loadJobs } from './sheets.js';
+import { buildDashboardValues } from './dashboard.js';
+
+const SPREADSHEET_ID = '1xb3QBZG9Dtkyo_UmOGu3Oc3zMr2Cg1ohOyt-cd3WT7Y';
+const TREND_DATA_TAB = 'Trend Data';
+const DASHBOARD_TAB = 'BD Dashboard';
+const DIMENSIONS = ['employer', 'subsector', 'region', 'country'];
+
 const DRY_RUN = process.argv.includes('--dry-run');
+const weeksArg = process.argv.find((a) => a.startsWith('--weeks='));
+const MAX_WEEKS = weeksArg ? parseInt(weeksArg.split('=')[1], 10) : null;
+
+function log(msg) {
+  console.log(`[trend-report] ${msg}`);
+}
 
 async function main() {
-  console.log(`trend-report: starting (dry-run=${DRY_RUN})`);
-  console.log('trend-report: not yet implemented');
+  log(`dry-run=${DRY_RUN} max-weeks=${MAX_WEEKS ?? 'all'}`);
+
+  const sheets = await authorize();
+  const { jobs: rawJobs, stats } = await loadJobs(sheets, SPREADSHEET_ID, {
+    skipTabNames: [TREND_DATA_TAB, DASHBOARD_TAB],
+  });
+  log(`read ${stats.totalRowsRead} rows from ${stats.tabsReadOk} tabs, ${rawJobs.length} jobs after URL dedup`);
+  if (stats.tabErrors.length > 0) {
+    log(`${stats.tabErrors.length} tab read errors — first 3: ${JSON.stringify(stats.tabErrors.slice(0, 3))}`);
+  }
+
+  // Classify each job. Aggregator rows already carry a profileSlug; prefer
+  // that over the classifier (the aggregator's assignment is authoritative).
+  const decorated = rawJobs.map((j) => {
+    const dims = classifyJob(j);
+    if (j.profileSlug) {
+      dims.focusMarketSlug = j.profileSlug;
+      dims.focusMarketLabel = getMarketLabel(j.profileSlug);
+    }
+    return { ...j, dims };
+  });
+
+  const now = new Date();
+  const earliest = earliestScrapedAt(rawJobs);
+  let weeks = listWeeksBetween(earliest, now);
+  if (MAX_WEEKS) weeks = weeks.slice(-MAX_WEEKS);
+  const currentWeekStart = weekStartFor(now);
+  log(`replaying ${weeks.length} weeks (${formatWeekStart(weeks[0])} .. ${formatWeekStart(weeks[weeks.length - 1])})`);
+
+  const replayRows = replayJobsAcrossWeeks(decorated, weeks);
+  let aggRows = [];
+  for (const dim of DIMENSIONS) {
+    aggRows = aggRows.concat(aggregateByDimension(replayRows, decorated, dim));
+  }
+  aggRows = addMomentum(aggRows);
+  log(`produced ${aggRows.length} aggregate rows across ${DIMENSIONS.length} dimensions`);
+
+  const trendValues = [
+    ['week_start', 'dimension', 'value', 'active', 'new', 'removed', 'net', 'momentum3w'],
+    ...aggRows
+      .sort(rowSort)
+      .map((r) => [
+        formatWeekStart(r.weekStart),
+        r.dimension,
+        r.value,
+        r.active,
+        r.new,
+        r.removed,
+        r.net,
+        Math.round((r.momentum3w ?? 0) * 100) / 100,
+      ]),
+  ];
+
+  const insightLines = generateInsights(aggRows, currentWeekStart);
+  const dashboardValues = buildDashboardValues({ insightLines, currentWeekStart, now });
+
+  if (DRY_RUN) {
+    log(`DRY RUN: would write ${trendValues.length - 1} trend rows and dashboard with ${insightLines.length} insights`);
+    log(`First 5 trend rows: ${JSON.stringify(trendValues.slice(1, 6))}`);
+    log(`Insights:`);
+    insightLines.forEach((l) => console.log(`  - ${l}`));
+    return;
+  }
+
+  await ensureTab(sheets, SPREADSHEET_ID, TREND_DATA_TAB);
+  await ensureTab(sheets, SPREADSHEET_ID, DASHBOARD_TAB);
+  await replaceTab(sheets, SPREADSHEET_ID, TREND_DATA_TAB, trendValues);
+  await replaceTab(sheets, SPREADSHEET_ID, DASHBOARD_TAB, dashboardValues);
+  log(`wrote ${trendValues.length - 1} trend rows and dashboard to sheet ${SPREADSHEET_ID}`);
+}
+
+function earliestScrapedAt(jobs) {
+  let min = null;
+  for (const j of jobs) {
+    if (!j.scrapedAt) continue;
+    const d = new Date(j.scrapedAt);
+    if (Number.isNaN(d.getTime())) continue;
+    if (!min || d < min) min = d;
+  }
+  if (!min) {
+    min = new Date(Date.now() - 8 * 7 * 24 * 60 * 60 * 1000);
+  }
+  return min;
+}
+
+function rowSort(a, b) {
+  if (a.weekStart.getTime() !== b.weekStart.getTime()) {
+    return a.weekStart.getTime() - b.weekStart.getTime();
+  }
+  if (a.dimension !== b.dimension) return a.dimension.localeCompare(b.dimension);
+  return String(a.value).localeCompare(String(b.value));
 }
 
 main().catch((err) => {
