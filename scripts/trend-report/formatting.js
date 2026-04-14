@@ -48,15 +48,19 @@ export async function formatDashboard(sheets, spreadsheetId, dashboardSheetId, d
 }
 
 async function writeChartSource(sheets, spreadsheetId, dashboardTitle) {
-  const totalActiveFormula =
-    `=QUERY('${TREND_DATA}'!A:D, "select A, sum(D) where B = 'employer' group by A order by A label A 'Week', sum(D) 'Total Active'", 1)`;
+  // "New postings per week" is what we can measure honestly — Scraped At is
+  // well populated, so the weekly new-job count is accurate. "Active stock"
+  // can't be reconstructed reliably because scrapers don't catch every
+  // removal (jobs get stuck at status=active in the Sheet).
+  const newPostingsFormula =
+    `=QUERY('${TREND_DATA}'!A:E, "select A, sum(E) where B = 'employer' group by A order by A label A 'Week', sum(E) 'New Postings'", 1)`;
   const subsectorFormula =
-    `=QUERY('${TREND_DATA}'!A:D, "select A, sum(D) where B = 'subsector' group by A pivot C order by A", 1)`;
+    `=QUERY('${TREND_DATA}'!A:E, "select A, sum(E) where B = 'subsector' group by A pivot C order by A", 1)`;
 
   // Row 1: labels. Row 2: formulas that spill downward.
   const values = [
-    ['Chart: Total Active by Week', '', '', 'Chart: Subsector Active by Week'],
-    [totalActiveFormula, '', '', subsectorFormula],
+    ['Chart: New Postings by Week', '', '', 'Chart: New Postings by Subsector'],
+    [newPostingsFormula, '', '', subsectorFormula],
   ];
 
   await sheets.spreadsheets.values.update({
@@ -184,14 +188,14 @@ function buildChartRequests(sheetId) {
       addChart: {
         chart: {
           spec: {
-            title: 'Total Active Jobs by Week',
+            title: 'New Job Postings by Week',
             basicChart: {
               chartType: 'LINE',
               legendPosition: 'NO_LEGEND',
               headerCount: 1,
               axis: [
                 { position: 'BOTTOM_AXIS', title: 'Week' },
-                { position: 'LEFT_AXIS', title: 'Active jobs' },
+                { position: 'LEFT_AXIS', title: 'New postings' },
               ],
               domains: [
                 {
@@ -235,15 +239,15 @@ function buildChartRequests(sheetId) {
       addChart: {
         chart: {
           spec: {
-            title: 'Subsector Active Jobs by Week',
+            title: 'New Postings by Subsector per Week',
             basicChart: {
-              chartType: 'AREA',
+              chartType: 'COLUMN',
               stackedType: 'STACKED',
               legendPosition: 'RIGHT_LEGEND',
               headerCount: 1,
               axis: [
                 { position: 'BOTTOM_AXIS', title: 'Week' },
-                { position: 'LEFT_AXIS', title: 'Active jobs' },
+                { position: 'LEFT_AXIS', title: 'New postings' },
               ],
               domains: [
                 {
