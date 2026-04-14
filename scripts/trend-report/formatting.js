@@ -47,8 +47,8 @@ const RAW_DATA_COL_WIDTH = 12;                   // A..L
 // those so charts skip them silently.
 const SUBSECTOR_PREALLOCATED_WEEKS = 60;
 
-export async function formatDashboard(sheets, spreadsheetId, dashboardSheetId, dashboardTitle) {
-  const rawChartData = buildRawChartDataValues();
+export async function formatDashboard(sheets, spreadsheetId, dashboardSheetId, dashboardTitle, weekCount = 0) {
+  const rawChartData = buildRawChartDataValues(weekCount);
   const rawLastRow =
     RAW_SUBSECTOR_FIRST_DATA_ROW_1_BASED + SUBSECTOR_PREALLOCATED_WEEKS - 1;
 
@@ -79,7 +79,7 @@ export async function formatDashboard(sheets, spreadsheetId, dashboardSheetId, d
  *             Chart 1 QUERY. Subsector cells use ISBLANK so empty weeks stay
  *             empty (chart hides the bar).
  */
-function buildRawChartDataValues() {
+function buildRawChartDataValues(weekCount) {
   const width = RAW_DATA_COL_WIDTH;
   const pad = (row) => row.concat(new Array(Math.max(0, width - row.length)).fill(''));
 
@@ -106,11 +106,15 @@ function buildRawChartDataValues() {
   // Rows 78-137: 60 preallocated rows. Week ref points to QUERY's nth data row.
   for (let weekIdx = 0; weekIdx < SUBSECTOR_PREALLOCATED_WEEKS; weekIdx++) {
     const rowNum = RAW_SUBSECTOR_FIRST_DATA_ROW_1_BASED + weekIdx;
-    const weekSourceRow = RAW_TOTAL_QUERY_ROW_1_BASED + 1 + weekIdx;
-    // Week ref: only accept dates (numbers). Blank → NA. Label text → NA.
-    // Keeps the column's DATE type clean for chart X-axis formatting so
-    // chart 2's dates format identically to chart 1's.
-    const weekRef = `=IF(ISNUMBER(A${weekSourceRow}), A${weekSourceRow}, NA())`;
+    // For weeks beyond the current data, force NA — don't chain through
+    // cells that might resolve to dates via our own subsector formulas.
+    let weekRef;
+    if (weekIdx < weekCount) {
+      const weekSourceRow = RAW_TOTAL_QUERY_ROW_1_BASED + 1 + weekIdx;
+      weekRef = `=A${weekSourceRow}`;
+    } else {
+      weekRef = '=NA()';
+    }
     const dataRow = [weekRef];
     for (let subIdx = 0; subIdx < FOCUS_MARKETS_ALPHABETICAL.length; subIdx++) {
       const colLetter = columnLetter(1 + subIdx);

@@ -116,7 +116,7 @@ async function main() {
     valueInputOption: 'USER_ENTERED',
     requestBody: { values: dashboardValues },
   });
-  await formatDashboard(sheets, SPREADSHEET_ID, dashboardSheetId, DASHBOARD_TAB);
+  await formatDashboard(sheets, SPREADSHEET_ID, dashboardSheetId, DASHBOARD_TAB, weeks.length);
   log(`wrote ${trendValues.length - 1} trend rows and dashboard to sheet ${SPREADSHEET_ID}`);
 }
 
