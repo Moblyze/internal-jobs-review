@@ -97,6 +97,10 @@ def extract_contacts(description: str, employer_name: str) -> dict:
     if email:
         result["contact_email"] = email
         result["contact_source"] = "body_text"
+        derived_name = _derive_name_from_local_part(email)
+        if derived_name:
+            result["contact_name"] = derived_name
+            result["contact_source"] = "email_derived"
 
     return result
 
@@ -107,3 +111,13 @@ def _find_first_personal_email(description: str, employer_name: str) -> str:
         if is_personal_email(candidate, employer_name):
             return candidate
     return ""
+
+
+def _derive_name_from_local_part(email: str) -> str:
+    """Return 'First Last' from 'first.last@...' or empty if not derivable."""
+    local, _, _domain = email.partition("@")
+    local = local.replace("_", ".")
+    tokens = [t for t in local.split(".") if t]
+    if len(tokens) < 2:
+        return ""
+    return " ".join(t[:1].upper() + t[1:].lower() for t in tokens)

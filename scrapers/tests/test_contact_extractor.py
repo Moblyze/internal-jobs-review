@@ -28,9 +28,9 @@ class TestExtractContactsBasics:
 
 class TestBodyTextEmail:
     def test_personal_email_captured_from_body(self):
-        desc = "If interested, send your CV to jane.doe@rovop.com by Friday."
+        desc = "If interested, send your CV to jdoe@rovop.com by Friday."
         result = extract_contacts(desc, "Rovop")
-        assert result["contact_email"] == "jane.doe@rovop.com"
+        assert result["contact_email"] == "jdoe@rovop.com"
         assert result["contact_source"] == "body_text"
 
     def test_generic_email_not_captured(self):
@@ -48,3 +48,30 @@ class TestBodyTextEmail:
         desc = "Contact us at rovop@rovop.com for more info."
         result = extract_contacts(desc, "Rovop")
         assert result["contact_email"] == ""
+
+
+class TestEmailDerivedName:
+    def test_dotted_email_derives_name(self):
+        desc = "Apply via jane.doe@rovop.com."
+        result = extract_contacts(desc, "Rovop")
+        assert result["contact_email"] == "jane.doe@rovop.com"
+        assert result["contact_name"] == "Jane Doe"
+        assert result["contact_source"] == "email_derived"
+
+    def test_underscore_email_derives_name(self):
+        desc = "Apply via mark_smith@rovop.com."
+        result = extract_contacts(desc, "Rovop")
+        assert result["contact_name"] == "Mark Smith"
+        assert result["contact_source"] == "email_derived"
+
+    def test_single_token_email_does_not_derive_name(self):
+        desc = "Apply via jdoe@rovop.com."
+        result = extract_contacts(desc, "Rovop")
+        assert result["contact_email"] == "jdoe@rovop.com"
+        assert result["contact_name"] == ""
+        assert result["contact_source"] == "body_text"
+
+    def test_three_token_email_derives_three_name_parts(self):
+        desc = "Apply via jane.doe.recruiter@rovop.com."
+        result = extract_contacts(desc, "Rovop")
+        assert result["contact_name"] == "Jane Doe Recruiter"
