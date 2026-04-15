@@ -128,3 +128,26 @@ class TestProximityLinking:
         assert result["contact_name"] == "Jane Doe"
         assert result["contact_source"] == "labeled_pattern"
         assert result["contact_email"] == ""
+
+
+class TestLinkedInUrl:
+    def test_linkedin_profile_url_captured(self):
+        desc = "Reach out to Jane Doe — https://linkedin.com/in/jane-doe-rovop for more."
+        result = extract_contacts(desc, "Rovop")
+        assert result["contact_linkedin_url"] == "https://linkedin.com/in/jane-doe-rovop"
+
+    def test_linkedin_url_with_www_captured(self):
+        desc = "www.linkedin.com/in/mark-smith-sub"
+        result = extract_contacts(desc, "Rovop")
+        assert "linkedin.com/in/mark-smith-sub" in result["contact_linkedin_url"]
+
+    def test_linkedin_company_url_not_captured(self):
+        desc = "Visit our company page at linkedin.com/company/rovop."
+        result = extract_contacts(desc, "Rovop")
+        assert result["contact_linkedin_url"] == ""
+
+    def test_linkedin_present_without_person_still_populates(self):
+        desc = "Profile: https://linkedin.com/in/amy-chen/"
+        result = extract_contacts(desc, "Rovop")
+        assert "linkedin.com/in/amy-chen" in result["contact_linkedin_url"]
+        assert result["contact_name"] == ""

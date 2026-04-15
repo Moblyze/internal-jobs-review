@@ -24,6 +24,12 @@ NAME_RE = re.compile(
     r"[A-Z][A-Za-z'\-]+(?:\s+[A-Z][A-Za-z'\-]+){1,3}"
 )
 
+LINKEDIN_RE = re.compile(
+    r"(?:https?://)?(?:www\.)?linkedin\.com/in/[A-Za-z0-9\-_%]+/?",
+    re.IGNORECASE,
+)
+
+
 REJECTED_NAME_TOKENS: set[str] = {
     "apply", "now", "click", "here", "visit", "see", "below",
     "above", "website", "link", "site", "career", "careers",
@@ -138,7 +144,16 @@ def extract_contacts(description: str, employer_name: str) -> dict:
                 result["contact_name"] = derived
                 result["contact_source"] = "email_derived"
 
+    linkedin = _find_linkedin_url(description)
+    if linkedin:
+        result["contact_linkedin_url"] = linkedin
+
     return result
+
+
+def _find_linkedin_url(description: str) -> str:
+    match = LINKEDIN_RE.search(description)
+    return match.group(0) if match else ""
 
 
 def _is_plausible_name(candidate: str) -> bool:
