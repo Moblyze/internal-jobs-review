@@ -59,7 +59,7 @@ const EMPLOYER_RAW_COL_WIDTH = 1 + EMPLOYER_DROPDOWN_COUNT; // Week + 10 series
 // Helper list of unique employers (populated by QUERY, consumed by dropdowns).
 const EMPLOYER_LIST_CELL = 'V1';
 
-export async function formatDashboard(sheets, spreadsheetId, dashboardSheetId, dashboardTitle, weekCount = 0) {
+export async function formatDashboard(sheets, spreadsheetId, dashboardSheetId, dashboardTitle, weekCount = 0, directEmployerNames = []) {
   const rawChartData = buildRawChartDataValues(weekCount);
   const rawLastRow =
     RAW_SUBSECTOR_FIRST_DATA_ROW_1_BASED + SUBSECTOR_PREALLOCATED_WEEKS - 1;
@@ -69,9 +69,15 @@ export async function formatDashboard(sheets, spreadsheetId, dashboardSheetId, d
     EMPLOYER_RAW_FIRST_DATA_ROW_1_BASED + EMPLOYER_PREALLOCATED_WEEKS - 1;
   const employerLastCol = columnLetter(EMPLOYER_RAW_COL_WIDTH - 1); // 'K'
 
-  // Unique-employer helper list at V1 (spills down as Trend Data grows).
-  const employerListFormula =
-    `=SORT(UNIQUE(QUERY('${TREND_DATA}'!A:C, "select C where B = 'employer' label C ''", 1)))`;
+  // Curated employer list at V1:V{N} — only direct-scrape employers (~31
+  // clean, canonical names like Baker Hughes, BP, Halliburton). Skips
+  // aggregator-scraped company strings which are messy and number in the
+  // thousands.
+  const employerListRows = directEmployerNames.map((name) => [name]);
+  // Pad with blanks up to 100 rows so the data-validation range V1:V500 is
+  // stable and old entries from larger past runs get cleared.
+  const EMPLOYER_LIST_PAD_ROWS = 100;
+  while (employerListRows.length < EMPLOYER_LIST_PAD_ROWS) employerListRows.push(['']);
 
   await sheets.spreadsheets.values.batchUpdate({
     spreadsheetId,
@@ -87,8 +93,8 @@ export async function formatDashboard(sheets, spreadsheetId, dashboardSheetId, d
           values: employerChartData,
         },
         {
-          range: `${dashboardTitle}!${EMPLOYER_LIST_CELL}`,
-          values: [[employerListFormula]],
+          range: `${dashboardTitle}!V1:V${EMPLOYER_LIST_PAD_ROWS}`,
+          values: employerListRows,
         },
       ],
     },

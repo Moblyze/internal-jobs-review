@@ -116,7 +116,10 @@ async function main() {
     valueInputOption: 'USER_ENTERED',
     requestBody: { values: dashboardValues },
   });
-  await formatDashboard(sheets, SPREADSHEET_ID, dashboardSheetId, DASHBOARD_TAB, weeks.length);
+  const directEmployerNames = [...new Set(
+    rawJobs.filter((j) => j.source === 'direct').map((j) => j.company).filter(Boolean),
+  )].sort();
+  await formatDashboard(sheets, SPREADSHEET_ID, dashboardSheetId, DASHBOARD_TAB, weeks.length, directEmployerNames);
   log(`wrote ${trendValues.length - 1} trend rows and dashboard to sheet ${SPREADSHEET_ID}`);
 }
 
