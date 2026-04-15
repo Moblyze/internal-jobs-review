@@ -116,9 +116,10 @@ async function main() {
     valueInputOption: 'USER_ENTERED',
     requestBody: { values: dashboardValues },
   });
-  // Top employers by total new postings. Includes direct + aggregator,
-  // filters to names with at least 5 postings to skip obvious noise, then
-  // top 50, then alphabetized for the dropdown.
+  // Employer dropdown list = union of:
+  //   (a) every company on the "Target Companies" tab — always present
+  //   (b) top 50 by total new postings — filtered to names with ≥5 postings
+  //        that start with an alphanumeric (skips obvious noise)
   const employerTotals = new Map();
   for (const r of aggRows) {
     if (r.dimension !== 'employer') continue;
@@ -129,10 +130,19 @@ async function main() {
     .filter(([name, total]) => total >= 5 && /^[A-Za-z0-9]/.test(name))
     .sort((a, b) => b[1] - a[1])
     .slice(0, 50)
-    .map(([name]) => name)
-    .sort();
-  log(`dropdown list: ${topEmployers.length} top employers by total new postings`);
-  await formatDashboard(sheets, SPREADSHEET_ID, dashboardSheetId, DASHBOARD_TAB, weeks.length, topEmployers);
+    .map(([name]) => name);
+
+  const targetCompaniesResp = await sheets.spreadsheets.values.get({
+    spreadsheetId: SPREADSHEET_ID,
+    range: 'Target Companies!A2:A',
+  });
+  const targetCompanies = (targetCompaniesResp.data.values || [])
+    .map((row) => (row[0] || '').trim())
+    .filter(Boolean);
+
+  const dropdownEmployers = [...new Set([...targetCompanies, ...topEmployers])].sort();
+  log(`dropdown list: ${dropdownEmployers.length} employers (${targetCompanies.length} target + top 50 by volume)`);
+  await formatDashboard(sheets, SPREADSHEET_ID, dashboardSheetId, DASHBOARD_TAB, weeks.length, dropdownEmployers);
   log(`wrote ${trendValues.length - 1} trend rows and dashboard to sheet ${SPREADSHEET_ID}`);
 }
 
