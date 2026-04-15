@@ -48,8 +48,9 @@ const RAW_DATA_COL_WIDTH = 12;                   // A..L
 const SUBSECTOR_PREALLOCATED_WEEKS = 60;
 
 // ── Chart 3 (Employer Trends) ──────────────────────────────────────────────
-// Up to 10 employers picked via dropdowns at P36:P45.
-const EMPLOYER_DROPDOWN_FIRST_ROW_1_BASED = 36;    // P36
+// Up to 10 employers picked via dropdowns at Q36:Q45.
+const EMPLOYER_DROPDOWN_COL_LETTER = 'Q';
+const EMPLOYER_DROPDOWN_FIRST_ROW_1_BASED = 36;    // Q36
 const EMPLOYER_DROPDOWN_COUNT = 10;
 const EMPLOYER_RAW_LABEL_ROW_1_BASED = 200;
 const EMPLOYER_RAW_HEADER_ROW_1_BASED = 201;
@@ -123,7 +124,7 @@ function buildEmployerChartSource(weekCount) {
   // Row 201: header row — 'Week' + 10 refs to dropdown cells
   const headerRow = ['Week'];
   for (let slot = 0; slot < EMPLOYER_DROPDOWN_COUNT; slot++) {
-    const dropdownCell = `P${EMPLOYER_DROPDOWN_FIRST_ROW_1_BASED + slot}`;
+    const dropdownCell = `${EMPLOYER_DROPDOWN_COL_LETTER}${EMPLOYER_DROPDOWN_FIRST_ROW_1_BASED + slot}`;
     // Empty string for blank dropdowns so chart skips the series.
     headerRow.push(`=IF(ISBLANK(${dropdownCell}), "", ${dropdownCell})`);
   }
