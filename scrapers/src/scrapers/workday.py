@@ -229,6 +229,8 @@ class WorkdayScraper(BaseScraper):
 
                     # Enrich with certifications (EXTRACT-14)
                     full_job_data = self._enrich_with_certifications(full_job_data)
+                    if self.config.get('extract_contacts', False):
+                        full_job_data = self._enrich_with_contacts(full_job_data)
 
                     # Validate through Pydantic model
                     job = JobPosting(**full_job_data)

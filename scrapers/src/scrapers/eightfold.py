@@ -447,6 +447,8 @@ class EightfoldScraper(BaseScraper):
                 try:
                     job_data = self.normalize_job_data(raw_job, include_description=True)
                     job_data = self._enrich_with_certifications(job_data)
+                    if self.config.get('extract_contacts', False):
+                        job_data = self._enrich_with_contacts(job_data)
 
                     posting = JobPosting(**job_data)
                     jobs.append(posting)
@@ -487,6 +489,8 @@ class EightfoldScraper(BaseScraper):
                     try:
                         job_data = self.normalize_job_data(raw_job, include_description=True)
                         job_data = self._enrich_with_certifications(job_data)
+                        if self.config.get('extract_contacts', False):
+                            job_data = self._enrich_with_contacts(job_data)
 
                         posting = JobPosting(**job_data)
                         jobs.append(posting)

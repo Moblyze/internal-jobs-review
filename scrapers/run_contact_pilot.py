@@ -29,16 +29,9 @@ setup_logger()
 logger = structlog.get_logger()
 
 
-PILOT_COMPANIES = [
-    "rovop",
-    "sulmara",
-    "interocean",
-    "helix_energy",
-    "oceaneering",
-    "subsea7",
-    "altrad_sparrows_us",
-    "taurus_ig",
-]
+def _flagged_companies(all_companies: dict) -> list[str]:
+    """Return every company key with `extract_contacts: true` set in config."""
+    return [k for k, cfg in all_companies.items() if cfg.get("extract_contacts")]
 
 
 def _load_scraper_registry() -> dict:
@@ -144,7 +137,7 @@ async def main() -> None:
     with open("config/companies.yaml") as f:
         all_companies = yaml.safe_load(f).get("companies", {})
 
-    target_keys = [k.strip() for k in args.only.split(",") if k.strip()] or PILOT_COMPANIES
+    target_keys = [k.strip() for k in args.only.split(",") if k.strip()] or _flagged_companies(all_companies)
     missing = [k for k in target_keys if k not in all_companies]
     if missing:
         print(f"ERROR: unknown company keys: {missing}", file=sys.stderr)

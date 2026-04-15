@@ -12,6 +12,7 @@ companies:
   baker_hughes:
     name: "Baker Hughes"
     platform: workday
+    extract_contacts: true
     base_url: "https://bakerhughes.wd5.myworkdayjobs.com/BakerHughes"
     rate_limit_delay: 2.5
     selectors:
@@ -27,6 +28,7 @@ companies:
   noble_corporation:
     name: "Noble Corporation"
     platform: workday
+    extract_contacts: true
     base_url: "https://noblecorp.wd1.myworkdayjobs.com/noblecorp"
     rate_limit_delay: 2.5
     selectors:
@@ -41,6 +43,7 @@ companies:
   kbr:
     name: "KBR"
     platform: workday
+    extract_contacts: true
     base_url: "https://kbr.wd5.myworkdayjobs.com/KBR_Careers"
     rate_limit_delay: 2.5
     # KBR has 1300+ jobs; fetching all detail pages takes 2+ hours.
@@ -76,6 +79,7 @@ companies:
   halliburton:
     name: "Halliburton"
     platform: successfactors
+    extract_contacts: true
     base_url: "https://careers.halliburton.com/search-jobs"
     rate_limit_delay: 2.5
     selectors:
@@ -93,6 +97,7 @@ companies:
   technipfmc:
     name: "TechnipFMC"
     platform: successfactors
+    extract_contacts: true
     base_url: "https://careers.technipfmc.com/search-jobs"
     rate_limit_delay: 2.5
     selectors:
@@ -110,6 +115,7 @@ companies:
   schlumberger:
     name: "Schlumberger"
     platform: eightfold
+    extract_contacts: true
     base_url: "https://slb.eightfold.ai/careers"
     rate_limit_delay: 2.5
     eightfold_domain: "slb.com"
@@ -125,6 +131,7 @@ companies:
   chevron:
     name: "Chevron"
     platform: workday
+    extract_contacts: true
     base_url: "https://chevron.wd5.myworkdayjobs.com/jobs"
     rate_limit_delay: 2.5
     selectors:
@@ -139,6 +146,7 @@ companies:
   conocophillips:
     name: "ConocoPhillips"
     platform: workday
+    extract_contacts: true
     base_url: "https://conocophillips.wd1.myworkdayjobs.com/External"
     rate_limit_delay: 2.5
     selectors:
@@ -153,6 +161,7 @@ companies:
   occidental_petroleum:
     name: "Occidental Petroleum"
     platform: workday
+    extract_contacts: true
     base_url: "https://oxy.wd5.myworkdayjobs.com/Corporate"
     rate_limit_delay: 2.5
     selectors:
@@ -167,6 +176,7 @@ companies:
   marathon_petroleum:
     name: "Marathon Petroleum"
     platform: workday
+    extract_contacts: true
     base_url: "https://mpc.wd1.myworkdayjobs.com/MPCCareers"
     rate_limit_delay: 2.5
     selectors:
@@ -183,6 +193,7 @@ companies:
   worley:
     name: "Worley"
     platform: eightfold
+    extract_contacts: true
     base_url: "https://jobs.worley.com/careers"
     rate_limit_delay: 2.5
     eightfold_domain: "worley.com"
@@ -194,6 +205,7 @@ companies:
   phillips_66:
     name: "Phillips 66"
     platform: successfactors
+    extract_contacts: true
     base_url: "https://careers.phillips66.com/search-jobs"
     rate_limit_delay: 2.5
     selectors:
@@ -213,6 +225,7 @@ companies:
   bp:
     name: "BP"
     platform: workday
+    extract_contacts: true
     base_url: "https://bpinternational.wd3.myworkdayjobs.com/bpCareers"
     rate_limit_delay: 2.5
     selectors:
@@ -227,6 +240,7 @@ companies:
   exxonmobil:
     name: "ExxonMobil"
     platform: successfactors
+    extract_contacts: true
     base_url: "https://jobs.exxonmobil.com/search-jobs"
     rate_limit_delay: 2.5
     selectors:
@@ -244,6 +258,7 @@ companies:
   transocean:
     name: "Transocean"
     platform: workday
+    extract_contacts: true
     base_url: "https://deepwater.wd1.myworkdayjobs.com/GlobalExternalCareerSite"
     rate_limit_delay: 2.5
     selectors:
