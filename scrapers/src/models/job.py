@@ -42,6 +42,15 @@ class JobPosting(BaseModel):
     # Metadata
     scraped_at: datetime = Field(default_factory=lambda: datetime.utcnow(), description="When job was scraped")
 
+    # Contact enrichment (2026-04 pilot — populated for employers with
+    # `extract_contacts: true` in companies.yaml).
+    contact_name: Optional[str] = Field(None, description="Hiring contact name")
+    contact_title: Optional[str] = Field(None, description="Hiring contact title")
+    contact_email: Optional[str] = Field(None, description="Hiring contact personal email")
+    contact_phone: Optional[str] = Field(None, description="Hiring contact phone")
+    contact_linkedin_url: Optional[str] = Field(None, description="Hiring contact LinkedIn profile URL")
+    contact_source: Optional[str] = Field(None, description="Extraction source label (labeled_pattern, body_text, email_derived)")
+
     @field_validator('title', 'company', 'location')
     @classmethod
     def no_empty_strings(cls, v: str) -> str:
@@ -72,9 +81,12 @@ class JobPosting(BaseModel):
         Convert job posting to flat list for Google Sheets export.
 
         Returns:
-            List of values in column order: [title, company, location, description,
-            url, requisition_id, posted_date, skills, certifications, salary,
-            employment_type, status, status_changed_date, scraped_at]
+            List of 20 values in column order: [title, company, location,
+            description, url, requisition_id, posted_date, skills,
+            certifications, salary, employment_type, status,
+            status_changed_date, scraped_at, contact_name, contact_title,
+            contact_email, contact_phone, contact_linkedin_url,
+            contact_source]
         """
         return [
             self.title,
@@ -90,5 +102,11 @@ class JobPosting(BaseModel):
             self.employment_type or '',
             self.status,
             self.status_changed_date.isoformat() if self.status_changed_date else '',
-            self.scraped_at.isoformat()
+            self.scraped_at.isoformat(),
+            self.contact_name or '',
+            self.contact_title or '',
+            self.contact_email or '',
+            self.contact_phone or '',
+            self.contact_linkedin_url or '',
+            self.contact_source or '',
         ]

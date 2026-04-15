@@ -58,9 +58,70 @@ class TestJobPostingModel:
         )
 
         row = job.to_sheet_row()
-        assert len(row) == 11  # Updated count
-        assert row[8] == "active"  # Status at position 8
-        assert row[9] == now.isoformat()  # Status changed date at position 9
+        assert len(row) == 20  # 14 base + 6 contact columns
+        assert row[11] == "active"  # Status at position 11
+        assert row[12] == now.isoformat()  # Status changed date at position 12
+
+    def test_contact_fields_default_to_none(self):
+        job = JobPosting(
+            title="ROV Pilot",
+            company="Rovop",
+            location="Aberdeen, UK",
+            description="Test description for testing purposes",
+            url="https://example.com/job/999",
+        )
+        assert job.contact_name is None
+        assert job.contact_title is None
+        assert job.contact_email is None
+        assert job.contact_phone is None
+        assert job.contact_linkedin_url is None
+        assert job.contact_source is None
+
+    def test_to_sheet_row_has_twenty_columns(self):
+        job = JobPosting(
+            title="ROV Pilot",
+            company="Rovop",
+            location="Aberdeen, UK",
+            description="Test description for testing purposes",
+            url="https://example.com/job/999",
+        )
+        row = job.to_sheet_row()
+        assert len(row) == 20
+
+    def test_to_sheet_row_writes_contact_fields(self):
+        job = JobPosting(
+            title="ROV Pilot",
+            company="Rovop",
+            location="Aberdeen, UK",
+            description="Test description for testing purposes",
+            url="https://example.com/job/999",
+            contact_name="Jane Doe",
+            contact_title="Recruiter",
+            contact_email="jane.doe@rovop.com",
+            contact_phone="+44 1224 555 7890",
+            contact_linkedin_url="https://linkedin.com/in/jane-doe-rovop",
+            contact_source="labeled_pattern",
+        )
+        row = job.to_sheet_row()
+        assert row[-6:] == [
+            "Jane Doe",
+            "Recruiter",
+            "jane.doe@rovop.com",
+            "+44 1224 555 7890",
+            "https://linkedin.com/in/jane-doe-rovop",
+            "labeled_pattern",
+        ]
+
+    def test_to_sheet_row_writes_empty_strings_when_contacts_missing(self):
+        job = JobPosting(
+            title="ROV Pilot",
+            company="Rovop",
+            location="Aberdeen, UK",
+            description="Test description for testing purposes",
+            url="https://example.com/job/999",
+        )
+        row = job.to_sheet_row()
+        assert row[-6:] == ["", "", "", "", "", ""]
 
 
 class TestDeduplicationTracker:
