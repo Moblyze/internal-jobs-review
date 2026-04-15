@@ -30,8 +30,10 @@ const FOCUS_MARKETS_ALPHABETICAL = [
 ];
 
 // Filter checkbox anchor — user-owned cells, not written by the script, but
-// referenced by the subsector SUMIFS formulas below.
-const FIRST_CHECKBOX_ROW_1_BASED = 21;           // P21..P31
+// referenced by the subsector SUMIFS formulas below. Jesse's current layout
+// has the 11 checkboxes at P19:P29 (header row at P18, data rows follow).
+// If the filter block gets moved again, update this constant in lockstep.
+const FIRST_CHECKBOX_ROW_1_BASED = 19;           // P19..P29
 
 // Raw chart data — columns A:L, rows 60-137
 const RAW_SECTION_HEADER_ROW_1_BASED = 60;
