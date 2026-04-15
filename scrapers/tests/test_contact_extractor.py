@@ -111,3 +111,20 @@ class TestLabeledPatterns:
         desc = "Contact: HR"
         result = extract_contacts(desc, "Rovop")
         assert result["contact_name"] == ""
+
+
+class TestProximityLinking:
+    def test_name_and_email_within_150_chars_link_as_labeled(self):
+        desc = "For more information contact: Jane Doe at jane.doe@rovop.com."
+        result = extract_contacts(desc, "Rovop")
+        assert result["contact_name"] == "Jane Doe"
+        assert result["contact_email"] == "jane.doe@rovop.com"
+        assert result["contact_source"] == "labeled_pattern"
+
+    def test_name_far_from_email_is_still_used_but_flagged(self):
+        far_filler = "x" * 300
+        desc = f"Contact: Jane Doe reports in Aberdeen. {far_filler} Apply via careers@rovop.com, no details."
+        result = extract_contacts(desc, "Rovop")
+        assert result["contact_name"] == "Jane Doe"
+        assert result["contact_source"] == "labeled_pattern"
+        assert result["contact_email"] == ""

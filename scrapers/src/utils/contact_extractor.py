@@ -107,7 +107,12 @@ EMPTY_RESULT: dict = {
 def extract_contacts(description: str, employer_name: str) -> dict:
     """Return a dict of 6 contact fields extracted from the job description.
 
-    Keys always present; values default to empty string.
+    Keys always present; values default to empty string. Precedence for
+    `contact_name` / `contact_source`:
+        1. Labeled-pattern capture ("Contact: Jane Doe") — `labeled_pattern`.
+        2. Email-derived name (from "first.last@" local part) — `email_derived`.
+        3. Email present but no derivable name — `body_text`.
+        4. Nothing found — empty.
     """
     result = dict(EMPTY_RESULT)
     if not description:
