@@ -75,3 +75,39 @@ class TestEmailDerivedName:
         desc = "Apply via jane.doe.recruiter@rovop.com."
         result = extract_contacts(desc, "Rovop")
         assert result["contact_name"] == "Jane Doe Recruiter"
+
+
+class TestLabeledPatterns:
+    def test_contact_label_captures_name(self):
+        desc = "Contact: Jane Doe for details about this role."
+        result = extract_contacts(desc, "Rovop")
+        assert result["contact_name"] == "Jane Doe"
+        assert result["contact_source"] == "labeled_pattern"
+
+    def test_recruiter_label_captures_name(self):
+        desc = "Recruiter: Mark Smith"
+        result = extract_contacts(desc, "Rovop")
+        assert result["contact_name"] == "Mark Smith"
+        assert result["contact_source"] == "labeled_pattern"
+
+    def test_hiring_manager_label_captures_name(self):
+        desc = "Hiring Manager: Dr. Amy Chen leads the ROV team."
+        result = extract_contacts(desc, "Rovop")
+        assert result["contact_name"].startswith("Amy Chen") or result["contact_name"] == "Dr. Amy Chen"
+        assert result["contact_source"] == "labeled_pattern"
+
+    def test_posted_by_captures_name(self):
+        desc = "Posted by John Taylor, Subsea Operations."
+        result = extract_contacts(desc, "Rovop")
+        assert result["contact_name"] == "John Taylor"
+
+    def test_action_verb_name_rejected(self):
+        desc = "Contact: Apply Now via our career site."
+        result = extract_contacts(desc, "Rovop")
+        assert result["contact_name"] == ""
+        assert result["contact_source"] == ""
+
+    def test_single_capitalized_word_rejected(self):
+        desc = "Contact: HR"
+        result = extract_contacts(desc, "Rovop")
+        assert result["contact_name"] == ""

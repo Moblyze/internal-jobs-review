@@ -10,6 +10,26 @@ from typing import Optional
 
 EMAIL_RE = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}")
 
+LABEL_RE = re.compile(
+    r"(?:Contact|Recruiter|Hiring Manager|Reporting to|"
+    r"For more information contact|Questions\?\s*Contact)\s*[:\-]\s*"
+    r"|Posted by\s+",
+    re.IGNORECASE,
+)
+
+# Case-sensitive name pattern — must start with a capital. Applied at the
+# position immediately after a LABEL_RE match.
+NAME_RE = re.compile(
+    r"(?:Dr\.\s+|Mr\.\s+|Ms\.\s+|Mrs\.\s+)?"
+    r"[A-Z][A-Za-z'\-]+(?:\s+[A-Z][A-Za-z'\-]+){1,3}"
+)
+
+REJECTED_NAME_TOKENS: set[str] = {
+    "apply", "now", "click", "here", "visit", "see", "below",
+    "above", "website", "link", "site", "career", "careers",
+    "submit", "online", "portal", "form",
+}
+
 
 BLOCKLIST_EXACT: set[str] = {
     "info", "careers", "career", "jobs", "job", "hr",
@@ -93,16 +113,54 @@ def extract_contacts(description: str, employer_name: str) -> dict:
     if not description:
         return result
 
+    labeled_name, _label_end = _find_labeled_name(description)
     email = _find_first_personal_email(description, employer_name)
+
+    if labeled_name and not email:
+        result["contact_name"] = labeled_name
+        result["contact_source"] = "labeled_pattern"
+        return result
+
     if email:
         result["contact_email"] = email
         result["contact_source"] = "body_text"
-        derived_name = _derive_name_from_local_part(email)
-        if derived_name:
-            result["contact_name"] = derived_name
-            result["contact_source"] = "email_derived"
+        if labeled_name:
+            result["contact_name"] = labeled_name
+            result["contact_source"] = "labeled_pattern"
+        else:
+            derived = _derive_name_from_local_part(email)
+            if derived:
+                result["contact_name"] = derived
+                result["contact_source"] = "email_derived"
 
     return result
+
+
+def _is_plausible_name(candidate: str) -> bool:
+    """Reject captures that are action verbs or single-token values."""
+    tokens = candidate.split()
+    if len(tokens) < 2:
+        return False
+    lowered = {t.lower().strip(".,") for t in tokens}
+    if lowered & REJECTED_NAME_TOKENS:
+        return False
+    return True
+
+
+def _find_labeled_name(description: str) -> tuple[Optional[str], Optional[int]]:
+    """Return (name, match_end_index) from first labeled-pattern hit, else (None, None).
+
+    Walks every label occurrence; the first that's followed by a plausible
+    name wins. This tolerates false-label hits that don't precede real names.
+    """
+    for label_match in LABEL_RE.finditer(description):
+        name_match = NAME_RE.match(description, label_match.end())
+        if not name_match:
+            continue
+        candidate = name_match.group(0).strip()
+        if _is_plausible_name(candidate):
+            return (candidate, name_match.end())
+    return (None, None)
 
 
 def _find_first_personal_email(description: str, employer_name: str) -> str:
