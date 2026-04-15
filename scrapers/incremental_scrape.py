@@ -265,6 +265,16 @@ async def incremental_scrape_company(
         elif not new_jobs:
             logger.info("no_new_jobs_found", company=company_name)
 
+        # Update existing jobs with broken descriptions (import inline to avoid circular)
+        updated_count = 0
+        if not dry_run and not status_check_only and exporter and jobs:
+            from main import _update_broken_descriptions
+            updated_count = _update_broken_descriptions(
+                jobs=jobs,
+                exporter=exporter,
+                sheet_name=config['sheet_name'],
+            )
+
         # Calculate duration
         duration = (datetime.utcnow() - start_time).total_seconds()
 

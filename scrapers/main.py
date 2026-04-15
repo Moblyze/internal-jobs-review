@@ -151,6 +151,104 @@ def load_companies_config(config_path: str = 'config/companies.yaml') -> dict:
     return data.get('companies', {})
 
 
+# Markers of broken descriptions: cookie banners, navigation text, or other
+# boilerplate that ended up in the description when a SPA didn't render properly.
+BROKEN_DESCRIPTION_MARKERS = [
+    'Our 3rd party tools use cookies',
+    'cookie banner',
+    'Log out\nOur 3rd party',
+    'Home\nJobs\nLog out',
+    'We use cookies to',
+    'Accept all cookies',
+]
+
+# Minimum length for a "real" description — anything shorter is likely
+# a placeholder or extraction failure.
+MIN_REAL_DESCRIPTION_LENGTH = 50
+
+
+def _is_broken_description(description: str) -> bool:
+    """
+    Check if a description looks broken (cookie banner, nav text, placeholder).
+
+    Returns True if the description should be replaced with better data.
+    """
+    if not description or len(description.strip()) < MIN_REAL_DESCRIPTION_LENGTH:
+        return True
+
+    desc_lower = description.lower()
+    for marker in BROKEN_DESCRIPTION_MARKERS:
+        if marker.lower() in desc_lower:
+            return True
+
+    return False
+
+
+def _update_broken_descriptions(
+    jobs: list,
+    exporter: 'SheetsExporter',
+    sheet_name: str,
+) -> int:
+    """
+    Update existing sheet rows that have broken descriptions.
+
+    Compares freshly scraped jobs against existing sheet data. When a job
+    already exists in the sheet but has a broken description (cookie banner,
+    placeholder, etc.), updates the entire row with the fresh data.
+
+    Args:
+        jobs: All jobs extracted in the current scrape (including duplicates)
+        exporter: SheetsExporter instance
+        sheet_name: Worksheet name
+
+    Returns:
+        Number of rows updated
+    """
+    try:
+        existing = exporter.get_existing_jobs_with_descriptions(sheet_name)
+        if not existing:
+            return 0
+
+        # Build lookup of freshly scraped jobs by URL
+        fresh_by_url = {}
+        for job in jobs:
+            url_str = str(job.url)
+            # Only use fresh jobs that have good descriptions
+            if not _is_broken_description(job.description):
+                fresh_by_url[url_str] = job
+
+        if not fresh_by_url:
+            return 0
+
+        # Find existing rows with broken descriptions that we can fix
+        updates = []
+        for url, info in existing.items():
+            if _is_broken_description(info['description']) and url in fresh_by_url:
+                fresh_job = fresh_by_url[url]
+                updates.append((info['row'], fresh_job.to_sheet_row()))
+
+        if not updates:
+            return 0
+
+        logger.info(
+            "updating_broken_descriptions",
+            sheet=sheet_name,
+            broken_found=sum(1 for info in existing.values() if _is_broken_description(info['description'])),
+            fixable=len(updates),
+        )
+
+        return exporter.batch_update_rows(sheet_name, updates)
+
+    except Exception as e:
+        logger.error(
+            "description_update_failed",
+            sheet=sheet_name,
+            error=str(e),
+            exc_info=True,
+        )
+        return 0
+
+
 async def scrape_company(
     config: dict,
     tracker: DeduplicationTracker,
@@ -280,6 +378,18 @@ async def scrape_company(
         else:
             logger.info("dry_run_skip_export", company=company_name, jobs=len(new_jobs))
 
+        # Update existing jobs with broken descriptions
+        # When a scraper (e.g., portal API) provides good descriptions for jobs
+        # that were previously exported with bad data (e.g., cookie banners from
+        # SPAs that didn't render), update the sheet rows in-place.
+        updated_count = 0
+        if not dry_run and exporter and jobs:
+            updated_count = _update_broken_descriptions(
+                jobs=jobs,
+                exporter=exporter,
+                sheet_name=config['sheet_name'],
+            )
+
         # Calculate duration
         duration = (datetime.utcnow() - start_time).total_seconds()
 
@@ -290,6 +400,7 @@ async def scrape_company(
             new_jobs=len(new_jobs),
             removed_jobs=removed_count,
             exported=exported_count,
+            updated_descriptions=updated_count,
             duration_seconds=round(duration, 2)
         )
 
@@ -299,6 +410,7 @@ async def scrape_company(
             'new_jobs': len(new_jobs),
             'removed_jobs': removed_count,
             'exported': exported_count,
+            'updated_descriptions': updated_count,
             'duration_seconds': round(duration, 2),
             'success': True
         }

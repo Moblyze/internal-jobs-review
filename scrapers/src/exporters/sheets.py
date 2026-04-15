@@ -236,6 +236,92 @@ class SheetsExporter:
         logger.debug(f"Found {len(url_to_row)} existing jobs in {sheet_name}")
         return url_to_row
 
+    def get_existing_jobs_with_descriptions(self, sheet_name: str) -> dict[str, dict]:
+        """
+        Get existing job URLs with their row numbers and descriptions.
+
+        Used to detect jobs with broken/placeholder descriptions that need updating.
+
+        Args:
+            sheet_name: Name of the worksheet
+
+        Returns:
+            Dictionary mapping URL to {'row': int, 'description': str}
+        """
+        try:
+            worksheet = self.spreadsheet.worksheet(sheet_name)
+        except WorksheetNotFound:
+            logger.debug(f"Worksheet not found: {sheet_name}")
+            return {}
+
+        all_values = worksheet.get_all_values()
+        if len(all_values) <= 1:
+            return {}
+
+        url_col_index = self.HEADER_ROW.index('URL')
+        desc_col_index = self.HEADER_ROW.index('Description')
+
+        url_to_info = {}
+        for row_idx, row in enumerate(all_values[1:], start=2):
+            if len(row) > url_col_index and row[url_col_index]:
+                description = row[desc_col_index] if len(row) > desc_col_index else ''
+                url_to_info[row[url_col_index]] = {
+                    'row': row_idx,
+                    'description': description,
+                }
+
+        logger.debug(f"Found {len(url_to_info)} existing jobs with descriptions in {sheet_name}")
+        return url_to_info
+
+    @retry(
+        retry=retry_if_exception_type(APIError),
+        stop=stop_after_attempt(3),
+        wait=wait_exponential(multiplier=2, min=4, max=60),
+        reraise=True
+    )
+    def batch_update_rows(self, sheet_name: str, updates: list[tuple[int, list]]) -> int:
+        """
+        Update full rows of existing jobs in a worksheet.
+
+        Used to refresh broken descriptions or other stale data for jobs
+        that were previously exported with incomplete information.
+
+        Args:
+            sheet_name: Name of the worksheet
+            updates: List of (row_number, row_data) tuples where row_data
+                     matches the to_sheet_row() column order
+
+        Returns:
+            Number of rows updated
+        """
+        if not updates:
+            return 0
+
+        worksheet = self.spreadsheet.worksheet(sheet_name)
+
+        # Build batch update with A1 notation for each row
+        batch_data = []
+        for row_number, row_data in updates:
+            range_notation = f'A{row_number}:N{row_number}'
+            batch_data.append({
+                'range': range_notation,
+                'values': [row_data]
+            })
+
+        # Execute in batches to avoid API limits
+        updated = 0
+        for i in range(0, len(batch_data), self.BATCH_SIZE):
+            batch = batch_data[i:i + self.BATCH_SIZE]
+            worksheet.batch_update(batch, value_input_option='RAW')
+            updated += len(batch)
+            logger.info(
+                f"Updated batch in {sheet_name}: {len(batch)} rows "
+                f"({updated}/{len(updates)} total)"
+            )
+
+        logger.info(f"Successfully updated {updated} existing rows in {sheet_name}")
+        return updated
+
     @retry(
         retry=retry_if_exception_type(APIError),
         stop=stop_after_attempt(3),
