@@ -93,10 +93,16 @@ function parseRow(row, sheetName, columnMap) {
   return job;
 }
 
+// Helper function to add delay between API calls to respect rate limits
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 async function fetchAllJobs(auth) {
   const sheets = google.sheets({ version: 'v4', auth });
 
   // Get spreadsheet metadata to find all worksheets
+  await delay(100); // Add delay before getting spreadsheet metadata
   const spreadsheet = await sheets.spreadsheets.get({
     spreadsheetId: await getSpreadsheetId(sheets),
   });
@@ -114,41 +120,52 @@ async function fetchAllJobs(auth) {
 
     console.log(`Fetching jobs from "${sheetName}"...`);
 
-    const response = await sheets.spreadsheets.values.get({
-      spreadsheetId: spreadsheet.data.spreadsheetId,
-      range: `${sheetName}!A:N`, // All columns from the sheet (A-N = 14 columns, includes Employment Type)
-    });
+    try {
+      const response = await sheets.spreadsheets.values.get({
+        spreadsheetId: spreadsheet.data.spreadsheetId,
+        range: `${sheetName}!A:N`, // All columns from the sheet (A-N = 14 columns, includes Employment Type)
+      });
 
-    const rows = response.data.values || [];
+      const rows = response.data.values || [];
 
-    if (rows.length === 0) {
-      console.log(`  No data in ${sheetName}, skipping`);
+      // Add 250ms delay between API calls to respect Google Sheets rate limits
+      // This helps prevent "Quota exceeded" errors when processing many sheets
+      await delay(250);
+
+      if (rows.length === 0) {
+        console.log(`  No data in ${sheetName}, skipping`);
+        continue;
+      }
+
+      // Build column map from header row
+      const headers = rows[0];
+      const columnMap = {};
+      headers.forEach((header, index) => {
+        columnMap[header] = index;
+      });
+
+      // Validate required columns exist
+      const required = ['Title', 'Company', 'URL'];
+      const missing = required.filter(col => columnMap[col] === undefined);
+      if (missing.length > 0) {
+        console.warn(`  ⚠️  ${sheetName} missing required columns: ${missing.join(', ')}`);
+        console.warn(`  Available columns: ${headers.join(', ')}`);
+        continue;
+      }
+
+      // Parse data rows (skip header)
+      const jobs = rows.slice(1)
+        .map(row => parseRow(row, sheetName, columnMap))
+        .filter(job => job !== null);
+
+      console.log(`  Found ${jobs.length} jobs from ${sheetName}`);
+      allJobs.push(...jobs);
+
+    } catch (error) {
+      console.warn(`  ⚠️  Error fetching ${sheetName}: ${error.message}`);
+      // Continue processing other sheets even if one fails
       continue;
     }
-
-    // Build column map from header row
-    const headers = rows[0];
-    const columnMap = {};
-    headers.forEach((header, index) => {
-      columnMap[header] = index;
-    });
-
-    // Validate required columns exist
-    const required = ['Title', 'Company', 'URL'];
-    const missing = required.filter(col => columnMap[col] === undefined);
-    if (missing.length > 0) {
-      console.warn(`  ⚠️  ${sheetName} missing required columns: ${missing.join(', ')}`);
-      console.warn(`  Available columns: ${headers.join(', ')}`);
-      continue;
-    }
-
-    // Parse data rows (skip header)
-    const jobs = rows.slice(1)
-      .map(row => parseRow(row, sheetName, columnMap))
-      .filter(job => job !== null);
-
-    console.log(`  Found ${jobs.length} jobs from ${sheetName}`);
-    allJobs.push(...jobs);
   }
 
   return allJobs;
@@ -157,6 +174,9 @@ async function fetchAllJobs(auth) {
 async function getSpreadsheetId(sheets) {
   // Find spreadsheet by name
   const drive = google.drive({ version: 'v3', auth: sheets.context._options.auth });
+
+  // Add delay before Drive API call to respect rate limits
+  await delay(100);
 
   const response = await drive.files.list({
     q: `name='${SPREADSHEET_NAME}' and mimeType='application/vnd.google-apps.spreadsheet'`,
@@ -316,6 +336,9 @@ async function fetchAggregatorJobs(auth) {
 
   console.log('📊 Fetching aggregator jobs...');
   try {
+    // Add delay before aggregator API call to respect rate limits
+    await delay(250);
+
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: AGGREGATOR_SPREADSHEET_ID,
       range: 'Aggregator Jobs!A2:P', // Skip header row
