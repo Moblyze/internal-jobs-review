@@ -4,7 +4,11 @@ Stateless module. All input is plain text (as returned by Playwright `inner_text
 No network calls, no I/O, no logging state. Used via `extract_contacts()`.
 """
 
+import re
 from typing import Optional
+
+
+EMAIL_RE = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}")
 
 
 BLOCKLIST_EXACT: set[str] = {
@@ -88,5 +92,18 @@ def extract_contacts(description: str, employer_name: str) -> dict:
     result = dict(EMPTY_RESULT)
     if not description:
         return result
-    # Filled in by later tasks.
+
+    email = _find_first_personal_email(description, employer_name)
+    if email:
+        result["contact_email"] = email
+        result["contact_source"] = "body_text"
+
     return result
+
+
+def _find_first_personal_email(description: str, employer_name: str) -> str:
+    for match in EMAIL_RE.finditer(description):
+        candidate = match.group(0)
+        if is_personal_email(candidate, employer_name):
+            return candidate
+    return ""

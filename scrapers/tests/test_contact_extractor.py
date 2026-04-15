@@ -24,3 +24,27 @@ class TestExtractContactsBasics:
             "contact_source",
         }
         assert set(result.keys()) == expected_keys
+
+
+class TestBodyTextEmail:
+    def test_personal_email_captured_from_body(self):
+        desc = "If interested, send your CV to jane.doe@rovop.com by Friday."
+        result = extract_contacts(desc, "Rovop")
+        assert result["contact_email"] == "jane.doe@rovop.com"
+        assert result["contact_source"] == "body_text"
+
+    def test_generic_email_not_captured(self):
+        desc = "If interested, apply via careers@rovop.com."
+        result = extract_contacts(desc, "Rovop")
+        assert result["contact_email"] == ""
+        assert result["contact_source"] == ""
+
+    def test_multiple_emails_first_personal_wins(self):
+        desc = "General enquiries: info@rovop.com. Direct: mark.smith@rovop.com."
+        result = extract_contacts(desc, "Rovop")
+        assert result["contact_email"] == "mark.smith@rovop.com"
+
+    def test_company_name_email_rejected(self):
+        desc = "Contact us at rovop@rovop.com for more info."
+        result = extract_contacts(desc, "Rovop")
+        assert result["contact_email"] == ""
