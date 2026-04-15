@@ -12,6 +12,7 @@ const CANONICAL_TYPES = [
   'Full or Part-Time',
   'Temporary',
   'Internship',
+  'Other',
 ]
 
 const NORMALIZATION_MAP = {
@@ -43,19 +44,21 @@ const NORMALIZATION_MAP = {
 
   // Internship
   'internship': 'Internship',
-}
 
-// Values that don't map to a meaningful filter category
-const EXCLUDED_VALUES = new Set(['unknown', 'all', 'other'])
+  // Other — non-specific values the user should still be able to filter on
+  'unknown': 'Other',
+  'all': 'Other',
+  'other': 'Other',
+}
 
 /**
  * Normalize a raw employment type string to a canonical category.
- * Returns null for values that should be excluded from filters.
+ * Returns null only when the input is empty or an unrecognized string;
+ * recognized but non-specific values (Unknown/All/Other) map to 'Other'.
  */
 export function normalizeEmploymentType(raw) {
   if (!raw) return null
   const lower = raw.toLowerCase().trim()
-  if (EXCLUDED_VALUES.has(lower)) return null
   return NORMALIZATION_MAP[lower] || null
 }
 

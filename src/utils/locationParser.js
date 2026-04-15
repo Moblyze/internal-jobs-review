@@ -196,6 +196,13 @@ function parseLocation(locationStr, includeMetadata = false) {
   // If it's empty after cleanup, return null
   if (!locationStr) return null;
 
+  // If the geocoded cache explicitly marks this string as a non-location
+  // (e.g., a company name or staffing-agency name that leaked into the
+  // location field), drop it entirely rather than falling through to the
+  // regex fallback (which would surface the raw junk in the filter UI).
+  const cachedEntry = geocodedCache && geocodedCache[locationStr.replace(/^locations\s*/i, '').trim()];
+  if (cachedEntry && cachedEntry._skip) return null;
+
   // Try geocoded data first (if loaded)
   const geocoded = tryGeocoded(locationStr);
   if (geocoded) {
