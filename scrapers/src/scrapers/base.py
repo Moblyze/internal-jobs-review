@@ -155,13 +155,16 @@ class BaseScraper(ABC):
     def _enrich_with_contacts(self, job_data: dict) -> dict:
         """Extract contact info from the job description; add 6 contact fields.
 
+        Runs extraction against the scraped description AND against the
+        user-visible detail page HTML (fetched fresh). Many scrapers use
+        RSS or API endpoints that strip EEO / accessibility blocks — which
+        is exactly where US employers name a hiring/accessibility contact.
+
         Mirrors the `_enrich_with_certifications` pattern: idempotent,
-        exception-safe, writes all 6 contact fields on the dict regardless
-        of outcome. Callers are expected to only invoke this when the
-        company config has `extract_contacts: true`.
+        exception-safe, writes all 6 contact fields regardless of outcome.
 
         Args:
-            job_data: Job dict with a 'description' key.
+            job_data: Job dict with 'description' and ideally 'url' keys.
 
         Returns:
             The same dict with 6 contact_* keys populated (empty strings on
@@ -171,7 +174,10 @@ class BaseScraper(ABC):
             from src.utils.contact_extractor import extract_contacts
 
             description = job_data.get('description') or ''
-            extracted = extract_contacts(description, self.company_name)
+            detail_text = self._fetch_detail_page_text(job_data.get('url', ''))
+            combined = (description + "\n\n" + detail_text) if detail_text else description
+
+            extracted = extract_contacts(combined, self.company_name)
             job_data.update(extracted)
             if any(extracted[k] for k in extracted):
                 self.logger.debug(
@@ -179,6 +185,7 @@ class BaseScraper(ABC):
                     source=extracted.get("contact_source"),
                     has_email=bool(extracted.get("contact_email")),
                     has_name=bool(extracted.get("contact_name")),
+                    used_detail_fetch=bool(detail_text),
                 )
         except Exception as e:
             self.logger.error("contact_extraction_failed", error=str(e))
@@ -186,6 +193,39 @@ class BaseScraper(ABC):
                         "contact_phone", "contact_linkedin_url", "contact_source"):
                 job_data.setdefault(key, "")
         return job_data
+
+    def _fetch_detail_page_text(self, url: str) -> str:
+        """Fetch the job detail page HTML and return visible text.
+
+        Used by `_enrich_with_contacts` to reach accessibility / EEO blocks
+        that RSS and API endpoints typically strip. Sync requests call —
+        acceptable because per-scraper rate_limit_delay already dominates.
+
+        Silently returns '' on any failure (timeout, non-200, parse error).
+        """
+        if not url:
+            return ''
+        try:
+            import requests
+            from bs4 import BeautifulSoup
+
+            resp = requests.get(
+                url,
+                timeout=15,
+                headers={
+                    'User-Agent': (
+                        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) '
+                        'AppleWebKit/537.36 (KHTML, like Gecko) '
+                        'Chrome/120.0.0.0 Safari/537.36'
+                    )
+                },
+            )
+            if resp.status_code != 200:
+                return ''
+            return BeautifulSoup(resp.text, 'html.parser').get_text('\n')
+        except Exception as e:
+            self.logger.debug("detail_page_fetch_failed", url=url, error=str(e))
+            return ''
 
     def _enrich_with_certifications(self, job_data: dict) -> dict:
         """

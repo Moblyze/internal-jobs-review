@@ -97,6 +97,25 @@ def is_personal_email(email: str, employer_name: str) -> bool:
     if "-team" in local_lower or "_team" in local_lower:
         return False
 
+    # Prefix-match generic mailbox roots with optional country/region/team
+    # suffixes: RecruitmentUK@, careersUS@, hrteam@, talentacquisition-na@, etc.
+    GENERIC_PREFIXES = (
+        "recruitment", "recruiting", "recruiter",
+        "careers", "career", "jobs", "hiring", "talent",
+        "hr-", "hr.", "hr_",
+        "info-", "info.", "info_",
+    )
+    if local_lower.startswith(GENERIC_PREFIXES):
+        return False
+    # Bare generic root + short country/region suffix (e.g. hruk, infous, infouk)
+    for root in ("hr", "info"):
+        if (
+            local_lower.startswith(root)
+            and len(local_lower) <= len(root) + 6
+            and local_lower[len(root):].isalnum()
+        ):
+            return False
+
     company_token = _normalize_company_token(employer_name)
     local_alnum = "".join(ch for ch in local_lower if ch.isalnum())
     if company_token and company_token in local_alnum:

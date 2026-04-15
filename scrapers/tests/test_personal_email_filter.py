@@ -49,6 +49,29 @@ class TestTeamPatterns:
         assert is_personal_email("ops_team@company.com", "Any Company") is False
 
 
+class TestGenericPrefixesWithSuffix:
+    """Catch generic mailboxes with country/region/team suffixes — e.g.
+    RecruitmentUK@, careersUS@, hrteam@ — that pass exact-match blocklist."""
+
+    @pytest.mark.parametrize("email", [
+        "recruitmentuk@company.com",
+        "RecruitmentUK@company.com",
+        "recruitmentus@company.com",
+        "recruitingteam@company.com",
+        "recruiterna@company.com",
+        "careersuk@company.com",
+        "careersteam@company.com",
+        "jobsus@company.com",
+        "hiringteam@company.com",
+        "talentacquisition-na@company.com",
+        "hruk@company.com",
+        "hrteam@company.com",
+        "infouk@company.com",
+    ])
+    def test_generic_prefix_variants_rejected(self, email):
+        assert is_personal_email(email, "Any Company") is False
+
+
 class TestCompanyNameRejection:
     def test_local_part_equals_employer_name_rejected(self):
         assert is_personal_email("rovop@rovop.com", "Rovop") is False
