@@ -59,6 +59,7 @@ companies:
   subsea7:
     name: "Subsea7"
     platform: avature
+    extract_contacts: true
     base_url: "https://careers.subsea7.com/go/All-Subsea7-Jobs/9310955/"
     rate_limit_delay: 3.0
     selectors:
@@ -259,6 +260,7 @@ companies:
   interocean:
     name: "Interocean Marine Services"
     platform: workable
+    extract_contacts: true
     base_url: "https://apply.workable.com/interocean/"
     workable_slug: "interocean"
     rate_limit_delay: 2.0
@@ -271,6 +273,7 @@ companies:
   helix_energy:
     name: "Helix Energy Solutions"
     platform: taleo
+    extract_contacts: true
     base_url: "https://phf.tbe.taleo.net/phf01/ats/careers/v2/jobSearch?org=HELIXESG&cws=45"
     rate_limit_delay: 2.5
     taleo_config:
@@ -357,6 +360,7 @@ companies:
   oceaneering:
     name: "Oceaneering"
     platform: phenom
+    extract_contacts: true
     base_url: "https://careers.oceaneering.com/global/en"
     rate_limit_delay: 2.5
     phenom_config:
@@ -370,6 +374,7 @@ companies:
   rovop:
     name: "ROVOP"
     platform: rovop
+    extract_contacts: true
     base_url: "https://jobs.rovop.com/jobs.aspx"
     rate_limit_delay: 3.0
     # ROVOP uses a custom ASP.NET career portal (not a known ATS platform).
@@ -387,6 +392,7 @@ companies:
   altrad_sparrows_us:
     name: "Altrad Sparrows"
     platform: easyapply
+    extract_contacts: true
     base_url: "https://altradsparrowsuscareers.easyapply.co/"
     rate_limit_delay: 2.0
     # EasyApply uses RSS feed for extraction; fetch_detail_pages enables
@@ -490,6 +496,7 @@ companies:
   taurus_ig:
     name: "Taurus Industrial Group"
     platform: adp
+    extract_contacts: true
     base_url: "https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=d096c643-dacd-480f-a2ad-6416f29abc6c&ccId=19000101_000001&lang=en_US"
     rate_limit_delay: 3.0
     # Taurus IG uses ADP Workforce Now for recruitment. The portal is a React SPA
@@ -539,6 +546,7 @@ companies:
   sulmara:
     name: "Sulmara"
     platform: occupop
+    extract_contacts: true
     base_url: "https://sulmara.occupop-careers.com/"
     rate_limit_delay: 3.0
     # Sulmara uses Occupop (Cezanne Recruitment) - a React SPA career page.

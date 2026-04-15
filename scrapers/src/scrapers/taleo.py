@@ -495,6 +495,8 @@ class TaleoScraper(BaseScraper):
 
                 # Enrich with certifications
                 job_data = self._enrich_with_certifications(job_data)
+                if self.config.get('extract_contacts', False):
+                    job_data = self._enrich_with_contacts(job_data)
 
                 # Validate through Pydantic model
                 posting = JobPosting(**job_data)
@@ -583,6 +585,8 @@ class TaleoScraper(BaseScraper):
                     job_data = await self.extract_job_detail(page, job_card['url'])
                     full_job_data = {**job_card, **job_data}
                     full_job_data = self._enrich_with_certifications(full_job_data)
+                    if self.config.get('extract_contacts', False):
+                        full_job_data = self._enrich_with_contacts(full_job_data)
 
                     posting = JobPosting(**full_job_data)
                     jobs.append(posting)

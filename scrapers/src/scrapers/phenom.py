@@ -556,6 +556,8 @@ class PhenomScraper(BaseScraper):
 
                     # Enrich with certifications from description
                     job_data = self._enrich_with_certifications(job_data)
+                    if self.config.get('extract_contacts', False):
+                        job_data = self._enrich_with_contacts(job_data)
 
                     # Validate through Pydantic model
                     posting = JobPosting(**job_data)
@@ -606,6 +608,8 @@ class PhenomScraper(BaseScraper):
 
                         job_data = self.normalize_job_data(raw_job, detail_data=detail_data)
                         job_data = self._enrich_with_certifications(job_data)
+                        if self.config.get('extract_contacts', False):
+                            job_data = self._enrich_with_contacts(job_data)
 
                         posting = JobPosting(**job_data)
                         jobs.append(posting)
