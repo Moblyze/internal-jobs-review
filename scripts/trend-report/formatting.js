@@ -2,15 +2,26 @@
 /**
  * Daily data refresh for the "Jobs Weekly" dashboard tab.
  *
- * Writes VALUES ONLY to a single area — the raw chart data block at A60:L137.
- * Jesse owns everything else on the tab (title row, main dashboard A:F
- * sections, filter/checkboxes at P:S, definitions table, chart objects,
- * column widths, merges, styling). This script never touches those.
+ * Writes VALUES ONLY to three side-by-side chart source blocks below row 60,
+ * all sharing Column A for weeks:
  *
- * The filter checkbox column P21:P31 is REFERENCED by the script-written
+ *   Column A            Chart 1 source — QUERY of weekly totals (spills A:B)
+ *   Columns D:N         Chart 2 source — 11 subsectors (week refs via $A)
+ *   Columns W:AF        Chart 3 source — 10 employer dropdown slots (week
+ *                       refs via $A; header refs Q35:Q44 dropdown cells)
+ *
+ * Side-by-side means no vertical stacking: each block can grow downward for
+ * years of future weeks without the risk of one block overflowing into
+ * another. Blank rows past current weekCount are written as truly empty
+ * cells (not =NA()) so the sheet stays visually clean.
+ *
+ * Jesse owns everything else on the tab — main dashboard rows 1-56,
+ * filter/checkboxes at P18:P29, employer dropdowns at Q34:Q44, definitions
+ * table, chart objects themselves, column widths, merges, styling.
+ *
+ * The filter checkbox column P19:P29 is REFERENCED by the script-written
  * subsector formulas — so the filter location is load-bearing even though
- * the script doesn't write to it. If you move the checkboxes, the formulas
- * here must be updated in lockstep.
+ * the script doesn't write there.
  */
 
 const TREND_DATA = 'Trend Data';
@@ -29,58 +40,53 @@ const FOCUS_MARKETS_ALPHABETICAL = [
   'Survey & Geophysical',
 ];
 
-// Filter checkbox anchor — user-owned cells, not written by the script, but
-// referenced by the subsector SUMIFS formulas below. Jesse's current layout
-// has the 11 checkboxes at P19:P29 (header row at P18, data rows follow).
-// If the filter block gets moved again, update this constant in lockstep.
-const FIRST_CHECKBOX_ROW_1_BASED = 19;           // P19..P29
+// Filter checkbox anchor — P19:P29 (11 checkboxes, one per subsector).
+// Load-bearing: subsector SUMIFS below reference these cell addresses.
+const FIRST_CHECKBOX_ROW_1_BASED = 19;
 
-// Raw chart data — columns A:L, rows 60-137
-const RAW_SECTION_HEADER_ROW_1_BASED = 60;
-const RAW_TOTAL_LABEL_ROW_1_BASED = 62;
-const RAW_TOTAL_QUERY_ROW_1_BASED = 63;          // QUERY spills A63:B74+ as weeks accumulate
-const RAW_SUBSECTOR_LABEL_ROW_1_BASED = 76;
-const RAW_SUBSECTOR_HEADER_ROW_1_BASED = 77;
-const RAW_SUBSECTOR_FIRST_DATA_ROW_1_BASED = 78;
-const RAW_DATA_COL_WIDTH = 12;                   // A..L
-// Pre-allocate 60 rows so chart 2 auto-picks up future weeks without needing
-// the script to re-tune ranges. Week refs beyond current data land on blank
-// or label cells — the ISNUMBER guard in the formula below returns NA() for
-// those so charts skip them silently.
-const SUBSECTOR_PREALLOCATED_WEEKS = 60;
+// Shared row anchors for all three side-by-side blocks.
+const SECTION_HEADER_ROW_1_BASED = 60;
+const LABEL_ROW_1_BASED = 62;
+const HEADER_ROW_1_BASED = 63;
+const FIRST_DATA_ROW_1_BASED = 64;
+const PREALLOCATED_WEEKS = 100;
+const LAST_DATA_ROW_1_BASED = FIRST_DATA_ROW_1_BASED + PREALLOCATED_WEEKS - 1; // 163
 
-// ── Chart 3 (Employer Trends) ──────────────────────────────────────────────
-// Up to 10 employers picked via dropdowns at Q35:Q44.
+// Chart 3 employer dropdowns — user-owned cells at Q35:Q44.
 const EMPLOYER_DROPDOWN_COL_LETTER = 'Q';
-const EMPLOYER_DROPDOWN_FIRST_ROW_1_BASED = 35;    // Q35
+const EMPLOYER_DROPDOWN_FIRST_ROW_1_BASED = 35;
 const EMPLOYER_DROPDOWN_COUNT = 10;
-const EMPLOYER_RAW_LABEL_ROW_1_BASED = 200;
-const EMPLOYER_RAW_HEADER_ROW_1_BASED = 201;
-const EMPLOYER_RAW_FIRST_DATA_ROW_1_BASED = 202;
-const EMPLOYER_PREALLOCATED_WEEKS = 60;
-const EMPLOYER_RAW_COL_WIDTH = 1 + EMPLOYER_DROPDOWN_COUNT; // Week + 10 series
-// Helper list of unique employers (populated by QUERY, consumed by dropdowns).
-const EMPLOYER_LIST_CELL = 'V1';
+
+// Column anchors within the side-by-side block.
+const CHART2_FIRST_COL_LETTER = 'D';
+const CHART2_FIRST_COL_INDEX = 3;  // A=0
+const CHART3_FIRST_COL_LETTER = 'W';
+const CHART3_FIRST_COL_INDEX = 22;
+
+// Employer dropdown list at V1:V100 — consumed by data-validation rules
+// on Q35:Q44.
+const EMPLOYER_LIST_PAD_ROWS = 100;
+
+// Legacy ranges from the previous stacked-block layout. Written as empty on
+// every run so the script stays idempotent against any sheet that still
+// holds old data from before the side-by-side refactor.
+const LEGACY_RANGES_TO_BLANK = [
+  { range: 'A76:L163', rows: 88, cols: 12 },
+  { range: 'A200:K261', rows: 62, cols: 11 },
+];
 
 export async function formatDashboard(sheets, spreadsheetId, dashboardSheetId, dashboardTitle, weekCount = 0, directEmployerNames = []) {
-  const rawChartData = buildRawChartDataValues(weekCount);
-  const rawLastRow =
-    RAW_SUBSECTOR_FIRST_DATA_ROW_1_BASED + SUBSECTOR_PREALLOCATED_WEEKS - 1;
+  const chart1Values = buildChart1Values();
+  const chart2Values = buildChart2Values(weekCount);
+  const chart3Values = buildChart3Values(weekCount);
 
-  const employerChartData = buildEmployerChartSource(weekCount);
-  const employerLastRow =
-    EMPLOYER_RAW_FIRST_DATA_ROW_1_BASED + EMPLOYER_PREALLOCATED_WEEKS - 1;
-  const employerLastCol = columnLetter(EMPLOYER_RAW_COL_WIDTH - 1); // 'K'
-
-  // Curated employer list at V1:V{N} — only direct-scrape employers (~31
-  // clean, canonical names like Baker Hughes, BP, Halliburton). Skips
-  // aggregator-scraped company strings which are messy and number in the
-  // thousands.
   const employerListRows = directEmployerNames.map((name) => [name]);
-  // Pad with blanks up to 100 rows so the data-validation range V1:V500 is
-  // stable and old entries from larger past runs get cleared.
-  const EMPLOYER_LIST_PAD_ROWS = 100;
   while (employerListRows.length < EMPLOYER_LIST_PAD_ROWS) employerListRows.push(['']);
+
+  const legacyBlanks = LEGACY_RANGES_TO_BLANK.map(({ range, rows, cols }) => ({
+    range: `${dashboardTitle}!${range}`,
+    values: Array.from({ length: rows }, () => new Array(cols).fill('')),
+  }));
 
   await sheets.spreadsheets.values.batchUpdate({
     spreadsheetId,
@@ -88,139 +94,137 @@ export async function formatDashboard(sheets, spreadsheetId, dashboardSheetId, d
       valueInputOption: 'USER_ENTERED',
       data: [
         {
-          range: `${dashboardTitle}!A${RAW_SECTION_HEADER_ROW_1_BASED}:L${rawLastRow}`,
-          values: rawChartData,
+          range: `${dashboardTitle}!A${SECTION_HEADER_ROW_1_BASED}:A${HEADER_ROW_1_BASED}`,
+          values: chart1Values,
         },
         {
-          range: `${dashboardTitle}!A${EMPLOYER_RAW_LABEL_ROW_1_BASED}:${employerLastCol}${employerLastRow}`,
-          values: employerChartData,
+          range: `${dashboardTitle}!${CHART2_FIRST_COL_LETTER}${LABEL_ROW_1_BASED}:N${LAST_DATA_ROW_1_BASED}`,
+          values: chart2Values,
+        },
+        {
+          range: `${dashboardTitle}!${CHART3_FIRST_COL_LETTER}${LABEL_ROW_1_BASED}:AF${LAST_DATA_ROW_1_BASED}`,
+          values: chart3Values,
         },
         {
           range: `${dashboardTitle}!V1:V${EMPLOYER_LIST_PAD_ROWS}`,
           values: employerListRows,
         },
+        ...legacyBlanks,
       ],
     },
   });
 }
 
 /**
- * Chart 3 source at A200:K261.
+ * Chart 1 block: A60:A63 (column A only).
  *
- *   A200  section label
- *   A201  'Week' | B201..K201  = refs to dropdown cells P36..P45 (series
- *                                labels; blank dropdown → blank label → chart
- *                                skips that series entirely)
- *   A202..A261  week refs (NA for weeks beyond current data)
- *   B202..K261  SUMIFS per week per selected employer, NA when the matching
- *                dropdown is empty so the chart line doesn't plot zeros.
+ *   A60  section header
+ *   A61  blank
+ *   A62  "Chart 1 — New Postings by Week" label
+ *   A63  QUERY formula — spills into A63:B{N} with header row "Week | New
+ *        Postings" and one data row per week. This script deliberately
+ *        never writes to column B so QUERY spill is never blocked.
  */
-function buildEmployerChartSource(weekCount) {
-  const width = EMPLOYER_RAW_COL_WIDTH;
-  const pad = (row) => row.concat(new Array(Math.max(0, width - row.length)).fill(''));
+function buildChart1Values() {
+  const query =
+    `=QUERY('${TREND_DATA}'!A:E, "select A, sum(E) where B = 'employer' group by A order by A label A 'Week', sum(E) 'New Postings'", 1)`;
+  return [
+    ['Chart data (auto-generated — feeds charts above; do not edit by hand)'],
+    [''],
+    ['Chart 1 — New Postings by Week'],
+    [query],
+  ];
+}
+
+/**
+ * Chart 2 block: D62:N163 (102 rows × 11 cols).
+ *
+ *   D62         "Chart 2 — Subsectors (filter-gated)" label
+ *   D63:N63     11 subsector names
+ *   D64:N163    SUMIFS per week per subsector. Week axis comes from column
+ *               A (Chart 1 QUERY spill). Subsector filter is gated by
+ *               $P$19:$P$29 checkboxes — default-show when blank.
+ */
+function buildChart2Values(weekCount) {
+  const width = FOCUS_MARKETS_ALPHABETICAL.length; // 11
+  const blankRow = () => new Array(width).fill('');
+
   const rows = [];
 
-  // Row 200: section label
-  rows.push(pad(['Chart 3 source — Employer Trends (dropdown-gated, select from P36:P45)']));
+  const labelRow = blankRow();
+  labelRow[0] = 'Chart 2 — Subsectors (filter-gated)';
+  rows.push(labelRow);
 
-  // Row 201: header row — 'Week' + 10 refs to dropdown cells
-  const headerRow = ['Week'];
-  for (let slot = 0; slot < EMPLOYER_DROPDOWN_COUNT; slot++) {
-    const dropdownCell = `${EMPLOYER_DROPDOWN_COL_LETTER}${EMPLOYER_DROPDOWN_FIRST_ROW_1_BASED + slot}`;
-    // Empty string for blank dropdowns so chart skips the series.
-    headerRow.push(`=IF(ISBLANK(${dropdownCell}), "", ${dropdownCell})`);
-  }
-  rows.push(pad(headerRow));
+  rows.push(FOCUS_MARKETS_ALPHABETICAL.slice());
 
-  // Rows 202-261: data. Rows past current weekCount are written as fully
-  // empty rows (not =NA()) so the sheet stays visually clean — charts treat
-  // blank cells as skipped points, same as NA, without the #N/A clutter.
-  for (let weekIdx = 0; weekIdx < EMPLOYER_PREALLOCATED_WEEKS; weekIdx++) {
+  for (let weekIdx = 0; weekIdx < PREALLOCATED_WEEKS; weekIdx++) {
     if (weekIdx >= weekCount) {
-      rows.push(pad([]));
+      rows.push(blankRow());
       continue;
     }
-    const rowNum = EMPLOYER_RAW_FIRST_DATA_ROW_1_BASED + weekIdx;
-    const weekSourceRow = RAW_TOTAL_QUERY_ROW_1_BASED + 1 + weekIdx;
-    const dataRow = [`=A${weekSourceRow}`];
-    for (let slot = 0; slot < EMPLOYER_DROPDOWN_COUNT; slot++) {
-      const seriesColLetter = columnLetter(1 + slot); // B..K
-      const headerCell = `${seriesColLetter}$${EMPLOYER_RAW_HEADER_ROW_1_BASED}`;
+    const rowNum = FIRST_DATA_ROW_1_BASED + weekIdx;
+    const dataRow = [];
+    for (let subIdx = 0; subIdx < width; subIdx++) {
+      const colLetter = columnLetter(CHART2_FIRST_COL_INDEX + subIdx);
+      const checkboxRow = FIRST_CHECKBOX_ROW_1_BASED + subIdx;
       const formula =
-        `=IF(${headerCell}="", NA(), ` +
-        `IF(ISNA($A${rowNum}), NA(), ` +
+        `=IF($A${rowNum}="", "", ` +
+        `IF(OR($P$${checkboxRow}=TRUE, ISBLANK($P$${checkboxRow})), ` +
         `SUMIFS('${TREND_DATA}'!E:E, '${TREND_DATA}'!A:A, $A${rowNum}, ` +
-        `'${TREND_DATA}'!B:B, "employer", '${TREND_DATA}'!C:C, ${headerCell})))`;
+        `'${TREND_DATA}'!B:B, "subsector", '${TREND_DATA}'!C:C, ${colLetter}$${HEADER_ROW_1_BASED}), 0))`;
       dataRow.push(formula);
     }
-    rows.push(pad(dataRow));
+    rows.push(dataRow);
   }
 
   return rows;
 }
 
 /**
- * Raw chart data block.
+ * Chart 3 block: W62:AF163 (102 rows × 10 cols).
  *
- *   A60  section header
- *   A62  "Chart 1 source" label
- *   A63  QUERY formula (dynamic spill — grows as Trend Data grows)
- *   A76  "Chart 2 source (filter-gated)" label
- *   A77  header row: Week | 11 subsector names
- *   A78-A137  60 preallocated data rows. Each row's week is
- *             =A(64 + idx) — referencing the nth spilled cell from the
- *             Chart 1 QUERY. Subsector cells use ISBLANK so empty weeks stay
- *             empty (chart hides the bar).
+ *   W62         "Chart 3 — Employers (dropdown-gated)" label
+ *   W63:AF63    10 formulas each referencing a dropdown cell at Q35:Q44.
+ *               Blank dropdown → blank header → chart skips that series.
+ *   W64:AF163   SUMIFS per week per selected employer. Week axis comes
+ *               from column A (Chart 1 QUERY spill). Blank dropdown slot
+ *               returns NA() so the chart skips that series.
  */
-function buildRawChartDataValues(weekCount) {
-  const width = RAW_DATA_COL_WIDTH;
-  const pad = (row) => row.concat(new Array(Math.max(0, width - row.length)).fill(''));
+function buildChart3Values(weekCount) {
+  const width = EMPLOYER_DROPDOWN_COUNT; // 10
+  const blankRow = () => new Array(width).fill('');
 
   const rows = [];
 
-  // Row 60: section header
-  rows.push(pad(['Chart data (auto-generated — feeds the charts above; do not edit by hand)']));
-  // Row 61: blank
-  rows.push(pad(['']));
-  // Row 62: Chart 1 label
-  rows.push(pad(['Chart 1 source — New Postings by Week']));
-  // Row 63: QUERY formula (spills down as weeks accumulate)
-  const totalQuery =
-    `=QUERY('${TREND_DATA}'!A:E, "select A, sum(E) where B = 'employer' group by A order by A label A 'Week', sum(E) 'New Postings'", 1)`;
-  rows.push(pad([totalQuery]));
-  // Rows 64-74: placeholders for QUERY spill (12 slots after header — spill can overflow further)
-  for (let i = 0; i < 11; i++) rows.push(pad(['']));
-  // Row 75: blank
-  rows.push(pad(['']));
-  // Row 76: Chart 2 label
-  rows.push(pad(['Chart 2 source — New Postings by Subsector per Week (filter-gated)']));
-  // Row 77: header — Week + 11 subsector names
-  rows.push(pad(['Week', ...FOCUS_MARKETS_ALPHABETICAL]));
-  // Rows 78-137: 60 preallocated rows. Week ref points to QUERY's nth data
-  // row. Rows past current weekCount are written as fully empty rows (not
-  // =NA()) so the sheet stays visually clean — charts treat blank cells as
-  // skipped points, same as NA, without the #N/A clutter.
-  for (let weekIdx = 0; weekIdx < SUBSECTOR_PREALLOCATED_WEEKS; weekIdx++) {
+  const labelRow = blankRow();
+  labelRow[0] = 'Chart 3 — Employers (dropdown-gated)';
+  rows.push(labelRow);
+
+  const headerRow = [];
+  for (let slot = 0; slot < width; slot++) {
+    const dropdownCell = `${EMPLOYER_DROPDOWN_COL_LETTER}${EMPLOYER_DROPDOWN_FIRST_ROW_1_BASED + slot}`;
+    headerRow.push(`=IF(ISBLANK(${dropdownCell}), "", ${dropdownCell})`);
+  }
+  rows.push(headerRow);
+
+  for (let weekIdx = 0; weekIdx < PREALLOCATED_WEEKS; weekIdx++) {
     if (weekIdx >= weekCount) {
-      rows.push(pad([]));
+      rows.push(blankRow());
       continue;
     }
-    const rowNum = RAW_SUBSECTOR_FIRST_DATA_ROW_1_BASED + weekIdx;
-    const weekSourceRow = RAW_TOTAL_QUERY_ROW_1_BASED + 1 + weekIdx;
-    const dataRow = [`=A${weekSourceRow}`];
-    for (let subIdx = 0; subIdx < FOCUS_MARKETS_ALPHABETICAL.length; subIdx++) {
-      const colLetter = columnLetter(1 + subIdx);
-      const checkboxRow = FIRST_CHECKBOX_ROW_1_BASED + subIdx;
-      // Default-show when the checkbox cell is blank (resilient to the
-      // filter area being wiped or not yet populated). Explicit FALSE hides.
+    const rowNum = FIRST_DATA_ROW_1_BASED + weekIdx;
+    const dataRow = [];
+    for (let slot = 0; slot < width; slot++) {
+      const colLetter = columnLetter(CHART3_FIRST_COL_INDEX + slot);
+      const headerCell = `${colLetter}$${HEADER_ROW_1_BASED}`;
       const formula =
-        `=IF(ISNA($A${rowNum}), NA(), ` +
-        `IF(OR($P$${checkboxRow}=TRUE, ISBLANK($P$${checkboxRow})), ` +
+        `=IF(${headerCell}="", NA(), ` +
+        `IF($A${rowNum}="", "", ` +
         `SUMIFS('${TREND_DATA}'!E:E, '${TREND_DATA}'!A:A, $A${rowNum}, ` +
-        `'${TREND_DATA}'!B:B, "subsector", '${TREND_DATA}'!C:C, ${colLetter}$${RAW_SUBSECTOR_HEADER_ROW_1_BASED}), 0))`;
+        `'${TREND_DATA}'!B:B, "employer", '${TREND_DATA}'!C:C, ${headerCell})))`;
       dataRow.push(formula);
     }
-    rows.push(pad(dataRow));
+    rows.push(dataRow);
   }
 
   return rows;
