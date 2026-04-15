@@ -49,6 +49,28 @@ class TestTeamPatterns:
         assert is_personal_email("ops_team@company.com", "Any Company") is False
 
 
+class TestPilotFalsePositives:
+    """Addresses found in real scrape data that should have been rejected.
+
+    Each of these slipped through an earlier filter iteration and produced
+    junk contacts in the pilot output. Keeping them as regression guards.
+    """
+
+    @pytest.mark.parametrize("email", [
+        "import@slb.com",           # Schlumberger — internal import queue
+        "import@worley.com",        # Worley — internal import queue
+        "emplymnt@chevron.com",     # Chevron — abbreviated employment queue
+        "employment@acme.com",      # standard employment queue
+        "TA.AMERICAS@worley.com",   # generic-first-token + region
+        "hr.uk@company.com",        # generic-first-token + region
+        "recruiting.na@company.com",
+        "jobs.apac@company.com",
+        "careers.eu@company.com",
+    ])
+    def test_pilot_false_positives_now_rejected(self, email):
+        assert is_personal_email(email, "Company") is False
+
+
 class TestGenericPrefixesWithSuffix:
     """Catch generic mailboxes with country/region/team suffixes — e.g.
     RecruitmentUK@, careersUS@, hrteam@ — that pass exact-match blocklist."""

@@ -63,6 +63,25 @@ BLOCKLIST_EXACT: set[str] = {
     "marketing", "sales", "feedback", "helpdesk", "service",
     "no-reply", "noreply", "donotreply", "do-not-reply",
     "postmaster", "webmaster", "abuse",
+    # Found in the wild during pilot runs — generic recruiting/ATS queues
+    "import", "imports",
+    "employment", "emplymnt", "employ", "employer", "employee",
+    "people", "peoplehelp", "peopleops", "peopleoperations",
+    "workday", "workdayhelp", "successfactors",
+}
+
+# Generic-queue tokens that, when they appear as the first dot-separated
+# part of a local part (e.g. "ta.americas@", "hr.uk@", "recruiting.na@"),
+# mark the whole address as generic even if the second token looks name-like.
+GENERIC_FIRST_TOKENS: set[str] = {
+    "ta", "hr", "hrbp", "hris",
+    "recruiting", "recruitment", "recruiter",
+    "talent", "talentacquisition",
+    "careers", "career", "jobs", "job",
+    "hiring", "apply", "application", "applications",
+    "employment", "emplymnt", "people",
+    "info", "contact", "sales", "marketing",
+    "import", "imports", "ats", "workday",
 }
 
 
@@ -114,6 +133,14 @@ def is_personal_email(email: str, employer_name: str) -> bool:
             and len(local_lower) <= len(root) + 6
             and local_lower[len(root):].isalnum()
         ):
+            return False
+
+    # Dotted form where the first token is a generic queue identifier:
+    # "ta.americas", "hr.uk", "recruiting.na", "jobs.apac" etc. The second
+    # token is always a short region/department code in these cases.
+    if "." in local_lower or "_" in local_lower:
+        first_token = local_lower.replace("_", ".").split(".", 1)[0]
+        if first_token in GENERIC_FIRST_TOKENS:
             return False
 
     company_token = _normalize_company_token(employer_name)
