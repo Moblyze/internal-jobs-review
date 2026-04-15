@@ -48,8 +48,25 @@ class SheetsExporter:
         'Employment Type',
         'Status',
         'Status Changed Date',
-        'Scraped At'
+        'Scraped At',
+        'Contact Name',
+        'Contact Title',
+        'Contact Email',
+        'Contact Phone',
+        'Contact LinkedIn URL',
+        'Contact Source',
     ]
+
+    @staticmethod
+    def _column_letter_for(n: int) -> str:
+        """1-indexed column number → Sheets letter (1→A, 26→Z, 27→AA, 52→AZ, 53→BA)."""
+        if n <= 0:
+            raise ValueError(f"column index must be >= 1, got {n}")
+        letters = ""
+        while n > 0:
+            n, remainder = divmod(n - 1, 26)
+            letters = chr(ord("A") + remainder) + letters
+        return letters
 
     # Google Sheets API scopes (Drive scope needed for opening spreadsheets by name)
     SCOPES = [
@@ -116,14 +133,15 @@ class SheetsExporter:
             worksheet = self.spreadsheet.add_worksheet(
                 title=sheet_name,
                 rows=1000,
-                cols=14  # 14 columns including Employment Type
+                cols=len(self.HEADER_ROW)
             )
 
         # Ensure header row exists and matches current schema
         current_header = worksheet.row_values(1) if worksheet.row_count > 0 else []
         if not current_header or current_header != self.HEADER_ROW:
             logger.info(f"Updating header row to match schema: {sheet_name}")
-            worksheet.update(values=[self.HEADER_ROW], range_name='A1:N1', value_input_option='RAW')
+            last_col = self._column_letter_for(len(self.HEADER_ROW))
+            worksheet.update(values=[self.HEADER_ROW], range_name=f'A1:{last_col}1', value_input_option='RAW')
 
         return worksheet
 
@@ -145,10 +163,11 @@ class SheetsExporter:
         Raises:
             APIError: If API error persists after retries
         """
-        # Use explicit range notation to ensure data goes to columns A-N
-        # This prevents the gspread append_rows() bug that shifts data to the right
+        # Use explicit range notation to prevent the gspread append_rows() bug
+        # that shifts data to the right. Range width is tied to HEADER_ROW length.
         end_row = start_row + len(rows) - 1
-        range_notation = f'A{start_row}:N{end_row}'
+        last_col = self._column_letter_for(len(self.HEADER_ROW))
+        range_notation = f'A{start_row}:{last_col}{end_row}'
         worksheet.update(values=rows, range_name=range_notation, value_input_option='RAW')
 
     def export_jobs(self, jobs: list[JobPosting], sheet_name: str) -> int:
@@ -300,9 +319,10 @@ class SheetsExporter:
         worksheet = self.spreadsheet.worksheet(sheet_name)
 
         # Build batch update with A1 notation for each row
+        last_col = self._column_letter_for(len(self.HEADER_ROW))
         batch_data = []
         for row_number, row_data in updates:
-            range_notation = f'A{row_number}:N{row_number}'
+            range_notation = f'A{row_number}:{last_col}{row_number}'
             batch_data.append({
                 'range': range_notation,
                 'values': [row_data]
