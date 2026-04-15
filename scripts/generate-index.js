@@ -15,6 +15,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { normalizeCompanyName, loadBrandVariations, loadPDLCache, detectPrefixGroups } from '../src/utils/companyNormalizer.js';
+import { classifyFocusMarket } from './focusMarketClassifier.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -150,6 +151,7 @@ if (fs.existsSync(JOBS_PATH) && isValidJson(JOBS_PATH)) {
 
   let certsExtracted = 0;
   let companiesNormalized = 0;
+  let marketsClassified = 0;
 
   indexJobs = jobs.map(job => {
     const { description, structuredDescription, ...rest } = job;
@@ -184,10 +186,20 @@ if (fs.existsSync(JOBS_PATH) && isValidJson(JOBS_PATH)) {
       }
     }
 
+    // Classify focus market for jobs without a profile (e.g., company-scraped jobs)
+    if (!rest.profile) {
+      const classified = classifyFocusMarket(rest.title, description);
+      if (classified) {
+        rest.profile = classified;
+        marketsClassified++;
+      }
+    }
+
     return rest;
   });
 
   console.log(`  Pre-extracted certifications for ${certsExtracted} jobs`);
+  console.log(`  Classified focus market for ${marketsClassified} jobs without profile`);
   console.log(`  Normalized company names for ${companiesNormalized} jobs`);
 
   // Deduplicate before writing
@@ -203,6 +215,7 @@ if (fs.existsSync(JOBS_PATH) && isValidJson(JOBS_PATH)) {
 
   // Re-normalize company names (picks up new normalizer rules even when jobs.json is unavailable)
   let reNormalized = 0;
+  let reClassified = 0;
   indexJobs.forEach(job => {
     if (job.company) {
       const canonical = normalizeCompanyName(job.company);
@@ -212,9 +225,20 @@ if (fs.existsSync(JOBS_PATH) && isValidJson(JOBS_PATH)) {
         reNormalized++;
       }
     }
+    // Classify focus market for jobs without a profile (title-only in fallback mode)
+    if (!job.profile) {
+      const classified = classifyFocusMarket(job.title, job.descriptionPreview || '');
+      if (classified) {
+        job.profile = classified;
+        reClassified++;
+      }
+    }
   });
   if (reNormalized > 0) {
     console.log(`  Re-normalized ${reNormalized} company names`);
+  }
+  if (reClassified > 0) {
+    console.log(`  Classified focus market for ${reClassified} jobs without profile`);
   }
 
   // Deduplicate before writing

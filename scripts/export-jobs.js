@@ -11,6 +11,7 @@ import { google } from 'googleapis';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { classifyFocusMarket } from './focusMarketClassifier.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -89,6 +90,11 @@ function parseRow(row, sheetName, columnMap) {
     statusChangedDate: getCol('Status Changed Date'),
     scrapedAt: getCol('Scraped At'),
   };
+  // Classify focus market for company-scraped jobs (no profile from sheet)
+  if (!job.profile) {
+    job.profile = classifyFocusMarket(job.title, job.description) || null;
+  }
+
   job.appReady = isAppReady(job);
   return job;
 }
