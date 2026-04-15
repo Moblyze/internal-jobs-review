@@ -174,3 +174,42 @@ class TestPhoneExtraction:
         desc = "The office number is (713) 555-1234. Please apply via our website."
         result = extract_contacts(desc, "Rovop")
         assert result["contact_phone"] == ""
+
+
+class TestEnricherIntegration:
+    """Verify the dict-level enricher wrapper works like _enrich_with_certifications."""
+
+    def _make_scraper(self, company_name: str = "Rovop", extract_flag: bool = True):
+        # Minimal stub that only needs config + the method under test.
+        # Import locally to avoid Playwright/browser import cost at module load.
+        from src.scrapers.base import BaseScraper
+
+        class _StubScraper(BaseScraper):
+            async def extract_job_listings(self, page): return []
+            async def extract_job_detail(self, page, job_url): return {}
+            async def extract_all_jobs(self, max_jobs=None): return []
+
+        config = {"name": company_name, "rate_limit_delay": 0, "selectors": {}}
+        if extract_flag:
+            config["extract_contacts"] = True
+        return _StubScraper(config)
+
+    def test_enricher_populates_six_fields(self):
+        scraper = self._make_scraper()
+        job_data = {"description": "Contact: Jane Doe for details."}
+        enriched = scraper._enrich_with_contacts(job_data)
+        assert enriched["contact_name"] == "Jane Doe"
+        assert enriched["contact_source"] == "labeled_pattern"
+        for k in ("contact_title", "contact_email", "contact_phone", "contact_linkedin_url"):
+            assert k in enriched
+
+    def test_enricher_handles_missing_description(self):
+        scraper = self._make_scraper()
+        enriched = scraper._enrich_with_contacts({})
+        assert enriched["contact_name"] == ""
+        assert enriched["contact_source"] == ""
+
+    def test_enricher_never_raises(self):
+        scraper = self._make_scraper()
+        enriched = scraper._enrich_with_contacts({"description": None})
+        assert enriched.get("contact_name", "") == ""

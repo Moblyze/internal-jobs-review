@@ -152,6 +152,41 @@ class BaseScraper(ABC):
 
         return None
 
+    def _enrich_with_contacts(self, job_data: dict) -> dict:
+        """Extract contact info from the job description; add 6 contact fields.
+
+        Mirrors the `_enrich_with_certifications` pattern: idempotent,
+        exception-safe, writes all 6 contact fields on the dict regardless
+        of outcome. Callers are expected to only invoke this when the
+        company config has `extract_contacts: true`.
+
+        Args:
+            job_data: Job dict with a 'description' key.
+
+        Returns:
+            The same dict with 6 contact_* keys populated (empty strings on
+            miss or error).
+        """
+        try:
+            from src.utils.contact_extractor import extract_contacts
+
+            description = job_data.get('description') or ''
+            extracted = extract_contacts(description, self.company_name)
+            job_data.update(extracted)
+            if any(extracted[k] for k in extracted):
+                self.logger.debug(
+                    "contacts_extracted",
+                    source=extracted.get("contact_source"),
+                    has_email=bool(extracted.get("contact_email")),
+                    has_name=bool(extracted.get("contact_name")),
+                )
+        except Exception as e:
+            self.logger.error("contact_extraction_failed", error=str(e))
+            for key in ("contact_name", "contact_title", "contact_email",
+                        "contact_phone", "contact_linkedin_url", "contact_source"):
+                job_data.setdefault(key, "")
+        return job_data
+
     def _enrich_with_certifications(self, job_data: dict) -> dict:
         """
         Extract certifications from job description and skills, add to job data.
