@@ -64,6 +64,7 @@ def _load_scraper_registry() -> dict:
     _try("occupop", "src.scrapers.occupop", "OccupopScraper")
     _try("rovop", "src.scrapers.rovop", "ROVOPScraper")
     _try("html_generic", "src.scrapers.html_generic", "HtmlGenericScraper")
+    _try("pbs_wordpress", "src.scrapers.pbs_wordpress", "PBSWordPressScraper")
 
     return registry
 

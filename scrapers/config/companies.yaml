@@ -294,6 +294,7 @@ companies:
   petrofac:
     name: "Petrofac"
     platform: html_generic
+    extract_contacts: true
     base_url: "https://petrofac.referrals.selectminds.com/jobs/search"
     rate_limit_delay: 2.5
     selectors:
@@ -316,6 +317,7 @@ companies:
   lrqa:
     name: "LRQA"
     platform: html_generic
+    extract_contacts: true
     base_url: "https://jobs.lrqa.com/search/"
     rate_limit_delay: 2.5
     selectors:
@@ -412,6 +414,7 @@ companies:
   osm_thome:
     name: "OSM Thome"
     platform: html_generic
+    extract_contacts: true
     base_url: "https://jobs.osmthome.com/"
     rate_limit_delay: 3.0
     # OSM Thome uses a Vue/Quasar SPA backed by a Laravel API at osmaportal.com.
@@ -435,6 +438,7 @@ companies:
   wellsafe_solutions:
     name: "Wellsafe Solutions"
     platform: html_generic
+    extract_contacts: true
     base_url: "https://www.wellsafesolutions.com/available-positions/"
     rate_limit_delay: 3.0
     # Wellsafe is a WordPress site using Visual Composer. Jobs are in VC sections
@@ -451,6 +455,7 @@ companies:
   allrig_group:
     name: "Allrig Group"
     platform: html_generic
+    extract_contacts: true
     base_url: "https://allriggroup.com/en/careers/"
     rate_limit_delay: 3.0
     # Allrig is a custom CMS site behind CloudFront.
@@ -476,6 +481,7 @@ companies:
   coast_renewable:
     name: "Coast Renewable Services"
     platform: html_generic
+    extract_contacts: true
     base_url: "https://coastrenewableservices.com/vacancies/"
     rate_limit_delay: 2.5
     # Coast Renewable is a WordPress site with custom job-item elements.
@@ -511,6 +517,7 @@ companies:
   pbs_offshore:
     name: "PBS by Ponticelli"
     platform: pbs_wordpress
+    extract_contacts: true
     base_url: "https://www.pbs-offshore.com"
     rate_limit_delay: 3.0
     # PBS is a WordPress + Elementor site with a custom "job" post type.
@@ -529,6 +536,7 @@ companies:
   dron_dickson:
     name: "Dron & Dickson"
     platform: occupop
+    extract_contacts: true
     base_url: "https://dronanddickson.occupop-careers.com/"
     rate_limit_delay: 3.0
     # Dron & Dickson moved from Cezanne OnDemand (Intervieweb) to Cezanne Recruitment
