@@ -10,7 +10,9 @@
       "longitude": 98.500561
     },
     "mapboxPlaceName": "Khao Phing Kan, Phang Nga, Thailand",
-    "confidence": 0.96
+    "confidence": 0.96,
+    "_skip": true,
+    "_skipReason": "too-short"
   },
   "6": {
     "city": "6th of October",
@@ -23,7 +25,9 @@
       "longitude": 30.943596
     },
     "mapboxPlaceName": "6th of October, Giza, Egypt",
-    "confidence": 1
+    "confidence": 1,
+    "_skip": true,
+    "_skipReason": "too-short"
   },
   "13": {
     "city": "13th arrondissement",
@@ -36,7 +40,9 @@
       "longitude": 2.355812
     },
     "mapboxPlaceName": "13th arrondissement, Paris, Île-de-France, France",
-    "confidence": 1
+    "confidence": 1,
+    "_skip": true,
+    "_skipReason": "too-short"
   },
   "24": {
     "city": "San Jose",
@@ -49,7 +55,9 @@
       "longitude": -121.86122
     },
     "mapboxPlaceName": "Bonita, San Jose, California, United States",
-    "confidence": 1
+    "confidence": 1,
+    "_skip": true,
+    "_skipReason": "too-short"
   },
   "39": {
     "city": "Independence",
@@ -62,7 +70,9 @@
       "longitude": -94.37598
     },
     "mapboxPlaceName": "39th East, Independence, Missouri, United States",
-    "confidence": 1
+    "confidence": 1,
+    "_skip": true,
+    "_skipReason": "too-short"
   },
   "45": {
     "city": "Jacksonville",
@@ -75,7 +85,9 @@
       "longitude": -81.68043
     },
     "mapboxPlaceName": "45th & Moncrief, Jacksonville, Florida, United States",
-    "confidence": 1
+    "confidence": 1,
+    "_skip": true,
+    "_skipReason": "too-short"
   },
   "68": {
     "city": "68 Lnp",
@@ -88,7 +100,9 @@
       "longitude": 73.73165
     },
     "mapboxPlaceName": "68 Lnp, Padampur, Ganganagar, Rajasthan, India",
-    "confidence": 1
+    "confidence": 1,
+    "_skip": true,
+    "_skipReason": "too-short"
   },
   "104": {
     "city": "104-й микрорайон",
@@ -101,7 +115,9 @@
       "longitude": 68.728448
     },
     "mapboxPlaceName": "104-й микрорайон, Dushanbe, Tajikistan",
-    "confidence": 1
+    "confidence": 1,
+    "_skip": true,
+    "_skipReason": "numeric-key"
   },
   "119": {
     "city": "Gt",
@@ -114,7 +130,9 @@
       "longitude": 95.4293
     },
     "mapboxPlaceName": "Gt, Doom Dooma, Tinsukia, Assam, India",
-    "confidence": 1
+    "confidence": 1,
+    "_skip": true,
+    "_skipReason": "numeric-key"
   },
   "315": {
     "city": "Barangay 315",
@@ -127,7 +145,9 @@
       "longitude": 120.982155
     },
     "mapboxPlaceName": "Barangay 315, Manila, Philippines",
-    "confidence": 0.8
+    "confidence": 0.8,
+    "_skip": true,
+    "_skipReason": "numeric-key"
   },
   "334": {
     "city": "Barangay 334",
@@ -140,7 +160,9 @@
       "longitude": 120.978935
     },
     "mapboxPlaceName": "Barangay 334, Manila, Philippines",
-    "confidence": 0.8
+    "confidence": 0.8,
+    "_skip": true,
+    "_skipReason": "numeric-key"
   },
   "386": {
     "city": "Barangay 386",
@@ -153,7 +175,9 @@
       "longitude": 120.98814
     },
     "mapboxPlaceName": "Barangay 386, Manila, Philippines",
-    "confidence": 0.8
+    "confidence": 0.8,
+    "_skip": true,
+    "_skipReason": "numeric-key"
   },
   "103 Oilfield, Libya": {
     "_skip": true,
@@ -8664,7 +8688,9 @@
       "longitude": 150.55622
     },
     "mapboxPlaceName": "Cannonball, Norman Gardens Queensland 4701, Australia",
-    "confidence": 0.5
+    "confidence": 0.5,
+    "_skip": true,
+    "_skipReason": "company-token"
   },
   "Canonsburg PA": {
     "city": "Canonsburg",
@@ -14738,7 +14764,9 @@
       "longitude": -123.120753
     },
     "mapboxPlaceName": "E Reservoir Access Rd, Hanceville, British Columbia V0L 1K0, Canada",
-    "confidence": 1
+    "confidence": 1,
+    "_skip": true,
+    "_skipReason": "company-token"
   },
   "Ecru, MS, US": {
     "city": "Ecru",
@@ -15312,7 +15340,9 @@
       "longitude": -47.17343
     },
     "mapboxPlaceName": "Onze, 13160, Artur Nogueira, São Paulo, Brazil",
-    "confidence": 0.5
+    "confidence": 0.5,
+    "_skip": true,
+    "_skipReason": "company-token"
   },
   "Elite Business Resources, LLC": {
     "_skip": true,
@@ -18095,7 +18125,9 @@
       "longitude": -2.36967
     },
     "mapboxPlaceName": "United Kingdom",
-    "confidence": 1
+    "confidence": 1,
+    "_skip": true,
+    "_skipReason": "too-short"
   },
   "GB-AC-ABERDEEN-BADENTOY INDUSTRIAL ESTATE": {
     "original": "GB-AC-ABERDEEN-BADENTOY INDUSTRIAL ESTATE",
@@ -19522,7 +19554,9 @@
     "placeType": [
       "virtual"
     ],
-    "confidence": 0.5
+    "confidence": 0.5,
+    "_skip": true,
+    "_skipReason": "placeholder"
   },
   "Godley, TX, US": {
     "city": "Godley",
@@ -24346,7 +24380,9 @@
       "longitude": 145.578512
     },
     "mapboxPlaceName": "Jab, Madang, Papua New Guinea",
-    "confidence": 0.5
+    "confidence": 0.5,
+    "_skip": true,
+    "_skipReason": "company-token"
   },
   "JLL": {
     "city": "Butuan",
@@ -26298,7 +26334,9 @@
       "longitude": 32.359628
     },
     "mapboxPlaceName": "Koch, Omoro, Uganda",
-    "confidence": 0.5
+    "confidence": 0.5,
+    "_skip": true,
+    "_skipReason": "company-token"
   },
   "Kokomo, IN": {
     "city": "Kokomo",
@@ -26671,7 +26709,9 @@
       "longitude": 115.975624
     },
     "mapboxPlaceName": "Platform Loop, Brabham Western Australia 6055, Australia",
-    "confidence": 0.550154
+    "confidence": 0.550154,
+    "_skip": true,
+    "_skipReason": "vessel-name"
   },
   "LJA Engineering": {
     "_skip": true,
@@ -33782,7 +33822,9 @@
       "longitude": 125.510093
     },
     "mapboxPlaceName": "Neem Street Baliok, Davao City, Philippines",
-    "confidence": 0.6
+    "confidence": 0.6,
+    "_skip": true,
+    "_skipReason": "company-token"
   },
   "Neiva, Departamento del Huila": {
     "original": "Neiva, Departamento del Huila",
@@ -40919,7 +40961,9 @@
       "longitude": -134.38896
     },
     "mapboxPlaceName": "Remote Mainland, Juneau, Alaska, United States",
-    "confidence": 1
+    "confidence": 1,
+    "_skip": true,
+    "_skipReason": "placeholder"
   },
   "Remote - U.S.": {
     "original": "Remote - U.S.",
@@ -41501,7 +41545,9 @@
       "longitude": 15.209961
     },
     "mapboxPlaceName": "Rise, Sortland, Nordland, Norway",
-    "confidence": 0.425926
+    "confidence": 0.425926,
+    "_skip": true,
+    "_skipReason": "company-token"
   },
   "Riverhead, NY 11901, USA": {
     "city": "Riverhead",
@@ -46923,7 +46969,9 @@
       "longitude": 23.00011
     },
     "mapboxPlaceName": "Tamar, Central Darfur, Sudan",
-    "confidence": 0.5
+    "confidence": 0.5,
+    "_skip": true,
+    "_skipReason": "vessel-name"
   },
   "TASTA, NO": {
     "original": "TASTA, NO",
@@ -49213,7 +49261,9 @@
       "longitude": -2.36967
     },
     "mapboxPlaceName": "United Kingdom",
-    "confidence": 1
+    "confidence": 1,
+    "_skip": true,
+    "_skipReason": "too-short"
   },
   "UK-Hamilton Business Park, Waterside": {
     "city": "Waterside",
@@ -49239,7 +49289,9 @@
       "longitude": -97.922211
     },
     "mapboxPlaceName": "United States",
-    "confidence": 1
+    "confidence": 1,
+    "_skip": true,
+    "_skipReason": "too-short"
   },
   "US - Louisiana": {
     "city": null,

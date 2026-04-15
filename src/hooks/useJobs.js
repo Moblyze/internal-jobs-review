@@ -249,7 +249,12 @@ export async function getFullJob(indexJob) {
   const fullJobs = await loadFullJobData();
   const fullJob = fullJobs.get(indexJob.id);
   if (fullJob) {
-    return { ...indexJob, description: fullJob.description, structuredDescription: fullJob.structuredDescription };
+    return {
+      ...indexJob,
+      description: fullJob.description,
+      structuredDescription: fullJob.structuredDescription,
+      url: fullJob.url,
+    };
   }
   return indexJob;
 }

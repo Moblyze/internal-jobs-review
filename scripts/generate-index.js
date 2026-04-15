@@ -346,7 +346,40 @@ activeJobs.forEach(j => {
     companyCounts[j.company] = (companyCounts[j.company] || 0) + 1;
   }
 });
+
+// Aggregator / job-board names that leak into the company field and should
+// not appear in the employer filter dropdown. Matched case-insensitively.
+// Jobs under these names still appear in listings — they're just hidden
+// from the "filter by company" control.
+const COMPANY_FILTER_BLOCKLIST = new Set([
+  'energy jobline zr',
+  'energy jobline cvl',
+  'energy jobline',
+  'diversityjobs',
+  'diversity jobs',
+  'kintec recruitment limited',
+  'kintec recruitment',
+  'kintec',
+  'indeed',
+  'linkedin',
+  'glassdoor',
+  'ziprecruiter',
+  'simplyhired',
+  'monster',
+]);
+
+// Minimum active postings a company needs before we surface it in the
+// filter dropdown. Single-posting companies are overwhelmingly scraper
+// noise or one-off listings; they balloon the dropdown without being
+// useful to filter on.
+const MIN_COMPANY_JOB_COUNT = 2;
+
 const companyOptions = Object.entries(companyCounts)
+  .filter(([name, count]) => {
+    if (count < MIN_COMPANY_JOB_COUNT) return false;
+    if (COMPANY_FILTER_BLOCKLIST.has(name.toLowerCase().trim())) return false;
+    return true;
+  })
   .map(([name, count]) => ({ name, count }))
   .sort((a, b) => b.count - a.count);
 

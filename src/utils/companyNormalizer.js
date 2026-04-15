@@ -337,6 +337,29 @@ const EXPLICIT_GROUPS = {
   'Ranger Energy Services': [
     'Ranger Energy',
   ],
+  'Mistras Group': [
+    'MISTRAS Group',
+    'Mistras Group, Inc',
+    'Mistras Group, Inc.',
+    'MISTRAS Group, Inc',
+    'MISTRAS Group, Inc.',
+    'Mistras',
+    'MISTRAS',
+  ],
+  'Sargent & Lundy': [
+    'Sargent Lundy',
+    'Sargent and Lundy',
+    'Sargent & Lundy, LLC',
+  ],
+  'iPS Powerful People': [
+    'IPS Powerful People',
+    'iPS',
+    'IPS',
+  ],
+  "Church's Chicken": [
+    'Churchs Chicken',
+    "Church's",
+  ],
 };
 
 // ── PDL Company Cleaner cache ───────────────────────────────────────────────
@@ -432,6 +455,16 @@ export function getPDLCompanyInfo(name) {
 
 // ── Build reverse lookup: alias (lowercase) → canonical name ───────────────
 const _aliasToCanonical = new Map();
+// Secondary index keyed by punctuation-stripped fuzzy key so variants like
+// "Sargent & Lundy" vs "Sargent Lundy" resolve to the same canonical.
+const _fuzzyKeyToCanonical = new Map();
+
+function _indexFuzzy(alias, canonical) {
+  const key = toFuzzyKey(alias);
+  if (key && !_fuzzyKeyToCanonical.has(key)) {
+    _fuzzyKeyToCanonical.set(key, canonical);
+  }
+}
 
 function _buildAliasMap() {
   if (_aliasToCanonical.size > 0) return; // already built
@@ -439,9 +472,11 @@ function _buildAliasMap() {
   for (const [canonical, aliases] of Object.entries(EXPLICIT_GROUPS)) {
     // Map the canonical name itself
     _aliasToCanonical.set(canonical.toLowerCase().trim(), canonical);
+    _indexFuzzy(canonical, canonical);
 
     for (const alias of aliases) {
       _aliasToCanonical.set(alias.toLowerCase().trim(), canonical);
+      _indexFuzzy(alias, canonical);
     }
   }
 }
@@ -466,12 +501,14 @@ export function loadBrandVariations(companies) {
     if (!_aliasToCanonical.has(canonical.toLowerCase().trim())) {
       _aliasToCanonical.set(canonical.toLowerCase().trim(), canonical);
     }
+    _indexFuzzy(canonical, canonical);
 
     for (const variation of company.brandVariations || []) {
       const key = variation.toLowerCase().trim();
       if (!_aliasToCanonical.has(key)) {
         _aliasToCanonical.set(key, canonical);
       }
+      _indexFuzzy(variation, canonical);
     }
 
     // Also map subsidiaries
@@ -480,6 +517,7 @@ export function loadBrandVariations(companies) {
       if (!_aliasToCanonical.has(key)) {
         _aliasToCanonical.set(key, canonical);
       }
+      _indexFuzzy(sub, canonical);
     }
   }
 
@@ -564,7 +602,12 @@ export function normalizeCompanyName(name) {
     if (pdlStrippedMatch) return pdlStrippedMatch;
   }
 
-  // 4. Return trimmed original — no match found
+  // 4. Fuzzy-key match — catches punctuation/whitespace variants of known
+  //    aliases (e.g. "Sargent Lundy" ↔ "Sargent & Lundy", "Mistras" case variants)
+  const fuzzyMatch = _fuzzyKeyToCanonical.get(toFuzzyKey(trimmed));
+  if (fuzzyMatch) return fuzzyMatch;
+
+  // 5. Return trimmed original — no match found
   return trimmed;
 }
 
