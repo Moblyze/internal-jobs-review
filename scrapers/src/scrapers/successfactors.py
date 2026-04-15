@@ -131,6 +131,8 @@ class SuccessFactorsScraper(BaseScraper):
 
                         # Enrich with certifications (EXTRACT-14)
                         job_data = self._enrich_with_certifications(job_data)
+                        if self.config.get('extract_contacts', False):
+                            job_data = self._enrich_with_contacts(job_data)
 
                         job = JobPosting(**job_data)
                         jobs.append(job)
