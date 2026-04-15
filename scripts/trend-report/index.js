@@ -116,10 +116,23 @@ async function main() {
     valueInputOption: 'USER_ENTERED',
     requestBody: { values: dashboardValues },
   });
-  const directEmployerNames = [...new Set(
-    rawJobs.filter((j) => j.source === 'direct').map((j) => j.company).filter(Boolean),
-  )].sort();
-  await formatDashboard(sheets, SPREADSHEET_ID, dashboardSheetId, DASHBOARD_TAB, weeks.length, directEmployerNames);
+  // Top employers by total new postings. Includes direct + aggregator,
+  // filters to names with at least 5 postings to skip obvious noise, then
+  // top 50, then alphabetized for the dropdown.
+  const employerTotals = new Map();
+  for (const r of aggRows) {
+    if (r.dimension !== 'employer') continue;
+    if (!r.value) continue;
+    employerTotals.set(r.value, (employerTotals.get(r.value) || 0) + (r.new || 0));
+  }
+  const topEmployers = [...employerTotals.entries()]
+    .filter(([name, total]) => total >= 5 && /^[A-Za-z0-9]/.test(name))
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 50)
+    .map(([name]) => name)
+    .sort();
+  log(`dropdown list: ${topEmployers.length} top employers by total new postings`);
+  await formatDashboard(sheets, SPREADSHEET_ID, dashboardSheetId, DASHBOARD_TAB, weeks.length, topEmployers);
   log(`wrote ${trendValues.length - 1} trend rows and dashboard to sheet ${SPREADSHEET_ID}`);
 }
 
