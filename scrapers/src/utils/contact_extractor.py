@@ -29,6 +29,19 @@ LINKEDIN_RE = re.compile(
     re.IGNORECASE,
 )
 
+PHONE_RE = re.compile(
+    r"""(
+        (?:\+?\d{1,3}[\s.\-]?)?  # optional country code (empty if number starts with area paren)
+        \(?\d{2,4}\)?[\s.\-]?    # area code, possibly parenthesized
+        \d{2,4}[\s.\-]?          # first group
+        \d{2,4}                  # last group
+        (?:[\s.\-]?\d{2,4})?     # optional trailing
+    )""",
+    re.VERBOSE,
+)
+
+PHONE_CONTEXT_WINDOW = 150  # chars on each side
+
 
 REJECTED_NAME_TOKENS: set[str] = {
     "apply", "now", "click", "here", "visit", "see", "below",
@@ -119,30 +132,35 @@ def extract_contacts(description: str, employer_name: str) -> dict:
         2. Email-derived name (from "first.last@" local part) — `email_derived`.
         3. Email present but no derivable name — `body_text`.
         4. Nothing found — empty.
+
+    `contact_phone` is captured only when it appears within 150 chars of a
+    labeled-pattern match or a captured personal email — prevents grabbing
+    HQ / switchboard numbers from boilerplate.
     """
     result = dict(EMPTY_RESULT)
     if not description:
         return result
 
-    labeled_name, _label_end = _find_labeled_name(description)
-    email = _find_first_personal_email(description, employer_name)
+    labeled_name, label_start, label_end = _find_labeled_name(description)
+    email, email_start, email_end = _find_first_personal_email(description, employer_name)
 
     if labeled_name and not email:
         result["contact_name"] = labeled_name
         result["contact_source"] = "labeled_pattern"
-        return result
-
-    if email:
+        result["contact_phone"] = _find_phone_near(description, label_start, label_end)
+    elif email:
         result["contact_email"] = email
         result["contact_source"] = "body_text"
         if labeled_name:
             result["contact_name"] = labeled_name
             result["contact_source"] = "labeled_pattern"
+            result["contact_phone"] = _find_phone_near(description, label_start, label_end)
         else:
             derived = _derive_name_from_local_part(email)
             if derived:
                 result["contact_name"] = derived
                 result["contact_source"] = "email_derived"
+            result["contact_phone"] = _find_phone_near(description, email_start, email_end)
 
     linkedin = _find_linkedin_url(description)
     if linkedin:
@@ -167,11 +185,12 @@ def _is_plausible_name(candidate: str) -> bool:
     return True
 
 
-def _find_labeled_name(description: str) -> tuple[Optional[str], Optional[int]]:
-    """Return (name, match_end_index) from first labeled-pattern hit, else (None, None).
+def _find_labeled_name(description: str) -> tuple[Optional[str], Optional[int], Optional[int]]:
+    """Return (name, start, end) from first labeled-pattern hit, else (None, None, None).
 
-    Walks every label occurrence; the first that's followed by a plausible
-    name wins. This tolerates false-label hits that don't precede real names.
+    `start` is the start of the LABEL match (so the anchor window spans the
+    full "Contact: Jane Doe" phrase). Walks every label occurrence; the
+    first followed by a plausible name wins.
     """
     for label_match in LABEL_RE.finditer(description):
         name_match = NAME_RE.match(description, label_match.end())
@@ -179,14 +198,28 @@ def _find_labeled_name(description: str) -> tuple[Optional[str], Optional[int]]:
             continue
         candidate = name_match.group(0).strip()
         if _is_plausible_name(candidate):
-            return (candidate, name_match.end())
-    return (None, None)
+            return (candidate, label_match.start(), name_match.end())
+    return (None, None, None)
 
 
-def _find_first_personal_email(description: str, employer_name: str) -> str:
+def _find_first_personal_email(description: str, employer_name: str) -> tuple[str, int, int]:
+    """Return (email, start, end) for first personal email, else ("", -1, -1)."""
     for match in EMAIL_RE.finditer(description):
         candidate = match.group(0)
         if is_personal_email(candidate, employer_name):
+            return (candidate, match.start(), match.end())
+    return ("", -1, -1)
+
+
+def _find_phone_near(description: str, anchor_start: int, anchor_end: int) -> str:
+    """Look for a phone number within PHONE_CONTEXT_WINDOW chars of the anchor span."""
+    window_start = max(0, anchor_start - PHONE_CONTEXT_WINDOW)
+    window_end = min(len(description), anchor_end + PHONE_CONTEXT_WINDOW)
+    window = description[window_start:window_end]
+    for match in PHONE_RE.finditer(window):
+        candidate = match.group(1).strip()
+        digits = re.sub(r"\D", "", candidate)
+        if 7 <= len(digits) <= 15:
             return candidate
     return ""
 

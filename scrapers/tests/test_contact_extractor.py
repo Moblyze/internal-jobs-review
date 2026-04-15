@@ -151,3 +151,26 @@ class TestLinkedInUrl:
         result = extract_contacts(desc, "Rovop")
         assert "linkedin.com/in/amy-chen" in result["contact_linkedin_url"]
         assert result["contact_name"] == ""
+
+
+class TestPhoneExtraction:
+    def test_phone_captured_near_personal_email(self):
+        desc = "For info contact jane.doe@rovop.com or call +44 1224 555 7890."
+        result = extract_contacts(desc, "Rovop")
+        assert result["contact_phone"] == "+44 1224 555 7890"
+
+    def test_phone_captured_near_labeled_name(self):
+        desc = "Contact: Jane Doe — (713) 555-0199."
+        result = extract_contacts(desc, "Rovop")
+        assert result["contact_phone"] == "(713) 555-0199"
+
+    def test_phone_without_context_not_captured(self):
+        # Phone appears far from any labeled name or personal email.
+        desc = "The Rovop switchboard is +44 1224 300 300. " + ("x" * 400) + " Apply online only."
+        result = extract_contacts(desc, "Rovop")
+        assert result["contact_phone"] == ""
+
+    def test_phone_in_standalone_description_not_captured(self):
+        desc = "The office number is (713) 555-1234. Please apply via our website."
+        result = extract_contacts(desc, "Rovop")
+        assert result["contact_phone"] == ""
