@@ -50,9 +50,9 @@ const RAW_DATA_COL_WIDTH = 12;                   // A..L
 const SUBSECTOR_PREALLOCATED_WEEKS = 60;
 
 // ── Chart 3 (Employer Trends) ──────────────────────────────────────────────
-// Up to 10 employers picked via dropdowns at Q36:Q45.
+// Up to 10 employers picked via dropdowns at Q35:Q44.
 const EMPLOYER_DROPDOWN_COL_LETTER = 'Q';
-const EMPLOYER_DROPDOWN_FIRST_ROW_1_BASED = 36;    // Q36
+const EMPLOYER_DROPDOWN_FIRST_ROW_1_BASED = 35;    // Q35
 const EMPLOYER_DROPDOWN_COUNT = 10;
 const EMPLOYER_RAW_LABEL_ROW_1_BASED = 200;
 const EMPLOYER_RAW_HEADER_ROW_1_BASED = 201;
@@ -132,17 +132,17 @@ function buildEmployerChartSource(weekCount) {
   }
   rows.push(pad(headerRow));
 
-  // Rows 202-261: data
+  // Rows 202-261: data. Rows past current weekCount are written as fully
+  // empty rows (not =NA()) so the sheet stays visually clean — charts treat
+  // blank cells as skipped points, same as NA, without the #N/A clutter.
   for (let weekIdx = 0; weekIdx < EMPLOYER_PREALLOCATED_WEEKS; weekIdx++) {
-    const rowNum = EMPLOYER_RAW_FIRST_DATA_ROW_1_BASED + weekIdx;
-    let weekRef;
-    if (weekIdx < weekCount) {
-      const weekSourceRow = RAW_TOTAL_QUERY_ROW_1_BASED + 1 + weekIdx;
-      weekRef = `=A${weekSourceRow}`;
-    } else {
-      weekRef = '=NA()';
+    if (weekIdx >= weekCount) {
+      rows.push(pad([]));
+      continue;
     }
-    const dataRow = [weekRef];
+    const rowNum = EMPLOYER_RAW_FIRST_DATA_ROW_1_BASED + weekIdx;
+    const weekSourceRow = RAW_TOTAL_QUERY_ROW_1_BASED + 1 + weekIdx;
+    const dataRow = [`=A${weekSourceRow}`];
     for (let slot = 0; slot < EMPLOYER_DROPDOWN_COUNT; slot++) {
       const seriesColLetter = columnLetter(1 + slot); // B..K
       const headerCell = `${seriesColLetter}$${EMPLOYER_RAW_HEADER_ROW_1_BASED}`;
@@ -196,19 +196,18 @@ function buildRawChartDataValues(weekCount) {
   rows.push(pad(['Chart 2 source — New Postings by Subsector per Week (filter-gated)']));
   // Row 77: header — Week + 11 subsector names
   rows.push(pad(['Week', ...FOCUS_MARKETS_ALPHABETICAL]));
-  // Rows 78-137: 60 preallocated rows. Week ref points to QUERY's nth data row.
+  // Rows 78-137: 60 preallocated rows. Week ref points to QUERY's nth data
+  // row. Rows past current weekCount are written as fully empty rows (not
+  // =NA()) so the sheet stays visually clean — charts treat blank cells as
+  // skipped points, same as NA, without the #N/A clutter.
   for (let weekIdx = 0; weekIdx < SUBSECTOR_PREALLOCATED_WEEKS; weekIdx++) {
-    const rowNum = RAW_SUBSECTOR_FIRST_DATA_ROW_1_BASED + weekIdx;
-    // For weeks beyond the current data, force NA — don't chain through
-    // cells that might resolve to dates via our own subsector formulas.
-    let weekRef;
-    if (weekIdx < weekCount) {
-      const weekSourceRow = RAW_TOTAL_QUERY_ROW_1_BASED + 1 + weekIdx;
-      weekRef = `=A${weekSourceRow}`;
-    } else {
-      weekRef = '=NA()';
+    if (weekIdx >= weekCount) {
+      rows.push(pad([]));
+      continue;
     }
-    const dataRow = [weekRef];
+    const rowNum = RAW_SUBSECTOR_FIRST_DATA_ROW_1_BASED + weekIdx;
+    const weekSourceRow = RAW_TOTAL_QUERY_ROW_1_BASED + 1 + weekIdx;
+    const dataRow = [`=A${weekSourceRow}`];
     for (let subIdx = 0; subIdx < FOCUS_MARKETS_ALPHABETICAL.length; subIdx++) {
       const colLetter = columnLetter(1 + subIdx);
       const checkboxRow = FIRST_CHECKBOX_ROW_1_BASED + subIdx;
