@@ -16,6 +16,30 @@ from src.scrapers.base import BaseScraper
 
 logger = structlog.get_logger()
 
+# SuccessFactors pages sometimes include cookie/privacy banners whose links
+# look enough like job cards that the CSS fallback extractor picks them up.
+# Drop these before Pydantic validation to keep logs clean and the dedup
+# tracker free of noise.
+_NON_JOB_TITLES = {
+    'cookie policy',
+    'cookie information',
+    'cookie settings',
+    'cookie preferences',
+    'privacy policy',
+    'privacy notice',
+    'privacy statement',
+    'terms of use',
+    'terms and conditions',
+    'accessibility statement',
+    'legal notice',
+    'imprint',
+}
+_NON_JOB_TITLE_PREFIXES = (
+    'cookie ',
+    'privacy ',
+    'terms ',
+)
+
 
 class SuccessFactorsScraper(BaseScraper):
     """
@@ -110,6 +134,13 @@ class SuccessFactorsScraper(BaseScraper):
 
                 # Map and validate each job
                 for raw_job in page_jobs:
+                    # Filter out non-job links (cookie banner / legal footer rows
+                    # that the fallback CSS extractor occasionally picks up).
+                    _title = (raw_job.get('Title') or '').strip().lower()
+                    if _title in _NON_JOB_TITLES or any(
+                        _title.startswith(p) for p in _NON_JOB_TITLE_PREFIXES
+                    ):
+                        continue
                     try:
                         job_data = self._map_job_data(raw_job, page_url)
 
