@@ -609,3 +609,43 @@ companies:
     rate_limit_delay: 1.5
     selectors: {}
     sheet_name: "Forge"
+
+  # === Kraken Robotics subsidiaries (Covelya Group acquisition pending Q2 2026 close) ===
+  # Added pre-close so coverage is ready the day the deal closes.
+
+  sonardyne:
+    name: "Sonardyne"
+    # Pending Covelya/Sonardyne acquisition by Kraken Robotics (announced 2026-03-03).
+    # WordPress site behind Cloudflare — listing page is WAF-gated, but the
+    # job-opening sitemap is plain HTTP, and detail pages render fine via
+    # Playwright. Use html_generic's sitemap_url support to enumerate jobs.
+    platform: html_generic
+    base_url: "https://www.sonardyne.com/about-us/careers/"
+    rate_limit_delay: 3.0
+    html_config:
+      sitemap_url: "https://www.sonardyne.com/job-opening-sitemap.xml"
+      sitemap_job_pattern: "/job-opening/"
+      detail_wait_for: "article, .entry-content, main"
+    selectors:
+      description: "article .entry-content, article, .entry-content"
+      location: ".job-location, [class*='location']"
+      employment_type: ".job-type, [class*='type']"
+    sheet_name: "Sonardyne"
+
+  eiva:
+    name: "EIVA"
+    # Pending Covelya/Sonardyne acquisition by Kraken Robotics (announced 2026-03-03).
+    # Danish subsea software. Hiring portal on HR-on (hr-on.com). Static HTML,
+    # unblocked — joblist-card pattern is straightforward.
+    platform: html_generic
+    base_url: "https://eiva.hr-on.com/?locale=en_US"
+    rate_limit_delay: 2.5
+    selectors:
+      job_card: "a[href*='/show-job/']"
+      description: "[class*='description']"
+      location: "[class*='location']"
+    html_config:
+      jobs_are_links: true
+      wait_for: "a[href*='/show-job/']"
+      detail_wait_for: "[class*='description']"
+    sheet_name: "EIVA"
