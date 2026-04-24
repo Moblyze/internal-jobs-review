@@ -63,26 +63,39 @@ def authenticate(credentials_path: str):
 
 
 def read_employer_jobs(spreadsheet) -> list[dict]:
-    """Read all job data from employer worksheets."""
+    """Read all job data from employer worksheets.
+
+    Uses a single values_batch_get to pull every worksheet's data in one API
+    call, avoiding the 60 reads-per-minute quota that used to fail this job
+    on days with many worksheets.
+    """
     jobs = []
 
-    for ws in spreadsheet.worksheets():
+    eligible = [ws for ws in spreadsheet.worksheets() if ws.title not in SKIP_SHEETS]
+    if not eligible:
+        return jobs
+
+    ranges = [f"'{ws.title}'!A:Z" for ws in eligible]
+    try:
+        batch = spreadsheet.values_batch_get(ranges)
+        results = batch.get('valueRanges', [])
+    except APIError as e:
+        logger.warning(f'Batch read failed, falling back to per-tab: {e}')
+        results = []
+        for ws in eligible:
+            try:
+                results.append({'values': ws.get_all_values()})
+            except APIError as e2:
+                logger.warning(f'Failed to read worksheet {ws.title}: {e2}')
+                results.append({'values': []})
+
+    for ws, result in zip(eligible, results):
         title = ws.title
-        if title in SKIP_SHEETS:
-            continue
-
-        try:
-            all_values = ws.get_all_values()
-        except APIError as e:
-            logger.warning(f'Failed to read worksheet {title}: {e}')
-            continue
-
+        all_values = result.get('values', [])
         if len(all_values) <= 1:
             continue
 
         headers = all_values[0]
-
-        # Build column index map
         col_map = {h: i for i, h in enumerate(headers)}
         if 'URL' not in col_map or 'Title' not in col_map:
             logger.debug(f'Skipping {title}: missing required columns')
