@@ -127,6 +127,12 @@ try:
 except ImportError:
     pass
 
+try:
+    from src.scrapers.rippling import RipplingScraper
+    SCRAPER_REGISTRY['rippling'] = RipplingScraper
+except ImportError:
+    pass
+
 
 def load_companies_config(config_path: str = 'config/companies.yaml') -> dict:
     """

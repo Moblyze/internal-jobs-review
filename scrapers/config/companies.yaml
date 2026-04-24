@@ -549,3 +549,59 @@ companies:
       location: ".job-location, [class*='location']"
       employment_type: ".job-type, [class*='type']"
     sheet_name: "Sulmara"
+
+  # === Rippling ATS employers (added 2026-04-24) ===
+
+  kraken_robotics:
+    name: "Kraken Robotics"
+    platform: rippling
+    base_url: "https://ats.rippling.com/kraken-robotics-inc/jobs"
+    rippling_slug: "kraken-robotics-inc"
+    rate_limit_delay: 1.5
+    selectors: {}
+    sheet_name: "Kraken Robotics"
+
+  qe_solar:
+    name: "QE Solar"
+    platform: rippling
+    base_url: "https://ats.rippling.com/qesolar/jobs"
+    rippling_slug: "qesolar"
+    rate_limit_delay: 1.5
+    selectors: {}
+    sheet_name: "QE Solar"
+
+  summerset_marine:
+    name: "Summerset Marine Construction"
+    platform: rippling
+    base_url: "https://ats.rippling.com/summerset/jobs"
+    rippling_slug: "summerset"
+    rate_limit_delay: 1.5
+    selectors: {}
+    sheet_name: "Summerset Marine Construction"
+
+  big_horn_hvac:
+    name: "Big Horn Heating & Cooling"
+    platform: rippling
+    base_url: "https://ats.rippling.com/big-horn-heating-cooling/jobs"
+    rippling_slug: "big-horn-heating-cooling"
+    rate_limit_delay: 1.5
+    selectors: {}
+    sheet_name: "Big Horn Heating & Cooling"
+
+  five_star_home_services:
+    name: "Five Star Home Services"
+    platform: rippling
+    base_url: "https://ats.rippling.com/five-star-careers/jobs"
+    rippling_slug: "five-star-careers"
+    rate_limit_delay: 1.5
+    selectors: {}
+    sheet_name: "Five Star Home Services"
+
+  forge_careers:
+    name: "Forge"
+    platform: rippling
+    base_url: "https://ats.rippling.com/forge-careers-2/jobs"
+    rippling_slug: "forge-careers-2"
+    rate_limit_delay: 1.5
+    selectors: {}
+    sheet_name: "Forge"

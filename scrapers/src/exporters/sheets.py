@@ -336,6 +336,73 @@ class SheetsExporter:
             worksheet.batch_update(batch_data)
             logger.info(f"Batch updated {len(updates)} job statuses in {sheet_name}")
 
+    # Tabs that are reporting/reference artifacts, not data sources.
+    OVERVIEW_ADMIN_TABS = {
+        'Overview',
+        'Target Companies',
+        'Agency Blocklist',
+        'Client Jobs - Aggregated',
+        'Jobs Weekly',
+        'Trend Data',
+    }
+
+    def _classify_tab(self, title: str):
+        """Return (display_name, source_type) or None to skip.
+
+        source_type is one of 'employer', 'agency', 'aggregator'.
+        """
+        if title.startswith('_') or title in self.OVERVIEW_ADMIN_TABS:
+            return None
+        if title.startswith('Agency - '):
+            return title[len('Agency - '):], 'agency'
+        if title.startswith('Aggregator - '):
+            return title[len('Aggregator - '):], 'aggregator'
+        return title, 'employer'
+
+    @staticmethod
+    def _stats_from_values(values):
+        """Compute {active,inactive,total,last_scraped} from a tab's raw rows.
+
+        Defensive to schema variation: finds Status and Scraped At columns
+        by header name. If no recognizable header, returns zeros.
+        """
+        if not values or len(values) < 2:
+            return {'active': 0, 'inactive': 0, 'total': 0, 'last_scraped': ''}
+        header = [h.strip().lower() for h in values[0]]
+        data_rows = [r for r in values[1:] if any(c.strip() for c in r)]
+
+        def find_col(*candidates):
+            for cand in candidates:
+                if cand in header:
+                    return header.index(cand)
+            return None
+
+        status_idx = find_col('status')
+        scraped_idx = find_col('scraped at', 'scraped_at', 'last seen', 'last_seen')
+
+        total = len(data_rows)
+        if status_idx is not None:
+            active = sum(
+                1 for r in data_rows
+                if status_idx < len(r) and r[status_idx].strip().lower() == 'active'
+            )
+            inactive = total - active
+        else:
+            active, inactive = total, 0
+
+        last_scraped = ''
+        if scraped_idx is not None:
+            vals = [
+                r[scraped_idx].strip()
+                for r in data_rows
+                if scraped_idx < len(r) and r[scraped_idx].strip()
+            ]
+            if vals:
+                last_scraped = max(vals)
+
+        return {'active': active, 'inactive': inactive,
+                'total': total, 'last_scraped': last_scraped}
+
     @retry(
         retry=retry_if_exception_type(APIError),
         stop=stop_after_attempt(3),
@@ -344,142 +411,98 @@ class SheetsExporter:
     )
     def update_overview_sheet(
         self,
-        company_configs: dict,
+        company_configs: dict,  # kept for signature compatibility; unused
         scrape_results: list[dict],
-        tracker_stats: dict
+        tracker_stats: dict,  # kept for signature compatibility; unused
     ):
-        """
-        Update the Overview sheet with current counts and append a run report.
+        """Rewrite the Overview sheet as a single snapshot of every data tab.
 
-        The Overview sheet has two sections:
-        1. Summary table (rows 1-N): Employer | Active Jobs | Inactive Jobs | Total Jobs
-        2. Run reports (appended below): timestamped per-source stats from each scrape run
+        Columns: Employer | Source Type | Active Jobs | Inactive Jobs |
+                 Total Jobs | Last Scraped
 
-        Args:
-            company_configs: Dict of company configs from companies.yaml (key -> config)
-            scrape_results: List of per-company result dicts from scrape_company()
-            tracker_stats: Stats dict from DeduplicationTracker.get_stats()
+        Enumerates every worksheet, categorises by name, and reads all tabs
+        in a SINGLE values_batch_get call to stay under the Sheets
+        60-reads/min quota. Full overwrite on every run; nothing appended.
         """
+        now_iso = datetime.utcnow().replace(microsecond=0).isoformat() + 'Z'
+        scraped_this_run = {r['company'] for r in scrape_results if r.get('success')}
+
         try:
-            worksheet = self.spreadsheet.worksheet('Overview')
+            overview_ws = self.spreadsheet.worksheet('Overview')
         except WorksheetNotFound:
             logger.warning("Overview worksheet not found, creating it")
-            worksheet = self.spreadsheet.add_worksheet(
-                title='Overview', rows=500, cols=8
+            overview_ws = self.spreadsheet.add_worksheet(
+                title='Overview', rows=200, cols=10
             )
 
-        # --- Section 1: Update the summary table ---
+        all_worksheets = self.spreadsheet.worksheets()
+        classified = []  # (ws, display, source_type)
+        for ws in all_worksheets:
+            c = self._classify_tab(ws.title)
+            if c is None:
+                continue
+            display, source_type = c
+            classified.append((ws, display, source_type))
 
-        # Build employer rows sorted by config order
-        overview_header = ['Employer', 'Active Jobs', 'Inactive Jobs', 'Total Jobs']
-        employer_rows = []
+        # Single batched read for every source tab (A:N covers the 14-column schema
+        # and is safe for wider-schema tabs — we only read what we need).
+        ranges = [f"'{ws.title}'!A:N" for ws, _, _ in classified]
+        values_per_tab = {}
+        if ranges:
+            try:
+                batch = self.spreadsheet.values_batch_get(ranges)
+                for rng, result in zip(ranges, batch.get('valueRanges', [])):
+                    values_per_tab[rng] = result.get('values', [])
+            except Exception as e:
+                logger.warning(f"values_batch_get failed, falling back to per-tab: {e}")
+                for ws, _, _ in classified:
+                    try:
+                        values_per_tab[f"'{ws.title}'!A:N"] = ws.get_all_values()
+                    except Exception as e2:
+                        logger.warning(f"Failed to read '{ws.title}': {e2}")
+                        values_per_tab[f"'{ws.title}'!A:N"] = []
 
-        by_company_active = tracker_stats.get('by_company_active', {})
-        by_company = tracker_stats.get('by_company', {})
+        # Build rows
+        sources = []  # (display, source_type, stats)
+        for ws, display, source_type in classified:
+            values = values_per_tab.get(f"'{ws.title}'!A:N", [])
+            stats = self._stats_from_values(values)
+            if display in scraped_this_run:
+                stats['last_scraped'] = now_iso
+            sources.append((display, source_type, stats))
 
+        # Sort: employer → agency → aggregator, then by name
+        type_order = {'employer': 0, 'agency': 1, 'aggregator': 2}
+        sources.sort(key=lambda s: (type_order.get(s[1], 3), s[0].lower()))
+
+        header = ['Employer', 'Source Type', 'Active Jobs', 'Inactive Jobs',
+                 'Total Jobs', 'Last Scraped']
+        rows = [header]
         total_active = 0
         total_inactive = 0
         total_all = 0
-
-        for _key, config in company_configs.items():
-            name = config['name']
-            active = by_company_active.get(name, 0)
-            all_jobs = by_company.get(name, 0)
-            inactive = all_jobs - active
-
-            total_active += active
-            total_inactive += inactive
-            total_all += all_jobs
-
-            employer_rows.append([name, active, inactive, all_jobs])
-
-        # Write header + employer rows + blank + TOTAL
-        summary_data = [overview_header]
-        summary_data.extend(employer_rows)
-        summary_data.append([])  # blank row
-        summary_data.append(['TOTAL', total_active, total_inactive, total_all])
-
-        # Calculate the end of the summary section
-        summary_end_row = len(summary_data)
-
-        # Write the entire summary block (overwrite existing)
-        range_notation = f'A1:D{summary_end_row}'
-        worksheet.update(
-            values=summary_data,
-            range_name=range_notation,
-            value_input_option='RAW'
-        )
-
-        logger.info(f"Updated Overview summary table: {len(employer_rows)} employers")
-
-        # --- Section 2: Append run report below summary ---
-
-        # Find the first empty row after the summary section.
-        # Read all current values to find where run reports start.
-        all_values = worksheet.get_all_values()
-        next_row = len(all_values) + 1
-
-        # Ensure at least 2 blank rows between summary and first run report
-        min_report_start = summary_end_row + 3
-        if next_row < min_report_start:
-            next_row = min_report_start
-
-        # Build run report
-        now = datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')
-        report_rows = []
-
-        # Report header
-        report_rows.append([f'--- Run Report: {now} ---', '', '', '', '', '', ''])
-        report_rows.append([
-            'Source', 'Jobs Added', 'Jobs Removed', 'Active',
-            'Inactive', 'Total', 'Status'
-        ])
-
-        # Per-company stats
-        run_total_added = 0
-        run_total_removed = 0
-        run_total_active = 0
-        run_total_inactive = 0
-        run_total_all = 0
-
-        for result in scrape_results:
-            company = result['company']
-            added = result.get('new_jobs', 0)
-            removed = result.get('removed_jobs', 0)
-            active = by_company_active.get(company, 0)
-            all_jobs = by_company.get(company, 0)
-            inactive = all_jobs - active
-            status = 'OK' if result.get('success') else f"FAIL: {result.get('error', 'Unknown')[:40]}"
-
-            run_total_added += added
-            run_total_removed += removed
-            run_total_active += active
-            run_total_inactive += inactive
-            run_total_all += all_jobs
-
-            report_rows.append([
-                company, added, removed, active, inactive, all_jobs, status
+        for display, source_type, st in sources:
+            total_active += st['active']
+            total_inactive += st['inactive']
+            total_all += st['total']
+            rows.append([
+                display, source_type, st['active'], st['inactive'],
+                st['total'], st['last_scraped'],
             ])
+        rows.append([])
+        rows.append(['TOTAL', '', total_active, total_inactive, total_all, ''])
 
-        # Totals row
-        report_rows.append([
-            'TOTAL', run_total_added, run_total_removed,
-            run_total_active, run_total_inactive, run_total_all, ''
-        ])
-
-        # Blank row after report
-        report_rows.append([])
-
-        # Write run report
-        end_row = next_row + len(report_rows) - 1
-        report_range = f'A{next_row}:G{end_row}'
-        worksheet.update(
-            values=report_rows,
-            range_name=report_range,
+        end_row = len(rows)
+        if overview_ws.row_count < end_row:
+            overview_ws.resize(rows=max(end_row + 10, 200))
+        overview_ws.clear()
+        overview_ws.update(
+            values=rows,
+            range_name=f'A1:F{end_row}',
             value_input_option='RAW'
         )
 
         logger.info(
-            f"Appended run report to Overview sheet at row {next_row}: "
-            f"{len(scrape_results)} sources, +{run_total_added}/-{run_total_removed} jobs"
+            f"Overview sheet rewritten: {len(sources)} sources "
+            f"({total_active} active / {total_inactive} inactive / {total_all} total)"
         )
