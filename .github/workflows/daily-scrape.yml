@@ -315,11 +315,8 @@ jobs:
       contents: write
 
     steps:
-      - name: Checkout merge script
+      - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          sparse-checkout: scrapers/scripts/merge_state_dbs.py
-          sparse-checkout-cone-mode: false
 
       - name: Download employer state
         uses: actions/download-artifact@v4
@@ -342,6 +339,15 @@ jobs:
             state/aggregator/scraper_state.db \
             scraper_state.db
 
+      - name: Record health snapshot + check for regressions
+        id: health_check
+        working-directory: scrapers
+        # Swallow non-zero exit so the upload step below still runs; we
+        # surface the failure in a later step once the fresh snapshot is
+        # safely persisted.
+        run: |
+          python3 scripts/check_scrape_health.py --state-db ../scraper_state.db || echo "HEALTH_ALERT=1" >> $GITHUB_ENV
+
       - name: Upload merged state to release
         env:
           GH_TOKEN: ${{ github.token }}
@@ -354,6 +360,12 @@ jobs:
 
           gh release upload scraper-state-latest scraper_state.db --clobber
           echo "Uploaded merged state ($(wc -c < scraper_state.db) bytes)"
+
+      - name: Fail workflow if health check reported critical regressions
+        if: env.HEALTH_ALERT == '1'
+        run: |
+          echo "::error::Scrape health check detected one or more employers whose active-job count fell to zero. See the 'Record health snapshot' step above for details."
+          exit 1
 
   # ── Update Source Coverage Matrix (runs after both complete) ──
   update-matrix:

@@ -84,7 +84,81 @@ class DeduplicationTracker:
             cursor.execute("ALTER TABLE scraped_jobs ADD COLUMN exported_to_sheets BOOLEAN DEFAULT 0")
             self.conn.commit()
 
+        # Per-run snapshots of per-company counts, used by the health check to
+        # detect silent regressions (e.g. an employer dropping from 200 jobs
+        # to 0 because their ATS migrated).
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS health_snapshots (
+                ts TIMESTAMP NOT NULL,
+                company TEXT NOT NULL,
+                active_count INTEGER NOT NULL,
+                total_count INTEGER NOT NULL,
+                PRIMARY KEY (ts, company)
+            )
+        """)
+        self.conn.commit()
+
         logger.debug("Database schema initialized")
+
+    def record_health_snapshot(self) -> str:
+        """Persist current per-company active + total counts with a timestamp.
+
+        Returns the snapshot timestamp (ISO-8601).
+        """
+        ts = datetime.utcnow().isoformat()
+        cursor = self.conn.cursor()
+        cursor.execute("""
+            SELECT
+                company,
+                SUM(CASE WHEN status='active' THEN 1 ELSE 0 END) AS active_count,
+                COUNT(*) AS total_count
+            FROM scraped_jobs
+            GROUP BY company
+        """)
+        rows = [
+            (ts, row['company'], row['active_count'], row['total_count'])
+            for row in cursor.fetchall()
+        ]
+        if rows:
+            cursor.executemany(
+                "INSERT OR REPLACE INTO health_snapshots "
+                "(ts, company, active_count, total_count) VALUES (?, ?, ?, ?)",
+                rows
+            )
+            self.conn.commit()
+        logger.info(f"Recorded health snapshot at {ts} for {len(rows)} companies")
+        return ts
+
+    def get_latest_health_snapshot(self, before: Optional[str] = None) -> dict:
+        """Return the most recent per-company snapshot before `before` (or ever).
+
+        Returns: {company: {'active_count': int, 'total_count': int, 'ts': str}}
+        Empty dict if no snapshot exists.
+        """
+        cursor = self.conn.cursor()
+        if before:
+            cursor.execute(
+                "SELECT MAX(ts) AS ts FROM health_snapshots WHERE ts < ?",
+                (before,)
+            )
+        else:
+            cursor.execute("SELECT MAX(ts) AS ts FROM health_snapshots")
+        row = cursor.fetchone()
+        if not row or not row['ts']:
+            return {}
+        target_ts = row['ts']
+        cursor.execute(
+            "SELECT company, active_count, total_count FROM health_snapshots WHERE ts = ?",
+            (target_ts,)
+        )
+        return {
+            r['company']: {
+                'active_count': r['active_count'],
+                'total_count': r['total_count'],
+                'ts': target_ts,
+            }
+            for r in cursor.fetchall()
+        }
 
     def _hash_url(self, url: str) -> str:
         """
