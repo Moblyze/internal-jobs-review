@@ -32,9 +32,12 @@ logger = logging.getLogger(__name__)
 
 BASE_URL = "https://www.oilgasvacancy.com"
 
-# Delay between requests (seconds)
-REQUEST_DELAY = 1.5
-MAX_PAGES_PER_KEYWORD = 5
+# Delay between requests (seconds). Bumped 2026-04-24: prior 1.5s was
+# triggering 429 rate limits across multiple search profiles per day.
+REQUEST_DELAY = 4.0
+MAX_PAGES_PER_KEYWORD = 3
+# On 429, back off this many seconds before abandoning the keyword.
+RATE_LIMIT_BACKOFF = 15.0
 
 HEADERS = {
     "User-Agent": (
@@ -86,10 +89,22 @@ class OilGasVacancyAggregator(BaseAggregator):
         return f"{BASE_URL}/page/{page}/?s={encoded_kw}"
 
     def _fetch_page(self, url: str) -> BeautifulSoup:
-        """Fetch a page with rate limiting and return parsed HTML."""
+        """Fetch a page with rate limiting and return parsed HTML.
+
+        On HTTP 429, sleep RATE_LIMIT_BACKOFF seconds and retry once.
+        If the retry also 429s, raise so the caller breaks out of the
+        keyword loop rather than hammering the site.
+        """
         client = self._get_client()
         time.sleep(REQUEST_DELAY)
         resp = client.get(url)
+        if resp.status_code == 429:
+            logger.warning(
+                f"OilGasVacancy: 429 rate-limit on {url}, "
+                f"backing off {RATE_LIMIT_BACKOFF}s"
+            )
+            time.sleep(RATE_LIMIT_BACKOFF)
+            resp = client.get(url)
         resp.raise_for_status()
         return BeautifulSoup(resp.text, "html.parser")
 

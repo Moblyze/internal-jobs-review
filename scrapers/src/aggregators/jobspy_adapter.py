@@ -47,8 +47,13 @@ class JobSpyAggregator(BaseAggregator):
     def search(self, filters: AggregatorFilters) -> list[JobPosting]:
         seen = set()
         results = []
-        # Note: "google" was tested but hangs frequently, "zip_recruiter" returns 429s
-        sites = ["indeed", "glassdoor", "linkedin"]
+        # Note: "google" was tested but hangs frequently, "zip_recruiter" returns 429s.
+        # "glassdoor" disabled 2026-04-24: JobSpy's Glassdoor backend has been
+        # returning failing/shape-changed API responses across all 9 search
+        # profiles for days, silently killing the JobSpy step when a keyword
+        # hit it. Indeed + LinkedIn remain healthy. Re-enable after verifying
+        # a fresh jobspy release handles Glassdoor's new API.
+        sites = ["indeed", "linkedin"]
 
         # Don't filter by job_type - many relevant contingent roles are posted
         # as fulltime or without a type. The relevance filter handles quality.
