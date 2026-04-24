@@ -12,7 +12,10 @@ Strategy:
 4. Extract job details from individual position endpoints if needed
 """
 
+import asyncio
+import random
 import re
+import time
 from datetime import datetime
 from typing import Optional
 
@@ -26,6 +29,17 @@ from src.models.job import JobPosting
 from src.scrapers.base import BaseScraper
 
 logger = structlog.get_logger()
+
+# UA pool for rotation on 403/429 (Eightfold adds anti-bot throttling after
+# ~21 pages / ~200+ requests from a single session+UA).
+_UA_POOL = [
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
+    'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:121.0) Gecko/20100101 Firefox/121.0',
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:122.0) Gecko/20100101 Firefox/122.0',
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Safari/605.1.15',
+]
 
 
 class EightfoldScraper(BaseScraper):
@@ -185,52 +199,135 @@ class EightfoldScraper(BaseScraper):
 
         return self.config['base_url']
 
+    # --- Session + UA rotation for anti-bot resilience ---------------------
+
+    def _get_session(self) -> requests.Session:
+        """Lazily create a persistent Session with a sticky UA."""
+        sess = getattr(self, '_http_session', None)
+        if sess is None:
+            sess = requests.Session()
+            self._http_session = sess
+            self._current_ua = random.choice(_UA_POOL)
+        return sess
+
+    def _rotate_session(self):
+        """Discard current session + UA, pick a fresh pair on next call."""
+        old = getattr(self, '_http_session', None)
+        if old is not None:
+            try:
+                old.close()
+            except Exception:  # noqa: BLE001
+                pass
+        self._http_session = None
+        # Pick a different UA than before if possible
+        prev = getattr(self, '_current_ua', None)
+        choices = [u for u in _UA_POOL if u != prev] or _UA_POOL
+        self._current_ua = random.choice(choices)
+        self.logger.info("session_rotated", new_ua=self._current_ua[:40] + "...")
+
+    def _headers(self) -> dict:
+        return {
+            'User-Agent': getattr(self, '_current_ua', _UA_POOL[0]),
+            'Accept': 'application/json, text/plain, */*',
+            'Accept-Language': 'en-US,en;q=0.9',
+            'Referer': self.config['base_url'],
+        }
+
+    def _request_with_retry(self, url: str, params: dict, max_attempts: int = 4) -> Optional[requests.Response]:
+        """
+        GET with session+UA rotation + Retry-After aware backoff on 403/429.
+
+        Returns the final Response (may still be an error status), or None on
+        unrecoverable network failure.
+        """
+        sess = self._get_session()
+        last_resp: Optional[requests.Response] = None
+
+        for attempt in range(1, max_attempts + 1):
+            try:
+                resp = sess.get(url, headers=self._headers(), params=params, timeout=30)
+            except requests.RequestException as e:
+                self.logger.warning("request_exception", error=str(e), attempt=attempt, url=url)
+                self._rotate_session()
+                sess = self._get_session()
+                time.sleep(min(30, 2 ** attempt))
+                continue
+
+            last_resp = resp
+            if resp.status_code == 200:
+                return resp
+
+            if resp.status_code in (403, 429):
+                retry_after = resp.headers.get('Retry-After')
+                try:
+                    wait = float(retry_after) if retry_after else 0
+                except ValueError:
+                    wait = 0
+                # Exponential backoff with jitter, honor Retry-After if longer
+                backoff = max(wait, min(60, (2 ** attempt) + random.uniform(0, 2)))
+                self.logger.warning(
+                    "throttled_rotating_session",
+                    status=resp.status_code,
+                    attempt=attempt,
+                    wait_seconds=round(backoff, 1),
+                    retry_after=retry_after,
+                    params=params,
+                )
+                self._rotate_session()
+                sess = self._get_session()
+                time.sleep(backoff)
+                continue
+
+            # Other error: brief retry but don't rotate
+            self.logger.warning("http_error", status=resp.status_code, attempt=attempt, params=params)
+            time.sleep(min(10, 2 ** attempt))
+
+        return last_resp
+
     def fetch_jobs_page(self, start: int = 0) -> dict:
         """
         Fetch one page of jobs from Eightfold API.
+
+        Uses session+UA rotation with Retry-After aware backoff so that the
+        anti-bot throttling Eightfold applies after ~21 pages doesn't
+        truncate large companies (Worley, Schlumberger) at ~210 jobs.
 
         Args:
             start: Pagination offset (0, 10, 20, ...)
 
         Returns:
-            API response dict with keys:
-                - status: HTTP status code
-                - error: Error dict (empty if success)
-                - data: Dict with 'positions', 'count', etc.
-                - metadata: Usually null
-
-        Raises:
-            requests.RequestException: On network errors
+            API response dict. On unrecoverable failure, returns a synthetic
+            error dict shaped like the Eightfold response so the caller can
+            decide whether to stop.
         """
-        # Extract domain from base URL
-        # Example: https://slb.eightfold.ai/careers -> slb.com
         domain = self.config.get('eightfold_domain', 'slb.com')
-
         url = f"{self.config['base_url'].rstrip('/careers')}/api/pcsx/search"
-
-        headers = {
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-            'Accept': 'application/json, text/plain, */*',
-            'Referer': self.config['base_url']
-        }
-
         params = {
             'domain': domain,
             'query': '',
             'location': '',
-            'start': start
+            'start': start,
         }
 
         self.logger.info("fetching_jobs_page", url=url, start=start)
+        resp = self._request_with_retry(url, params)
+
+        if resp is None:
+            self.logger.error("api_request_failed", url=url, start=start)
+            return {'status': 599, 'error': {'message': 'network_failure'}, 'data': {}}
+
+        if resp.status_code != 200:
+            self.logger.error("api_request_failed_final",
+                              status=resp.status_code, url=url, start=start)
+            return {'status': resp.status_code,
+                    'error': {'message': f'HTTP {resp.status_code}'},
+                    'data': {}}
 
         try:
-            response = requests.get(url, headers=headers, params=params, timeout=30)
-            response.raise_for_status()
-            return response.json()
-
-        except requests.RequestException as e:
-            self.logger.error("api_request_failed", error=str(e), url=url, start=start)
-            raise
+            return resp.json()
+        except ValueError as e:
+            self.logger.error("api_json_decode_failed", error=str(e), start=start)
+            return {'status': 598, 'error': {'message': 'json_decode'}, 'data': {}}
 
     def fetch_job_details(self, position_id: int) -> dict:
         """
@@ -250,22 +347,21 @@ class EightfoldScraper(BaseScraper):
         domain = self.config.get('eightfold_domain', 'slb.com')
         url = f"{self.config['base_url'].rstrip('/careers')}/api/pcsx/position_details"
 
-        headers = {
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-            'Accept': 'application/json, text/plain, */*',
-            'Referer': self.config['base_url']
-        }
-
         params = {
             'position_id': position_id,
             'domain': domain,
             'hl': 'en'
         }
 
+        resp = self._request_with_retry(url, params)
+        if resp is None or resp.status_code != 200:
+            status = resp.status_code if resp is not None else 'network_failure'
+            self.logger.warning("description_fetch_failed_final",
+                                position_id=position_id, status=status)
+            return result
+
         try:
-            response = requests.get(url, headers=headers, params=params, timeout=30)
-            response.raise_for_status()
-            data = response.json()
+            data = resp.json()
 
             if data.get('status') == 200 and data.get('data'):
                 position_data = data['data']
@@ -297,8 +393,8 @@ class EightfoldScraper(BaseScraper):
                         if emp_type:
                             result['employment_type'] = self._normalize_employment_type(emp_type)
 
-        except requests.RequestException as e:
-            self.logger.error("description_fetch_failed", error=str(e), position_id=position_id)
+        except (ValueError, KeyError) as e:
+            self.logger.error("description_parse_failed", error=str(e), position_id=position_id)
 
         return result
 
@@ -331,6 +427,13 @@ class EightfoldScraper(BaseScraper):
         employment_type = None
 
         if include_description:
+            # Small inter-detail pacing: detail calls fire 10x per search page.
+            # A tiny jittered sleep smooths request rate and avoids tripping
+            # Eightfold's burst detection (which starts biting around
+            # ~200+ sustained requests from a single session).
+            detail_delay = float(self.config.get('eightfold_detail_delay', 0.25))
+            if detail_delay > 0:
+                time.sleep(random.uniform(detail_delay * 0.5, detail_delay * 1.5))
             details = self.fetch_job_details(raw_job.get('id'))
             description = details.get('description') or ""
             employment_type = details.get('employment_type')
@@ -461,6 +564,8 @@ class EightfoldScraper(BaseScraper):
 
             # Fetch remaining pages
             start = page_size
+            consecutive_failures = 0
+            max_consecutive_failures = 3
             while start < total_jobs:
                 if max_jobs and len(jobs) >= max_jobs:
                     break
@@ -471,10 +576,27 @@ class EightfoldScraper(BaseScraper):
                 response = self.fetch_jobs_page(start=start)
 
                 if response.get('status') != 200:
+                    consecutive_failures += 1
                     error_msg = response.get('error', {}).get('message', 'Unknown error')
-                    self.logger.error("api_error", error=error_msg, start=start)
-                    break
+                    self.logger.error(
+                        "api_error_skipping_page",
+                        error=error_msg,
+                        start=start,
+                        consecutive_failures=consecutive_failures,
+                    )
+                    if consecutive_failures >= max_consecutive_failures:
+                        self.logger.error(
+                            "too_many_consecutive_failures_stopping",
+                            start=start,
+                            jobs_so_far=len(jobs),
+                        )
+                        break
+                    # Extra cool-down before moving on; skip this page and try next.
+                    await asyncio.sleep(min(30, 5 * consecutive_failures))
+                    start += page_size
+                    continue
 
+                consecutive_failures = 0
                 positions = response.get('data', {}).get('positions', [])
 
                 if not positions:
