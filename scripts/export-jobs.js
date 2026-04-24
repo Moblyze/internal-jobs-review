@@ -93,12 +93,41 @@ function parseRow(row, sheetName, columnMap) {
   return job;
 }
 
+// Rate limiting and retry helpers
+async function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function retryWithBackoff(fn, maxRetries = 3, baseDelay = 2000) {
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      return await fn();
+    } catch (error) {
+      const isQuotaError = error.message && (
+        error.message.includes('quota exceeded') ||
+        error.message.includes('rate limit') ||
+        error.message.includes('Read requests per minute')
+      );
+
+      if (isQuotaError && attempt < maxRetries) {
+        const delayTime = baseDelay * Math.pow(2, attempt - 1); // Exponential backoff
+        console.warn(`    Rate limit hit, retrying in ${delayTime}ms... (attempt ${attempt}/${maxRetries})`);
+        await delay(delayTime);
+      } else {
+        throw error;
+      }
+    }
+  }
+}
+
 async function fetchAllJobs(auth) {
   const sheets = google.sheets({ version: 'v4', auth });
 
   // Get spreadsheet metadata to find all worksheets
-  const spreadsheet = await sheets.spreadsheets.get({
-    spreadsheetId: await getSpreadsheetId(sheets),
+  const spreadsheet = await retryWithBackoff(async () => {
+    return await sheets.spreadsheets.get({
+      spreadsheetId: await getSpreadsheetId(sheets),
+    });
   });
 
   const allJobs = [];
@@ -114,9 +143,14 @@ async function fetchAllJobs(auth) {
 
     console.log(`Fetching jobs from "${sheetName}"...`);
 
-    const response = await sheets.spreadsheets.values.get({
-      spreadsheetId: spreadsheet.data.spreadsheetId,
-      range: `${sheetName}!A:N`, // All columns from the sheet (A-N = 14 columns, includes Employment Type)
+    // Add delay between requests to avoid rate limiting (1.5 seconds between sheets)
+    await delay(1500);
+
+    const response = await retryWithBackoff(async () => {
+      return await sheets.spreadsheets.values.get({
+        spreadsheetId: spreadsheet.data.spreadsheetId,
+        range: `${sheetName}!A:N`, // All columns from the sheet (A-N = 14 columns, includes Employment Type)
+      });
     });
 
     const rows = response.data.values || [];
@@ -158,10 +192,12 @@ async function getSpreadsheetId(sheets) {
   // Find spreadsheet by name
   const drive = google.drive({ version: 'v3', auth: sheets.context._options.auth });
 
-  const response = await drive.files.list({
-    q: `name='${SPREADSHEET_NAME}' and mimeType='application/vnd.google-apps.spreadsheet'`,
-    fields: 'files(id, name)',
-    spaces: 'drive',
+  const response = await retryWithBackoff(async () => {
+    return await drive.files.list({
+      q: `name='${SPREADSHEET_NAME}' and mimeType='application/vnd.google-apps.spreadsheet'`,
+      fields: 'files(id, name)',
+      spaces: 'drive',
+    });
   });
 
   if (!response.data.files || response.data.files.length === 0) {
@@ -316,9 +352,14 @@ async function fetchAggregatorJobs(auth) {
 
   console.log('📊 Fetching aggregator jobs...');
   try {
-    const response = await sheets.spreadsheets.values.get({
-      spreadsheetId: AGGREGATOR_SPREADSHEET_ID,
-      range: 'Aggregator Jobs!A2:P', // Skip header row
+    // Add delay before aggregator fetch
+    await delay(2000);
+
+    const response = await retryWithBackoff(async () => {
+      return await sheets.spreadsheets.values.get({
+        spreadsheetId: AGGREGATOR_SPREADSHEET_ID,
+        range: 'Aggregator Jobs!A2:P', // Skip header row
+      });
     });
 
     const rows = response.data.values || [];
