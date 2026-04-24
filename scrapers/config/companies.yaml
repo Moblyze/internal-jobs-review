@@ -356,12 +356,16 @@ companies:
 
   oceaneering:
     name: "Oceaneering"
-    platform: phenom
-    base_url: "https://careers.oceaneering.com/global/en"
+    # Oceaneering migrated from Phenom to Oracle HCM Cloud (April 2026).
+    # Old careers.oceaneering.com URLs 301-redirect to a generic landing page.
+    # New site: https://ebfr.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/jobs
+    platform: oracle_hcm
+    base_url: "https://ebfr.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/jobs"
     rate_limit_delay: 2.5
-    phenom_config:
-      ref_num: "OCINGLOBAL"
-    # Phenom uses server-rendered DDO data, selectors not needed for primary extraction
+    oracle_hcm_config:
+      api_base: "https://ebfr.fa.us2.oraclecloud.com/hcmRestApi/resources/latest"
+      site_number: "jobs"
+      job_url_template: "https://ebfr.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/jobs/job/{req_id}"
     selectors: {}
     sheet_name: "Oceaneering"
 
