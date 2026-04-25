@@ -93,6 +93,11 @@ function parseRow(row, sheetName, columnMap) {
   return job;
 }
 
+// Helper function to add delay between API calls to respect rate limits
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 async function fetchAllJobs(auth) {
   const sheets = google.sheets({ version: 'v4', auth });
 
@@ -149,6 +154,9 @@ async function fetchAllJobs(auth) {
 
     console.log(`  Found ${jobs.length} jobs from ${sheetName}`);
     allJobs.push(...jobs);
+
+    // Add delay to respect Google Sheets API rate limits (100 requests per 100 seconds)
+    await delay(1000);
   }
 
   return allJobs;
