@@ -2912,6 +2912,10 @@
     "mapboxPlaceName": "Van Beethovenstraat, 2018 Antwerpen, Antwerp, Belgium",
     "confidence": 1
   },
+  "Anywhere": {
+    "_skip": true,
+    "_reason": "non-location placeholder"
+  },
   "Apache Industrial Services, Inc.": {
     "_skip": true,
     "_reason": "Company name, not a location"
@@ -3073,6 +3077,19 @@
     },
     "mapboxPlaceName": "Ardmore, Pennsylvania, United States",
     "confidence": 1
+  },
+  "Arecibo, PR, US": {
+    "city": "Tucson",
+    "state": "Arizona",
+    "stateCode": "AZ",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 32.12469,
+      "longitude": -111.129341
+    },
+    "mapboxPlaceName": "West Arecibo Place, Tucson, Arizona 85757, United States",
+    "confidence": 0.862222
   },
   "Arendal, Norway, Bergen, Norway": {
     "city": "Bergen",
@@ -5473,6 +5490,19 @@
     "mapboxPlaceName": "Beaufort, South Carolina, United States",
     "confidence": 1
   },
+  "Beauly, SCT, GB": {
+    "city": "Romford",
+    "state": "England",
+    "stateCode": "ENG",
+    "country": "United Kingdom",
+    "countryCode": "GB",
+    "coordinates": {
+      "latitude": 51.593979,
+      "longitude": 0.182103
+    },
+    "mapboxPlaceName": "Beauly Court, Havering, Romford, RM1 4XD, United Kingdom",
+    "confidence": 0.971296
+  },
   "Beaumont": {
     "city": "Beaumont",
     "state": "Texas",
@@ -5881,6 +5911,19 @@
       "longitude": -122.200173
     },
     "mapboxPlaceName": "Bellevue, Washington, United States",
+    "confidence": 1
+  },
+  "Bellingham, MA": {
+    "city": "Bellingham",
+    "state": "Massachusetts",
+    "stateCode": "MA",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 42.086365,
+      "longitude": -71.474057
+    },
+    "mapboxPlaceName": "Bellingham, Massachusetts, United States",
     "confidence": 1
   },
   "Bells, TX, US": {
@@ -6638,6 +6681,19 @@
       "longitude": -86.534885
     },
     "mapboxPlaceName": "Bloomington, Indiana, United States",
+    "confidence": 1
+  },
+  "Bloomington, San Bernardino County": {
+    "city": "Bloomington",
+    "state": "California",
+    "stateCode": "CA",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 34.070559,
+      "longitude": -117.396115
+    },
+    "mapboxPlaceName": "Bloomington, California, United States",
     "confidence": 1
   },
   "Blue Ash, OH, US": {
@@ -7560,6 +7616,19 @@
     "mapboxPlaceName": "Bristol, Virginia, United States",
     "confidence": 0.796296
   },
+  "Bristow, VA": {
+    "city": "Bristow",
+    "state": "Virginia",
+    "stateCode": "VA",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 38.723425,
+      "longitude": -77.536787
+    },
+    "mapboxPlaceName": "Bristow, Virginia, United States",
+    "confidence": 1
+  },
   "Brockton, MA": {
     "city": "Brockton",
     "state": "Massachusetts",
@@ -8311,6 +8380,19 @@
       "longitude": -83.633801
     },
     "mapboxPlaceName": "Burton, Michigan, United States",
+    "confidence": 1
+  },
+  "Butler, Oklahoma": {
+    "city": "Butler",
+    "state": "Oklahoma",
+    "stateCode": "OK",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 35.636584,
+      "longitude": -99.186589
+    },
+    "mapboxPlaceName": "Butler, Oklahoma, United States",
     "confidence": 1
   },
   "Byers, CO, US": {
@@ -9250,6 +9332,19 @@
     "mapboxPlaceName": "Calgary, Alberta, Canada",
     "confidence": 1
   },
+  "Calhan, CO, United States": {
+    "city": "Calhan",
+    "state": "Colorado",
+    "stateCode": "CO",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 39.035969,
+      "longitude": -104.300434
+    },
+    "mapboxPlaceName": "Calhan, Colorado, United States",
+    "confidence": 1
+  },
   "California": {
     "city": null,
     "state": "California",
@@ -10069,6 +10164,19 @@
     "mapboxPlaceName": "Carolina Beach, North Carolina, United States",
     "confidence": 1
   },
+  "Carolina Forest, Horry County": {
+    "city": "Carolina Forest",
+    "state": "South Carolina",
+    "stateCode": "SC",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 33.760082,
+      "longitude": -78.960396
+    },
+    "mapboxPlaceName": "Carolina Forest, South Carolina, United States",
+    "confidence": 1
+  },
   "Carrizo Springs, TX, US": {
     "city": "Carrizo Springs",
     "state": "Texas",
@@ -10278,6 +10386,19 @@
     "confidence": 1
   },
   "Casper, Natrona County": {
+    "city": "Casper",
+    "state": "Wyoming",
+    "stateCode": "WY",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 42.850082,
+      "longitude": -106.325188
+    },
+    "mapboxPlaceName": "Casper, Wyoming, United States",
+    "confidence": 1
+  },
+  "Casper, WY": {
     "city": "Casper",
     "state": "Wyoming",
     "stateCode": "WY",
@@ -13641,6 +13762,19 @@
     "mapboxPlaceName": "Cranston, Rhode Island, United States",
     "confidence": 1
   },
+  "Crest Hill, IL": {
+    "city": "Crest Hill",
+    "state": "Illinois",
+    "stateCode": "IL",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 41.554139,
+      "longitude": -88.098215
+    },
+    "mapboxPlaceName": "Crest Hill, Illinois, United States",
+    "confidence": 1
+  },
   "Crestview, FL": {
     "city": "Crestview",
     "state": "Florida",
@@ -13787,6 +13921,19 @@
       "district"
     ],
     "confidence": 1
+  },
+  "Cuminestown, SCT, GB": {
+    "city": "Cuminestown",
+    "state": "Scotland",
+    "stateCode": "SCT",
+    "country": "United Kingdom",
+    "countryCode": "GB",
+    "coordinates": {
+      "latitude": 57.542618,
+      "longitude": -2.329133
+    },
+    "mapboxPlaceName": "Cuminestown, Aberdeenshire, Scotland, United Kingdom",
+    "confidence": 0.666667
   },
   "Cummins": {
     "city": "Cummins",
@@ -18477,6 +18624,19 @@
     "mapboxPlaceName": "Falmouth, Maine, United States",
     "confidence": 1
   },
+  "Famersville Station, NY, United States": {
+    "city": "Farmersville Station",
+    "state": "New York",
+    "stateCode": "NY",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 42.4276,
+      "longitude": -78.360774
+    },
+    "mapboxPlaceName": "Farmersville Station, New York, United States",
+    "confidence": 0.994893
+  },
   "Far East": {
     "city": "Indianapolis",
     "state": "Indiana",
@@ -19094,6 +19254,19 @@
       "longitude": -87.683814
     },
     "mapboxPlaceName": "Foley, Alabama, United States",
+    "confidence": 1
+  },
+  "Fontana, CA": {
+    "city": "Fontana",
+    "state": "California",
+    "stateCode": "CA",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 34.101258,
+      "longitude": -117.435767
+    },
+    "mapboxPlaceName": "Fontana, California, United States",
     "confidence": 1
   },
   "Forney, TX, US": {
@@ -19795,6 +19968,19 @@
       "longitude": -97.331527
     },
     "mapboxPlaceName": "Fort Worth, Texas, United States",
+    "confidence": 1
+  },
+  "Foster, CA": {
+    "city": "Carver",
+    "state": "Minnesota",
+    "stateCode": "MN",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 44.756066,
+      "longitude": -93.636986
+    },
+    "mapboxPlaceName": "Foster Avenue, Carver, Minnesota 55315, United States",
     "confidence": 1
   },
   "Fountain Valley, CA": {
@@ -22265,6 +22451,19 @@
     "mapboxPlaceName": "Grand Junction, Colorado, United States",
     "confidence": 1
   },
+  "Grand Prairie, Jersey County": {
+    "city": "Grand Prairie",
+    "state": "Texas",
+    "stateCode": "TX",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 32.676956,
+      "longitude": -96.985146
+    },
+    "mapboxPlaceName": "Country Club Park, Grand Prairie, Texas, United States",
+    "confidence": 0.761605
+  },
   "Grand Rapids": {
     "city": "Grand Rapids",
     "state": "Michigan",
@@ -23155,6 +23354,19 @@
     "mapboxPlaceName": "Hwy 285 Sinclair Plaza Box, Fairplay, Colorado 80440, United States",
     "confidence": 0.763636
   },
+  "HOLLANDALE, MS, United States": {
+    "city": "Hollandale",
+    "state": "Mississippi",
+    "stateCode": "MS",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 33.166648,
+      "longitude": -90.853271
+    },
+    "mapboxPlaceName": "Hollandale, Mississippi, United States",
+    "confidence": 1
+  },
   "HTH Communications LLC": {
     "_skip": true,
     "_reason": "Company name, not a location"
@@ -23652,6 +23864,19 @@
     "mapboxPlaceName": "Harahan, Louisiana, United States",
     "confidence": 1
   },
+  "Harbor City, CA": {
+    "city": "Harbor City",
+    "state": "California",
+    "stateCode": "CA",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 33.78615,
+      "longitude": -118.297041
+    },
+    "mapboxPlaceName": "Harbor City, California, United States",
+    "confidence": 1
+  },
   "Hardeeville, SC": {
     "city": "Hardeeville",
     "state": "South Carolina",
@@ -23780,6 +24005,19 @@
       "longitude": -78.868692
     },
     "mapboxPlaceName": "Harrisonburg, Virginia, United States",
+    "confidence": 1
+  },
+  "Harrison, Hudson County, NJ": {
+    "city": "Harrison",
+    "state": "New Jersey",
+    "stateCode": "NJ",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 40.746558,
+      "longitude": -74.156197
+    },
+    "mapboxPlaceName": "Harrison, New Jersey, United States",
     "confidence": 1
   },
   "Harrisville, PA": {
@@ -24103,6 +24341,19 @@
     "confidence": 1
   },
   "Hayward": {
+    "city": "Hayward",
+    "state": "California",
+    "stateCode": "CA",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 37.672114,
+      "longitude": -122.083978
+    },
+    "mapboxPlaceName": "Hayward, California, United States",
+    "confidence": 1
+  },
+  "Hayward United States": {
     "city": "Hayward",
     "state": "California",
     "stateCode": "CA",
@@ -32543,6 +32794,19 @@
     "mapboxPlaceName": "Louisville, Kentucky, United States",
     "confidence": 1
   },
+  "Loveland, CO": {
+    "city": "Loveland",
+    "state": "Colorado",
+    "stateCode": "CO",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 40.395441,
+      "longitude": -105.073206
+    },
+    "mapboxPlaceName": "Loveland, Colorado, United States",
+    "confidence": 1
+  },
   "Lovell, WY": {
     "city": "Lovell",
     "state": "Wyoming",
@@ -33636,6 +33900,19 @@
     "confidence": 1
   },
   "Madison, WI, USA": {
+    "city": "Madison",
+    "state": "Wisconsin",
+    "stateCode": "WI",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 43.073198,
+      "longitude": -89.38219
+    },
+    "mapboxPlaceName": "Madison, Wisconsin, United States",
+    "confidence": 1
+  },
+  "Madison, WI, United States": {
     "city": "Madison",
     "state": "Wisconsin",
     "stateCode": "WI",
@@ -34793,6 +35070,19 @@
     "mapboxPlaceName": "McMinnville, Tennessee, United States",
     "confidence": 1
   },
+  "Mcminnville, Yamhill County": {
+    "city": "McMinnville",
+    "state": "Oregon",
+    "stateCode": "OR",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 45.209297,
+      "longitude": -123.194489
+    },
+    "mapboxPlaceName": "McMinnville, Oregon, United States",
+    "confidence": 1
+  },
   "Medan, Sumatra, Indonesia": {
     "city": "Medan",
     "state": "North Sumatra",
@@ -35522,6 +35812,19 @@
     },
     "mapboxPlaceName": "Middle East, Baltimore, Maryland, United States",
     "confidence": 1
+  },
+  "Middle East & India": {
+    "city": "Salem",
+    "state": "Tamil Nadu",
+    "stateCode": "TN",
+    "country": "India",
+    "countryCode": "IN",
+    "coordinates": {
+      "latitude": 11.68723,
+      "longitude": 78.226681
+    },
+    "mapboxPlaceName": "Middle ، 636122 Salem، India",
+    "confidence": 0.666667
   },
   "Middle Island, NY": {
     "city": "Middle Island",
@@ -40042,6 +40345,19 @@
     "mapboxPlaceName": "North Little Rock, Arkansas, United States",
     "confidence": 1
   },
+  "North Miami, Miami-Dade County": {
+    "city": "North Miami",
+    "state": "Florida",
+    "stateCode": "FL",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 25.890538,
+      "longitude": -80.186485
+    },
+    "mapboxPlaceName": "North Miami, Florida, United States",
+    "confidence": 1
+  },
   "North Muskegon, Michigan": {
     "city": "North Muskegon",
     "state": "Michigan",
@@ -40811,6 +41127,19 @@
     },
     "mapboxPlaceName": "Grove Road, Grovedale Victoria 3216, Australia",
     "confidence": 0.625926
+  },
+  "Ocean Isle Beach, Brunswick County": {
+    "city": "Ocean Isle Beach",
+    "state": "North Carolina",
+    "stateCode": "NC",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 33.888277,
+      "longitude": -78.436704
+    },
+    "mapboxPlaceName": "Ocean Isle Beach, North Carolina, United States",
+    "confidence": 1
   },
   "Ocean Reef, Joondalup Area": {
     "city": "Perth",
@@ -43950,6 +44279,19 @@
     "mapboxPlaceName": "Piping Rock Lane, Indianapolis, Indiana 46254, United States",
     "confidence": 1
   },
+  "Piscataway, NJ": {
+    "city": "Piscataway",
+    "state": "New Jersey",
+    "stateCode": "NJ",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 40.546834,
+      "longitude": -74.465779
+    },
+    "mapboxPlaceName": "Piscataway, New Jersey, United States",
+    "confidence": 1
+  },
   "Pittsboro, IN, US": {
     "city": "Pittsboro",
     "state": "Indiana",
@@ -44104,6 +44446,19 @@
       "longitude": -111.738869
     },
     "mapboxPlaceName": "Pleasant Grove, Utah, United States",
+    "confidence": 1
+  },
+  "Pleasant Hill, MO": {
+    "city": "Pleasant Hill",
+    "state": "Missouri",
+    "stateCode": "MO",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 38.785496,
+      "longitude": -94.274996
+    },
+    "mapboxPlaceName": "Pleasant Hill, Missouri, United States",
     "confidence": 1
   },
   "Pleasant Prairie, WI, US": {
@@ -44487,6 +44842,19 @@
     "mapboxPlaceName": "Poland, New York, United States",
     "confidence": 1
   },
+  "Polfry, Jackson County": {
+    "city": "Smithville",
+    "state": "Ohio",
+    "stateCode": "OH",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 40.87109,
+      "longitude": -81.842432
+    },
+    "mapboxPlaceName": "North Apple Creek Road, Smithville, Ohio 44677, United States",
+    "confidence": 0.49
+  },
   "Polyglass": {
     "city": "Poleglass",
     "state": "Northern Ireland",
@@ -44798,6 +45166,19 @@
     },
     "mapboxPlaceName": "Port-de-Bouc, Bouches-du-Rhône, France",
     "confidence": 0.592593
+  },
+  "Port-of-Spain, Trinidad and Tobago": {
+    "city": "Port of Spain",
+    "state": "Port of Spain",
+    "stateCode": "POS",
+    "country": "Trinidad and Tobago",
+    "countryCode": "TT",
+    "coordinates": {
+      "latitude": 10.657268,
+      "longitude": -61.518017
+    },
+    "mapboxPlaceName": "Port of Spain, Trinidad and Tobago",
+    "confidence": 1
   },
   "Portage, IN": {
     "city": "Portage",
@@ -47422,6 +47803,19 @@
       "longitude": -87.739356
     },
     "mapboxPlaceName": "Robinson, Illinois, United States",
+    "confidence": 1
+  },
+  "Robinson, PA": {
+    "city": "Robinson",
+    "state": "Pennsylvania",
+    "stateCode": "PA",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 40.4013,
+      "longitude": -79.133713
+    },
+    "mapboxPlaceName": "Robinson, Pennsylvania, United States",
     "confidence": 1
   },
   "Rochester": {
@@ -50508,6 +50902,19 @@
     "mapboxPlaceName": "Sibsagar, Assam, India",
     "confidence": 1
   },
+  "Sidman, NY, United States": {
+    "city": "Conesus",
+    "state": "New York",
+    "stateCode": "NY",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 42.737775,
+      "longitude": -77.650741
+    },
+    "mapboxPlaceName": "Widman, Conesus, New York 14435, United States",
+    "confidence": 0.975309
+  },
   "Sidney, NE": {
     "city": "Sidney",
     "state": "Nebraska",
@@ -52954,6 +53361,19 @@
     "mapboxPlaceName": "Oil and Gas Road, Wallace, West Virginia 26448, United States",
     "confidence": 0.544444
   },
+  "Subsea Warehouse": {
+    "city": "Baddeck",
+    "state": "Nova Scotia",
+    "stateCode": "NS",
+    "country": "Canada",
+    "countryCode": "CA",
+    "coordinates": {
+      "latitude": 46.167472,
+      "longitude": -60.840062
+    },
+    "mapboxPlaceName": "Warehouse Road, Baddeck, Nova Scotia B0E 1B0, Canada",
+    "confidence": 0.5
+  },
   "Suffolk, England": {
     "city": "Lowestoft",
     "state": "England",
@@ -54743,6 +55163,19 @@
     },
     "mapboxPlaceName": "Company, Río Tercero, Córdoba, X5850, Argentina",
     "confidence": 0.425926
+  },
+  "The Colony, TX, US": {
+    "city": "The Colony",
+    "state": "Texas",
+    "stateCode": "TX",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 33.084346,
+      "longitude": -96.876845
+    },
+    "mapboxPlaceName": "The Colony, Texas, United States",
+    "confidence": 1
   },
   "The Hydrographic Society of America": {
     "city": "Stendal",
@@ -58495,6 +58928,19 @@
       "longitude": -121.038635
     },
     "mapboxPlaceName": "Union Hill, Grass Valley, California, United States",
+    "confidence": 1
+  },
+  "Union, NJ": {
+    "city": "Union",
+    "state": "New Jersey",
+    "stateCode": "NJ",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 40.696426,
+      "longitude": -74.269888
+    },
+    "mapboxPlaceName": "Union, New Jersey, United States",
     "confidence": 1
   },
   "Uniondale": {
