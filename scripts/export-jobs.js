@@ -93,6 +93,11 @@ function parseRow(row, sheetName, columnMap) {
   return job;
 }
 
+// Helper function to add delay between API requests to avoid rate limiting
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 async function fetchAllJobs(auth) {
   const sheets = google.sheets({ version: 'v4', auth });
 
@@ -118,6 +123,9 @@ async function fetchAllJobs(auth) {
       spreadsheetId: spreadsheet.data.spreadsheetId,
       range: `${sheetName}!A:N`, // All columns from the sheet (A-N = 14 columns, includes Employment Type)
     });
+
+    // Add a 1.5-second delay between API requests to avoid hitting Google Sheets rate limits
+    await sleep(1500);
 
     const rows = response.data.values || [];
 
@@ -349,6 +357,8 @@ async function main() {
     console.log('📊 Fetching employer jobs from Google Sheets...');
     const employerJobs = await fetchAllJobs(auth);
 
+    // Small delay before fetching aggregator jobs to ensure rate limit compliance
+    await sleep(1000);
     const aggregatorJobs = await fetchAggregatorJobs(auth);
 
     // Merge (employer first, then aggregator)
