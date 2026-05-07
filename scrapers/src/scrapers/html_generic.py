@@ -982,8 +982,12 @@ class HtmlGenericScraper(BaseScraper):
         Extract job listings from a WordPress REST API page.
 
         Parses the page content returned by WP REST API, extracting
-        job titles and locations from Visual Composer sections (h3 headings
-        followed by location text).
+        job titles, URLs, and locations from shortcode sections. Supports:
+        - [fancy_box link_url="..."] shortcodes (Wellsafe Solutions)
+        - Visual Composer [vc_column] sections with h3 headings
+
+        Each [fancy_box] block contains an h3 (title), link_url (job page),
+        and a <pre>Location: ...</pre> block.
 
         Returns:
             List of dicts with: title, url, company, location, description
@@ -1002,53 +1006,103 @@ class HtmlGenericScraper(BaseScraper):
             data = json.loads(resp.read())
             content = html.unescape(data['content']['rendered'])
 
-            # Split content by VC column sections
-            sections = content.split('[/vc_column]')
-
             listings = []
-            # Skip intro sections (header image, description, FAQ)
-            # Job sections have h3 with job title and text with "Location: ..."
             skip_titles = {
                 'home', 'play your part', 'how do i submit', 'faq',
-                'join our team', 'widget area',
+                'join our team', 'widget area', 'a workplace that welcomes all',
             }
 
-            for section in sections:
-                # Extract h3 headings
-                h3_matches = re.findall(r'<h3[^>]*>(.*?)</h3>', section, re.DOTALL)
-                for h3_html in h3_matches:
-                    title = re.sub(r'<[^>]+>', '', h3_html).strip()
-                    if not title or len(title) < 3:
-                        continue
-                    if any(skip in title.lower() for skip in skip_titles):
-                        continue
+            # Strategy 1: Extract from [fancy_box] shortcodes (each has link_url + h3 title)
+            fancy_box_pattern = re.compile(
+                r'\[fancy_box[^\]]*?link_url="([^"]*)"[^\]]*\](.*?)\[/fancy_box\]',
+                re.DOTALL
+            )
+            for match in fancy_box_pattern.finditer(content):
+                link_url = match.group(1).strip()
+                box_content = match.group(2)
 
-                    # Extract text content (strip HTML and VC shortcodes)
-                    text = re.sub(r'<[^>]+>', ' ', section)
-                    text = re.sub(r'\[.*?\]', '', text)
-                    text = ' '.join(text.split())
+                # Extract title from h3
+                h3_match = re.search(r'<h3[^>]*>(.*?)</h3>', box_content, re.DOTALL)
+                if not h3_match:
+                    continue
+                title = re.sub(r'<[^>]+>', '', h3_match.group(1)).strip()
+                if not title or len(title) < 3:
+                    continue
+                if any(skip in title.lower() for skip in skip_titles):
+                    continue
 
-                    # Look for location
-                    location = 'Location Not Specified'
-                    loc_match = re.search(
-                        r'Location\s*:\s*([A-Za-z][A-Za-z\s,/]+)',
-                        text, re.IGNORECASE
-                    )
-                    if loc_match:
-                        location = loc_match.group(1).strip()
+                # Build absolute URL from link_url
+                job_url = self._build_absolute_url(link_url) if link_url else self.base_url
 
-                    # Build a description from the section text
-                    description = text.strip()
-                    if len(description) < 20:
-                        description = f"{title} position at {self.company_name}. Location: {location}."
+                # Extract text content for location and description
+                text = re.sub(r'<[^>]+>', ' ', box_content)
+                text = re.sub(r'\[.*?\]', '', text)
+                text = ' '.join(text.split())
 
-                    listings.append({
-                        'title': title,
-                        'url': self.base_url,
-                        'company': self.company_name,
-                        'location': location,
-                        'description': description,
-                    })
+                location = 'Location Not Specified'
+                loc_match = re.search(
+                    r'Location\s*:\s*([A-Za-z][A-Za-z\s,/]+)',
+                    text, re.IGNORECASE
+                )
+                if loc_match:
+                    location = loc_match.group(1).strip()
+
+                description = text.strip()
+                if len(description) < 20:
+                    description = f"{title} position at {self.company_name}. Location: {location}."
+
+                listings.append({
+                    'title': title,
+                    'url': job_url,
+                    'company': self.company_name,
+                    'location': location,
+                    'description': description,
+                })
+
+            # Strategy 2: Fallback to VC column sections if no fancy_box matches found
+            if not listings:
+                sections = content.split('[/vc_column]')
+                for section in sections:
+                    h3_matches = re.findall(r'<h3[^>]*>(.*?)</h3>', section, re.DOTALL)
+                    for h3_html in h3_matches:
+                        title = re.sub(r'<[^>]+>', '', h3_html).strip()
+                        if not title or len(title) < 3:
+                            continue
+                        if any(skip in title.lower() for skip in skip_titles):
+                            continue
+
+                        # Try to find a link_url in the surrounding shortcode
+                        job_url = self.base_url
+                        link_match = re.search(
+                            r'link_url="([^"]*)"',
+                            section
+                        )
+                        if link_match:
+                            job_url = self._build_absolute_url(link_match.group(1).strip())
+
+                        text = re.sub(r'<[^>]+>', ' ', section)
+                        text = re.sub(r'\[.*?\]', '', text)
+                        text = ' '.join(text.split())
+
+                        location = 'Location Not Specified'
+                        loc_match = re.search(
+                            r'Location\s*:\s*([A-Za-z][A-Za-z\s,/]+)',
+                            text, re.IGNORECASE
+                        )
+                        if loc_match:
+                            location = loc_match.group(1).strip()
+
+                        description = text.strip()
+                        if len(description) < 20:
+                            description = f"{title} position at {self.company_name}. Location: {location}."
+
+                        listings.append({
+                            'title': title,
+                            'url': job_url,
+                            'company': self.company_name,
+                            'location': location,
+                            'description': description,
+                        })
 
             self.logger.info("wp_api_listings_extracted", count=len(listings))
             return listings
@@ -1095,8 +1149,10 @@ class HtmlGenericScraper(BaseScraper):
 
             if not all_listings and self.html_config.get('wp_api_url'):
                 # WordPress REST API extraction (e.g., Wellsafe Solutions)
+                # WP API extracts listings (title, URL, location) from shortcodes.
+                # Detail pages are fetched unless skip_detail_pages is set in config,
+                # since individual job pages have richer descriptions.
                 all_listings = self._extract_listings_from_wp_api()
-                skip_detail_pages = True  # WP API provides all data we need
 
             if not all_listings and self.html_config.get('sitemap_url'):
                 # Sitemap-based extraction (fallback for OSM Thome if API fails)

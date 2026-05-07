@@ -127,6 +127,18 @@ try:
 except ImportError:
     pass
 
+try:
+    from src.scrapers.oracle_hcm import OracleHCMScraper
+    SCRAPER_REGISTRY['oracle_hcm'] = OracleHCMScraper
+except ImportError:
+    pass
+
+try:
+    from src.scrapers.hibob import HiBobScraper
+    SCRAPER_REGISTRY['hibob'] = HiBobScraper
+except ImportError:
+    pass
+
 
 def load_companies_config(config_path: str = 'config/companies.yaml') -> dict:
     """

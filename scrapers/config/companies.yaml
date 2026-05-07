@@ -376,13 +376,23 @@ companies:
 
   oceaneering:
     name: "Oceaneering"
-    platform: phenom
+    # Oceaneering migrated from Phenom to Oracle HCM Cloud (April 2026).
+    # Old careers.oceaneering.com URLs 301-redirect to generic landing page.
+    # New Oracle HCM site: ebfr.fa.us2.oraclecloud.com
+    # Job URL pattern: https://ebfr.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/jobs/job/{reqId}
+    # Oracle HCM exposes a REST API for job search at:
+    #   GET https://ebfr.fa.us2.oraclecloud.com/hcmRestApi/resources/latest/recruitingCEJobRequisitions
+    # TODO: Build oracle_hcm scraper platform. Until then, platform disabled.
+    platform: oracle_hcm
     extract_contacts: true
-    base_url: "https://careers.oceaneering.com/global/en"
+    base_url: "https://ebfr.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/jobs"
     rate_limit_delay: 2.5
-    phenom_config:
-      ref_num: "OCINGLOBAL"
-    # Phenom uses server-rendered DDO data, selectors not needed for primary extraction
+    oracle_hcm_config:
+      # Oracle HCM Candidate Experience REST API
+      api_base: "https://ebfr.fa.us2.oraclecloud.com/hcmRestApi/resources/latest"
+      site_number: "jobs"
+      # Job URL template: base_url + /job/{requisitionId}
+      job_url_template: "https://ebfr.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/jobs/job/{req_id}"
     selectors: {}
     sheet_name: "Oceaneering"
 
@@ -458,13 +468,18 @@ companies:
     rate_limit_delay: 3.0
     # Wellsafe is a WordPress site using Visual Composer. Jobs are in VC sections
     # with h3 headings. We extract via the WP REST API for reliable parsing.
+    # IMPORTANT: Individual job pages exist at /{job-title-slug}/ (e.g.,
+    # /assistant-subsea-engineer/). The scraper MUST extract per-job URLs,
+    # not point all jobs to the generic /available-positions/ listing page.
+    # Each job link on the listing page has a unique slug URL.
     selectors:
       description: ".entry-content, .job-description, .wpb_wrapper, article, main"
       location: ".job-location, .location, [class*='location']"
     html_config:
       # Use WordPress REST API to extract job listings from page content
       wp_api_url: "https://www.wellsafesolutions.com/wp-json/wp/v2/pages/2140"
-      skip_detail_pages: true
+      # MUST fetch detail pages to get individual job URLs
+      skip_detail_pages: false
     sheet_name: "Wellsafe Solutions"
 
   allrig_group:
@@ -550,16 +565,21 @@ companies:
 
   dron_dickson:
     name: "Dron & Dickson"
-    platform: occupop
+    # Dron & Dickson migrated from Occupop to HiBob (April 2026).
+    # Old occupop-careers.com page shows "We're setting things up!" placeholder.
+    # New careers page: https://www.drondickson.com/careers/
+    # Individual job URLs: https://drondickson.careers.hibob.com/jobs/{uuid}
+    platform: hibob
     extract_contacts: true
-    base_url: "https://dronanddickson.occupop-careers.com/"
+    base_url: "https://drondickson.careers.hibob.com"
     rate_limit_delay: 3.0
-    # Dron & Dickson moved from Cezanne OnDemand (Intervieweb) to Cezanne Recruitment
-    # (Occupop). The old intervieweb.it URL now shows a login page.
-    # This is a React SPA that loads job data client-side via Apollo GraphQL.
+    hibob_config:
+      careers_page: "https://www.drondickson.com/careers/"
+      # HiBob uses UUIDs for job URLs, not numeric IDs
+      job_url_template: "https://drondickson.careers.hibob.com/jobs/{uuid}"
     selectors:
-      job_card: "a[href*='/jobs/'], [class*='job-card'], [class*='JobCard'], .MuiCard-root"
-      description: ".job-description, [class*='description'], .MuiTypography-body1"
+      job_card: "a[href*='/jobs/']"
+      description: ".job-description, [class*='description']"
       location: ".job-location, [class*='location']"
       employment_type: ".job-type, [class*='type']"
     sheet_name: "Dron & Dickson"
@@ -568,15 +588,39 @@ companies:
 
   sulmara:
     name: "Sulmara"
-    platform: occupop
+    # STATUS (2026-04-16): No publicly scrapable job source available.
+    #
+    # History: Sulmara previously used Occupop (sulmara.occupop-careers.com), then
+    # reportedly moved to CrewSmart. Both are now dead ends:
+    #   - occupop-careers.com: shows "We're setting things up!" placeholder
+    #   - sulmara.crewsmart.app/recruitment/: 302 redirects to www.sulmara.com (marketing site)
+    #   - sulmara.crewsmart.app/recruitment.cfm (old CFM URL): also redirects to sulmara.com
+    #
+    # Main site (www.sulmara.com) is a Webflow marketing page with no careers section.
+    # Footer still links to the dead Occupop page. No sitemap.xml available.
+    #
+    # Other portals found:
+    #   - Cezanne OnDemand (cezanneondemand.intervieweb.it/sulmara/en/career): redirects
+    #     to login page (access.php) — gated, not publicly scrapable.
+    #
+    # CrewSmart is a maritime crew management platform (crewsmart.co.uk). Other companies
+    # (Maritime Craft Services, Seacat Services, Ambrey) have working CrewSmart recruitment
+    # portals, but Sulmara's has been configured to redirect externally. CrewSmart has no
+    # known public API for job listings.
+    #
+    # Active job postings: LinkedIn shows ~7 Sulmara jobs (as of 2026-04-16).
+    # Best monitoring fallback: https://www.linkedin.com/jobs/sulmara-jobs-worldwide
+    #
+    # TODO: Re-check sulmara.crewsmart.app/recruitment/ periodically — Sulmara's main site
+    # says "New website in development", so the CrewSmart portal may go live later.
+    platform: crewsmart
+    enabled: false
     extract_contacts: true
-    base_url: "https://sulmara.occupop-careers.com/"
+    base_url: "https://sulmara.crewsmart.app/recruitment/"
     rate_limit_delay: 3.0
-    # Sulmara uses Occupop (Cezanne Recruitment) - a React SPA career page.
-    # Jobs are rendered client-side after hydration.
     selectors:
-      job_card: "a[href*='/jobs/'], [class*='job-card'], [class*='JobCard'], .MuiCard-root"
-      description: ".job-description, [class*='description'], .MuiTypography-body1"
+      job_card: "a[href*='/jobs/'], [class*='job-card']"
+      description: ".job-description, [class*='description']"
       location: ".job-location, [class*='location']"
       employment_type: ".job-type, [class*='type']"
     sheet_name: "Sulmara"
