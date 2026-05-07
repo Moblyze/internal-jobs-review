@@ -9,12 +9,12 @@
  * import { getFormattedRolesForAI } from './roleDefinitionsForAI.js';
  *
  * const roles = getFormattedRolesForAI();
- * // Returns array of 67 energy sector roles with descriptions
+ * // Returns array of 72 energy sector roles with descriptions
  * ```
  */
 
 /**
- * All 67 energy sector roles with AI-optimized descriptions
+ * All 72 energy sector roles with AI-optimized descriptions
  * Ordered by specificity (most specific first, general roles last)
  *
  * Each role includes:
@@ -288,6 +288,34 @@ export const ENERGY_ROLES_FOR_AI = [
     label: 'Petroleum Engineer',
     description: 'General petroleum engineering role covering drilling, completions, production, or reservoir engineering.',
     category: 'geoscience'
+  },
+
+  // ============================================================================
+  // PROJECT DELIVERY & COMMISSIONING
+  // ============================================================================
+  {
+    id: 'project-controls-engineer',
+    label: 'Project Controls Engineer',
+    description: 'Owns cost, schedule, and progress tracking on EPC and capital projects. Uses Primavera/MS Project, earned value, change management. Includes planning engineers, scheduling engineers, and cost engineers.',
+    category: 'specialized'
+  },
+  {
+    id: 'commissioning-engineer',
+    label: 'Commissioning Engineer',
+    description: 'Plans and executes pre-commissioning, commissioning, and startup of facility systems (mechanical, electrical, instrumentation). Distinct from wells completions — this is facility/platform commissioning.',
+    category: 'specialized'
+  },
+  {
+    id: 'commissioning-lead',
+    label: 'Commissioning Lead/Manager',
+    description: 'Leads commissioning teams on offshore platforms, FPSOs, LNG plants, refineries, and other large capital projects. Coordinates handover from construction to operations.',
+    category: 'specialized'
+  },
+  {
+    id: 'hookup-commissioning',
+    label: 'Hookup & Commissioning (HUC)',
+    description: 'Offshore hookup and commissioning roles covering platform/FPSO installation, mechanical completion, and pre-startup. Includes HUC supervisors, engineers, and managers.',
+    category: 'specialized'
   },
 
   // ============================================================================
