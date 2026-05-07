@@ -62,6 +62,28 @@ const CERTIFICATION_DATABASE = {
     patterns: [/\bFOET\b/gi],
     category: 'offshore_survival'
   },
+  // MIST = Minimum Industry Safety Training (OPITO offshore safety induction).
+  // Exclude "MIST II/III/IV" — KBR has a govt contract named "MIST II" at
+  // Goddard SFC that would otherwise false-positive.
+  'MIST': {
+    patterns: [/\bMIST\b(?!\s+(?:I{1,3}|IV|V)\b)/g],
+    category: 'offshore_survival'
+  },
+  // OPITO = umbrella accreditation body for offshore safety training. Matches
+  // generic "OPITO certified / OPITO approved" mentions; specific OPITO courses
+  // (e.g. Banksman) are tracked as their own entry below.
+  'OPITO': {
+    patterns: [/\bOPITO\b/gi],
+    category: 'offshore_survival'
+  },
+  'OPITO Banksman': {
+    patterns: [
+      /\bOPITO[\s-]+Banksman\b/gi,
+      /\bBanksman[^.\n]{0,40}\bOPITO\b/gi,
+      /\bOPITO\b[^.\n]{0,40}\bBanksman\b/gi
+    ],
+    category: 'offshore_survival'
+  },
 
   // ==================== CORROSION ====================
   'NACE CIP': {
@@ -110,6 +132,22 @@ const CERTIFICATION_DATABASE = {
   },
   'AWS Certification': {
     patterns: [/\bAWS[\s-]*Certif/gi],
+    category: 'welding'
+  },
+  // CSWIP = TWI's Certification Scheme for Welding & Inspection Personnel.
+  // 3.1 = Welding Inspector, 3.2 = Senior Welding Inspector. Track each
+  // specifically; the umbrella entry catches generic "CSWIP" mentions that
+  // don't pin a level.
+  'CSWIP 3.1': {
+    patterns: [/\bCSWIP[\s-]*3\.1\b/gi],
+    category: 'welding'
+  },
+  'CSWIP 3.2': {
+    patterns: [/\bCSWIP[\s-]*3\.2(?:\.\d)?\b/gi],
+    category: 'welding'
+  },
+  'CSWIP': {
+    patterns: [/\bCSWIP\b(?!\s*[\s-]*3\.\d)/gi],
     category: 'welding'
   },
 
