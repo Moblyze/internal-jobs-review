@@ -25,16 +25,19 @@
     "pdl-clean-companies": "node scripts/pdl-company-cleaner.js",
     "generate-matrix": "node scripts/generate-source-matrix.js",
     "deduplicate-sheet": "node scripts/deduplicate-sheet.js",
-    "format-overview": "node scripts/format-overview-sheet.js"
+    "format-overview": "node scripts/format-overview-sheet.js",
+    "ingest-feed": "node scripts/feed-ingest/index.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.74.0",
     "date-fns": "^4.1.0",
+    "p-limit": "^7.3.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-infinite-scroll-component": "^6.1.1",
     "react-router-dom": "^6.22.0",
-    "react-select": "^5.10.2"
+    "react-select": "^5.10.2",
+    "rss-parser": "^3.13.0"
   },
   "devDependencies": {
     "@types/react": "^18.3.12",
