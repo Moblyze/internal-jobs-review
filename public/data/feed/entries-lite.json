@@ -1,5 +1,1075 @@
 [
   {
+    "id": "5d99e98f-63c8-4732-a910-3494d5ba99ff",
+    "ingested_at": "2026-05-08T12:41:38.205Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/kimmeridge_mubadala_raise_jv_production_to_over_1bcfd-01-may-2026-183591-article/?rss=true"
+      }
+    ],
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "process_plant_operations",
+      "pipeline_mechanical"
+    ],
+    "signal_type": "lease_round",
+    "region": "us-permian-delaware",
+    "country": "united_states",
+    "headline": "Kimmeridge/Mubadala JV Caturus HoldCo Acquires Galvan Ranch from SM Energy for $950M",
+    "operator": {
+      "name": "Caturus HoldCo LLC (Kimmeridge / Mubadala JV)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Caturus HoldCo LLC",
+      "matched_company_slug": null
+    },
+    "project_name": "Galvan Ranch",
+    "mob_window": {
+      "start": "2025-Q3",
+      "end": "2026-Q2",
+      "duration_months": 12
+    },
+    "contract_value_usd": 950000000
+  },
+  {
+    "id": "e8e75706-4c66-43d4-90fb-9a6b3b91d9f2",
+    "ingested_at": "2026-05-08T12:41:38.205Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/eni_confirms_size_of_giant_gas_discovery_offshore_indonesia-07-may-2026-183630-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "survey_geophysical",
+      "rov_subsea"
+    ],
+    "signal_type": "lease_round",
+    "region": "indonesia-offshore",
+    "country": "indonesia",
+    "headline": "Eni Confirms ~5 Tcf Giant Gas Discovery Offshore Indonesia via DST",
+    "operator": {
+      "name": "Eni",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": null,
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "dd88dd62-8400-4420-87e6-58ac60c5a942",
+    "ingested_at": "2026-05-08T12:41:38.205Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/adnoc_announces_55b_in_new_project_awards-06-may-2026-183625-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "drilling_operations",
+      "process_plant_operations",
+      "pipeline_mechanical"
+    ],
+    "signal_type": "epc_award",
+    "region": "uae-middle-east",
+    "country": "united_arab_emirates",
+    "headline": "ADNOC Announces $55B in New Project Awards Across Portfolio",
+    "operator": {
+      "name": "ADNOC",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": null,
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 55000000000
+  },
+  {
+    "id": "519eeefa-2e6f-4c3b-860e-4eeb932328fa",
+    "ingested_at": "2026-05-08T12:41:38.205Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/totalenergies_breaks_ground_for_440_mw_philippine_solar_farm-04-may-2026-183598-article/?rss=true"
+      }
+    ],
+    "subsector": "onshore-renewables",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "southeast-asia",
+    "country": "philippines",
+    "headline": "TotalEnergies & Nextnorth Break Ground on 440 MW Solar Farm in Philippines",
+    "operator": {
+      "name": "TotalEnergies SE",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Nextnorth Holdings Corp",
+      "matched_company_slug": null
+    },
+    "project_name": "Philippines 440 MW Solar Farm",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "8c01a986-0113-4927-aa2f-ce27bf249b88",
+    "ingested_at": "2026-05-08T12:41:38.205Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/shell_ineos_plan_more_joint_tiebacks_in_us_gulf-06-may-2026-183626-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "rov_subsea",
+      "marine_offshore_ops",
+      "process_plant_operations",
+      "pipeline_mechanical"
+    ],
+    "signal_type": "fid",
+    "region": "us-gulf",
+    "country": "united_states",
+    "headline": "Shell & INEOS Sign Agreement for Joint Tieback Projects at Appomattox Hub, US Gulf",
+    "operator": {
+      "name": "Shell",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "INEOS Group",
+      "matched_company_slug": null
+    },
+    "project_name": "Appomattox Tieback Program",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "29707654-d08e-486c-ab61-4361a2aa9701",
+    "ingested_at": "2026-05-08T12:41:38.205Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/uniper_gets_preliminary_approval_for_hesse_ccgt_plant-05-may-2026-183609-article/?rss=true"
+      }
+    ],
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "regulatory",
+    "region": "germany",
+    "country": "germany",
+    "headline": "Uniper Receives Preliminary Approval for Hesse Hydrogen-Compatible CCGT Plant",
+    "operator": {
+      "name": "Uniper SE",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Hesse CCGT Plant",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "31ccf60c-1c8f-4b64-85f6-c0dfdc6bd10d",
+    "ingested_at": "2026-05-08T12:41:38.205Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/us-air-force-announces-selections-for-microreactor-deployments"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "epc_award",
+    "region": "usa",
+    "country": "united_states",
+    "headline": "US Air Force Selects Radiant, Westinghouse & Antares for Microreactor Deployments at Military Installations",
+    "operator": {
+      "name": "US Department of the Air Force",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Radiant Industries / Westinghouse Government Services / Antares Inc",
+      "matched_company_slug": null
+    },
+    "project_name": "Advanced Nuclear Power for Installations (ANPI)",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "b0f287cf-b409-4a8d-98be-232ae042d6e8",
+    "ingested_at": "2026-05-08T12:41:38.205Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/stellaria-cea-to-consider-experimental-msr-at-cadarache"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "france",
+    "country": "france",
+    "headline": "Stellaria & CEA to Assess MSR Experimental Reactor Construction at Cadarache",
+    "operator": {
+      "name": "Stellaria",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Stellaria",
+      "matched_company_slug": null
+    },
+    "project_name": "Alvin MSR",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "2466b1c4-8602-46d3-9fcd-3800fc59f6c8",
+    "ingested_at": "2026-05-08T12:41:38.205Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/czech-smr-project---early-works-contract-signed"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "central-europe",
+    "country": "czech_republic",
+    "headline": "ČEZ Signs Early Works Contract with Rolls-Royce SMR for Temelín Small Modular Reactor",
+    "operator": {
+      "name": "ČEZ",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Rolls-Royce SMR",
+      "matched_company_slug": null
+    },
+    "project_name": "Temelín SMR",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "28f08c91-57f3-4057-95d6-e8ff3412cf75",
+    "ingested_at": "2026-05-08T12:41:38.205Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/fuel-loading-begins-for-bangladeshs-first-nuclear-power-plant"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "regulatory",
+    "region": "south-asia",
+    "country": "bangladesh",
+    "headline": "Fuel Loading Begins at Rooppur Nuclear Power Plant Unit 1, Bangladesh",
+    "operator": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Rooppur Nuclear Power Plant",
+    "mob_window": {
+      "start": "2025-Q2",
+      "end": "2026-Q2",
+      "duration_months": 12
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "3aa078fe-9e6e-4340-9159-5af979c980d4",
+    "ingested_at": "2026-05-08T12:41:38.205Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/flushing-of-safety-systems-begins-for-kudankulam-unit-3"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction",
+      "ndt_inspection"
+    ],
+    "signal_type": "regulatory",
+    "region": "south-india",
+    "country": "india",
+    "headline": "Kudankulam Unit 3 Safety System Flushing Begins — Active Commissioning Phase Underway",
+    "operator": {
+      "name": "Nuclear Power Corporation of India Limited (NPCIL)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Kudankulam Nuclear Power Plant Unit 3",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "bde6a577-75d4-4632-888e-8c0c001e0a5c",
+    "ingested_at": "2026-05-08T12:41:38.205Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/darlington-smr-nuclear-project-foundation-module-milestone"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "canada-ontario",
+    "country": "canada",
+    "headline": "Darlington SMR Basemat Module Set in Place — First SMR Foundation in G7 Country",
+    "operator": {
+      "name": "Ontario Power Generation",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Darlington SMR",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "fceda9a6-f70f-4a8b-a13c-13bf1aa842ed",
+    "ingested_at": "2026-05-08T12:41:38.205Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/key-aerb-approval-issued-for-kudankulam-5-and-6"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "ndt_inspection"
+    ],
+    "signal_type": "regulatory",
+    "region": "south-asia",
+    "country": "india",
+    "headline": "AERB Grants Equipment Installation Permit for Kudankulam Units 5 & 6",
+    "operator": {
+      "name": "Nuclear Power Corporation of India Limited (NPCIL)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Kudankulam Nuclear Power Plant Units 5 & 6",
+    "mob_window": {
+      "start": "2025-Q3",
+      "end": "2027-Q2",
+      "duration_months": 24
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "46873158-6f44-4ae2-9597-b85108ef0a4f",
+    "ingested_at": "2026-05-08T12:41:38.205Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/norwegian-municipalities-initiate-investigation-work"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "norway",
+    "country": "norway",
+    "headline": "Norwegian Municipalities Launch SMR Nuclear Investigation Work Ahead of Licence Applications",
+    "operator": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": null,
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "263f690e-4a05-4bd1-8511-1b58baf970f9",
+    "ingested_at": "2026-05-08T12:41:38.205Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/permission-granted-for-commissioning-work-on-akkuyu-2"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction",
+      "ndt_inspection"
+    ],
+    "signal_type": "regulatory",
+    "region": "turkey",
+    "country": "turkey",
+    "headline": "Turkey Regulator Grants Commissioning Permit for Akkuyu Nuclear Power Plant Unit 2",
+    "operator": {
+      "name": "Akkuyu Nuclear JSC",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Akkuyu Nuclear Power Plant Unit 2",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "3fb12f8e-ea77-4f42-ae6d-9befa6d01d98",
+    "ingested_at": "2026-05-08T12:41:38.205Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/bruce-c-gets-funding-for-pre-development-work"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "fid",
+    "region": "ontario-canada",
+    "country": "canada",
+    "headline": "Ontario Cost-Sharing Deal Unlocks CAD300M Bruce C Pre-Development Work for Bruce Power",
+    "operator": {
+      "name": "Bruce Power",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Bruce Power",
+      "matched_company_slug": null
+    },
+    "project_name": "Bruce C",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 220000000
+  },
+  {
+    "id": "4fd73482-ed3b-4b35-93f3-38ac3107e8f0",
+    "ingested_at": "2026-05-08T12:41:38.205Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/us-plant-cleared-for-extended-operation-in-record-time"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-southeast",
+    "country": "united_states",
+    "headline": "Duke Energy Robinson Nuclear Plant Cleared for 80-Year Operation After Record NRC Licence Renewal",
+    "operator": {
+      "name": "Duke Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "H.B. Robinson Nuclear Power Plant",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "737d7359-4a27-4049-9cb1-b5a774d5bfdd",
+    "ingested_at": "2026-05-08T12:41:38.205Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/us-nrc-clears-st-lucie-1-and-2-for-80-years-operation"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "ndt_inspection",
+      "industrial_construction"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-southeast",
+    "country": "united_states",
+    "headline": "US NRC Grants 80-Year Subsequent Licence Renewals for St Lucie Units 1 & 2 to 2056/2063",
+    "operator": {
+      "name": "Florida Power & Light (NextEra Energy)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "St Lucie Nuclear Power Plant Units 1 & 2",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "af1f7670-bf3c-4cff-ba33-5c6ddc28260b",
+    "ingested_at": "2026-05-08T12:41:38.205Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/site-of-polish-plant-deemed-suitable"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "central-eastern-europe",
+    "country": "poland",
+    "headline": "Lubiatowo-Kopalino Site Approved for Poland's First Nuclear Power Plant",
+    "operator": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Lubiatowo-Kopalino Nuclear Power Plant",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "d4f18ad1-d416-49bc-abdb-294a38b19d54",
+    "ingested_at": "2026-05-08T12:41:38.205Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/french-supply-chain-boosts-capacity"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "france",
+    "country": "france",
+    "headline": "Orano Opens Pierrelatte Engineering Hub; Arabelle Solutions Plans New Chalon-sur-Saône Factory",
+    "operator": {
+      "name": "EDF",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Orano / Arabelle Solutions",
+      "matched_company_slug": null
+    },
+    "project_name": "French Nuclear Supply Chain Capacity Expansion",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "56ca7b58-383a-403c-883f-180ddea2469d",
+    "ingested_at": "2026-05-08T12:41:38.205Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/brookfield-and-the-nuclear-company-target-vcsummer"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades",
+      "ndt_inspection"
+    ],
+    "signal_type": "fid",
+    "region": "us-southeast",
+    "country": "united_states",
+    "headline": "Brookfield & The Nuclear Company JV to Complete VC Summer AP1000 Units in South Carolina",
+    "operator": {
+      "name": "The Nuclear Company",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Brookfield / The Nuclear Company JV",
+      "matched_company_slug": null
+    },
+    "project_name": "VC Summer AP1000 Units 2 & 3",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "65215bc8-cd0b-47b4-ad0e-2a7d8a194f1b",
+    "ingested_at": "2026-05-08T12:41:38.205Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/mining-operations-start-at-wyoming-project"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "drilling_operations",
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "fid",
+    "region": "us-rocky-mountains",
+    "country": "united_states",
+    "headline": "Ur-Energy Commences Uranium Mining Operations at Second ISR Project in Wyoming",
+    "operator": {
+      "name": "Ur-Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Ur-Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Ur-Energy Wyoming ISR Project (second project)",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "37cfe36d-b61a-4e89-a24f-05d325e13f7e",
+    "ingested_at": "2026-05-08T12:41:38.205Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/pan-global-meldet-hochgradige-goldmineralisierung-an-der-oberflache-mit-20-2-gt-uber-5-0-meter-beim-projekt-carmenes-in-spanien-302766859.html"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "survey_geophysical"
+    ],
+    "signal_type": "lease_round",
+    "region": "spain",
+    "country": "spain",
+    "headline": "Pan Global Reports High-Grade Gold Mineralisation at Cármenes Project, Spain",
+    "operator": {
+      "name": "Pan Global Resources",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Pan Global Resources",
+      "matched_company_slug": null
+    },
+    "project_name": "Cármenes",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "0ab97e8f-92d0-431a-ab97-63b3b4bfdeef",
+    "ingested_at": "2026-05-08T12:41:38.205Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/buenaventura-eyes-16-year-boost-for-new-peru-mine/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "survey_geophysical"
+    ],
+    "signal_type": "fid",
+    "region": "peru",
+    "country": "peru",
+    "headline": "Buenaventura Eyes 16-Year Life Extension for San Gabriel Gold Mine, Peru",
+    "operator": {
+      "name": "Buenaventura",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Buenaventura",
+      "matched_company_slug": null
+    },
+    "project_name": "San Gabriel",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": 192
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "73a56945-02be-4537-b0e2-b4da76b987e4",
+    "ingested_at": "2026-05-08T12:41:38.205Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/cornish-metals-secures-210m-to-fund-uk-tin-mine-revival/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "ndt_inspection"
+    ],
+    "signal_type": "fid",
+    "region": "uk-southwest",
+    "country": "united_kingdom",
+    "headline": "Cornish Metals Secures $210M Bond Financing to Restart South Crofty Tin Mine, UK",
+    "operator": {
+      "name": "Cornish Metals",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Cornish Metals",
+      "matched_company_slug": null
+    },
+    "project_name": "South Crofty",
+    "mob_window": {
+      "start": "2025-Q3",
+      "end": "2027-Q2",
+      "duration_months": 24
+    },
+    "contract_value_usd": 210000000
+  },
+  {
+    "id": "853ec624-ebff-4094-b9da-01702c3999e9",
+    "ingested_at": "2026-05-08T12:41:38.205Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/trafigura-in-talks-to-build-aluminum-smelter-in-egypt/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "north-africa",
+    "country": "egypt",
+    "headline": "Trafigura in Talks with Egyptalum to Build 300ktpa Primary Aluminum Smelter in Egypt",
+    "operator": {
+      "name": "Trafigura",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Trafigura",
+      "matched_company_slug": null
+    },
+    "project_name": "Egyptalum Primary Aluminum Smelter",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "0dbb97e5-a1b4-49a5-adf0-fcb0866628b3",
+    "ingested_at": "2026-05-08T12:41:38.205Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/eagle-nuclear-energy-kicks-off-environmental-baseline-studies-at-aurora-uranium-project/"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "survey_geophysical"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-inland",
+    "country": "united_states",
+    "headline": "Eagle Nuclear Energy Kicks Off Environmental Baseline Studies at Aurora Uranium Project, USA",
+    "operator": {
+      "name": "Eagle Nuclear Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Eagle Nuclear Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Aurora Uranium Project",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "55e9b7ab-7540-4b7d-9cca-bca5d9749162",
+    "ingested_at": "2026-05-08T12:41:38.205Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/gbm-aims-to-reopen-ontarios-kearney-graphite-mine/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "fid",
+    "region": "ontario-canada",
+    "country": "canada",
+    "headline": "GBM Plans to Reopen Kearney Graphite Mine in Ontario, Targeting 23,000 tpa Output from 2028",
+    "operator": {
+      "name": "GBM",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "GBM",
+      "matched_company_slug": null
+    },
+    "project_name": "Kearney Graphite Mine",
+    "mob_window": {
+      "start": "2026-Q1",
+      "end": "2028-Q1",
+      "duration_months": 24
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "4ed7d897-51c0-4340-bff3-27c876c6f3f6",
+    "ingested_at": "2026-05-08T12:41:38.205Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/newly-listed-lumina-in-talks-with-polands-kghm-over-potential-supply-deal/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "poland",
+    "country": "poland",
+    "headline": "Lumina Signs LOI with KGHM for Copper Concentrate Supply from Nowa Sól Project",
+    "operator": {
+      "name": "Lumina",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Lumina",
+      "matched_company_slug": null
+    },
+    "project_name": "Nowa Sól",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "eb98911e-bf9a-4886-938f-e28e037cb6d0",
+    "ingested_at": "2026-05-08T12:41:38.205Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/lge-kentucky-utilities-x-energy-to-plan-small-modular-reactor-deployment/"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-southeast",
+    "country": "united_states",
+    "headline": "LG&E, Kentucky Utilities & X-energy Begin SMR Feasibility Study for Small Modular Reactor Deployment",
+    "operator": {
+      "name": "LG&E and Kentucky Utilities",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "X-energy",
+      "matched_company_slug": null
+    },
+    "project_name": null,
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
     "id": "0311adc9-956f-4960-ab1e-3e06b5d0f43a",
     "ingested_at": "2026-05-08T08:41:40.384Z",
     "sources": [
