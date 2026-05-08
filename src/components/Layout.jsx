@@ -5,7 +5,7 @@ function Layout({ children }) {
 
   const navLinks = [
     { to: '/', label: 'Jobs' },
-    { to: '/feed', label: 'Intel' },
+    { to: '/feed', label: 'Feed' },
     { to: '/companies', label: 'Companies' },
     { to: '/compare', label: 'Compare' },
   ]
