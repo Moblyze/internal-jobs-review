@@ -71,13 +71,15 @@ export default function CompanyCardModal({ slug, name, onClose }) {
   const [overviewLoading, setOverviewLoading] = useState(false)
   const [overviewEmpty, setOverviewEmpty] = useState(false)
   const [activeJobs, setActiveJobs] = useState(0)
-  const { contacts, loading: contactsLoading, error: contactsError } = usePdlContacts(name)
+  const [revealContacts, setRevealContacts] = useState(false)
+  const { contacts, loading: contactsLoading, error: contactsError, cached: contactsCached } = usePdlContacts(revealContacts ? name : null)
 
   useEffect(() => {
     if (!name) return
     setOverview(null)
     setOverviewEmpty(false)
     setOverviewLoading(false)
+    setRevealContacts(false)
     Promise.all([fetch(COMPANY_CACHE_URL).then(r => r.json()).catch(() => ({})),
                  fetch(FILTER_OPTIONS_URL).then(r => r.json()).catch(() => ({}))])
       .then(([cache, filterOpts]) => {
@@ -191,14 +193,35 @@ export default function CompanyCardModal({ slug, name, onClose }) {
 
           {/* Contacts */}
           <div className="flex-1 p-5 bg-gray-50 min-w-0">
-            <div className="text-[11px] font-bold uppercase tracking-widest text-indigo-600 mb-1">In-house TA contacts</div>
-            <div className="text-xs text-gray-500 mb-3">Recruiters &amp; recruitment managers · {contacts.length} returned</div>
-            {contactsLoading && <div className="text-sm text-gray-500">Loading…</div>}
-            {contactsError && <div className="text-sm text-gray-400 italic">PDL contacts unavailable for this company.</div>}
-            {!contactsLoading && !contactsError && contacts.length === 0 && <div className="text-sm text-gray-500 italic">No PDL contacts available for this company.</div>}
-            <div className="flex flex-col gap-2 max-h-[380px] overflow-y-auto pr-1">
-              {contacts.map(c => <ContactCard key={c.id || c.linkedin_url} p={c} />)}
-            </div>
+            <div className="text-[11px] font-bold uppercase tracking-widest text-indigo-600 mb-1">Hiring decision-makers</div>
+            {revealContacts && !contactsLoading && (
+              <div className="text-xs text-gray-500 mb-1">Operations &amp; engineering managers · {contacts.length} returned</div>
+            )}
+            {revealContacts && contactsCached === true && (
+              <div className="text-[11px] text-gray-400 mb-3">Loaded from cache · 0 credits</div>
+            )}
+            {revealContacts && contactsCached === false && (
+              <div className="text-[11px] text-gray-400 mb-3">Live fetch · ~5 credits used</div>
+            )}
+            {!revealContacts && (
+              <div className="flex flex-col items-center justify-center py-10 gap-2">
+                <button
+                  onClick={() => setRevealContacts(true)}
+                  className="px-4 py-2 bg-indigo-600 text-white text-sm font-semibold rounded-lg hover:bg-indigo-700 active:bg-indigo-800 transition-colors"
+                >
+                  Show contacts (~5 PDL credits)
+                </button>
+                <span className="text-[11px] text-gray-400">Skipped if cached</span>
+              </div>
+            )}
+            {revealContacts && contactsLoading && <div className="text-sm text-gray-500">Loading…</div>}
+            {revealContacts && contactsError && <div className="text-sm text-gray-400 italic">PDL contacts unavailable for this company.</div>}
+            {revealContacts && !contactsLoading && !contactsError && contacts.length === 0 && <div className="text-sm text-gray-500 italic">No PDL contacts available for this company.</div>}
+            {revealContacts && (
+              <div className="flex flex-col gap-2 max-h-[380px] overflow-y-auto pr-1">
+                {contacts.map(c => <ContactCard key={c.id || c.linkedin_url} p={c} />)}
+              </div>
+            )}
           </div>
         </div>
 
