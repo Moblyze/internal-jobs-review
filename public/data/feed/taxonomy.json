@@ -1,0 +1,33 @@
+{
+  "subsectors": [
+    { "id": "offshore-og", "label": "Offshore O&G", "color": "blue" },
+    { "id": "onshore-og", "label": "Onshore O&G", "color": "amber" },
+    { "id": "offshore-wind", "label": "Offshore Wind", "color": "teal" },
+    { "id": "onshore-renewables", "label": "Onshore Renewables", "color": "green" },
+    { "id": "nuclear", "label": "Nuclear", "color": "violet" },
+    { "id": "mining", "label": "Mining", "color": "slate" }
+  ],
+  "discipline_tags": [
+    { "id": "energy_trades", "label": "Energy Trades" },
+    { "id": "ndt_inspection", "label": "NDT Inspection" },
+    { "id": "industrial_construction", "label": "Industrial Construction" },
+    { "id": "pipeline_mechanical", "label": "Pipeline & Mechanical" },
+    { "id": "rope_access", "label": "Rope Access" },
+    { "id": "rov_subsea", "label": "ROV & Subsea" },
+    { "id": "marine_offshore_ops", "label": "Marine & Offshore" },
+    { "id": "process_plant_operations", "label": "Process & Plant" },
+    { "id": "drilling_operations", "label": "Drilling" },
+    { "id": "survey_geophysical", "label": "Survey & Geophysical" }
+  ],
+  "signal_types": [
+    { "id": "fid", "label": "FID", "color": "green", "lead_time_band": "long" },
+    { "id": "epc_award", "label": "EPC Award", "color": "blue", "lead_time_band": "medium" },
+    { "id": "tender", "label": "Tender", "color": "amber", "lead_time_band": "long" },
+    { "id": "rig_fixture", "label": "Rig Fixture", "color": "violet", "lead_time_band": "medium" },
+    { "id": "vessel_mob", "label": "Vessel Mob", "color": "pink", "lead_time_band": "short" },
+    { "id": "lease_round", "label": "Lease Round", "color": "indigo", "lead_time_band": "long" },
+    { "id": "replacement", "label": "Replacement", "color": "red", "lead_time_band": "short" },
+    { "id": "decom", "label": "Decom", "color": "slate", "lead_time_band": "long" },
+    { "id": "regulatory", "label": "Regulatory", "color": "neutral", "lead_time_band": "long" }
+  ]
+}
