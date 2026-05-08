@@ -21,7 +21,7 @@ test('parseEdgarHits extracts company + filing date + URL', () => {
   }
   const out = parseEdgarHits(hits)
   assert.equal(out.length, 1)
-  assert.equal(out[0].source.id, 'sec_edgar_8k')
+  assert.equal(out[0].sources[0].id, 'sec_edgar_8k')
   assert.match(out[0].headline, /Chevron Corp/)
   assert.match(out[0].url, /sec\.gov/)
 })

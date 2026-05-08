@@ -14,7 +14,7 @@ export function parseRssItems(items, source) {
   return items
     .filter(it => it.title && it.link)
     .map(it => ({
-      source: { id: source.id, name: source.name, url: it.link },
+      sources: [{ id: source.id, name: source.name, url: it.link }],
       headline: it.title.trim(),
       body: (it.contentSnippet || it.content || '').trim(),
       url: it.link,

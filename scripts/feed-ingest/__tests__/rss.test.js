@@ -13,7 +13,7 @@ test('parseRssItems extracts standard fields from rss-parser output', () => {
   ]
   const result = parseRssItems(items, { id: 'rigzone', name: 'Rigzone' })
   assert.equal(result.length, 1)
-  assert.equal(result[0].source.id, 'rigzone')
+  assert.equal(result[0].sources[0].id, 'rigzone')
   assert.equal(result[0].headline, 'Saipem wins $1.6B Equinor Rosebank topsides EPC')
   assert.equal(result[0].body, 'Equinor sanctioned Rosebank Phase 2 ...')
   assert.equal(result[0].url, 'https://example.com/rosebank')

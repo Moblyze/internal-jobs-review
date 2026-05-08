@@ -30,7 +30,7 @@ export function parseEdgarHits(json) {
       : url
     const company = (src.display_names || ['Unknown'])[0]
     return {
-      source: { id: 'sec_edgar_8k', name: 'SEC EDGAR 8-K', url: filingUrl },
+      sources: [{ id: 'sec_edgar_8k', name: 'SEC EDGAR 8-K', url: filingUrl }],
       headline: `${company} — 8-K material definitive agreement`,
       body: `Form 8-K filed ${src.file_date}. Material definitive agreement disclosed; scope and counterparty TBD from filing exhibits.`,
       url: filingUrl,
