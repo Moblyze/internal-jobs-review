@@ -966,40 +966,6 @@
     "contract_value_usd": null
   },
   {
-    "id": "c7c605a6-8e33-4f7e-be8c-38614ebd6918",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/inner-dome-installed-at-shidaowan-unit-1"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction"
-    ],
-    "signal_type": "epc_award",
-    "region": "china-shandong",
-    "country": "china",
-    "headline": "Inner Safety Dome Installed at Shidaowan Unit 1 – HPR1000 Hualong One Construction Advances",
-    "operator": {
-      "name": "China Huaneng",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Shidaowan Nuclear Power Plant Unit 1",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null
-  },
-  {
     "id": "95263556-8e73-4f67-90dc-0001c5aaa5d7",
     "ingested_at": "2026-05-08T01:16:59.182Z",
     "sources": [
@@ -1062,41 +1028,6 @@
       "matched_company_slug": null
     },
     "project_name": "Temelín SMR",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null
-  },
-  {
-    "id": "56a8c09a-d26d-406d-87ff-e400a845ac26",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/hot-tests-completed-at-second-sanao-unit"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "process_plant_operations",
-      "ndt_inspection"
-    ],
-    "signal_type": "vessel_mob",
-    "region": "china-zhejiang",
-    "country": "china",
-    "headline": "Hot Tests Complete at San'ao Unit 2 HPR1000 – Commissioning Phase Underway in Zhejiang",
-    "operator": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "San'ao Nuclear Power Plant",
     "mob_window": {
       "start": null,
       "end": null,
@@ -1172,150 +1103,6 @@
       "start": "2025-Q2",
       "end": "2026-Q2",
       "duration_months": 12
-    },
-    "contract_value_usd": null
-  },
-  {
-    "id": "3175b0fa-2003-4426-86c0-ba1172f2d9ad",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/rostekhnadzor-approves-kursk-iis-first-units-readiness"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "process_plant_operations",
-      "ndt_inspection",
-      "industrial_construction"
-    ],
-    "signal_type": "regulatory",
-    "region": "russia-central",
-    "country": "russia",
-    "headline": "Rostekhnadzor Issues Compliance Certificate for Kursk II Unit 1 VVER-TOI Reactor",
-    "operator": {
-      "name": "Rosenergoatom",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Kursk II Nuclear Power Plant – Unit 1",
-    "mob_window": {
-      "start": "2025-Q2",
-      "end": "2026-Q2",
-      "duration_months": 12
-    },
-    "contract_value_usd": null
-  },
-  {
-    "id": "aad4285f-479b-4f38-90f8-e1b59d3d2550",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/first-unit-at-sanao-enters-commercial-operation"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "process_plant_operations",
-      "industrial_construction",
-      "ndt_inspection"
-    ],
-    "signal_type": "fid",
-    "region": "china-zhejiang",
-    "country": "china",
-    "headline": "San'ao Unit 1 Hualong One Enters Commercial Operation – Five Further HPR1000 Units in Pipeline",
-    "operator": {
-      "name": "China General Nuclear Power Group",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "San'ao Nuclear Power Plant",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null
-  },
-  {
-    "id": "24e30e97-2919-43cd-bcb5-b30e143eb9d1",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/cold-tests-completed-for-lufeng-5"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "process_plant_operations",
-      "ndt_inspection",
-      "industrial_construction"
-    ],
-    "signal_type": "vessel_mob",
-    "region": "china-guangdong",
-    "country": "china",
-    "headline": "CGN Completes Cold Functional Tests on Lufeng 5 HPR1000 – Hot Tests & Commissioning Phase Imminent",
-    "operator": {
-      "name": "China General Nuclear",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Lufeng Nuclear Power Plant Unit 5",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null
-  },
-  {
-    "id": "d7234e54-fa50-4793-9706-a0214bbfc243",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/fuel-loading-begins-at-changjiang-3"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "process_plant_operations",
-      "ndt_inspection",
-      "industrial_construction"
-    ],
-    "signal_type": "vessel_mob",
-    "region": "china-hainan",
-    "country": "china",
-    "headline": "Fuel Loading Begins at Changjiang Unit 3 – Hualong One HPR1000 First Fuel Campaign Under Way",
-    "operator": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Changjiang Phase 2 – Unit 3 & Unit 4 (Hualong One / HPR1000)",
-    "mob_window": {
-      "start": "2025-Q2",
-      "end": "2026-Q4",
-      "duration_months": 18
     },
     "contract_value_usd": null
   },
@@ -1422,41 +1209,6 @@
       "start": "2025-Q3",
       "end": "2026-Q4",
       "duration_months": 18
-    },
-    "contract_value_usd": null
-  },
-  {
-    "id": "11fa9103-b3dd-48ab-82db-10d31a2676a8",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/fuel-loading-completed-at-two-new-chinese-units"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "process_plant_operations",
-      "ndt_inspection"
-    ],
-    "signal_type": "vessel_mob",
-    "region": "china",
-    "country": "china",
-    "headline": "Fuel Loading Complete at Taipingling Unit 2 & Changjiang Unit 3 Hualong One Reactors – Start-Up Imminent",
-    "operator": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Taipingling Unit 2 / Changjiang Unit 3 (Hualong One HPR1000)",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
     },
     "contract_value_usd": null
   },
@@ -1944,41 +1696,6 @@
     "project_name": null,
     "mob_window": {
       "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null
-  },
-  {
-    "id": "fbe15525-4fd5-4013-be52-88e75283773a",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/pilot-operation-of-fuel-with-minor-actinides-completed"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "process_plant_operations",
-      "ndt_inspection"
-    ],
-    "signal_type": "regulatory",
-    "region": "russia-ural",
-    "country": "russia",
-    "headline": "Beloyarsk BN-800 completes minor-actinide MOX fuel pilot – post-irradiation studies next",
-    "operator": {
-      "name": "Rosenergoatom",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Beloyarsk BN-800 Minor Actinide MOX Fuel Pilot",
-    "mob_window": {
-      "start": "2024-Q4",
       "end": null,
       "duration_months": null
     },
