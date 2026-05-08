@@ -1,7 +1,7 @@
 // src/hooks/usePdlContacts.js
 import { useEffect, useState } from 'react'
 
-const WORKER_BASE = import.meta.env.VITE_WORKER_BASE || 'https://pdl-company-feed.<account>.workers.dev'
+const WORKER_BASE = import.meta.env.VITE_WORKER_BASE || 'https://pdl-company-feed.jesse-82d.workers.dev'
 
 export function usePdlContacts(companyId) {
   const [state, setState] = useState({ contacts: [], loading: !!companyId, error: null })
