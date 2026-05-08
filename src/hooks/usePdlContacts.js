@@ -33,3 +33,14 @@ export function postContactFeedback(payload) {
     body: JSON.stringify(payload),
   }).catch(() => {})
 }
+
+// Pre-flight: returns true if contacts for this company are KV-cached on the Worker.
+// Never burns PDL credits — just checks KV existence. Used by the modal to decide
+// whether to auto-show contacts (cached, free) or display the explicit button (uncached).
+export function checkContactsCached(companyName) {
+  if (!companyName) return Promise.resolve(false)
+  return fetch(`${WORKER_BASE}/api/contacts/${encodeURIComponent(companyName)}/cached`)
+    .then(r => r.ok ? r.json() : { cached: false })
+    .then(data => !!data.cached)
+    .catch(() => false)
+}

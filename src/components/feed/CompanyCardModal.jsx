@@ -1,7 +1,7 @@
 // src/components/feed/CompanyCardModal.jsx
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { usePdlContacts, logTelemetry, postContactFeedback } from '../../hooks/usePdlContacts'
+import { usePdlContacts, logTelemetry, postContactFeedback, checkContactsCached } from '../../hooks/usePdlContacts'
 
 const COMPANY_CACHE_URL = `${import.meta.env.BASE_URL || '/'}data/pdl-company-cache.json`
 const FILTER_OPTIONS_URL = `${import.meta.env.BASE_URL || '/'}data/filter-options.json`
@@ -108,6 +108,9 @@ export default function CompanyCardModal({ slug, name, entryId, onClose }) {
     setOverviewEmpty(false)
     setOverviewLoading(false)
     setRevealContacts(false)
+    // Pre-flight: if contacts are already KV-cached, auto-show (free).
+    // Otherwise leave revealContacts=false so the user clicks the explicit button.
+    checkContactsCached(name).then(isCached => { if (isCached) setRevealContacts(true) })
     Promise.all([fetch(COMPANY_CACHE_URL).then(r => r.json()).catch(() => ({})),
                  fetch(FILTER_OPTIONS_URL).then(r => r.json()).catch(() => ({}))])
       .then(([cache, filterOpts]) => {
