@@ -150,33 +150,6 @@ class OracleHCMScraper(BaseScraper):
             self.logger.error("json_parse_failed", offset=offset, error=str(e))
             return None
 
-    def _fetch_requisition_detail(self, req_id: str) -> dict:
-        """
-        Fetch the full detail record for a single requisition.
-
-        The listing endpoint (recruitingCEJobRequisitions) only returns a
-        short summary. Full description + qualifications + responsibilities
-        live on recruitingCEJobRequisitionDetails, queried by primary key via
-        the `q=Id=...` query parameter.
-
-        Returns:
-            The single detail dict, or {} on failure.
-        """
-        if not req_id:
-            return {}
-        url = (
-            f"{self.api_base}/recruitingCEJobRequisitionDetails"
-            f"?onlyData=true&q=Id={req_id}&limit=1"
-        )
-        try:
-            response = self.session.get(url, timeout=30)
-            response.raise_for_status()
-            items = (response.json() or {}).get('items') or []
-            return items[0] if items else {}
-        except (requests.RequestException, ValueError) as e:
-            self.logger.warning("detail_fetch_failed", req_id=req_id, error=str(e))
-            return {}
-
     def _extract_total_count(self, response_data: dict) -> int:
         """
         Extract total job count from the API response.
@@ -333,14 +306,7 @@ class OracleHCMScraper(BaseScraper):
                 self.logger.warning("requisition_no_title", req_id=req.get('Id'))
                 return None
 
-            # Oracle HCM's CE listing response does not include a separate
-            # RequisitionNumber field — the `Id` IS the stable requisition id
-            # used in detail URLs. Fall back to Id if RequisitionNumber is
-            # missing so URL and requisition_id are always populated.
-            req_number = (
-                req.get('RequisitionNumber')
-                or str(req.get('Id') or '')
-            )
+            req_number = req.get('RequisitionNumber', '')
             job_url = self._build_job_url(req_number) if req_number else ''
 
             # Location: use PrimaryLocation, append secondary locations if present
@@ -359,25 +325,10 @@ class OracleHCMScraper(BaseScraper):
             else:
                 location = primary_location
 
-            # Description: the listing endpoint only returns a short summary
-            # (often whitespace). Fetch the detail record for the full HTML
-            # description when needed.
-            external_desc = req.get('ExternalDescriptionStr') or ''
-            short_desc = req.get('ShortDescriptionStr') or ''
-            if len(external_desc.strip()) < 50:
-                detail = self._fetch_requisition_detail(str(req.get('Id') or ''))
-                if detail:
-                    external_desc = detail.get('ExternalDescriptionStr') or external_desc
-                    resp = detail.get('ExternalResponsibilitiesStr') or ''
-                    qual = detail.get('ExternalQualificationsStr') or ''
-                    # Combine description + responsibilities + qualifications
-                    parts = [p for p in (external_desc, resp, qual) if p and p.strip()]
-                    external_desc = '\n\n'.join(parts)
-            description = (
-                self._clean_html_description(external_desc)
-                if external_desc.strip()
-                else short_desc.strip()
-            )
+            # Description: prefer ExternalDescriptionStr (full HTML), fall back to ShortDescriptionStr
+            external_desc = req.get('ExternalDescriptionStr', '')
+            short_desc = req.get('ShortDescriptionStr', '')
+            description = self._clean_html_description(external_desc) if external_desc else (short_desc or '')
 
             # Posted date
             posted_date = self._parse_posted_date(req.get('PostedDate'))
