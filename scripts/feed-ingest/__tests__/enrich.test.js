@@ -42,6 +42,8 @@ test('enrichEntry returns enriched entry on valid JSON response', async () => {
     project_name: 'Rosebank Phase 2',
     scope: ['huc'],
     targeting: { boolean_search: '("Subsea Engineer")' },
+    bd_relevant: true,
+    bd_relevance_reason: 'EPC/SURF contract award naming Equinor and Saipem for Rosebank Phase 2',
   }
   const fakeClient = {
     messages: {

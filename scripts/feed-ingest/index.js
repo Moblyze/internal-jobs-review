@@ -64,6 +64,10 @@ async function main() {
   const enriched = []
   for (const ent of newEntries) {
     const e = await enrichEntry(ent, taxonomy)
+    if (e.bd_relevant === false) {
+      console.log(`[feed-ingest] dropped (not BD-relevant): ${(e.headline || ent.headline || '').slice(0, 80)}`)
+      continue
+    }
     e.id = crypto.randomUUID()
     e.ingested_at = now
     e.source_published_at = ent.published_at
