@@ -67,8 +67,10 @@ async function main() {
     e.id = crypto.randomUUID()
     e.ingested_at = now
     e.source_published_at = ent.published_at
-    e.operator.matched_company_slug = matchCompanyToSlug(e.operator?.name, companiesData)
-    e.hiring_entity.matched_company_slug = matchCompanyToSlug(e.hiring_entity?.name, companiesData)
+    e.operator = e.operator || { name: null }
+    e.hiring_entity = e.hiring_entity || { name: null }
+    e.operator.matched_company_slug = matchCompanyToSlug(e.operator.name, companiesData)
+    e.hiring_entity.matched_company_slug = matchCompanyToSlug(e.hiring_entity.name, companiesData)
     enriched.push(e)
   }
 
