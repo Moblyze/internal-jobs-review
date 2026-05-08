@@ -28,6 +28,11 @@ export function useFilterParams() {
     const showInactive = searchParams.get('showInactive')
     const appReadyOnly = searchParams.get('appReadyOnly')
     const showAgencyJobs = searchParams.get('showAgencyJobs')
+    const subsectors = searchParams.get('subsectors')
+    const disciplines = searchParams.get('disciplines')
+    const signals = searchParams.get('signals')
+    const timeRange = searchParams.get('timeRange') || '30d'
+    const feedSearch = searchParams.get('q') || ''
 
     // Parse using pipe delimiter (|) only — consistent with serialization
     // No comma fallback: values like "Helix Energy Solutions Group, Inc"
@@ -50,6 +55,11 @@ export function useFilterParams() {
       showInactive: showInactive === 'true',
       appReadyOnly: appReadyOnly === 'true',
       showAgencyJobs: showAgencyJobs === 'true',
+      subsectors: splitParam(subsectors),
+      disciplines: splitParam(disciplines),
+      signals: splitParam(signals),
+      timeRange,
+      feedSearch,
     }
   }, [searchParams])
 
@@ -98,6 +108,11 @@ export function useFilterParams() {
     if (newFilters.showAgencyJobs) {
       params.set('showAgencyJobs', 'true')
     }
+    if (newFilters.subsectors?.length) params.set('subsectors', newFilters.subsectors.join('|'))
+    if (newFilters.disciplines?.length) params.set('disciplines', newFilters.disciplines.join('|'))
+    if (newFilters.signals?.length) params.set('signals', newFilters.signals.join('|'))
+    if (newFilters.timeRange && newFilters.timeRange !== '30d') params.set('timeRange', newFilters.timeRange)
+    if (newFilters.feedSearch) params.set('q', newFilters.feedSearch)
 
     // Update URL and create a new history entry so back button works
     setSearchParams(params)
