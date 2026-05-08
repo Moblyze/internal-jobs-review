@@ -48,7 +48,7 @@ function ContactCard({ p }) {
 export default function CompanyCardModal({ slug, name, onClose }) {
   const [overview, setOverview] = useState(null)
   const [activeJobs, setActiveJobs] = useState(0)
-  const { contacts, loading: contactsLoading, error: contactsError } = usePdlContacts(slug)
+  const { contacts, loading: contactsLoading, error: contactsError } = usePdlContacts(name)
 
   useEffect(() => {
     if (!name) return

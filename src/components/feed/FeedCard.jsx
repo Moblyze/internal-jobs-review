@@ -63,12 +63,12 @@ export default function FeedCard({ entry, taxonomy, onOperatorClick, onContracto
       </div>
       <h3 className="text-base font-semibold leading-snug mb-1">{entry.headline}</h3>
       <div className="flex gap-3 text-xs text-gray-500 pt-2 border-t border-gray-100 mt-2">
-        <span><span className="text-gray-400">Hiring:</span> {conSlug
+        <span><span className="text-gray-400">Hiring:</span> {contractor
           ? <button className="text-blue-700 font-medium hover:underline" onClick={e => { e.stopPropagation(); onContractorClick?.(conSlug, contractor) }}>{contractor}</button>
-          : <span className="text-gray-700">{contractor || '—'}</span>}</span>
-        <span><span className="text-gray-400">Operator:</span> {opSlug
+          : <span className="text-gray-700">—</span>}</span>
+        <span><span className="text-gray-400">Operator:</span> {operator
           ? <button className="text-blue-700 hover:underline" onClick={e => { e.stopPropagation(); onOperatorClick?.(opSlug, operator) }}>{operator}</button>
-          : <span className="text-gray-700">{operator || '—'}</span>}</span>
+          : <span className="text-gray-700">—</span>}</span>
         {entry.mob_window?.start && (
           <span className="ml-auto font-medium text-gray-700">
             {entry.mob_window.start}{entry.mob_window.end ? ` → ${entry.mob_window.end}` : ''}
