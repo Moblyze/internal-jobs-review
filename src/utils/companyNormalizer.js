@@ -50,6 +50,10 @@ const STRIP_SUFFIXES = [
   ', plc',
   ' p.l.c.',
   ', p.l.c.',
+  ', s.p.a.',
+  ' s.p.a.',
+  ', spa',
+  ' spa',
   ', sa',
   ' sa',
   ', as',
@@ -607,8 +611,8 @@ export function normalizeCompanyName(name) {
   const fuzzyMatch = _fuzzyKeyToCanonical.get(toFuzzyKey(trimmed));
   if (fuzzyMatch) return fuzzyMatch;
 
-  // 5. Return trimmed original — no match found
-  return trimmed;
+  // 5. Return stripped — no match found (prefer suffix-stripped form over raw)
+  return stripped;
 }
 
 /**
