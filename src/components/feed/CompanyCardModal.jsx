@@ -12,6 +12,7 @@ function mapWorkerResponseToOverview(data) {
   return {
     website: data.website || null,
     size: data.size || null,
+    employee_count: data.employee_count || null,
     founded: data.founded || null,
     location: {
       locality: data.location?.locality || null,
@@ -20,6 +21,9 @@ function mapWorkerResponseToOverview(data) {
     ticker: data.ticker || null,
     industry: data.industry || null,
     name: data.display_name || data.name || null,
+    summary: data.summary || null,
+    tags: Array.isArray(data.tags) && data.tags.length > 0 ? data.tags : null,
+    linkedin_url: data.linkedin_url || null,
   }
 }
 
@@ -128,9 +132,16 @@ export default function CompanyCardModal({ slug, name, onClose }) {
               <h3 className="text-lg font-bold">{name}</h3>
               {overview?.industry && <span className="text-[10px] font-semibold uppercase tracking-wider bg-blue-100 text-blue-700 px-1.5 py-0.5 rounded">{overview.industry}</span>}
             </div>
-            <div className="text-xs text-gray-500 mt-0.5">
+            <div className="text-xs text-gray-500 mt-0.5 flex flex-wrap items-center gap-x-1">
               {overview?.website && <a href={`https://${overview.website}`} target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:underline">{overview.website} ↗</a>}
-              {slug && <> · <Link to={`/companies/${slug}`} className="text-blue-700 hover:underline">View on Moblyze Jobs ↗</Link></>}
+              {overview?.linkedin_url && <>
+                <span className="text-gray-300">·</span>
+                <a href={overview.linkedin_url.startsWith('http') ? overview.linkedin_url : `https://${overview.linkedin_url}`} target="_blank" rel="noopener noreferrer" title="LinkedIn company page" className="inline-flex items-center gap-0.5 text-[#0a66c2] hover:underline">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 0h-14C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73c-.97 0-1.75-.79-1.75-1.75 0-.97.78-1.75 1.75-1.75s1.75.78 1.75 1.75c0 .96-.78 1.75-1.75 1.75zM20 19h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97V19h-3V8h2.88v1.5h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.6V19z"/></svg>
+                  LinkedIn ↗
+                </a>
+              </>}
+              {slug && <><span className="text-gray-300">·</span> <Link to={`/companies/${slug}`} className="text-blue-700 hover:underline">Moblyze Jobs ↗</Link></>}
             </div>
           </div>
           <button onClick={onClose} aria-label="Close" className="w-9 h-9 rounded-md inline-flex items-center justify-center text-gray-500 hover:bg-gray-200">
@@ -148,11 +159,28 @@ export default function CompanyCardModal({ slug, name, onClose }) {
               <div className="text-xs text-gray-400 mb-3 italic">No PDL company data available.</div>
             )}
             <div className="grid grid-cols-2 gap-2 mb-4 text-sm">
-              {overview?.size && <div><div className="text-[10px] uppercase font-semibold text-gray-400">Headcount</div><div className="font-semibold">{overview.size}</div></div>}
+              {overview?.size && <div>
+                <div className="text-[10px] uppercase font-semibold text-gray-400">Headcount</div>
+                <div className="font-semibold">{overview.employee_count ? overview.employee_count.toLocaleString() : overview.size}</div>
+                {overview.employee_count && <div className="text-[10px] text-gray-400">{overview.size} range</div>}
+              </div>}
               {overview?.founded && <div><div className="text-[10px] uppercase font-semibold text-gray-400">Founded</div><div className="font-semibold">{overview.founded}</div></div>}
               {overview?.location?.locality && <div><div className="text-[10px] uppercase font-semibold text-gray-400">HQ</div><div className="font-medium">{overview.location.locality}{overview.location.country ? `, ${overview.location.country}` : ''}</div></div>}
               {overview?.ticker && <div><div className="text-[10px] uppercase font-semibold text-gray-400">Ticker</div><div className="font-semibold">{overview.ticker.toUpperCase()}</div></div>}
             </div>
+            {overview?.summary && (
+              <div className="mb-3">
+                <div className="text-[10px] uppercase font-semibold text-gray-400 mb-1">About</div>
+                <p className="text-xs text-gray-500 italic leading-relaxed line-clamp-3">{overview.summary}</p>
+              </div>
+            )}
+            {overview?.tags && (
+              <div className="mb-3 flex flex-wrap gap-1">
+                {overview.tags.map(tag => (
+                  <span key={tag} className="text-[10px] bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">{tag}</span>
+                ))}
+              </div>
+            )}
             {activeJobs > 0 && (
               <Link to={`/?companies=${encodeURIComponent(name)}`} className="block bg-indigo-50 border border-indigo-200 rounded-lg p-3 text-blue-700 no-underline hover:bg-indigo-100">
                 <div className="text-2xl font-bold">{activeJobs}</div>
