@@ -24,7 +24,7 @@ export default function FeedFilters({ taxonomy }) {
   const signalOptions = (taxonomy?.signal_types || []).map(s => ({ value: s.id, label: s.label }))
 
   return (
-    <details className="md:open">
+    <details open>
       <summary className="md:hidden cursor-pointer text-sm text-gray-700 mb-2">Filters</summary>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2 mb-4">
         <Select
