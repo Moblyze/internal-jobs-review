@@ -370,6 +370,40 @@ export const ENERGY_ROLES = {
     category: 'engineering'
   },
 
+  // Project Controls (cost/schedule/planning engineering)
+  'project-controls-engineer': {
+    label: 'Project Controls Engineer',
+    onet_codes: [],
+    keywords: ['project controls', 'cost engineer', 'planning engineer', 'scheduling engineer', 'primavera engineer'],
+    icon: '',
+    category: 'engineering'
+  },
+
+  // Hookup, Commissioning & Startup (HUC) — facility/platform commissioning,
+  // distinct from wells `completions` (downhole). Common on offshore platforms
+  // and onshore EPC projects.
+  'commissioning-engineer': {
+    label: 'Commissioning Engineer',
+    onet_codes: [],
+    keywords: ['commissioning engineer', 'commissioning specialist', 'commissioning technician', 'startup engineer', 'pre-commissioning'],
+    icon: '',
+    category: 'engineering'
+  },
+  'commissioning-lead': {
+    label: 'Commissioning Lead/Manager',
+    onet_codes: [],
+    keywords: ['commissioning lead', 'commissioning manager', 'commissioning supervisor', 'lead commissioning'],
+    icon: '',
+    category: 'management'
+  },
+  'hookup-commissioning': {
+    label: 'Hookup & Commissioning (HUC)',
+    onet_codes: [],
+    keywords: ['hookup', 'hook-up', 'hook up', 'huc supervisor', 'huc engineer', 'huc manager', 'hook-up and commissioning', 'hookup and commissioning'],
+    icon: '',
+    category: 'operations'
+  },
+
   // Technical Trades (49-xxxx, 47-2xxx)
 
   // Welding & Fabrication

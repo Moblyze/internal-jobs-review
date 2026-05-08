@@ -451,6 +451,54 @@ const ENERGY_ROLE_PATTERNS = [
   },
 
   // ============================================================================
+  // PROJECT DELIVERY & COMMISSIONING
+  // ============================================================================
+  {
+    roleId: 'project-controls-engineer',
+    roleName: 'Project Controls Engineer',
+    keywords: [
+      /\bproject[\s-]+controls\b/i,
+      /\bcost[\s-]+engineer\b/i,
+      /\bplanning[\s-]+engineer\b/i,
+      /\bscheduling[\s-]+engineer\b/i,
+    ],
+    confidence: 'high',
+    description: 'Catches: Project Controls Engineer/Manager, Cost Engineer, Planning Engineer, Scheduling Engineer'
+  },
+  {
+    roleId: 'commissioning-lead',
+    roleName: 'Commissioning Lead/Manager',
+    keywords: [
+      /\bcommissioning\b\s*(?:lead|manager|supervisor|head)\b/i,
+      /\b(?:lead|senior|principal)\b\s*\bcommissioning\b/i,
+    ],
+    confidence: 'high',
+    description: 'Catches: Commissioning Lead, Commissioning Manager, Senior Commissioning Manager'
+  },
+  {
+    roleId: 'hookup-commissioning',
+    roleName: 'Hookup & Commissioning (HUC)',
+    keywords: [
+      /\bhook[\s-]?up\b/i,
+      /\bHUC\b/,
+      /\bhook[\s-]?up\s+(?:and|&)\s+commissioning\b/i,
+    ],
+    confidence: 'high',
+    description: 'Catches: Hook-Up Engineer, HUC Supervisor, Hookup Specialist'
+  },
+  {
+    roleId: 'commissioning-engineer',
+    roleName: 'Commissioning Engineer',
+    keywords: [
+      /\bcommissioning\b\s*(?:engineer|specialist|technician|professional)\b/i,
+      /\bpre[\s-]?commissioning\b/i,
+      /\bstart[\s-]?up\s+engineer\b/i,
+    ],
+    confidence: 'medium',
+    description: 'Catches: Commissioning Engineer/Specialist/Technician, Pre-Commissioning, Startup Engineer'
+  },
+
+  // ============================================================================
   // FIELD OPERATIONS (General - lower specificity)
   // ============================================================================
   {
