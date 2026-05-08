@@ -53,8 +53,8 @@ export default function FeedPage() {
             key={entry.id}
             entry={entry}
             taxonomy={taxonomy}
-            onOperatorClick={(slug, name) => setCompanyModal({ slug, name })}
-            onContractorClick={(slug, name) => setCompanyModal({ slug, name })}
+            onOperatorClick={(slug, name, entryId) => setCompanyModal({ slug, name, entryId })}
+            onContractorClick={(slug, name, entryId) => setCompanyModal({ slug, name, entryId })}
           />
         ))}
 
@@ -74,6 +74,7 @@ export default function FeedPage() {
         <CompanyCardModal
           slug={companyModal.slug}
           name={companyModal.name}
+          entryId={companyModal.entryId}
           onClose={() => setCompanyModal(null)}
         />
       )}

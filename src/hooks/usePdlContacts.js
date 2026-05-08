@@ -25,3 +25,11 @@ export function logTelemetry(event) {
     body: JSON.stringify({ ...event, ts: Date.now() }),
   }).catch(() => {})
 }
+
+export function postContactFeedback(payload) {
+  return fetch(`${WORKER_BASE}/api/feedback/contact`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  }).catch(() => {})
+}

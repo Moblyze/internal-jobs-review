@@ -1,7 +1,7 @@
 // src/components/feed/CompanyCardModal.jsx
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { usePdlContacts, logTelemetry } from '../../hooks/usePdlContacts'
+import { usePdlContacts, logTelemetry, postContactFeedback } from '../../hooks/usePdlContacts'
 
 const COMPANY_CACHE_URL = `${import.meta.env.BASE_URL || '/'}data/pdl-company-cache.json`
 const FILTER_OPTIONS_URL = `${import.meta.env.BASE_URL || '/'}data/filter-options.json`
@@ -31,9 +31,23 @@ function letterAvatar(name) {
   return (name || '?').split(/\s+/).slice(0, 2).map(s => s[0]?.toUpperCase()).filter(Boolean).join('')
 }
 
-function ContactCard({ p }) {
+function ContactCard({ p, companyName, entryId }) {
+  const [feedback, setFeedback] = useState(null) // null | 'up' | 'down'
   const lvl = (p.job_title_levels || [])[0]
   const lvlClass = { cxo: 'bg-fuchsia-100 text-fuchsia-800', vp: 'bg-violet-100 text-violet-800', director: 'bg-yellow-100 text-yellow-800', manager: 'bg-blue-100 text-blue-800' }[lvl] || 'bg-gray-100 text-gray-700'
+
+  function handleFeedback(signal) {
+    if (feedback === signal) return // no toggle-off
+    setFeedback(signal)
+    postContactFeedback({
+      company: companyName,
+      contact_id: p.id || p.linkedin_url || null,
+      contact_title: p.job_title || null,
+      signal,
+      entry_id: entryId || null,
+    })
+  }
+
   return (
     <div className="bg-white border border-gray-200 rounded-lg p-3 flex gap-3 items-start">
       <div className="w-10 h-10 rounded-md bg-indigo-100 text-indigo-700 font-semibold text-sm inline-flex items-center justify-center shrink-0">{letterAvatar(p.full_name)}</div>
@@ -55,6 +69,20 @@ function ContactCard({ p }) {
                 className={`w-9 h-9 rounded-md inline-flex items-center justify-center border ${p.work_email ? 'bg-white border-gray-300 text-gray-600 hover:bg-gray-50' : 'bg-gray-50 border-gray-200 text-gray-300 cursor-not-allowed'}`}>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
         </button>
+        <button
+          title="Mark as relevant target"
+          onClick={() => handleFeedback('up')}
+          className={`w-9 h-9 rounded-md inline-flex items-center justify-center border ${feedback === 'up' ? 'bg-green-100 text-green-800 border-green-300' : 'bg-white border-gray-300 text-gray-400 hover:text-gray-600'}`}
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+        </button>
+        <button
+          title="Mark as wrong target"
+          onClick={() => handleFeedback('down')}
+          className={`w-9 h-9 rounded-md inline-flex items-center justify-center border ${feedback === 'down' ? 'bg-red-100 text-red-800 border-red-300' : 'bg-white border-gray-300 text-gray-400 hover:text-gray-600'}`}
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"/></svg>
+        </button>
         {p.linkedin_url && (
           <a href={p.linkedin_url.startsWith('http') ? p.linkedin_url : `https://${p.linkedin_url}`} target="_blank" rel="noopener noreferrer" title="Open LinkedIn profile"
              className="w-9 h-9 rounded-md inline-flex items-center justify-center bg-white border border-gray-300 text-[#0a66c2] hover:bg-blue-50">
@@ -66,7 +94,7 @@ function ContactCard({ p }) {
   )
 }
 
-export default function CompanyCardModal({ slug, name, onClose }) {
+export default function CompanyCardModal({ slug, name, entryId, onClose }) {
   const [overview, setOverview] = useState(null)
   const [overviewLoading, setOverviewLoading] = useState(false)
   const [overviewEmpty, setOverviewEmpty] = useState(false)
@@ -219,7 +247,7 @@ export default function CompanyCardModal({ slug, name, onClose }) {
             {revealContacts && !contactsLoading && !contactsError && contacts.length === 0 && <div className="text-sm text-gray-500 italic">No PDL contacts available for this company.</div>}
             {revealContacts && (
               <div className="flex flex-col gap-2 max-h-[380px] overflow-y-auto pr-1">
-                {contacts.map(c => <ContactCard key={c.id || c.linkedin_url} p={c} />)}
+                {contacts.map(c => <ContactCard key={c.id || c.linkedin_url} p={c} companyName={name} entryId={entryId} />)}
               </div>
             )}
           </div>
