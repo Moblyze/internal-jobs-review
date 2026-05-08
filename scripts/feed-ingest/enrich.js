@@ -3,7 +3,7 @@ import Anthropic from '@anthropic-ai/sdk'
 const MODEL = 'claude-sonnet-4-6'
 const MAX_TOKENS = 2048
 
-export function buildPrompt(item, taxonomy) {
+export function buildPrompt(item, taxonomy, excludedCountries = []) {
   const subsectorIds = taxonomy.subsectors.map(s => s.id).join(', ')
   const disciplineIds = taxonomy.discipline_tags.map(d => d.id).join(', ')
   const signalIds = taxonomy.signal_types.map(s => s.id).join(', ')
@@ -70,7 +70,9 @@ EXCLUDE — "Trump Comments on State of Iran Nuclear Talks"
   → bd_relevant: false, bd_relevance_reason: "Political commentary with no actionable BD signal or named project"
 
 Given a news article (headline + body), produce a single JSON object with the following keys. Use null when a field is not stated or strongly implied. Never invent operators, contractors, project names, certifications, or numbers.
-
+${excludedCountries.length > 0 ? `
+GEO HINT: If the project country is one of [${excludedCountries.join(', ')}], default to bd_relevant: false UNLESS the article describes a Western contractor or operator that needs Western/EEA-eligible labor at that location. (We don't recruit local nationals in those markets.)
+` : ''}
 OUTPUT SCHEMA (JSON only, no prose):
 {
   "subsector": one of [${subsectorIds}],
@@ -141,7 +143,8 @@ export function reducedDetailEntry(item) {
 
 export async function enrichEntry(item, taxonomy, opts = {}) {
   const client = opts.client || new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
-  const prompt = buildPrompt(item, taxonomy)
+  const excludedCountries = opts.excludedCountries || []
+  const prompt = buildPrompt(item, taxonomy, excludedCountries)
   try {
     const resp = await client.messages.create({
       model: MODEL,

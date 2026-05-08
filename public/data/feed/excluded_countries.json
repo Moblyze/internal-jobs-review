@@ -1,0 +1,16 @@
+{
+  "_comment": "Country slugs (matching `country` field in entries.json) to exclude from the BD feed. Add or remove freely; the next ingestion run picks up the change.",
+  "excluded": [
+    "china",
+    "hong_kong",
+    "macau",
+    "russia",
+    "iran",
+    "north_korea",
+    "belarus",
+    "cuba",
+    "venezuela",
+    "myanmar",
+    "syria"
+  ]
+}

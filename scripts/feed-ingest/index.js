@@ -35,6 +35,9 @@ function trimToWindow(entries, days = TRIM_WINDOW_DAYS) {
 async function main() {
   console.log('[feed-ingest] starting run at', new Date().toISOString())
 
+  const excludedCountries = await readJson(PATHS.EXCLUDED_COUNTRIES).catch(() => ({ excluded: [] }))
+  const excludedSet = new Set((excludedCountries.excluded || []).map(s => s.toLowerCase()))
+
   const [sources, taxonomy, existing, companiesData] = await Promise.all([
     readJson(PATHS.SOURCES),
     readJson(PATHS.TAXONOMY),
@@ -63,9 +66,13 @@ async function main() {
   // 4. Enrich new entries.
   const enriched = []
   for (const ent of newEntries) {
-    const e = await enrichEntry(ent, taxonomy)
+    const e = await enrichEntry(ent, taxonomy, { excludedCountries: [...excludedSet] })
     if (e.bd_relevant === false) {
       console.log(`[feed-ingest] dropped (not BD-relevant): ${(e.headline || ent.headline || '').slice(0, 80)}`)
+      continue
+    }
+    if (e.country && excludedSet.has(String(e.country).toLowerCase())) {
+      console.log(`[feed-ingest] dropped (excluded country=${e.country}): ${e.headline?.slice(0, 80)}`)
       continue
     }
     e.id = crypto.randomUUID()

@@ -9,10 +9,22 @@ const mockTaxonomy = {
 }
 
 test('buildPrompt embeds the taxonomy values', () => {
-  const p = buildPrompt({ headline: 'X', body: 'Y' }, mockTaxonomy)
+  const p = buildPrompt({ headline: 'X', body: 'Y' }, mockTaxonomy, [])
   assert.match(p, /offshore-og/)
   assert.match(p, /rov_subsea/)
   assert.match(p, /epc_award/)
+})
+
+test('buildPrompt embeds the geo exclusion hint when present', () => {
+  const p = buildPrompt({ headline: 'X', body: 'Y' }, mockTaxonomy, ['china', 'russia'])
+  assert.match(p, /GEO HINT/)
+  assert.match(p, /china/)
+  assert.match(p, /russia/)
+})
+
+test('buildPrompt omits GEO HINT when no exclusions provided', () => {
+  const p = buildPrompt({ headline: 'X', body: 'Y' }, mockTaxonomy, [])
+  assert.doesNotMatch(p, /GEO HINT/)
 })
 
 test('enrichEntry returns reduced-detail entry on JSON parse failure', async () => {

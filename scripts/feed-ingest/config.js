@@ -14,6 +14,7 @@ export const PATHS = {
   SOURCES: resolve(ROOT, 'public/data/feed/sources.json'),
   COMPANIES: resolve(ROOT, 'public/data/companies.json'),
   ARCHIVE_DIR: resolve(ROOT, 'public/data/feed'),
+  EXCLUDED_COUNTRIES: resolve(ROOT, 'public/data/feed/excluded_countries.json'),
 }
 
 export async function readJson(path) {
