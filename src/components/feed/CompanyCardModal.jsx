@@ -5,6 +5,23 @@ import { usePdlContacts, logTelemetry } from '../../hooks/usePdlContacts'
 
 const COMPANY_CACHE_URL = `${import.meta.env.BASE_URL || '/'}data/pdl-company-cache.json`
 const FILTER_OPTIONS_URL = `${import.meta.env.BASE_URL || '/'}data/filter-options.json`
+const WORKER_BASE = import.meta.env.VITE_WORKER_BASE || 'https://pdl-company-feed.jesse-82d.workers.dev'
+
+function mapWorkerResponseToOverview(data) {
+  if (!data || data._empty) return null
+  return {
+    website: data.website || null,
+    size: data.size || null,
+    founded: data.founded || null,
+    location: {
+      locality: data.location?.locality || null,
+      country: data.location?.country || null,
+    },
+    ticker: data.ticker || null,
+    industry: data.industry || null,
+    name: data.display_name || data.name || null,
+  }
+}
 
 function letterAvatar(name) {
   return (name || '?').split(/\s+/).slice(0, 2).map(s => s[0]?.toUpperCase()).filter(Boolean).join('')
@@ -47,17 +64,42 @@ function ContactCard({ p }) {
 
 export default function CompanyCardModal({ slug, name, onClose }) {
   const [overview, setOverview] = useState(null)
+  const [overviewLoading, setOverviewLoading] = useState(false)
+  const [overviewEmpty, setOverviewEmpty] = useState(false)
   const [activeJobs, setActiveJobs] = useState(0)
   const { contacts, loading: contactsLoading, error: contactsError } = usePdlContacts(name)
 
   useEffect(() => {
     if (!name) return
+    setOverview(null)
+    setOverviewEmpty(false)
+    setOverviewLoading(false)
     Promise.all([fetch(COMPANY_CACHE_URL).then(r => r.json()).catch(() => ({})),
                  fetch(FILTER_OPTIONS_URL).then(r => r.json()).catch(() => ({}))])
       .then(([cache, filterOpts]) => {
-        setOverview(cache?.[name] || cache?.[name.toLowerCase()] || null)
+        const localHit = cache?.[name] || cache?.[name.toLowerCase()] || null
         const c = (filterOpts.companies || []).find(c => c.name?.toLowerCase() === name.toLowerCase())
         setActiveJobs(c?.count || 0)
+
+        if (localHit) {
+          setOverview(localHit)
+        } else {
+          // Local cache miss — try live Worker fetch
+          setOverviewLoading(true)
+          fetch(`${WORKER_BASE}/api/company/${encodeURIComponent(name)}`)
+            .then(r => r.json())
+            .then(data => {
+              const mapped = mapWorkerResponseToOverview(data)
+              setOverview(mapped)
+              setOverviewEmpty(!mapped)
+              setOverviewLoading(false)
+            })
+            .catch(() => {
+              setOverview(null)
+              setOverviewEmpty(true)
+              setOverviewLoading(false)
+            })
+        }
       })
     logTelemetry({ type: 'company_card_open', company: name, slug })
   }, [name])
@@ -101,6 +143,10 @@ export default function CompanyCardModal({ slug, name, onClose }) {
           {/* Overview */}
           <div className="md:w-[360px] shrink-0 p-5 bg-white md:border-r border-gray-100">
             <div className="text-[11px] font-bold uppercase tracking-widest text-indigo-600 mb-2">Overview · via PDL</div>
+            {overviewLoading && <div className="text-xs text-gray-400 mb-3">Loading company data…</div>}
+            {!overviewLoading && overviewEmpty && !overview && (
+              <div className="text-xs text-gray-400 mb-3 italic">No PDL company data available.</div>
+            )}
             <div className="grid grid-cols-2 gap-2 mb-4 text-sm">
               {overview?.size && <div><div className="text-[10px] uppercase font-semibold text-gray-400">Headcount</div><div className="font-semibold">{overview.size}</div></div>}
               {overview?.founded && <div><div className="text-[10px] uppercase font-semibold text-gray-400">Founded</div><div className="font-semibold">{overview.founded}</div></div>}
@@ -120,7 +166,7 @@ export default function CompanyCardModal({ slug, name, onClose }) {
             <div className="text-[11px] font-bold uppercase tracking-widest text-indigo-600 mb-1">In-house TA contacts</div>
             <div className="text-xs text-gray-500 mb-3">Recruiters &amp; recruitment managers · {contacts.length} returned</div>
             {contactsLoading && <div className="text-sm text-gray-500">Loading…</div>}
-            {contactsError && <div className="text-sm text-red-600">Failed: {contactsError}</div>}
+            {contactsError && <div className="text-sm text-gray-400 italic">PDL contacts unavailable for this company.</div>}
             {!contactsLoading && !contactsError && contacts.length === 0 && <div className="text-sm text-gray-500 italic">No PDL contacts available for this company.</div>}
             <div className="flex flex-col gap-2 max-h-[380px] overflow-y-auto pr-1">
               {contacts.map(c => <ContactCard key={c.id || c.linkedin_url} p={c} />)}

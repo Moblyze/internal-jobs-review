@@ -1,22 +1,38 @@
 // src/components/feed/BdCardExpanded.jsx
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { fetchFullEntry } from '../../hooks/useFeedData'
 import OutreachDraftsPopover from './OutreachDraftsPopover'
 
-function ChipMatched({ children, href }) {
+const CHIP_BASE = 'bg-gray-50 border border-gray-200 text-gray-700 hover:bg-gray-100 hover:text-gray-900 px-2 py-0.5 rounded text-xs no-underline transition-colors'
+const CHIP_SPAN = 'bg-gray-50 border border-gray-200 text-gray-700 px-2 py-0.5 rounded text-xs'
+
+function ChipLink({ axis, term }) {
   return (
-    <a href={href} className="text-xs bg-white border border-indigo-200 text-indigo-900 px-2 py-0.5 rounded no-underline hover:bg-indigo-50">{children}</a>
-  )
-}
-function ChipFreetext({ children }) {
-  return (
-    <span title="Not in site taxonomy — free-text only" className="text-xs bg-white border border-dashed border-gray-300 text-gray-500 px-2 py-0.5 rounded">{children}</span>
+    <Link
+      to={`/?${axis}=${encodeURIComponent(term)}`}
+      title={`Filter jobs by ${axis}: ${term}`}
+      className={CHIP_BASE}
+    >
+      {term}
+    </Link>
   )
 }
 
-function CertChip({ cert, matched }) {
-  const cls = matched ? 'border-yellow-300 text-yellow-900' : 'border-dashed border-gray-300 text-gray-500'
-  return <span className={`text-xs bg-white border ${cls} px-2 py-0.5 rounded`}>{cert}</span>
+function ChipNoLink({ children }) {
+  return <span className={CHIP_SPAN}>{children}</span>
+}
+
+function CertChip({ cert }) {
+  return (
+    <Link
+      to={`/?certifications=${encodeURIComponent(cert)}`}
+      title={`Filter jobs by certifications: ${cert}`}
+      className={CHIP_BASE}
+    >
+      {cert}
+    </Link>
+  )
 }
 
 export default function BdCardExpanded({ entryId, taxonomy }) {
@@ -48,7 +64,7 @@ export default function BdCardExpanded({ entryId, taxonomy }) {
           <div className="grid grid-cols-[120px_1fr] gap-y-2 gap-x-3 items-start text-[13px] mb-2">
             <div className="text-[11px] font-semibold text-gray-600 pt-1">Job titles</div>
             <div className="flex flex-wrap gap-1">
-              {t.job_titles_freetext.map(jt => <ChipFreetext key={jt}>{jt}</ChipFreetext>)}
+              {t.job_titles_freetext.map(jt => <ChipLink key={jt} axis="roles" term={jt} />)}
             </div>
           </div>
         )}
@@ -56,7 +72,7 @@ export default function BdCardExpanded({ entryId, taxonomy }) {
           <div className="grid grid-cols-[120px_1fr] gap-y-2 gap-x-3 items-start text-[13px] mb-2">
             <div className="text-[11px] font-semibold text-gray-600 pt-1">Skills</div>
             <div className="flex flex-wrap gap-1">
-              {t.skills.map(s => <ChipFreetext key={s}>{s}</ChipFreetext>)}
+              {t.skills.map(s => <ChipLink key={s} axis="skills" term={s} />)}
             </div>
           </div>
         )}
@@ -64,7 +80,7 @@ export default function BdCardExpanded({ entryId, taxonomy }) {
           <div className="grid grid-cols-[120px_1fr] gap-y-2 gap-x-3 items-start text-[13px] mb-2">
             <div className="text-[11px] font-semibold text-gray-600 pt-1">Certifications</div>
             <div className="flex flex-wrap gap-1">
-              {t.certs_freetext.map(c => <CertChip key={c} cert={c} matched={false} />)}
+              {t.certs_freetext.map(c => <CertChip key={c} cert={c} />)}
             </div>
           </div>
         )}
@@ -78,7 +94,7 @@ export default function BdCardExpanded({ entryId, taxonomy }) {
           <div className="grid grid-cols-[120px_1fr] gap-y-2 gap-x-3 items-start text-[13px] mb-2">
             <div className="text-[11px] font-semibold text-gray-600 pt-1">Adjacent projects</div>
             <div className="flex flex-wrap gap-1">
-              {t.project_experience.map(p => <ChipFreetext key={p}>{p}</ChipFreetext>)}
+              {t.project_experience.map(p => <ChipNoLink key={p}>{p}</ChipNoLink>)}
             </div>
           </div>
         )}
