@@ -150,7 +150,8 @@ jobs:
   aggregator-searches:
     if: inputs.skip_aggregators != true
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    # 7 batches of 4 parallel profiles x 20-min per-profile timeout = 140 min worst case.
+    timeout-minutes: 180
     defaults:
       run:
         working-directory: scrapers
@@ -199,7 +200,11 @@ jobs:
           GOOGLE_SHEETS_SPREADSHEET_NAME: ${{ secrets.GOOGLE_SHEETS_SPREADSHEET_NAME }}
           LOG_LEVEL: INFO
         run: |
-          # Run profiles in parallel batches of 4, with 10-min timeout per profile
+          # Run profiles in parallel batches of 4, with 20-min timeout per profile.
+          # Heavy profiles (marine_offshore_ops, pipeline_mechanical,
+          # industrial_construction, process_plant_operations) carry 12-13 keywords
+          # x 4-5 countries x 5 adapters and cannot reliably finish in 10 minutes,
+          # so we extend the per-profile budget.
           PROFILES=(
             subsea_oil_gas
             rope_access
@@ -238,7 +243,7 @@ jobs:
           run_profile() {
             local PROFILE=$1
             echo "  Starting: $PROFILE"
-            if timeout 600 python aggregator_cli.py search --profile "$PROFILE" --limit 50 --export 2>&1; then
+            if timeout 1200 python aggregator_cli.py search --profile "$PROFILE" --limit 50 --export 2>&1; then
               echo "  ✓ $PROFILE succeeded"
               return 0
             else
@@ -317,6 +322,19 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: scrapers/requirements.txt
+
+      - name: Install Python dependencies
+        working-directory: scrapers
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
 
       - name: Download employer state
         uses: actions/download-artifact@v4
