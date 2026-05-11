@@ -1,5 +1,864 @@
 [
   {
+    "id": "1bb20d19-8b37-4b8f-8bfa-b1d39aa557ca",
+    "ingested_at": "2026-05-11T01:04:34.034Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/eni_confirms_size_of_giant_gas_discovery_offshore_indonesia-07-may-2026-183630-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "survey_geophysical",
+      "rov_subsea"
+    ],
+    "signal_type": "lease_round",
+    "region": "southeast-asia",
+    "country": "indonesia",
+    "headline": "Eni Confirms ~5 Tcf Giant Gas Discovery Offshore Indonesia via DST",
+    "operator": {
+      "name": "Eni",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": null,
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "42028c11-9ef5-45fc-b8b9-1750fc040b5b",
+    "ingested_at": "2026-05-11T01:04:34.034Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/adnoc_announces_55b_in_new_project_awards-06-may-2026-183625-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "drilling_operations",
+      "process_plant_operations",
+      "pipeline_mechanical",
+      "rov_subsea",
+      "marine_offshore_ops"
+    ],
+    "signal_type": "epc_award",
+    "region": "uae-middle-east",
+    "country": "united_arab_emirates",
+    "headline": "ADNOC Announces $55B in New Project Awards Across Portfolio",
+    "operator": {
+      "name": "ADNOC",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": null,
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 55000000000
+  },
+  {
+    "id": "770aa0cd-905d-4c1b-ad6d-65c1b64df3ac",
+    "ingested_at": "2026-05-11T01:04:34.034Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/totalenergies_breaks_ground_for_440_mw_philippine_solar_farm-04-may-2026-183598-article/?rss=true"
+      }
+    ],
+    "subsector": "onshore-renewables",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "southeast-asia",
+    "country": "philippines",
+    "headline": "TotalEnergies & Nextnorth Break Ground on 440 MW Solar Farm in Philippines",
+    "operator": {
+      "name": "TotalEnergies SE",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Nextnorth Holdings Corp",
+      "matched_company_slug": null
+    },
+    "project_name": "Philippines 440 MW Solar Farm",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "63541831-d67a-4a4c-80e6-5e5b095822a1",
+    "ingested_at": "2026-05-11T01:04:34.034Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/shell_ineos_plan_more_joint_tiebacks_in_us_gulf-06-may-2026-183626-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "rov_subsea",
+      "marine_offshore_ops",
+      "process_plant_operations",
+      "pipeline_mechanical"
+    ],
+    "signal_type": "fid",
+    "region": "us-gulf",
+    "country": "united_states",
+    "headline": "Shell & INEOS Sign Joint Tieback Agreement at Appomattox Hub, US Gulf",
+    "operator": {
+      "name": "Shell",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Appomattox",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "79ffec20-8c00-4be0-b690-234e8fe4f990",
+    "ingested_at": "2026-05-11T01:04:34.034Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/equinor_starts_gas_production_at_eirin_in_norwegian_north_sea-10-may-2026-183650-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "marine_offshore_ops",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "regulatory",
+    "region": "norwegian-north-sea",
+    "country": "norway",
+    "headline": "Equinor Brings Eirin Gas Field Onstream in Norwegian North Sea",
+    "operator": {
+      "name": "Equinor",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Eirin",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "e5d7a79f-0d65-417f-9260-f09c1aebd48f",
+    "ingested_at": "2026-05-11T01:04:34.034Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/stellaria-cea-to-consider-experimental-msr-at-cadarache"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "regulatory",
+    "region": "france-south",
+    "country": "france",
+    "headline": "Stellaria & CEA Sign LOI for Experimental MSR Feasibility Study at Cadarache",
+    "operator": {
+      "name": "CEA (Alternative Energies & Atomic Energy Commission)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Stellaria",
+      "matched_company_slug": null
+    },
+    "project_name": "Alvin MSR",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "85c8a437-8de4-4bd8-8aa1-f79017f17ba2",
+    "ingested_at": "2026-05-11T01:04:34.034Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/czech-smr-project---early-works-contract-signed"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "central-europe",
+    "country": "czech_republic",
+    "headline": "ČEZ Signs Early Works Contract with Rolls-Royce SMR for Temelín Small Modular Reactor",
+    "operator": {
+      "name": "ČEZ",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Rolls-Royce SMR",
+      "matched_company_slug": null
+    },
+    "project_name": "Temelín SMR",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "19ffcb20-af97-4acb-a31b-9575951d774e",
+    "ingested_at": "2026-05-11T01:04:34.034Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/fuel-loading-begins-for-bangladeshs-first-nuclear-power-plant"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "regulatory",
+    "region": "south-asia",
+    "country": "bangladesh",
+    "headline": "Fuel Loading Begins at Rooppur Nuclear Power Plant Unit 1, Bangladesh",
+    "operator": {
+      "name": "Bangladesh Atomic Energy Commission",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Rooppur Nuclear Power Plant",
+    "mob_window": {
+      "start": "2025-Q2",
+      "end": "2026-Q2",
+      "duration_months": 12
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "ed97d0fa-278e-447d-993d-9889bc964663",
+    "ingested_at": "2026-05-11T01:04:34.034Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/flushing-of-safety-systems-begins-for-kudankulam-unit-3"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction",
+      "ndt_inspection"
+    ],
+    "signal_type": "regulatory",
+    "region": "india-south",
+    "country": "india",
+    "headline": "Kudankulam Unit 3 Safety System Flushing Begins — Active Commissioning Phase Underway",
+    "operator": {
+      "name": "Nuclear Power Corporation of India Limited (NPCIL)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Kudankulam Nuclear Power Plant Unit 3",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "254e3653-13f4-4ef1-8f5c-57159ad78b1c",
+    "ingested_at": "2026-05-11T01:04:34.034Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/darlington-smr-nuclear-project-foundation-module-milestone"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "canada-ontario",
+    "country": "canada",
+    "headline": "Darlington SMR Basemat Module Set 35m Below Ground — First SMR in G7 Nation",
+    "operator": {
+      "name": "Ontario Power Generation",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Darlington SMR",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "72b33b4a-7441-4099-a7bf-2f736b9e2912",
+    "ingested_at": "2026-05-11T01:04:34.034Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/key-aerb-approval-issued-for-kudankulam-5-and-6"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "ndt_inspection"
+    ],
+    "signal_type": "regulatory",
+    "region": "south-asia",
+    "country": "india",
+    "headline": "AERB Grants Major Equipment Installation Permit for Kudankulam Units 5 & 6",
+    "operator": {
+      "name": "Nuclear Power Corporation of India Limited (NPCIL)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Kudankulam Nuclear Power Plant Units 5 & 6",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "ad29b8b9-893f-4a2a-806e-e5536ffa103c",
+    "ingested_at": "2026-05-11T01:04:34.034Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/norwegian-municipalities-initiate-investigation-work"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "norway",
+    "country": "norway",
+    "headline": "Norwegian Municipalities Launch SMR Nuclear Investigation Work Ahead of Licence Applications",
+    "operator": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": null,
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "ea0c53db-3a86-4242-9e3d-e3ac81321b12",
+    "ingested_at": "2026-05-11T01:04:34.034Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/permission-granted-for-commissioning-work-on-akkuyu-2"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction",
+      "ndt_inspection"
+    ],
+    "signal_type": "regulatory",
+    "region": "turkey",
+    "country": "turkey",
+    "headline": "Turkey Regulator Grants Commissioning Permit for Akkuyu NPP Unit 2",
+    "operator": {
+      "name": "Akkuyu Nuclear JSC",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Rosatom",
+      "matched_company_slug": null
+    },
+    "project_name": "Akkuyu Nuclear Power Plant Unit 2",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "b54c944d-95ac-445e-9887-c7e0df0d4821",
+    "ingested_at": "2026-05-11T01:04:34.034Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/bruce-c-gets-funding-for-pre-development-work"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations",
+      "ndt_inspection"
+    ],
+    "signal_type": "fid",
+    "region": "ontario-canada",
+    "country": "canada",
+    "headline": "Bruce Power Gets CAD300M Pre-Development Funding for Bruce C New Nuclear Project",
+    "operator": {
+      "name": "Bruce Power",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Bruce Power",
+      "matched_company_slug": null
+    },
+    "project_name": "Bruce C",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 220000000
+  },
+  {
+    "id": "f2f20084-f737-43d0-abcd-46cbf8069eab",
+    "ingested_at": "2026-05-11T01:04:34.034Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/us-nrc-clears-st-lucie-1-and-2-for-80-years-operation"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "ndt_inspection"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-southeast",
+    "country": "united_states",
+    "headline": "US NRC Grants 80-Year Subsequent Licence Renewals for St Lucie Units 1 & 2 Through 2056/2063",
+    "operator": {
+      "name": "Florida Power & Light (NextEra Energy)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "St Lucie Nuclear Power Plant Units 1 & 2",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "9033331c-99c5-4579-852b-f2e1c40a9da2",
+    "ingested_at": "2026-05-11T01:04:34.034Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/site-of-polish-plant-deemed-suitable"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "poland",
+    "country": "poland",
+    "headline": "Lubiatowo-Kopalino Site Approved for Poland's First Nuclear Power Plant",
+    "operator": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Lubiatowo-Kopalino Nuclear Power Plant",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "662a3568-3814-41f3-b50a-8bf351111b79",
+    "ingested_at": "2026-05-11T01:04:34.034Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/french-supply-chain-boosts-capacity"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "france",
+    "country": "france",
+    "headline": "Orano Opens Pierrelatte Engineering Hub; Arabelle Solutions Plans New Chalon-sur-Saône Factory",
+    "operator": {
+      "name": "EDF",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Orano / Arabelle Solutions",
+      "matched_company_slug": null
+    },
+    "project_name": "French Nuclear Supply Chain Capacity Expansion",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "8dc71903-7194-41d6-a048-6ed61bdcad51",
+    "ingested_at": "2026-05-11T01:04:34.034Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/brookfield-and-the-nuclear-company-target-vcsummer"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "us-southeast",
+    "country": "united_states",
+    "headline": "Brookfield & The Nuclear Company JV to Complete VC Summer AP1000 Units in South Carolina",
+    "operator": {
+      "name": "The Nuclear Company",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Brookfield / The Nuclear Company JV",
+      "matched_company_slug": null
+    },
+    "project_name": "VC Summer AP1000 Units 2 & 3",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "cdacca46-3005-4d08-bb7b-cf67200e8892",
+    "ingested_at": "2026-05-11T01:04:34.034Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/ship-modified-for-transport-of-used-mox-fuel"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "marine_offshore_ops"
+    ],
+    "signal_type": "vessel_mob",
+    "region": null,
+    "country": null,
+    "headline": "Pacific Nuclear Transport's Pacific Grebe Modified to Carry New MOX Fuel Flask",
+    "operator": {
+      "name": "Pacific Nuclear Transport Limited",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Pacific Nuclear Transport Limited",
+      "matched_company_slug": null
+    },
+    "project_name": null,
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "c6923577-67fd-4f5c-a264-049092fa37e4",
+    "ingested_at": "2026-05-11T01:04:34.034Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/mining-operations-start-at-wyoming-project"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "drilling_operations",
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "fid",
+    "region": "us-rocky-mountains",
+    "country": "united_states",
+    "headline": "Ur-Energy Begins Uranium Mining Operations at Second ISR Project in Wyoming",
+    "operator": {
+      "name": "Ur-Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Ur-Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Ur-Energy Wyoming ISR Uranium Project (second project)",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "b3a81a7d-32d1-45e3-ac18-2ad39e2b955b",
+    "ingested_at": "2026-05-11T01:04:34.034Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/urencos-capenhurst-site-produces-leu-in-first-trial-run"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "uk-north-west",
+    "country": "united_kingdom",
+    "headline": "Urenco Capenhurst Completes First LEU+ Trial Production Run, Commercial Scale-Up Imminent",
+    "operator": {
+      "name": "Urenco",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Urenco",
+      "matched_company_slug": null
+    },
+    "project_name": "Capenhurst LEU+ Commercial Production",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "f2486177-2148-468f-b12d-c114885030be",
+    "ingested_at": "2026-05-11T01:04:34.034Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/italy-uk-enhance-cooperation-on-decommissioning"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "ndt_inspection",
+      "industrial_construction"
+    ],
+    "signal_type": "decom",
+    "region": "europe",
+    "country": null,
+    "headline": "Italy SOGIN & UK NDA Sign MOU for Joint Graphite-Moderated Reactor Decommissioning",
+    "operator": {
+      "name": "Nuclear Decommissioning Authority",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": null,
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "1fa35ade-6921-4c52-8290-7685978e270d",
+    "ingested_at": "2026-05-11T01:04:34.034Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/jdenergy-commissions-first-overseas-utility-scale-project-in-hungary-302767435.html"
+      }
+    ],
+    "subsector": "onshore-renewables",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction"
+    ],
+    "signal_type": "epc_award",
+    "region": "central-europe",
+    "country": "hungary",
+    "headline": "JDEnergy Commissions 11 MW/22 MWh Battery Storage Project for MVM in Hungary",
+    "operator": {
+      "name": "MVM",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "JDEnergy",
+      "matched_company_slug": null
+    },
+    "project_name": "MVM Sopronkövesd BESS",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "453d94b4-6b66-426e-a4d4-bc516f984deb",
+    "ingested_at": "2026-05-11T01:04:34.034Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/jdenergy-nimmt-in-ungarn-das-erste-energieversorgungsprojekt-in-ubersee-in-betrieb-302767651.html"
+      }
+    ],
+    "subsector": "onshore-renewables",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "epc_award",
+    "region": "central-europe",
+    "country": "hungary",
+    "headline": "JDEnergy Commissions 11 MW/22 MWh Battery Energy Storage Project for MVM in Hungary",
+    "operator": {
+      "name": "MVM",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "JDEnergy",
+      "matched_company_slug": null
+    },
+    "project_name": "MVM 11 MW/22 MWh Energy Storage Project, Sopronkövesd",
+    "mob_window": {
+      "start": "2026-Q1",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
     "id": "ec288141-29f5-44c6-83d0-bc9358c08d0a",
     "ingested_at": "2026-05-10T22:22:03.687Z",
     "sources": [
