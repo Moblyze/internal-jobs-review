@@ -21,6 +21,2919 @@
     "signal_type": "lease_round",
     "region": "southeast-asia",
     "country": "indonesia",
+    "tldr": "Eni has confirmed a giant offshore gas discovery in Indonesia with ~5 Tcf of gas and 300 MMbbl of condensate via drill stem test. This appraisal confirmation signals upcoming FEED/FID activity and a significant labor-demand ramp for development planning.",
+    "operator": {
+      "name": "Eni",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": null,
+    "scope": [
+      "exploration_appraisal",
+      "dst",
+      "field_development_planning"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Reservoir Engineer",
+        "Subsea Development Engineer",
+        "Offshore Project Manager",
+        "Production Geologist",
+        "Completions Engineer",
+        "Facilities Engineer",
+        "FEED Manager",
+        "Gas Development Engineer"
+      ],
+      "skills": [
+        "drill stem test interpretation",
+        "gas field development",
+        "reservoir characterization",
+        "FEED scoping",
+        "subsea field development",
+        "deepwater appraisal",
+        "condensate handling",
+        "FPSO/FLNG concept selection"
+      ],
+      "certs_freetext": [
+        "IWCF",
+        "BOSIET",
+        "OPITO"
+      ],
+      "geo_rtw": "Indonesia / SE Asia; EU/EEA or international APAC-eligible",
+      "project_experience": [
+        "Coral Sul FLNG",
+        "Zohr",
+        "Jangkrik",
+        "Merakes",
+        "Tangguh LNG",
+        "Masela"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior to Principal",
+      "boolean_search": "(\"reservoir engineer\" OR \"development engineer\" OR \"subsea engineer\" OR \"facilities engineer\" OR \"FEED manager\" OR \"project manager\") AND (\"gas field development\" OR \"deepwater\" OR \"subsea development\" OR \"FLNG\" OR \"FPSO\") AND (\"Indonesia\" OR \"Southeast Asia\" OR \"APAC\") AND (\"Eni\" OR \"giant gas\" OR \"offshore Indonesia\" OR \"field development plan\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Eni has just confirmed a ~5 Tcf giant gas discovery offshore Indonesia — FEED and development planning will be mobilising soon. Your background in [gas/subsea/FEED] looks highly relevant. Would you be open to a conversation?",
+      "email_subject": "Eni Indonesia Giant Gas Discovery — Upcoming FEED & Development Roles",
+      "email_body": "Hi [Name],\n\nEni has confirmed a giant offshore gas discovery in Indonesia (~5 Tcf gas, 300 MMbbl condensate) following a successful drill stem test. With appraisal now validated, FEED and field development planning activity is expected to ramp up significantly in the near term.\n\nGiven your experience in [gas field development / subsea engineering / FEED management], I wanted to reach out early before these roles are formally briefed.\n\nWould you be open to a brief call to discuss how your background aligns with what's coming?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Eni confirms a giant offshore gas discovery in Indonesia via DST, signalling imminent FEED and field development planning activity with clear labor-demand implications for a named operator and offshore O&G project.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "d7c0f405-22f9-4543-9b93-7f2bd20882a2",
+    "ingested_at": "2026-05-11T05:28:00.255Z",
+    "source_published_at": "2026-05-07T08:57:25.000Z"
+  },
+  {
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/adnoc_announces_55b_in_new_project_awards-06-may-2026-183625-article/?rss=true"
+      }
+    ],
+    "headline": "ADNOC Announces $55B in New Project Awards Across Portfolio",
+    "body": "In a release sent to Rigzone recently, ADNOC stated that it is “accelerating growth and delivery of its strategy” with AED 200 billion ($55 billion) in new p...",
+    "url": "https://www.rigzone.com/news/adnoc_announces_55b_in_new_project_awards-06-may-2026-183625-article/?rss=true",
+    "published_at": "2026-05-06T13:58:23.000Z",
+    "hash": "d324d9d219c83cd4",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "drilling_operations",
+      "process_plant_operations",
+      "pipeline_mechanical",
+      "rov_subsea",
+      "marine_offshore_ops"
+    ],
+    "signal_type": "epc_award",
+    "region": "uae-middle-east",
+    "country": "united_arab_emirates",
+    "tldr": "ADNOC is releasing AED 200 billion ($55B) in new project awards, signalling a major multi-discipline workforce ramp-up across its O&G portfolio. Recruiters should target upstream, midstream, and EPC contractors active in the UAE.",
+    "operator": {
+      "name": "ADNOC",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": null,
+    "scope": [
+      "epc_award",
+      "upstream_development",
+      "infrastructure"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 55000000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Project Manager",
+        "Construction Manager",
+        "Drilling Engineer",
+        "Process Engineer",
+        "Subsea Engineer",
+        "Pipeline Engineer",
+        "HSE Manager",
+        "Commissioning Engineer",
+        "Contracts Manager",
+        "Cost Engineer"
+      ],
+      "skills": [
+        "EPC project delivery",
+        "ADNOC experience",
+        "upstream oil and gas",
+        "commissioning",
+        "drilling operations",
+        "pipeline construction",
+        "subsea systems",
+        "cost control",
+        "contract management"
+      ],
+      "certs_freetext": [
+        "BOSIET",
+        "OPITO",
+        "PMP",
+        "NEBOSH",
+        "CSWIP",
+        "API certifications"
+      ],
+      "geo_rtw": "UAE / GCC — must hold or be eligible for UAE work visa",
+      "project_experience": [
+        "ADNOC Offshore",
+        "ADNOC Onshore",
+        "Shah Gas",
+        "Al Dhafra",
+        "Ruwais Refinery",
+        "Hail and Ghasha",
+        "Umm Shaif",
+        "Nasr",
+        "Lower Zakum"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "Senior / Lead / Manager",
+      "boolean_search": "(ADNOC OR \"Abu Dhabi National Oil\" OR \"ADNOC Offshore\" OR \"ADNOC Onshore\") AND (\"project manager\" OR \"construction manager\" OR \"drilling engineer\" OR \"process engineer\" OR \"pipeline engineer\" OR \"commissioning engineer\" OR \"subsea engineer\" OR \"contracts manager\" OR \"cost engineer\" OR \"HSE manager\") AND (\"UAE\" OR \"Abu Dhabi\" OR \"Middle East\" OR \"GCC\") AND (EPC OR \"upstream\" OR \"oil and gas\" OR \"refinery\" OR \"offshore\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], ADNOC has just announced $55B in new project awards across its UAE portfolio — a significant hiring wave is expected. Given your background in [discipline], I'd love to explore relevant opportunities. Open to a quick chat?",
+      "email_subject": "ADNOC $55B Project Awards — Senior Roles Opening Across UAE Portfolio",
+      "email_body": "Hi [Name],\n\nADNOC has announced AED 200 billion ($55B) in new project awards, signalling one of the largest workforce ramp-ups in the region in recent years.\n\nGiven your experience in [relevant discipline] and your background on [relevant project], I believe you could be a strong fit for several of the senior roles likely to emerge across ADNOC's upstream, EPC, and infrastructure programmes.\n\nI'd welcome a brief call to discuss how your background aligns with what's coming to market. Are you available this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "ADNOC named as operator announcing $55B in new project awards, representing a large-scale discrete labor-demand event across the UAE O&G sector.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "456acb57-ebda-47d5-ac0e-3aa2ebbe7232",
+    "ingested_at": "2026-05-11T05:28:00.255Z",
+    "source_published_at": "2026-05-06T13:58:23.000Z"
+  },
+  {
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/totalenergies_breaks_ground_for_440_mw_philippine_solar_farm-04-may-2026-183598-article/?rss=true"
+      }
+    ],
+    "headline": "TotalEnergies & Nextnorth Break Ground on 440 MW Philippines Solar Farm After Financial Close",
+    "body": "TotalEnergies SE and local partner Nextnorth Holdings Corp have reached financial close and launched construction for a solar power plant with a capacity of ...",
+    "url": "https://www.rigzone.com/news/totalenergies_breaks_ground_for_440_mw_philippine_solar_farm-04-may-2026-183598-article/?rss=true",
+    "published_at": "2026-05-04T10:26:49.000Z",
+    "hash": "41edc268d7bd19ba",
+    "subsector": "onshore-renewables",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "southeast-asia",
+    "country": "philippines",
+    "tldr": "TotalEnergies and Nextnorth Holdings have reached financial close and commenced construction on a 440 MW solar facility in the Philippines, signalling an active construction workforce ramp-up window. Recruiters should target solar EPC and commissioning talent for this build phase.",
+    "operator": {
+      "name": "TotalEnergies SE",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Nextnorth Holdings Corp",
+      "matched_company_slug": null
+    },
+    "project_name": "440 MW Philippine Solar Farm",
+    "scope": [
+      "solar_epc",
+      "civil_construction",
+      "electrical_installation",
+      "commissioning"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Solar Project Manager",
+        "EPC Construction Manager",
+        "Electrical Superintendent",
+        "Commissioning Engineer",
+        "Civil Site Engineer",
+        "Procurement Manager",
+        "HSE Manager",
+        "Balance of Plant Engineer"
+      ],
+      "skills": [
+        "solar PV construction",
+        "balance of plant",
+        "EPC project delivery",
+        "HV electrical installation",
+        "commissioning and energisation",
+        "construction supervision",
+        "procurement",
+        "project controls"
+      ],
+      "certs_freetext": [
+        "PMP",
+        "NEBOSH",
+        "IECEx",
+        "Electrical Engineer licence"
+      ],
+      "geo_rtw": "Philippines or internationally mobile with Philippines work authorisation",
+      "project_experience": [
+        "utility-scale solar",
+        "Southeast Asia renewables",
+        "TotalEnergies renewables",
+        "large-scale PV farms"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "Mid–Senior",
+      "boolean_search": "(\"solar\" OR \"PV\" OR \"photovoltaic\") AND (\"EPC\" OR \"construction manager\" OR \"commissioning\" OR \"balance of plant\" OR \"BOP\") AND (\"utility scale\" OR \"large scale\" OR \"440 MW\" OR \"onshore renewables\") AND (\"Philippines\" OR \"Southeast Asia\" OR \"ASEAN\") AND (\"TotalEnergies\" OR \"Nextnorth\" OR \"solar farm\" OR \"project manager\" OR \"site manager\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], TotalEnergies & Nextnorth Holdings have just broken ground on a 440 MW solar farm in the Philippines following financial close. I'm sourcing experienced solar EPC/commissioning professionals for this build phase — would you be open to a quick chat?",
+      "email_subject": "440 MW Solar Farm – Philippines | TotalEnergies / Nextnorth – EPC Roles Now Live",
+      "email_body": "Hi [Name],\n\nTotalEnergies SE and Nextnorth Holdings Corp have reached financial close and commenced construction on a 440 MW solar power plant in the Philippines — one of the larger utility-scale solar builds currently active in Southeast Asia.\n\nWith the construction phase now underway, there is immediate demand for experienced professionals across:\n- EPC / Construction Management\n- Electrical & HV Installation Supervision\n- Commissioning Engineering\n- HSE & Project Controls\n\nGiven your background in [relevant experience], I think this could be a strong fit. Are you available for a brief call this week to discuss?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Financial close and groundbreaking on a named 440 MW solar project in the Philippines, naming TotalEnergies and Nextnorth Holdings as operator/partner, indicating an active construction workforce-demand event.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "5809ac48-f008-482e-8b27-fb85a0a70264",
+    "ingested_at": "2026-05-11T05:28:00.255Z",
+    "source_published_at": "2026-05-04T10:26:49.000Z"
+  },
+  {
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/shell_ineos_plan_more_joint_tiebacks_in_us_gulf-06-may-2026-183626-article/?rss=true"
+      }
+    ],
+    "headline": "Shell & INEOS Sign Joint Tieback Agreement Using Appomattox Hub in US Gulf",
+    "body": "INEOS Group and Shell PLC signed an agreement Tuesday to jointly invest in more projects that would use their existing Appomattox production hub in the Gulf ...",
+    "url": "https://www.rigzone.com/news/shell_ineos_plan_more_joint_tiebacks_in_us_gulf-06-may-2026-183626-article/?rss=true",
+    "published_at": "2026-05-06T14:33:53.000Z",
+    "hash": "01db140161340cac",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "rov_subsea",
+      "marine_offshore_ops",
+      "process_plant_operations",
+      "pipeline_mechanical"
+    ],
+    "signal_type": "fid",
+    "region": "us-gulf",
+    "country": "united_states",
+    "tldr": "Shell and INEOS have signed a joint investment agreement to develop additional tieback projects tied to the Appomattox production hub in the US Gulf of Mexico, signalling an upcoming pipeline of subsea development and installation work. Recruiters should target subsea, drilling, and offshore operations talent ahead of project execution phases.",
+    "operator": {
+      "name": "Shell",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Appomattox Tieback Program",
+    "scope": [
+      "subsea_tiebacks",
+      "production_hub_utilisation",
+      "offshore_development"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Subsea Engineer",
+        "Tieback Project Manager",
+        "Offshore Production Engineer",
+        "Drilling Engineer",
+        "Subsea Project Engineer",
+        "Facilities Engineer",
+        "Offshore Operations Supervisor",
+        "ROV Supervisor",
+        "Pipeline Engineer",
+        "Reservoir Engineer"
+      ],
+      "skills": [
+        "subsea tieback design",
+        "deepwater development",
+        "production hub operations",
+        "SURF engineering",
+        "well tie-back",
+        "Gulf of Mexico deepwater",
+        "flow assurance",
+        "subsea systems",
+        "offshore project management",
+        "FPSO/hub operations"
+      ],
+      "certs_freetext": [
+        "BOSIET",
+        "HUET",
+        "OPITO Offshore Safety",
+        "Well Control (IWCF/IADC)",
+        "OGUK Medical"
+      ],
+      "geo_rtw": "US Gulf of Mexico — US work authorisation required",
+      "project_experience": [
+        "Appomattox",
+        "Vito",
+        "Whale",
+        "Powerline",
+        "Stones",
+        "Mad Dog",
+        "Perdido"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "Mid–Senior",
+      "boolean_search": "(\"subsea engineer\" OR \"tieback engineer\" OR \"offshore project manager\" OR \"subsea project engineer\" OR \"deepwater engineer\" OR \"pipeline engineer\" OR \"facilities engineer\" OR \"drilling engineer\") AND (\"Gulf of Mexico\" OR \"GoM\" OR \"deepwater\" OR \"Appomattox\" OR \"SURF\") AND (\"Shell\" OR \"INEOS\" OR \"tieback\" OR \"subsea development\" OR \"production hub\") AND (\"US\" OR \"United States\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Shell & INEOS have signed a joint tieback program off the back of the Appomattox hub in the US Gulf — execution roles are likely to ramp soon. Your deepwater background looks like a strong fit. Worth a quick chat?",
+      "email_subject": "Shell/INEOS Appomattox Tieback Program — Upcoming Roles in US Gulf",
+      "email_body": "Hi [Name],\n\nShell and INEOS have formalised a joint investment agreement to develop additional tieback projects using the Appomattox production hub in the US Gulf of Mexico. As the program moves toward execution, we anticipate demand for experienced subsea, drilling, and offshore operations professionals with deepwater Gulf credentials.\n\nGiven your background in [relevant discipline], I wanted to reach out early before positions are formally posted. Would you be open to a brief call this week to discuss how your experience maps to what's coming?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operators Shell and INEOS have signed a joint development agreement for tieback projects at the specific Appomattox hub in the US Gulf, constituting a discrete field development commitment with clear workforce demand implications.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "f69194b8-c452-4da9-a81e-bf9618f72213",
+    "ingested_at": "2026-05-11T05:28:00.255Z",
+    "source_published_at": "2026-05-06T14:33:53.000Z"
+  },
+  {
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/uniper_gets_preliminary_approval_for_hesse_ccgt_plant-05-may-2026-183609-article/?rss=true"
+      }
+    ],
+    "headline": "Uniper Receives Preliminary Approval for Hesse Hydrogen-Compatible CCGT Plant",
+    "body": "Uniper SE has received preliminary approval from the Darmstadt Regional Authority for a natural gas-fired generation plant designed to be hydrogen-compatible...",
+    "url": "https://www.rigzone.com/news/uniper_gets_preliminary_approval_for_hesse_ccgt_plant-05-may-2026-183609-article/?rss=true",
+    "published_at": "2026-05-05T11:35:51.000Z",
+    "hash": "dad967b2bbe82f11",
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "germany",
+    "country": "germany",
+    "tldr": "Uniper has secured preliminary regulatory approval from the Darmstadt Regional Authority for a hydrogen-compatible CCGT plant in Hesse, Germany. This approval signals a potential upcoming construction and commissioning workforce demand for the facility.",
+    "operator": {
+      "name": "Uniper SE",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Hesse CCGT Plant",
+    "scope": [
+      "ccgt_construction",
+      "hydrogen_compatible_plant"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "CCGT Construction Manager",
+        "Power Plant Engineer",
+        "Commissioning Engineer",
+        "Project Manager – Power Generation",
+        "Process Engineer – Gas Turbine",
+        "Mechanical Supervisor",
+        "Electrical & Instrumentation Engineer"
+      ],
+      "skills": [
+        "CCGT",
+        "combined cycle gas turbine",
+        "hydrogen-compatible plant",
+        "power plant commissioning",
+        "gas turbine operations",
+        "EPC construction management",
+        "process engineering"
+      ],
+      "certs_freetext": [
+        "EUSR",
+        "GWO",
+        "NEBOSH",
+        "German trade certification (Meister)"
+      ],
+      "geo_rtw": "EU/EEA right to work, Germany preferred",
+      "project_experience": [
+        "Uniper Killingholme CCGT",
+        "RWE Biblis",
+        "Siemens Energy CCGT projects",
+        "E.ON gas power plant projects"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "Mid–Senior",
+      "boolean_search": "(\"CCGT\" OR \"combined cycle gas turbine\" OR \"gas-fired power plant\" OR \"hydrogen-compatible plant\") AND (\"commissioning\" OR \"construction manager\" OR \"project manager\" OR \"process engineer\") AND (\"power generation\" OR \"gas turbine\") AND (\"Germany\" OR \"Europe\" OR \"EPC\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Uniper has just received preliminary approval for a new hydrogen-compatible CCGT plant in Hesse, Germany. As this project moves toward construction, we're mapping talent for key engineering & commissioning roles. Would you be open to a quick chat?",
+      "email_subject": "Uniper Hesse CCGT – Engineering & Commissioning Talent Mapping",
+      "email_body": "Hi [Name],\n\nUniper SE has received preliminary regulatory approval for a new natural gas-fired, hydrogen-compatible CCGT plant in Hesse, Germany. As this project progresses toward EPC and commissioning phases, demand for experienced power plant engineers, construction managers, and commissioning specialists is expected to ramp up.\n\nGiven your background in CCGT / gas power generation, I wanted to reach out early to understand your availability and interest in roles tied to this project.\n\nWould you be open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Regulatory approval granted to named operator Uniper for a named project (Hesse CCGT Plant), signaling an upcoming construction and commissioning workforce demand event in the onshore power/gas sector.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "64d285e7-4748-4474-b912-55d4db480acc",
+    "ingested_at": "2026-05-11T05:28:00.255Z",
+    "source_published_at": "2026-05-05T11:35:51.000Z"
+  },
+  {
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/equinor_starts_gas_production_at_eirin_in_norwegian_north_sea-10-may-2026-183650-article/?rss=true"
+      }
+    ],
+    "headline": "Equinor Brings Eirin Gas Field Onstream in Norwegian North Sea",
+    "body": "Equinor ASA has put onstream the Eirin field in the North Sea, growing Norway's capacity to export natural gas to Europe.\n\r\n\r\nThe tieback development h...",
+    "url": "https://www.rigzone.com/news/equinor_starts_gas_production_at_eirin_in_norwegian_north_sea-10-may-2026-183650-article/?rss=true",
+    "published_at": "2026-05-10T11:00:00.000Z",
+    "hash": "d094b612783e5cbb",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "marine_offshore_ops",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "regulatory",
+    "region": "norwegian-north-sea",
+    "country": "norway",
+    "tldr": "Equinor has started gas production at the Eirin tieback field in the Norwegian North Sea, signalling active operations and potential ongoing staffing demand for production and maintenance roles on the host facility.",
+    "operator": {
+      "name": "Equinor",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Eirin",
+    "scope": [
+      "tieback",
+      "gas_production_startup"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Production Operator",
+        "Process Operator",
+        "Offshore Installation Manager",
+        "Subsea Engineer",
+        "Well Operations Engineer",
+        "Maintenance Technician"
+      ],
+      "skills": [
+        "gas production",
+        "tieback operations",
+        "offshore production operations",
+        "process operations",
+        "subsea tieback",
+        "North Sea operations"
+      ],
+      "certs_freetext": [
+        "BOSIET",
+        "NOGEPA",
+        "Norwegian Offshore Safety",
+        "OPITO Offshore Emergency Response"
+      ],
+      "geo_rtw": "Norway / EEA right-to-work",
+      "project_experience": [
+        "Snøhvit",
+        "Åsgard",
+        "Sleipner",
+        "Oseberg",
+        "Troll"
+      ],
+      "yoe_band": "5-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"production operator\" OR \"process operator\" OR \"offshore operator\" OR \"subsea engineer\" OR \"well operations engineer\") AND (\"North Sea\" OR \"Norwegian Continental Shelf\" OR \"NCS\") AND (\"gas production\" OR \"tieback\" OR \"offshore operations\") AND (Equinor OR Statoil)"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Equinor has just brought the Eirin gas field onstream in the Norwegian North Sea. We're supporting resourcing for NCS operations — your background in offshore gas production looks highly relevant. Open to a quick chat?",
+      "email_subject": "Equinor Eirin Field Onstream – NCS Ops Roles | Are You Available?",
+      "email_body": "Hi [Name],\n\nEquinor has officially started gas production at the Eirin tieback field in the Norwegian North Sea, adding to Norway's gas export capacity to Europe.\n\nWith active operations now underway, there is likely ongoing demand for experienced offshore production, process, and subsea professionals on the host platform.\n\nGiven your background in Norwegian Continental Shelf operations, I wanted to reach out to see whether you're currently available or open to exploring opportunities tied to this project or similar NCS campaigns.\n\nWould you have 15 minutes for a call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Equinor) has brought a named project (Eirin) onstream in the Norwegian North Sea, representing an active offshore O&G production event with staffing implications for operations and maintenance personnel.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "393982e6-9217-4791-8e50-6644a7a7a5f8",
+    "ingested_at": "2026-05-11T05:28:00.255Z",
+    "source_published_at": "2026-05-10T11:00:00.000Z"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/stellaria-cea-to-consider-experimental-msr-at-cadarache"
+      }
+    ],
+    "headline": "Stellaria & CEA Sign LOI for Alvin Experimental MSR Feasibility Study at Cadarache",
+    "body": "French molten salt reactor developer Stellaria has signed a letter of intent with the Alternative Energies & Atomic Energy Commission for a feasibility study for constructing its Alvin experimental reactor at its Cadarache site in southern France.",
+    "url": "https://www.world-nuclear-news.org//articles/stellaria-cea-to-consider-experimental-msr-at-cadarache",
+    "published_at": "2026-04-27T14:16:09.000Z",
+    "hash": "cea95112c0a95943",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "france-south",
+    "country": "france",
+    "tldr": "Stellaria and the CEA have signed a letter of intent to assess feasibility of constructing the Alvin experimental molten salt reactor at Cadarache. A positive feasibility outcome would trigger construction workforce demand at the southern France nuclear site.",
+    "operator": {
+      "name": "Stellaria",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Stellaria",
+      "matched_company_slug": null
+    },
+    "project_name": "Alvin MSR — Cadarache",
+    "scope": [
+      "feasibility_study",
+      "experimental_reactor_construct"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Project Engineer",
+        "Reactor Design Engineer",
+        "Nuclear Construction Manager",
+        "MSR Systems Engineer",
+        "Nuclear Safety Engineer",
+        "Feasibility Study Lead"
+      ],
+      "skills": [
+        "molten salt reactor",
+        "MSR",
+        "nuclear feasibility study",
+        "experimental reactor",
+        "reactor design",
+        "nuclear safety",
+        "CEA",
+        "Generation IV"
+      ],
+      "certs_freetext": [
+        "French Nuclear Safety Authority (ASN) clearance",
+        "Nuclear site access authorization",
+        "Habilitation nucléaire (RP1/RP2)"
+      ],
+      "geo_rtw": "France / EU right-to-work",
+      "project_experience": [
+        "ASTRID",
+        "Jules Horowitz Reactor",
+        "ITER (Cadarache)",
+        "MSRE (Oak Ridge)",
+        "Terrestrial Energy IMSR",
+        "ThorCon"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "Mid–Senior",
+      "boolean_search": "(\"molten salt reactor\" OR \"MSR\" OR \"Generation IV\" OR \"advanced reactor\") AND (\"feasibility study\" OR \"reactor design\" OR \"nuclear engineering\" OR \"experimental reactor\") AND (\"CEA\" OR \"Cadarache\" OR \"Stellaria\" OR \"nuclear construction\") AND (France OR \"French nuclear\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Stellaria & CEA have signed an LOI for a feasibility study on the Alvin MSR at Cadarache — early-stage nuclear opportunity in southern France. Given your MSR/advanced reactor background, I'd love to explore fit. Open to a quick chat?",
+      "email_subject": "Alvin MSR Cadarache – Early Nuclear Opportunity | Stellaria / CEA",
+      "email_body": "Hi [Name],\n\nStellaria and the CEA have signed a letter of intent to study the feasibility of constructing the Alvin experimental molten salt reactor at Cadarache in southern France.\n\nWhile the project is pre-FID, feasibility studies of this nature typically mobilise specialist nuclear engineers, reactor designers, and nuclear safety professionals in the near term — and construction ramp-up follows subject to a positive outcome.\n\nGiven your experience in [MSR / advanced reactor / nuclear construction], I wanted to reach out early to understand your availability and interest.\n\nWould you be open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Stellaria) and partner (CEA) have signed an LOI for a feasibility study on a named experimental nuclear reactor (Alvin MSR) at a named site (Cadarache), constituting an early-stage project signal with forward labor-demand implications in the nuclear subsector.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "c6372a77-abac-4745-b24d-5d12ae44e11e",
+    "ingested_at": "2026-05-11T05:28:00.255Z",
+    "source_published_at": "2026-04-27T14:16:09.000Z"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/czech-smr-project---early-works-contract-signed"
+      }
+    ],
+    "headline": "ČEZ Signs Early Works Contract with Rolls-Royce SMR for Temelín Small Modular Reactor",
+    "body": "Czech nuclear operator ČEZ has signed an early works contract with Rolls-Royce SMR for the proposed construction of a small modular reactor at Temelín. ČEZ has also signed a memorandum of understanding with the Ministry of Industry and Trade to consider the investor model and possible sources of financing.",
+    "url": "https://www.world-nuclear-news.org//articles/czech-smr-project---early-works-contract-signed",
+    "published_at": "2026-04-27T13:53:09.000Z",
+    "hash": "4973d79e65a3aa45",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "central-europe",
+    "country": "czech_republic",
+    "tldr": "Czech utility ČEZ has signed an early works contract with Rolls-Royce SMR for a proposed SMR at Temelín, signalling an early-stage labour demand window for nuclear construction and engineering professionals. A concurrent MOU with the Czech Ministry of Industry and Trade on financing models suggests project progression is actively being de-risked.",
+    "operator": {
+      "name": "ČEZ",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Rolls-Royce SMR",
+      "matched_company_slug": null
+    },
+    "project_name": "Temelín SMR",
+    "scope": [
+      "early_works",
+      "smr_construction",
+      "site_prep"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Project Engineer",
+        "SMR Construction Manager",
+        "Nuclear Civil Engineer",
+        "Reactor Systems Engineer",
+        "Nuclear Quality Assurance Manager",
+        "Nuclear Project Director",
+        "Mechanical Engineer – Nuclear",
+        "Nuclear Site Manager",
+        "Early Works Project Manager"
+      ],
+      "skills": [
+        "small modular reactor",
+        "nuclear new build",
+        "early works planning",
+        "nuclear safety case",
+        "project controls",
+        "nuclear licensing",
+        "civil nuclear construction",
+        "commissioning",
+        "nuclear quality management"
+      ],
+      "certs_freetext": [
+        "Nuclear Safety Passport",
+        "IAEA nuclear standards",
+        "EUR Eur Ing",
+        "Chartered Engineer (CEng)"
+      ],
+      "geo_rtw": "EU / EEA eligible, Czech Republic work authorisation preferred",
+      "project_experience": [
+        "Hinkley Point C",
+        "Sizewell B",
+        "Dukovany Nuclear Power Plant",
+        "Flamanville EPR",
+        "Vogtle Units 3&4",
+        "NuScale UAMPS"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal / Lead",
+      "boolean_search": "(\"small modular reactor\" OR \"SMR\" OR \"nuclear new build\" OR \"civil nuclear\") AND (\"project manager\" OR \"construction manager\" OR \"site manager\" OR \"nuclear engineer\" OR \"reactor engineer\" OR \"commissioning engineer\") AND (\"early works\" OR \"nuclear construction\" OR \"nuclear licensing\" OR \"safety case\" OR \"quality assurance\") AND (\"Hinkley\" OR \"Dukovany\" OR \"EPR\" OR \"PWR\" OR \"Rolls-Royce\" OR \"nuclear power plant\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], with ČEZ & Rolls-Royce SMR just signing an early works contract for the Temelín SMR project in Czech Republic, we're sourcing senior nuclear engineers & construction leads for the programme. Your background in [nuclear new build / SMR] looks highly relevant — open to a confidential conversation?",
+      "email_subject": "Temelín SMR – Senior Nuclear Engineering & Construction Roles | Early Works Phase",
+      "email_body": "Hi [Name],\n\nČEZ and Rolls-Royce SMR have signed an early works contract for a Small Modular Reactor at Temelín, Czech Republic — one of Europe's most significant nuclear new-build signals in recent years.\n\nAs the programme ramps up, we're identifying senior nuclear professionals with experience across SMR or large-scale nuclear new-build projects (e.g. Hinkley Point C, Dukovany, Flamanville) for roles spanning project engineering, construction management, nuclear licensing, and quality assurance.\n\nGiven your background in [relevant discipline], I'd welcome a confidential conversation about how your experience maps to the emerging talent needs on this programme.\n\nAre you open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (ČEZ) and contractor (Rolls-Royce SMR) have signed an early works contract for the Temelín SMR project, representing a discrete nuclear construction labour-demand signal.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "dcf57ce6-d995-4cc5-a67b-a3392a9fe687",
+    "ingested_at": "2026-05-11T05:28:00.255Z",
+    "source_published_at": "2026-04-27T13:53:09.000Z"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/fuel-loading-begins-for-bangladeshs-first-nuclear-power-plant"
+      }
+    ],
+    "headline": "Fuel Loading Begins at Rooppur Nuclear Power Plant Unit 1, Bangladesh",
+    "body": "A ceremony has been held in Bangladesh to mark the start of the loading of 163 nuclear fuel assemblies into Rooppur Nuclear Power Plant’s first unit.",
+    "url": "https://www.world-nuclear-news.org//articles/fuel-loading-begins-for-bangladeshs-first-nuclear-power-plant",
+    "published_at": "2026-04-28T13:15:50.000Z",
+    "hash": "dce79ebaad7716fc",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "energy_trades",
+      "ndt_inspection"
+    ],
+    "signal_type": "regulatory",
+    "region": "south-asia",
+    "country": "bangladesh",
+    "tldr": "Fuel loading of 163 assemblies has commenced at Rooppur NPP Unit 1 in Bangladesh, signaling imminent commissioning-phase labor demand for nuclear operations and technical support personnel.",
+    "operator": {
+      "name": "Bangladesh Atomic Energy Commission",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Rooppur Nuclear Power Plant",
+    "scope": [
+      "fuel_load",
+      "commissioning",
+      "unit_startup"
+    ],
+    "mob_window": {
+      "start": "2025-Q2",
+      "end": "2026-Q2",
+      "duration_months": 12
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Commissioning Engineer",
+        "Reactor Operations Specialist",
+        "Nuclear Fuel Handling Technician",
+        "I&C Commissioning Engineer",
+        "Health Physics Technician",
+        "Nuclear QA/QC Inspector",
+        "Shift Supervisor – Nuclear"
+      ],
+      "skills": [
+        "fuel loading",
+        "nuclear commissioning",
+        "reactor startup",
+        "VVER reactor",
+        "radiation protection",
+        "I&C systems",
+        "nuclear safety",
+        "shift operations"
+      ],
+      "certs_freetext": [
+        "Nuclear Operator Licence",
+        "Radiation Protection Supervisor (RPS)",
+        "IAEA safeguards training",
+        "PED / nuclear pressure systems"
+      ],
+      "geo_rtw": "Bangladesh or internationally mobile; IAEA-eligible nationals",
+      "project_experience": [
+        "Kudankulam NPP",
+        "Akkuyu NPP",
+        "Bushehr NPP",
+        "Metsamor NPP",
+        "Tianwan NPP"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "Mid–Senior",
+      "boolean_search": "(\"nuclear commissioning\" OR \"fuel loading\" OR \"reactor startup\" OR \"VVER\" OR \"nuclear operations\") AND (\"commissioning engineer\" OR \"reactor operator\" OR \"shift supervisor\" OR \"health physics\" OR \"I&C engineer\" OR \"fuel handling\") AND (\"NPP\" OR \"nuclear power plant\" OR \"PWR\" OR \"VVER-1200\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], fuel loading has just commenced at Rooppur NPP Unit 1 in Bangladesh — commissioning-phase roles are opening now. Your VVER/nuclear ops background looks highly relevant. Open to a quick chat?",
+      "email_subject": "Rooppur NPP Unit 1 – Nuclear Commissioning Roles Now Active",
+      "email_body": "Hi [Name],\n\nFuel loading of 163 assemblies has begun at Rooppur Nuclear Power Plant Unit 1 in Bangladesh, marking the start of active commissioning operations. We are supporting the staffing effort for this phase and are sourcing experienced nuclear commissioning engineers, reactor operators, health physics technicians, and I&C specialists.\n\nGiven your background in [VVER/nuclear commissioning/reactor operations], I wanted to reach out directly — these roles typically mobilise quickly once fuel load is complete.\n\nWould you be open to a brief call this week to discuss fit and timing?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Fuel loading commencement at the named Rooppur Nuclear Power Plant Unit 1 signals an imminent commissioning-phase workforce demand event at a specific named project.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "5d796fe7-2a97-4503-af13-d0d24292c3a9",
+    "ingested_at": "2026-05-11T05:28:00.255Z",
+    "source_published_at": "2026-04-28T13:15:50.000Z"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/flushing-of-safety-systems-begins-for-kudankulam-unit-3"
+      }
+    ],
+    "headline": "Kudankulam Unit 3 Safety System Flushing Begins — Active Commissioning Phase Starts",
+    "body": "The flushing of safety systems at unit 3 of India’s Kudankulam Nuclear Power Plant is described as a key moment, signifying the beginning of the active commissioning phase.",
+    "url": "https://www.world-nuclear-news.org//articles/flushing-of-safety-systems-begins-for-kudankulam-unit-3",
+    "published_at": "2026-04-28T11:17:55.000Z",
+    "hash": "64e740e631c2c382",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction",
+      "ndt_inspection"
+    ],
+    "signal_type": "regulatory",
+    "region": "south-india",
+    "country": "india",
+    "tldr": "Flushing of safety systems at Kudankulam Nuclear Power Plant Unit 3 marks the start of active commissioning, signalling near-term demand for commissioning, operations, and inspection personnel at the site.",
+    "operator": {
+      "name": "Nuclear Power Corporation of India Limited (NPCIL)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Kudankulam Nuclear Power Plant Unit 3",
+    "scope": [
+      "commissioning",
+      "safety_systems_flush",
+      "active_commissioning"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Commissioning Engineer",
+        "Commissioning Superintendent",
+        "Nuclear Systems Engineer",
+        "I&C Commissioning Engineer",
+        "Reactor Commissioning Specialist",
+        "NDT Inspector – Nuclear",
+        "Mechanical Commissioning Engineer",
+        "Nuclear Operations Technician"
+      ],
+      "skills": [
+        "nuclear commissioning",
+        "safety system flushing",
+        "VVER reactor systems",
+        "I&C testing",
+        "reactor coolant systems",
+        "commissioning procedures",
+        "nuclear QA/QC",
+        "pre-operational testing"
+      ],
+      "certs_freetext": [
+        "IAEA nuclear safety certification",
+        "ASME N-stamp",
+        "Nuclear Authorized Inspector",
+        "PCN/CSWIP NDT Level II/III"
+      ],
+      "geo_rtw": "India – willing to relocate or mobilise to Tamil Nadu",
+      "project_experience": [
+        "Kudankulam Unit 1",
+        "Kudankulam Unit 2",
+        "VVER-1000 projects",
+        "Rajasthan Atomic Power Station",
+        "Tarapur Atomic Power Station"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"nuclear commissioning\" OR \"reactor commissioning\" OR \"safety system commissioning\") AND (\"VVER\" OR \"PWR\" OR \"nuclear power plant\") AND (\"commissioning engineer\" OR \"commissioning superintendent\" OR \"commissioning specialist\" OR \"I&C engineer\" OR \"instrumentation and control\") AND (\"pre-operational\" OR \"flushing\" OR \"hydro test\" OR \"functional test\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], active commissioning has begun at Kudankulam Unit 3 in India — safety system flushing is underway. We're sourcing experienced nuclear commissioning engineers familiar with VVER systems. Would you be open to a quick conversation?",
+      "email_subject": "Nuclear Commissioning Opportunity – Kudankulam Unit 3, India",
+      "email_body": "Hi [Name],\n\nActive commissioning has officially commenced at Kudankulam Nuclear Power Plant Unit 3 in Tamil Nadu, India, with safety system flushing marking the start of a critical project phase.\n\nWe are identifying experienced nuclear commissioning professionals — particularly those with VVER reactor backgrounds — for roles supporting this phase and the broader pre-operational testing programme.\n\nIf you have experience in nuclear safety systems commissioning, I&C testing, or reactor coolant systems and are open to mobilising to India, I'd welcome a conversation.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named project (Kudankulam Unit 3) entering active commissioning phase signals near-term nuclear workforce demand for commissioning and inspection disciplines.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "5a8c692d-ba21-4b90-8341-7d5cc411eed4",
+    "ingested_at": "2026-05-11T05:28:00.255Z",
+    "source_published_at": "2026-04-28T11:17:55.000Z"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/darlington-smr-nuclear-project-foundation-module-milestone"
+      }
+    ],
+    "headline": "Darlington SMR Basemat Module Set 35m Below Ground — First SMR Foundation in G7",
+    "body": "The giant Basemat module, which will serve as the foundation of the reactor building for the first small modular reactor to be built in a G7 country, has been set into place 35 metres below ground in the excavated reactor building shaft.",
+    "url": "https://www.world-nuclear-news.org//articles/darlington-smr-nuclear-project-foundation-module-milestone",
+    "published_at": "2026-05-01T16:17:13.000Z",
+    "hash": "c806c2fe49c62ed0",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "canada-ontario",
+    "country": "canada",
+    "tldr": "The Basemat foundation module for the Darlington SMR has been installed 35 metres underground, marking a major civil construction milestone for the first SMR to be built in a G7 country. This signals active construction-phase labor demand at the Darlington site.",
+    "operator": {
+      "name": "Ontario Power Generation",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Darlington SMR",
+    "scope": [
+      "civil_foundation",
+      "nuclear_construction",
+      "basemat_install"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Construction Manager",
+        "Civil Site Supervisor",
+        "Structural Engineer – Nuclear",
+        "Construction Superintendent",
+        "Nuclear Quality Assurance Inspector",
+        "Formwork Supervisor",
+        "Concrete Works Engineer"
+      ],
+      "skills": [
+        "nuclear civil construction",
+        "basemat installation",
+        "below-grade excavation",
+        "reactor building construction",
+        "nuclear QA/QC",
+        "structural concrete",
+        "modular construction"
+      ],
+      "certs_freetext": [
+        "CNSC Nuclear Security Clearance",
+        "CSA N286 Quality Management",
+        "Red Seal (relevant trades)",
+        "WHMIS",
+        "Construction Safety Training System (CSTS)"
+      ],
+      "geo_rtw": "Canada – eligible to work in Ontario",
+      "project_experience": [
+        "Bruce Power refurbishment",
+        "Pickering NGS",
+        "Point Lepreau refurbishment",
+        "ITER",
+        "Hinkley Point C",
+        "NuScale VOYGR",
+        "GE-Hitachi BWRX-300"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"nuclear construction\" OR \"reactor building\" OR \"SMR\" OR \"small modular reactor\") AND (\"civil construction\" OR \"basemat\" OR \"below grade\" OR \"structural concrete\" OR \"modular construction\") AND (\"construction manager\" OR \"site supervisor\" OR \"construction superintendent\" OR \"structural engineer\" OR \"QA inspector\" OR \"quality assurance\") AND (\"CNSC\" OR \"CSA N286\" OR \"nuclear QA\" OR \"Ontario\" OR \"Darlington\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], the Darlington SMR project just hit a major milestone — the Basemat foundation module is in the ground. Active construction means boots on site are needed now. Your nuclear construction background looks like a strong fit. Open to a quick chat?",
+      "email_subject": "Darlington SMR – Nuclear Construction Roles | Active Build Phase Now Underway",
+      "email_body": "Hi [Name],\n\nThe Darlington SMR project has just achieved a landmark civil milestone — the Basemat module, foundation of the reactor building, has been set 35 metres below ground, marking the start of active above-grade construction for the first SMR in a G7 nation.\n\nWith construction now ramping, there is growing demand for experienced nuclear construction professionals — from site supervisors and civil engineers to QA inspectors and trade leads — with SMR, CANDU, or large nuclear build experience.\n\nGiven your background in [relevant experience], I'd love to explore whether there's a fit for current or upcoming roles at Darlington.\n\nWould you have 15 minutes this week for a quick call?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named project (Darlington SMR) has reached an active civil construction milestone, signalling ongoing and upcoming labor demand for nuclear construction disciplines at a specific site in Ontario, Canada.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "4f36c4b2-9d97-444e-9ce9-1ecedd144480",
+    "ingested_at": "2026-05-11T05:28:00.255Z",
+    "source_published_at": "2026-05-01T16:17:13.000Z"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/key-aerb-approval-issued-for-kudankulam-5-and-6"
+      }
+    ],
+    "headline": "AERB Grants Equipment Installation Approval for Kudankulam Units 5 & 6",
+    "body": "India's Atomic Energy Regulatory Board has issued permission for the installation of major equipment, including the reactor pressure vessel, steam generators and coolant pumps, at Kudankulam nuclear power plant units 5 and 6.",
+    "url": "https://www.world-nuclear-news.org//articles/key-aerb-approval-issued-for-kudankulam-5-and-6",
+    "published_at": "2026-05-05T08:25:16.000Z",
+    "hash": "a6880ee1915b32b0",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "ndt_inspection"
+    ],
+    "signal_type": "regulatory",
+    "region": "south-asia",
+    "country": "india",
+    "tldr": "India's AERB has approved installation of major nuclear equipment — reactor pressure vessel, steam generators, and coolant pumps — at Kudankulam 5 & 6, opening a significant construction and inspection labor-demand window at the site.",
+    "operator": {
+      "name": "Nuclear Power Corporation of India Limited",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Kudankulam Nuclear Power Plant Units 5 & 6",
+    "scope": [
+      "reactor_pressure_vessel_install",
+      "steam_generator_install",
+      "coolant_pump_install",
+      "major_equipment_installation"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Construction Supervisor",
+        "Mechanical Erection Engineer",
+        "Nuclear QA/QC Inspector",
+        "NDT Inspector (Nuclear)",
+        "Reactor Installation Engineer",
+        "Pressure Vessel Installation Specialist",
+        "Nuclear Site Superintendent",
+        "Commissioning Engineer (Nuclear)"
+      ],
+      "skills": [
+        "reactor pressure vessel installation",
+        "steam generator installation",
+        "nuclear mechanical erection",
+        "VVER reactor systems",
+        "nuclear QA/QC",
+        "pressure testing",
+        "rigging and heavy lift",
+        "nuclear safety culture",
+        "mechanical completion"
+      ],
+      "certs_freetext": [
+        "AERB authorization",
+        "ASME N-stamp",
+        "NDT Level II/III (nuclear)",
+        "Nuclear Safety Training Certificate"
+      ],
+      "geo_rtw": "India work authorization or nuclear project visa eligibility",
+      "project_experience": [
+        "Kudankulam Units 1-4",
+        "VVER-1000 projects",
+        "Rosatom nuclear construction",
+        "Rajasthan Atomic Power Station",
+        "Gorakhpur Haryana Anu Vidyut Pariyojana"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"nuclear construction\" OR \"reactor installation\" OR \"nuclear mechanical\" OR \"VVER\") AND (\"pressure vessel\" OR \"steam generator\" OR \"coolant pump\" OR \"nuclear erection\") AND (\"QA/QC\" OR \"NDT\" OR \"commissioning\" OR \"mechanical completion\") AND (\"nuclear power plant\" OR \"NPP\" OR \"AERB\" OR \"NPCIL\" OR \"Rosatom\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], AERB has just approved major equipment installation at Kudankulam Units 5 & 6 in India — reactor pressure vessels, steam generators & coolant pumps. Your nuclear construction background looks highly relevant. Would you be open to a quick chat about roles on this project?",
+      "email_subject": "Kudankulam 5 & 6 — Nuclear Equipment Installation Roles Opening Now",
+      "email_body": "Hi [Name],\n\nIndia's Atomic Energy Regulatory Board has just issued installation approval for major nuclear equipment — including reactor pressure vessels, steam generators, and coolant pumps — at Kudankulam Units 5 & 6. This regulatory green light signals an imminent ramp-up of mechanical erection and QA/QC activity on site.\n\nGiven your background in [nuclear construction / VVER systems / nuclear QA], I wanted to reach out early before these positions are filled.\n\nWould you be available for a brief call this week to discuss how your experience aligns with the roles coming up?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Regulatory permit grant (AERB approval) for major equipment installation at a named nuclear project (Kudankulam Units 5 & 6), directly signalling a construction and inspection labor-demand ramp-up.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "160e29c0-a950-4a35-a003-6e3d86d46215",
+    "ingested_at": "2026-05-11T05:28:00.255Z",
+    "source_published_at": "2026-05-05T08:25:16.000Z"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/norwegian-municipalities-initiate-investigation-work"
+      }
+    ],
+    "headline": "Norwegian Municipalities Launch SMR Nuclear Investigation Work Ahead of Licence Applications",
+    "body": "Several municipalities in Norway that have submitted proposals to the Ministry of Energy for possible nuclear power plants based on small modular reactors have decided to initiate investigation work for the projects and prepare technical reports that will form the basis for future licence applications.",
+    "url": "https://www.world-nuclear-news.org//articles/norwegian-municipalities-initiate-investigation-work",
+    "published_at": "2026-05-05T13:19:57.000Z",
+    "hash": "2cf87a3ceee3a588",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction",
+      "survey_geophysical"
+    ],
+    "signal_type": "regulatory",
+    "region": "norway",
+    "country": "norway",
+    "tldr": "Several unnamed Norwegian municipalities are initiating technical investigation work for small modular reactor (SMR) nuclear plants following proposals to the Ministry of Energy. This pre-licensing phase signals early-stage workforce demand for nuclear feasibility and site assessment disciplines.",
+    "operator": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": null,
+    "scope": [
+      "feasibility_study",
+      "site_investigation",
+      "licence_prep"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Project Manager",
+        "SMR Feasibility Engineer",
+        "Nuclear Licensing Specialist",
+        "Site Characterisation Engineer",
+        "Nuclear Regulatory Affairs Manager"
+      ],
+      "skills": [
+        "SMR",
+        "nuclear site assessment",
+        "licence application",
+        "nuclear regulatory",
+        "feasibility studies",
+        "site investigation"
+      ],
+      "certs_freetext": [
+        "Nuclear Safety Certificate",
+        "IAEA training",
+        "GDA experience"
+      ],
+      "geo_rtw": "Norway / EEA work-eligible",
+      "project_experience": [
+        "Hinkley Point C",
+        "NuScale VOYGR",
+        "Rolls-Royce SMR",
+        "Olkiluoto 3"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal",
+      "boolean_search": "(\"small modular reactor\" OR \"SMR\" OR \"nuclear power\") AND (\"feasibility\" OR \"site investigation\" OR \"licensing\" OR \"licence application\") AND (\"project manager\" OR \"nuclear engineer\" OR \"regulatory affairs\" OR \"site characterisation\") AND (\"Norway\" OR \"Scandinavia\" OR \"Nordic\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Norwegian municipalities are kicking off SMR nuclear investigation and pre-licensing work. Given your background in nuclear feasibility/licensing, you could be well-placed for upcoming roles. Worth a conversation?",
+      "email_subject": "SMR Nuclear Feasibility Roles Emerging in Norway",
+      "email_body": "Hi [Name],\n\nSeveral Norwegian municipalities are now formally initiating technical investigation and site assessment work for small modular reactor (SMR) nuclear plants, with licence applications on the horizon.\n\nThis pre-FID phase typically demands experienced nuclear engineers, licensing specialists, and site characterisation professionals — and we're mapping talent ahead of these mandates.\n\nGiven your experience in [nuclear feasibility/licensing/SMR], I'd love to explore whether there's a fit. Are you open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named sector (nuclear/SMR) with a discrete regulatory and investigation-phase signal in Norway, indicating emerging pre-licensing workforce demand, though no specific operator or contractor is yet named.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "c9edf496-da23-4fbd-95f7-deb019b53985",
+    "ingested_at": "2026-05-11T05:28:00.255Z",
+    "source_published_at": "2026-05-05T13:19:57.000Z"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/permission-granted-for-commissioning-work-on-akkuyu-2"
+      }
+    ],
+    "headline": "Turkey Regulator Grants Commissioning Permit for Akkuyu NPP Unit 2",
+    "body": "Turkey's nuclear regulator has granted a permit for commissioning work to take place on the second unit at the Akkuyu Nuclear Power Plant.",
+    "url": "https://www.world-nuclear-news.org//articles/permission-granted-for-commissioning-work-on-akkuyu-2",
+    "published_at": "2026-05-07T11:24:59.000Z",
+    "hash": "903aa6bdbff4a5b3",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction",
+      "ndt_inspection"
+    ],
+    "signal_type": "regulatory",
+    "region": "turkey",
+    "country": "turkey",
+    "tldr": "Turkey's nuclear regulator has approved commissioning work on Akkuyu Unit 2, signalling an imminent ramp-up in commissioning and start-up personnel demand at the Rosatom-led project.",
+    "operator": {
+      "name": "Akkuyu Nuclear JSC",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Akkuyu Nuclear Power Plant Unit 2",
+    "scope": [
+      "commissioning",
+      "startup_operations"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Commissioning Engineer",
+        "Reactor Commissioning Specialist",
+        "Nuclear Start-Up Engineer",
+        "I&C Commissioning Engineer",
+        "Nuclear Safety Engineer",
+        "Commissioning Superintendent",
+        "Nuclear Operations Supervisor"
+      ],
+      "skills": [
+        "nuclear commissioning",
+        "reactor start-up",
+        "VVER reactor",
+        "instrumentation and control",
+        "nuclear safety systems",
+        "plant commissioning",
+        "operational readiness"
+      ],
+      "certs_freetext": [
+        "Nuclear Licensed Engineer",
+        "IAEA Safety Standards",
+        "Authorised Nuclear Inspector",
+        "VVER qualification"
+      ],
+      "geo_rtw": "Turkey or internationally mobile; Western/EEA contractors with VVER experience relevant",
+      "project_experience": [
+        "Hinkley Point C",
+        "Olkiluoto 3",
+        "Barakah NPP",
+        "Flamanville 3",
+        "Vogtle Units 3&4"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal",
+      "boolean_search": "(\"nuclear commissioning\" OR \"reactor commissioning\" OR \"nuclear start-up\" OR \"plant commissioning\") AND (\"VVER\" OR \"PWR\" OR \"nuclear power plant\" OR \"NPP\") AND (\"commissioning engineer\" OR \"start-up engineer\" OR \"commissioning superintendent\" OR \"nuclear operations\") AND (\"I&C\" OR \"instrumentation\" OR \"safety systems\" OR \"operational readiness\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Turkey's regulator has just issued the commissioning permit for Akkuyu NPP Unit 2 — mobilisation of commissioning staff is imminent. Given your VVER/nuclear commissioning background, I'd love to discuss opportunities. Open for a quick call?",
+      "email_subject": "Akkuyu NPP Unit 2 Commissioning Permit Granted — Senior Nuclear Roles Opening",
+      "email_body": "Hi [Name],\n\nTurkey's nuclear regulator has just granted the commissioning permit for Unit 2 at the Akkuyu Nuclear Power Plant, triggering an immediate need for experienced commissioning and start-up personnel on site.\n\nGiven your background in [nuclear commissioning / VVER systems / I&C], I believe you could be a strong fit for several senior roles coming to market in connection with this milestone.\n\nWould you be open to a brief call this week to explore what's available?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Regulatory commissioning permit granted for a named nuclear project (Akkuyu NPP Unit 2), directly signalling imminent workforce demand for commissioning and start-up personnel.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "8a7dcfd7-740e-4147-9f9f-75af69561234",
+    "ingested_at": "2026-05-11T05:28:00.255Z",
+    "source_published_at": "2026-05-07T11:24:59.000Z"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/bruce-c-gets-funding-for-pre-development-work"
+      }
+    ],
+    "headline": "Ontario Government Backs CAD300M Bruce C Pre-Development Work via Cost-Sharing Agreement",
+    "body": "Ontario's government has announced a cost-sharing and recovery agreement enabling Bruce Power to move ahead with an estimated CAD300 million (USD220 million) of pre-development work for the Bruce C new nuclear project.",
+    "url": "https://www.world-nuclear-news.org//articles/bruce-c-gets-funding-for-pre-development-work",
+    "published_at": "2026-05-08T10:42:42.000Z",
+    "hash": "0239003e790d233e",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "fid",
+    "region": "ontario-canada",
+    "country": "canada",
+    "tldr": "Ontario has signed a cost-sharing agreement enabling Bruce Power to proceed with ~CAD300M (USD220M) of pre-development work on the Bruce C new nuclear project. This creates near-term demand for nuclear engineering, construction, and project development talent.",
+    "operator": {
+      "name": "Bruce Power",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Bruce Power",
+      "matched_company_slug": null
+    },
+    "project_name": "Bruce C",
+    "scope": [
+      "pre-development",
+      "nuclear_newbuild",
+      "engineering_studies"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 220000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Project Development Manager",
+        "Nuclear Engineer",
+        "Project Controls Manager",
+        "Site Preparation Engineer",
+        "Nuclear Safety Engineer",
+        "Licensing Engineer",
+        "Construction Manager",
+        "Commissioning Manager",
+        "Environmental Assessment Specialist",
+        "Cost Estimator – Nuclear"
+      ],
+      "skills": [
+        "nuclear new build",
+        "CANDU reactor",
+        "pre-FEED",
+        "nuclear licensing",
+        "project controls",
+        "environmental assessment",
+        "nuclear safety analysis",
+        "cost estimating",
+        "site characterisation",
+        "stakeholder engagement"
+      ],
+      "certs_freetext": [
+        "Canadian Nuclear Safety Commission (CNSC) certification",
+        "PEng (Professional Engineer – Ontario)",
+        "PMP",
+        "Nuclear Operator Qualification"
+      ],
+      "geo_rtw": "Canada – Ontario work authorisation preferred",
+      "project_experience": [
+        "Darlington New Nuclear",
+        "Bruce A Refurbishment",
+        "Bruce B Refurbishment",
+        "Pickering Refurbishment",
+        "Point Lepreau Refurbishment",
+        "Hinkley Point C"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal",
+      "boolean_search": "(\"Bruce Power\" OR \"Bruce C\" OR \"nuclear new build\" OR \"CANDU\" OR \"new nuclear\") AND (\"nuclear engineer\" OR \"project development\" OR \"licensing engineer\" OR \"nuclear safety\" OR \"commissioning\" OR \"construction manager\" OR \"project controls\") AND (\"pre-FEED\" OR \"pre-development\" OR \"nuclear project\" OR \"site preparation\" OR \"environmental assessment\") AND (Ontario OR Canada)"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Ontario just green-lit CAD300M of pre-development work for Bruce Power's Bruce C new nuclear project. We're placing senior nuclear engineering and project development professionals for this campaign — open to a quick chat?",
+      "email_subject": "Bruce C Nuclear Pre-Development – Senior Roles Now Mobilising (Ontario)",
+      "email_body": "Hi [Name],\n\nOntario's government has just announced a cost-sharing agreement enabling Bruce Power to proceed with approximately CAD300M (USD220M) of pre-development work on the Bruce C new nuclear project.\n\nThis is expected to drive near-term demand for senior nuclear engineers, licensing specialists, project controls professionals, and construction/commissioning managers with new-build experience.\n\nGiven your background in [nuclear new build / CANDU / nuclear licensing], I'd love to explore whether this aligns with your next move.\n\nAre you available for a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Bruce Power) and project (Bruce C) with a CAD300M pre-development funding commitment representing a discrete nuclear workforce-demand event.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "e2a4adf4-4f8b-466d-8ab9-6ad5294d0737",
+    "ingested_at": "2026-05-11T05:28:00.255Z",
+    "source_published_at": "2026-05-08T10:42:42.000Z"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/us-nrc-clears-st-lucie-1-and-2-for-80-years-operation"
+      }
+    ],
+    "headline": "US NRC Grants 80-Year Subsequent Licence Renewals for St Lucie Units 1 & 2 to 2056/2063",
+    "body": "Florida's St Lucie Nuclear Power Plant units 1 and 2 have been approved to operate to 2056 and 2063, respectively, after the US Nuclear Regulatory Commission issued subsequent licence renewals.",
+    "url": "https://www.world-nuclear-news.org//articles/us-nrc-clears-st-lucie-1-and-2-for-80-years-operation",
+    "published_at": "2026-04-29T13:21:18.000Z",
+    "hash": "6c38bda732e373a8",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "ndt_inspection"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-southeast",
+    "country": "united_states",
+    "tldr": "The US NRC has issued subsequent licence renewals for Florida's St Lucie Nuclear Power Plant Units 1 and 2, extending operations to 2056 and 2063 respectively. This long-duration operational extension signals sustained staffing demand at the site for qualified nuclear operations, maintenance, and inspection personnel.",
+    "operator": {
+      "name": "Florida Power & Light (NextEra Energy)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "St Lucie Nuclear Power Plant Units 1 & 2",
+    "scope": [
+      "licence_renewal",
+      "long_term_operations",
+      "plant_maintenance"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Operations Engineer",
+        "Reactor Operator",
+        "Senior Reactor Operator",
+        "Nuclear Maintenance Technician",
+        "Licensing Engineer",
+        "Ageing Management Engineer",
+        "Nuclear I&C Engineer",
+        "Nuclear Safety Analyst",
+        "NDT Inspector – Nuclear"
+      ],
+      "skills": [
+        "subsequent licence renewal",
+        "long-term operations",
+        "ageing management",
+        "nuclear plant operations",
+        "NRC regulatory compliance",
+        "10 CFR 54",
+        "PWR operations",
+        "nuclear maintenance",
+        "corrective action programme"
+      ],
+      "certs_freetext": [
+        "NRC Senior Reactor Operator (SRO) Licence",
+        "ANSI/ANS nuclear qualifications",
+        "ASME Section XI NDT certification",
+        "10 CFR 50 Appendix B QA"
+      ],
+      "geo_rtw": "US work authorisation required; Florida, USA",
+      "project_experience": [
+        "Turkey Point Units 3 & 4 SLR",
+        "Peach Bottom SLR",
+        "Surry Power Station SLR",
+        "North Anna SLR",
+        "Indian Point"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "Mid to Senior",
+      "boolean_search": "(\"nuclear\" OR \"reactor\") AND (\"subsequent licence renewal\" OR \"SLR\" OR \"long-term operations\" OR \"LTO\" OR \"ageing management\") AND (\"PWR\" OR \"pressurised water reactor\" OR \"nuclear plant operations\" OR \"reactor operator\" OR \"senior reactor operator\" OR \"nuclear engineer\" OR \"nuclear maintenance\") AND (\"NRC\" OR \"10 CFR 54\" OR \"ASME Section XI\") NOT (\"wind\" OR \"solar\" OR \"oil\" OR \"gas\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], with the NRC just granting 80-year licences to St Lucie Units 1 & 2, NextEra will need seasoned nuclear ops and engineering talent for the long haul. I'm placing SRO-licensed and ageing-management professionals for Florida-based nuclear roles — open to a quick chat?",
+      "email_subject": "St Lucie 80-Year NRC Renewal — Nuclear Ops & Engineering Roles Opening Up",
+      "email_body": "Hi [Name],\n\nThe US NRC has just issued subsequent licence renewals for St Lucie Units 1 and 2, extending operations to 2056 and 2063. For NextEra / FPL, this means a long-horizon commitment to staffing qualified nuclear professionals — operators, ageing management engineers, I&C specialists, and NDT inspectors — at the Jensen Beach, FL site.\n\nWe specialise in placing licensed and certified nuclear personnel across US operating plants, and we're actively building a pipeline for St Lucie-ready candidates with SLR and LTO experience.\n\nWould you have 15 minutes this week to discuss your resourcing outlook for St Lucie's extended operational period?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "NRC subsequent licence renewal is a regulatory approval that extends the operational life of a named plant (St Lucie Units 1 & 2) under a named operator (NextEra/FPL), directly signalling sustained long-term workforce demand at the site.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "60e00e37-5026-4ca1-896e-dd00b789aa3a",
+    "ingested_at": "2026-05-11T05:28:00.255Z",
+    "source_published_at": "2026-04-29T13:21:18.000Z"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/site-of-polish-plant-deemed-suitable"
+      }
+    ],
+    "headline": "Lubiatowo-Kopalino Site Approved for Poland's First Nuclear Power Plant",
+    "body": "The Lubiatowo-Kopalino site is a suitable location for Poland's first nuclear power plant, the president of the National Atomic Energy Agency has determined after examining the Preliminary Site Report for the facility.",
+    "url": "https://www.world-nuclear-news.org//articles/site-of-polish-plant-deemed-suitable",
+    "published_at": "2026-05-08T11:16:49.000Z",
+    "hash": "4e0a4eac49b95a29",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "central-eastern-europe",
+    "country": "poland",
+    "tldr": "Poland's National Atomic Energy Agency has deemed the Lubiatowo-Kopalino site suitable for the country's first nuclear power plant, advancing the project toward development phases. This regulatory milestone signals upcoming workforce demand for nuclear construction and operations.",
+    "operator": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Lubiatowo-Kopalino Nuclear Power Plant",
+    "scope": [
+      "site_approval",
+      "nuclear_newbuild"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Project Manager",
+        "Nuclear Site Engineer",
+        "Radiation Protection Specialist",
+        "Nuclear QA/QC Engineer",
+        "Civil Construction Manager",
+        "Nuclear Commissioning Engineer"
+      ],
+      "skills": [
+        "nuclear site development",
+        "nuclear regulatory compliance",
+        "site characterization",
+        "nuclear safety analysis",
+        "EPC nuclear"
+      ],
+      "certs_freetext": [
+        "Nuclear Safety Culture",
+        "IAEA certification",
+        "EUR certification"
+      ],
+      "geo_rtw": "EU/EEA work authorization",
+      "project_experience": [
+        "Hinkley Point C",
+        "Olkiluoto 3",
+        "Flamanville 3",
+        "Vogtle Units 3&4"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "senior",
+      "boolean_search": "(\"nuclear power plant\" OR \"nuclear newbuild\" OR \"nuclear construction\") AND (\"site engineer\" OR \"project manager\" OR \"commissioning engineer\" OR \"radiation protection\" OR \"QA/QC\") AND (\"IAEA\" OR \"PWR\" OR \"BWR\" OR \"EPR\" OR \"AP1000\" OR \"VVER\") AND (Poland OR \"central Europe\" OR EU)"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Poland's first nuclear plant at Lubiatowo-Kopalino has just cleared a key site suitability milestone. With your nuclear background, you could be well-positioned as roles emerge. Open to a quick chat?",
+      "email_subject": "Poland's First Nuclear Plant — Lubiatowo-Kopalino Site Approved",
+      "email_body": "Hi [Name],\n\nPoland's National Atomic Energy Agency has officially deemed the Lubiatowo-Kopalino site suitable for Poland's first nuclear power plant — a significant regulatory milestone that typically precedes a wave of contractor and operator hiring.\n\nGiven your experience in nuclear construction/operations, I wanted to reach out early. Clients in our network are already tracking this project for upcoming resourcing needs, and I'd love to discuss how your background aligns.\n\nWould you be open to a 15-minute call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Regulatory site approval for a named nuclear project (Lubiatowo-Kopalino) signals an advancing development pipeline with near-term workforce demand implications for nuclear construction and operations disciplines.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "6bfeace9-f464-4e2e-bb85-4b2bc1cf9adf",
+    "ingested_at": "2026-05-11T05:28:00.255Z",
+    "source_published_at": "2026-05-08T11:16:49.000Z"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/french-supply-chain-boosts-capacity"
+      }
+    ],
+    "headline": "Orano Opens Pierrelatte Engineering Hub; Arabelle Solutions Plans New Chalon-sur-Saône Factory",
+    "body": "Orano has inaugurated a new building dedicated to its engineering teams in Pierrelatte, in southern France, while EDF subsidiary Arabelle Solutions plans to build a new factory in Chalon-sur-Saône, in eastern France.",
+    "url": "https://www.world-nuclear-news.org//articles/french-supply-chain-boosts-capacity",
+    "published_at": "2026-04-27T15:21:40.000Z",
+    "hash": "a6f6bdf48929bbeb",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "france",
+    "country": "france",
+    "tldr": "Orano has inaugurated a new engineering facility in Pierrelatte and EDF subsidiary Arabelle Solutions is planning a new manufacturing factory in Chalon-sur-Saône, signalling capacity ramp-up in the French nuclear supply chain with near-term engineering and trades hiring demand.",
+    "operator": {
+      "name": "EDF",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Orano / Arabelle Solutions",
+      "matched_company_slug": null
+    },
+    "project_name": null,
+    "scope": [
+      "engineering_facility",
+      "manufacturing_factory"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Engineer",
+        "Mechanical Engineer",
+        "Process Engineer",
+        "Manufacturing Engineer",
+        "Turbine Engineer",
+        "Project Engineer",
+        "Site Manager",
+        "Construction Manager"
+      ],
+      "skills": [
+        "nuclear engineering",
+        "turbine design",
+        "steam turbine",
+        "nuclear supply chain",
+        "facility commissioning",
+        "manufacturing operations",
+        "EPC nuclear",
+        "French nuclear sector"
+      ],
+      "certs_freetext": [
+        "RGN (Règles Générales de Conception et de Construction)",
+        "CEFRI radiation protection",
+        "EN 9100 / ISO 3834 welding",
+        "ASME nuclear certification"
+      ],
+      "geo_rtw": "France / EU right-to-work",
+      "project_experience": [
+        "Flamanville EPR",
+        "Hinkley Point C",
+        "Sizewell C",
+        "ITER",
+        "Grand Carénage"
+      ],
+      "yoe_band": "7-15",
+      "seniority": "Mid to Senior",
+      "boolean_search": "(\"nuclear engineer\" OR \"turbine engineer\" OR \"mechanical engineer\" OR \"manufacturing engineer\" OR \"process engineer\") AND (\"nuclear\" OR \"EPR\" OR \"steam turbine\" OR \"Arabelle\" OR \"Orano\") AND (\"France\" OR \"French\" OR \"Pierrelatte\" OR \"Chalon-sur-Saône\") AND (\"supply chain\" OR \"facility\" OR \"commissioning\" OR \"manufacturing\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Orano and Arabelle Solutions are expanding nuclear capacity in France — new engineering hub in Pierrelatte and a planned factory in Chalon-sur-Saône. Your background in [nuclear/turbine/manufacturing engineering] looks like a strong fit. Open to a quick chat?",
+      "email_subject": "Nuclear Engineering Opportunities — Orano & Arabelle Solutions Expansion in France",
+      "email_body": "Hi [Name],\n\nI wanted to reach out as there's some significant activity in the French nuclear supply chain right now. Orano has just inaugurated a new engineering facility in Pierrelatte, and EDF subsidiary Arabelle Solutions is planning a new manufacturing factory in Chalon-sur-Saône.\n\nBoth expansions point to growing demand for experienced nuclear and mechanical engineers, manufacturing specialists, and project managers with French nuclear sector experience.\n\nGiven your background in [relevant discipline], I think there could be a strong alignment here. Would you be open to a brief call this week to explore?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operators Orano and Arabelle Solutions (EDF subsidiary) are expanding physical infrastructure in France, signalling workforce ramp-up in the nuclear supply chain with discrete hiring demand.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "5dcaf743-b9f1-49b8-8ce7-233801dc5a47",
+    "ingested_at": "2026-05-11T05:28:00.255Z",
+    "source_published_at": "2026-04-27T15:21:40.000Z"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/brookfield-and-the-nuclear-company-target-vcsummer"
+      }
+    ],
+    "headline": "Brookfield & The Nuclear Company JV to Complete VC Summer AP1000 Units in South Carolina",
+    "body": "A joint venture established by global investment firm Brookfield and nuclear project development and delivery company The Nuclear Company is to project manage the completion of the two VC Summer AP1000 units in South Carolina.",
+    "url": "https://www.world-nuclear-news.org//articles/brookfield-and-the-nuclear-company-target-vcsummer",
+    "published_at": "2026-05-05T13:23:58.000Z",
+    "hash": "b0f0e4f4ae7f4e37",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "us-southeast",
+    "country": "united_states",
+    "tldr": "A Brookfield / The Nuclear Company joint venture will project-manage completion of two AP1000 nuclear units at VC Summer, South Carolina, signalling a large-scale nuclear construction workforce ramp-up. Recruiters should target nuclear construction, engineering, and operations talent for this multi-year programme.",
+    "operator": {
+      "name": "The Nuclear Company",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Brookfield / The Nuclear Company JV",
+      "matched_company_slug": null
+    },
+    "project_name": "VC Summer AP1000 Units 2 & 3",
+    "scope": [
+      "nuclear_construction",
+      "project_management",
+      "ap1000_completion"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Construction Project Manager",
+        "AP1000 Systems Engineer",
+        "Nuclear Commissioning Engineer",
+        "Nuclear Quality Assurance Manager",
+        "Nuclear I&C Engineer",
+        "Reactor Construction Superintendent",
+        "Nuclear Craft Foreman",
+        "Nuclear Safety Engineer",
+        "Nuclear Project Controls Manager",
+        "Nuclear Start-Up Engineer"
+      ],
+      "skills": [
+        "AP1000",
+        "nuclear construction",
+        "nuclear commissioning",
+        "NSSS",
+        "nuclear quality assurance",
+        "10 CFR 50",
+        "nuclear safety",
+        "project controls",
+        "NRC licensing",
+        "I&C systems",
+        "reactor systems",
+        "construction management"
+      ],
+      "certs_freetext": [
+        "NRC SRO License",
+        "ANSI/ANS nuclear quality",
+        "PMP",
+        "CWI (nuclear)",
+        "NUPIC qualified"
+      ],
+      "geo_rtw": "US work authorization required; South Carolina on-site",
+      "project_experience": [
+        "Vogtle Units 3 & 4",
+        "VC Summer",
+        "AP1000",
+        "V.C. Summer Nuclear Station",
+        "Westinghouse AP1000"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal / Superintendent",
+      "boolean_search": "(\"AP1000\" OR \"nuclear construction\" OR \"reactor construction\" OR \"nuclear commissioning\") AND (\"project manager\" OR \"construction manager\" OR \"commissioning engineer\" OR \"systems engineer\" OR \"superintendent\" OR \"quality assurance\") AND (\"nuclear\" OR \"NRC\" OR \"NSSS\") AND (\"VC Summer\" OR \"Vogtle\" OR \"Westinghouse\" OR \"PWR\" OR \"10 CFR 50\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Brookfield & The Nuclear Company JV are advancing completion of the VC Summer AP1000 units in SC — a major nuclear construction programme. Your [AP1000/nuclear construction] background looks highly relevant. Would you be open to a quick call this week?",
+      "email_subject": "VC Summer AP1000 Completion — Senior Nuclear Roles | South Carolina",
+      "email_body": "Hi [Name],\n\nI wanted to reach out regarding a significant nuclear construction opportunity in South Carolina. A newly formed joint venture between Brookfield and The Nuclear Company has been appointed to project-manage the completion of the two AP1000 units at the VC Summer site.\n\nGiven your background in [AP1000 / nuclear construction / commissioning], I believe you could be a strong fit for senior roles on this programme, spanning construction management, engineering, commissioning, and QA.\n\nThis is expected to be a multi-year programme and a landmark project for the US nuclear industry.\n\nWould you be available for a brief call this week to discuss?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named JV (Brookfield / The Nuclear Company) awarded project management scope for completion of two AP1000 nuclear units at the VC Summer project in South Carolina — a discrete large-scale nuclear construction workforce-demand event.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "1430a15d-1225-48d5-a315-1dbd0883d966",
+    "ingested_at": "2026-05-11T05:28:00.255Z",
+    "source_published_at": "2026-05-05T13:23:58.000Z"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/mining-operations-start-at-wyoming-project"
+      }
+    ],
+    "headline": "Ur-Energy Begins Uranium Mining Operations at Second Wyoming ISR Project",
+    "body": "The start of uranium mining operations at Ur-Energy's second in-situ recovery uranium project marks the transition from development to initial operations.",
+    "url": "https://www.world-nuclear-news.org//articles/mining-operations-start-at-wyoming-project",
+    "published_at": "2026-04-28T12:02:05.000Z",
+    "hash": "9c5a6fbf5d8f8f7a",
+    "subsector": "mining",
+    "discipline_tags": [
+      "drilling_operations",
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "fid",
+    "region": "wyoming-us",
+    "country": "united_states",
+    "tldr": "Ur-Energy has transitioned its second in-situ recovery uranium project in Wyoming from development to initial operations, signaling active labor demand for ISR mining and process operations roles. Recruiters should target uranium ISR operations and wellfield personnel now.",
+    "operator": {
+      "name": "Ur-Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Ur-Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Ur-Energy Wyoming ISR Uranium Project (second)",
+    "scope": [
+      "isr_wellfield_ops",
+      "uranium_processing",
+      "initial_operations_ramp"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "ISR Wellfield Operator",
+        "Uranium Process Operator",
+        "Mining Operations Supervisor",
+        "Plant Operator",
+        "Wellfield Technician",
+        "Health Physics Technician",
+        "Mine Operations Manager"
+      ],
+      "skills": [
+        "in-situ recovery",
+        "ISR uranium mining",
+        "wellfield operations",
+        "ion exchange",
+        "uranium processing",
+        "radiological controls",
+        "pump and pipe maintenance",
+        "water treatment"
+      ],
+      "certs_freetext": [
+        "Mine Safety and Health Administration (MSHA) certification",
+        "Radiation Worker Training",
+        "40-hour HAZWOPER"
+      ],
+      "geo_rtw": "US work authorization required; Wyoming-based or willing to relocate",
+      "project_experience": [
+        "Lost Creek ISR Project",
+        "Nichols Ranch ISR Project",
+        "Lance ISR Project (Peninsula Energy)",
+        "Smith Ranch-Highland (Cameco)"
+      ],
+      "yoe_band": "5-15",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"ISR\" OR \"in-situ recovery\" OR \"in situ recovery\") AND (\"uranium\" OR \"U3O8\") AND (\"wellfield\" OR \"process operator\" OR \"plant operator\" OR \"mining operations\") AND (\"Wyoming\" OR \"Lost Creek\" OR \"Nichols Ranch\" OR \"Lance Project\" OR \"Smith Ranch\") NOT (\"exploration\" OR \"geologist\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Ur-Energy has just moved their second Wyoming ISR uranium project into active operations — creating immediate need for experienced ISR wellfield and process ops talent. Would you be open to a quick chat about opportunities on-site?",
+      "email_subject": "ISR Uranium Operations Roles – Ur-Energy Wyoming Project Now Live",
+      "email_body": "Hi [Name],\n\nUr-Energy has officially transitioned its second in-situ recovery uranium project in Wyoming from development into initial operations — meaning they need experienced hands on the ground now.\n\nGiven your background in ISR mining / uranium process operations, I wanted to reach out directly. Roles likely include Wellfield Operators, Process Plant Operators, and HSE/Radiation Safety personnel.\n\nWould you be available for a brief call this week to discuss? I'd love to share more detail on scope and compensation.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Ur-Energy) commencing active mining operations at a specific Wyoming ISR uranium project, marking a discrete workforce ramp-up event in the mining subsector.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "51344e63-3fac-423d-b993-a0b6c210e713",
+    "ingested_at": "2026-05-11T05:28:00.255Z",
+    "source_published_at": "2026-04-28T12:02:05.000Z"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/italy-uk-enhance-cooperation-on-decommissioning"
+      }
+    ],
+    "headline": "Italy SOGIN & UK NDA Sign MOU for Graphite-Moderated Reactor Decommissioning Cooperation",
+    "body": "Italy's Societa Gestione Impianti Nucleari SpA has signed a memorandum of understanding with the UK's Nuclear Decommissioning Authority to launch a joint effort on decommissioning techniques for graphite-moderated nuclear power reactors.",
+    "url": "https://www.world-nuclear-news.org//articles/italy-uk-enhance-cooperation-on-decommissioning",
+    "published_at": "2026-05-07T12:03:54.000Z",
+    "hash": "e6013261bdfdbc05",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "ndt_inspection",
+      "industrial_construction"
+    ],
+    "signal_type": "decom",
+    "region": "europe",
+    "country": null,
+    "tldr": "Italy's SOGIN and the UK's Nuclear Decommissioning Authority have signed an MOU to collaborate on decommissioning techniques for graphite-moderated nuclear reactors. While a framework agreement rather than a contract award, this signals nascent cross-border nuclear decom demand across both Italian and UK sites.",
+    "operator": {
+      "name": "Nuclear Decommissioning Authority",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": null,
+    "scope": [
+      "decom_techniques",
+      "graphite_reactor_decom"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Decommissioning Engineer",
+        "Reactor Decommissioning Specialist",
+        "Nuclear Safety Engineer",
+        "Radiological Engineer",
+        "Graphite Reactor SME",
+        "Nuclear Project Manager"
+      ],
+      "skills": [
+        "graphite-moderated reactor",
+        "nuclear decommissioning",
+        "radiological characterisation",
+        "waste management",
+        "nuclear safety case",
+        "international nuclear cooperation"
+      ],
+      "certs_freetext": [
+        "NDA Security Clearance",
+        "IAEA safeguards training",
+        "UK nuclear site licence holder experience"
+      ],
+      "geo_rtw": "UK or Italy, NATO-eligible",
+      "project_experience": [
+        "Sellafield",
+        "Magnox",
+        "Latina Nuclear Power Plant",
+        "Garigliano Nuclear Power Plant",
+        "Caorso Nuclear Power Plant"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal",
+      "boolean_search": "(\"nuclear decommissioning\" OR \"reactor decommissioning\" OR \"graphite reactor\") AND (\"NDA\" OR \"SOGIN\" OR \"Magnox\" OR \"Sellafield\" OR \"Latina\" OR \"Caorso\") AND (\"decommissioning engineer\" OR \"nuclear engineer\" OR \"radiological engineer\" OR \"nuclear project manager\" OR \"waste management\") AND (UK OR Italy OR Europe)"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], with the UK NDA and Italy's SOGIN now partnering on graphite-moderated reactor decom, cross-border nuclear decom roles are opening up. Your background in nuclear decommissioning looks highly relevant — open to a quick chat?",
+      "email_subject": "Nuclear Decom Opportunity — NDA / SOGIN Graphite Reactor Programme",
+      "email_body": "Hi [Name],\n\nThe UK Nuclear Decommissioning Authority and Italy's SOGIN have formalised a joint MOU targeting decommissioning of graphite-moderated nuclear reactors — a niche with very limited talent supply.\n\nGiven your experience in [nuclear decom / reactor engineering / radiological characterisation], I wanted to reach out early as roles supporting this collaboration are likely to emerge on both sides of the Channel.\n\nWould you be open to a 15-minute call to discuss how your background aligns?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Decommissioning MOU between named entities SOGIN and NDA signals emerging cross-border nuclear decom programme for graphite-moderated reactors, qualifying as a decom signal with named operators in the nuclear subsector.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "5bc81a95-1afc-46e6-92d5-7c50f324abb0",
+    "ingested_at": "2026-05-11T05:28:00.255Z",
+    "source_published_at": "2026-05-07T12:03:54.000Z"
+  },
+  {
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/jdenergy-commissions-first-overseas-utility-scale-project-in-hungary-302767435.html"
+      }
+    ],
+    "headline": "JDEnergy Commissions 11 MW/22 MWh Utility-Scale BESS Project for MVM in Hungary",
+    "body": "SOPRONKÖVESD, Hungary, May 11, 2026 /PRNewswire/ -- JDEnergy has supported the successful grid connection of MVM 11 MW/22 MWh utility-scale energy storage project in Hungary. The system passed all required performance tests on its first attempt. Csaba Lantos, Hungary's Minister of Energy,...",
+    "url": "https://www.prnewswire.com/news-releases/jdenergy-commissions-first-overseas-utility-scale-project-in-hungary-302767435.html",
+    "published_at": "2026-05-11T00:00:00.000Z",
+    "hash": "f756fa224c4f8ffa",
+    "subsector": "onshore-renewables",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "central-europe",
+    "country": "hungary",
+    "tldr": "JDEnergy has successfully grid-connected an 11 MW/22 MWh battery energy storage project for MVM in Sopronkövesd, Hungary. The project signals active utility-scale storage development activity in Central Europe with potential follow-on staffing demand.",
+    "operator": {
+      "name": "MVM",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "JDEnergy",
+      "matched_company_slug": null
+    },
+    "project_name": "MVM 11 MW/22 MWh Hungary BESS",
+    "scope": [
+      "bess_commissioning",
+      "grid_connection",
+      "performance_testing"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Commissioning Engineer",
+        "Electrical Engineer",
+        "BESS Project Engineer",
+        "Site Manager",
+        "Grid Connection Engineer",
+        "Energy Storage Technician"
+      ],
+      "skills": [
+        "battery energy storage systems",
+        "grid connection",
+        "utility-scale BESS commissioning",
+        "performance testing",
+        "HV/MV electrical",
+        "SCADA",
+        "power electronics"
+      ],
+      "certs_freetext": [
+        "HV Authorised Person",
+        "IEC 62933",
+        "Electrical Installation Certificate"
+      ],
+      "geo_rtw": "EU/EEA right-to-work preferred (Hungary)",
+      "project_experience": [
+        "utility-scale BESS",
+        "grid-scale energy storage",
+        "solar-plus-storage",
+        "grid connection projects"
+      ],
+      "yoe_band": "5-12",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"battery energy storage\" OR \"BESS\" OR \"energy storage system\") AND (\"commissioning\" OR \"grid connection\" OR \"performance testing\") AND (\"utility scale\" OR \"utility-scale\") AND (\"electrical engineer\" OR \"commissioning engineer\" OR \"site manager\" OR \"project engineer\") AND (\"Hungary\" OR \"Central Europe\" OR \"EU\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], JDEnergy has just commissioned a utility-scale BESS project in Hungary for MVM — their first overseas project. With follow-on work likely, are you open to BESS commissioning roles in Central Europe?",
+      "email_subject": "BESS Commissioning Opportunities – JDEnergy Hungary | MVM Project",
+      "email_body": "Hi [Name],\n\nJDEnergy recently completed the grid connection of an 11 MW/22 MWh battery energy storage system for MVM in Sopronkövesd, Hungary — their first overseas utility-scale project.\n\nAs they expand their Central European footprint, there is likely demand for experienced BESS commissioning engineers, electrical engineers, and site managers with grid connection expertise.\n\nIf you have utility-scale storage commissioning experience and EU right-to-work, I'd love to connect and discuss potential opportunities.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named contractor (JDEnergy) and operator (MVM) on a discrete utility-scale BESS commissioning project in Hungary, representing an actionable onshore-renewables workforce demand signal.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "2534b394-f6f5-416f-9e95-de3f095ea9a7",
+    "ingested_at": "2026-05-11T05:28:00.255Z",
+    "source_published_at": "2026-05-11T00:00:00.000Z"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/freeport-delays-grasberg-full-restart-to-early-2028/"
+      }
+    ],
+    "headline": "Freeport Delays Grasberg Full Restart to Early 2028 — Phased Ramp-Up Through 2027",
+    "body": "Freeport now aims for 65% capacity in the second half of 2026, 80% by mid-2027, and near full capacity by the end of 2027.",
+    "url": "https://www.mining.com/freeport-delays-grasberg-full-restart-to-early-2028/",
+    "published_at": "2026-05-08T15:34:41.000Z",
+    "hash": "d4453f90abbb87c0",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "indonesia",
+    "country": "indonesia",
+    "tldr": "Freeport-McMoRan has revised its Grasberg mine restart timeline, targeting 65% capacity in H2 2026, 80% by mid-2027, and near-full capacity by end-2027. This phased ramp-up signals a sustained labor-demand window across operations and maintenance disciplines.",
+    "operator": {
+      "name": "Freeport-McMoRan",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Freeport-McMoRan",
+      "matched_company_slug": null
+    },
+    "project_name": "Grasberg",
+    "scope": [
+      "operations_ramp_up",
+      "plant_restart",
+      "maintenance"
+    ],
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": "2028-Q1",
+      "duration_months": 18
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mining Operations Superintendent",
+        "Process Plant Manager",
+        "Maintenance Superintendent",
+        "Concentrator Operator",
+        "Reliability Engineer",
+        "Shutdown Planner",
+        "Mine Production Supervisor"
+      ],
+      "skills": [
+        "copper concentrator operations",
+        "block cave mining",
+        "plant ramp-up",
+        "preventive maintenance",
+        "production planning",
+        "shutdown management",
+        "SAP PM"
+      ],
+      "certs_freetext": [
+        "First Class Mine Manager Certificate",
+        "Competent Person (Mining)",
+        "MSHA certification"
+      ],
+      "geo_rtw": "Indonesia work permit eligible; FIFO from AU/US/PH considered",
+      "project_experience": [
+        "Ok Tedi",
+        "Batu Hijau",
+        "Cerro Verde",
+        "Escondida",
+        "Morenci"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "Mid–Senior",
+      "boolean_search": "(\"Grasberg\" OR \"Freeport\" OR \"block cave\" OR \"copper concentrator\") AND (\"mine operations\" OR \"plant superintendent\" OR \"concentrator\" OR \"process plant\" OR \"ramp-up\" OR \"maintenance superintendent\") AND (\"Indonesia\" OR \"FIFO\" OR \"remote site\") NOT (\"exploration\" OR \"geology\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Freeport is ramping Grasberg back to full capacity through 2027 — a major ops & maintenance mobilisation in Indonesia. Your background in [concentrator/mine ops] looks highly relevant. Worth a quick conversation?",
+      "email_subject": "Grasberg Ramp-Up — Operations & Maintenance Roles | Indonesia 2026–2028",
+      "email_body": "Hi [Name],\n\nFreeport-McMoRan has confirmed a phased restart at Grasberg, targeting 65% capacity in H2 2026, 80% by mid-2027, and near-full production by end-2027 — creating a sustained demand for experienced mining operations and plant maintenance professionals.\n\nGiven your background in [relevant discipline], I wanted to reach out ahead of the mobilisation window. Roles we're tracking include Operations Superintendents, Concentrator Supervisors, Maintenance Planners, and Reliability Engineers.\n\nWould you be open to a brief call to discuss fit and timing?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Freeport-McMoRan) announces a phased production ramp-up at Grasberg mine with discrete capacity milestones through 2028, signalling a sustained workforce demand event in the mining sector.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "df4db750-1ab9-43ae-a390-c327e57a9e49",
+    "ingested_at": "2026-05-11T05:28:00.255Z",
+    "source_published_at": "2026-05-08T15:34:41.000Z"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/ontarios-darlington-smr-renews-canadas-nuclear-maturity/"
+      }
+    ],
+    "headline": "Darlington SMR Construction Begins — First G7 Small Modular Reactor Underway in Ontario",
+    "body": "Ontario has started construction on the first small modular reactor in the G7.",
+    "url": "https://www.mining.com/ontarios-darlington-smr-renews-canadas-nuclear-maturity/",
+    "published_at": "2026-05-08T13:26:05.000Z",
+    "hash": "b1d8ee14c15484da",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "canada-ontario",
+    "country": "canada",
+    "tldr": "Ontario has commenced construction on the Darlington SMR, marking the first SMR build in the G7 and signalling a significant near-term demand for nuclear construction trades and specialist labor in Canada.",
+    "operator": {
+      "name": "Ontario Power Generation",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Darlington SMR",
+    "scope": [
+      "smr_construction",
+      "civil_works",
+      "nuclear_build"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Construction Manager",
+        "SMR Project Engineer",
+        "Nuclear QA/QC Inspector",
+        "Mechanical Construction Supervisor",
+        "Nuclear I&C Technician",
+        "Welding Inspector",
+        "Civil/Structural Engineer",
+        "Nuclear Safety Officer",
+        "Commissioning Engineer"
+      ],
+      "skills": [
+        "SMR construction",
+        "nuclear QA",
+        "ASME N-stamp",
+        "nuclear commissioning",
+        "civil construction",
+        "mechanical installation",
+        "nuclear codes and standards",
+        "CANDU experience"
+      ],
+      "certs_freetext": [
+        "CNSC certification",
+        "ASME N-stamp",
+        "CSA N285",
+        "CWB welding certification",
+        "PMP"
+      ],
+      "geo_rtw": "Canada — eligible to work in Ontario",
+      "project_experience": [
+        "Darlington Refurbishment",
+        "Bruce Power Life Extension",
+        "OPG Pickering",
+        "NuScale SMR",
+        "Hinkley Point C"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"small modular reactor\" OR \"SMR\" OR \"nuclear construction\" OR \"CANDU\" OR \"nuclear QA\" OR \"nuclear commissioning\") AND (\"Ontario\" OR \"OPG\" OR \"Darlington\" OR \"Canada\") AND (\"construction manager\" OR \"project engineer\" OR \"QA inspector\" OR \"commissioning engineer\" OR \"I&C technician\" OR \"nuclear safety\") AND (\"CNSC\" OR \"ASME\" OR \"CSA N285\" OR \"CWB\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], with construction now underway on the Darlington SMR — the first in the G7 — we're sourcing experienced nuclear construction professionals for upcoming roles in Ontario. Your background in [relevant skill] looks highly relevant. Open to a conversation?",
+      "email_subject": "Darlington SMR Construction Underway — Nuclear Roles Opening in Ontario",
+      "email_body": "Hi [Name],\n\nOntario has officially broken ground on the Darlington Small Modular Reactor — a landmark project and the first SMR to enter construction in the G7.\n\nAs the project ramps up, we're seeing strong demand for experienced nuclear construction professionals across QA/QC, mechanical, I&C, commissioning, and project management disciplines.\n\nGiven your background in [relevant area], I'd love to explore whether there's a fit for any of the roles we're supporting on this project.\n\nWould you be available for a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Construction start on the named Darlington SMR project in Ontario signals immediate and near-term nuclear workforce demand, qualifying as a discrete labor-demand event in the nuclear subsector.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "7d31cc1e-9c66-4bd2-87b6-3c2d67831691",
+    "ingested_at": "2026-05-11T05:28:00.255Z",
+    "source_published_at": "2026-05-08T13:26:05.000Z"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/touquoy-mine-reboot-to-yield-180m-in-canadian-gold/"
+      }
+    ],
+    "headline": "Atlantic Mining Reboots Touquoy Mine to Reprocess 3M Tonnes of Gold Ore, $180M Project",
+    "body": "Atlantic Mining readies to reprocess about 3M tonnes of ore at the Touquoy mine, on Canada’s Atlantic coast.",
+    "url": "https://www.mining.com/touquoy-mine-reboot-to-yield-180m-in-canadian-gold/",
+    "published_at": "2026-05-08T13:13:00.000Z",
+    "hash": "b58a0fed5358f0d6",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "fid",
+    "region": "atlantic-canada",
+    "country": "canada",
+    "tldr": "Atlantic Mining is restarting operations at the Touquoy gold mine in Atlantic Canada to reprocess approximately 3 million tonnes of ore valued at $180M, signalling a workforce ramp-up for processing and site operations.",
+    "operator": {
+      "name": "Atlantic Mining",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Atlantic Mining",
+      "matched_company_slug": null
+    },
+    "project_name": "Touquoy Mine Reboot",
+    "scope": [
+      "ore_reprocessing",
+      "mine_restart",
+      "plant_operations"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 180000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mine Process Operator",
+        "Plant Superintendent",
+        "Mine Site Manager",
+        "Metallurgist",
+        "Process Engineer",
+        "Equipment Operator",
+        "Maintenance Technician",
+        "HSE Advisor"
+      ],
+      "skills": [
+        "gold ore processing",
+        "heap leach",
+        "crushing and grinding",
+        "mine restart",
+        "process plant operations",
+        "maintenance management",
+        "tailings management"
+      ],
+      "certs_freetext": [
+        "Mine Supervisor Certificate (Nova Scotia)",
+        "First Aid/CPR",
+        "WHMIS",
+        "Blasting Certificate"
+      ],
+      "geo_rtw": "Canada — Atlantic provinces (Nova Scotia); Canadian work authorisation required",
+      "project_experience": [
+        "Moose River Gold Mines",
+        "Touquoy",
+        "Beaver Dam",
+        "Fifteen Mile Stream",
+        "Cochrane Hill"
+      ],
+      "yoe_band": "5-15",
+      "seniority": "mid to senior",
+      "boolean_search": "(\"mine restart\" OR \"process plant\" OR \"gold processing\" OR \"ore reprocessing\" OR \"heap leach\" OR \"crushing grinding\") AND (\"mine operator\" OR \"process operator\" OR \"plant superintendent\" OR \"metallurgist\" OR \"process engineer\" OR \"maintenance technician\") AND (\"Nova Scotia\" OR \"Atlantic Canada\" OR \"Canada\") NOT (\"coal\" OR \"oil sands\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Atlantic Mining is rebooting the Touquoy gold mine in Nova Scotia to reprocess 3M tonnes of ore — a $180M project creating demand for experienced mine/process professionals. Would love to connect if you're open to opportunities in Atlantic Canada.",
+      "email_subject": "Touquoy Mine Reboot — Process & Operations Roles | Atlantic Canada",
+      "email_body": "Hi [Name],\n\nAtlantic Mining has announced the restart of the Touquoy gold mine in Nova Scotia, with plans to reprocess approximately 3 million tonnes of ore in a project valued at $180M.\n\nThis restart will drive demand for experienced professionals across mine operations, process plant, metallurgy, maintenance, and HSE disciplines.\n\nIf you or someone in your network has gold mine processing or restart experience and holds Canadian work authorisation, I'd welcome a conversation about upcoming opportunities on this project.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Atlantic Mining) announcing restart and reprocessing campaign at a named mine (Touquoy), creating discrete workforce demand in the mining sector.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "d4e58e3c-49af-485b-89e4-7782bcba3285",
+    "ingested_at": "2026-05-11T05:28:00.255Z",
+    "source_published_at": "2026-05-08T13:13:00.000Z"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/buenaventura-eyes-16-year-boost-for-new-peru-mine/"
+      }
+    ],
+    "headline": "Buenaventura Eyes 16-Year Life Extension for San Gabriel Gold Mine, Peru",
+    "body": "The miner believes exploration success and new mining technology can make San Gabriel a long-lasting gold asset.",
+    "url": "https://www.mining.com/buenaventura-eyes-16-year-boost-for-new-peru-mine/",
+    "published_at": "2026-05-08T10:55:00.000Z",
+    "hash": "5006d48a82430a9f",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "survey_geophysical"
+    ],
+    "signal_type": "fid",
+    "region": "peru",
+    "country": "peru",
+    "tldr": "Buenaventura is targeting a 16-year operational horizon for its San Gabriel gold project in Peru via exploration and new mining technology, signalling a sustained labor-demand window for mine development and operations personnel.",
+    "operator": {
+      "name": "Buenaventura",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "San Gabriel",
+    "scope": [
+      "mine_development",
+      "exploration",
+      "operations"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": 192
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mine Planning Engineer",
+        "Exploration Geologist",
+        "Mining Superintendent",
+        "Gold Process Plant Operator",
+        "Senior Mining Engineer",
+        "Geotechnical Engineer"
+      ],
+      "skills": [
+        "gold mining",
+        "mine planning",
+        "underground mining",
+        "exploration drilling",
+        "mineral resource estimation",
+        "process plant operations"
+      ],
+      "certs_freetext": [
+        "MINEM certification",
+        "CompEx",
+        "JORC competent person"
+      ],
+      "geo_rtw": "Peru / LATAM",
+      "project_experience": [
+        "Yanacocha",
+        "Las Bambas",
+        "Antamina",
+        "Cerro Verde"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "Mid–Senior",
+      "boolean_search": "(\"mine planning\" OR \"mining engineer\" OR \"exploration geologist\" OR \"geotechnical engineer\" OR \"process plant\") AND (\"gold\" OR \"underground mining\" OR \"open pit\") AND (\"Peru\" OR \"Latin America\" OR \"LATAM\") AND (\"Buenaventura\" OR \"San Gabriel\" OR \"Yanacocha\" OR \"Antamina\" OR \"Cerro Verde\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Buenaventura is developing San Gabriel, a gold asset in Peru targeting a 16-year mine life. We're sourcing experienced mining engineers and geologists for this long-duration project. Open to a quick chat?",
+      "email_subject": "San Gabriel Gold Project – Long-Term Mining Roles in Peru (Buenaventura)",
+      "email_body": "Hi [Name],\n\nBuenaventura is advancing its San Gabriel gold project in Peru, with a projected 16-year operational life supported by ongoing exploration and new mining technology adoption.\n\nThis represents a significant, long-duration staffing requirement across mine planning, exploration geology, geotechnical engineering, and process plant operations.\n\nGiven your background in [relevant discipline], I wanted to reach out to explore whether you'd be open to discussing opportunities at this project.\n\nWould you have 15 minutes this week for a call?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Buenaventura) and project (San Gabriel) with a 16-year mine-life target signals sustained workforce demand in the mining sector in Peru.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "86ec45c5-39b3-4b2b-bf06-3dbac88a4865",
+    "ingested_at": "2026-05-11T05:28:00.255Z",
+    "source_published_at": "2026-05-08T10:55:00.000Z"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/cornish-metals-secures-210m-to-fund-uk-tin-mine-revival/"
+      }
+    ],
+    "headline": "Cornish Metals Secures $210M to Restart South Crofty Tin Mine, UK",
+    "body": "Cornish Metals advances plans to restart South Crofty after securing strong backing from international bond investors.",
+    "url": "https://www.mining.com/cornish-metals-secures-210m-to-fund-uk-tin-mine-revival/",
+    "published_at": "2026-05-07T16:03:00.000Z",
+    "hash": "7e7de38871106d47",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "uk-southwest",
+    "country": "united_kingdom",
+    "tldr": "Cornish Metals has raised $210M via international bond investors to fund the revival of South Crofty tin mine in Cornwall, signalling an imminent workforce ramp-up for mine construction and operations. Recruiters should target mining construction, trades, and operations talent in the UK Southwest.",
+    "operator": {
+      "name": "Cornish Metals",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Cornish Metals",
+      "matched_company_slug": null
+    },
+    "project_name": "South Crofty",
+    "scope": [
+      "mine_restart",
+      "shaft_rehabilitation",
+      "mine_construction",
+      "operations_ramp_up"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 210000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mine Construction Manager",
+        "Underground Mine Superintendent",
+        "Mining Engineer",
+        "Shaft Sinker",
+        "Electrical Supervisor",
+        "Mechanical Superintendent",
+        "Mine Operations Manager",
+        "Ventilation Engineer",
+        "Health & Safety Manager",
+        "Hoisting Engineer"
+      ],
+      "skills": [
+        "underground mining",
+        "shaft rehabilitation",
+        "hard rock mining",
+        "mine development",
+        "ventilation design",
+        "winding/hoisting systems",
+        "mine planning",
+        "tin/base metals",
+        "project commissioning"
+      ],
+      "certs_freetext": [
+        "MSHA",
+        "First Aid at Work",
+        "Shotfiring Certificate",
+        "NEBOSH Mining",
+        "Winding Engine Driver Certificate",
+        "Underground Manager's Certificate of Competency"
+      ],
+      "geo_rtw": "UK Right to Work preferred; EEA nationals with UK RTW considered",
+      "project_experience": [
+        "South Crofty",
+        "Glencore Britannia Mine",
+        "Neves-Corvo",
+        "Zinkgruvan",
+        "Drakelands Mine"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "Mid–Senior",
+      "boolean_search": "(\"underground mining\" OR \"hard rock mining\" OR \"shaft rehabilitation\" OR \"mine development\") AND (\"mining engineer\" OR \"mine superintendent\" OR \"underground manager\" OR \"shaft sinker\" OR \"hoisting engineer\" OR \"ventilation engineer\") AND (\"tin\" OR \"base metals\" OR \"metalliferous\") AND (\"UK\" OR \"Cornwall\" OR \"United Kingdom\" OR \"EEA\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Cornish Metals has just secured $210M to restart South Crofty tin mine in Cornwall — one of the UK's most significant mining revivals in decades. We're sourcing underground mining specialists now. Would you be open to a chat?",
+      "email_subject": "South Crofty Mine Restart – Underground Mining Roles | Cornwall, UK",
+      "email_body": "Hi [Name],\n\nCornish Metals has closed a $210M bond raise to fund the restart of South Crofty in Cornwall — a landmark event for UK mining.\n\nAs they move into construction and operational ramp-up, there will be significant demand for experienced underground mining professionals across engineering, operations, and trades disciplines.\n\nGiven your background in [underground mining / shaft work / mine development], I wanted to reach out early as roles are likely to be confirmed imminently.\n\nWould you be available for a confidential conversation about potential opportunities on this project?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Cornish Metals) has secured $210M project financing to restart the named South Crofty tin mine, constituting an FID-equivalent event with clear workforce ramp-up implications in the mining subsector.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "a459355f-143b-4bd3-8722-36f6f2f1c311",
+    "ingested_at": "2026-05-11T05:28:00.255Z",
+    "source_published_at": "2026-05-07T16:03:00.000Z"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/trafigura-in-talks-to-build-aluminum-smelter-in-egypt/"
+      }
+    ],
+    "headline": "Trafigura in Talks with Egyptalum to Build 300ktpa Primary Aluminum Smelter in Egypt",
+    "body": "The company is in talks with Egyptalum to construct, own and operate a 300,000-tonne-per-annum primary aluminum smelter.",
+    "url": "https://www.mining.com/trafigura-in-talks-to-build-aluminum-smelter-in-egypt/",
+    "published_at": "2026-05-06T17:03:59.000Z",
+    "hash": "f71b5547952935f6",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "north-africa",
+    "country": "egypt",
+    "tldr": "Trafigura is in early-stage talks with Egyptalum to construct, own, and operate a 300,000 tonne/year primary aluminum smelter in Egypt. If progressed to FID, this would generate significant construction and operations workforce demand.",
+    "operator": {
+      "name": "Trafigura",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Trafigura",
+      "matched_company_slug": null
+    },
+    "project_name": "Egyptalum Aluminum Smelter",
+    "scope": [
+      "greenfield_smelter",
+      "epc",
+      "plant_operations"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Smelter Construction Manager",
+        "Aluminum Process Engineer",
+        "EPC Project Manager",
+        "Plant Operations Manager",
+        "Electrical Engineer – Smelting",
+        "Commissioning Engineer",
+        "HSE Manager – Industrial Construction",
+        "Potroom Superintendent"
+      ],
+      "skills": [
+        "aluminum smelting",
+        "primary aluminum production",
+        "EPC project delivery",
+        "potline operations",
+        "greenfield plant construction",
+        "commissioning",
+        "heavy industrial construction",
+        "process engineering"
+      ],
+      "certs_freetext": [
+        "NEBOSH",
+        "IOSH",
+        "Chartered Engineer (CEng)",
+        "PMP"
+      ],
+      "geo_rtw": "Egypt or internationally mobile with MENA project experience",
+      "project_experience": [
+        "Alba Smelter Bahrain",
+        "EGA Al Taweelah UAE",
+        "EMAL Abu Dhabi",
+        "Aluminium Dunkerque",
+        "Sohar Aluminium Oman"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal / Superintendent",
+      "boolean_search": "(\"aluminum smelter\" OR \"aluminium smelter\" OR \"primary aluminum\" OR \"potline\" OR \"potroom\" OR \"smelting operations\") AND (\"EPC\" OR \"construction manager\" OR \"commissioning\" OR \"plant operations\" OR \"process engineer\") AND (\"greenfield\" OR \"MENA\" OR \"North Africa\" OR \"Egypt\" OR \"Gulf\") AND (\"project management\" OR \"PMP\" OR \"superintendent\" OR \"engineering manager\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Trafigura is in talks to build a 300ktpa primary aluminum smelter in Egypt with Egyptalum. Your background in [aluminum/smelter/EPC] could be a strong fit for senior roles on this project. Worth a quick call?",
+      "email_subject": "Senior Roles – Trafigura/Egyptalum Aluminum Smelter Project (Egypt)",
+      "email_body": "Hi [Name],\n\nI wanted to reach out regarding an emerging opportunity linked to Trafigura's plans to construct, own, and operate a 300,000 tonne/year primary aluminum smelter in Egypt in partnership with Egyptalum.\n\nGiven your experience in [aluminum smelting / EPC / process plant operations], I believe you could be well-positioned for senior construction, engineering, or operations leadership roles as this project progresses toward sanction and execution.\n\nWould you be open to a brief conversation to discuss? I'd be happy to share more details.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Trafigura) and counterpart (Egyptalum) in active talks to construct a greenfield 300ktpa aluminum smelter, representing a discrete industrial construction and operations workforce-demand signal in the mining/metals subsector.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "5ba451c2-fdbf-493b-bdea-8947af65562c",
+    "ingested_at": "2026-05-11T05:28:00.255Z",
+    "source_published_at": "2026-05-06T17:03:59.000Z"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/eagle-nuclear-energy-kicks-off-environmental-baseline-studies-at-aurora-uranium-project/"
+      }
+    ],
+    "headline": "Eagle Nuclear Energy Kicks Off Environmental Baseline Studies at Aurora Uranium Project, USA",
+    "body": "Aurora is the largest conventional, measured and indicated uranium deposit in the US, the company has said.",
+    "url": "https://www.mining.com/eagle-nuclear-energy-kicks-off-environmental-baseline-studies-at-aurora-uranium-project/",
+    "published_at": "2026-05-06T00:17:00.000Z",
+    "hash": "b049003ac29ed88c",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "survey_geophysical"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-west",
+    "country": "united_states",
+    "tldr": "Eagle Nuclear Energy has commenced environmental baseline studies at the Aurora uranium project, the largest conventional measured and indicated uranium deposit in the US. This signals early-stage development activity with potential near-term demand for environmental survey and geophysical specialists.",
+    "operator": {
+      "name": "Eagle Nuclear Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Eagle Nuclear Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Aurora Uranium Project",
+    "scope": [
+      "environmental_baseline_studies",
+      "site_survey"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Environmental Baseline Specialist",
+        "Environmental Scientist",
+        "Uranium Project Geologist",
+        "Environmental Survey Lead",
+        "Radiation Protection Specialist"
+      ],
+      "skills": [
+        "environmental baseline studies",
+        "uranium mining",
+        "radiological survey",
+        "geophysical survey",
+        "environmental impact assessment",
+        "NEPA compliance"
+      ],
+      "certs_freetext": [
+        "40-Hour HAZWOPER",
+        "Radiation Protection Technician",
+        "Professional Geologist (PG)"
+      ],
+      "geo_rtw": "US work authorization required",
+      "project_experience": [
+        "ISR uranium projects",
+        "conventional uranium mining",
+        "NRC licensing"
+      ],
+      "yoe_band": "5-12",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"environmental baseline\" OR \"environmental survey\" OR \"uranium project\") AND (\"environmental scientist\" OR \"geologist\" OR \"radiation protection\") AND (\"uranium\" OR \"nuclear\" OR \"mining\") AND (\"NEPA\" OR \"environmental impact\" OR \"baseline studies\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Eagle Nuclear Energy has kicked off environmental baseline studies at the Aurora Uranium Project — the largest conventional uranium deposit in the US. Are you open to discussing early-stage opportunities on this project?",
+      "email_subject": "Environmental Baseline Roles — Aurora Uranium Project (Eagle Nuclear Energy)",
+      "email_body": "Hi [Name],\n\nEagle Nuclear Energy has initiated environmental baseline studies at the Aurora Uranium Project in the US, marking an important early development milestone for what is reported to be the largest conventional uranium deposit in the country.\n\nGiven your background in environmental survey and/or uranium project work, I wanted to reach out to explore whether you'd be open to a conversation about upcoming opportunities tied to this project.\n\nWould you have 15 minutes for a call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Eagle Nuclear Energy) initiating environmental baseline studies at a named uranium project (Aurora), signaling early-stage development activity with discrete labor demand for environmental and geophysical specialists in the nuclear/mining subsector.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "2783b8c0-7871-49eb-b671-68635ec59048",
+    "ingested_at": "2026-05-11T05:28:00.255Z",
+    "source_published_at": "2026-05-06T00:17:00.000Z"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/gbm-aims-to-reopen-ontarios-kearney-graphite-mine/"
+      }
+    ],
+    "headline": "GBM Plans to Reopen Kearney Graphite Mine in Ontario, Targeting 23,000 t/yr from 2028",
+    "body": "Kearney, which closed in 1994, could initially produce 23,000 tonnes of carbon graphite annually starting in 2028.",
+    "url": "https://www.mining.com/gbm-aims-to-reopen-ontarios-kearney-graphite-mine/",
+    "published_at": "2026-05-05T16:11:10.000Z",
+    "hash": "593e6e56a266f1c8",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "ontario-canada",
+    "country": "canada",
+    "tldr": "GBM is targeting a 2028 restart of the Kearney graphite mine in Ontario, Canada, with initial production of 23,000 tonnes of carbon graphite annually. The project signals an upcoming workforce ramp-up for mine development and operations over the next 2-3 years.",
+    "operator": {
+      "name": "GBM",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "GBM",
+      "matched_company_slug": null
+    },
+    "project_name": "Kearney Graphite Mine",
+    "scope": [
+      "mine_restart",
+      "process_plant_commissioning",
+      "production_ramp_up"
+    ],
+    "mob_window": {
+      "start": "2025-Q3",
+      "end": "2028-Q1",
+      "duration_months": 30
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mine Manager",
+        "Mining Engineer",
+        "Process Plant Superintendent",
+        "Maintenance Superintendent",
+        "Electrical Supervisor",
+        "Instrumentation Technician",
+        "Mechanical Technician",
+        "Mine Planner",
+        "Environmental Health & Safety Manager",
+        "Crusher/Mill Operator"
+      ],
+      "skills": [
+        "graphite mining",
+        "open pit or underground mine restart",
+        "mineral processing",
+        "crushing and grinding",
+        "flotation",
+        "mine planning",
+        "maintenance management",
+        "MSHA or provincial mine safety",
+        "environmental compliance",
+        "commissioning"
+      ],
+      "certs_freetext": [
+        "Ontario Mine Manager Certificate of Competency",
+        "Blasting Certificate (Ontario)",
+        "First Aid/Industrial First Responder",
+        "WHMIS",
+        "P.Eng (Ontario)"
+      ],
+      "geo_rtw": "Canada — Ontario RTW preferred; Canadian PR or Citizenship",
+      "project_experience": [
+        "Lac des Iles Mine",
+        "Westwood Mine",
+        "Eagle Mine",
+        "Black Rock Carbon",
+        "Nouveau Monde Graphite"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "Mid-Senior to Senior",
+      "boolean_search": "(\"mine manager\" OR \"mining engineer\" OR \"process superintendent\" OR \"maintenance superintendent\" OR \"mine planner\") AND (\"graphite\" OR \"mineral processing\" OR \"flotation\" OR \"mine restart\" OR \"underground mining\" OR \"open pit\") AND (\"Ontario\" OR \"Canada\") AND (\"commissioning\" OR \"ramp-up\" OR \"production\" OR \"processing plant\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], GBM is restarting the historic Kearney graphite mine in Ontario, targeting 23,000 t/yr production by 2028. We're building the project team now — would your experience in [mine ops/process plant] be a fit? Happy to share details.",
+      "email_subject": "Kearney Graphite Mine Restart – Senior Mining Roles | Ontario, Canada",
+      "email_body": "Hi [Name],\n\nI'm reaching out because GBM has announced plans to reopen the Kearney graphite mine in Ontario, targeting first production of 23,000 tonnes per year by 2028. With the development timeline now live, they are beginning to build out the project and operations workforce.\n\nGiven your background in [mining operations / mineral processing / mine engineering], I believe you could be a strong fit for senior roles on this project.\n\nWould you be open to a brief call to discuss the opportunity and your current situation?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator GBM is planning to reopen the Kearney graphite mine in Ontario with a defined production target and 2028 start date, signalling a multi-year workforce ramp-up in the mining subsector.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "ac9b9ef5-311b-4758-97e5-85ac5be93f0e",
+    "ingested_at": "2026-05-11T05:28:00.255Z",
+    "source_published_at": "2026-05-05T16:11:10.000Z"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/newly-listed-lumina-in-talks-with-polands-kghm-over-potential-supply-deal/"
+      }
+    ],
+    "headline": "Lumina Signs LOI with KGHM for Copper Concentrate Supply from Nowa Sól Project",
+    "body": "The Canadian miner said it has signed an LOI with KGHM to discuss terms related to the future supply of copper concentrates from its Nowa Sól project.",
+    "url": "https://www.mining.com/newly-listed-lumina-in-talks-with-polands-kghm-over-potential-supply-deal/",
+    "published_at": "2026-05-05T16:10:08.000Z",
+    "hash": "88b865c2c3386f06",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "central-europe",
+    "country": "poland",
+    "tldr": "Canadian miner Lumina has signed a Letter of Intent with Poland's KGHM to negotiate future copper concentrate supply terms from its Nowa Sól project. This early-stage commercial agreement signals potential development activity and workforce demand at the Nowa Sól site.",
+    "operator": {
+      "name": "Lumina",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Lumina",
+      "matched_company_slug": null
+    },
+    "project_name": "Nowa Sól",
+    "scope": [
+      "copper_concentrate_supply",
+      "mine_development"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mining Project Manager",
+        "Metallurgical Engineer",
+        "Process Plant Engineer",
+        "Mine Development Manager",
+        "Concentrator Plant Superintendent",
+        "Commissioning Manager"
+      ],
+      "skills": [
+        "copper mining",
+        "copper concentrate",
+        "mineral processing",
+        "concentrator operations",
+        "mine development",
+        "project execution"
+      ],
+      "certs_freetext": [
+        "Chartered Professional Engineer (Mining)",
+        "EU work authorization"
+      ],
+      "geo_rtw": "Poland / EU right-to-work or eligible",
+      "project_experience": [
+        "KGHM Lubin",
+        "KGHM Polkowice-Sieroszowice",
+        "Rio Tinto Kennecott",
+        "Freeport Morenci"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal",
+      "boolean_search": "(\"copper mining\" OR \"copper concentrate\" OR \"mineral processing\" OR \"concentrator\") AND (\"mine development\" OR \"process plant\" OR \"commissioning\") AND (\"Poland\" OR \"Central Europe\" OR \"KGHM\" OR \"copper project\") AND (\"project manager\" OR \"metallurgical engineer\" OR \"process engineer\" OR \"plant superintendent\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Lumina's LOI with KGHM for copper concentrate supply from the Nowa Sól project in Poland signals upcoming mine development activity. Are you open to hearing about senior roles on this project?",
+      "email_subject": "Senior Mining Roles – Lumina's Nowa Sól Copper Project, Poland",
+      "email_body": "Hi [Name],\n\nI wanted to reach out regarding an emerging opportunity connected to Lumina's Nowa Sól copper project in Poland. The company has recently signed an LOI with KGHM to discuss future copper concentrate supply, signalling a development phase that is likely to require experienced mining and process professionals.\n\nGiven your background in [copper mining / mineral processing / mine development], I thought this could be a strong fit. I'd love to set up a quick call to share more details and understand your current availability.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Lumina) and off-take partner (KGHM) are linked to a specific mining project (Nowa Sól) via a signed LOI, signalling early-stage development and future workforce demand in the mining sector.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "54d3bafb-e25b-4aab-907a-fcaba8b55a99",
+    "ingested_at": "2026-05-11T05:28:00.255Z",
+    "source_published_at": "2026-05-05T16:10:08.000Z"
+  },
+  {
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/eni_confirms_size_of_giant_gas_discovery_offshore_indonesia-07-may-2026-183630-article/?rss=true"
+      }
+    ],
+    "headline": "Eni Confirms ~5 Tcf Giant Gas Discovery Offshore Indonesia via DST",
+    "body": "A drill stem test (DST) confirmed the preliminary assessment of about 5 trillion cubic feet (Tcf) of natural gas and 300 million barrels of condensate in the...",
+    "url": "https://www.rigzone.com/news/eni_confirms_size_of_giant_gas_discovery_offshore_indonesia-07-may-2026-183630-article/?rss=true",
+    "published_at": "2026-05-07T08:57:25.000Z",
+    "hash": "b6942cfc75dd26db",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "survey_geophysical",
+      "rov_subsea"
+    ],
+    "signal_type": "lease_round",
+    "region": "southeast-asia",
+    "country": "indonesia",
     "tldr": "Eni has confirmed a giant offshore gas discovery of ~5 Tcf and 300 MMbbl condensate offshore Indonesia via drill stem test. This appraisal result signals a likely FEED/FID pipeline ahead, creating near-term demand for subsea, drilling, and development planning personnel.",
     "operator": {
       "name": "Eni",
