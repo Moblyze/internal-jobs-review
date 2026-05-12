@@ -1,6 +1,6 @@
 // scripts/feed-ingest/index.js
 import { writeFile } from 'fs/promises'
-import { PATHS, readJson, TRIM_WINDOW_DAYS } from './config.js'
+import { PATHS, readJson, TRIM_WINDOW_DAYS, DEDUPE_WINDOW_DAYS } from './config.js'
 import { fetchAllSources } from './fetchSources.js'
 import { dedupeAgainstExisting } from './dedupe.js'
 import { enrichEntry } from './enrich.js'
@@ -32,18 +32,27 @@ function trimToWindow(entries, days = TRIM_WINDOW_DAYS) {
   return entries.filter(e => e.ingested_at && new Date(e.ingested_at).getTime() >= cutoff)
 }
 
+function trimRejectedToWindow(rejected, days = DEDUPE_WINDOW_DAYS) {
+  const cutoff = Date.now() - days * 24 * 60 * 60 * 1000
+  return rejected.filter(r => r.rejected_at && new Date(r.rejected_at).getTime() >= cutoff)
+}
+
 async function main() {
   console.log('[feed-ingest] starting run at', new Date().toISOString())
 
   const excludedCountries = await readJson(PATHS.EXCLUDED_COUNTRIES).catch(() => ({ excluded: [] }))
   const excludedSet = new Set((excludedCountries.excluded || []).map(s => s.toLowerCase()))
 
-  const [sources, taxonomy, existing, companiesData] = await Promise.all([
+  const [sources, taxonomy, existing, companiesData, rejectedRaw] = await Promise.all([
     readJson(PATHS.SOURCES),
     readJson(PATHS.TAXONOMY),
     readJson(PATHS.ENTRIES),
     readJson(PATHS.COMPANIES).catch(() => ({ companies: [] })),
+    readJson(PATHS.REJECTED_HASHES).catch(() => []),
   ])
+
+  const stillValidRejected = trimRejectedToWindow(Array.isArray(rejectedRaw) ? rejectedRaw : [])
+  const rejectedHashSet = new Set(stillValidRejected.map(r => r.hash))
 
   // 1. Fetch all sources in parallel.
   const fetchResults = await fetchAllSources(sources)
@@ -60,19 +69,27 @@ async function main() {
 
   // 3. Flatten and dedupe.
   const allFresh = fetchResults.flatMap(r => r.items)
-  const { newEntries, updatedExisting } = dedupeAgainstExisting(allFresh, existing)
+  const { newEntries: dedupedNew, updatedExisting } = dedupeAgainstExisting(allFresh, existing)
+  const newEntries = dedupedNew.filter(e => !rejectedHashSet.has(e.hash))
+  const skippedRejected = dedupedNew.length - newEntries.length
   console.log(`[feed-ingest] ${newEntries.length} new entries, ${updatedExisting.length} merged with existing`)
+  console.log(`[feed-ingest] skipped ${skippedRejected} items previously rejected`)
 
   // 4. Enrich new entries.
   const enriched = []
+  const newlyRejected = []
   for (const ent of newEntries) {
     const e = await enrichEntry(ent, taxonomy, { excludedCountries: [...excludedSet] })
     if (e.bd_relevant === false) {
-      console.log(`[feed-ingest] dropped (not BD-relevant): ${(e.headline || ent.headline || '').slice(0, 80)}`)
+      const headline = (e.headline || ent.headline || '').slice(0, 80)
+      console.log(`[feed-ingest] dropped (not BD-relevant): ${headline}`)
+      newlyRejected.push({ hash: ent.hash, rejected_at: now, reason: 'not_bd_relevant', headline })
       continue
     }
     if (e.country && excludedSet.has(String(e.country).toLowerCase())) {
-      console.log(`[feed-ingest] dropped (excluded country=${e.country}): ${e.headline?.slice(0, 80)}`)
+      const headline = (e.headline || ent.headline || '').slice(0, 80)
+      console.log(`[feed-ingest] dropped (excluded country=${e.country}): ${headline}`)
+      newlyRejected.push({ hash: ent.hash, rejected_at: now, reason: `excluded_country:${e.country}`, headline })
       continue
     }
     e.id = crypto.randomUUID()
@@ -98,9 +115,11 @@ async function main() {
   trimmed.sort((a, b) => new Date(b.ingested_at) - new Date(a.ingested_at))
 
   // 7. Write.
+  const persistedRejected = trimRejectedToWindow([...stillValidRejected, ...newlyRejected])
   await writeFile(PATHS.ENTRIES, JSON.stringify(trimmed, null, 2))
   await writeFile(PATHS.ENTRIES_LITE, JSON.stringify(trimmed.map(liteProjection), null, 2))
   await writeFile(PATHS.SOURCES, JSON.stringify(updatedSources, null, 2))
+  await writeFile(PATHS.REJECTED_HASHES, JSON.stringify(persistedRejected, null, 2))
 
   console.log(`[feed-ingest] wrote ${trimmed.length} entries, ${enriched.length} new`)
 

@@ -1,18 +1,11 @@
 import Anthropic from '@anthropic-ai/sdk'
 
 const MODEL = 'claude-sonnet-4-6'
-const MAX_TOKENS = 2048
+const GATE_MODEL = 'claude-haiku-4-5-20251001'
+const MAX_TOKENS = 1536
+const GATE_MAX_TOKENS = 256
 
-export function buildPrompt(item, taxonomy, excludedCountries = []) {
-  const subsectorIds = taxonomy.subsectors.map(s => s.id).join(', ')
-  const disciplineIds = taxonomy.discipline_tags.map(d => d.id).join(', ')
-  const signalIds = taxonomy.signal_types.map(s => s.id).join(', ')
-
-  return `You are an extraction agent for a BD intelligence feed serving energy-industry agency recruiters.
-
-This is a BUSINESS DEVELOPMENT feed — not a news feed. Your first job is to decide whether the article describes a discrete labor-demand event that a recruiter can act on. Apply the criteria below strictly.
-
-BD RELEVANCE CRITERIA:
+const BD_RELEVANCE_CRITERIA = `BD RELEVANCE CRITERIA:
 
 INCLUDE (bd_relevant: true) — the article describes a discrete workforce-demand event in offshore O&G, onshore O&G, offshore wind, onshore renewables, nuclear, or mining, AND names at least one of: operator, contractor/hiring entity, or project name. Qualifying events:
   - Project sanction (FID), EPC/SURF/HUC contract award, drilling/services tender or contract, FEED award
@@ -33,9 +26,9 @@ EXCLUDE (bd_relevant: false):
   - Tech/research announcements without staffing implications
   - Conference/event coverage, awards, award nominations
   - General market analysis, oil-price commentary, demand forecasts
-  - Any article that does not name at least one operator, contractor, or project
+  - Any article that does not name at least one operator, contractor, or project`
 
-EXAMPLES:
+const BD_RELEVANCE_EXAMPLES = `EXAMPLES:
 
 INCLUDE — "Saipem Awarded €2.1B SURF Contract for Equinor's Rosebank Phase 2"
   → Discrete contract award, names operator (Equinor) and contractor (Saipem), offshore O&G
@@ -67,7 +60,36 @@ EXCLUDE — "USA Says Iran Ceasefire Still in Place"
 
 EXCLUDE — "Trump Comments on State of Iran Nuclear Talks"
   → Political commentary, no named project or operator
-  → bd_relevant: false, bd_relevance_reason: "Political commentary with no actionable BD signal or named project"
+  → bd_relevant: false, bd_relevance_reason: "Political commentary with no actionable BD signal or named project"`
+
+export function buildGatePrompt(item, excludedCountries = []) {
+  return `You are a fast gate for a BD intelligence feed serving energy-industry agency recruiters. Decide whether the article describes a discrete labor-demand event a recruiter can act on. Apply the criteria strictly.
+
+${BD_RELEVANCE_CRITERIA}
+${excludedCountries.length > 0 ? `
+GEO HINT: If the project country is one of [${excludedCountries.join(', ')}], default to bd_relevant: false UNLESS the article describes a Western contractor or operator that needs Western/EEA-eligible labor at that location.
+` : ''}
+ARTICLE:
+Source: ${item.source?.name || 'unknown'}
+Headline: ${item.headline}
+Body: ${item.body || '(no body provided)'}
+
+Output ONLY a single JSON object with this exact shape, no prose, no code fences:
+{"bd_relevant": true|false, "reason": "one short sentence"}`
+}
+
+export function buildPrompt(item, taxonomy, excludedCountries = []) {
+  const subsectorIds = taxonomy.subsectors.map(s => s.id).join(', ')
+  const disciplineIds = taxonomy.discipline_tags.map(d => d.id).join(', ')
+  const signalIds = taxonomy.signal_types.map(s => s.id).join(', ')
+
+  return `You are an extraction agent for a BD intelligence feed serving energy-industry agency recruiters.
+
+This is a BUSINESS DEVELOPMENT feed — not a news feed. Your first job is to decide whether the article describes a discrete labor-demand event that a recruiter can act on. Apply the criteria below strictly.
+
+${BD_RELEVANCE_CRITERIA}
+
+${BD_RELEVANCE_EXAMPLES}
 
 Given a news article (headline + body), produce a single JSON object with the following keys. Use null when a field is not stated or strongly implied. Never invent operators, contractors, project names, certifications, or numbers.
 ${excludedCountries.length > 0 ? `
@@ -141,9 +163,43 @@ export function reducedDetailEntry(item) {
   }
 }
 
+function gatedOutEntry(item, reason) {
+  return {
+    ...reducedDetailEntry(item),
+    bd_relevance_reason: reason || 'gated out by relevance gate',
+    enrichment_status: 'gated_out',
+    enrichment_model: GATE_MODEL,
+  }
+}
+
 export async function enrichEntry(item, taxonomy, opts = {}) {
   const client = opts.client || new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
   const excludedCountries = opts.excludedCountries || []
+
+  // Pass 1: cheap Haiku gate. On malformed JSON we fall through to Sonnet
+  // (assume relevant) so we never silently drop a hit because of gate flakiness.
+  try {
+    const gateResp = await client.messages.create({
+      model: GATE_MODEL,
+      max_tokens: GATE_MAX_TOKENS,
+      messages: [{ role: 'user', content: buildGatePrompt(item, excludedCountries) }],
+    })
+    const gateText = gateResp.content?.[0]?.text || ''
+    let gate
+    try {
+      gate = JSON.parse(gateText)
+    } catch {
+      console.warn(`[enrich] gate JSON parse failed for ${item.headline?.slice(0, 60)}; falling through to Sonnet`)
+      gate = null
+    }
+    if (gate && gate.bd_relevant === false) {
+      return gatedOutEntry(item, gate.reason)
+    }
+  } catch (err) {
+    console.warn(`[enrich] gate API error for ${item.headline?.slice(0, 60)}: ${err.message}; falling through to Sonnet`)
+  }
+
+  // Pass 2: full Sonnet extraction.
   const prompt = buildPrompt(item, taxonomy, excludedCountries)
   try {
     const resp = await client.messages.create({

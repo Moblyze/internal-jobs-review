@@ -15,6 +15,7 @@ export const PATHS = {
   COMPANIES: resolve(ROOT, 'public/data/companies.json'),
   ARCHIVE_DIR: resolve(ROOT, 'public/data/feed'),
   EXCLUDED_COUNTRIES: resolve(ROOT, 'public/data/feed/excluded_countries.json'),
+  REJECTED_HASHES: resolve(ROOT, 'public/data/feed/rejected_hashes.json'),
 }
 
 export async function readJson(path) {
