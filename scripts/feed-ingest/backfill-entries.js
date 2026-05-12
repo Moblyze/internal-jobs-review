@@ -22,6 +22,12 @@ function needsBackfill(entry) {
 async function main() {
   console.log(`[backfill-entries] starting${DRY_RUN ? ' (dry run)' : ''}`)
 
+  if (!DRY_RUN && !process.env.ANTHROPIC_API_KEY) {
+    console.error('[backfill-entries] ANTHROPIC_API_KEY not set — refusing to run.')
+    console.error('[backfill-entries] Pass via env or run in GH Actions where secrets.ANTHROPIC_API_KEY is wired.')
+    process.exit(2)
+  }
+
   const [entries, taxonomy, excludedRaw, pdlCache] = await Promise.all([
     readJson(PATHS.ENTRIES),
     readJson(PATHS.TAXONOMY),
@@ -45,10 +51,20 @@ async function main() {
 
   let success = 0
   let failed = 0
+  let skipped = 0
   const updated = new Map()
   for (const entry of candidates) {
     try {
       const reEnriched = await enrichEntry(entry, taxonomy, { excludedCountries: [...excludedSet] })
+      // Don't overwrite a good entry with a failed-enrichment stub. Skip and
+      // keep the original. This protects against API auth failures, rate
+      // limits, or any transient model error that would otherwise null out
+      // the entry's existing tldr/subsector/operator fields.
+      if (reEnriched.enrichment_status === 'failed') {
+        console.warn(`[backfill-entries] skipped (enrichment failed): ${entry.headline?.slice(0, 60)}`)
+        skipped++
+        continue
+      }
       const sizeTier = getSizeTier(reEnriched.hiring_entity?.name || reEnriched.operator?.name, pdlCache)
       reEnriched.contact_archetypes = deriveArchetypes(reEnriched.phase, reEnriched.scope, sizeTier)
       reEnriched.prompt_version = PROMPT_VERSION
@@ -64,7 +80,7 @@ async function main() {
     }
   }
 
-  console.log(`[backfill-entries] done: ${success} ok, ${failed} failed`)
+  console.log(`[backfill-entries] done: ${success} ok, ${skipped} skipped, ${failed} failed`)
 
   const merged = entries.map(e => updated.get(e.id) || e)
   await writeFile(PATHS.ENTRIES, JSON.stringify(merged, null, 2))

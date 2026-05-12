@@ -1,0 +1,56 @@
+name: Backfill Entries (phase tagging)
+
+# One-off workflow to re-enrich entries.json with the new phase/readiness/key_people
+# fields after the prompt extension shipped. Manual trigger only.
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: feed-ingest
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: write
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Run backfill
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/feed-ingest/backfill-entries.js
+
+      - name: Commit backfilled entries
+        id: commit
+        run: |
+          git config user.name 'backfill[bot]'
+          git config user.email 'backfill[bot]@users.noreply.github.com'
+          git add public/data/feed/entries.json
+          if git diff --staged --quiet; then
+            echo "no entry changes"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git commit -m "data(feed): backfill entries with phase/readiness/key_people"
+          git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Trigger Fast Deploy
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run "Fast Deploy (Code Only)" -R "$GITHUB_REPOSITORY"
