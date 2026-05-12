@@ -55,7 +55,10 @@ async function main() {
   const updated = new Map()
   for (const entry of candidates) {
     try {
-      const reEnriched = await enrichEntry(entry, taxonomy, { excludedCountries: [...excludedSet] })
+      // Skip the Haiku gate in backfill mode — these entries were already
+      // classified bd_relevant by a prior Sonnet pass; the gate is for new
+      // RSS items where we have no prior judgment, not for re-enrichment.
+      const reEnriched = await enrichEntry(entry, taxonomy, { excludedCountries: [...excludedSet], skipGate: true })
       // Don't overwrite a good entry with a failed-enrichment stub. Skip and
       // keep the original. This protects against API auth failures, rate
       // limits, or any transient model error that would otherwise null out

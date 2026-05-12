@@ -253,3 +253,20 @@ test('buildPrompt embeds the new phase/readiness rules and the key_people guidan
   assert.match(p, /sanctioned_engineering/)
   assert.match(p, /likely_decision_maker/)
 })
+
+test('enrichEntry: skipGate option bypasses Haiku and calls Sonnet directly', async () => {
+  const client = makeFakeClient({
+    gateText: JSON.stringify({ bd_relevant: false, reason: 'should not be consulted' }),
+    sonnetText: JSON.stringify({ ...validSonnetResponse, phase: 'construction' }),
+  })
+  const result = await enrichEntry(
+    { headline: 'Saipem hookup work', body: 'b', source: { id: 's' } },
+    mockTaxonomy,
+    { client, skipGate: true }
+  )
+  assert.equal(result.enrichment_status, 'ok')
+  assert.equal(result.phase, 'construction')
+  // Only the Sonnet call should have been made
+  assert.equal(client.calls.length, 1)
+  assert.match(client.calls[0], /sonnet/)
+})

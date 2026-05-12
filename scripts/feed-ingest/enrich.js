@@ -236,11 +236,16 @@ function gatedOutEntry(item, reason) {
 export async function enrichEntry(item, taxonomy, opts = {}) {
   const client = opts.client || new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
   const excludedCountries = opts.excludedCountries || []
+  const skipGate = opts.skipGate === true
 
-  // Pass 1: cheap Haiku gate. Prefill with '{' so the model continues with
-  // JSON only. On malformed JSON we fall through to Sonnet (assume relevant)
-  // so we never silently drop a hit because of gate flakiness.
-  try {
+  // Pass 1: cheap Haiku gate (skipped in backfill mode where the entry was
+  // already classified bd_relevant: true by a prior enrichment). Prefill
+  // with '{' so the model continues with JSON only. On malformed JSON we
+  // fall through to Sonnet (assume relevant) so we never silently drop a
+  // hit because of gate flakiness.
+  if (skipGate) {
+    // fall through to Sonnet directly
+  } else try {
     const gateResp = await client.messages.create({
       model: GATE_MODEL,
       max_tokens: GATE_MAX_TOKENS,
