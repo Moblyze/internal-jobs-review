@@ -3,6 +3,14 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { fetchFullEntry } from '../../hooks/useFeedData'
 import OutreachDraftsPopover from './OutreachDraftsPopover'
+import DecisionMakers from './DecisionMakers'
+
+const PHASE_LABEL = {
+  pre_sanction:           'Pre-sanction',
+  sanctioned_engineering: 'Sanctioned engineering',
+  construction:           'Construction',
+  operating:              'Operating',
+}
 
 const CHIP_BASE = 'bg-gray-50 border border-gray-200 text-gray-700 hover:bg-gray-100 hover:text-gray-900 px-2 py-0.5 rounded text-xs no-underline transition-colors'
 const CHIP_SPAN = 'bg-gray-50 border border-gray-200 text-gray-700 px-2 py-0.5 rounded text-xs'
@@ -35,7 +43,7 @@ function CertChip({ cert }) {
   )
 }
 
-export default function BdCardExpanded({ entryId, taxonomy }) {
+export default function BdCardExpanded({ entryId, taxonomy, onArchetypeSearch }) {
   const [entry, setEntry] = useState(null)
   const [showOutreach, setShowOutreach] = useState(false)
   useEffect(() => { fetchFullEntry(entryId).then(setEntry) }, [entryId])
@@ -55,6 +63,23 @@ export default function BdCardExpanded({ entryId, taxonomy }) {
   return (
     <div className="mt-4 pt-4 border-t border-gray-100" onClick={e => e.stopPropagation()}>
       {entry.tldr && <p className="text-sm text-gray-700 leading-relaxed mb-3">{entry.tldr}</p>}
+
+      {entry.phase && (
+        <div className="mb-3">
+          <div className="text-xs font-semibold uppercase tracking-wider text-gray-700 mb-1">Phase</div>
+          <div className="text-sm text-gray-800">
+            {PHASE_LABEL[entry.phase] || entry.phase}
+            {entry.phase_evidence && <span className="italic text-gray-600"> — {entry.phase_evidence}</span>}
+          </div>
+        </div>
+      )}
+
+      <DecisionMakers
+        keyPeople={entry.key_people}
+        archetypes={entry.contact_archetypes}
+        company={entry.hiring_entity?.name || entry.operator?.name}
+        onArchetypeClick={(archetype) => onArchetypeSearch?.(entry, archetype)}
+      />
 
       {/* Targeting block */}
       <div className="border border-indigo-200 bg-indigo-50/40 rounded-lg p-3 mb-3">

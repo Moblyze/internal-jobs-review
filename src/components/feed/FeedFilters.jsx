@@ -16,6 +16,25 @@ const TIME_OPTS = [
   { value: 'all', label: 'All' },
 ]
 
+const READINESS_OPTS = [
+  { value: 'live_now', label: 'Live now' },
+  { value: 'hot',      label: 'Hot' },
+  { value: 'warming',  label: 'Warming' },
+  { value: 'cold',     label: 'Cold' },
+]
+
+const PHASE_OPTS = [
+  { value: 'construction',           label: 'Construction' },
+  { value: 'sanctioned_engineering', label: 'Sanctioned engineering' },
+  { value: 'pre_sanction',           label: 'Pre-sanction' },
+  { value: 'operating',              label: 'Operating' },
+]
+
+const SORT_OPTS = [
+  { value: 'recent',    label: 'Most recent' },
+  { value: 'readiness', label: 'Readiness (hottest first)' },
+]
+
 export default function FeedFilters({ taxonomy }) {
   const { filters, setFilters } = useFilterParams()
 
@@ -26,7 +45,7 @@ export default function FeedFilters({ taxonomy }) {
   return (
     <details open>
       <summary className="md:hidden cursor-pointer text-sm text-gray-700 mb-2">Filters</summary>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2 mb-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-8 gap-2 mb-4">
         <Select
           isMulti
           placeholder="Subsector"
@@ -50,6 +69,29 @@ export default function FeedFilters({ taxonomy }) {
           options={signalOptions}
           value={signalOptions.filter(o => filters.signals.includes(o.value))}
           onChange={vs => setFilters({ ...filters, signals: vs.map(v => v.value) })}
+        />
+        <Select
+          isMulti
+          placeholder="Readiness"
+          styles={compactStyles}
+          options={READINESS_OPTS}
+          value={READINESS_OPTS.filter(o => (filters.readiness || []).includes(o.value))}
+          onChange={vs => setFilters({ ...filters, readiness: vs.map(v => v.value) })}
+        />
+        <Select
+          isMulti
+          placeholder="Phase"
+          styles={compactStyles}
+          options={PHASE_OPTS}
+          value={PHASE_OPTS.filter(o => (filters.phases || []).includes(o.value))}
+          onChange={vs => setFilters({ ...filters, phases: vs.map(v => v.value) })}
+        />
+        <Select
+          placeholder="Sort"
+          styles={compactStyles}
+          options={SORT_OPTS}
+          value={SORT_OPTS.find(o => o.value === (filters.sort || 'recent'))}
+          onChange={v => setFilters({ ...filters, sort: v.value })}
         />
         <Select
           placeholder="Time range"

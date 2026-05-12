@@ -7,25 +7,40 @@ import CompanyCardModal from '../components/feed/CompanyCardModal'
 import ComingSoonSection from '../components/feed/ComingSoonSection'
 import { useFeedData } from '../hooks/useFeedData'
 import { useFilterParams } from '../hooks/useFilterParams'
+import { usePdlCache } from '../hooks/usePdlCache'
 
 const TIME_DAYS = { '7d': 7, '30d': 30, '90d': 90, 'all': 999999 }
+const READINESS_RANK = { live_now: 4, hot: 3, warming: 2, cold: 1 }
+const readinessKey = (e) => READINESS_RANK[e.outreach_readiness] || 0
 
 function applyFilters(entries, filters) {
   const cutoff = Date.now() - (TIME_DAYS[filters.timeRange] || 30) * 24 * 60 * 60 * 1000
   const q = (filters.feedSearch || '').toLowerCase()
-  return entries.filter(e => {
+  let filtered = entries.filter(e => {
     if (e.ingested_at && new Date(e.ingested_at).getTime() < cutoff) return false
     if (filters.subsectors.length && !filters.subsectors.includes(e.subsector)) return false
     if (filters.disciplines.length && !filters.disciplines.some(d => (e.discipline_tags || []).includes(d))) return false
     if (filters.signals.length && !filters.signals.includes(e.signal_type)) return false
+    if (filters.readiness?.length && !filters.readiness.includes(e.outreach_readiness)) return false
+    if (filters.phases?.length && !filters.phases.includes(e.phase)) return false
     if (q && !((e.headline || '').toLowerCase().includes(q))) return false
     return true
   })
+
+  if (filters.sort === 'readiness') {
+    filtered = filtered.slice().sort((a, b) => {
+      const diff = readinessKey(b) - readinessKey(a)
+      if (diff !== 0) return diff
+      return new Date(b.ingested_at) - new Date(a.ingested_at)
+    })
+  }
+  return filtered
 }
 
 export default function FeedPage() {
   const { entries, taxonomy, loading, error } = useFeedData()
   const { filters, setFilters } = useFilterParams()
+  const pdlCache = usePdlCache()
   const [companyModal, setCompanyModal] = useState(null)
 
   const filtered = useMemo(() => applyFilters(entries, filters), [entries, filters])
@@ -53,6 +68,7 @@ export default function FeedPage() {
             key={entry.id}
             entry={entry}
             taxonomy={taxonomy}
+            pdlCache={pdlCache}
             onOperatorClick={(slug, name, entryId) => setCompanyModal({ slug, name, entryId })}
             onContractorClick={(slug, name, entryId) => setCompanyModal({ slug, name, entryId })}
           />
