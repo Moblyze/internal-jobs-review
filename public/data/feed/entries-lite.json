@@ -1,5 +1,1152 @@
 [
   {
+    "id": "ec37a3c7-d25e-4a05-8b3b-b48cd79405bf",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/eni_confirms_size_of_giant_gas_discovery_offshore_indonesia-07-may-2026-183630-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "survey_geophysical",
+      "rov_subsea"
+    ],
+    "signal_type": "lease_round",
+    "region": "southeast-asia",
+    "country": "indonesia",
+    "headline": "Eni Confirms ~5 Tcf Giant Gas Discovery Offshore Indonesia via DST",
+    "operator": {
+      "name": "Eni",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": null,
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "6f923c41-072f-45e1-b8ac-3074e60bcddd",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/adnoc_announces_55b_in_new_project_awards-06-may-2026-183625-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "drilling_operations",
+      "process_plant_operations",
+      "pipeline_mechanical",
+      "rov_subsea",
+      "marine_offshore_ops"
+    ],
+    "signal_type": "epc_award",
+    "region": "uae-middle-east",
+    "country": "united_arab_emirates",
+    "headline": "ADNOC Announces $55B in New Project Awards Across Portfolio",
+    "operator": {
+      "name": "ADNOC",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": null,
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 55000000000
+  },
+  {
+    "id": "061359bf-e33e-4478-bc7c-39d9d802c06a",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/shell_ineos_plan_more_joint_tiebacks_in_us_gulf-06-may-2026-183626-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "rov_subsea",
+      "marine_offshore_ops",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "fid",
+    "region": "us-gulf",
+    "country": "united_states",
+    "headline": "Shell & INEOS Sign Joint Tieback Agreement Using Appomattox Hub in US Gulf",
+    "operator": {
+      "name": "Shell",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Appomattox Tieback Programme",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "ce7f00b1-fd73-4843-bce7-75e16880141d",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/equinor_starts_gas_production_at_eirin_in_norwegian_north_sea-10-may-2026-183650-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "marine_offshore_ops",
+      "process_plant_operations",
+      "rov_subsea",
+      "energy_trades"
+    ],
+    "signal_type": "regulatory",
+    "region": "norwegian-north-sea",
+    "country": "norway",
+    "headline": "Equinor Brings Eirin Gas Field Onstream in Norwegian North Sea via Tieback",
+    "operator": {
+      "name": "Equinor",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Eirin",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "4dba3920-66c3-4d22-a725-1553fb76f74b",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/iberdrola_to_invest_10b_in_brazil_through_2030-11-may-2026-183655-article/?rss=true"
+      }
+    ],
+    "subsector": "onshore-renewables",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "brazil",
+    "country": "brazil",
+    "headline": "Iberdrola/Neoenergia to Invest $10B in Brazil Energy Networks Expansion through 2030",
+    "operator": {
+      "name": "Iberdrola / Neoenergia",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Neoenergia",
+      "matched_company_slug": null
+    },
+    "project_name": "Neoenergia Brazil Networks Expansion",
+    "mob_window": {
+      "start": "2025-Q3",
+      "end": "2030-Q4",
+      "duration_months": 66
+    },
+    "contract_value_usd": 10210000000
+  },
+  {
+    "id": "49a05e1a-7fe8-4b5b-afaa-874b541e295d",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/uniper_gets_preliminary_approval_for_hesse_ccgt_plant-05-may-2026-183609-article/?rss=true"
+      }
+    ],
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "germany",
+    "country": "germany",
+    "headline": "Uniper Receives Preliminary Approval for Hesse Hydrogen-Compatible CCGT Plant",
+    "operator": {
+      "name": "Uniper SE",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Hesse CCGT Plant",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "d7a6f538-fe2c-4979-8379-a631a31fb24d",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/perenco_raises_oil_production_capacity_in_congobrazzaville-11-may-2026-183659-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "energy_trades",
+      "rov_subsea",
+      "marine_offshore_ops"
+    ],
+    "signal_type": "epc_award",
+    "region": "west-africa",
+    "country": "republic_of_the_congo",
+    "headline": "Perenco Completes Enhanced Oil Recovery Infill Drilling at Tchibouela East Offshore Congo",
+    "operator": {
+      "name": "Perenco",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Tchibouela East",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "57147cd7-6e16-45cc-9767-f383939634af",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/png_lng_partners_approve_new_upstream_development-12-may-2026-183668-article/?rss=true"
+      }
+    ],
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "pipeline_mechanical",
+      "process_plant_operations"
+    ],
+    "signal_type": "fid",
+    "region": "papua-new-guinea",
+    "country": "papua_new_guinea",
+    "headline": "ExxonMobil-Led PNG LNG JV Reaches FID on Upstream Tie-In Development",
+    "operator": {
+      "name": "ExxonMobil",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "PNG LNG Upstream Tie-In Project",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "3ad38ad2-786b-40c5-a2dd-023f6f204620",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/fuel-loading-begins-for-bangladeshs-first-nuclear-power-plant"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "energy_trades",
+      "ndt_inspection"
+    ],
+    "signal_type": "regulatory",
+    "region": "south-asia",
+    "country": "bangladesh",
+    "headline": "Fuel Loading Begins at Rooppur Nuclear Power Plant Unit 1, Bangladesh",
+    "operator": {
+      "name": "Rooppur Nuclear Power Plant",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Rooppur Nuclear Power Plant",
+    "mob_window": {
+      "start": "2025-Q2",
+      "end": "2026-Q2",
+      "duration_months": 12
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "2c60bdbc-ebc3-4cca-91e8-afde40b626d3",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/darlington-smr-nuclear-project-foundation-module-milestone"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "canada-ontario",
+    "country": "canada",
+    "headline": "Darlington SMR Basemat Module Set 35m Below Ground — First SMR in G7 Advancing to Civil Works",
+    "operator": {
+      "name": "Ontario Power Generation",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Darlington SMR",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "208014cf-9cfd-4ce9-afc4-5bfb0b44dd3d",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/key-aerb-approval-issued-for-kudankulam-5-and-6"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "ndt_inspection"
+    ],
+    "signal_type": "regulatory",
+    "region": "south-asia",
+    "country": "india",
+    "headline": "AERB Grants Equipment Installation Permit for Kudankulam Units 5 & 6 — RPV, Steam Generators & Coolant Pumps",
+    "operator": {
+      "name": "Nuclear Power Corporation of India Limited (NPCIL)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Kudankulam Nuclear Power Plant Units 5 & 6",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "b33985ee-4b53-49cb-9b19-2532b9be6298",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/norwegian-municipalities-initiate-investigation-work"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction",
+      "survey_geophysical"
+    ],
+    "signal_type": "regulatory",
+    "region": "norway",
+    "country": "norway",
+    "headline": "Norwegian Municipalities Launch SMR Nuclear Investigation Work Ahead of Licence Applications",
+    "operator": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": null,
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "bbd58e18-06ef-4804-bb0a-cf1331db9abb",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/permission-granted-for-commissioning-work-on-akkuyu-2"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction",
+      "ndt_inspection"
+    ],
+    "signal_type": "regulatory",
+    "region": "turkey",
+    "country": "turkey",
+    "headline": "Turkey Nuclear Regulator Grants Commissioning Permit for Akkuyu NPP Unit 2",
+    "operator": {
+      "name": "Akkuyu Nuclear JSC",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Akkuyu Nuclear Power Plant Unit 2",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "9966c00e-a28b-4862-a901-6f7e3e939a6b",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/bruce-c-gets-funding-for-pre-development-work"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "fid",
+    "region": "ontario-canada",
+    "country": "canada",
+    "headline": "Ontario Funds CAD300M Bruce C Pre-Development Work via Cost-Sharing Agreement with Bruce Power",
+    "operator": {
+      "name": "Bruce Power",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Bruce Power",
+      "matched_company_slug": null
+    },
+    "project_name": "Bruce C",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 220000000
+  },
+  {
+    "id": "8c948d31-88c1-4ca4-88dc-bb98f728e0bf",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/us-nrc-clears-st-lucie-1-and-2-for-80-years-operation"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "ndt_inspection"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-southeast",
+    "country": "united_states",
+    "headline": "US NRC Grants Subsequent Licence Renewals for St Lucie Units 1 & 2 Through 2056/2063",
+    "operator": {
+      "name": "Florida Power & Light",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "St Lucie Nuclear Power Plant Units 1 & 2",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "7e09c274-ad9a-4b79-bf5a-8bce1fb2bcf6",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/site-of-polish-plant-deemed-suitable"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "central-eastern-europe",
+    "country": "poland",
+    "headline": "Lubiatowo-Kopalino Site Approved for Poland's First Nuclear Power Plant",
+    "operator": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Lubiatowo-Kopalino Nuclear Power Plant",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "fbab7b31-a3cb-4427-aae0-4f3938aa356a",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/norwegian-state-expedites-kjeller-licence-transfer"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "ndt_inspection",
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "decom",
+    "region": "norway",
+    "country": "norway",
+    "headline": "Norwegian Government Accelerates Kjeller Nuclear Facility Transfer to Norwegian Nuclear Decommissioning by Jan 2027",
+    "operator": {
+      "name": "Norwegian Nuclear Decommissioning",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Norwegian Nuclear Decommissioning",
+      "matched_company_slug": null
+    },
+    "project_name": "Kjeller Nuclear Facilities Decommissioning",
+    "mob_window": {
+      "start": "2027-Q1",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "15252109-bd20-487b-b001-ab24900dda51",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/brookfield-and-the-nuclear-company-target-vcsummer"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "us-southeast",
+    "country": "united_states",
+    "headline": "Brookfield & The Nuclear Company JV to Complete VC Summer AP1000 Units in South Carolina",
+    "operator": {
+      "name": "The Nuclear Company",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Brookfield / The Nuclear Company JV",
+      "matched_company_slug": null
+    },
+    "project_name": "VC Summer AP1000 Units 2 & 3",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "3122c0c9-ee34-4f06-94db-40849ece278e",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/found-industries-and-ares-strategic-mining-sign-mou-to-advance-domestic-gallium-germanium-and-fluorspar-recovery-from-utahs-lost-sheep-mine-302769066.html"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "fid",
+    "region": "us-west",
+    "country": "united_states",
+    "headline": "Found Industries & ARES Strategic Mining Sign MOU for Gallium/Germanium/Fluorspar Recovery at Utah's Lost Sheep Mine",
+    "operator": {
+      "name": "ARES Strategic Mining",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Found Industries",
+      "matched_company_slug": null
+    },
+    "project_name": "Lost Sheep Mine",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "d57289ba-dbb1-4a33-898f-428cca16e695",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/jaguar-uranium-begins-field-work-at-guanaco-targets-potential-resource-at-laguna-salada-302769082.html"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "survey_geophysical"
+    ],
+    "signal_type": "regulatory",
+    "region": "south-america",
+    "country": "argentina",
+    "headline": "Jaguar Uranium Begins Phase 1 Field Work at Guanaco/Laguna Salada Uranium Project, Argentina",
+    "operator": {
+      "name": "Jaguar Uranium Corp.",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Jaguar Uranium Corp.",
+      "matched_company_slug": null
+    },
+    "project_name": "Guanaco / Laguna Salada",
+    "mob_window": {
+      "start": "2026-Q2",
+      "end": "2026-Q3",
+      "duration_months": 3
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "d21a857f-e026-4430-a01d-12bd5f7d5da7",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/1911-gold-confirms-extensions-of-the-l10-zone-at-true-north-intersecting-11-54-gt-gold-over-3-70-m-302768996.html"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "drilling_operations",
+      "survey_geophysical"
+    ],
+    "signal_type": "tender",
+    "region": "canada-manitoba",
+    "country": "canada",
+    "headline": "1911 Gold Expands L10 Zone at True North Mine with Underground Drill Program",
+    "operator": {
+      "name": "1911 Gold Corporation",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "1911 Gold Corporation",
+      "matched_company_slug": null
+    },
+    "project_name": "True North Mine – L10 Zone",
+    "mob_window": {
+      "start": "2026-Q2",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "ea72781f-8dd5-4c36-b5c6-bd795d0ff4f5",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/oceanagold-announces-additional-high-grade-drill-results-at-haile-870459373.html"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "drilling_operations",
+      "survey_geophysical"
+    ],
+    "signal_type": "tender",
+    "region": "us-southeast",
+    "country": "united_states",
+    "headline": "OceanaGold Reports High-Grade Drill Results at Haile Gold Mine, South Carolina",
+    "operator": {
+      "name": "OceanaGold Corporation",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Haile Gold Mine",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "952bec1b-ad99-4468-a33f-47f1bbd3c928",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/80-mile-gets-exploration-permits-to-begin-drilling-at-disko-project-in-greenland/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "drilling_operations",
+      "survey_geophysical"
+    ],
+    "signal_type": "regulatory",
+    "region": "greenland",
+    "country": "greenland",
+    "headline": "80 Mile Secures Exploration Permits for Disko-Nuussuaq Ni-Cu-Co-PGE Drill Program, July Start",
+    "operator": {
+      "name": "80 Mile",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Disko-Nuussuaq",
+    "mob_window": {
+      "start": "2025-Q3",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "747a1f36-c745-4c2f-8c17-47849fe4e9f2",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/gold-candle-acquires-pan-american-silvers-larder-property-in-the-abitibi/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "survey_geophysical",
+      "industrial_construction"
+    ],
+    "signal_type": "lease_round",
+    "region": "ontario-canada",
+    "country": "canada",
+    "headline": "Gold Candle Acquires Pan American Silver's Larder Property in Ontario's Abitibi Region",
+    "operator": {
+      "name": "Gold Candle",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Gold Candle",
+      "matched_company_slug": null
+    },
+    "project_name": "Larder Property",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "c0bff2b6-1bc4-4bb9-a945-f0d0e30c4646",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/tmc-allseas-strike-first-seabed-nodule-mining-deal/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "rov_subsea",
+      "marine_offshore_ops",
+      "survey_geophysical"
+    ],
+    "signal_type": "epc_award",
+    "region": "international-waters",
+    "country": null,
+    "headline": "TMC & Allseas Strike First Commercial Seabed Nodule Mining Deal Targeting 3M Tonnes/Year",
+    "operator": {
+      "name": "The Metals Company (TMC)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Allseas",
+      "matched_company_slug": null
+    },
+    "project_name": "TMC Seabed Nodule Mining Offshore Production System",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "2b68deda-7002-437f-90fb-34fcb89c8263",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/cameco-halts-saskatchewan-uranium-operations-after-floods/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction"
+    ],
+    "signal_type": "regulatory",
+    "region": "saskatchewan-canada",
+    "country": "canada",
+    "headline": "Cameco Halts McArthur River Mine & Key Lake Mill After Saskatchewan Floods",
+    "operator": {
+      "name": "Cameco",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Cameco",
+      "matched_company_slug": null
+    },
+    "project_name": "McArthur River Mine / Key Lake Mill",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "e841eef4-1b82-4fd5-80cb-fe5f24b00f4d",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/freeport-delays-grasberg-full-restart-to-early-2028/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "indonesia",
+    "country": "indonesia",
+    "headline": "Freeport Delays Grasberg Full Restart to Early 2028 — Phased Ramp to 65% in H2 2026",
+    "operator": {
+      "name": "Freeport-McMoRan",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Freeport-McMoRan",
+      "matched_company_slug": null
+    },
+    "project_name": "Grasberg",
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": "2028-Q1",
+      "duration_months": 18
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "50d39266-fc22-4c4c-8622-c9cfc17a5dde",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/ontarios-darlington-smr-renews-canadas-nuclear-maturity/"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "ontario-canada",
+    "country": "canada",
+    "headline": "Darlington SMR Construction Begins — First SMR in G7, Ontario Canada",
+    "operator": {
+      "name": "Ontario Power Generation",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Darlington SMR",
+    "mob_window": {
+      "start": "2025-Q2",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "67233574-ad73-40ae-a1cb-f53ca365e49d",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/touquoy-mine-reboot-to-yield-180m-in-canadian-gold/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "atlantic-canada",
+    "country": "canada",
+    "headline": "Atlantic Mining Reboots Touquoy Mine to Reprocess 3M Tonnes of Gold Ore, Nova Scotia",
+    "operator": {
+      "name": "Atlantic Mining",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Atlantic Mining",
+      "matched_company_slug": null
+    },
+    "project_name": "Touquoy Mine Reboot",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 180000000
+  },
+  {
+    "id": "9509d877-100f-4146-8470-ff0d67b9ccf7",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/buenaventura-eyes-16-year-boost-for-new-peru-mine/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "survey_geophysical"
+    ],
+    "signal_type": "fid",
+    "region": "peru-andes",
+    "country": "peru",
+    "headline": "Buenaventura Eyes 16-Year Life Extension for San Gabriel Gold Mine, Peru",
+    "operator": {
+      "name": "Buenaventura",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Buenaventura",
+      "matched_company_slug": null
+    },
+    "project_name": "San Gabriel",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": 192
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "0f1a855d-d526-4420-8874-5ccee591435b",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/cornish-metals-secures-210m-to-fund-uk-tin-mine-revival/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "fid",
+    "region": "uk-southwest",
+    "country": "united_kingdom",
+    "headline": "Cornish Metals Secures $210M to Restart South Crofty Tin Mine in Cornwall",
+    "operator": {
+      "name": "Cornish Metals",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Cornish Metals",
+      "matched_company_slug": null
+    },
+    "project_name": "South Crofty",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 210000000
+  },
+  {
+    "id": "88711ead-fc3a-45a3-ba34-bc302ad4562f",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/trafigura-in-talks-to-build-aluminum-smelter-in-egypt/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "north-africa",
+    "country": "egypt",
+    "headline": "Trafigura in Talks to Build 300ktpa Primary Aluminum Smelter in Egypt with Egyptalum",
+    "operator": {
+      "name": "Trafigura",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Trafigura",
+      "matched_company_slug": null
+    },
+    "project_name": "Egyptalum Primary Aluminum Smelter",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
     "id": "fe31d22a-7399-44b2-af58-0be52ea227e7",
     "ingested_at": "2026-05-12T10:57:04.891Z",
     "sources": [
