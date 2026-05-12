@@ -3,9 +3,11 @@ import { writeFile } from 'fs/promises'
 import { PATHS, readJson, TRIM_WINDOW_DAYS, DEDUPE_WINDOW_DAYS } from './config.js'
 import { fetchAllSources } from './fetchSources.js'
 import { dedupeAgainstExisting } from './dedupe.js'
-import { enrichEntry } from './enrich.js'
+import { enrichEntry, PROMPT_VERSION } from './enrich.js'
 import { matchCompanyToSlug } from '../../src/utils/feed/companyMatcher.js'
 import { findStaleSources, postHealthAlert } from './healthAlert.js'
+import { deriveArchetypes } from './archetypes.js'
+import { getSizeTier } from '../../src/utils/feed/sizeTier.js'
 import crypto from 'crypto'
 
 function liteProjection(entry) {
@@ -43,12 +45,13 @@ async function main() {
   const excludedCountries = await readJson(PATHS.EXCLUDED_COUNTRIES).catch(() => ({ excluded: [] }))
   const excludedSet = new Set((excludedCountries.excluded || []).map(s => s.toLowerCase()))
 
-  const [sources, taxonomy, existing, companiesData, rejectedRaw] = await Promise.all([
+  const [sources, taxonomy, existing, companiesData, rejectedRaw, pdlCache] = await Promise.all([
     readJson(PATHS.SOURCES),
     readJson(PATHS.TAXONOMY),
     readJson(PATHS.ENTRIES),
     readJson(PATHS.COMPANIES).catch(() => ({ companies: [] })),
     readJson(PATHS.REJECTED_HASHES).catch(() => []),
+    readJson(PATHS.PDL_COMPANY_CACHE).catch(() => ({})),
   ])
 
   const stillValidRejected = trimRejectedToWindow(Array.isArray(rejectedRaw) ? rejectedRaw : [])
@@ -99,6 +102,12 @@ async function main() {
     e.hiring_entity = e.hiring_entity || { name: null }
     e.operator.matched_company_slug = matchCompanyToSlug(e.operator.name, companiesData)
     e.hiring_entity.matched_company_slug = matchCompanyToSlug(e.hiring_entity.name, companiesData)
+    const sizeTierForArchetypes = getSizeTier(
+      e.hiring_entity?.name || e.operator?.name,
+      pdlCache
+    )
+    e.contact_archetypes = deriveArchetypes(e.phase, e.scope, sizeTierForArchetypes)
+    e.prompt_version = PROMPT_VERSION
     enriched.push(e)
   }
 

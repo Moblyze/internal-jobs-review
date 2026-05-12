@@ -16,6 +16,7 @@ export const PATHS = {
   ARCHIVE_DIR: resolve(ROOT, 'public/data/feed'),
   EXCLUDED_COUNTRIES: resolve(ROOT, 'public/data/feed/excluded_countries.json'),
   REJECTED_HASHES: resolve(ROOT, 'public/data/feed/rejected_hashes.json'),
+  PDL_COMPANY_CACHE: resolve(ROOT, 'public/data/pdl-company-cache.json'),
 }
 
 export async function readJson(path) {
