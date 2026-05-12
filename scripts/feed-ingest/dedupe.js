@@ -23,7 +23,10 @@ export function dedupeAgainstExisting(freshItems, existingEntries) {
     const t = e.ingested_at ? new Date(e.ingested_at).getTime() : 0
     return t >= cutoff
   })
-  const byHash = new Map(recent.map(e => [computeHash(e), e]))
+  // Use the stored e.hash — recomputing here would mismatch because the LLM
+  // overwrites the headline during enrichment (the stored hash was computed
+  // from the original RSS headline).
+  const byHash = new Map(recent.map(e => [e.hash || computeHash(e), e]))
 
   const newEntries = []
   const updatedExisting = []
