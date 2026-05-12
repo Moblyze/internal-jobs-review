@@ -2,8 +2,15 @@ import Anthropic from '@anthropic-ai/sdk'
 
 const MODEL = 'claude-sonnet-4-6'
 const GATE_MODEL = 'claude-haiku-4-5-20251001'
-const MAX_TOKENS = 1536
+const MAX_TOKENS = 2048
 const GATE_MAX_TOKENS = 256
+
+export const PROMPT_VERSION = 'phase-targeting-v1'
+
+export const PHASES = ['pre_sanction', 'sanctioned_engineering', 'construction', 'operating']
+export const READINESS = ['cold', 'warming', 'hot', 'live_now']
+export const HIRING_WINDOWS = ['now', '1-3mo', '3-6mo', '6-12mo', '12mo+', 'ongoing']
+export const HIRING_RELEVANCE = ['likely_decision_maker', 'context_only']
 
 const BD_RELEVANCE_CRITERIA = `BD RELEVANCE CRITERIA:
 
@@ -46,6 +53,14 @@ INCLUDE — "Block 15 Awarded to TotalEnergies in Angola's 2026 Deepwater Licens
   → Specific block award naming operator and acreage
   → bd_relevant: true, bd_relevance_reason: "Deepwater block award naming TotalEnergies in Angola licensing round"
 
+INCLUDE — "Saipem Appoints John Doe as Project Director for Equinor's Rosebank Phase 2 SURF Contract"
+  → EPC/SURF award naming Equinor (operator) and Saipem (hiring entity); Project Director named with title
+  → bd_relevant: true, bd_relevance_reason: "EPC/SURF contract award naming Equinor and Saipem with a named Project Director"
+  → phase: "sanctioned_engineering" (EPC award is post-FID; engineering ramps next)
+  → phase_evidence: "EPC SURF contract just awarded; detailed engineering will follow"
+  → outreach_readiness: "hot", estimated_hiring_window: "3-6mo"
+  → key_people: [{name: "John Doe", title: "Project Director", company: "Saipem", hiring_relevance: "likely_decision_maker"}]
+
 EXCLUDE — "J.P. Morgan: Oil Inventories Acting as Shock Absorber of Global Supply System"
   → Market analysis, no project or workforce signal
   → bd_relevant: false, bd_relevance_reason: "Generic oil market commentary, no project or hiring entity named"
@@ -61,6 +76,30 @@ EXCLUDE — "USA Says Iran Ceasefire Still in Place"
 EXCLUDE — "Trump Comments on State of Iran Nuclear Talks"
   → Political commentary, no named project or operator
   → bd_relevant: false, bd_relevance_reason: "Political commentary with no actionable BD signal or named project"`
+
+const PHASE_AND_READINESS_RULES = `PROJECT PHASE — classify the project's lifecycle stage from the article body, not from your industry assumptions. Pick exactly one:
+  - pre_sanction: concept/FEED/pre-FID. Not yet greenlit.
+  - sanctioned_engineering: FID done, EPC tenders running or just awarded, detailed engineering ramping.
+  - construction: fabrication, installation, hookup/commissioning. THE prime hiring window for trades.
+  - operating: producing/operational. Only ongoing maintenance hires.
+
+OUTREACH READINESS — how imminent is hiring? Pick exactly one:
+  - cold: >12 months from active hiring, or this is old news about something completed
+  - warming: 6-12 months from active hiring
+  - hot: 1-6 months from active hiring
+  - live_now: actively hiring within weeks
+
+ESTIMATED HIRING WINDOW — coarse time-to-first-hire (or "ongoing" for steady maintenance). One of: now, 1-3mo, 3-6mo, 6-12mo, 12mo+, ongoing.
+
+CONSISTENCY RULE — phase, readiness, and window must align. Allowed pairings (deviating usually means you misread the phase):
+  - pre_sanction → cold, window 12mo+ or null
+  - sanctioned_engineering → warming or hot, window 3-6mo or 6-12mo
+  - construction → hot or live_now, window now, 1-3mo, or 3-6mo
+  - operating → cold (no new ramp) OR warming/hot with window ongoing (maintenance)
+
+KEY PEOPLE — extract individuals named in the article body WITH A TITLE. Skip generic "spokesperson" quotes.
+  hiring_relevance: 'likely_decision_maker' for Project Director, Project Manager, VP Operations, Site Manager, GM, Hiring Manager, COO, head of TA.
+  hiring_relevance: 'context_only' for CEO, board members, press contacts, government officials, analysts, competitors.`
 
 export function buildGatePrompt(item, excludedCountries = []) {
   return `You are a fast gate for a BD intelligence feed serving energy-industry agency recruiters. Decide whether the article describes a discrete labor-demand event a recruiter can act on. Apply the criteria strictly.
@@ -91,7 +130,9 @@ ${BD_RELEVANCE_CRITERIA}
 
 ${BD_RELEVANCE_EXAMPLES}
 
-Given a news article (headline + body), produce a single JSON object with the following keys. Use null when a field is not stated or strongly implied. Never invent operators, contractors, project names, certifications, or numbers.
+${PHASE_AND_READINESS_RULES}
+
+Given a news article (headline + body), produce a single JSON object with the following keys. Use null when a field is not stated or strongly implied. Never invent operators, contractors, project names, certifications, or numbers. Never invent named individuals — only extract people the article actually names with a title.
 ${excludedCountries.length > 0 ? `
 GEO HINT: If the project country is one of [${excludedCountries.join(', ')}], default to bd_relevant: false UNLESS the article describes a Western contractor or operator that needs Western/EEA-eligible labor at that location. (We don't recruit local nationals in those markets.)
 ` : ''}
@@ -126,7 +167,14 @@ OUTPUT SCHEMA (JSON only, no prose):
     "email_body": "string"
   },
   "bd_relevant": true | false,
-  "bd_relevance_reason": "one sentence explaining why this is or is not BD-relevant"
+  "bd_relevance_reason": "one sentence explaining why this is or is not BD-relevant",
+  "phase": "pre_sanction" | "sanctioned_engineering" | "construction" | "operating" | null,
+  "phase_evidence": "1 sentence pointing at the article phrase that supports your phase call" | null,
+  "outreach_readiness": "cold" | "warming" | "hot" | "live_now" | null,
+  "estimated_hiring_window": "now" | "1-3mo" | "3-6mo" | "6-12mo" | "12mo+" | "ongoing" | null,
+  "key_people": [
+    { "name": "string", "title": "string", "company": "string | null", "hiring_relevance": "likely_decision_maker" | "context_only" }
+  ]
 }
 
 For bd_relevant: false entries, you may set all other fields to null/empty — the entry will be dropped from the feed.

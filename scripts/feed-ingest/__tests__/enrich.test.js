@@ -200,3 +200,56 @@ test('parseGateJson: irrecoverable garbage returns null', () => {
   assert.equal(parseGateJson(''), null)
   assert.equal(parseGateJson(null), null)
 })
+
+test('enrichEntry: new schema fields land on successful Sonnet response', async () => {
+  const sonnetPayload = {
+    ...validSonnetResponse,
+    phase: 'sanctioned_engineering',
+    phase_evidence: 'EPC contract just awarded',
+    outreach_readiness: 'hot',
+    estimated_hiring_window: '3-6mo',
+    key_people: [
+      { name: 'John Doe', title: 'Project Director', company: 'Saipem', hiring_relevance: 'likely_decision_maker' },
+      { name: 'Jane Roe', title: 'CEO', company: 'Equinor', hiring_relevance: 'context_only' },
+    ],
+  }
+  const client = makeFakeClient({
+    gateText: JSON.stringify({ bd_relevant: true, reason: 'EPC award' }),
+    sonnetText: JSON.stringify(sonnetPayload),
+  })
+  const result = await enrichEntry(
+    { headline: 'Saipem wins Rosebank', body: 'b', source: { id: 's' } },
+    mockTaxonomy,
+    { client }
+  )
+  assert.equal(result.phase, 'sanctioned_engineering')
+  assert.equal(result.outreach_readiness, 'hot')
+  assert.equal(result.estimated_hiring_window, '3-6mo')
+  assert.equal(result.key_people.length, 2)
+  assert.equal(result.key_people[0].hiring_relevance, 'likely_decision_maker')
+})
+
+test('enrichEntry: missing optional new fields default to undefined, not error', async () => {
+  const client = makeFakeClient({
+    gateText: JSON.stringify({ bd_relevant: true, reason: 'ok' }),
+    sonnetText: JSON.stringify(validSonnetResponse),
+  })
+  const result = await enrichEntry(
+    { headline: 'h', body: 'b', source: { id: 's' } },
+    mockTaxonomy,
+    { client }
+  )
+  assert.equal(result.enrichment_status, 'ok')
+  assert.equal(result.phase, undefined)
+  assert.equal(result.key_people, undefined)
+})
+
+test('buildPrompt embeds the new phase/readiness rules and the key_people guidance', () => {
+  const p = buildPrompt({ headline: 'X', body: 'Y' }, mockTaxonomy, [])
+  assert.match(p, /PROJECT PHASE/)
+  assert.match(p, /OUTREACH READINESS/)
+  assert.match(p, /CONSISTENCY RULE/)
+  assert.match(p, /KEY PEOPLE/)
+  assert.match(p, /sanctioned_engineering/)
+  assert.match(p, /likely_decision_maker/)
+})
