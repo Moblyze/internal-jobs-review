@@ -139,6 +139,19 @@ Body: ${item.body || '(no body provided)'}
 Output the JSON now. Do not wrap in code fences.`
 }
 
+export function parseGateJson(text) {
+  if (!text) return null
+  try { return JSON.parse(text) } catch {}
+  const stripped = text.replace(/```(?:json)?/gi, '').replace(/```/g, '').trim()
+  try { return JSON.parse(stripped) } catch {}
+  const first = stripped.indexOf('{')
+  const last = stripped.lastIndexOf('}')
+  if (first !== -1 && last !== -1 && last > first) {
+    try { return JSON.parse(stripped.slice(first, last + 1)) } catch {}
+  }
+  return null
+}
+
 export function reducedDetailEntry(item) {
   return {
     ...item,
@@ -176,23 +189,23 @@ export async function enrichEntry(item, taxonomy, opts = {}) {
   const client = opts.client || new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
   const excludedCountries = opts.excludedCountries || []
 
-  // Pass 1: cheap Haiku gate. On malformed JSON we fall through to Sonnet
-  // (assume relevant) so we never silently drop a hit because of gate flakiness.
+  // Pass 1: cheap Haiku gate. Prefill with '{' so the model continues with
+  // JSON only. On malformed JSON we fall through to Sonnet (assume relevant)
+  // so we never silently drop a hit because of gate flakiness.
   try {
     const gateResp = await client.messages.create({
       model: GATE_MODEL,
       max_tokens: GATE_MAX_TOKENS,
-      messages: [{ role: 'user', content: buildGatePrompt(item, excludedCountries) }],
+      messages: [
+        { role: 'user', content: buildGatePrompt(item, excludedCountries) },
+        { role: 'assistant', content: '{' },
+      ],
     })
-    const gateText = gateResp.content?.[0]?.text || ''
-    let gate
-    try {
-      gate = JSON.parse(gateText)
-    } catch {
-      console.warn(`[enrich] gate JSON parse failed for ${item.headline?.slice(0, 60)}; falling through to Sonnet`)
-      gate = null
-    }
-    if (gate && gate.bd_relevant === false) {
+    const gateText = '{' + (gateResp.content?.[0]?.text || '')
+    const gate = parseGateJson(gateText)
+    if (!gate) {
+      console.warn(`[enrich] gate JSON parse failed for ${item.headline?.slice(0, 60)}; raw=${gateText.slice(0, 200)}; falling through to Sonnet`)
+    } else if (gate.bd_relevant === false) {
       return gatedOutEntry(item, gate.reason)
     }
   } catch (err) {

@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { enrichEntry, buildPrompt, buildGatePrompt } from '../enrich.js'
+import { enrichEntry, buildPrompt, buildGatePrompt, parseGateJson } from '../enrich.js'
 
 const mockTaxonomy = {
   subsectors: [{ id: 'offshore-og', label: 'Offshore O&G' }],
@@ -33,7 +33,13 @@ function makeFakeClient({ gateText, sonnetText, gateError, sonnetError }) {
         calls.push(model)
         if (model.includes('haiku')) {
           if (gateError) throw new Error(gateError)
-          return { content: [{ type: 'text', text: gateText }] }
+          // Production code prefills the assistant turn with '{', so the API
+          // returns the continuation. Strip a leading '{' from gateText so
+          // tests can keep using full-JSON strings.
+          const text = typeof gateText === 'string' && gateText.startsWith('{')
+            ? gateText.slice(1)
+            : gateText
+          return { content: [{ type: 'text', text }] }
         }
         if (sonnetError) throw new Error(sonnetError)
         return { content: [{ type: 'text', text: sonnetText }] }
@@ -172,4 +178,25 @@ test('enrichEntry: backward-compatible single-mock client (no model branching) s
   )
   assert.equal(result.enrichment_status, 'ok')
   assert.equal(result.subsector, 'offshore-og')
+})
+
+test('parseGateJson: plain valid JSON', () => {
+  const r = parseGateJson('{"bd_relevant": true, "reason": "x"}')
+  assert.deepEqual(r, { bd_relevant: true, reason: 'x' })
+})
+
+test('parseGateJson: stripped json code fence', () => {
+  const r = parseGateJson('```json\n{"bd_relevant": false, "reason": "y"}\n```')
+  assert.deepEqual(r, { bd_relevant: false, reason: 'y' })
+})
+
+test('parseGateJson: prose before and after JSON', () => {
+  const r = parseGateJson('Sure, here it is: {"bd_relevant": true, "reason": "z"} — let me know!')
+  assert.deepEqual(r, { bd_relevant: true, reason: 'z' })
+})
+
+test('parseGateJson: irrecoverable garbage returns null', () => {
+  assert.equal(parseGateJson('totally not json'), null)
+  assert.equal(parseGateJson(''), null)
+  assert.equal(parseGateJson(null), null)
 })
