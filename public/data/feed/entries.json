@@ -2,6 +2,420 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/fuel-loading-begins-for-bangladeshs-first-nuclear-power-plant"
+      }
+    ],
+    "headline": "Fuel Loading Begins at Rooppur NPP Unit 1 — Commissioning Phase Imminent",
+    "body": "A ceremony has been held in Bangladesh to mark the start of the loading of 163 nuclear fuel assemblies into Rooppur Nuclear Power Plant’s first unit.",
+    "url": "https://www.world-nuclear-news.org//articles/fuel-loading-begins-for-bangladeshs-first-nuclear-power-plant",
+    "published_at": "2026-04-28T13:15:50.000Z",
+    "hash": "dce79ebaad7716fc",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "regulatory",
+    "region": "bangladesh",
+    "country": "bangladesh",
+    "tldr": "Fuel loading has commenced at Rooppur Nuclear Power Plant Unit 1 in Bangladesh, signaling the transition into active commissioning and operations ramp-up. No Western contractor or operator is named in the article.",
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": "Rooppur Nuclear Power Plant Unit 1",
+    "scope": [
+      "fuel_loading",
+      "commissioning"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "bd_relevant": false,
+    "bd_relevance_reason": "Rooppur NPP is a Russian-built (Rosatom) project in Bangladesh; no Western contractor or operator is named, and under the geo-hint rule this market is excluded unless a Western/EEA hiring entity is identified.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "3ad38ad2-786b-40c5-a2dd-023f6f204620",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "source_published_at": "2026-04-28T13:15:50.000Z",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/found-industries-and-ares-strategic-mining-sign-mou-to-advance-domestic-gallium-germanium-and-fluorspar-recovery-from-utahs-lost-sheep-mine-302769066.html"
+      }
+    ],
+    "headline": "Found Industries & ARES Strategic Mining Sign MOU for Gallium/Germanium/Fluorspar Recovery at Utah's Lost Sheep Mine",
+    "body": "Found to evaluate resin-free electrochemical Direct Feedstock Extraction technology at the only currently permitted fluorspar mine in the United States BOSTON and JUAB COUNTY, Utah, May 12, 2026 /PRNewswire/ -- Found Industries, through its Found Metals division, and ARES Strategic Mining...",
+    "url": "https://www.prnewswire.com/news-releases/found-industries-and-ares-strategic-mining-sign-mou-to-advance-domestic-gallium-germanium-and-fluorspar-recovery-from-utahs-lost-sheep-mine-302769066.html",
+    "published_at": "2026-05-12T12:30:00.000Z",
+    "hash": "5e22c5e7f421510e",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "tender",
+    "region": "us-west",
+    "country": "united_states",
+    "tldr": "Found Industries and ARES Strategic Mining have signed an MOU to evaluate electrochemical extraction technology at the Lost Sheep Mine in Utah. This pre-sanction agreement signals potential future workforce demand if the technology evaluation progresses to development.",
+    "operator": {
+      "name": "ARES Strategic Mining"
+    },
+    "hiring_entity": {
+      "name": "Found Industries"
+    },
+    "project_name": "Lost Sheep Mine",
+    "scope": [
+      "technology_evaluation",
+      "mineral_extraction",
+      "process_plant"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Metallurgical Engineer",
+        "Process Engineer",
+        "Extractive Metallurgist",
+        "Mine Process Technician",
+        "Hydrometallurgy Engineer"
+      ],
+      "skills": [
+        "electrochemical extraction",
+        "fluorspar processing",
+        "rare earth mineral recovery",
+        "gallium recovery",
+        "germanium recovery"
+      ],
+      "certs_freetext": [
+        "MSHA Part 48",
+        "Professional Engineer (PE)"
+      ],
+      "geo_rtw": "US work authorization required, Utah-based or relocatable",
+      "project_experience": [
+        "fluorspar mining",
+        "critical minerals processing",
+        "rare earth extraction"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"metallurgical engineer\" OR \"process engineer\" OR \"extractive metallurgist\" OR \"hydrometallurgy\") AND (\"fluorspar\" OR \"gallium\" OR \"germanium\" OR \"rare earth\" OR \"critical minerals\" OR \"electrochemical extraction\") AND (\"mining\" OR \"mineral processing\") AND (Utah OR \"western US\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Found Industries & ARES Strategic Mining just signed an MOU to evaluate novel extraction tech at Utah's Lost Sheep Mine. Early-stage critical minerals project — keen to connect ahead of potential ramp-up. Worth a quick chat?",
+      "email_subject": "Lost Sheep Mine – Critical Minerals Extraction Project | Early Talent Conversation",
+      "email_body": "Hi [Name],\n\nFound Industries and ARES Strategic Mining have signed an MOU to evaluate electrochemical Direct Feedstock Extraction technology for gallium, germanium, and fluorspar recovery at the Lost Sheep Mine in Utah — the only currently permitted fluorspar mine in the US.\n\nWhile still at evaluation stage, projects like this tend to move quickly once technology is validated. I work with engineers and specialists in critical minerals processing and wanted to connect early.\n\nWould you be open to a brief call to discuss your background and how it might align with upcoming needs on this project?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "MOU between named operator (ARES Strategic Mining) and contractor (Found Industries) for technology evaluation at a named mining project (Lost Sheep Mine), signaling early-stage labor demand in the critical minerals/mining sector.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "3122c0c9-ee34-4f06-94db-40849ece278e",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "source_published_at": "2026-05-12T12:30:00.000Z",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article describes an MOU to 'evaluate' the extraction technology, indicating pre-FID/concept stage with no confirmed development decision.",
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/jaguar-uranium-begins-field-work-at-guanaco-targets-potential-resource-at-laguna-salada-302769082.html"
+      }
+    ],
+    "headline": "Jaguar Uranium Begins Phase 1 Field Work at Guanaco/Laguna Salada Uranium Project, Argentina",
+    "body": "Phase 1 program underway following March 2 EIA approval; Additional high-priority targets identified across the broader ~230,000-hectare property TORONTO, May 12, 2026 /PRNewswire/ - Jaguar Uranium Corp. (NYSE American: JAGU) (\"Jaguar\" or the \"Company\") is pleased to announce that it has...",
+    "url": "https://www.prnewswire.com/news-releases/jaguar-uranium-begins-field-work-at-guanaco-targets-potential-resource-at-laguna-salada-302769082.html",
+    "published_at": "2026-05-12T11:55:00.000Z",
+    "hash": "2137dd6e8a967e4f",
+    "subsector": "mining",
+    "discipline_tags": [
+      "survey_geophysical",
+      "drilling_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "argentina",
+    "country": "argentina",
+    "tldr": "Jaguar Uranium has commenced Phase 1 field work at its ~230,000-hectare Guanaco/Laguna Salada uranium project in Argentina following EIA approval in March 2026, signalling early exploration hiring demand.",
+    "operator": {
+      "name": "Jaguar Uranium Corp."
+    },
+    "hiring_entity": {
+      "name": "Jaguar Uranium Corp."
+    },
+    "project_name": "Guanaco/Laguna Salada Uranium Project",
+    "scope": [
+      "phase1_field_work",
+      "exploration",
+      "eia_approved"
+    ],
+    "mob_window": {
+      "start": "2026-Q2",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Exploration Geologist",
+        "Field Geologist",
+        "Uranium Exploration Specialist",
+        "Geophysicist",
+        "Drilling Supervisor",
+        "Field Camp Manager",
+        "Environmental Geologist"
+      ],
+      "skills": [
+        "uranium exploration",
+        "field mapping",
+        "geophysical surveying",
+        "drill program management",
+        "EIA compliance",
+        "radiometric surveying",
+        "resource estimation"
+      ],
+      "certs_freetext": [
+        "radiation safety certificate",
+        "first aid wilderness",
+        "MSHA"
+      ],
+      "geo_rtw": "Argentina or Latin America field-deployable",
+      "project_experience": [
+        "uranium exploration programs",
+        "Argentina mining projects",
+        "South America mineral exploration"
+      ],
+      "yoe_band": "5-15",
+      "seniority": "mid to senior",
+      "boolean_search": "(\"uranium exploration\" OR \"uranium project\" OR \"exploration geologist\" OR \"field geologist\" OR \"geophysicist\") AND (\"Argentina\" OR \"Latin America\" OR \"South America\") AND (\"Phase 1\" OR \"field work\" OR \"exploration program\" OR \"radiometric\" OR \"drilling\") NOT (\"financial analyst\" OR \"investor relations\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Jaguar Uranium has just kicked off Phase 1 field work at their Guanaco/Laguna Salada project in Argentina post-EIA approval. We're sourcing uranium exploration professionals for mobilisation now. Open to a quick chat?",
+      "email_subject": "Uranium Exploration Roles – Jaguar Uranium Phase 1, Argentina (Live Now)",
+      "email_body": "Hi [Name],\n\nJaguar Uranium Corp. has commenced Phase 1 field work at its ~230,000-hectare Guanaco/Laguna Salada uranium project in Argentina, following EIA approval received in March 2026. Additional high-priority targets have been identified across the property, suggesting an active and expanding exploration program.\n\nWe are currently sourcing experienced uranium exploration professionals — geologists, geophysicists, and field supervisors — for deployment to this program.\n\nIf you have relevant Latin America field experience and are open to discussing opportunities, I'd love to connect.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Jaguar Uranium Corp.) has commenced Phase 1 field work at a named project (Guanaco/Laguna Salada) in Argentina following permit/EIA approval, constituting a discrete exploration ramp-up event with near-term staffing demand.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "d57289ba-dbb1-4a33-898f-428cca16e695",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "source_published_at": "2026-05-12T11:55:00.000Z",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article describes Phase 1 field work commencing following EIA approval, indicating early-stage exploration well before any FID or construction sanction.",
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": [],
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/1911-gold-confirms-extensions-of-the-l10-zone-at-true-north-intersecting-11-54-gt-gold-over-3-70-m-302768996.html"
+      }
+    ],
+    "headline": "1911 Gold Expands L10 Zone at True North Mine with Underground Drill Program",
+    "body": "VANCOUVER, BC, May 12, 2026 /PRNewswire/ - 1911 Gold Corporation (\"1911 Gold\" or the \"Company\") (TSXV: AUMB) (OTCQX: AUMBF) (FRA: 2KY) is pleased to provide assay results from the underground resource expansion drill program at the Company's wholly-owned operational and fully permitted...",
+    "url": "https://www.prnewswire.com/news-releases/1911-gold-confirms-extensions-of-the-l10-zone-at-true-north-intersecting-11-54-gt-gold-over-3-70-m-302768996.html",
+    "published_at": "2026-05-12T11:02:00.000Z",
+    "hash": "b23b6b0e2b94e0b6",
+    "subsector": "mining",
+    "discipline_tags": [
+      "drilling_operations",
+      "survey_geophysical"
+    ],
+    "signal_type": "tender",
+    "region": "canada-manitoba",
+    "country": "canada",
+    "tldr": "1911 Gold Corporation is running an underground resource expansion drill program at its True North Mine, signaling active drilling operations and potential near-term labor demand for underground drilling crews.",
+    "operator": {
+      "name": "1911 Gold Corporation"
+    },
+    "hiring_entity": {
+      "name": "1911 Gold Corporation"
+    },
+    "project_name": "True North Mine – L10 Zone Expansion",
+    "scope": [
+      "underground_drilling",
+      "resource_expansion"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Underground Drill Operator",
+        "Diamond Driller",
+        "Drill Helper",
+        "Underground Geologist",
+        "Core Technician",
+        "Mine Geologist"
+      ],
+      "skills": [
+        "underground diamond drilling",
+        "core logging",
+        "resource drilling",
+        "grade control",
+        "underground mining operations"
+      ],
+      "certs_freetext": [
+        "Underground Common Core",
+        "Blasting Certificate",
+        "First Aid Level 1"
+      ],
+      "geo_rtw": "Canada (Manitoba preferred); must have right to work in Canada",
+      "project_experience": [
+        "underground gold mining",
+        "narrow-vein drilling",
+        "resource definition drilling"
+      ],
+      "yoe_band": "3-10",
+      "seniority": "mid-level",
+      "boolean_search": "(\"underground drill operator\" OR \"diamond driller\" OR \"underground driller\" OR \"drill helper\" OR \"underground geologist\" OR \"core technician\") AND (\"underground mining\" OR \"gold mining\" OR \"resource drilling\" OR \"diamond drilling\") AND (Canada OR Manitoba OR \"True North\" OR \"1911 Gold\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], 1911 Gold is actively drilling underground at their True North Mine in Manitoba. We're placing underground drillers and geologists for this program — open to a quick chat about fit?",
+      "email_subject": "Underground Drilling Roles – True North Mine, Manitoba",
+      "email_body": "Hi [Name],\n\n1911 Gold Corporation is currently running an underground resource expansion drill program at their True North Mine in Manitoba (L10 Zone). We're supporting resourcing for this active campaign and have openings for experienced underground drill operators, diamond drillers, and underground geologists.\n\nGiven your background in [relevant experience], I thought this could be a strong fit. The program is live now, so timelines are immediate.\n\nWould you be open to a brief call this week to discuss?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (1911 Gold Corporation) running an active underground drill program at a named project (True North Mine, L10 Zone), constituting a discrete workforce-demand event in mining.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "d21a857f-e026-4430-a01d-12bd5f7d5da7",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "source_published_at": "2026-05-12T11:02:00.000Z",
+    "phase": "operating",
+    "phase_evidence": "Article describes the mine as 'wholly-owned operational and fully permitted,' with an active underground resource expansion drill program currently underway.",
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": [],
+    "contact_archetypes": [
+      "ops_director",
+      "hiring_manager"
+    ],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/oceanagold-announces-additional-high-grade-drill-results-at-haile-870459373.html"
+      }
+    ],
+    "headline": null,
+    "body": "VANCOUVER, BC, May 12, 2026 /CNW/ - OceanaGold Corporation (TSX: OGC) (NYSE: OGC) (\"OceanaGold\" or the \"Company\") is pleased to announce high-grade results from its ongoing exploration and resource conversion drilling program at the Haile Gold Mine (\"Haile\") in the United States. Drilling...",
+    "url": "https://www.prnewswire.com/news-releases/oceanagold-announces-additional-high-grade-drill-results-at-haile-870459373.html",
+    "published_at": "2026-05-12T11:00:00.000Z",
+    "hash": "efe7bff5f7d042e3",
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "tldr": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "bd_relevant": false,
+    "bd_relevance_reason": "Article reports exploration drill results at an existing operating mine — no contract award, FID, rig fixture, or discrete workforce-demand event is described.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "ea72781f-8dd5-4c36-b5c6-bd795d0ff4f5",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "source_published_at": "2026-05-12T11:00:00.000Z",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "sources": [
+      {
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/eni_confirms_size_of_giant_gas_discovery_offshore_indonesia-07-may-2026-183630-article/?rss=true"
@@ -732,75 +1146,6 @@
       "hiring_manager",
       "business_unit_director"
     ],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/fuel-loading-begins-for-bangladeshs-first-nuclear-power-plant"
-      }
-    ],
-    "headline": "Fuel Loading Begins at Rooppur NPP Unit 1 — Commissioning Phase Imminent",
-    "body": "A ceremony has been held in Bangladesh to mark the start of the loading of 163 nuclear fuel assemblies into Rooppur Nuclear Power Plant’s first unit.",
-    "url": "https://www.world-nuclear-news.org//articles/fuel-loading-begins-for-bangladeshs-first-nuclear-power-plant",
-    "published_at": "2026-04-28T13:15:50.000Z",
-    "hash": "dce79ebaad7716fc",
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "process_plant_operations",
-      "industrial_construction"
-    ],
-    "signal_type": "regulatory",
-    "region": "bangladesh",
-    "country": "bangladesh",
-    "tldr": "Fuel loading has commenced at Rooppur Nuclear Power Plant Unit 1 in Bangladesh, signaling the transition into active commissioning and operations ramp-up. No Western contractor or operator is named in the article.",
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": "Rooppur Nuclear Power Plant Unit 1",
-    "scope": [
-      "fuel_loading",
-      "commissioning"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "bd_relevant": false,
-    "bd_relevance_reason": "Rooppur NPP is a Russian-built (Rosatom) project in Bangladesh; no Western contractor or operator is named, and under the geo-hint rule this market is excluded unless a Western/EEA hiring entity is identified.",
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "3ad38ad2-786b-40c5-a2dd-023f6f204620",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "source_published_at": "2026-04-28T13:15:50.000Z",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
     "prompt_version": "phase-targeting-v1"
   },
   {
@@ -1690,351 +2035,6 @@
       "hiring_manager",
       "business_unit_director"
     ],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "sources": [
-      {
-        "id": "pr_newswire_energy",
-        "name": "PR Newswire (Energy)",
-        "url": "https://www.prnewswire.com/news-releases/found-industries-and-ares-strategic-mining-sign-mou-to-advance-domestic-gallium-germanium-and-fluorspar-recovery-from-utahs-lost-sheep-mine-302769066.html"
-      }
-    ],
-    "headline": "Found Industries & ARES Strategic Mining Sign MOU for Gallium/Germanium/Fluorspar Recovery at Utah's Lost Sheep Mine",
-    "body": "Found to evaluate resin-free electrochemical Direct Feedstock Extraction technology at the only currently permitted fluorspar mine in the United States BOSTON and JUAB COUNTY, Utah, May 12, 2026 /PRNewswire/ -- Found Industries, through its Found Metals division, and ARES Strategic Mining...",
-    "url": "https://www.prnewswire.com/news-releases/found-industries-and-ares-strategic-mining-sign-mou-to-advance-domestic-gallium-germanium-and-fluorspar-recovery-from-utahs-lost-sheep-mine-302769066.html",
-    "published_at": "2026-05-12T12:30:00.000Z",
-    "hash": "5e22c5e7f421510e",
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations"
-    ],
-    "signal_type": "tender",
-    "region": "us-west",
-    "country": "united_states",
-    "tldr": "Found Industries and ARES Strategic Mining have signed an MOU to evaluate electrochemical extraction technology at the Lost Sheep Mine in Utah. This pre-sanction agreement signals potential future workforce demand if the technology evaluation progresses to development.",
-    "operator": {
-      "name": "ARES Strategic Mining"
-    },
-    "hiring_entity": {
-      "name": "Found Industries"
-    },
-    "project_name": "Lost Sheep Mine",
-    "scope": [
-      "technology_evaluation",
-      "mineral_extraction",
-      "process_plant"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Metallurgical Engineer",
-        "Process Engineer",
-        "Extractive Metallurgist",
-        "Mine Process Technician",
-        "Hydrometallurgy Engineer"
-      ],
-      "skills": [
-        "electrochemical extraction",
-        "fluorspar processing",
-        "rare earth mineral recovery",
-        "gallium recovery",
-        "germanium recovery"
-      ],
-      "certs_freetext": [
-        "MSHA Part 48",
-        "Professional Engineer (PE)"
-      ],
-      "geo_rtw": "US work authorization required, Utah-based or relocatable",
-      "project_experience": [
-        "fluorspar mining",
-        "critical minerals processing",
-        "rare earth extraction"
-      ],
-      "yoe_band": "8-15",
-      "seniority": "mid-senior",
-      "boolean_search": "(\"metallurgical engineer\" OR \"process engineer\" OR \"extractive metallurgist\" OR \"hydrometallurgy\") AND (\"fluorspar\" OR \"gallium\" OR \"germanium\" OR \"rare earth\" OR \"critical minerals\" OR \"electrochemical extraction\") AND (\"mining\" OR \"mineral processing\") AND (Utah OR \"western US\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Found Industries & ARES Strategic Mining just signed an MOU to evaluate novel extraction tech at Utah's Lost Sheep Mine. Early-stage critical minerals project — keen to connect ahead of potential ramp-up. Worth a quick chat?",
-      "email_subject": "Lost Sheep Mine – Critical Minerals Extraction Project | Early Talent Conversation",
-      "email_body": "Hi [Name],\n\nFound Industries and ARES Strategic Mining have signed an MOU to evaluate electrochemical Direct Feedstock Extraction technology for gallium, germanium, and fluorspar recovery at the Lost Sheep Mine in Utah — the only currently permitted fluorspar mine in the US.\n\nWhile still at evaluation stage, projects like this tend to move quickly once technology is validated. I work with engineers and specialists in critical minerals processing and wanted to connect early.\n\nWould you be open to a brief call to discuss your background and how it might align with upcoming needs on this project?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "MOU between named operator (ARES Strategic Mining) and contractor (Found Industries) for technology evaluation at a named mining project (Lost Sheep Mine), signaling early-stage labor demand in the critical minerals/mining sector.",
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "3122c0c9-ee34-4f06-94db-40849ece278e",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "source_published_at": "2026-05-12T12:30:00.000Z",
-    "phase": "pre_sanction",
-    "phase_evidence": "Article describes an MOU to 'evaluate' the extraction technology, indicating pre-FID/concept stage with no confirmed development decision.",
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
-    "key_people": [],
-    "contact_archetypes": [
-      "project_manager",
-      "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "sources": [
-      {
-        "id": "pr_newswire_energy",
-        "name": "PR Newswire (Energy)",
-        "url": "https://www.prnewswire.com/news-releases/jaguar-uranium-begins-field-work-at-guanaco-targets-potential-resource-at-laguna-salada-302769082.html"
-      }
-    ],
-    "headline": "Jaguar Uranium Begins Phase 1 Field Work at Guanaco/Laguna Salada Uranium Project, Argentina",
-    "body": "Phase 1 program underway following March 2 EIA approval; Additional high-priority targets identified across the broader ~230,000-hectare property TORONTO, May 12, 2026 /PRNewswire/ - Jaguar Uranium Corp. (NYSE American: JAGU) (\"Jaguar\" or the \"Company\") is pleased to announce that it has...",
-    "url": "https://www.prnewswire.com/news-releases/jaguar-uranium-begins-field-work-at-guanaco-targets-potential-resource-at-laguna-salada-302769082.html",
-    "published_at": "2026-05-12T11:55:00.000Z",
-    "hash": "2137dd6e8a967e4f",
-    "subsector": "mining",
-    "discipline_tags": [
-      "survey_geophysical",
-      "drilling_operations"
-    ],
-    "signal_type": "regulatory",
-    "region": "argentina",
-    "country": "argentina",
-    "tldr": "Jaguar Uranium has commenced Phase 1 field work at its ~230,000-hectare Guanaco/Laguna Salada uranium project in Argentina following EIA approval in March 2026, signalling early exploration hiring demand.",
-    "operator": {
-      "name": "Jaguar Uranium Corp."
-    },
-    "hiring_entity": {
-      "name": "Jaguar Uranium Corp."
-    },
-    "project_name": "Guanaco/Laguna Salada Uranium Project",
-    "scope": [
-      "phase1_field_work",
-      "exploration",
-      "eia_approved"
-    ],
-    "mob_window": {
-      "start": "2026-Q2",
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Exploration Geologist",
-        "Field Geologist",
-        "Uranium Exploration Specialist",
-        "Geophysicist",
-        "Drilling Supervisor",
-        "Field Camp Manager",
-        "Environmental Geologist"
-      ],
-      "skills": [
-        "uranium exploration",
-        "field mapping",
-        "geophysical surveying",
-        "drill program management",
-        "EIA compliance",
-        "radiometric surveying",
-        "resource estimation"
-      ],
-      "certs_freetext": [
-        "radiation safety certificate",
-        "first aid wilderness",
-        "MSHA"
-      ],
-      "geo_rtw": "Argentina or Latin America field-deployable",
-      "project_experience": [
-        "uranium exploration programs",
-        "Argentina mining projects",
-        "South America mineral exploration"
-      ],
-      "yoe_band": "5-15",
-      "seniority": "mid to senior",
-      "boolean_search": "(\"uranium exploration\" OR \"uranium project\" OR \"exploration geologist\" OR \"field geologist\" OR \"geophysicist\") AND (\"Argentina\" OR \"Latin America\" OR \"South America\") AND (\"Phase 1\" OR \"field work\" OR \"exploration program\" OR \"radiometric\" OR \"drilling\") NOT (\"financial analyst\" OR \"investor relations\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Jaguar Uranium has just kicked off Phase 1 field work at their Guanaco/Laguna Salada project in Argentina post-EIA approval. We're sourcing uranium exploration professionals for mobilisation now. Open to a quick chat?",
-      "email_subject": "Uranium Exploration Roles – Jaguar Uranium Phase 1, Argentina (Live Now)",
-      "email_body": "Hi [Name],\n\nJaguar Uranium Corp. has commenced Phase 1 field work at its ~230,000-hectare Guanaco/Laguna Salada uranium project in Argentina, following EIA approval received in March 2026. Additional high-priority targets have been identified across the property, suggesting an active and expanding exploration program.\n\nWe are currently sourcing experienced uranium exploration professionals — geologists, geophysicists, and field supervisors — for deployment to this program.\n\nIf you have relevant Latin America field experience and are open to discussing opportunities, I'd love to connect.\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named operator (Jaguar Uranium Corp.) has commenced Phase 1 field work at a named project (Guanaco/Laguna Salada) in Argentina following permit/EIA approval, constituting a discrete exploration ramp-up event with near-term staffing demand.",
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "d57289ba-dbb1-4a33-898f-428cca16e695",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "source_published_at": "2026-05-12T11:55:00.000Z",
-    "phase": "pre_sanction",
-    "phase_evidence": "Article describes Phase 1 field work commencing following EIA approval, indicating early-stage exploration well before any FID or construction sanction.",
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "1-3mo",
-    "key_people": [],
-    "contact_archetypes": [
-      "project_manager",
-      "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "sources": [
-      {
-        "id": "pr_newswire_energy",
-        "name": "PR Newswire (Energy)",
-        "url": "https://www.prnewswire.com/news-releases/1911-gold-confirms-extensions-of-the-l10-zone-at-true-north-intersecting-11-54-gt-gold-over-3-70-m-302768996.html"
-      }
-    ],
-    "headline": "1911 Gold Expands L10 Zone at True North Mine with Underground Drill Program",
-    "body": "VANCOUVER, BC, May 12, 2026 /PRNewswire/ - 1911 Gold Corporation (\"1911 Gold\" or the \"Company\") (TSXV: AUMB) (OTCQX: AUMBF) (FRA: 2KY) is pleased to provide assay results from the underground resource expansion drill program at the Company's wholly-owned operational and fully permitted...",
-    "url": "https://www.prnewswire.com/news-releases/1911-gold-confirms-extensions-of-the-l10-zone-at-true-north-intersecting-11-54-gt-gold-over-3-70-m-302768996.html",
-    "published_at": "2026-05-12T11:02:00.000Z",
-    "hash": "b23b6b0e2b94e0b6",
-    "subsector": "mining",
-    "discipline_tags": [
-      "drilling_operations",
-      "survey_geophysical"
-    ],
-    "signal_type": "tender",
-    "region": "canada-manitoba",
-    "country": "canada",
-    "tldr": "1911 Gold Corporation is running an underground resource expansion drill program at its True North Mine, signaling active drilling operations and potential near-term labor demand for underground drilling crews.",
-    "operator": {
-      "name": "1911 Gold Corporation"
-    },
-    "hiring_entity": {
-      "name": "1911 Gold Corporation"
-    },
-    "project_name": "True North Mine – L10 Zone Expansion",
-    "scope": [
-      "underground_drilling",
-      "resource_expansion"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Underground Drill Operator",
-        "Diamond Driller",
-        "Drill Helper",
-        "Underground Geologist",
-        "Core Technician",
-        "Mine Geologist"
-      ],
-      "skills": [
-        "underground diamond drilling",
-        "core logging",
-        "resource drilling",
-        "grade control",
-        "underground mining operations"
-      ],
-      "certs_freetext": [
-        "Underground Common Core",
-        "Blasting Certificate",
-        "First Aid Level 1"
-      ],
-      "geo_rtw": "Canada (Manitoba preferred); must have right to work in Canada",
-      "project_experience": [
-        "underground gold mining",
-        "narrow-vein drilling",
-        "resource definition drilling"
-      ],
-      "yoe_band": "3-10",
-      "seniority": "mid-level",
-      "boolean_search": "(\"underground drill operator\" OR \"diamond driller\" OR \"underground driller\" OR \"drill helper\" OR \"underground geologist\" OR \"core technician\") AND (\"underground mining\" OR \"gold mining\" OR \"resource drilling\" OR \"diamond drilling\") AND (Canada OR Manitoba OR \"True North\" OR \"1911 Gold\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], 1911 Gold is actively drilling underground at their True North Mine in Manitoba. We're placing underground drillers and geologists for this program — open to a quick chat about fit?",
-      "email_subject": "Underground Drilling Roles – True North Mine, Manitoba",
-      "email_body": "Hi [Name],\n\n1911 Gold Corporation is currently running an underground resource expansion drill program at their True North Mine in Manitoba (L10 Zone). We're supporting resourcing for this active campaign and have openings for experienced underground drill operators, diamond drillers, and underground geologists.\n\nGiven your background in [relevant experience], I thought this could be a strong fit. The program is live now, so timelines are immediate.\n\nWould you be open to a brief call this week to discuss?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named operator (1911 Gold Corporation) running an active underground drill program at a named project (True North Mine, L10 Zone), constituting a discrete workforce-demand event in mining.",
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "d21a857f-e026-4430-a01d-12bd5f7d5da7",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "source_published_at": "2026-05-12T11:02:00.000Z",
-    "phase": "operating",
-    "phase_evidence": "Article describes the mine as 'wholly-owned operational and fully permitted,' with an active underground resource expansion drill program currently underway.",
-    "outreach_readiness": "live_now",
-    "estimated_hiring_window": "now",
-    "key_people": [],
-    "contact_archetypes": [
-      "ops_director",
-      "hiring_manager"
-    ],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "sources": [
-      {
-        "id": "pr_newswire_energy",
-        "name": "PR Newswire (Energy)",
-        "url": "https://www.prnewswire.com/news-releases/oceanagold-announces-additional-high-grade-drill-results-at-haile-870459373.html"
-      }
-    ],
-    "headline": null,
-    "body": "VANCOUVER, BC, May 12, 2026 /CNW/ - OceanaGold Corporation (TSX: OGC) (NYSE: OGC) (\"OceanaGold\" or the \"Company\") is pleased to announce high-grade results from its ongoing exploration and resource conversion drilling program at the Haile Gold Mine (\"Haile\") in the United States. Drilling...",
-    "url": "https://www.prnewswire.com/news-releases/oceanagold-announces-additional-high-grade-drill-results-at-haile-870459373.html",
-    "published_at": "2026-05-12T11:00:00.000Z",
-    "hash": "efe7bff5f7d042e3",
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "tldr": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "bd_relevant": false,
-    "bd_relevance_reason": "Article reports exploration drill results at an existing operating mine — no contract award, FID, rig fixture, or discrete workforce-demand event is described.",
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "ea72781f-8dd5-4c36-b5c6-bd795d0ff4f5",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "source_published_at": "2026-05-12T11:00:00.000Z",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
     "prompt_version": "phase-targeting-v1"
   },
   {
@@ -5402,69 +5402,6 @@
   },
   {
     "headline": null,
-    "body": "(Update) May 6, 2026, 10:36 AM GMT+1: Article u...",
-    "url": "https://www.rigzone.com/news/trump_pauses_project_freedom_for_short_period-06-may-2026-183618-article/?rss=true",
-    "published_at": "2026-05-06T09:09:54.000Z",
-    "hash": "adb5deb46e7b141e",
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "tldr": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "c4f7cc0d-79ac-4fd6-bca2-b3a90c88abb3",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "source_published_at": "2026-05-06T09:09:54.000Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/trump_pauses_project_freedom_for_short_period-06-may-2026-183618-article/?rss=true"
-      }
-    ],
-    "bd_relevant": false,
-    "bd_relevance_reason": "Generic national policy/regulatory commentary about a government initiative pause; no named operator, contractor, or project with a discrete workforce-demand event.",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "headline": null,
     "body": "In a statement posted on its website on Thursday, the U.S. Department of Energy (DOE) announced that it has delivered a “historic Request for Proposal (RFP) ...",
     "url": "https://www.rigzone.com/news/doe_continues_swift_execution_of_172mm_barrel_spr_exchange-01-may-2026-183592-article/?rss=true",
     "published_at": "2026-05-01T13:55:37.000Z",
@@ -5717,69 +5654,6 @@
   },
   {
     "headline": null,
-    "body": "Nigeria National Petroleum Co Ltd (NNPC) on Monday announced a memorandum of understanding (MoU) with Sanjiang Chemical Co Ltd and Xinganchen (Fuzhou) Indust...",
-    "url": "https://www.rigzone.com/news/nigeria_partners_with_chinese_firms_to_revive_refineries-05-may-2026-183608-article/?rss=true",
-    "published_at": "2026-05-05T10:09:53.000Z",
-    "hash": "d27c96fc33038fef",
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "tldr": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "a129006e-0f6c-4f17-b60c-e3f838ca7f08",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "source_published_at": "2026-05-05T10:09:53.000Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/nigeria_partners_with_chinese_firms_to_revive_refineries-05-may-2026-183608-article/?rss=true"
-      }
-    ],
-    "bd_relevant": false,
-    "bd_relevance_reason": "An MoU is a non-binding letter of intent with no FID, contract award, or confirmed workforce-demand event; additionally, the Chinese contractors (Sanjiang Chemical, Xinganchen) trigger the geo-hint exclusion for China-domiciled entities without evidence of Western/EEA-eligible labor demand.",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "headline": null,
     "body": "Occidental Petroleum Corp senior vice president and chief operating officer (COO) Richard Jackson will succeed president and chief executive Vicki Hollub fro...",
     "url": "https://www.rigzone.com/news/occidental_coo_jackson_to_replace_ceo_hollub-04-may-2026-183600-article/?rss=true",
     "published_at": "2026-05-04T13:00:00.000Z",
@@ -5969,636 +5843,6 @@
   },
   {
     "headline": null,
-    "body": "The Australian government said Wednesday it will include a AUD-10 billion ($7.26 billion) Australian Fuel Security and Resilience package in the federal budg...",
-    "url": "https://www.rigzone.com/news/australia_to_build_up_1bliter_fuel_reserve-06-may-2026-183619-article/?rss=true",
-    "published_at": "2026-05-06T09:42:04.000Z",
-    "hash": "040ecb6b9272323b",
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "tldr": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "34c292a3-a29d-4c4c-84ab-3fc07151eba7",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "source_published_at": "2026-05-06T09:42:04.000Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/australia_to_build_up_1bliter_fuel_reserve-06-may-2026-183619-article/?rss=true"
-      }
-    ],
-    "bd_relevant": false,
-    "bd_relevance_reason": "National government budget/policy announcement with no named operator, contractor, or discrete project award generating a workforce-demand signal.",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "headline": null,
-    "body": "Equinor ASA has reported $3.7 billion, or $1.48 per share, in net income adjusted for nonrecurring items for the first quarter (Q1), more than double that of...",
-    "url": "https://www.rigzone.com/news/gas_trading_boosts_equinor_profit-06-may-2026-183621-article/?rss=true",
-    "published_at": "2026-05-06T11:57:30.000Z",
-    "hash": "80db3f2e7ac6b283",
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "tldr": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "0866b1d5-17b9-4b6a-81e9-68a8b8b9d930",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "source_published_at": "2026-05-06T11:57:30.000Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/gas_trading_boosts_equinor_profit-06-may-2026-183621-article/?rss=true"
-      }
-    ],
-    "bd_relevant": false,
-    "bd_relevance_reason": "Quarterly earnings report for Equinor with no contract award, project sanction, or workforce demand signal.",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "headline": null,
-    "body": "Transocean Ltd on Monday reported $1.08 billion in revenue for the first quarter (Q1), up $38 million from the prior three-month period and $175 million comp...",
-    "url": "https://www.rigzone.com/news/transocean_posts_higher_q1_revenue-05-may-2026-183611-article/?rss=true",
-    "published_at": "2026-05-05T13:20:22.000Z",
-    "hash": "6e3f33fd75e3e522",
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "tldr": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "4323ff67-bb2e-45bb-9902-d69273197f25",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "source_published_at": "2026-05-05T13:20:22.000Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/transocean_posts_higher_q1_revenue-05-may-2026-183611-article/?rss=true"
-      }
-    ],
-    "bd_relevant": false,
-    "bd_relevance_reason": "Quarterly earnings report for Transocean with no contract award, rig fixture, or named project workforce signal.",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "headline": null,
-    "body": "Shell Plc said its profit surged in the first quarter as the Iran war drove oil and gas prices higher and the conflict caused a increase in volatility that b...",
-    "url": "https://www.rigzone.com/news/shell_profit_soars_as_volatility_boosts_trading-07-may-2026-183629-article/?rss=true",
-    "published_at": "2026-05-07T08:11:13.000Z",
-    "hash": "fb026271afb17e9a",
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "tldr": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "e81e9306-acf7-4bc1-ba9c-b061e0255cd5",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "source_published_at": "2026-05-07T08:11:13.000Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/shell_profit_soars_as_volatility_boosts_trading-07-may-2026-183629-article/?rss=true"
-      }
-    ],
-    "bd_relevant": false,
-    "bd_relevance_reason": "Quarterly earnings/profit report driven by macro oil price volatility; no contract award, project, or workforce demand signal named.",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "headline": null,
-    "body": "The Asian Development Bank (ADB) said it aims to mobilize $50 billion in financing to help Asia-Pacific countries build cross-border electricity grids and an...",
-    "url": "https://www.rigzone.com/news/adb_targets_70b_for_asian_power_grid_integration_data_centers-06-may-2026-183622-article/?rss=true",
-    "published_at": "2026-05-06T13:09:54.000Z",
-    "hash": "187de88fbd087ed6",
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "tldr": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "f1fec0bb-aca9-4995-8796-10b53482a50e",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "source_published_at": "2026-05-06T13:09:54.000Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/adb_targets_70b_for_asian_power_grid_integration_data_centers-06-may-2026-183622-article/?rss=true"
-      }
-    ],
-    "bd_relevant": false,
-    "bd_relevance_reason": "ADB financing mobilization announcement is generic infrastructure policy/finance news with no named operator, contractor, or discrete project award qualifying under the BD inclusion criteria.",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "headline": null,
-    "body": "Aker BP ASA on Thursday reported $758 million in net profit for the first quarter (Q1), bouncing back from a net loss of $145 million for the prior three mon...",
-    "url": "https://www.rigzone.com/news/aker_bp_posts_higher_profit-07-may-2026-183632-article/?rss=true",
-    "published_at": "2026-05-07T11:00:16.000Z",
-    "hash": "1ba4bebb44f18de2",
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "tldr": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "8eb0f2f8-0a50-4f07-986a-7845180513b5",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "source_published_at": "2026-05-07T11:00:16.000Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/aker_bp_posts_higher_profit-07-may-2026-183632-article/?rss=true"
-      }
-    ],
-    "bd_relevant": false,
-    "bd_relevance_reason": "Quarterly earnings report with no contract award, project sanction, rig fixture, or discrete workforce-demand event named.",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "headline": null,
-    "body": "Abu Dhabi National Oil Co. has managed to keep a trickle of liquefied natural gas exports moving through the Strait of Hormuz by concealing tanker locations,...",
-    "url": "https://www.rigzone.com/news/adnoc_lng_tankers_go_dark_to_get_gas_through_hormuz-07-may-2026-183636-article/?rss=true",
-    "published_at": "2026-05-07T20:00:00.000Z",
-    "hash": "c0e700480f5c92f1",
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "tldr": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "dae80e43-7cfc-498e-8619-fe370f0bce70",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "source_published_at": "2026-05-07T20:00:00.000Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/adnoc_lng_tankers_go_dark_to_get_gas_through_hormuz-07-may-2026-183636-article/?rss=true"
-      }
-    ],
-    "bd_relevant": false,
-    "bd_relevance_reason": "Geopolitical shipping/logistics story about tanker AIS concealment; no contract award, project sanction, rig fixture, or workforce-demand event named.",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "headline": null,
-    "body": "Murphy Oil Corp president and chief executive Eric M. Hambly said Wednesday the company is refraining from making forward-looking actions based on the presen...",
-    "url": "https://www.rigzone.com/news/murphy_oil_avoids_gambling_on_current_volatility-07-may-2026-183637-article/?rss=true",
-    "published_at": "2026-05-07T14:28:26.000Z",
-    "hash": "00a252bc94b14f69",
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "tldr": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "c0ef333c-e0d5-4728-8a28-da1eb81f4a3b",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "source_published_at": "2026-05-07T14:28:26.000Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/murphy_oil_avoids_gambling_on_current_volatility-07-may-2026-183637-article/?rss=true"
-      }
-    ],
-    "bd_relevant": false,
-    "bd_relevance_reason": "Executive commentary on capital discipline and market volatility with no named project, contract award, or discrete workforce-demand event.",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "headline": null,
-    "body": "The Trump administration is studying using oil under land at US military bases and other Department of War sites to help refill the nation’s depleted emergen...",
-    "url": "https://www.rigzone.com/news/usa_considers_tapping_oil_under_military_bases_to_refill_spr-07-may-2026-183635-article/?rss=true",
-    "published_at": "2026-05-07T13:42:13.000Z",
-    "hash": "7d7fc223a77be39c",
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "tldr": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "4467ac8f-c115-4636-bcef-ab28dd3b2e6c",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "source_published_at": "2026-05-07T13:42:13.000Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/usa_considers_tapping_oil_under_military_bases_to_refill_spr-07-may-2026-183635-article/?rss=true"
-      }
-    ],
-    "bd_relevant": false,
-    "bd_relevance_reason": "National policy study with no named operator, contractor, project, or discrete contract/workforce event — generic government commentary with no actionable BD signal.",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "headline": null,
-    "body": "EOG Resources Inc has reported $1.83 billion in net income adjusted for nonrecurring items for the first quarter (Q1), up quarter-on-quarter and year-on-year...",
-    "url": "https://www.rigzone.com/news/eog_profit_exceeds_expectations-07-may-2026-183634-article/?rss=true",
-    "published_at": "2026-05-07T12:58:42.000Z",
-    "hash": "a8d63ddb9dbac11e",
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "tldr": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "63a20281-119d-42b8-a25a-2af9452c475d",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "source_published_at": "2026-05-07T12:58:42.000Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/eog_profit_exceeds_expectations-07-may-2026-183634-article/?rss=true"
-      }
-    ],
-    "bd_relevant": false,
-    "bd_relevance_reason": "Quarterly earnings report for EOG Resources with no contract award, project sanction, rig fixture, or named workforce-demand event.",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "headline": null,
     "body": "Tributes have been paid to those who risked their lives tackling the aftermath of the Chernobyl accident in 1986, with a fundraising process launched for ongoing safety work at an international conference held at the plant.",
     "url": "https://www.world-nuclear-news.org//articles/funding-pledge-and-tributes-paid-at-conference-marking-chernobyl-anniversary",
     "published_at": "2026-04-27T09:55:28.000Z",
@@ -6652,548 +5896,6 @@
     ],
     "bd_relevant": false,
     "bd_relevance_reason": "Conference/anniversary coverage with a fundraising pledge announcement; no named operator, contractor, or discrete contract award that signals actionable labor demand.",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "headline": "US DOE & NRC Advance Licensing for Aalo Atomics Aalo-X SMR and Oklo Aurora Powerhouse",
-    "body": "The US Department of Energy's Idaho Operations Office has approved the Documented Safety Analysis for Aalo Atomics' Aalo-X experimental reactor. Meanwhile, the US Nuclear Regulatory Commission has approved the Principal Design Criteria topical report for Oklo's Aurora powerhouse.",
-    "url": "https://www.world-nuclear-news.org//articles/licensing-of-us-pilot-smrs-advances",
-    "published_at": "2026-05-07T14:26:06.000Z",
-    "hash": "d80b309f38c1b420",
-    "subsector": "nuclear",
-    "discipline_tags": [],
-    "signal_type": "regulatory",
-    "region": "us-idaho",
-    "country": "united_states",
-    "tldr": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "da3a43d3-02b5-460b-8bf8-22ac9426d0e1",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "source_published_at": "2026-05-07T14:26:06.000Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/licensing-of-us-pilot-smrs-advances"
-      }
-    ],
-    "bd_relevant": false,
-    "bd_relevance_reason": "Regulatory licensing approvals for Aalo-X and Aurora are pre-construction milestones with no contract award, FID, EPC tender, or workforce ramp-up signal named in the article.",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "headline": "Canada Announces National Nuclear Energy Strategy & Microreactor Investment for Remote/Defence Sites",
-    "body": "Minister of Energy and Natural Resources Tim Hodgson has announced the government's intention to release a \"transformative\" Nuclear Energy Strategy for Canada before the end of the year - and will also invest millions of dollars to assess the potential of a Canadian-controlled microreactor that could provide heat and electricity to remote and northern defence-related facilities and operations.",
-    "url": "https://www.world-nuclear-news.org//articles/canada-announces-new-nuclear-strategy-and-microreactor-initiative",
-    "published_at": "2026-04-30T13:46:31.000Z",
-    "hash": "12a9654d709c712d",
-    "subsector": "nuclear",
-    "discipline_tags": [],
-    "signal_type": "regulatory",
-    "region": "canada",
-    "country": "canada",
-    "tldr": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "cd0ebf4b-8017-431e-995a-2050f7b0d357",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "source_published_at": "2026-04-30T13:46:31.000Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/canada-announces-new-nuclear-strategy-and-microreactor-initiative"
-      }
-    ],
-    "bd_relevant": false,
-    "bd_relevance_reason": "Generic national policy announcement with no named operator, contractor, or specific project — no discrete labor-demand event to act on.",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [
-      {
-        "name": "Tim Hodgson",
-        "title": "Minister of Energy and Natural Resources",
-        "company": "Government of Canada",
-        "hiring_relevance": "context_only"
-      }
-    ],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "headline": null,
-    "body": "In the coming months, the University of Utah's TRIGA research reactor will be used to produce electricity to power a mini AI data centre as part of proof-of-concept for powering full-scale data centres with microreactors.",
-    "url": "https://www.world-nuclear-news.org//articles/us-research-reactor-first-to-produce-electricity",
-    "published_at": "2026-04-29T14:41:39.000Z",
-    "hash": "c0f2a3ff29278ed7",
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "tldr": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "630f5e25-0b25-4c87-afcd-3963b695f656",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "source_published_at": "2026-04-29T14:41:39.000Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/us-research-reactor-first-to-produce-electricity"
-      }
-    ],
-    "bd_relevant": false,
-    "bd_relevance_reason": "Research/proof-of-concept announcement at a university facility with no contract award, FID, named operator, or staffing ramp-up signal.",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "headline": null,
-    "body": "Swedish lead-cooled small modular reactor technology developer Blykalla and global engineering company ABB have signed a Joint Development Agreement, marking a significant step forward in their collaboration and formally advancing their partnership.",
-    "url": "https://www.world-nuclear-news.org//articles/blykalla-and-abb-enhance-cooperation",
-    "published_at": "2026-05-05T08:30:52.000Z",
-    "hash": "ba94f26b13420a85",
-    "subsector": "nuclear",
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": "sweden",
-    "country": "sweden",
-    "tldr": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "2973322d-346c-4f8a-9b31-f5b81460dcc6",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "source_published_at": "2026-05-05T08:30:52.000Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/blykalla-and-abb-enhance-cooperation"
-      }
-    ],
-    "bd_relevant": false,
-    "bd_relevance_reason": "Joint Development Agreement for SMR technology research between Blykalla and ABB is a tech/R&D collaboration announcement with no project sanction, contract award, or discrete workforce-demand event.",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "headline": null,
-    "body": "Blue Energy has announced it is partnering with GE Vernova in a collaboration aimed at pairing nuclear and gas-fired generating capacity as a near-term approach to meeting AI-driven energy demand.",
-    "url": "https://www.world-nuclear-news.org//articles/us-companies-come-together-for-gas-plus-nuclear-solution",
-    "published_at": "2026-05-05T11:40:11.000Z",
-    "hash": "7d45c95e2edf7ac2",
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "tldr": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "1b2ed69e-9a16-4509-a984-ca09fe445dc1",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "source_published_at": "2026-05-05T11:40:11.000Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/us-companies-come-together-for-gas-plus-nuclear-solution"
-      }
-    ],
-    "bd_relevant": false,
-    "bd_relevance_reason": "Generic partnership announcement describing a technology collaboration concept with no named project, contract award, FID, or discrete workforce-demand event.",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "headline": null,
-    "body": "Solstice Advanced Materials, which was spun off from Honeywell last year, has seen its nuclear revenues increase 27% in the first quarter of 2026. Meanwhile, ConverDyn, the marketing agent for Solstice's uranium hexafluoride production, has agreed to supply uranium conversion services to micromodular reactor company Hadron Energy Inc.",
-    "url": "https://www.world-nuclear-news.org//articles/robust-demand-in-nuclear-helps-solstice-to-strong-start",
-    "published_at": "2026-05-07T11:09:52.000Z",
-    "hash": "ed927ce062df2279",
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "tldr": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "d840d42f-10a8-4526-9eca-020fbc320fd6",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "source_published_at": "2026-05-07T11:09:52.000Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/robust-demand-in-nuclear-helps-solstice-to-strong-start"
-      }
-    ],
-    "bd_relevant": false,
-    "bd_relevance_reason": "Earnings/revenue growth report and a supply contract for uranium conversion services — no project sanction, EPC award, rig fixture, or named workforce-demand event with staffing implications.",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "headline": "India NFC-Kota Fuel Plant at Rawatbhata Receives AERB Operating Licence",
-    "body": "The Atomic Energy Regulatory Board has issued an operating licence for the NFC-Kota fuel plant at Rawatbhata in Rajasthan.",
-    "url": "https://www.world-nuclear-news.org//articles/second-indian-fuel-cycle-complex-gets-operating-licence",
-    "published_at": "2026-05-01T14:35:03.000Z",
-    "hash": "9a54cf5af58ee5cf",
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "process_plant_operations"
-    ],
-    "signal_type": "regulatory",
-    "region": "india-rajasthan",
-    "country": "india",
-    "tldr": "The Atomic Energy Regulatory Board has issued an operating licence for the NFC-Kota nuclear fuel plant at Rawatbhata, Rajasthan, signalling transition to operational phase and ongoing staffing demand for plant operations.",
-    "operator": {
-      "name": "Nuclear Fuel Complex (NFC)"
-    },
-    "hiring_entity": {
-      "name": "Nuclear Fuel Complex (NFC)"
-    },
-    "project_name": "NFC-Kota Fuel Plant, Rawatbhata",
-    "scope": [
-      "plant_operations",
-      "regulatory_licensing"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Nuclear Plant Operator",
-        "Process Plant Operator",
-        "Shift Supervisor",
-        "Health Physics Officer",
-        "Instrumentation & Control Technician",
-        "Maintenance Engineer",
-        "Radiation Protection Supervisor"
-      ],
-      "skills": [
-        "nuclear fuel fabrication",
-        "process plant operations",
-        "radiation protection",
-        "instrumentation and control",
-        "nuclear safety",
-        "AERB compliance"
-      ],
-      "certs_freetext": [
-        "AERB authorisation",
-        "Radiation Protection Supervisor certificate",
-        "Nuclear Operator Licence"
-      ],
-      "geo_rtw": "India (Rajasthan) — Indian nationals or India RTW required",
-      "project_experience": [
-        "NFC Hyderabad",
-        "NPCIL Rawatbhata RAPS",
-        "BARC fuel cycle facilities"
-      ],
-      "yoe_band": "5-15",
-      "seniority": "mid-to-senior",
-      "boolean_search": "(\"nuclear fuel\" OR \"nuclear plant operations\" OR \"fuel fabrication\") AND (\"process plant operator\" OR \"shift supervisor\" OR \"health physics\" OR \"radiation protection\") AND (\"AERB\" OR \"NPCIL\" OR \"NFC\" OR \"BARC\") AND (India OR Rajasthan OR Rawatbhata OR Kota)"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], the NFC-Kota fuel plant at Rawatbhata just received its AERB operating licence — ongoing ops roles are opening up. Your nuclear plant ops background looks relevant. Worth a quick chat?",
-      "email_subject": "NFC-Kota Rawatbhata — Operating Licence Granted, Ops Roles Opening",
-      "email_body": "Hi [Name],\n\nThe NFC-Kota nuclear fuel plant at Rawatbhata, Rajasthan has just been issued its operating licence by the Atomic Energy Regulatory Board, marking the transition to full operations.\n\nThis typically drives demand for experienced nuclear plant operators, shift supervisors, health physics officers, and I&C technicians on an ongoing basis.\n\nGiven your background in nuclear/process plant operations, I wanted to reach out to see if you'd be open to a conversation about opportunities in this space.\n\nBest regards,\n[Your Name]"
-    },
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "911a6717-580e-4b63-bd04-a7fcfad90355",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "source_published_at": "2026-05-01T14:35:03.000Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/second-indian-fuel-cycle-complex-gets-operating-licence"
-      }
-    ],
-    "bd_relevant": true,
-    "bd_relevance_reason": "Regulatory operating licence issued to a named operator (NFC) for a named nuclear fuel plant (NFC-Kota, Rawatbhata), signalling transition to operational phase with ongoing staffing demand.",
-    "phase": "operating",
-    "phase_evidence": "Article states AERB has issued an operating licence, confirming the plant is transitioning to or entering operational status.",
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "ongoing",
-    "key_people": [],
-    "contact_archetypes": [
-      "ops_director",
-      "hiring_manager"
-    ],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "headline": null,
-    "body": "Nuclear fuel company Clean Core Thorium Energy announced its patented ANEEL fuel has successfully reached more than 60 GWd/MTU of burnup in the Advanced Test Reactor at Idaho National Laboratory.",
-    "url": "https://www.world-nuclear-news.org//articles/innovative-thorium-based-fuel-concludes-irradiation-campaign",
-    "published_at": "2026-05-07T12:39:59.000Z",
-    "hash": "4ebf27247ad512ef",
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "tldr": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "cd551767-2404-4b40-a547-7e45732facba",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "source_published_at": "2026-05-07T12:39:59.000Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/innovative-thorium-based-fuel-concludes-irradiation-campaign"
-      }
-    ],
-    "bd_relevant": false,
-    "bd_relevance_reason": "Tech/research milestone announcement with no contract award, workforce ramp-up, or staffing-demand signal.",
     "phase": null,
     "phase_evidence": null,
     "outreach_readiness": null,
@@ -7329,69 +6031,6 @@
     "prompt_version": "phase-targeting-v1"
   },
   {
-    "headline": null,
-    "body": "The Korea Atomic Energy Research Institute has signed a technology transfer agreement with Arinus Co for a technology that protects cells from radiation using an antioxidant ingredient contained in citrus fruit peel.",
-    "url": "https://www.world-nuclear-news.org//articles/tangerine-peels-radiation-health-properties-",
-    "published_at": "2026-05-01T10:26:55.000Z",
-    "hash": "e53d83c209b497f1",
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "tldr": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "ec64b4e3-6f18-4df0-9b30-3a4774d8da5e",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "source_published_at": "2026-05-01T10:26:55.000Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/tangerine-peels-radiation-health-properties-"
-      }
-    ],
-    "bd_relevant": false,
-    "bd_relevance_reason": "Technology transfer agreement for a radiation-protection biotech product with no discrete workforce-demand event, no project, and no staffing or construction signal in any qualifying energy subsector.",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
     "headline": "US ITER Completes Final Central Solenoid Deliveries for ITER Reactor at Cadarache",
     "body": "US ITER has completed final deliveries for the central solenoid magnet for the International Thermonuclear Experimental Reactor under construction in Cadarache, southern France.",
     "url": "https://www.world-nuclear-news.org//articles/usa-completes-final-deliveries-for-iters-central-solenoid",
@@ -7489,192 +6128,6 @@
       "site_manager",
       "hiring_manager",
       "project_manager"
-    ],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "headline": "Commonwealth Fusion Systems Files PJM Grid-Connection App for ARC Fusion Plant — Startup Early 2030s",
-    "body": "US private fusion company Commonwealth Fusion Systems has applied to connect its first ARC fusion power plant to PJM Interconnection, the largest US competitive wholesale electricity market. The plant is expected to start up in the early 2030s.",
-    "url": "https://www.world-nuclear-news.org//articles/grid-connection-requested-for-us-fusion-power-plant",
-    "published_at": "2026-04-30T09:21:43.000Z",
-    "hash": "6206132d9dda41c1",
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations",
-      "energy_trades"
-    ],
-    "signal_type": "regulatory",
-    "region": "us-mid-atlantic",
-    "country": "united_states",
-    "tldr": "Commonwealth Fusion Systems has applied to connect its first ARC fusion plant to PJM Interconnection, signalling long-horizon workforce demand in the early 2030s. No FID or EPC award cited; project remains pre-sanction.",
-    "operator": {
-      "name": "Commonwealth Fusion Systems"
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": "ARC",
-    "scope": [
-      "grid_connection",
-      "plant_startup"
-    ],
-    "mob_window": {
-      "start": "2030-Q1",
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Fusion Plant Engineer",
-        "Nuclear Systems Engineer",
-        "Grid Interconnection Engineer",
-        "Project Development Manager",
-        "Power Plant Commissioning Engineer"
-      ],
-      "skills": [
-        "fusion energy",
-        "grid interconnection",
-        "PJM markets",
-        "nuclear plant commissioning",
-        "power plant development"
-      ],
-      "certs_freetext": [
-        "PE license",
-        "NRC certification"
-      ],
-      "geo_rtw": "US work authorization required",
-      "project_experience": [
-        "ITER",
-        "NIF",
-        "tokamak projects",
-        "SMR development"
-      ],
-      "yoe_band": "10-20",
-      "seniority": "senior",
-      "boolean_search": "(\"fusion\" OR \"nuclear\" OR \"tokamak\") AND (\"grid interconnection\" OR \"PJM\" OR \"power plant commissioning\" OR \"plant startup\") AND (\"Commonwealth Fusion\" OR \"ARC\" OR \"SPARC\" OR \"fusion energy\") AND (\"project engineer\" OR \"systems engineer\" OR \"commissioning engineer\" OR \"plant engineer\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], with Commonwealth Fusion Systems filing their PJM grid-connection app for the ARC plant (early 2030s target), we're mapping fusion/nuclear talent ahead of the build phase. Worth a conversation?",
-      "email_subject": "ARC Fusion Plant — Early Talent Mapping for Commonwealth Fusion Systems",
-      "email_body": "Hi [Name],\n\nCommonwealth Fusion Systems has just filed its PJM grid-connection application for the ARC fusion plant, targeting startup in the early 2030s. While the project is still pre-sanction, early-stage engineering and development roles typically ramp well ahead of FID.\n\nWe're building a pipeline of fusion, nuclear, and power plant engineering professionals with relevant commissioning and interconnection experience. Given your background, I'd love to keep you in our network as this project develops.\n\nWould you be open to a brief call to discuss?\n\nBest regards,\n[Your Name]"
-    },
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "05299d5f-78bf-48b9-97a1-7e04a7b8d06d",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "source_published_at": "2026-04-30T09:21:43.000Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/grid-connection-requested-for-us-fusion-power-plant"
-      }
-    ],
-    "bd_relevant": false,
-    "bd_relevance_reason": "Grid-connection application is a regulatory/administrative filing with no FID, EPC award, or contract event named; no hiring entity or contractor identified, and startup is a decade away with no discrete workforce-demand trigger.",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "headline": "UK Infinity Fusion Consortium (Type One Energy, Tokamak Energy, AECOM) targets first private UK fusion plant",
-    "body": "US fusion energy developer Type One Energy, Britain's Tokamak Energy, and US construction engineering firm AECOM have formed the UK Infinity Fusion Consortium to pursue development of the first private-sector-led fusion power plant project in the UK.",
-    "url": "https://www.world-nuclear-news.org//articles/british-us-consortium-aims-to-build-uk-fusion-plant",
-    "published_at": "2026-05-06T11:04:47.000Z",
-    "hash": "c7c8181783306b4f",
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations"
-    ],
-    "signal_type": "fid",
-    "region": "united-kingdom",
-    "country": "united_kingdom",
-    "tldr": "Type One Energy, Tokamak Energy, and AECOM have formed the UK Infinity Fusion Consortium to develop the first private-sector fusion power plant in the UK. This is a pre-sanction development stage with no FID or EPC award yet; hiring demand is 12+ months out.",
-    "operator": {
-      "name": "UK Infinity Fusion Consortium (Type One Energy / Tokamak Energy)"
-    },
-    "hiring_entity": {
-      "name": "AECOM"
-    },
-    "project_name": "UK Infinity Fusion Plant",
-    "scope": [
-      "concept_development",
-      "fusion_plant_design"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Fusion Plant Engineer",
-        "Nuclear Project Engineer",
-        "FEED Engineer",
-        "Concept Development Manager",
-        "Process Engineer",
-        "Project Development Manager"
-      ],
-      "skills": [
-        "fusion energy",
-        "nuclear plant design",
-        "FEED",
-        "concept engineering",
-        "plasma physics",
-        "nuclear licensing"
-      ],
-      "certs_freetext": [
-        "NVQ Nuclear",
-        "MCIBSE",
-        "CEng"
-      ],
-      "geo_rtw": "UK right-to-work",
-      "project_experience": [
-        "Spherical Tokamak for Energy Production (STEP)",
-        "JET",
-        "ITER",
-        "NIF"
-      ],
-      "yoe_band": "10-20",
-      "seniority": "senior",
-      "boolean_search": "(\"fusion\" OR \"tokamak\" OR \"nuclear plant\") AND (\"FEED\" OR \"concept engineering\" OR \"plant design\" OR \"nuclear engineering\") AND (\"Type One Energy\" OR \"Tokamak Energy\" OR \"AECOM\" OR \"STEP\" OR \"ITER\") AND (\"United Kingdom\" OR \"UK\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], with AECOM, Type One Energy & Tokamak Energy forming the UK Infinity Fusion Consortium, early-stage fusion plant engineering roles are emerging in the UK. Your background looks relevant — open to a conversation?",
-      "email_subject": "UK Infinity Fusion Consortium — Early Engineering Talent",
-      "email_body": "Hi [Name],\n\nType One Energy, Tokamak Energy, and AECOM have just announced the UK Infinity Fusion Consortium, targeting the first private-sector fusion power plant in the UK. As the project moves through concept and FEED stages, demand for senior nuclear/fusion engineers will grow.\n\nGiven your background in [relevant discipline], I wanted to reach out early. Would you be open to a brief call to discuss how your experience might align?\n\nBest regards,\n[Your Name]"
-    },
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "2b6a9138-dc51-4049-afab-e2b76cb0413c",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "source_published_at": "2026-05-06T11:04:47.000Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/british-us-consortium-aims-to-build-uk-fusion-plant"
-      }
-    ],
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named consortium formation (Type One Energy, Tokamak Energy, AECOM) targeting a specific first private UK fusion power plant project — qualifies as a pre-sanction development event with future labor demand in nuclear engineering.",
-    "phase": "pre_sanction",
-    "phase_evidence": "Article states the consortium was formed to 'pursue development' of the plant, indicating concept/pre-FID stage with no sanction or EPC award mentioned.",
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
-    "key_people": [],
-    "contact_archetypes": [
-      "project_manager",
-      "business_unit_director",
-      "hr_business_partner"
     ],
     "prompt_version": "phase-targeting-v1"
   },
@@ -9062,6 +7515,1553 @@
     "estimated_hiring_window": null,
     "key_people": [],
     "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "headline": null,
+    "body": "(Update) May 6, 2026, 10:36 AM GMT+1: Article u...",
+    "url": "https://www.rigzone.com/news/trump_pauses_project_freedom_for_short_period-06-may-2026-183618-article/?rss=true",
+    "published_at": "2026-05-06T09:09:54.000Z",
+    "hash": "adb5deb46e7b141e",
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "tldr": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "c4f7cc0d-79ac-4fd6-bca2-b3a90c88abb3",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "source_published_at": "2026-05-06T09:09:54.000Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/trump_pauses_project_freedom_for_short_period-06-may-2026-183618-article/?rss=true"
+      }
+    ],
+    "bd_relevant": false,
+    "bd_relevance_reason": "Generic national policy/regulatory commentary about a government initiative pause; no named operator, contractor, or project with a discrete workforce-demand event.",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "headline": null,
+    "body": "Abu Dhabi National Oil Co. has managed to keep a trickle of liquefied natural gas exports moving through the Strait of Hormuz by concealing tanker locations,...",
+    "url": "https://www.rigzone.com/news/adnoc_lng_tankers_go_dark_to_get_gas_through_hormuz-07-may-2026-183636-article/?rss=true",
+    "published_at": "2026-05-07T20:00:00.000Z",
+    "hash": "c0e700480f5c92f1",
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "tldr": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "dae80e43-7cfc-498e-8619-fe370f0bce70",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "source_published_at": "2026-05-07T20:00:00.000Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/adnoc_lng_tankers_go_dark_to_get_gas_through_hormuz-07-may-2026-183636-article/?rss=true"
+      }
+    ],
+    "bd_relevant": false,
+    "bd_relevance_reason": "Geopolitical shipping/logistics story about tanker AIS concealment; no contract award, project sanction, rig fixture, or workforce-demand event named.",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "headline": null,
+    "body": "Nigeria National Petroleum Co Ltd (NNPC) on Monday announced a memorandum of understanding (MoU) with Sanjiang Chemical Co Ltd and Xinganchen (Fuzhou) Indust...",
+    "url": "https://www.rigzone.com/news/nigeria_partners_with_chinese_firms_to_revive_refineries-05-may-2026-183608-article/?rss=true",
+    "published_at": "2026-05-05T10:09:53.000Z",
+    "hash": "d27c96fc33038fef",
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "tldr": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "a129006e-0f6c-4f17-b60c-e3f838ca7f08",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "source_published_at": "2026-05-05T10:09:53.000Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/nigeria_partners_with_chinese_firms_to_revive_refineries-05-may-2026-183608-article/?rss=true"
+      }
+    ],
+    "bd_relevant": false,
+    "bd_relevance_reason": "An MoU is a non-binding letter of intent with no FID, contract award, or confirmed workforce-demand event; additionally, the Chinese contractors (Sanjiang Chemical, Xinganchen) trigger the geo-hint exclusion for China-domiciled entities without evidence of Western/EEA-eligible labor demand.",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "headline": null,
+    "body": "The Trump administration is studying using oil under land at US military bases and other Department of War sites to help refill the nation’s depleted emergen...",
+    "url": "https://www.rigzone.com/news/usa_considers_tapping_oil_under_military_bases_to_refill_spr-07-may-2026-183635-article/?rss=true",
+    "published_at": "2026-05-07T13:42:13.000Z",
+    "hash": "7d7fc223a77be39c",
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "tldr": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "4467ac8f-c115-4636-bcef-ab28dd3b2e6c",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "source_published_at": "2026-05-07T13:42:13.000Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/usa_considers_tapping_oil_under_military_bases_to_refill_spr-07-may-2026-183635-article/?rss=true"
+      }
+    ],
+    "bd_relevant": false,
+    "bd_relevance_reason": "National policy study with no named operator, contractor, project, or discrete contract/workforce event — generic government commentary with no actionable BD signal.",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "headline": null,
+    "body": "Aker BP ASA on Thursday reported $758 million in net profit for the first quarter (Q1), bouncing back from a net loss of $145 million for the prior three mon...",
+    "url": "https://www.rigzone.com/news/aker_bp_posts_higher_profit-07-may-2026-183632-article/?rss=true",
+    "published_at": "2026-05-07T11:00:16.000Z",
+    "hash": "1ba4bebb44f18de2",
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "tldr": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "8eb0f2f8-0a50-4f07-986a-7845180513b5",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "source_published_at": "2026-05-07T11:00:16.000Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/aker_bp_posts_higher_profit-07-may-2026-183632-article/?rss=true"
+      }
+    ],
+    "bd_relevant": false,
+    "bd_relevance_reason": "Quarterly earnings report with no contract award, project sanction, rig fixture, or discrete workforce-demand event named.",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "headline": null,
+    "body": "Shell Plc said its profit surged in the first quarter as the Iran war drove oil and gas prices higher and the conflict caused a increase in volatility that b...",
+    "url": "https://www.rigzone.com/news/shell_profit_soars_as_volatility_boosts_trading-07-may-2026-183629-article/?rss=true",
+    "published_at": "2026-05-07T08:11:13.000Z",
+    "hash": "fb026271afb17e9a",
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "tldr": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "e81e9306-acf7-4bc1-ba9c-b061e0255cd5",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "source_published_at": "2026-05-07T08:11:13.000Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/shell_profit_soars_as_volatility_boosts_trading-07-may-2026-183629-article/?rss=true"
+      }
+    ],
+    "bd_relevant": false,
+    "bd_relevance_reason": "Quarterly earnings/profit report driven by macro oil price volatility; no contract award, project, or workforce demand signal named.",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "headline": null,
+    "body": "The Australian government said Wednesday it will include a AUD-10 billion ($7.26 billion) Australian Fuel Security and Resilience package in the federal budg...",
+    "url": "https://www.rigzone.com/news/australia_to_build_up_1bliter_fuel_reserve-06-may-2026-183619-article/?rss=true",
+    "published_at": "2026-05-06T09:42:04.000Z",
+    "hash": "040ecb6b9272323b",
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "tldr": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "34c292a3-a29d-4c4c-84ab-3fc07151eba7",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "source_published_at": "2026-05-06T09:42:04.000Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/australia_to_build_up_1bliter_fuel_reserve-06-may-2026-183619-article/?rss=true"
+      }
+    ],
+    "bd_relevant": false,
+    "bd_relevance_reason": "National government budget/policy announcement with no named operator, contractor, or discrete project award generating a workforce-demand signal.",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "headline": null,
+    "body": "Equinor ASA has reported $3.7 billion, or $1.48 per share, in net income adjusted for nonrecurring items for the first quarter (Q1), more than double that of...",
+    "url": "https://www.rigzone.com/news/gas_trading_boosts_equinor_profit-06-may-2026-183621-article/?rss=true",
+    "published_at": "2026-05-06T11:57:30.000Z",
+    "hash": "80db3f2e7ac6b283",
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "tldr": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "0866b1d5-17b9-4b6a-81e9-68a8b8b9d930",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "source_published_at": "2026-05-06T11:57:30.000Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/gas_trading_boosts_equinor_profit-06-may-2026-183621-article/?rss=true"
+      }
+    ],
+    "bd_relevant": false,
+    "bd_relevance_reason": "Quarterly earnings report for Equinor with no contract award, project sanction, or workforce demand signal.",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "headline": null,
+    "body": "Transocean Ltd on Monday reported $1.08 billion in revenue for the first quarter (Q1), up $38 million from the prior three-month period and $175 million comp...",
+    "url": "https://www.rigzone.com/news/transocean_posts_higher_q1_revenue-05-may-2026-183611-article/?rss=true",
+    "published_at": "2026-05-05T13:20:22.000Z",
+    "hash": "6e3f33fd75e3e522",
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "tldr": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "4323ff67-bb2e-45bb-9902-d69273197f25",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "source_published_at": "2026-05-05T13:20:22.000Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/transocean_posts_higher_q1_revenue-05-may-2026-183611-article/?rss=true"
+      }
+    ],
+    "bd_relevant": false,
+    "bd_relevance_reason": "Quarterly earnings report for Transocean with no contract award, rig fixture, or named project workforce signal.",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "headline": null,
+    "body": "EOG Resources Inc has reported $1.83 billion in net income adjusted for nonrecurring items for the first quarter (Q1), up quarter-on-quarter and year-on-year...",
+    "url": "https://www.rigzone.com/news/eog_profit_exceeds_expectations-07-may-2026-183634-article/?rss=true",
+    "published_at": "2026-05-07T12:58:42.000Z",
+    "hash": "a8d63ddb9dbac11e",
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "tldr": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "63a20281-119d-42b8-a25a-2af9452c475d",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "source_published_at": "2026-05-07T12:58:42.000Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/eog_profit_exceeds_expectations-07-may-2026-183634-article/?rss=true"
+      }
+    ],
+    "bd_relevant": false,
+    "bd_relevance_reason": "Quarterly earnings report for EOG Resources with no contract award, project sanction, rig fixture, or named workforce-demand event.",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "headline": null,
+    "body": "Murphy Oil Corp president and chief executive Eric M. Hambly said Wednesday the company is refraining from making forward-looking actions based on the presen...",
+    "url": "https://www.rigzone.com/news/murphy_oil_avoids_gambling_on_current_volatility-07-may-2026-183637-article/?rss=true",
+    "published_at": "2026-05-07T14:28:26.000Z",
+    "hash": "00a252bc94b14f69",
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "tldr": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "c0ef333c-e0d5-4728-8a28-da1eb81f4a3b",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "source_published_at": "2026-05-07T14:28:26.000Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/murphy_oil_avoids_gambling_on_current_volatility-07-may-2026-183637-article/?rss=true"
+      }
+    ],
+    "bd_relevant": false,
+    "bd_relevance_reason": "Executive commentary on capital discipline and market volatility with no named project, contract award, or discrete workforce-demand event.",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "headline": null,
+    "body": "The Asian Development Bank (ADB) said it aims to mobilize $50 billion in financing to help Asia-Pacific countries build cross-border electricity grids and an...",
+    "url": "https://www.rigzone.com/news/adb_targets_70b_for_asian_power_grid_integration_data_centers-06-may-2026-183622-article/?rss=true",
+    "published_at": "2026-05-06T13:09:54.000Z",
+    "hash": "187de88fbd087ed6",
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "tldr": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "f1fec0bb-aca9-4995-8796-10b53482a50e",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "source_published_at": "2026-05-06T13:09:54.000Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/adb_targets_70b_for_asian_power_grid_integration_data_centers-06-may-2026-183622-article/?rss=true"
+      }
+    ],
+    "bd_relevant": false,
+    "bd_relevance_reason": "ADB financing mobilization announcement is generic infrastructure policy/finance news with no named operator, contractor, or discrete project award qualifying under the BD inclusion criteria.",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "headline": "US DOE & NRC Advance Licensing for Aalo Atomics Aalo-X SMR and Oklo Aurora Powerhouse",
+    "body": "The US Department of Energy's Idaho Operations Office has approved the Documented Safety Analysis for Aalo Atomics' Aalo-X experimental reactor. Meanwhile, the US Nuclear Regulatory Commission has approved the Principal Design Criteria topical report for Oklo's Aurora powerhouse.",
+    "url": "https://www.world-nuclear-news.org//articles/licensing-of-us-pilot-smrs-advances",
+    "published_at": "2026-05-07T14:26:06.000Z",
+    "hash": "d80b309f38c1b420",
+    "subsector": "nuclear",
+    "discipline_tags": [],
+    "signal_type": "regulatory",
+    "region": "us-idaho",
+    "country": "united_states",
+    "tldr": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "da3a43d3-02b5-460b-8bf8-22ac9426d0e1",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "source_published_at": "2026-05-07T14:26:06.000Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/licensing-of-us-pilot-smrs-advances"
+      }
+    ],
+    "bd_relevant": false,
+    "bd_relevance_reason": "Regulatory licensing approvals for Aalo-X and Aurora are pre-construction milestones with no contract award, FID, EPC tender, or workforce ramp-up signal named in the article.",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "headline": "Canada Announces National Nuclear Energy Strategy & Microreactor Investment for Remote/Defence Sites",
+    "body": "Minister of Energy and Natural Resources Tim Hodgson has announced the government's intention to release a \"transformative\" Nuclear Energy Strategy for Canada before the end of the year - and will also invest millions of dollars to assess the potential of a Canadian-controlled microreactor that could provide heat and electricity to remote and northern defence-related facilities and operations.",
+    "url": "https://www.world-nuclear-news.org//articles/canada-announces-new-nuclear-strategy-and-microreactor-initiative",
+    "published_at": "2026-04-30T13:46:31.000Z",
+    "hash": "12a9654d709c712d",
+    "subsector": "nuclear",
+    "discipline_tags": [],
+    "signal_type": "regulatory",
+    "region": "canada",
+    "country": "canada",
+    "tldr": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "cd0ebf4b-8017-431e-995a-2050f7b0d357",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "source_published_at": "2026-04-30T13:46:31.000Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/canada-announces-new-nuclear-strategy-and-microreactor-initiative"
+      }
+    ],
+    "bd_relevant": false,
+    "bd_relevance_reason": "Generic national policy announcement with no named operator, contractor, or specific project — no discrete labor-demand event to act on.",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [
+      {
+        "name": "Tim Hodgson",
+        "title": "Minister of Energy and Natural Resources",
+        "company": "Government of Canada",
+        "hiring_relevance": "context_only"
+      }
+    ],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "headline": null,
+    "body": "In the coming months, the University of Utah's TRIGA research reactor will be used to produce electricity to power a mini AI data centre as part of proof-of-concept for powering full-scale data centres with microreactors.",
+    "url": "https://www.world-nuclear-news.org//articles/us-research-reactor-first-to-produce-electricity",
+    "published_at": "2026-04-29T14:41:39.000Z",
+    "hash": "c0f2a3ff29278ed7",
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "tldr": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "630f5e25-0b25-4c87-afcd-3963b695f656",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "source_published_at": "2026-04-29T14:41:39.000Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/us-research-reactor-first-to-produce-electricity"
+      }
+    ],
+    "bd_relevant": false,
+    "bd_relevance_reason": "Research/proof-of-concept announcement at a university facility with no contract award, FID, named operator, or staffing ramp-up signal.",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "headline": null,
+    "body": "Swedish lead-cooled small modular reactor technology developer Blykalla and global engineering company ABB have signed a Joint Development Agreement, marking a significant step forward in their collaboration and formally advancing their partnership.",
+    "url": "https://www.world-nuclear-news.org//articles/blykalla-and-abb-enhance-cooperation",
+    "published_at": "2026-05-05T08:30:52.000Z",
+    "hash": "ba94f26b13420a85",
+    "subsector": "nuclear",
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": "sweden",
+    "country": "sweden",
+    "tldr": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "2973322d-346c-4f8a-9b31-f5b81460dcc6",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "source_published_at": "2026-05-05T08:30:52.000Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/blykalla-and-abb-enhance-cooperation"
+      }
+    ],
+    "bd_relevant": false,
+    "bd_relevance_reason": "Joint Development Agreement for SMR technology research between Blykalla and ABB is a tech/R&D collaboration announcement with no project sanction, contract award, or discrete workforce-demand event.",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "headline": null,
+    "body": "Blue Energy has announced it is partnering with GE Vernova in a collaboration aimed at pairing nuclear and gas-fired generating capacity as a near-term approach to meeting AI-driven energy demand.",
+    "url": "https://www.world-nuclear-news.org//articles/us-companies-come-together-for-gas-plus-nuclear-solution",
+    "published_at": "2026-05-05T11:40:11.000Z",
+    "hash": "7d45c95e2edf7ac2",
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "tldr": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "1b2ed69e-9a16-4509-a984-ca09fe445dc1",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "source_published_at": "2026-05-05T11:40:11.000Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/us-companies-come-together-for-gas-plus-nuclear-solution"
+      }
+    ],
+    "bd_relevant": false,
+    "bd_relevance_reason": "Generic partnership announcement describing a technology collaboration concept with no named project, contract award, FID, or discrete workforce-demand event.",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "headline": null,
+    "body": "Solstice Advanced Materials, which was spun off from Honeywell last year, has seen its nuclear revenues increase 27% in the first quarter of 2026. Meanwhile, ConverDyn, the marketing agent for Solstice's uranium hexafluoride production, has agreed to supply uranium conversion services to micromodular reactor company Hadron Energy Inc.",
+    "url": "https://www.world-nuclear-news.org//articles/robust-demand-in-nuclear-helps-solstice-to-strong-start",
+    "published_at": "2026-05-07T11:09:52.000Z",
+    "hash": "ed927ce062df2279",
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "tldr": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "d840d42f-10a8-4526-9eca-020fbc320fd6",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "source_published_at": "2026-05-07T11:09:52.000Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/robust-demand-in-nuclear-helps-solstice-to-strong-start"
+      }
+    ],
+    "bd_relevant": false,
+    "bd_relevance_reason": "Earnings/revenue growth report and a supply contract for uranium conversion services — no project sanction, EPC award, rig fixture, or named workforce-demand event with staffing implications.",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "headline": "India NFC-Kota Fuel Plant at Rawatbhata Receives AERB Operating Licence",
+    "body": "The Atomic Energy Regulatory Board has issued an operating licence for the NFC-Kota fuel plant at Rawatbhata in Rajasthan.",
+    "url": "https://www.world-nuclear-news.org//articles/second-indian-fuel-cycle-complex-gets-operating-licence",
+    "published_at": "2026-05-01T14:35:03.000Z",
+    "hash": "9a54cf5af58ee5cf",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "india-rajasthan",
+    "country": "india",
+    "tldr": "The Atomic Energy Regulatory Board has issued an operating licence for the NFC-Kota nuclear fuel plant at Rawatbhata, Rajasthan, signalling transition to operational phase and ongoing staffing demand for plant operations.",
+    "operator": {
+      "name": "Nuclear Fuel Complex (NFC)"
+    },
+    "hiring_entity": {
+      "name": "Nuclear Fuel Complex (NFC)"
+    },
+    "project_name": "NFC-Kota Fuel Plant, Rawatbhata",
+    "scope": [
+      "plant_operations",
+      "regulatory_licensing"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Plant Operator",
+        "Process Plant Operator",
+        "Shift Supervisor",
+        "Health Physics Officer",
+        "Instrumentation & Control Technician",
+        "Maintenance Engineer",
+        "Radiation Protection Supervisor"
+      ],
+      "skills": [
+        "nuclear fuel fabrication",
+        "process plant operations",
+        "radiation protection",
+        "instrumentation and control",
+        "nuclear safety",
+        "AERB compliance"
+      ],
+      "certs_freetext": [
+        "AERB authorisation",
+        "Radiation Protection Supervisor certificate",
+        "Nuclear Operator Licence"
+      ],
+      "geo_rtw": "India (Rajasthan) — Indian nationals or India RTW required",
+      "project_experience": [
+        "NFC Hyderabad",
+        "NPCIL Rawatbhata RAPS",
+        "BARC fuel cycle facilities"
+      ],
+      "yoe_band": "5-15",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"nuclear fuel\" OR \"nuclear plant operations\" OR \"fuel fabrication\") AND (\"process plant operator\" OR \"shift supervisor\" OR \"health physics\" OR \"radiation protection\") AND (\"AERB\" OR \"NPCIL\" OR \"NFC\" OR \"BARC\") AND (India OR Rajasthan OR Rawatbhata OR Kota)"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], the NFC-Kota fuel plant at Rawatbhata just received its AERB operating licence — ongoing ops roles are opening up. Your nuclear plant ops background looks relevant. Worth a quick chat?",
+      "email_subject": "NFC-Kota Rawatbhata — Operating Licence Granted, Ops Roles Opening",
+      "email_body": "Hi [Name],\n\nThe NFC-Kota nuclear fuel plant at Rawatbhata, Rajasthan has just been issued its operating licence by the Atomic Energy Regulatory Board, marking the transition to full operations.\n\nThis typically drives demand for experienced nuclear plant operators, shift supervisors, health physics officers, and I&C technicians on an ongoing basis.\n\nGiven your background in nuclear/process plant operations, I wanted to reach out to see if you'd be open to a conversation about opportunities in this space.\n\nBest regards,\n[Your Name]"
+    },
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "911a6717-580e-4b63-bd04-a7fcfad90355",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "source_published_at": "2026-05-01T14:35:03.000Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/second-indian-fuel-cycle-complex-gets-operating-licence"
+      }
+    ],
+    "bd_relevant": true,
+    "bd_relevance_reason": "Regulatory operating licence issued to a named operator (NFC) for a named nuclear fuel plant (NFC-Kota, Rawatbhata), signalling transition to operational phase with ongoing staffing demand.",
+    "phase": "operating",
+    "phase_evidence": "Article states AERB has issued an operating licence, confirming the plant is transitioning to or entering operational status.",
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "ongoing",
+    "key_people": [],
+    "contact_archetypes": [
+      "ops_director",
+      "hiring_manager"
+    ],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "headline": null,
+    "body": "Nuclear fuel company Clean Core Thorium Energy announced its patented ANEEL fuel has successfully reached more than 60 GWd/MTU of burnup in the Advanced Test Reactor at Idaho National Laboratory.",
+    "url": "https://www.world-nuclear-news.org//articles/innovative-thorium-based-fuel-concludes-irradiation-campaign",
+    "published_at": "2026-05-07T12:39:59.000Z",
+    "hash": "4ebf27247ad512ef",
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "tldr": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "cd551767-2404-4b40-a547-7e45732facba",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "source_published_at": "2026-05-07T12:39:59.000Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/innovative-thorium-based-fuel-concludes-irradiation-campaign"
+      }
+    ],
+    "bd_relevant": false,
+    "bd_relevance_reason": "Tech/research milestone announcement with no contract award, workforce ramp-up, or staffing-demand signal.",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "headline": null,
+    "body": "The Korea Atomic Energy Research Institute has signed a technology transfer agreement with Arinus Co for a technology that protects cells from radiation using an antioxidant ingredient contained in citrus fruit peel.",
+    "url": "https://www.world-nuclear-news.org//articles/tangerine-peels-radiation-health-properties-",
+    "published_at": "2026-05-01T10:26:55.000Z",
+    "hash": "e53d83c209b497f1",
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "tldr": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "ec64b4e3-6f18-4df0-9b30-3a4774d8da5e",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "source_published_at": "2026-05-01T10:26:55.000Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/tangerine-peels-radiation-health-properties-"
+      }
+    ],
+    "bd_relevant": false,
+    "bd_relevance_reason": "Technology transfer agreement for a radiation-protection biotech product with no discrete workforce-demand event, no project, and no staffing or construction signal in any qualifying energy subsector.",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "headline": "Commonwealth Fusion Systems Files PJM Grid-Connection App for ARC Fusion Plant — Startup Early 2030s",
+    "body": "US private fusion company Commonwealth Fusion Systems has applied to connect its first ARC fusion power plant to PJM Interconnection, the largest US competitive wholesale electricity market. The plant is expected to start up in the early 2030s.",
+    "url": "https://www.world-nuclear-news.org//articles/grid-connection-requested-for-us-fusion-power-plant",
+    "published_at": "2026-04-30T09:21:43.000Z",
+    "hash": "6206132d9dda41c1",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-mid-atlantic",
+    "country": "united_states",
+    "tldr": "Commonwealth Fusion Systems has applied to connect its first ARC fusion plant to PJM Interconnection, signalling long-horizon workforce demand in the early 2030s. No FID or EPC award cited; project remains pre-sanction.",
+    "operator": {
+      "name": "Commonwealth Fusion Systems"
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": "ARC",
+    "scope": [
+      "grid_connection",
+      "plant_startup"
+    ],
+    "mob_window": {
+      "start": "2030-Q1",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Fusion Plant Engineer",
+        "Nuclear Systems Engineer",
+        "Grid Interconnection Engineer",
+        "Project Development Manager",
+        "Power Plant Commissioning Engineer"
+      ],
+      "skills": [
+        "fusion energy",
+        "grid interconnection",
+        "PJM markets",
+        "nuclear plant commissioning",
+        "power plant development"
+      ],
+      "certs_freetext": [
+        "PE license",
+        "NRC certification"
+      ],
+      "geo_rtw": "US work authorization required",
+      "project_experience": [
+        "ITER",
+        "NIF",
+        "tokamak projects",
+        "SMR development"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "senior",
+      "boolean_search": "(\"fusion\" OR \"nuclear\" OR \"tokamak\") AND (\"grid interconnection\" OR \"PJM\" OR \"power plant commissioning\" OR \"plant startup\") AND (\"Commonwealth Fusion\" OR \"ARC\" OR \"SPARC\" OR \"fusion energy\") AND (\"project engineer\" OR \"systems engineer\" OR \"commissioning engineer\" OR \"plant engineer\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], with Commonwealth Fusion Systems filing their PJM grid-connection app for the ARC plant (early 2030s target), we're mapping fusion/nuclear talent ahead of the build phase. Worth a conversation?",
+      "email_subject": "ARC Fusion Plant — Early Talent Mapping for Commonwealth Fusion Systems",
+      "email_body": "Hi [Name],\n\nCommonwealth Fusion Systems has just filed its PJM grid-connection application for the ARC fusion plant, targeting startup in the early 2030s. While the project is still pre-sanction, early-stage engineering and development roles typically ramp well ahead of FID.\n\nWe're building a pipeline of fusion, nuclear, and power plant engineering professionals with relevant commissioning and interconnection experience. Given your background, I'd love to keep you in our network as this project develops.\n\nWould you be open to a brief call to discuss?\n\nBest regards,\n[Your Name]"
+    },
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "05299d5f-78bf-48b9-97a1-7e04a7b8d06d",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "source_published_at": "2026-04-30T09:21:43.000Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/grid-connection-requested-for-us-fusion-power-plant"
+      }
+    ],
+    "bd_relevant": false,
+    "bd_relevance_reason": "Grid-connection application is a regulatory/administrative filing with no FID, EPC award, or contract event named; no hiring entity or contractor identified, and startup is a decade away with no discrete workforce-demand trigger.",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "headline": "UK Infinity Fusion Consortium (Type One Energy, Tokamak Energy, AECOM) targets first private UK fusion plant",
+    "body": "US fusion energy developer Type One Energy, Britain's Tokamak Energy, and US construction engineering firm AECOM have formed the UK Infinity Fusion Consortium to pursue development of the first private-sector-led fusion power plant project in the UK.",
+    "url": "https://www.world-nuclear-news.org//articles/british-us-consortium-aims-to-build-uk-fusion-plant",
+    "published_at": "2026-05-06T11:04:47.000Z",
+    "hash": "c7c8181783306b4f",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "fid",
+    "region": "united-kingdom",
+    "country": "united_kingdom",
+    "tldr": "Type One Energy, Tokamak Energy, and AECOM have formed the UK Infinity Fusion Consortium to develop the first private-sector fusion power plant in the UK. This is a pre-sanction development stage with no FID or EPC award yet; hiring demand is 12+ months out.",
+    "operator": {
+      "name": "UK Infinity Fusion Consortium (Type One Energy / Tokamak Energy)"
+    },
+    "hiring_entity": {
+      "name": "AECOM"
+    },
+    "project_name": "UK Infinity Fusion Plant",
+    "scope": [
+      "concept_development",
+      "fusion_plant_design"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Fusion Plant Engineer",
+        "Nuclear Project Engineer",
+        "FEED Engineer",
+        "Concept Development Manager",
+        "Process Engineer",
+        "Project Development Manager"
+      ],
+      "skills": [
+        "fusion energy",
+        "nuclear plant design",
+        "FEED",
+        "concept engineering",
+        "plasma physics",
+        "nuclear licensing"
+      ],
+      "certs_freetext": [
+        "NVQ Nuclear",
+        "MCIBSE",
+        "CEng"
+      ],
+      "geo_rtw": "UK right-to-work",
+      "project_experience": [
+        "Spherical Tokamak for Energy Production (STEP)",
+        "JET",
+        "ITER",
+        "NIF"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "senior",
+      "boolean_search": "(\"fusion\" OR \"tokamak\" OR \"nuclear plant\") AND (\"FEED\" OR \"concept engineering\" OR \"plant design\" OR \"nuclear engineering\") AND (\"Type One Energy\" OR \"Tokamak Energy\" OR \"AECOM\" OR \"STEP\" OR \"ITER\") AND (\"United Kingdom\" OR \"UK\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], with AECOM, Type One Energy & Tokamak Energy forming the UK Infinity Fusion Consortium, early-stage fusion plant engineering roles are emerging in the UK. Your background looks relevant — open to a conversation?",
+      "email_subject": "UK Infinity Fusion Consortium — Early Engineering Talent",
+      "email_body": "Hi [Name],\n\nType One Energy, Tokamak Energy, and AECOM have just announced the UK Infinity Fusion Consortium, targeting the first private-sector fusion power plant in the UK. As the project moves through concept and FEED stages, demand for senior nuclear/fusion engineers will grow.\n\nGiven your background in [relevant discipline], I wanted to reach out early. Would you be open to a brief call to discuss how your experience might align?\n\nBest regards,\n[Your Name]"
+    },
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "2b6a9138-dc51-4049-afab-e2b76cb0413c",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "source_published_at": "2026-05-06T11:04:47.000Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/british-us-consortium-aims-to-build-uk-fusion-plant"
+      }
+    ],
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named consortium formation (Type One Energy, Tokamak Energy, AECOM) targeting a specific first private UK fusion power plant project — qualifies as a pre-sanction development event with future labor demand in nuclear engineering.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states the consortium was formed to 'pursue development' of the plant, indicating concept/pre-FID stage with no sanction or EPC award mentioned.",
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director",
+      "hr_business_partner"
+    ],
     "prompt_version": "phase-targeting-v1"
   }
 ]
