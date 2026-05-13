@@ -418,6 +418,979 @@
       {
         "id": "rigzone",
         "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/uniper_gets_preliminary_approval_for_hesse_ccgt_plant-05-may-2026-183609-article/?rss=true"
+      }
+    ],
+    "headline": null,
+    "body": "Uniper SE has received preliminary approval from the Darmstadt Regional Authority for a natural gas-fired generation plant designed to be hydrogen-compatible...",
+    "url": "https://www.rigzone.com/news/uniper_gets_preliminary_approval_for_hesse_ccgt_plant-05-may-2026-183609-article/?rss=true",
+    "published_at": "2026-05-05T11:35:51.000Z",
+    "hash": "dad967b2bbe82f11",
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "tldr": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "bd_relevant": false,
+    "bd_relevance_reason": "Preliminary regulatory approval for a CCGT plant; no FID, EPC award, contract, or discrete workforce-demand event has occurred — only a pre-sanction permit milestone with no named contractor or hiring entity.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "49a05e1a-7fe8-4b5b-afaa-874b541e295d",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "source_published_at": "2026-05-05T11:35:51.000Z",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/80-mile-gets-exploration-permits-to-begin-drilling-at-disko-project-in-greenland/"
+      }
+    ],
+    "headline": "80 Mile Secures Exploration Permits for Disko-Nuussuaq Ni-Cu-Co-PGE Drill Program, July Start",
+    "body": "An initial 5,000‑metre drill program is scheduled for the first week of July at Disko-Nuussuaq nickel-copper-cobalt-PGE project in West Greenland.",
+    "url": "https://www.mining.com/80-mile-gets-exploration-permits-to-begin-drilling-at-disko-project-in-greenland/",
+    "published_at": "2026-05-11T23:01:29.000Z",
+    "hash": "84ab4984657a6272",
+    "subsector": "mining",
+    "discipline_tags": [
+      "drilling_operations",
+      "survey_geophysical"
+    ],
+    "signal_type": "regulatory",
+    "region": "greenland",
+    "country": "greenland",
+    "tldr": "80 Mile has secured exploration permits for a 5,000m drill program at the Disko-Nuussuaq Ni-Cu-Co-PGE project in West Greenland, with mobilization scheduled for the first week of July. Near-term drilling crew and support demand expected.",
+    "operator": {
+      "name": "80 Mile"
+    },
+    "hiring_entity": {
+      "name": "80 Mile"
+    },
+    "project_name": "Disko-Nuussuaq",
+    "scope": [
+      "exploration_drilling",
+      "ni_cu_co_pge"
+    ],
+    "mob_window": {
+      "start": "2025-Q3",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Exploration Driller",
+        "Drill Rig Supervisor",
+        "Field Geologist",
+        "Core Technician",
+        "Drilling Superintendent",
+        "Camp Manager",
+        "HSE Advisor – Exploration"
+      ],
+      "skills": [
+        "diamond core drilling",
+        "RC drilling",
+        "exploration drilling",
+        "geological logging",
+        "remote camp operations",
+        "nickel copper exploration",
+        "PGE exploration"
+      ],
+      "certs_freetext": [
+        "First Aid / Remote First Aid",
+        "WHMIS",
+        "Wilderness Safety"
+      ],
+      "geo_rtw": "Greenland / EU / EEA eligible preferred; remote fly-in fly-out",
+      "project_experience": [
+        "Norilsk-style mafic intrusion projects",
+        "Arctic exploration drilling",
+        "Voisey's Bay",
+        "Julimar"
+      ],
+      "yoe_band": "5-15",
+      "seniority": "mid-to-senior field",
+      "boolean_search": "(\"exploration drilling\" OR \"diamond drilling\" OR \"core drilling\") AND (\"nickel\" OR \"copper\" OR \"PGE\" OR \"base metals\") AND (\"field geologist\" OR \"drill supervisor\" OR \"drilling superintendent\" OR \"core technician\") AND (\"remote\" OR \"fly-in fly-out\" OR \"FIFO\" OR \"Arctic\" OR \"Greenland\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], 80 Mile is mobilising a 5,000m drill program at the Disko-Nuussuaq Ni-Cu-Co-PGE project in West Greenland from early July. Are you available for a remote Arctic rotation? Happy to share details.",
+      "email_subject": "Disko-Nuussuaq Drill Program – July Mob | Greenland Ni-Cu-Co-PGE",
+      "email_body": "Hi [Name],\n\n80 Mile has just secured exploration permits for a 5,000-metre drill program at the Disko-Nuussuaq nickel-copper-cobalt-PGE project in West Greenland, with mobilisation scheduled for the first week of July.\n\nWe are sourcing experienced exploration drillers, drill supervisors, and field geologists for FIFO rotations into a remote Arctic environment.\n\nGiven your background in [relevant experience], I wanted to reach out directly. Would you be open to a quick call this week to discuss availability and fit?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Exploration permit grant naming operator 80 Mile and project Disko-Nuussuaq with a confirmed July drill-program start, signalling near-term drilling crew demand in the mining subsector.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "952bec1b-ad99-4468-a33f-47f1bbd3c928",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "source_published_at": "2026-05-11T23:01:29.000Z",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article describes an initial exploration drill program just permitted — early-stage exploration, no FID or development decision indicated.",
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": [],
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/gold-candle-acquires-pan-american-silvers-larder-property-in-the-abitibi/"
+      }
+    ],
+    "headline": "Gold Candle Acquires Pan American Silver's Larder Property in Ontario's Abitibi Region",
+    "body": "Gold Candle announced it will acquire all the assets that comprise Pan American Silver’s (TSX: PAAS) Larder property in the Abitibi region of Ontario, Canada for 15,000,000 common shares, which will result […]",
+    "url": "https://www.mining.com/gold-candle-acquires-pan-american-silvers-larder-property-in-the-abitibi/",
+    "published_at": "2026-05-11T20:25:47.000Z",
+    "hash": "ee2d1ff3ea3246c3",
+    "subsector": "mining",
+    "discipline_tags": [],
+    "signal_type": "lease_round",
+    "region": "ontario-canada",
+    "country": "canada",
+    "tldr": null,
+    "operator": {
+      "name": "Gold Candle"
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": "Larder Property",
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "bd_relevant": false,
+    "bd_relevance_reason": "This is an M&A/asset acquisition deal with no FID, contract award, or named workforce ramp-up event that signals discrete labor demand at the Larder property.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "747a1f36-c745-4c2f-8c17-47849fe4e9f2",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "source_published_at": "2026-05-11T20:25:47.000Z",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/tmc-allseas-strike-first-seabed-nodule-mining-deal/"
+      }
+    ],
+    "headline": "TMC & Allseas Strike First Commercial Seabed Nodule Mining Deal — 3M Tonnes/Year Target",
+    "body": "Deep-sea mining hopeful advances commercial plans with offshore production system targeting 3M tonnes annually.",
+    "url": "https://www.mining.com/tmc-allseas-strike-first-seabed-nodule-mining-deal/",
+    "published_at": "2026-05-11T12:59:00.000Z",
+    "hash": "09b27588adf4a444",
+    "subsector": "mining",
+    "discipline_tags": [
+      "marine_offshore_ops",
+      "rov_subsea",
+      "industrial_construction"
+    ],
+    "signal_type": "epc_award",
+    "region": "international-waters",
+    "country": null,
+    "tldr": "The Metals Company (TMC) and Allseas have signed a first commercial agreement for a deep-sea nodule mining production system targeting 3 million tonnes per year, signalling an imminent ramp-up in offshore mining crew and vessel demand. Recruiters should target marine, subsea, and offshore operations talent as mobilisation planning accelerates.",
+    "operator": {
+      "name": "The Metals Company (TMC)"
+    },
+    "hiring_entity": {
+      "name": "Allseas"
+    },
+    "project_name": "TMC–Allseas Commercial Seabed Nodule Mining Production System",
+    "scope": [
+      "offshore_production_system",
+      "seabed_nodule_collection",
+      "vessel_operations"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Offshore Production Superintendent",
+        "Marine Operations Superintendent",
+        "ROV Supervisor",
+        "Subsea Engineer",
+        "Offshore Installation Manager",
+        "Marine Technician",
+        "Dynamic Positioning Officer",
+        "Production Systems Engineer",
+        "Seabed Mining Engineer",
+        "Vessel Master"
+      ],
+      "skills": [
+        "deep-sea mining",
+        "offshore production systems",
+        "ROV operations",
+        "dynamic positioning",
+        "marine operations",
+        "subsea systems",
+        "nodule collection",
+        "heavy lift vessel",
+        "offshore campaign management"
+      ],
+      "certs_freetext": [
+        "STCW",
+        "Dynamic Positioning (DP) Certificate",
+        "BOSIET/HUET",
+        "GWO",
+        "Offshore Medical (ENG1 or equivalent)"
+      ],
+      "geo_rtw": "International — EU/EEA/UK/AU/NZ/US passport or equivalent offshore work authorisation",
+      "project_experience": [
+        "Allseas Pioneering Spirit",
+        "offshore heavy lift campaigns",
+        "subsea installation projects",
+        "deepwater mineral extraction",
+        "FPSO offshore operations"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"seabed mining\" OR \"deep sea mining\" OR \"nodule mining\" OR \"offshore mining\") AND (\"marine operations\" OR \"ROV\" OR \"subsea\" OR \"offshore production\") AND (\"Allseas\" OR \"TMC\" OR \"The Metals Company\" OR \"offshore installation\" OR \"dynamic positioning\" OR \"DP officer\") AND (\"superintendent\" OR \"supervisor\" OR \"engineer\" OR \"OIM\" OR \"vessel master\" OR \"technician\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], TMC & Allseas just signed the first commercial seabed nodule mining deal targeting 3M t/yr — a major offshore mining ramp-up. Your [ROV/marine ops] background looks highly relevant. Worth a quick chat about upcoming roles?",
+      "email_subject": "TMC & Allseas Seabed Mining Deal — Offshore Roles Ramping Up",
+      "email_body": "Hi [Name],\n\nThe Metals Company (TMC) and Allseas have just announced the first commercial seabed nodule mining agreement, targeting a 3-million-tonne-per-year offshore production system. This represents a significant new labour-demand event in deep-sea mining.\n\nGiven your background in [marine operations / ROV / subsea / offshore production], I wanted to reach out early as roles in vessel operations, subsea engineering, and offshore production management are likely to come to market as mobilisation planning ramps up.\n\nWould you be open to a brief call to discuss how your experience maps to this campaign?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "First commercial contract award between named operator TMC and contractor Allseas for an offshore seabed nodule mining production system targeting 3M tonnes/year — a discrete workforce-demand event in the mining subsector naming both operator and hiring entity.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "c0bff2b6-1bc4-4bb9-a945-f0d0e30c4646",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "source_published_at": "2026-05-11T12:59:00.000Z",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Article describes the deal as a 'first commercial' agreement for an offshore production system, indicating the project has moved beyond concept into commercial/engineering planning but has not yet commenced construction or operations.",
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/cameco-halts-saskatchewan-uranium-operations-after-floods/"
+      }
+    ],
+    "headline": "Cameco Halts McArthur River Mine & Key Lake Mill After Saskatchewan Floods",
+    "body": "Flooding in northern Saskatchewan has disrupted supply routes to the McArthur River mine and Key Lake mill.",
+    "url": "https://www.mining.com/cameco-halts-saskatchewan-uranium-operations-after-floods/",
+    "published_at": "2026-05-11T10:58:00.000Z",
+    "hash": "0057877753f09e1c",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "canada-saskatchewan",
+    "country": "canada",
+    "tldr": "Cameco has suspended operations at McArthur River mine and Key Lake mill due to flood-disrupted supply routes in northern Saskatchewan, signaling a potential restart/recovery workforce ramp once access is restored.",
+    "operator": {
+      "name": "Cameco"
+    },
+    "hiring_entity": {
+      "name": "Cameco"
+    },
+    "project_name": "McArthur River Mine / Key Lake Mill",
+    "scope": [
+      "mine_operations",
+      "mill_operations",
+      "site_recovery"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mine Operations Supervisor",
+        "Mill Operator",
+        "Mining Engineer",
+        "Maintenance Technician",
+        "Site Logistics Coordinator",
+        "Uranium Processing Operator"
+      ],
+      "skills": [
+        "uranium mining",
+        "mill operations",
+        "process plant",
+        "site logistics",
+        "remote site operations",
+        "maintenance"
+      ],
+      "certs_freetext": [
+        "CANDU radiation safety",
+        "blasting certificate",
+        "underground mining certification"
+      ],
+      "geo_rtw": "Canada (Saskatchewan) — must have right to work in Canada",
+      "project_experience": [
+        "Cigar Lake",
+        "Rabbit Lake",
+        "Millennium Mine"
+      ],
+      "yoe_band": "5-15",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"McArthur River\" OR \"Key Lake\" OR \"uranium mine\" OR \"uranium mill\") AND (\"mine operator\" OR \"mill operator\" OR \"mining engineer\" OR \"maintenance technician\" OR \"process plant\") AND (\"Saskatchewan\" OR \"northern Canada\" OR \"remote site\") AND (Cameco OR \"uranium processing\" OR \"underground mining\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Cameco's McArthur River mine and Key Lake mill are temporarily halted due to Saskatchewan flooding — restart will require experienced mine/mill talent. Are you open to hearing about upcoming opportunities?",
+      "email_subject": "McArthur River / Key Lake Restart — Upcoming Talent Opportunities with Cameco",
+      "email_body": "Hi [Name],\n\nCameco has suspended operations at its McArthur River mine and Key Lake mill following flooding in northern Saskatchewan. As the situation stabilises and access routes are restored, a workforce restart will be needed across mine operations, mill processing, and site maintenance.\n\nGiven your background in [uranium mining / process plant operations / remote site work], I wanted to reach out early to gauge your interest in potential opportunities as Cameco resumes full operations.\n\nWould you be open to a brief call to discuss?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Cameco) and two named assets (McArthur River mine, Key Lake mill) are halted due to flooding, implying a near-term workforce restart/recovery demand event in the mining sector.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "2b68deda-7002-437f-90fb-34fcb89c8263",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "source_published_at": "2026-05-11T10:58:00.000Z",
+    "phase": "operating",
+    "phase_evidence": "Article states flooding 'disrupted supply routes' to an operational mine and mill, implying existing production assets now temporarily offline awaiting restart.",
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "contact_archetypes": [
+      "ops_director",
+      "hiring_manager"
+    ],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/freeport-delays-grasberg-full-restart-to-early-2028/"
+      }
+    ],
+    "headline": "Freeport Grasberg Phased Ramp to 65% Capacity H2 2026, Full Restart Delayed to Early 2028",
+    "body": "Freeport now aims for 65% capacity in the second half of 2026, 80% by mid-2027, and near full capacity by the end of 2027.",
+    "url": "https://www.mining.com/freeport-delays-grasberg-full-restart-to-early-2028/",
+    "published_at": "2026-05-08T15:34:41.000Z",
+    "hash": "d4453f90abbb87c0",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "regulatory",
+    "region": "indonesia",
+    "country": "indonesia",
+    "tldr": "Freeport-McMoRan is ramping Grasberg to 65% capacity in H2 2026, 80% by mid-2027, and near-full by end-2027, with complete restart pushed to early 2028 — signalling a sustained multi-phase workforce ramp over the next 18+ months.",
+    "operator": {
+      "name": "Freeport-McMoRan"
+    },
+    "hiring_entity": {
+      "name": "Freeport-McMoRan"
+    },
+    "project_name": "Grasberg",
+    "scope": [
+      "plant_ramp_up",
+      "operations_staffing",
+      "maintenance"
+    ],
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": "2028-Q1",
+      "duration_months": 18
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mining Operations Superintendent",
+        "Process Plant Supervisor",
+        "Maintenance Superintendent",
+        "Electrical Superintendent",
+        "Mechanical Maintenance Engineer",
+        "Concentrator Operator",
+        "Instrument Technician",
+        "Reliability Engineer",
+        "Shutdown Planner",
+        "Production Manager"
+      ],
+      "skills": [
+        "copper concentrator operations",
+        "SAG mill",
+        "flotation",
+        "underground block caving",
+        "plant ramp-up",
+        "preventive maintenance",
+        "reliability centred maintenance",
+        "FIFO operations",
+        "mine ramp-up management"
+      ],
+      "certs_freetext": [
+        "Mine Manager Certificate of Competency",
+        "OHSE site induction",
+        "Indonesian K3 certification (preferred)"
+      ],
+      "geo_rtw": "Indonesia-based or FIFO-eligible; international candidates with Indonesian work permit eligibility",
+      "project_experience": [
+        "Grasberg Block Cave",
+        "Deep Mill Level Zone",
+        "Ok Tedi",
+        "Batu Hijau",
+        "Escondida"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid-senior to principal",
+      "boolean_search": "(\"Grasberg\" OR \"copper mine\" OR \"concentrator\" OR \"block cave\") AND (\"plant ramp\" OR \"mine operations\" OR \"concentrator operations\" OR \"maintenance superintendent\" OR \"process plant supervisor\" OR \"production superintendent\") AND (\"Freeport\" OR \"PT-FI\" OR \"underground mining\" OR \"SAG mill\" OR \"flotation\") AND (Indonesia OR \"Papua\" OR FIFO)"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Freeport's Grasberg is ramping to 65% capacity from H2 2026 through full restart in early 2028 — a major ops & maintenance build-up. Your background in [relevant skill] looks directly relevant. Worth a quick chat?",
+      "email_subject": "Grasberg Ramp-Up 2026–2028 — Ops & Maintenance Roles Opening",
+      "email_body": "Hi [Name],\n\nFreeport-McMoRan has announced a phased ramp-up at Grasberg — targeting 65% capacity in H2 2026, 80% by mid-2027, and near-full operations by end-2027, with complete restart pushed to early 2028.\n\nThis sustained ramp signals significant demand for experienced concentrator, maintenance, and underground operations professionals over the next 18+ months.\n\nGiven your experience in [relevant area], I'd like to explore whether you'd be open to hearing about the opportunities coming through on this programme.\n\nAre you available for a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Freeport-McMoRan) announces a phased large-scale workforce ramp-up at a named project (Grasberg mine) across a defined 18-month window, constituting a discrete and actionable labor-demand event in mining.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "e841eef4-1b82-4fd5-80cb-fe5f24b00f4d",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "source_published_at": "2026-05-08T15:34:41.000Z",
+    "phase": "operating",
+    "phase_evidence": "Article describes a phased capacity ramp from existing operations ('65% capacity in H2 2026… near full capacity by end of 2027'), indicating an operating asset restarting/ramping rather than a new construction project.",
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "contact_archetypes": [
+      "ops_director",
+      "hiring_manager"
+    ],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/ontarios-darlington-smr-renews-canadas-nuclear-maturity/"
+      }
+    ],
+    "headline": "Darlington SMR Construction Begins — First SMR in G7, Ontario Canada",
+    "body": "Ontario has started construction on the first small modular reactor in the G7.",
+    "url": "https://www.mining.com/ontarios-darlington-smr-renews-canadas-nuclear-maturity/",
+    "published_at": "2026-05-08T13:26:05.000Z",
+    "hash": "b1d8ee14c15484da",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "ndt_inspection"
+    ],
+    "signal_type": "fid",
+    "region": "ontario-canada",
+    "country": "canada",
+    "tldr": "Construction has commenced on the Darlington SMR in Ontario, Canada — the first SMR in the G7 — signalling an active hiring window for nuclear construction trades and inspection personnel.",
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": "Darlington SMR",
+    "scope": [
+      "smr_construction",
+      "civil_works",
+      "mechanical_installation"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Construction Manager",
+        "Site Superintendent",
+        "Civil Construction Supervisor",
+        "Mechanical Superintendent",
+        "NDT Inspector",
+        "QA/QC Inspector Nuclear",
+        "Construction Trades Foreman",
+        "Health & Safety Advisor Nuclear",
+        "Commissioning Engineer"
+      ],
+      "skills": [
+        "nuclear construction",
+        "SMR",
+        "CANDU",
+        "reactor civil works",
+        "mechanical installation",
+        "QA nuclear",
+        "NDT",
+        "commissioning",
+        "CNSC regulations"
+      ],
+      "certs_freetext": [
+        "CNSC Nuclear Security Clearance",
+        "CSA N285",
+        "Red Seal trades certification",
+        "CGSB NDT Level II/III",
+        "NUPIC qualified"
+      ],
+      "geo_rtw": "Canada — must hold valid right to work; Ontario preferred",
+      "project_experience": [
+        "Darlington Refurbishment",
+        "Bruce Power Life Extension",
+        "Pickering NGS",
+        "OPG nuclear projects"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid-senior to principal",
+      "boolean_search": "(\"nuclear construction\" OR \"SMR\" OR \"small modular reactor\" OR \"CANDU\" OR \"reactor\" OR \"Darlington\") AND (\"construction manager\" OR \"site superintendent\" OR \"mechanical superintendent\" OR \"commissioning engineer\" OR \"NDT inspector\" OR \"QA inspector\" OR \"construction supervisor\") AND (\"Ontario\" OR \"Canada\") NOT (\"analyst\" OR \"policy\" OR \"finance\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], construction has just kicked off on the Darlington SMR in Ontario — the first SMR in the G7. Your nuclear construction background looks like a strong fit for roles ramping now. Worth a quick chat?",
+      "email_subject": "Darlington SMR — Nuclear Construction Roles Now Live, Ontario",
+      "email_body": "Hi [Name],\n\nConstruction has officially begun on the Darlington Small Modular Reactor in Ontario — a landmark project and the first SMR to break ground in the G7.\n\nWith site activity now underway, there is immediate demand for experienced nuclear construction professionals including construction managers, mechanical superintendents, NDT/QA inspectors, and commissioning engineers.\n\nGiven your background in [relevant experience], I wanted to reach out directly before these positions are filled.\n\nWould you be open to a brief call this week to discuss how your experience aligns with what's needed on-site?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named project (Darlington SMR) has entered active construction — the prime hiring window for nuclear trades, inspection, and construction management personnel.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "50d39266-fc22-4c4c-8622-c9cfc17a5dde",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "source_published_at": "2026-05-08T13:26:05.000Z",
+    "phase": "construction",
+    "phase_evidence": "Article states 'Ontario has started construction on the first small modular reactor in the G7', confirming physical construction has commenced.",
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": [],
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/touquoy-mine-reboot-to-yield-180m-in-canadian-gold/"
+      }
+    ],
+    "headline": "Atlantic Mining Reboots Touquoy Mine to Reprocess 3M Tonnes of Gold Ore, Nova Scotia",
+    "body": "Atlantic Mining readies to reprocess about 3M tonnes of ore at the Touquoy mine, on Canada’s Atlantic coast.",
+    "url": "https://www.mining.com/touquoy-mine-reboot-to-yield-180m-in-canadian-gold/",
+    "published_at": "2026-05-08T13:13:00.000Z",
+    "hash": "b58a0fed5358f0d6",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "ndt_inspection"
+    ],
+    "signal_type": "epc_award",
+    "region": "atlantic-canada",
+    "country": "canada",
+    "tldr": "Atlantic Mining is reactivating the Touquoy gold mine in Nova Scotia to reprocess approximately 3 million tonnes of ore, signalling an imminent workforce ramp-up for plant operations and processing roles.",
+    "operator": {
+      "name": "Atlantic Mining"
+    },
+    "hiring_entity": {
+      "name": "Atlantic Mining"
+    },
+    "project_name": "Touquoy Mine",
+    "scope": [
+      "ore_reprocessing",
+      "mine_restart",
+      "process_plant_operations"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Processing Plant Operator",
+        "Mine Site Superintendent",
+        "Metallurgist",
+        "Plant Maintenance Technician",
+        "Electrical Technician",
+        "Mechanical Technician",
+        "Site Manager",
+        "Health & Safety Officer",
+        "Crusher Operator",
+        "Conveyor Technician"
+      ],
+      "skills": [
+        "gold ore processing",
+        "heap leach or CIL processing",
+        "plant commissioning",
+        "mine restart",
+        "preventive maintenance",
+        "tailings management",
+        "process control"
+      ],
+      "certs_freetext": [
+        "Nova Scotia Mines Act certification",
+        "First Aid/CPR",
+        "H2S Alive",
+        "WHMIS"
+      ],
+      "geo_rtw": "Canada (Nova Scotia) — must have Canadian work authorization",
+      "project_experience": [
+        "Moose River Gold Mines",
+        "Beaver Dam Mine",
+        "Fifteen Mile Stream"
+      ],
+      "yoe_band": "5-15",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"mine restart\" OR \"gold processing\" OR \"ore reprocessing\" OR \"process plant operator\" OR \"metallurgist\") AND (\"Nova Scotia\" OR \"Atlantic Canada\" OR \"Canada\") AND (\"CIL\" OR \"carbon-in-leach\" OR \"heap leach\" OR \"gold mine\" OR \"open pit mining\") NOT (\"exploration\" OR \"junior mining\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Atlantic Mining is reactivating the Touquoy gold mine in Nova Scotia to reprocess ~3M tonnes of ore — a workforce ramp-up is underway. Are you open to hearing about site roles? Happy to share details.",
+      "email_subject": "Touquoy Mine Restart – Process Plant & Site Roles | Nova Scotia",
+      "email_body": "Hi [Name],\n\nAtlantic Mining is rebooting operations at the Touquoy gold mine in Nova Scotia, targeting reprocessing of approximately 3 million tonnes of gold ore. This restart is expected to create demand for experienced process plant, metallurgy, maintenance, and site operations professionals in the near term.\n\nGiven your background in [gold processing / mine operations], I wanted to reach out to see if you'd be open to a conversation about opportunities at this project.\n\nWould you have 15 minutes for a quick call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Atlantic Mining) announces restart of named project (Touquoy Mine) to reprocess 3M tonnes of gold ore in Nova Scotia, constituting a discrete workforce-demand event in the mining sector.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "67233574-ad73-40ae-a1cb-f53ca365e49d",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "source_published_at": "2026-05-08T13:13:00.000Z",
+    "phase": "construction",
+    "phase_evidence": "Article states Atlantic Mining 'readies to reprocess' ore, indicating operational restart/ramp-up is imminent rather than at a planning or pre-FID stage.",
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": [],
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/buenaventura-eyes-16-year-boost-for-new-peru-mine/"
+      }
+    ],
+    "headline": null,
+    "body": "The miner believes exploration success and new mining technology can make San Gabriel a long-lasting gold asset.",
+    "url": "https://www.mining.com/buenaventura-eyes-16-year-boost-for-new-peru-mine/",
+    "published_at": "2026-05-08T10:55:00.000Z",
+    "hash": "5006d48a82430a9f",
+    "subsector": "mining",
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": "peru",
+    "country": "peru",
+    "tldr": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "bd_relevant": false,
+    "bd_relevance_reason": "Article describes a speculative life-extension aspiration for San Gabriel mine with no contract award, FID, project sanction, or discrete workforce-demand event named.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "9509d877-100f-4146-8470-ff0d67b9ccf7",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "source_published_at": "2026-05-08T10:55:00.000Z",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/cornish-metals-secures-210m-to-fund-uk-tin-mine-revival/"
+      }
+    ],
+    "headline": "Cornish Metals Secures $210M to Restart South Crofty Tin Mine in Cornwall",
+    "body": "Cornish Metals advances plans to restart South Crofty after securing strong backing from international bond investors.",
+    "url": "https://www.mining.com/cornish-metals-secures-210m-to-fund-uk-tin-mine-revival/",
+    "published_at": "2026-05-07T16:03:00.000Z",
+    "hash": "7e7de38871106d47",
+    "subsector": "mining",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "fid",
+    "region": "uk-southwest",
+    "country": "united_kingdom",
+    "tldr": "Cornish Metals has secured $210M in bond financing to restart the South Crofty tin mine in Cornwall, signalling an imminent construction and operational ramp-up with significant workforce demand.",
+    "operator": {
+      "name": "Cornish Metals"
+    },
+    "hiring_entity": {
+      "name": "Cornish Metals"
+    },
+    "project_name": "South Crofty Tin Mine",
+    "scope": [
+      "mine_restart",
+      "process_plant_construction",
+      "underground_mining"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 210000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mine Manager",
+        "Underground Mining Supervisor",
+        "Process Plant Manager",
+        "Mining Engineer",
+        "Mechanical Maintenance Engineer",
+        "Electrical Engineer",
+        "Plant Operator",
+        "Construction Manager",
+        "Project Manager",
+        "Health & Safety Manager"
+      ],
+      "skills": [
+        "underground mining",
+        "tin mining",
+        "process plant operations",
+        "mine restart",
+        "shaft sinking",
+        "mineral processing",
+        "MEWP",
+        "hard rock mining",
+        "commissioning"
+      ],
+      "certs_freetext": [
+        "IOSH Managing Safely",
+        "NEBOSH",
+        "Mining Engineer (Chartered)",
+        "First Aid at Work",
+        "Shotfiring Certificate"
+      ],
+      "geo_rtw": "UK right-to-work required",
+      "project_experience": [
+        "Geevor Tin Mine",
+        "Hemerdon Tungsten Mine",
+        "Drakelands Mine",
+        "Wolf Minerals"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"mine manager\" OR \"underground mining\" OR \"mining engineer\" OR \"process plant\" OR \"mineral processing\" OR \"mine restart\" OR \"shaft\" OR \"hard rock mining\") AND (\"tin\" OR \"Cornwall\" OR \"South Crofty\" OR \"underground\" OR \"hard rock\") AND (\"UK\" OR \"United Kingdom\" OR \"Cornwall\" OR \"Devon\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Cornish Metals has just secured $210M to restart South Crofty — the UK's only tin mine — in Cornwall. We're placing experienced mining professionals for this ramp-up. Would you be open to a conversation?",
+      "email_subject": "South Crofty Tin Mine Restart — Mining Roles, Cornwall UK",
+      "email_body": "Hi [Name],\n\nCornish Metals has secured $210M in financing to restart South Crofty, Cornwall's historic tin mine — one of the most significant UK mining restarts in decades.\n\nAs the project moves toward construction and operational ramp-up, there will be strong demand for experienced underground mining, process plant, and engineering professionals with UK right-to-work.\n\nGiven your background in [relevant discipline], I'd love to connect and share more about the opportunities coming to market.\n\nAre you available for a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Cornish Metals) secures $210M financing to restart named project (South Crofty Tin Mine), indicating an imminent construction and workforce ramp-up in the mining sector.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "0f1a855d-d526-4420-8874-5ccee591435b",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "source_published_at": "2026-05-07T16:03:00.000Z",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Article states Cornish Metals 'advances plans to restart South Crofty after securing strong backing from international bond investors,' implying financing is closed and execution planning is underway.",
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": [],
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/trafigura-in-talks-to-build-aluminum-smelter-in-egypt/"
+      }
+    ],
+    "headline": null,
+    "body": "The company is in talks with Egyptalum to construct, own and operate a 300,000-tonne-per-annum primary aluminum smelter.",
+    "url": "https://www.mining.com/trafigura-in-talks-to-build-aluminum-smelter-in-egypt/",
+    "published_at": "2026-05-06T17:03:59.000Z",
+    "hash": "f71b5547952935f6",
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "tldr": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "bd_relevant": false,
+    "bd_relevance_reason": "Article describes early-stage M&A/JV talks for an aluminum smelter — no FID, contract award, or workforce signal, and aluminum smelting is outside the covered subsectors (O&G, wind, nuclear, mining).",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "88711ead-fc3a-45a3-ba34-bc302ad4562f",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "source_published_at": "2026-05-06T17:03:59.000Z",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
         "url": "https://www.rigzone.com/news/eni_confirms_size_of_giant_gas_discovery_offshore_indonesia-07-may-2026-183630-article/?rss=true"
       }
     ],
@@ -880,69 +1853,6 @@
       "hiring_manager",
       "business_unit_director"
     ],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/uniper_gets_preliminary_approval_for_hesse_ccgt_plant-05-may-2026-183609-article/?rss=true"
-      }
-    ],
-    "headline": null,
-    "body": "Uniper SE has received preliminary approval from the Darmstadt Regional Authority for a natural gas-fired generation plant designed to be hydrogen-compatible...",
-    "url": "https://www.rigzone.com/news/uniper_gets_preliminary_approval_for_hesse_ccgt_plant-05-may-2026-183609-article/?rss=true",
-    "published_at": "2026-05-05T11:35:51.000Z",
-    "hash": "dad967b2bbe82f11",
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "tldr": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "bd_relevant": false,
-    "bd_relevance_reason": "Preliminary regulatory approval for a CCGT plant; no FID, EPC award, contract, or discrete workforce-demand event has occurred — only a pre-sanction permit milestone with no named contractor or hiring entity.",
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "49a05e1a-7fe8-4b5b-afaa-874b541e295d",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "source_published_at": "2026-05-05T11:35:51.000Z",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
     "prompt_version": "phase-targeting-v1"
   },
   {
@@ -2035,916 +2945,6 @@
       "hiring_manager",
       "business_unit_director"
     ],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/80-mile-gets-exploration-permits-to-begin-drilling-at-disko-project-in-greenland/"
-      }
-    ],
-    "headline": "80 Mile Secures Exploration Permits for Disko-Nuussuaq Ni-Cu-Co-PGE Drill Program, July Start",
-    "body": "An initial 5,000‑metre drill program is scheduled for the first week of July at Disko-Nuussuaq nickel-copper-cobalt-PGE project in West Greenland.",
-    "url": "https://www.mining.com/80-mile-gets-exploration-permits-to-begin-drilling-at-disko-project-in-greenland/",
-    "published_at": "2026-05-11T23:01:29.000Z",
-    "hash": "84ab4984657a6272",
-    "subsector": "mining",
-    "discipline_tags": [
-      "drilling_operations",
-      "survey_geophysical"
-    ],
-    "signal_type": "regulatory",
-    "region": "greenland",
-    "country": "greenland",
-    "tldr": "80 Mile has secured exploration permits for a 5,000m drill program at the Disko-Nuussuaq Ni-Cu-Co-PGE project in West Greenland, with mobilization scheduled for the first week of July. Near-term drilling crew and support demand expected.",
-    "operator": {
-      "name": "80 Mile"
-    },
-    "hiring_entity": {
-      "name": "80 Mile"
-    },
-    "project_name": "Disko-Nuussuaq",
-    "scope": [
-      "exploration_drilling",
-      "ni_cu_co_pge"
-    ],
-    "mob_window": {
-      "start": "2025-Q3",
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Exploration Driller",
-        "Drill Rig Supervisor",
-        "Field Geologist",
-        "Core Technician",
-        "Drilling Superintendent",
-        "Camp Manager",
-        "HSE Advisor – Exploration"
-      ],
-      "skills": [
-        "diamond core drilling",
-        "RC drilling",
-        "exploration drilling",
-        "geological logging",
-        "remote camp operations",
-        "nickel copper exploration",
-        "PGE exploration"
-      ],
-      "certs_freetext": [
-        "First Aid / Remote First Aid",
-        "WHMIS",
-        "Wilderness Safety"
-      ],
-      "geo_rtw": "Greenland / EU / EEA eligible preferred; remote fly-in fly-out",
-      "project_experience": [
-        "Norilsk-style mafic intrusion projects",
-        "Arctic exploration drilling",
-        "Voisey's Bay",
-        "Julimar"
-      ],
-      "yoe_band": "5-15",
-      "seniority": "mid-to-senior field",
-      "boolean_search": "(\"exploration drilling\" OR \"diamond drilling\" OR \"core drilling\") AND (\"nickel\" OR \"copper\" OR \"PGE\" OR \"base metals\") AND (\"field geologist\" OR \"drill supervisor\" OR \"drilling superintendent\" OR \"core technician\") AND (\"remote\" OR \"fly-in fly-out\" OR \"FIFO\" OR \"Arctic\" OR \"Greenland\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], 80 Mile is mobilising a 5,000m drill program at the Disko-Nuussuaq Ni-Cu-Co-PGE project in West Greenland from early July. Are you available for a remote Arctic rotation? Happy to share details.",
-      "email_subject": "Disko-Nuussuaq Drill Program – July Mob | Greenland Ni-Cu-Co-PGE",
-      "email_body": "Hi [Name],\n\n80 Mile has just secured exploration permits for a 5,000-metre drill program at the Disko-Nuussuaq nickel-copper-cobalt-PGE project in West Greenland, with mobilisation scheduled for the first week of July.\n\nWe are sourcing experienced exploration drillers, drill supervisors, and field geologists for FIFO rotations into a remote Arctic environment.\n\nGiven your background in [relevant experience], I wanted to reach out directly. Would you be open to a quick call this week to discuss availability and fit?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Exploration permit grant naming operator 80 Mile and project Disko-Nuussuaq with a confirmed July drill-program start, signalling near-term drilling crew demand in the mining subsector.",
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "952bec1b-ad99-4468-a33f-47f1bbd3c928",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "source_published_at": "2026-05-11T23:01:29.000Z",
-    "phase": "pre_sanction",
-    "phase_evidence": "Article describes an initial exploration drill program just permitted — early-stage exploration, no FID or development decision indicated.",
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "1-3mo",
-    "key_people": [],
-    "contact_archetypes": [
-      "project_manager",
-      "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/gold-candle-acquires-pan-american-silvers-larder-property-in-the-abitibi/"
-      }
-    ],
-    "headline": "Gold Candle Acquires Pan American Silver's Larder Property in Ontario's Abitibi Region",
-    "body": "Gold Candle announced it will acquire all the assets that comprise Pan American Silver’s (TSX: PAAS) Larder property in the Abitibi region of Ontario, Canada for 15,000,000 common shares, which will result […]",
-    "url": "https://www.mining.com/gold-candle-acquires-pan-american-silvers-larder-property-in-the-abitibi/",
-    "published_at": "2026-05-11T20:25:47.000Z",
-    "hash": "ee2d1ff3ea3246c3",
-    "subsector": "mining",
-    "discipline_tags": [],
-    "signal_type": "lease_round",
-    "region": "ontario-canada",
-    "country": "canada",
-    "tldr": null,
-    "operator": {
-      "name": "Gold Candle"
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": "Larder Property",
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "bd_relevant": false,
-    "bd_relevance_reason": "This is an M&A/asset acquisition deal with no FID, contract award, or named workforce ramp-up event that signals discrete labor demand at the Larder property.",
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "747a1f36-c745-4c2f-8c17-47849fe4e9f2",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "source_published_at": "2026-05-11T20:25:47.000Z",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/tmc-allseas-strike-first-seabed-nodule-mining-deal/"
-      }
-    ],
-    "headline": "TMC & Allseas Strike First Commercial Seabed Nodule Mining Deal — 3M Tonnes/Year Target",
-    "body": "Deep-sea mining hopeful advances commercial plans with offshore production system targeting 3M tonnes annually.",
-    "url": "https://www.mining.com/tmc-allseas-strike-first-seabed-nodule-mining-deal/",
-    "published_at": "2026-05-11T12:59:00.000Z",
-    "hash": "09b27588adf4a444",
-    "subsector": "mining",
-    "discipline_tags": [
-      "marine_offshore_ops",
-      "rov_subsea",
-      "industrial_construction"
-    ],
-    "signal_type": "epc_award",
-    "region": "international-waters",
-    "country": null,
-    "tldr": "The Metals Company (TMC) and Allseas have signed a first commercial agreement for a deep-sea nodule mining production system targeting 3 million tonnes per year, signalling an imminent ramp-up in offshore mining crew and vessel demand. Recruiters should target marine, subsea, and offshore operations talent as mobilisation planning accelerates.",
-    "operator": {
-      "name": "The Metals Company (TMC)"
-    },
-    "hiring_entity": {
-      "name": "Allseas"
-    },
-    "project_name": "TMC–Allseas Commercial Seabed Nodule Mining Production System",
-    "scope": [
-      "offshore_production_system",
-      "seabed_nodule_collection",
-      "vessel_operations"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Offshore Production Superintendent",
-        "Marine Operations Superintendent",
-        "ROV Supervisor",
-        "Subsea Engineer",
-        "Offshore Installation Manager",
-        "Marine Technician",
-        "Dynamic Positioning Officer",
-        "Production Systems Engineer",
-        "Seabed Mining Engineer",
-        "Vessel Master"
-      ],
-      "skills": [
-        "deep-sea mining",
-        "offshore production systems",
-        "ROV operations",
-        "dynamic positioning",
-        "marine operations",
-        "subsea systems",
-        "nodule collection",
-        "heavy lift vessel",
-        "offshore campaign management"
-      ],
-      "certs_freetext": [
-        "STCW",
-        "Dynamic Positioning (DP) Certificate",
-        "BOSIET/HUET",
-        "GWO",
-        "Offshore Medical (ENG1 or equivalent)"
-      ],
-      "geo_rtw": "International — EU/EEA/UK/AU/NZ/US passport or equivalent offshore work authorisation",
-      "project_experience": [
-        "Allseas Pioneering Spirit",
-        "offshore heavy lift campaigns",
-        "subsea installation projects",
-        "deepwater mineral extraction",
-        "FPSO offshore operations"
-      ],
-      "yoe_band": "8-20",
-      "seniority": "mid-senior",
-      "boolean_search": "(\"seabed mining\" OR \"deep sea mining\" OR \"nodule mining\" OR \"offshore mining\") AND (\"marine operations\" OR \"ROV\" OR \"subsea\" OR \"offshore production\") AND (\"Allseas\" OR \"TMC\" OR \"The Metals Company\" OR \"offshore installation\" OR \"dynamic positioning\" OR \"DP officer\") AND (\"superintendent\" OR \"supervisor\" OR \"engineer\" OR \"OIM\" OR \"vessel master\" OR \"technician\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], TMC & Allseas just signed the first commercial seabed nodule mining deal targeting 3M t/yr — a major offshore mining ramp-up. Your [ROV/marine ops] background looks highly relevant. Worth a quick chat about upcoming roles?",
-      "email_subject": "TMC & Allseas Seabed Mining Deal — Offshore Roles Ramping Up",
-      "email_body": "Hi [Name],\n\nThe Metals Company (TMC) and Allseas have just announced the first commercial seabed nodule mining agreement, targeting a 3-million-tonne-per-year offshore production system. This represents a significant new labour-demand event in deep-sea mining.\n\nGiven your background in [marine operations / ROV / subsea / offshore production], I wanted to reach out early as roles in vessel operations, subsea engineering, and offshore production management are likely to come to market as mobilisation planning ramps up.\n\nWould you be open to a brief call to discuss how your experience maps to this campaign?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "First commercial contract award between named operator TMC and contractor Allseas for an offshore seabed nodule mining production system targeting 3M tonnes/year — a discrete workforce-demand event in the mining subsector naming both operator and hiring entity.",
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "c0bff2b6-1bc4-4bb9-a945-f0d0e30c4646",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "source_published_at": "2026-05-11T12:59:00.000Z",
-    "phase": "sanctioned_engineering",
-    "phase_evidence": "Article describes the deal as a 'first commercial' agreement for an offshore production system, indicating the project has moved beyond concept into commercial/engineering planning but has not yet commenced construction or operations.",
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": [],
-    "contact_archetypes": [
-      "project_manager",
-      "hiring_manager",
-      "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/cameco-halts-saskatchewan-uranium-operations-after-floods/"
-      }
-    ],
-    "headline": "Cameco Halts McArthur River Mine & Key Lake Mill After Saskatchewan Floods",
-    "body": "Flooding in northern Saskatchewan has disrupted supply routes to the McArthur River mine and Key Lake mill.",
-    "url": "https://www.mining.com/cameco-halts-saskatchewan-uranium-operations-after-floods/",
-    "published_at": "2026-05-11T10:58:00.000Z",
-    "hash": "0057877753f09e1c",
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations"
-    ],
-    "signal_type": "regulatory",
-    "region": "canada-saskatchewan",
-    "country": "canada",
-    "tldr": "Cameco has suspended operations at McArthur River mine and Key Lake mill due to flood-disrupted supply routes in northern Saskatchewan, signaling a potential restart/recovery workforce ramp once access is restored.",
-    "operator": {
-      "name": "Cameco"
-    },
-    "hiring_entity": {
-      "name": "Cameco"
-    },
-    "project_name": "McArthur River Mine / Key Lake Mill",
-    "scope": [
-      "mine_operations",
-      "mill_operations",
-      "site_recovery"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Mine Operations Supervisor",
-        "Mill Operator",
-        "Mining Engineer",
-        "Maintenance Technician",
-        "Site Logistics Coordinator",
-        "Uranium Processing Operator"
-      ],
-      "skills": [
-        "uranium mining",
-        "mill operations",
-        "process plant",
-        "site logistics",
-        "remote site operations",
-        "maintenance"
-      ],
-      "certs_freetext": [
-        "CANDU radiation safety",
-        "blasting certificate",
-        "underground mining certification"
-      ],
-      "geo_rtw": "Canada (Saskatchewan) — must have right to work in Canada",
-      "project_experience": [
-        "Cigar Lake",
-        "Rabbit Lake",
-        "Millennium Mine"
-      ],
-      "yoe_band": "5-15",
-      "seniority": "mid-to-senior",
-      "boolean_search": "(\"McArthur River\" OR \"Key Lake\" OR \"uranium mine\" OR \"uranium mill\") AND (\"mine operator\" OR \"mill operator\" OR \"mining engineer\" OR \"maintenance technician\" OR \"process plant\") AND (\"Saskatchewan\" OR \"northern Canada\" OR \"remote site\") AND (Cameco OR \"uranium processing\" OR \"underground mining\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Cameco's McArthur River mine and Key Lake mill are temporarily halted due to Saskatchewan flooding — restart will require experienced mine/mill talent. Are you open to hearing about upcoming opportunities?",
-      "email_subject": "McArthur River / Key Lake Restart — Upcoming Talent Opportunities with Cameco",
-      "email_body": "Hi [Name],\n\nCameco has suspended operations at its McArthur River mine and Key Lake mill following flooding in northern Saskatchewan. As the situation stabilises and access routes are restored, a workforce restart will be needed across mine operations, mill processing, and site maintenance.\n\nGiven your background in [uranium mining / process plant operations / remote site work], I wanted to reach out early to gauge your interest in potential opportunities as Cameco resumes full operations.\n\nWould you be open to a brief call to discuss?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named operator (Cameco) and two named assets (McArthur River mine, Key Lake mill) are halted due to flooding, implying a near-term workforce restart/recovery demand event in the mining sector.",
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "2b68deda-7002-437f-90fb-34fcb89c8263",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "source_published_at": "2026-05-11T10:58:00.000Z",
-    "phase": "operating",
-    "phase_evidence": "Article states flooding 'disrupted supply routes' to an operational mine and mill, implying existing production assets now temporarily offline awaiting restart.",
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": [],
-    "contact_archetypes": [
-      "ops_director",
-      "hiring_manager"
-    ],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/freeport-delays-grasberg-full-restart-to-early-2028/"
-      }
-    ],
-    "headline": "Freeport Grasberg Phased Ramp to 65% Capacity H2 2026, Full Restart Delayed to Early 2028",
-    "body": "Freeport now aims for 65% capacity in the second half of 2026, 80% by mid-2027, and near full capacity by the end of 2027.",
-    "url": "https://www.mining.com/freeport-delays-grasberg-full-restart-to-early-2028/",
-    "published_at": "2026-05-08T15:34:41.000Z",
-    "hash": "d4453f90abbb87c0",
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations",
-      "energy_trades"
-    ],
-    "signal_type": "regulatory",
-    "region": "indonesia",
-    "country": "indonesia",
-    "tldr": "Freeport-McMoRan is ramping Grasberg to 65% capacity in H2 2026, 80% by mid-2027, and near-full by end-2027, with complete restart pushed to early 2028 — signalling a sustained multi-phase workforce ramp over the next 18+ months.",
-    "operator": {
-      "name": "Freeport-McMoRan"
-    },
-    "hiring_entity": {
-      "name": "Freeport-McMoRan"
-    },
-    "project_name": "Grasberg",
-    "scope": [
-      "plant_ramp_up",
-      "operations_staffing",
-      "maintenance"
-    ],
-    "mob_window": {
-      "start": "2026-Q3",
-      "end": "2028-Q1",
-      "duration_months": 18
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Mining Operations Superintendent",
-        "Process Plant Supervisor",
-        "Maintenance Superintendent",
-        "Electrical Superintendent",
-        "Mechanical Maintenance Engineer",
-        "Concentrator Operator",
-        "Instrument Technician",
-        "Reliability Engineer",
-        "Shutdown Planner",
-        "Production Manager"
-      ],
-      "skills": [
-        "copper concentrator operations",
-        "SAG mill",
-        "flotation",
-        "underground block caving",
-        "plant ramp-up",
-        "preventive maintenance",
-        "reliability centred maintenance",
-        "FIFO operations",
-        "mine ramp-up management"
-      ],
-      "certs_freetext": [
-        "Mine Manager Certificate of Competency",
-        "OHSE site induction",
-        "Indonesian K3 certification (preferred)"
-      ],
-      "geo_rtw": "Indonesia-based or FIFO-eligible; international candidates with Indonesian work permit eligibility",
-      "project_experience": [
-        "Grasberg Block Cave",
-        "Deep Mill Level Zone",
-        "Ok Tedi",
-        "Batu Hijau",
-        "Escondida"
-      ],
-      "yoe_band": "8-20",
-      "seniority": "mid-senior to principal",
-      "boolean_search": "(\"Grasberg\" OR \"copper mine\" OR \"concentrator\" OR \"block cave\") AND (\"plant ramp\" OR \"mine operations\" OR \"concentrator operations\" OR \"maintenance superintendent\" OR \"process plant supervisor\" OR \"production superintendent\") AND (\"Freeport\" OR \"PT-FI\" OR \"underground mining\" OR \"SAG mill\" OR \"flotation\") AND (Indonesia OR \"Papua\" OR FIFO)"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Freeport's Grasberg is ramping to 65% capacity from H2 2026 through full restart in early 2028 — a major ops & maintenance build-up. Your background in [relevant skill] looks directly relevant. Worth a quick chat?",
-      "email_subject": "Grasberg Ramp-Up 2026–2028 — Ops & Maintenance Roles Opening",
-      "email_body": "Hi [Name],\n\nFreeport-McMoRan has announced a phased ramp-up at Grasberg — targeting 65% capacity in H2 2026, 80% by mid-2027, and near-full operations by end-2027, with complete restart pushed to early 2028.\n\nThis sustained ramp signals significant demand for experienced concentrator, maintenance, and underground operations professionals over the next 18+ months.\n\nGiven your experience in [relevant area], I'd like to explore whether you'd be open to hearing about the opportunities coming through on this programme.\n\nAre you available for a brief call this week?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named operator (Freeport-McMoRan) announces a phased large-scale workforce ramp-up at a named project (Grasberg mine) across a defined 18-month window, constituting a discrete and actionable labor-demand event in mining.",
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "e841eef4-1b82-4fd5-80cb-fe5f24b00f4d",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "source_published_at": "2026-05-08T15:34:41.000Z",
-    "phase": "operating",
-    "phase_evidence": "Article describes a phased capacity ramp from existing operations ('65% capacity in H2 2026… near full capacity by end of 2027'), indicating an operating asset restarting/ramping rather than a new construction project.",
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": [],
-    "contact_archetypes": [
-      "ops_director",
-      "hiring_manager"
-    ],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/ontarios-darlington-smr-renews-canadas-nuclear-maturity/"
-      }
-    ],
-    "headline": "Darlington SMR Construction Begins — First SMR in G7, Ontario Canada",
-    "body": "Ontario has started construction on the first small modular reactor in the G7.",
-    "url": "https://www.mining.com/ontarios-darlington-smr-renews-canadas-nuclear-maturity/",
-    "published_at": "2026-05-08T13:26:05.000Z",
-    "hash": "b1d8ee14c15484da",
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades",
-      "ndt_inspection"
-    ],
-    "signal_type": "fid",
-    "region": "ontario-canada",
-    "country": "canada",
-    "tldr": "Construction has commenced on the Darlington SMR in Ontario, Canada — the first SMR in the G7 — signalling an active hiring window for nuclear construction trades and inspection personnel.",
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": "Darlington SMR",
-    "scope": [
-      "smr_construction",
-      "civil_works",
-      "mechanical_installation"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Nuclear Construction Manager",
-        "Site Superintendent",
-        "Civil Construction Supervisor",
-        "Mechanical Superintendent",
-        "NDT Inspector",
-        "QA/QC Inspector Nuclear",
-        "Construction Trades Foreman",
-        "Health & Safety Advisor Nuclear",
-        "Commissioning Engineer"
-      ],
-      "skills": [
-        "nuclear construction",
-        "SMR",
-        "CANDU",
-        "reactor civil works",
-        "mechanical installation",
-        "QA nuclear",
-        "NDT",
-        "commissioning",
-        "CNSC regulations"
-      ],
-      "certs_freetext": [
-        "CNSC Nuclear Security Clearance",
-        "CSA N285",
-        "Red Seal trades certification",
-        "CGSB NDT Level II/III",
-        "NUPIC qualified"
-      ],
-      "geo_rtw": "Canada — must hold valid right to work; Ontario preferred",
-      "project_experience": [
-        "Darlington Refurbishment",
-        "Bruce Power Life Extension",
-        "Pickering NGS",
-        "OPG nuclear projects"
-      ],
-      "yoe_band": "8-20",
-      "seniority": "mid-senior to principal",
-      "boolean_search": "(\"nuclear construction\" OR \"SMR\" OR \"small modular reactor\" OR \"CANDU\" OR \"reactor\" OR \"Darlington\") AND (\"construction manager\" OR \"site superintendent\" OR \"mechanical superintendent\" OR \"commissioning engineer\" OR \"NDT inspector\" OR \"QA inspector\" OR \"construction supervisor\") AND (\"Ontario\" OR \"Canada\") NOT (\"analyst\" OR \"policy\" OR \"finance\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], construction has just kicked off on the Darlington SMR in Ontario — the first SMR in the G7. Your nuclear construction background looks like a strong fit for roles ramping now. Worth a quick chat?",
-      "email_subject": "Darlington SMR — Nuclear Construction Roles Now Live, Ontario",
-      "email_body": "Hi [Name],\n\nConstruction has officially begun on the Darlington Small Modular Reactor in Ontario — a landmark project and the first SMR to break ground in the G7.\n\nWith site activity now underway, there is immediate demand for experienced nuclear construction professionals including construction managers, mechanical superintendents, NDT/QA inspectors, and commissioning engineers.\n\nGiven your background in [relevant experience], I wanted to reach out directly before these positions are filled.\n\nWould you be open to a brief call this week to discuss how your experience aligns with what's needed on-site?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named project (Darlington SMR) has entered active construction — the prime hiring window for nuclear trades, inspection, and construction management personnel.",
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "50d39266-fc22-4c4c-8622-c9cfc17a5dde",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "source_published_at": "2026-05-08T13:26:05.000Z",
-    "phase": "construction",
-    "phase_evidence": "Article states 'Ontario has started construction on the first small modular reactor in the G7', confirming physical construction has commenced.",
-    "outreach_readiness": "live_now",
-    "estimated_hiring_window": "now",
-    "key_people": [],
-    "contact_archetypes": [
-      "site_manager",
-      "hiring_manager",
-      "project_manager"
-    ],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/touquoy-mine-reboot-to-yield-180m-in-canadian-gold/"
-      }
-    ],
-    "headline": "Atlantic Mining Reboots Touquoy Mine to Reprocess 3M Tonnes of Gold Ore, Nova Scotia",
-    "body": "Atlantic Mining readies to reprocess about 3M tonnes of ore at the Touquoy mine, on Canada’s Atlantic coast.",
-    "url": "https://www.mining.com/touquoy-mine-reboot-to-yield-180m-in-canadian-gold/",
-    "published_at": "2026-05-08T13:13:00.000Z",
-    "hash": "b58a0fed5358f0d6",
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations",
-      "ndt_inspection"
-    ],
-    "signal_type": "epc_award",
-    "region": "atlantic-canada",
-    "country": "canada",
-    "tldr": "Atlantic Mining is reactivating the Touquoy gold mine in Nova Scotia to reprocess approximately 3 million tonnes of ore, signalling an imminent workforce ramp-up for plant operations and processing roles.",
-    "operator": {
-      "name": "Atlantic Mining"
-    },
-    "hiring_entity": {
-      "name": "Atlantic Mining"
-    },
-    "project_name": "Touquoy Mine",
-    "scope": [
-      "ore_reprocessing",
-      "mine_restart",
-      "process_plant_operations"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Processing Plant Operator",
-        "Mine Site Superintendent",
-        "Metallurgist",
-        "Plant Maintenance Technician",
-        "Electrical Technician",
-        "Mechanical Technician",
-        "Site Manager",
-        "Health & Safety Officer",
-        "Crusher Operator",
-        "Conveyor Technician"
-      ],
-      "skills": [
-        "gold ore processing",
-        "heap leach or CIL processing",
-        "plant commissioning",
-        "mine restart",
-        "preventive maintenance",
-        "tailings management",
-        "process control"
-      ],
-      "certs_freetext": [
-        "Nova Scotia Mines Act certification",
-        "First Aid/CPR",
-        "H2S Alive",
-        "WHMIS"
-      ],
-      "geo_rtw": "Canada (Nova Scotia) — must have Canadian work authorization",
-      "project_experience": [
-        "Moose River Gold Mines",
-        "Beaver Dam Mine",
-        "Fifteen Mile Stream"
-      ],
-      "yoe_band": "5-15",
-      "seniority": "mid-to-senior",
-      "boolean_search": "(\"mine restart\" OR \"gold processing\" OR \"ore reprocessing\" OR \"process plant operator\" OR \"metallurgist\") AND (\"Nova Scotia\" OR \"Atlantic Canada\" OR \"Canada\") AND (\"CIL\" OR \"carbon-in-leach\" OR \"heap leach\" OR \"gold mine\" OR \"open pit mining\") NOT (\"exploration\" OR \"junior mining\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Atlantic Mining is reactivating the Touquoy gold mine in Nova Scotia to reprocess ~3M tonnes of ore — a workforce ramp-up is underway. Are you open to hearing about site roles? Happy to share details.",
-      "email_subject": "Touquoy Mine Restart – Process Plant & Site Roles | Nova Scotia",
-      "email_body": "Hi [Name],\n\nAtlantic Mining is rebooting operations at the Touquoy gold mine in Nova Scotia, targeting reprocessing of approximately 3 million tonnes of gold ore. This restart is expected to create demand for experienced process plant, metallurgy, maintenance, and site operations professionals in the near term.\n\nGiven your background in [gold processing / mine operations], I wanted to reach out to see if you'd be open to a conversation about opportunities at this project.\n\nWould you have 15 minutes for a quick call this week?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named operator (Atlantic Mining) announces restart of named project (Touquoy Mine) to reprocess 3M tonnes of gold ore in Nova Scotia, constituting a discrete workforce-demand event in the mining sector.",
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "67233574-ad73-40ae-a1cb-f53ca365e49d",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "source_published_at": "2026-05-08T13:13:00.000Z",
-    "phase": "construction",
-    "phase_evidence": "Article states Atlantic Mining 'readies to reprocess' ore, indicating operational restart/ramp-up is imminent rather than at a planning or pre-FID stage.",
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "1-3mo",
-    "key_people": [],
-    "contact_archetypes": [
-      "site_manager",
-      "hiring_manager",
-      "project_manager"
-    ],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/buenaventura-eyes-16-year-boost-for-new-peru-mine/"
-      }
-    ],
-    "headline": null,
-    "body": "The miner believes exploration success and new mining technology can make San Gabriel a long-lasting gold asset.",
-    "url": "https://www.mining.com/buenaventura-eyes-16-year-boost-for-new-peru-mine/",
-    "published_at": "2026-05-08T10:55:00.000Z",
-    "hash": "5006d48a82430a9f",
-    "subsector": "mining",
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": "peru",
-    "country": "peru",
-    "tldr": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "bd_relevant": false,
-    "bd_relevance_reason": "Article describes a speculative life-extension aspiration for San Gabriel mine with no contract award, FID, project sanction, or discrete workforce-demand event named.",
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "9509d877-100f-4146-8470-ff0d67b9ccf7",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "source_published_at": "2026-05-08T10:55:00.000Z",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/cornish-metals-secures-210m-to-fund-uk-tin-mine-revival/"
-      }
-    ],
-    "headline": "Cornish Metals Secures $210M to Restart South Crofty Tin Mine in Cornwall",
-    "body": "Cornish Metals advances plans to restart South Crofty after securing strong backing from international bond investors.",
-    "url": "https://www.mining.com/cornish-metals-secures-210m-to-fund-uk-tin-mine-revival/",
-    "published_at": "2026-05-07T16:03:00.000Z",
-    "hash": "7e7de38871106d47",
-    "subsector": "mining",
-    "discipline_tags": [
-      "energy_trades",
-      "industrial_construction",
-      "process_plant_operations"
-    ],
-    "signal_type": "fid",
-    "region": "uk-southwest",
-    "country": "united_kingdom",
-    "tldr": "Cornish Metals has secured $210M in bond financing to restart the South Crofty tin mine in Cornwall, signalling an imminent construction and operational ramp-up with significant workforce demand.",
-    "operator": {
-      "name": "Cornish Metals"
-    },
-    "hiring_entity": {
-      "name": "Cornish Metals"
-    },
-    "project_name": "South Crofty Tin Mine",
-    "scope": [
-      "mine_restart",
-      "process_plant_construction",
-      "underground_mining"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": 210000000,
-    "targeting": {
-      "job_titles_freetext": [
-        "Mine Manager",
-        "Underground Mining Supervisor",
-        "Process Plant Manager",
-        "Mining Engineer",
-        "Mechanical Maintenance Engineer",
-        "Electrical Engineer",
-        "Plant Operator",
-        "Construction Manager",
-        "Project Manager",
-        "Health & Safety Manager"
-      ],
-      "skills": [
-        "underground mining",
-        "tin mining",
-        "process plant operations",
-        "mine restart",
-        "shaft sinking",
-        "mineral processing",
-        "MEWP",
-        "hard rock mining",
-        "commissioning"
-      ],
-      "certs_freetext": [
-        "IOSH Managing Safely",
-        "NEBOSH",
-        "Mining Engineer (Chartered)",
-        "First Aid at Work",
-        "Shotfiring Certificate"
-      ],
-      "geo_rtw": "UK right-to-work required",
-      "project_experience": [
-        "Geevor Tin Mine",
-        "Hemerdon Tungsten Mine",
-        "Drakelands Mine",
-        "Wolf Minerals"
-      ],
-      "yoe_band": "8-15",
-      "seniority": "mid-senior",
-      "boolean_search": "(\"mine manager\" OR \"underground mining\" OR \"mining engineer\" OR \"process plant\" OR \"mineral processing\" OR \"mine restart\" OR \"shaft\" OR \"hard rock mining\") AND (\"tin\" OR \"Cornwall\" OR \"South Crofty\" OR \"underground\" OR \"hard rock\") AND (\"UK\" OR \"United Kingdom\" OR \"Cornwall\" OR \"Devon\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Cornish Metals has just secured $210M to restart South Crofty — the UK's only tin mine — in Cornwall. We're placing experienced mining professionals for this ramp-up. Would you be open to a conversation?",
-      "email_subject": "South Crofty Tin Mine Restart — Mining Roles, Cornwall UK",
-      "email_body": "Hi [Name],\n\nCornish Metals has secured $210M in financing to restart South Crofty, Cornwall's historic tin mine — one of the most significant UK mining restarts in decades.\n\nAs the project moves toward construction and operational ramp-up, there will be strong demand for experienced underground mining, process plant, and engineering professionals with UK right-to-work.\n\nGiven your background in [relevant discipline], I'd love to connect and share more about the opportunities coming to market.\n\nAre you available for a brief call this week?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named operator (Cornish Metals) secures $210M financing to restart named project (South Crofty Tin Mine), indicating an imminent construction and workforce ramp-up in the mining sector.",
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "0f1a855d-d526-4420-8874-5ccee591435b",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "source_published_at": "2026-05-07T16:03:00.000Z",
-    "phase": "sanctioned_engineering",
-    "phase_evidence": "Article states Cornish Metals 'advances plans to restart South Crofty after securing strong backing from international bond investors,' implying financing is closed and execution planning is underway.",
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "3-6mo",
-    "key_people": [],
-    "contact_archetypes": [
-      "project_manager",
-      "hiring_manager",
-      "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/trafigura-in-talks-to-build-aluminum-smelter-in-egypt/"
-      }
-    ],
-    "headline": null,
-    "body": "The company is in talks with Egyptalum to construct, own and operate a 300,000-tonne-per-annum primary aluminum smelter.",
-    "url": "https://www.mining.com/trafigura-in-talks-to-build-aluminum-smelter-in-egypt/",
-    "published_at": "2026-05-06T17:03:59.000Z",
-    "hash": "f71b5547952935f6",
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "tldr": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "bd_relevant": false,
-    "bd_relevance_reason": "Article describes early-stage M&A/JV talks for an aluminum smelter — no FID, contract award, or workforce signal, and aluminum smelting is outside the covered subsectors (O&G, wind, nuclear, mining).",
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "88711ead-fc3a-45a3-ba34-bc302ad4562f",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "source_published_at": "2026-05-06T17:03:59.000Z",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
     "prompt_version": "phase-targeting-v1"
   },
   {
@@ -6826,69 +6826,6 @@
   },
   {
     "headline": null,
-    "body": "Form 8-K filed 2026-05-06. Material definitive agreement disclosed; scope and counterparty TBD from filing exhibits.",
-    "url": "https://www.sec.gov/Archives/edgar/data/1697500/000119312526209192/0001193125-26-209192-index.htm",
-    "published_at": "2026-05-06T00:00:00.000Z",
-    "hash": "2f5bd9fe2d7077b1",
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "tldr": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "2712358f-fe18-4772-a05c-1be0f6a861db",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "source_published_at": "2026-05-06T00:00:00.000Z",
-    "sources": [
-      {
-        "id": "sec_edgar_8k",
-        "name": "SEC EDGAR 8-K",
-        "url": "https://www.sec.gov/Archives/edgar/data/1697500/000119312526209192/0001193125-26-209192-index.htm"
-      }
-    ],
-    "bd_relevant": false,
-    "bd_relevance_reason": "SEC 8-K filing disclosure with no named project, counterparty, or workforce signal — scope and counterparty explicitly listed as pending review.",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "headline": null,
     "body": "Form 8-K filed 2026-05-05. Material definitive agreement disclosed; scope and counterparty TBD from filing exhibits.",
     "url": "https://www.sec.gov/Archives/edgar/data/866829/000086682926000015/0000866829-26-000015-index.htm",
     "published_at": "2026-05-05T00:00:00.000Z",
@@ -7519,6 +7456,132 @@
   },
   {
     "headline": null,
+    "body": "Nigeria National Petroleum Co Ltd (NNPC) on Monday announced a memorandum of understanding (MoU) with Sanjiang Chemical Co Ltd and Xinganchen (Fuzhou) Indust...",
+    "url": "https://www.rigzone.com/news/nigeria_partners_with_chinese_firms_to_revive_refineries-05-may-2026-183608-article/?rss=true",
+    "published_at": "2026-05-05T10:09:53.000Z",
+    "hash": "d27c96fc33038fef",
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "tldr": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "a129006e-0f6c-4f17-b60c-e3f838ca7f08",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "source_published_at": "2026-05-05T10:09:53.000Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/nigeria_partners_with_chinese_firms_to_revive_refineries-05-may-2026-183608-article/?rss=true"
+      }
+    ],
+    "bd_relevant": false,
+    "bd_relevance_reason": "An MoU is a non-binding letter of intent with no FID, contract award, or confirmed workforce-demand event; additionally, the Chinese contractors (Sanjiang Chemical, Xinganchen) trigger the geo-hint exclusion for China-domiciled entities without evidence of Western/EEA-eligible labor demand.",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "headline": null,
+    "body": "Transocean Ltd on Monday reported $1.08 billion in revenue for the first quarter (Q1), up $38 million from the prior three-month period and $175 million comp...",
+    "url": "https://www.rigzone.com/news/transocean_posts_higher_q1_revenue-05-may-2026-183611-article/?rss=true",
+    "published_at": "2026-05-05T13:20:22.000Z",
+    "hash": "6e3f33fd75e3e522",
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "tldr": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "4323ff67-bb2e-45bb-9902-d69273197f25",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "source_published_at": "2026-05-05T13:20:22.000Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/transocean_posts_higher_q1_revenue-05-may-2026-183611-article/?rss=true"
+      }
+    ],
+    "bd_relevant": false,
+    "bd_relevance_reason": "Quarterly earnings report for Transocean with no contract award, rig fixture, or named project workforce signal.",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "headline": null,
     "body": "(Update) May 6, 2026, 10:36 AM GMT+1: Article u...",
     "url": "https://www.rigzone.com/news/trump_pauses_project_freedom_for_short_period-06-may-2026-183618-article/?rss=true",
     "published_at": "2026-05-06T09:09:54.000Z",
@@ -7635,69 +7698,6 @@
     ],
     "bd_relevant": false,
     "bd_relevance_reason": "Geopolitical shipping/logistics story about tanker AIS concealment; no contract award, project sanction, rig fixture, or workforce-demand event named.",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "headline": null,
-    "body": "Nigeria National Petroleum Co Ltd (NNPC) on Monday announced a memorandum of understanding (MoU) with Sanjiang Chemical Co Ltd and Xinganchen (Fuzhou) Indust...",
-    "url": "https://www.rigzone.com/news/nigeria_partners_with_chinese_firms_to_revive_refineries-05-may-2026-183608-article/?rss=true",
-    "published_at": "2026-05-05T10:09:53.000Z",
-    "hash": "d27c96fc33038fef",
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "tldr": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "a129006e-0f6c-4f17-b60c-e3f838ca7f08",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "source_published_at": "2026-05-05T10:09:53.000Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/nigeria_partners_with_chinese_firms_to_revive_refineries-05-may-2026-183608-article/?rss=true"
-      }
-    ],
-    "bd_relevant": false,
-    "bd_relevance_reason": "An MoU is a non-binding letter of intent with no FID, contract award, or confirmed workforce-demand event; additionally, the Chinese contractors (Sanjiang Chemical, Xinganchen) trigger the geo-hint exclusion for China-domiciled entities without evidence of Western/EEA-eligible labor demand.",
     "phase": null,
     "phase_evidence": null,
     "outreach_readiness": null,
@@ -8013,69 +8013,6 @@
     ],
     "bd_relevant": false,
     "bd_relevance_reason": "Quarterly earnings report for Equinor with no contract award, project sanction, or workforce demand signal.",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "headline": null,
-    "body": "Transocean Ltd on Monday reported $1.08 billion in revenue for the first quarter (Q1), up $38 million from the prior three-month period and $175 million comp...",
-    "url": "https://www.rigzone.com/news/transocean_posts_higher_q1_revenue-05-may-2026-183611-article/?rss=true",
-    "published_at": "2026-05-05T13:20:22.000Z",
-    "hash": "6e3f33fd75e3e522",
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "tldr": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "4323ff67-bb2e-45bb-9902-d69273197f25",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "source_published_at": "2026-05-05T13:20:22.000Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/transocean_posts_higher_q1_revenue-05-may-2026-183611-article/?rss=true"
-      }
-    ],
-    "bd_relevant": false,
-    "bd_relevance_reason": "Quarterly earnings report for Transocean with no contract award, rig fixture, or named project workforce signal.",
     "phase": null,
     "phase_evidence": null,
     "outreach_readiness": null,
@@ -9062,6 +8999,69 @@
       "business_unit_director",
       "hr_business_partner"
     ],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "headline": null,
+    "body": "Form 8-K filed 2026-05-06. Material definitive agreement disclosed; scope and counterparty TBD from filing exhibits.",
+    "url": "https://www.sec.gov/Archives/edgar/data/1697500/000119312526209192/0001193125-26-209192-index.htm",
+    "published_at": "2026-05-06T00:00:00.000Z",
+    "hash": "2f5bd9fe2d7077b1",
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "tldr": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "2712358f-fe18-4772-a05c-1be0f6a861db",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "source_published_at": "2026-05-06T00:00:00.000Z",
+    "sources": [
+      {
+        "id": "sec_edgar_8k",
+        "name": "SEC EDGAR 8-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1697500/000119312526209192/0001193125-26-209192-index.htm"
+      }
+    ],
+    "bd_relevant": false,
+    "bd_relevance_reason": "SEC 8-K filing disclosure with no named project, counterparty, or workforce signal — scope and counterparty explicitly listed as pending review.",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
     "prompt_version": "phase-targeting-v1"
   }
 ]

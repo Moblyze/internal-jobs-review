@@ -162,6 +162,362 @@
     "contract_value_usd": null
   },
   {
+    "id": "49a05e1a-7fe8-4b5b-afaa-874b541e295d",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/uniper_gets_preliminary_approval_for_hesse_ccgt_plant-05-may-2026-183609-article/?rss=true"
+      }
+    ],
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "headline": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "952bec1b-ad99-4468-a33f-47f1bbd3c928",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/80-mile-gets-exploration-permits-to-begin-drilling-at-disko-project-in-greenland/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "drilling_operations",
+      "survey_geophysical"
+    ],
+    "signal_type": "regulatory",
+    "region": "greenland",
+    "country": "greenland",
+    "headline": "80 Mile Secures Exploration Permits for Disko-Nuussuaq Ni-Cu-Co-PGE Drill Program, July Start",
+    "operator": {
+      "name": "80 Mile"
+    },
+    "hiring_entity": {
+      "name": "80 Mile"
+    },
+    "project_name": "Disko-Nuussuaq",
+    "mob_window": {
+      "start": "2025-Q3",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "747a1f36-c745-4c2f-8c17-47849fe4e9f2",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/gold-candle-acquires-pan-american-silvers-larder-property-in-the-abitibi/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [],
+    "signal_type": "lease_round",
+    "region": "ontario-canada",
+    "country": "canada",
+    "headline": "Gold Candle Acquires Pan American Silver's Larder Property in Ontario's Abitibi Region",
+    "operator": {
+      "name": "Gold Candle"
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": "Larder Property",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "c0bff2b6-1bc4-4bb9-a945-f0d0e30c4646",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/tmc-allseas-strike-first-seabed-nodule-mining-deal/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "marine_offshore_ops",
+      "rov_subsea",
+      "industrial_construction"
+    ],
+    "signal_type": "epc_award",
+    "region": "international-waters",
+    "country": null,
+    "headline": "TMC & Allseas Strike First Commercial Seabed Nodule Mining Deal — 3M Tonnes/Year Target",
+    "operator": {
+      "name": "The Metals Company (TMC)"
+    },
+    "hiring_entity": {
+      "name": "Allseas"
+    },
+    "project_name": "TMC–Allseas Commercial Seabed Nodule Mining Production System",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "2b68deda-7002-437f-90fb-34fcb89c8263",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/cameco-halts-saskatchewan-uranium-operations-after-floods/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "canada-saskatchewan",
+    "country": "canada",
+    "headline": "Cameco Halts McArthur River Mine & Key Lake Mill After Saskatchewan Floods",
+    "operator": {
+      "name": "Cameco"
+    },
+    "hiring_entity": {
+      "name": "Cameco"
+    },
+    "project_name": "McArthur River Mine / Key Lake Mill",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "e841eef4-1b82-4fd5-80cb-fe5f24b00f4d",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/freeport-delays-grasberg-full-restart-to-early-2028/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "regulatory",
+    "region": "indonesia",
+    "country": "indonesia",
+    "headline": "Freeport Grasberg Phased Ramp to 65% Capacity H2 2026, Full Restart Delayed to Early 2028",
+    "operator": {
+      "name": "Freeport-McMoRan"
+    },
+    "hiring_entity": {
+      "name": "Freeport-McMoRan"
+    },
+    "project_name": "Grasberg",
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": "2028-Q1",
+      "duration_months": 18
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "50d39266-fc22-4c4c-8622-c9cfc17a5dde",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/ontarios-darlington-smr-renews-canadas-nuclear-maturity/"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "ndt_inspection"
+    ],
+    "signal_type": "fid",
+    "region": "ontario-canada",
+    "country": "canada",
+    "headline": "Darlington SMR Construction Begins — First SMR in G7, Ontario Canada",
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": "Darlington SMR",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "67233574-ad73-40ae-a1cb-f53ca365e49d",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/touquoy-mine-reboot-to-yield-180m-in-canadian-gold/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "ndt_inspection"
+    ],
+    "signal_type": "epc_award",
+    "region": "atlantic-canada",
+    "country": "canada",
+    "headline": "Atlantic Mining Reboots Touquoy Mine to Reprocess 3M Tonnes of Gold Ore, Nova Scotia",
+    "operator": {
+      "name": "Atlantic Mining"
+    },
+    "hiring_entity": {
+      "name": "Atlantic Mining"
+    },
+    "project_name": "Touquoy Mine",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "9509d877-100f-4146-8470-ff0d67b9ccf7",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/buenaventura-eyes-16-year-boost-for-new-peru-mine/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": "peru",
+    "country": "peru",
+    "headline": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "0f1a855d-d526-4420-8874-5ccee591435b",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/cornish-metals-secures-210m-to-fund-uk-tin-mine-revival/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "fid",
+    "region": "uk-southwest",
+    "country": "united_kingdom",
+    "headline": "Cornish Metals Secures $210M to Restart South Crofty Tin Mine in Cornwall",
+    "operator": {
+      "name": "Cornish Metals"
+    },
+    "hiring_entity": {
+      "name": "Cornish Metals"
+    },
+    "project_name": "South Crofty Tin Mine",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 210000000
+  },
+  {
+    "id": "88711ead-fc3a-45a3-ba34-bc302ad4562f",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/trafigura-in-talks-to-build-aluminum-smelter-in-egypt/"
+      }
+    ],
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "headline": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
     "id": "ec37a3c7-d25e-4a05-8b3b-b48cd79405bf",
     "ingested_at": "2026-05-12T12:35:36.640Z",
     "sources": [
@@ -334,36 +690,6 @@
       "duration_months": 66
     },
     "contract_value_usd": 10210000000
-  },
-  {
-    "id": "49a05e1a-7fe8-4b5b-afaa-874b541e295d",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/uniper_gets_preliminary_approval_for_hesse_ccgt_plant-05-may-2026-183609-article/?rss=true"
-      }
-    ],
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "headline": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null
   },
   {
     "id": "d7a6f538-fe2c-4979-8379-a631a31fb24d",
@@ -726,332 +1052,6 @@
       "name": "The Nuclear Company"
     },
     "project_name": "VC Summer AP1000 Units 2 & 3",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null
-  },
-  {
-    "id": "952bec1b-ad99-4468-a33f-47f1bbd3c928",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/80-mile-gets-exploration-permits-to-begin-drilling-at-disko-project-in-greenland/"
-      }
-    ],
-    "subsector": "mining",
-    "discipline_tags": [
-      "drilling_operations",
-      "survey_geophysical"
-    ],
-    "signal_type": "regulatory",
-    "region": "greenland",
-    "country": "greenland",
-    "headline": "80 Mile Secures Exploration Permits for Disko-Nuussuaq Ni-Cu-Co-PGE Drill Program, July Start",
-    "operator": {
-      "name": "80 Mile"
-    },
-    "hiring_entity": {
-      "name": "80 Mile"
-    },
-    "project_name": "Disko-Nuussuaq",
-    "mob_window": {
-      "start": "2025-Q3",
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null
-  },
-  {
-    "id": "747a1f36-c745-4c2f-8c17-47849fe4e9f2",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/gold-candle-acquires-pan-american-silvers-larder-property-in-the-abitibi/"
-      }
-    ],
-    "subsector": "mining",
-    "discipline_tags": [],
-    "signal_type": "lease_round",
-    "region": "ontario-canada",
-    "country": "canada",
-    "headline": "Gold Candle Acquires Pan American Silver's Larder Property in Ontario's Abitibi Region",
-    "operator": {
-      "name": "Gold Candle"
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": "Larder Property",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null
-  },
-  {
-    "id": "c0bff2b6-1bc4-4bb9-a945-f0d0e30c4646",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/tmc-allseas-strike-first-seabed-nodule-mining-deal/"
-      }
-    ],
-    "subsector": "mining",
-    "discipline_tags": [
-      "marine_offshore_ops",
-      "rov_subsea",
-      "industrial_construction"
-    ],
-    "signal_type": "epc_award",
-    "region": "international-waters",
-    "country": null,
-    "headline": "TMC & Allseas Strike First Commercial Seabed Nodule Mining Deal — 3M Tonnes/Year Target",
-    "operator": {
-      "name": "The Metals Company (TMC)"
-    },
-    "hiring_entity": {
-      "name": "Allseas"
-    },
-    "project_name": "TMC–Allseas Commercial Seabed Nodule Mining Production System",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null
-  },
-  {
-    "id": "2b68deda-7002-437f-90fb-34fcb89c8263",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/cameco-halts-saskatchewan-uranium-operations-after-floods/"
-      }
-    ],
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations"
-    ],
-    "signal_type": "regulatory",
-    "region": "canada-saskatchewan",
-    "country": "canada",
-    "headline": "Cameco Halts McArthur River Mine & Key Lake Mill After Saskatchewan Floods",
-    "operator": {
-      "name": "Cameco"
-    },
-    "hiring_entity": {
-      "name": "Cameco"
-    },
-    "project_name": "McArthur River Mine / Key Lake Mill",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null
-  },
-  {
-    "id": "e841eef4-1b82-4fd5-80cb-fe5f24b00f4d",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/freeport-delays-grasberg-full-restart-to-early-2028/"
-      }
-    ],
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations",
-      "energy_trades"
-    ],
-    "signal_type": "regulatory",
-    "region": "indonesia",
-    "country": "indonesia",
-    "headline": "Freeport Grasberg Phased Ramp to 65% Capacity H2 2026, Full Restart Delayed to Early 2028",
-    "operator": {
-      "name": "Freeport-McMoRan"
-    },
-    "hiring_entity": {
-      "name": "Freeport-McMoRan"
-    },
-    "project_name": "Grasberg",
-    "mob_window": {
-      "start": "2026-Q3",
-      "end": "2028-Q1",
-      "duration_months": 18
-    },
-    "contract_value_usd": null
-  },
-  {
-    "id": "50d39266-fc22-4c4c-8622-c9cfc17a5dde",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/ontarios-darlington-smr-renews-canadas-nuclear-maturity/"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades",
-      "ndt_inspection"
-    ],
-    "signal_type": "fid",
-    "region": "ontario-canada",
-    "country": "canada",
-    "headline": "Darlington SMR Construction Begins — First SMR in G7, Ontario Canada",
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": "Darlington SMR",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null
-  },
-  {
-    "id": "67233574-ad73-40ae-a1cb-f53ca365e49d",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/touquoy-mine-reboot-to-yield-180m-in-canadian-gold/"
-      }
-    ],
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations",
-      "ndt_inspection"
-    ],
-    "signal_type": "epc_award",
-    "region": "atlantic-canada",
-    "country": "canada",
-    "headline": "Atlantic Mining Reboots Touquoy Mine to Reprocess 3M Tonnes of Gold Ore, Nova Scotia",
-    "operator": {
-      "name": "Atlantic Mining"
-    },
-    "hiring_entity": {
-      "name": "Atlantic Mining"
-    },
-    "project_name": "Touquoy Mine",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null
-  },
-  {
-    "id": "9509d877-100f-4146-8470-ff0d67b9ccf7",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/buenaventura-eyes-16-year-boost-for-new-peru-mine/"
-      }
-    ],
-    "subsector": "mining",
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": "peru",
-    "country": "peru",
-    "headline": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null
-  },
-  {
-    "id": "0f1a855d-d526-4420-8874-5ccee591435b",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/cornish-metals-secures-210m-to-fund-uk-tin-mine-revival/"
-      }
-    ],
-    "subsector": "mining",
-    "discipline_tags": [
-      "energy_trades",
-      "industrial_construction",
-      "process_plant_operations"
-    ],
-    "signal_type": "fid",
-    "region": "uk-southwest",
-    "country": "united_kingdom",
-    "headline": "Cornish Metals Secures $210M to Restart South Crofty Tin Mine in Cornwall",
-    "operator": {
-      "name": "Cornish Metals"
-    },
-    "hiring_entity": {
-      "name": "Cornish Metals"
-    },
-    "project_name": "South Crofty Tin Mine",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": 210000000
-  },
-  {
-    "id": "88711ead-fc3a-45a3-ba34-bc302ad4562f",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/trafigura-in-talks-to-build-aluminum-smelter-in-egypt/"
-      }
-    ],
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "headline": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
     "mob_window": {
       "start": null,
       "end": null,
@@ -2653,36 +2653,6 @@
     "contract_value_usd": null
   },
   {
-    "id": "2712358f-fe18-4772-a05c-1be0f6a861db",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "sources": [
-      {
-        "id": "sec_edgar_8k",
-        "name": "SEC EDGAR 8-K",
-        "url": "https://www.sec.gov/Archives/edgar/data/1697500/000119312526209192/0001193125-26-209192-index.htm"
-      }
-    ],
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "headline": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null
-  },
-  {
     "id": "dbb357a5-8694-4638-a587-3c8575606bf7",
     "ingested_at": "2026-05-08T01:16:59.182Z",
     "sources": [
@@ -2983,6 +2953,66 @@
     "contract_value_usd": null
   },
   {
+    "id": "a129006e-0f6c-4f17-b60c-e3f838ca7f08",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/nigeria_partners_with_chinese_firms_to_revive_refineries-05-may-2026-183608-article/?rss=true"
+      }
+    ],
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "headline": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "4323ff67-bb2e-45bb-9902-d69273197f25",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/transocean_posts_higher_q1_revenue-05-may-2026-183611-article/?rss=true"
+      }
+    ],
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "headline": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
     "id": "c4f7cc0d-79ac-4fd6-bca2-b3a90c88abb3",
     "ingested_at": "2026-05-08T01:16:59.182Z",
     "sources": [
@@ -3020,36 +3050,6 @@
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/adnoc_lng_tankers_go_dark_to_get_gas_through_hormuz-07-may-2026-183636-article/?rss=true"
-      }
-    ],
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "headline": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null
-  },
-  {
-    "id": "a129006e-0f6c-4f17-b60c-e3f838ca7f08",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/nigeria_partners_with_chinese_firms_to_revive_refineries-05-may-2026-183608-article/?rss=true"
       }
     ],
     "subsector": null,
@@ -3200,36 +3200,6 @@
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/gas_trading_boosts_equinor_profit-06-may-2026-183621-article/?rss=true"
-      }
-    ],
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "headline": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null
-  },
-  {
-    "id": "4323ff67-bb2e-45bb-9902-d69273197f25",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/transocean_posts_higher_q1_revenue-05-may-2026-183611-article/?rss=true"
       }
     ],
     "subsector": null,
@@ -3674,6 +3644,36 @@
       "name": "AECOM"
     },
     "project_name": "UK Infinity Fusion Plant",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "2712358f-fe18-4772-a05c-1be0f6a861db",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "sources": [
+      {
+        "id": "sec_edgar_8k",
+        "name": "SEC EDGAR 8-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1697500/000119312526209192/0001193125-26-209192-index.htm"
+      }
+    ],
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "headline": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
     "mob_window": {
       "start": null,
       "end": null,
