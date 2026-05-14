@@ -1,5 +1,41 @@
 [
   {
+    "id": "c7ebcf30-81d8-438e-9f79-335077358606",
+    "ingested_at": "2026-05-14T12:41:56.009Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/agnico-to-invest-10b-in-ontario-operations-province-says/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "drilling_operations"
+    ],
+    "signal_type": "fid",
+    "region": "ontario-canada",
+    "country": "canada",
+    "headline": "Agnico Eagle to Invest C$14B in Ontario Mining Ops; C$2B Earmarked for Detour Lake Underground",
+    "operator": {
+      "name": "Agnico Eagle",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Agnico Eagle",
+      "matched_company_slug": null
+    },
+    "project_name": "Detour Lake Underground",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 10000000000
+  },
+  {
     "id": "3ad38ad2-786b-40c5-a2dd-023f6f204620",
     "ingested_at": "2026-05-12T12:35:36.640Z",
     "sources": [
@@ -281,205 +317,6 @@
     "project_name": "Disko-Nuussuaq",
     "mob_window": {
       "start": "2025-Q3",
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null
-  },
-  {
-    "id": "747a1f36-c745-4c2f-8c17-47849fe4e9f2",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/gold-candle-acquires-pan-american-silvers-larder-property-in-the-abitibi/"
-      }
-    ],
-    "subsector": "mining",
-    "discipline_tags": [],
-    "signal_type": "lease_round",
-    "region": "ontario-canada",
-    "country": "canada",
-    "headline": "Gold Candle Acquires Pan American Silver's Larder Property in Ontario's Abitibi Region",
-    "operator": {
-      "name": "Gold Candle"
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": "Larder Property",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null
-  },
-  {
-    "id": "c0bff2b6-1bc4-4bb9-a945-f0d0e30c4646",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/tmc-allseas-strike-first-seabed-nodule-mining-deal/"
-      }
-    ],
-    "subsector": "mining",
-    "discipline_tags": [
-      "marine_offshore_ops",
-      "rov_subsea",
-      "industrial_construction"
-    ],
-    "signal_type": "epc_award",
-    "region": "international-waters",
-    "country": null,
-    "headline": "TMC & Allseas Strike First Commercial Seabed Nodule Mining Deal — 3M Tonnes/Year Target",
-    "operator": {
-      "name": "The Metals Company (TMC)"
-    },
-    "hiring_entity": {
-      "name": "Allseas"
-    },
-    "project_name": "TMC–Allseas Commercial Seabed Nodule Mining Production System",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null
-  },
-  {
-    "id": "2b68deda-7002-437f-90fb-34fcb89c8263",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/cameco-halts-saskatchewan-uranium-operations-after-floods/"
-      }
-    ],
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations"
-    ],
-    "signal_type": "regulatory",
-    "region": "canada-saskatchewan",
-    "country": "canada",
-    "headline": "Cameco Halts McArthur River Mine & Key Lake Mill After Saskatchewan Floods",
-    "operator": {
-      "name": "Cameco"
-    },
-    "hiring_entity": {
-      "name": "Cameco"
-    },
-    "project_name": "McArthur River Mine / Key Lake Mill",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null
-  },
-  {
-    "id": "e841eef4-1b82-4fd5-80cb-fe5f24b00f4d",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/freeport-delays-grasberg-full-restart-to-early-2028/"
-      }
-    ],
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations",
-      "energy_trades"
-    ],
-    "signal_type": "regulatory",
-    "region": "indonesia",
-    "country": "indonesia",
-    "headline": "Freeport Grasberg Phased Ramp to 65% Capacity H2 2026, Full Restart Delayed to Early 2028",
-    "operator": {
-      "name": "Freeport-McMoRan"
-    },
-    "hiring_entity": {
-      "name": "Freeport-McMoRan"
-    },
-    "project_name": "Grasberg",
-    "mob_window": {
-      "start": "2026-Q3",
-      "end": "2028-Q1",
-      "duration_months": 18
-    },
-    "contract_value_usd": null
-  },
-  {
-    "id": "50d39266-fc22-4c4c-8622-c9cfc17a5dde",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/ontarios-darlington-smr-renews-canadas-nuclear-maturity/"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades",
-      "ndt_inspection"
-    ],
-    "signal_type": "fid",
-    "region": "ontario-canada",
-    "country": "canada",
-    "headline": "Darlington SMR Construction Begins — First SMR in G7, Ontario Canada",
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": "Darlington SMR",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null
-  },
-  {
-    "id": "67233574-ad73-40ae-a1cb-f53ca365e49d",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/touquoy-mine-reboot-to-yield-180m-in-canadian-gold/"
-      }
-    ],
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations",
-      "ndt_inspection"
-    ],
-    "signal_type": "epc_award",
-    "region": "atlantic-canada",
-    "country": "canada",
-    "headline": "Atlantic Mining Reboots Touquoy Mine to Reprocess 3M Tonnes of Gold Ore, Nova Scotia",
-    "operator": {
-      "name": "Atlantic Mining"
-    },
-    "hiring_entity": {
-      "name": "Atlantic Mining"
-    },
-    "project_name": "Touquoy Mine",
-    "mob_window": {
-      "start": null,
       "end": null,
       "duration_months": null
     },
@@ -1052,6 +889,205 @@
       "name": "The Nuclear Company"
     },
     "project_name": "VC Summer AP1000 Units 2 & 3",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "747a1f36-c745-4c2f-8c17-47849fe4e9f2",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/gold-candle-acquires-pan-american-silvers-larder-property-in-the-abitibi/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [],
+    "signal_type": "lease_round",
+    "region": "ontario-canada",
+    "country": "canada",
+    "headline": "Gold Candle Acquires Pan American Silver's Larder Property in Ontario's Abitibi Region",
+    "operator": {
+      "name": "Gold Candle"
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": "Larder Property",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "c0bff2b6-1bc4-4bb9-a945-f0d0e30c4646",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/tmc-allseas-strike-first-seabed-nodule-mining-deal/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "marine_offshore_ops",
+      "rov_subsea",
+      "industrial_construction"
+    ],
+    "signal_type": "epc_award",
+    "region": "international-waters",
+    "country": null,
+    "headline": "TMC & Allseas Strike First Commercial Seabed Nodule Mining Deal — 3M Tonnes/Year Target",
+    "operator": {
+      "name": "The Metals Company (TMC)"
+    },
+    "hiring_entity": {
+      "name": "Allseas"
+    },
+    "project_name": "TMC–Allseas Commercial Seabed Nodule Mining Production System",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "2b68deda-7002-437f-90fb-34fcb89c8263",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/cameco-halts-saskatchewan-uranium-operations-after-floods/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "canada-saskatchewan",
+    "country": "canada",
+    "headline": "Cameco Halts McArthur River Mine & Key Lake Mill After Saskatchewan Floods",
+    "operator": {
+      "name": "Cameco"
+    },
+    "hiring_entity": {
+      "name": "Cameco"
+    },
+    "project_name": "McArthur River Mine / Key Lake Mill",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "e841eef4-1b82-4fd5-80cb-fe5f24b00f4d",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/freeport-delays-grasberg-full-restart-to-early-2028/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "regulatory",
+    "region": "indonesia",
+    "country": "indonesia",
+    "headline": "Freeport Grasberg Phased Ramp to 65% Capacity H2 2026, Full Restart Delayed to Early 2028",
+    "operator": {
+      "name": "Freeport-McMoRan"
+    },
+    "hiring_entity": {
+      "name": "Freeport-McMoRan"
+    },
+    "project_name": "Grasberg",
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": "2028-Q1",
+      "duration_months": 18
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "50d39266-fc22-4c4c-8622-c9cfc17a5dde",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/ontarios-darlington-smr-renews-canadas-nuclear-maturity/"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "ndt_inspection"
+    ],
+    "signal_type": "fid",
+    "region": "ontario-canada",
+    "country": "canada",
+    "headline": "Darlington SMR Construction Begins — First SMR in G7, Ontario Canada",
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": "Darlington SMR",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "67233574-ad73-40ae-a1cb-f53ca365e49d",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/touquoy-mine-reboot-to-yield-180m-in-canadian-gold/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "ndt_inspection"
+    ],
+    "signal_type": "epc_award",
+    "region": "atlantic-canada",
+    "country": "canada",
+    "headline": "Atlantic Mining Reboots Touquoy Mine to Reprocess 3M Tonnes of Gold Ore, Nova Scotia",
+    "operator": {
+      "name": "Atlantic Mining"
+    },
+    "hiring_entity": {
+      "name": "Atlantic Mining"
+    },
+    "project_name": "Touquoy Mine",
     "mob_window": {
       "start": null,
       "end": null,
@@ -3163,6 +3199,40 @@
     "contract_value_usd": null
   },
   {
+    "id": "05299d5f-78bf-48b9-97a1-7e04a7b8d06d",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/grid-connection-requested-for-us-fusion-power-plant"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-mid-atlantic",
+    "country": "united_states",
+    "headline": "Commonwealth Fusion Systems Files PJM Grid-Connection App for ARC Fusion Plant — Startup Early 2030s",
+    "operator": {
+      "name": "Commonwealth Fusion Systems"
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": "ARC",
+    "mob_window": {
+      "start": "2030-Q1",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
     "id": "dae80e43-7cfc-498e-8619-fe370f0bce70",
     "ingested_at": "2026-05-08T01:16:59.182Z",
     "sources": [
@@ -3579,40 +3649,6 @@
     "project_name": null,
     "mob_window": {
       "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null
-  },
-  {
-    "id": "05299d5f-78bf-48b9-97a1-7e04a7b8d06d",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/grid-connection-requested-for-us-fusion-power-plant"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations",
-      "energy_trades"
-    ],
-    "signal_type": "regulatory",
-    "region": "us-mid-atlantic",
-    "country": "united_states",
-    "headline": "Commonwealth Fusion Systems Files PJM Grid-Connection App for ARC Fusion Plant — Startup Early 2030s",
-    "operator": {
-      "name": "Commonwealth Fusion Systems"
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": "ARC",
-    "mob_window": {
-      "start": "2030-Q1",
       "end": null,
       "duration_months": null
     },
