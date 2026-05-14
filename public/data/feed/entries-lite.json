@@ -550,41 +550,6 @@
     "contract_value_usd": 210000000
   },
   {
-    "id": "ec37a3c7-d25e-4a05-8b3b-b48cd79405bf",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/eni_confirms_size_of_giant_gas_discovery_offshore_indonesia-07-may-2026-183630-article/?rss=true"
-      }
-    ],
-    "subsector": "offshore-og",
-    "discipline_tags": [
-      "drilling_operations",
-      "rov_subsea",
-      "survey_geophysical",
-      "marine_offshore_ops"
-    ],
-    "signal_type": "lease_round",
-    "region": "indonesia-offshore",
-    "country": "indonesia",
-    "headline": "Eni Confirms ~5 Tcf Giant Gas Discovery Offshore Indonesia via DST",
-    "operator": {
-      "name": "Eni"
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null
-  },
-  {
     "id": "6f923c41-072f-45e1-b8ac-3074e60bcddd",
     "ingested_at": "2026-05-12T12:35:36.640Z",
     "sources": [
@@ -649,6 +614,41 @@
       "name": "Shell PLC / INEOS Group"
     },
     "project_name": "Appomattox Hub Tieback Program",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "ec37a3c7-d25e-4a05-8b3b-b48cd79405bf",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/eni_confirms_size_of_giant_gas_discovery_offshore_indonesia-07-may-2026-183630-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "rov_subsea",
+      "survey_geophysical",
+      "marine_offshore_ops"
+    ],
+    "signal_type": "lease_round",
+    "region": "indonesia-offshore",
+    "country": "indonesia",
+    "headline": "Eni Confirms ~5 Tcf Giant Gas Discovery Offshore Indonesia via DST",
+    "operator": {
+      "name": "Eni"
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
     "mob_window": {
       "start": null,
       "end": null,
@@ -3073,6 +3073,96 @@
     "contract_value_usd": null
   },
   {
+    "id": "34c292a3-a29d-4c4c-84ab-3fc07151eba7",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/australia_to_build_up_1bliter_fuel_reserve-06-may-2026-183619-article/?rss=true"
+      }
+    ],
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "headline": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "0866b1d5-17b9-4b6a-81e9-68a8b8b9d930",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/gas_trading_boosts_equinor_profit-06-may-2026-183621-article/?rss=true"
+      }
+    ],
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "headline": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "f1fec0bb-aca9-4995-8796-10b53482a50e",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/adb_targets_70b_for_asian_power_grid_integration_data_centers-06-may-2026-183622-article/?rss=true"
+      }
+    ],
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "headline": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
     "id": "dae80e43-7cfc-498e-8619-fe370f0bce70",
     "ingested_at": "2026-05-08T01:16:59.182Z",
     "sources": [
@@ -3193,66 +3283,6 @@
     "contract_value_usd": null
   },
   {
-    "id": "34c292a3-a29d-4c4c-84ab-3fc07151eba7",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/australia_to_build_up_1bliter_fuel_reserve-06-may-2026-183619-article/?rss=true"
-      }
-    ],
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "headline": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null
-  },
-  {
-    "id": "0866b1d5-17b9-4b6a-81e9-68a8b8b9d930",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/gas_trading_boosts_equinor_profit-06-may-2026-183621-article/?rss=true"
-      }
-    ],
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "headline": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null
-  },
-  {
     "id": "63a20281-119d-42b8-a25a-2af9452c475d",
     "ingested_at": "2026-05-08T01:16:59.182Z",
     "sources": [
@@ -3290,36 +3320,6 @@
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/murphy_oil_avoids_gambling_on_current_volatility-07-may-2026-183637-article/?rss=true"
-      }
-    ],
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "headline": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null
-  },
-  {
-    "id": "f1fec0bb-aca9-4995-8796-10b53482a50e",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/adb_targets_70b_for_asian_power_grid_integration_data_centers-06-may-2026-183622-article/?rss=true"
       }
     ],
     "subsector": null,

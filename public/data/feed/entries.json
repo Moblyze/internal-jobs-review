@@ -1488,108 +1488,6 @@
       {
         "id": "rigzone",
         "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/eni_confirms_size_of_giant_gas_discovery_offshore_indonesia-07-may-2026-183630-article/?rss=true"
-      }
-    ],
-    "headline": "Eni Confirms ~5 Tcf Giant Gas Discovery Offshore Indonesia via DST",
-    "body": "A drill stem test (DST) confirmed the preliminary assessment of about 5 trillion cubic feet (Tcf) of natural gas and 300 million barrels of condensate in the...",
-    "url": "https://www.rigzone.com/news/eni_confirms_size_of_giant_gas_discovery_offshore_indonesia-07-may-2026-183630-article/?rss=true",
-    "published_at": "2026-05-07T08:57:25.000Z",
-    "hash": "b6942cfc75dd26db",
-    "subsector": "offshore-og",
-    "discipline_tags": [
-      "drilling_operations",
-      "rov_subsea",
-      "survey_geophysical",
-      "marine_offshore_ops"
-    ],
-    "signal_type": "lease_round",
-    "region": "indonesia-offshore",
-    "country": "indonesia",
-    "tldr": "Eni's drill stem test has confirmed a ~5 Tcf gas / 300 MMbbl condensate discovery offshore Indonesia, signalling a major appraisal and eventual development campaign ahead. Recruiters should position now ahead of FEED and EPC tender cycles.",
-    "operator": {
-      "name": "Eni"
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [
-      "exploration_appraisal",
-      "dst",
-      "gas_condensate"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Subsurface Geologist",
-        "Reservoir Engineer",
-        "Drilling Engineer",
-        "Well Engineer",
-        "Appraisal Campaign Manager",
-        "Production Geologist",
-        "Subsea Engineer",
-        "Wellsite Geologist"
-      ],
-      "skills": [
-        "drill stem testing",
-        "gas appraisal",
-        "offshore exploration",
-        "reservoir characterisation",
-        "subsurface evaluation",
-        "condensate field development",
-        "Indonesia PSC"
-      ],
-      "certs_freetext": [
-        "IWCF",
-        "BOSIET",
-        "HUET"
-      ],
-      "geo_rtw": "Indonesia or regional Asia-Pacific mobility",
-      "project_experience": [
-        "Jangkrik",
-        "Merakes",
-        "IDD",
-        "Muara Bakau",
-        "Tangguh LNG"
-      ],
-      "yoe_band": "8-15",
-      "seniority": "Senior to Lead",
-      "boolean_search": "(\"Reservoir Engineer\" OR \"Drilling Engineer\" OR \"Well Engineer\" OR \"Subsurface Geologist\" OR \"Wellsite Geologist\") AND (\"drill stem test\" OR \"DST\" OR \"gas appraisal\" OR \"offshore exploration\" OR \"condensate\") AND (\"Indonesia\" OR \"Asia Pacific\" OR \"deepwater\") AND (\"Eni\" OR \"PSC\" OR \"offshore gas development\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Eni just confirmed a ~5 Tcf gas discovery offshore Indonesia — appraisal and FEED cycles will ramp soon. Given your background in [skill], I'd love to explore if you'd be open to a conversation. Worth a quick chat?",
-      "email_subject": "Eni Indonesia Giant Gas Discovery — Appraisal & Development Roles Ahead",
-      "email_body": "Hi [Name],\n\nEni has confirmed a ~5 Tcf natural gas and 300 MMbbl condensate discovery offshore Indonesia following a successful drill stem test. Discoveries of this scale typically trigger significant appraisal drilling campaigns followed by FEED and EPC activity within 12–24 months.\n\nGiven your experience in [relevant discipline], I wanted to reach out early — before the formal hiring cycle opens — to understand your interest and availability.\n\nWould you be open to a 15-minute call this week?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "DST-confirmed major offshore gas discovery by named operator Eni offshore Indonesia signals upcoming appraisal drilling and development campaign, creating a discrete forward labor-demand event.",
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "ec37a3c7-d25e-4a05-8b3b-b48cd79405bf",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "source_published_at": "2026-05-07T08:57:25.000Z",
-    "phase": "pre_sanction",
-    "phase_evidence": "Article describes a DST confirming initial discovery volumes — the project is in exploration/appraisal phase, well ahead of FID or EPC award.",
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
-    "key_people": [],
-    "contact_archetypes": [
-      "project_manager",
-      "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
         "url": "https://www.rigzone.com/news/adnoc_announces_55b_in_new_project_awards-06-may-2026-183625-article/?rss=true"
       }
     ],
@@ -1751,6 +1649,108 @@
     "source_published_at": "2026-05-06T14:33:53.000Z",
     "phase": "pre_sanction",
     "phase_evidence": "The article states the agreement is to 'jointly invest in more projects' — indicating concept/agreement stage prior to individual project FIDs or EPC awards.",
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/eni_confirms_size_of_giant_gas_discovery_offshore_indonesia-07-may-2026-183630-article/?rss=true"
+      }
+    ],
+    "headline": "Eni Confirms ~5 Tcf Giant Gas Discovery Offshore Indonesia via DST",
+    "body": "A drill stem test (DST) confirmed the preliminary assessment of about 5 trillion cubic feet (Tcf) of natural gas and 300 million barrels of condensate in the...",
+    "url": "https://www.rigzone.com/news/eni_confirms_size_of_giant_gas_discovery_offshore_indonesia-07-may-2026-183630-article/?rss=true",
+    "published_at": "2026-05-07T08:57:25.000Z",
+    "hash": "b6942cfc75dd26db",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "rov_subsea",
+      "survey_geophysical",
+      "marine_offshore_ops"
+    ],
+    "signal_type": "lease_round",
+    "region": "indonesia-offshore",
+    "country": "indonesia",
+    "tldr": "Eni's drill stem test has confirmed a ~5 Tcf gas / 300 MMbbl condensate discovery offshore Indonesia, signalling a major appraisal and eventual development campaign ahead. Recruiters should position now ahead of FEED and EPC tender cycles.",
+    "operator": {
+      "name": "Eni"
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "scope": [
+      "exploration_appraisal",
+      "dst",
+      "gas_condensate"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Subsurface Geologist",
+        "Reservoir Engineer",
+        "Drilling Engineer",
+        "Well Engineer",
+        "Appraisal Campaign Manager",
+        "Production Geologist",
+        "Subsea Engineer",
+        "Wellsite Geologist"
+      ],
+      "skills": [
+        "drill stem testing",
+        "gas appraisal",
+        "offshore exploration",
+        "reservoir characterisation",
+        "subsurface evaluation",
+        "condensate field development",
+        "Indonesia PSC"
+      ],
+      "certs_freetext": [
+        "IWCF",
+        "BOSIET",
+        "HUET"
+      ],
+      "geo_rtw": "Indonesia or regional Asia-Pacific mobility",
+      "project_experience": [
+        "Jangkrik",
+        "Merakes",
+        "IDD",
+        "Muara Bakau",
+        "Tangguh LNG"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "Senior to Lead",
+      "boolean_search": "(\"Reservoir Engineer\" OR \"Drilling Engineer\" OR \"Well Engineer\" OR \"Subsurface Geologist\" OR \"Wellsite Geologist\") AND (\"drill stem test\" OR \"DST\" OR \"gas appraisal\" OR \"offshore exploration\" OR \"condensate\") AND (\"Indonesia\" OR \"Asia Pacific\" OR \"deepwater\") AND (\"Eni\" OR \"PSC\" OR \"offshore gas development\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Eni just confirmed a ~5 Tcf gas discovery offshore Indonesia — appraisal and FEED cycles will ramp soon. Given your background in [skill], I'd love to explore if you'd be open to a conversation. Worth a quick chat?",
+      "email_subject": "Eni Indonesia Giant Gas Discovery — Appraisal & Development Roles Ahead",
+      "email_body": "Hi [Name],\n\nEni has confirmed a ~5 Tcf natural gas and 300 MMbbl condensate discovery offshore Indonesia following a successful drill stem test. Discoveries of this scale typically trigger significant appraisal drilling campaigns followed by FEED and EPC activity within 12–24 months.\n\nGiven your experience in [relevant discipline], I wanted to reach out early — before the formal hiring cycle opens — to understand your interest and availability.\n\nWould you be open to a 15-minute call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "DST-confirmed major offshore gas discovery by named operator Eni offshore Indonesia signals upcoming appraisal drilling and development campaign, creating a discrete forward labor-demand event.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "ec37a3c7-d25e-4a05-8b3b-b48cd79405bf",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "source_published_at": "2026-05-07T08:57:25.000Z",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article describes a DST confirming initial discovery volumes — the project is in exploration/appraisal phase, well ahead of FID or EPC award.",
     "outreach_readiness": "cold",
     "estimated_hiring_window": "12mo+",
     "key_people": [],
@@ -7708,6 +7708,195 @@
   },
   {
     "headline": null,
+    "body": "The Australian government said Wednesday it will include a AUD-10 billion ($7.26 billion) Australian Fuel Security and Resilience package in the federal budg...",
+    "url": "https://www.rigzone.com/news/australia_to_build_up_1bliter_fuel_reserve-06-may-2026-183619-article/?rss=true",
+    "published_at": "2026-05-06T09:42:04.000Z",
+    "hash": "040ecb6b9272323b",
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "tldr": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "34c292a3-a29d-4c4c-84ab-3fc07151eba7",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "source_published_at": "2026-05-06T09:42:04.000Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/australia_to_build_up_1bliter_fuel_reserve-06-may-2026-183619-article/?rss=true"
+      }
+    ],
+    "bd_relevant": false,
+    "bd_relevance_reason": "National government budget/policy announcement with no named operator, contractor, or discrete project award generating a workforce-demand signal.",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "headline": null,
+    "body": "Equinor ASA has reported $3.7 billion, or $1.48 per share, in net income adjusted for nonrecurring items for the first quarter (Q1), more than double that of...",
+    "url": "https://www.rigzone.com/news/gas_trading_boosts_equinor_profit-06-may-2026-183621-article/?rss=true",
+    "published_at": "2026-05-06T11:57:30.000Z",
+    "hash": "80db3f2e7ac6b283",
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "tldr": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "0866b1d5-17b9-4b6a-81e9-68a8b8b9d930",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "source_published_at": "2026-05-06T11:57:30.000Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/gas_trading_boosts_equinor_profit-06-may-2026-183621-article/?rss=true"
+      }
+    ],
+    "bd_relevant": false,
+    "bd_relevance_reason": "Quarterly earnings report for Equinor with no contract award, project sanction, or workforce demand signal.",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "headline": null,
+    "body": "The Asian Development Bank (ADB) said it aims to mobilize $50 billion in financing to help Asia-Pacific countries build cross-border electricity grids and an...",
+    "url": "https://www.rigzone.com/news/adb_targets_70b_for_asian_power_grid_integration_data_centers-06-may-2026-183622-article/?rss=true",
+    "published_at": "2026-05-06T13:09:54.000Z",
+    "hash": "187de88fbd087ed6",
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "tldr": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "f1fec0bb-aca9-4995-8796-10b53482a50e",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "source_published_at": "2026-05-06T13:09:54.000Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/adb_targets_70b_for_asian_power_grid_integration_data_centers-06-may-2026-183622-article/?rss=true"
+      }
+    ],
+    "bd_relevant": false,
+    "bd_relevance_reason": "ADB financing mobilization announcement is generic infrastructure policy/finance news with no named operator, contractor, or discrete project award qualifying under the BD inclusion criteria.",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "headline": null,
     "body": "Abu Dhabi National Oil Co. has managed to keep a trickle of liquefied natural gas exports moving through the Strait of Hormuz by concealing tanker locations,...",
     "url": "https://www.rigzone.com/news/adnoc_lng_tankers_go_dark_to_get_gas_through_hormuz-07-may-2026-183636-article/?rss=true",
     "published_at": "2026-05-07T20:00:00.000Z",
@@ -7960,132 +8149,6 @@
   },
   {
     "headline": null,
-    "body": "The Australian government said Wednesday it will include a AUD-10 billion ($7.26 billion) Australian Fuel Security and Resilience package in the federal budg...",
-    "url": "https://www.rigzone.com/news/australia_to_build_up_1bliter_fuel_reserve-06-may-2026-183619-article/?rss=true",
-    "published_at": "2026-05-06T09:42:04.000Z",
-    "hash": "040ecb6b9272323b",
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "tldr": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "34c292a3-a29d-4c4c-84ab-3fc07151eba7",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "source_published_at": "2026-05-06T09:42:04.000Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/australia_to_build_up_1bliter_fuel_reserve-06-may-2026-183619-article/?rss=true"
-      }
-    ],
-    "bd_relevant": false,
-    "bd_relevance_reason": "National government budget/policy announcement with no named operator, contractor, or discrete project award generating a workforce-demand signal.",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "headline": null,
-    "body": "Equinor ASA has reported $3.7 billion, or $1.48 per share, in net income adjusted for nonrecurring items for the first quarter (Q1), more than double that of...",
-    "url": "https://www.rigzone.com/news/gas_trading_boosts_equinor_profit-06-may-2026-183621-article/?rss=true",
-    "published_at": "2026-05-06T11:57:30.000Z",
-    "hash": "80db3f2e7ac6b283",
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "tldr": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "0866b1d5-17b9-4b6a-81e9-68a8b8b9d930",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "source_published_at": "2026-05-06T11:57:30.000Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/gas_trading_boosts_equinor_profit-06-may-2026-183621-article/?rss=true"
-      }
-    ],
-    "bd_relevant": false,
-    "bd_relevance_reason": "Quarterly earnings report for Equinor with no contract award, project sanction, or workforce demand signal.",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "headline": null,
     "body": "EOG Resources Inc has reported $1.83 billion in net income adjusted for nonrecurring items for the first quarter (Q1), up quarter-on-quarter and year-on-year...",
     "url": "https://www.rigzone.com/news/eog_profit_exceeds_expectations-07-may-2026-183634-article/?rss=true",
     "published_at": "2026-05-07T12:58:42.000Z",
@@ -8202,69 +8265,6 @@
     ],
     "bd_relevant": false,
     "bd_relevance_reason": "Executive commentary on capital discipline and market volatility with no named project, contract award, or discrete workforce-demand event.",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "headline": null,
-    "body": "The Asian Development Bank (ADB) said it aims to mobilize $50 billion in financing to help Asia-Pacific countries build cross-border electricity grids and an...",
-    "url": "https://www.rigzone.com/news/adb_targets_70b_for_asian_power_grid_integration_data_centers-06-may-2026-183622-article/?rss=true",
-    "published_at": "2026-05-06T13:09:54.000Z",
-    "hash": "187de88fbd087ed6",
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "tldr": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "f1fec0bb-aca9-4995-8796-10b53482a50e",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "source_published_at": "2026-05-06T13:09:54.000Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/adb_targets_70b_for_asian_power_grid_integration_data_centers-06-may-2026-183622-article/?rss=true"
-      }
-    ],
-    "bd_relevant": false,
-    "bd_relevance_reason": "ADB financing mobilization announcement is generic infrastructure policy/finance news with no named operator, contractor, or discrete project award qualifying under the BD inclusion criteria.",
     "phase": null,
     "phase_evidence": null,
     "outreach_readiness": null,
