@@ -21,6 +21,14 @@ const SPREADSHEET_NAME = 'Job Scraping Results'; // Must match .env in job-scrap
 const AGGREGATOR_SPREADSHEET_ID = '1xb3QBZG9Dtkyo_UmOGu3Oc3zMr2Cg1ohOyt-cd3WT7Y';
 const OUTPUT_PATH = path.join(__dirname, '../public/data/jobs.json');
 
+// Rate limiting configuration
+const API_DELAY_MS = 1500; // 1.5 second delay between API requests to avoid quota limits
+
+// Helper function to add delay between API requests
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 // Column mapping (matches JobPosting.to_sheet_row() order from scraper)
 // Updated: Employment Type added at column 10, shifting Status/StatusChanged/ScrapedAt
 const COLUMNS = {
@@ -113,6 +121,9 @@ async function fetchAllJobs(auth) {
     }
 
     console.log(`Fetching jobs from "${sheetName}"...`);
+
+    // Add delay to prevent API quota exceeded errors
+    await delay(API_DELAY_MS);
 
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: spreadsheet.data.spreadsheetId,
@@ -316,6 +327,9 @@ async function fetchAggregatorJobs(auth) {
 
   console.log('📊 Fetching aggregator jobs...');
   try {
+    // Add delay to prevent API quota exceeded errors
+    await delay(API_DELAY_MS);
+
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: AGGREGATOR_SPREADSHEET_ID,
       range: 'Aggregator Jobs!A2:P', // Skip header row
