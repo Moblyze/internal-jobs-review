@@ -1189,6 +1189,320 @@
   {
     "sources": [
       {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/freeport-delays-grasberg-full-restart-to-early-2028/"
+      }
+    ],
+    "headline": "Freeport Grasberg Phased Ramp to 65% Capacity H2 2026, Full Restart Delayed to Early 2028",
+    "body": "Freeport now aims for 65% capacity in the second half of 2026, 80% by mid-2027, and near full capacity by the end of 2027.",
+    "url": "https://www.mining.com/freeport-delays-grasberg-full-restart-to-early-2028/",
+    "published_at": "2026-05-08T15:34:41.000Z",
+    "hash": "d4453f90abbb87c0",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "regulatory",
+    "region": "indonesia",
+    "country": "indonesia",
+    "tldr": "Freeport-McMoRan is ramping Grasberg to 65% capacity in H2 2026, 80% by mid-2027, and near-full by end-2027, with complete restart pushed to early 2028 — signalling a sustained multi-phase workforce ramp over the next 18+ months.",
+    "operator": {
+      "name": "Freeport-McMoRan"
+    },
+    "hiring_entity": {
+      "name": "Freeport-McMoRan"
+    },
+    "project_name": "Grasberg",
+    "scope": [
+      "plant_ramp_up",
+      "operations_staffing",
+      "maintenance"
+    ],
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": "2028-Q1",
+      "duration_months": 18
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mining Operations Superintendent",
+        "Process Plant Supervisor",
+        "Maintenance Superintendent",
+        "Electrical Superintendent",
+        "Mechanical Maintenance Engineer",
+        "Concentrator Operator",
+        "Instrument Technician",
+        "Reliability Engineer",
+        "Shutdown Planner",
+        "Production Manager"
+      ],
+      "skills": [
+        "copper concentrator operations",
+        "SAG mill",
+        "flotation",
+        "underground block caving",
+        "plant ramp-up",
+        "preventive maintenance",
+        "reliability centred maintenance",
+        "FIFO operations",
+        "mine ramp-up management"
+      ],
+      "certs_freetext": [
+        "Mine Manager Certificate of Competency",
+        "OHSE site induction",
+        "Indonesian K3 certification (preferred)"
+      ],
+      "geo_rtw": "Indonesia-based or FIFO-eligible; international candidates with Indonesian work permit eligibility",
+      "project_experience": [
+        "Grasberg Block Cave",
+        "Deep Mill Level Zone",
+        "Ok Tedi",
+        "Batu Hijau",
+        "Escondida"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid-senior to principal",
+      "boolean_search": "(\"Grasberg\" OR \"copper mine\" OR \"concentrator\" OR \"block cave\") AND (\"plant ramp\" OR \"mine operations\" OR \"concentrator operations\" OR \"maintenance superintendent\" OR \"process plant supervisor\" OR \"production superintendent\") AND (\"Freeport\" OR \"PT-FI\" OR \"underground mining\" OR \"SAG mill\" OR \"flotation\") AND (Indonesia OR \"Papua\" OR FIFO)"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Freeport's Grasberg is ramping to 65% capacity from H2 2026 through full restart in early 2028 — a major ops & maintenance build-up. Your background in [relevant skill] looks directly relevant. Worth a quick chat?",
+      "email_subject": "Grasberg Ramp-Up 2026–2028 — Ops & Maintenance Roles Opening",
+      "email_body": "Hi [Name],\n\nFreeport-McMoRan has announced a phased ramp-up at Grasberg — targeting 65% capacity in H2 2026, 80% by mid-2027, and near-full operations by end-2027, with complete restart pushed to early 2028.\n\nThis sustained ramp signals significant demand for experienced concentrator, maintenance, and underground operations professionals over the next 18+ months.\n\nGiven your experience in [relevant area], I'd like to explore whether you'd be open to hearing about the opportunities coming through on this programme.\n\nAre you available for a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Freeport-McMoRan) announces a phased large-scale workforce ramp-up at a named project (Grasberg mine) across a defined 18-month window, constituting a discrete and actionable labor-demand event in mining.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "e841eef4-1b82-4fd5-80cb-fe5f24b00f4d",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "source_published_at": "2026-05-08T15:34:41.000Z",
+    "phase": "operating",
+    "phase_evidence": "Article describes a phased capacity ramp from existing operations ('65% capacity in H2 2026… near full capacity by end of 2027'), indicating an operating asset restarting/ramping rather than a new construction project.",
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "contact_archetypes": [
+      "ops_director",
+      "hiring_manager"
+    ],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/ontarios-darlington-smr-renews-canadas-nuclear-maturity/"
+      }
+    ],
+    "headline": "Darlington SMR Construction Begins — First SMR in G7, Ontario Canada",
+    "body": "Ontario has started construction on the first small modular reactor in the G7.",
+    "url": "https://www.mining.com/ontarios-darlington-smr-renews-canadas-nuclear-maturity/",
+    "published_at": "2026-05-08T13:26:05.000Z",
+    "hash": "b1d8ee14c15484da",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "ndt_inspection"
+    ],
+    "signal_type": "fid",
+    "region": "ontario-canada",
+    "country": "canada",
+    "tldr": "Construction has commenced on the Darlington SMR in Ontario, Canada — the first SMR in the G7 — signalling an active hiring window for nuclear construction trades and inspection personnel.",
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": "Darlington SMR",
+    "scope": [
+      "smr_construction",
+      "civil_works",
+      "mechanical_installation"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Construction Manager",
+        "Site Superintendent",
+        "Civil Construction Supervisor",
+        "Mechanical Superintendent",
+        "NDT Inspector",
+        "QA/QC Inspector Nuclear",
+        "Construction Trades Foreman",
+        "Health & Safety Advisor Nuclear",
+        "Commissioning Engineer"
+      ],
+      "skills": [
+        "nuclear construction",
+        "SMR",
+        "CANDU",
+        "reactor civil works",
+        "mechanical installation",
+        "QA nuclear",
+        "NDT",
+        "commissioning",
+        "CNSC regulations"
+      ],
+      "certs_freetext": [
+        "CNSC Nuclear Security Clearance",
+        "CSA N285",
+        "Red Seal trades certification",
+        "CGSB NDT Level II/III",
+        "NUPIC qualified"
+      ],
+      "geo_rtw": "Canada — must hold valid right to work; Ontario preferred",
+      "project_experience": [
+        "Darlington Refurbishment",
+        "Bruce Power Life Extension",
+        "Pickering NGS",
+        "OPG nuclear projects"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid-senior to principal",
+      "boolean_search": "(\"nuclear construction\" OR \"SMR\" OR \"small modular reactor\" OR \"CANDU\" OR \"reactor\" OR \"Darlington\") AND (\"construction manager\" OR \"site superintendent\" OR \"mechanical superintendent\" OR \"commissioning engineer\" OR \"NDT inspector\" OR \"QA inspector\" OR \"construction supervisor\") AND (\"Ontario\" OR \"Canada\") NOT (\"analyst\" OR \"policy\" OR \"finance\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], construction has just kicked off on the Darlington SMR in Ontario — the first SMR in the G7. Your nuclear construction background looks like a strong fit for roles ramping now. Worth a quick chat?",
+      "email_subject": "Darlington SMR — Nuclear Construction Roles Now Live, Ontario",
+      "email_body": "Hi [Name],\n\nConstruction has officially begun on the Darlington Small Modular Reactor in Ontario — a landmark project and the first SMR to break ground in the G7.\n\nWith site activity now underway, there is immediate demand for experienced nuclear construction professionals including construction managers, mechanical superintendents, NDT/QA inspectors, and commissioning engineers.\n\nGiven your background in [relevant experience], I wanted to reach out directly before these positions are filled.\n\nWould you be open to a brief call this week to discuss how your experience aligns with what's needed on-site?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named project (Darlington SMR) has entered active construction — the prime hiring window for nuclear trades, inspection, and construction management personnel.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "50d39266-fc22-4c4c-8622-c9cfc17a5dde",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "source_published_at": "2026-05-08T13:26:05.000Z",
+    "phase": "construction",
+    "phase_evidence": "Article states 'Ontario has started construction on the first small modular reactor in the G7', confirming physical construction has commenced.",
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": [],
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/touquoy-mine-reboot-to-yield-180m-in-canadian-gold/"
+      }
+    ],
+    "headline": "Atlantic Mining Reboots Touquoy Mine to Reprocess 3M Tonnes of Gold Ore, Nova Scotia",
+    "body": "Atlantic Mining readies to reprocess about 3M tonnes of ore at the Touquoy mine, on Canada’s Atlantic coast.",
+    "url": "https://www.mining.com/touquoy-mine-reboot-to-yield-180m-in-canadian-gold/",
+    "published_at": "2026-05-08T13:13:00.000Z",
+    "hash": "b58a0fed5358f0d6",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "ndt_inspection"
+    ],
+    "signal_type": "epc_award",
+    "region": "atlantic-canada",
+    "country": "canada",
+    "tldr": "Atlantic Mining is reactivating the Touquoy gold mine in Nova Scotia to reprocess approximately 3 million tonnes of ore, signalling an imminent workforce ramp-up for plant operations and processing roles.",
+    "operator": {
+      "name": "Atlantic Mining"
+    },
+    "hiring_entity": {
+      "name": "Atlantic Mining"
+    },
+    "project_name": "Touquoy Mine",
+    "scope": [
+      "ore_reprocessing",
+      "mine_restart",
+      "process_plant_operations"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Processing Plant Operator",
+        "Mine Site Superintendent",
+        "Metallurgist",
+        "Plant Maintenance Technician",
+        "Electrical Technician",
+        "Mechanical Technician",
+        "Site Manager",
+        "Health & Safety Officer",
+        "Crusher Operator",
+        "Conveyor Technician"
+      ],
+      "skills": [
+        "gold ore processing",
+        "heap leach or CIL processing",
+        "plant commissioning",
+        "mine restart",
+        "preventive maintenance",
+        "tailings management",
+        "process control"
+      ],
+      "certs_freetext": [
+        "Nova Scotia Mines Act certification",
+        "First Aid/CPR",
+        "H2S Alive",
+        "WHMIS"
+      ],
+      "geo_rtw": "Canada (Nova Scotia) — must have Canadian work authorization",
+      "project_experience": [
+        "Moose River Gold Mines",
+        "Beaver Dam Mine",
+        "Fifteen Mile Stream"
+      ],
+      "yoe_band": "5-15",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"mine restart\" OR \"gold processing\" OR \"ore reprocessing\" OR \"process plant operator\" OR \"metallurgist\") AND (\"Nova Scotia\" OR \"Atlantic Canada\" OR \"Canada\") AND (\"CIL\" OR \"carbon-in-leach\" OR \"heap leach\" OR \"gold mine\" OR \"open pit mining\") NOT (\"exploration\" OR \"junior mining\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Atlantic Mining is reactivating the Touquoy gold mine in Nova Scotia to reprocess ~3M tonnes of ore — a workforce ramp-up is underway. Are you open to hearing about site roles? Happy to share details.",
+      "email_subject": "Touquoy Mine Restart – Process Plant & Site Roles | Nova Scotia",
+      "email_body": "Hi [Name],\n\nAtlantic Mining is rebooting operations at the Touquoy gold mine in Nova Scotia, targeting reprocessing of approximately 3 million tonnes of gold ore. This restart is expected to create demand for experienced process plant, metallurgy, maintenance, and site operations professionals in the near term.\n\nGiven your background in [gold processing / mine operations], I wanted to reach out to see if you'd be open to a conversation about opportunities at this project.\n\nWould you have 15 minutes for a quick call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Atlantic Mining) announces restart of named project (Touquoy Mine) to reprocess 3M tonnes of gold ore in Nova Scotia, constituting a discrete workforce-demand event in the mining sector.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "67233574-ad73-40ae-a1cb-f53ca365e49d",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "source_published_at": "2026-05-08T13:13:00.000Z",
+    "phase": "construction",
+    "phase_evidence": "Article states Atlantic Mining 'readies to reprocess' ore, indicating operational restart/ramp-up is imminent rather than at a planning or pre-FID stage.",
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": [],
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "sources": [
+      {
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/eni_confirms_size_of_giant_gas_discovery_offshore_indonesia-07-may-2026-183630-article/?rss=true"
@@ -2738,320 +3052,6 @@
     "contact_archetypes": [
       "ops_director",
       "hiring_manager"
-    ],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/freeport-delays-grasberg-full-restart-to-early-2028/"
-      }
-    ],
-    "headline": "Freeport Grasberg Phased Ramp to 65% Capacity H2 2026, Full Restart Delayed to Early 2028",
-    "body": "Freeport now aims for 65% capacity in the second half of 2026, 80% by mid-2027, and near full capacity by the end of 2027.",
-    "url": "https://www.mining.com/freeport-delays-grasberg-full-restart-to-early-2028/",
-    "published_at": "2026-05-08T15:34:41.000Z",
-    "hash": "d4453f90abbb87c0",
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations",
-      "energy_trades"
-    ],
-    "signal_type": "regulatory",
-    "region": "indonesia",
-    "country": "indonesia",
-    "tldr": "Freeport-McMoRan is ramping Grasberg to 65% capacity in H2 2026, 80% by mid-2027, and near-full by end-2027, with complete restart pushed to early 2028 — signalling a sustained multi-phase workforce ramp over the next 18+ months.",
-    "operator": {
-      "name": "Freeport-McMoRan"
-    },
-    "hiring_entity": {
-      "name": "Freeport-McMoRan"
-    },
-    "project_name": "Grasberg",
-    "scope": [
-      "plant_ramp_up",
-      "operations_staffing",
-      "maintenance"
-    ],
-    "mob_window": {
-      "start": "2026-Q3",
-      "end": "2028-Q1",
-      "duration_months": 18
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Mining Operations Superintendent",
-        "Process Plant Supervisor",
-        "Maintenance Superintendent",
-        "Electrical Superintendent",
-        "Mechanical Maintenance Engineer",
-        "Concentrator Operator",
-        "Instrument Technician",
-        "Reliability Engineer",
-        "Shutdown Planner",
-        "Production Manager"
-      ],
-      "skills": [
-        "copper concentrator operations",
-        "SAG mill",
-        "flotation",
-        "underground block caving",
-        "plant ramp-up",
-        "preventive maintenance",
-        "reliability centred maintenance",
-        "FIFO operations",
-        "mine ramp-up management"
-      ],
-      "certs_freetext": [
-        "Mine Manager Certificate of Competency",
-        "OHSE site induction",
-        "Indonesian K3 certification (preferred)"
-      ],
-      "geo_rtw": "Indonesia-based or FIFO-eligible; international candidates with Indonesian work permit eligibility",
-      "project_experience": [
-        "Grasberg Block Cave",
-        "Deep Mill Level Zone",
-        "Ok Tedi",
-        "Batu Hijau",
-        "Escondida"
-      ],
-      "yoe_band": "8-20",
-      "seniority": "mid-senior to principal",
-      "boolean_search": "(\"Grasberg\" OR \"copper mine\" OR \"concentrator\" OR \"block cave\") AND (\"plant ramp\" OR \"mine operations\" OR \"concentrator operations\" OR \"maintenance superintendent\" OR \"process plant supervisor\" OR \"production superintendent\") AND (\"Freeport\" OR \"PT-FI\" OR \"underground mining\" OR \"SAG mill\" OR \"flotation\") AND (Indonesia OR \"Papua\" OR FIFO)"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Freeport's Grasberg is ramping to 65% capacity from H2 2026 through full restart in early 2028 — a major ops & maintenance build-up. Your background in [relevant skill] looks directly relevant. Worth a quick chat?",
-      "email_subject": "Grasberg Ramp-Up 2026–2028 — Ops & Maintenance Roles Opening",
-      "email_body": "Hi [Name],\n\nFreeport-McMoRan has announced a phased ramp-up at Grasberg — targeting 65% capacity in H2 2026, 80% by mid-2027, and near-full operations by end-2027, with complete restart pushed to early 2028.\n\nThis sustained ramp signals significant demand for experienced concentrator, maintenance, and underground operations professionals over the next 18+ months.\n\nGiven your experience in [relevant area], I'd like to explore whether you'd be open to hearing about the opportunities coming through on this programme.\n\nAre you available for a brief call this week?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named operator (Freeport-McMoRan) announces a phased large-scale workforce ramp-up at a named project (Grasberg mine) across a defined 18-month window, constituting a discrete and actionable labor-demand event in mining.",
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "e841eef4-1b82-4fd5-80cb-fe5f24b00f4d",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "source_published_at": "2026-05-08T15:34:41.000Z",
-    "phase": "operating",
-    "phase_evidence": "Article describes a phased capacity ramp from existing operations ('65% capacity in H2 2026… near full capacity by end of 2027'), indicating an operating asset restarting/ramping rather than a new construction project.",
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": [],
-    "contact_archetypes": [
-      "ops_director",
-      "hiring_manager"
-    ],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/ontarios-darlington-smr-renews-canadas-nuclear-maturity/"
-      }
-    ],
-    "headline": "Darlington SMR Construction Begins — First SMR in G7, Ontario Canada",
-    "body": "Ontario has started construction on the first small modular reactor in the G7.",
-    "url": "https://www.mining.com/ontarios-darlington-smr-renews-canadas-nuclear-maturity/",
-    "published_at": "2026-05-08T13:26:05.000Z",
-    "hash": "b1d8ee14c15484da",
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades",
-      "ndt_inspection"
-    ],
-    "signal_type": "fid",
-    "region": "ontario-canada",
-    "country": "canada",
-    "tldr": "Construction has commenced on the Darlington SMR in Ontario, Canada — the first SMR in the G7 — signalling an active hiring window for nuclear construction trades and inspection personnel.",
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": "Darlington SMR",
-    "scope": [
-      "smr_construction",
-      "civil_works",
-      "mechanical_installation"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Nuclear Construction Manager",
-        "Site Superintendent",
-        "Civil Construction Supervisor",
-        "Mechanical Superintendent",
-        "NDT Inspector",
-        "QA/QC Inspector Nuclear",
-        "Construction Trades Foreman",
-        "Health & Safety Advisor Nuclear",
-        "Commissioning Engineer"
-      ],
-      "skills": [
-        "nuclear construction",
-        "SMR",
-        "CANDU",
-        "reactor civil works",
-        "mechanical installation",
-        "QA nuclear",
-        "NDT",
-        "commissioning",
-        "CNSC regulations"
-      ],
-      "certs_freetext": [
-        "CNSC Nuclear Security Clearance",
-        "CSA N285",
-        "Red Seal trades certification",
-        "CGSB NDT Level II/III",
-        "NUPIC qualified"
-      ],
-      "geo_rtw": "Canada — must hold valid right to work; Ontario preferred",
-      "project_experience": [
-        "Darlington Refurbishment",
-        "Bruce Power Life Extension",
-        "Pickering NGS",
-        "OPG nuclear projects"
-      ],
-      "yoe_band": "8-20",
-      "seniority": "mid-senior to principal",
-      "boolean_search": "(\"nuclear construction\" OR \"SMR\" OR \"small modular reactor\" OR \"CANDU\" OR \"reactor\" OR \"Darlington\") AND (\"construction manager\" OR \"site superintendent\" OR \"mechanical superintendent\" OR \"commissioning engineer\" OR \"NDT inspector\" OR \"QA inspector\" OR \"construction supervisor\") AND (\"Ontario\" OR \"Canada\") NOT (\"analyst\" OR \"policy\" OR \"finance\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], construction has just kicked off on the Darlington SMR in Ontario — the first SMR in the G7. Your nuclear construction background looks like a strong fit for roles ramping now. Worth a quick chat?",
-      "email_subject": "Darlington SMR — Nuclear Construction Roles Now Live, Ontario",
-      "email_body": "Hi [Name],\n\nConstruction has officially begun on the Darlington Small Modular Reactor in Ontario — a landmark project and the first SMR to break ground in the G7.\n\nWith site activity now underway, there is immediate demand for experienced nuclear construction professionals including construction managers, mechanical superintendents, NDT/QA inspectors, and commissioning engineers.\n\nGiven your background in [relevant experience], I wanted to reach out directly before these positions are filled.\n\nWould you be open to a brief call this week to discuss how your experience aligns with what's needed on-site?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named project (Darlington SMR) has entered active construction — the prime hiring window for nuclear trades, inspection, and construction management personnel.",
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "50d39266-fc22-4c4c-8622-c9cfc17a5dde",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "source_published_at": "2026-05-08T13:26:05.000Z",
-    "phase": "construction",
-    "phase_evidence": "Article states 'Ontario has started construction on the first small modular reactor in the G7', confirming physical construction has commenced.",
-    "outreach_readiness": "live_now",
-    "estimated_hiring_window": "now",
-    "key_people": [],
-    "contact_archetypes": [
-      "site_manager",
-      "hiring_manager",
-      "project_manager"
-    ],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/touquoy-mine-reboot-to-yield-180m-in-canadian-gold/"
-      }
-    ],
-    "headline": "Atlantic Mining Reboots Touquoy Mine to Reprocess 3M Tonnes of Gold Ore, Nova Scotia",
-    "body": "Atlantic Mining readies to reprocess about 3M tonnes of ore at the Touquoy mine, on Canada’s Atlantic coast.",
-    "url": "https://www.mining.com/touquoy-mine-reboot-to-yield-180m-in-canadian-gold/",
-    "published_at": "2026-05-08T13:13:00.000Z",
-    "hash": "b58a0fed5358f0d6",
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations",
-      "ndt_inspection"
-    ],
-    "signal_type": "epc_award",
-    "region": "atlantic-canada",
-    "country": "canada",
-    "tldr": "Atlantic Mining is reactivating the Touquoy gold mine in Nova Scotia to reprocess approximately 3 million tonnes of ore, signalling an imminent workforce ramp-up for plant operations and processing roles.",
-    "operator": {
-      "name": "Atlantic Mining"
-    },
-    "hiring_entity": {
-      "name": "Atlantic Mining"
-    },
-    "project_name": "Touquoy Mine",
-    "scope": [
-      "ore_reprocessing",
-      "mine_restart",
-      "process_plant_operations"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Processing Plant Operator",
-        "Mine Site Superintendent",
-        "Metallurgist",
-        "Plant Maintenance Technician",
-        "Electrical Technician",
-        "Mechanical Technician",
-        "Site Manager",
-        "Health & Safety Officer",
-        "Crusher Operator",
-        "Conveyor Technician"
-      ],
-      "skills": [
-        "gold ore processing",
-        "heap leach or CIL processing",
-        "plant commissioning",
-        "mine restart",
-        "preventive maintenance",
-        "tailings management",
-        "process control"
-      ],
-      "certs_freetext": [
-        "Nova Scotia Mines Act certification",
-        "First Aid/CPR",
-        "H2S Alive",
-        "WHMIS"
-      ],
-      "geo_rtw": "Canada (Nova Scotia) — must have Canadian work authorization",
-      "project_experience": [
-        "Moose River Gold Mines",
-        "Beaver Dam Mine",
-        "Fifteen Mile Stream"
-      ],
-      "yoe_band": "5-15",
-      "seniority": "mid-to-senior",
-      "boolean_search": "(\"mine restart\" OR \"gold processing\" OR \"ore reprocessing\" OR \"process plant operator\" OR \"metallurgist\") AND (\"Nova Scotia\" OR \"Atlantic Canada\" OR \"Canada\") AND (\"CIL\" OR \"carbon-in-leach\" OR \"heap leach\" OR \"gold mine\" OR \"open pit mining\") NOT (\"exploration\" OR \"junior mining\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Atlantic Mining is reactivating the Touquoy gold mine in Nova Scotia to reprocess ~3M tonnes of ore — a workforce ramp-up is underway. Are you open to hearing about site roles? Happy to share details.",
-      "email_subject": "Touquoy Mine Restart – Process Plant & Site Roles | Nova Scotia",
-      "email_body": "Hi [Name],\n\nAtlantic Mining is rebooting operations at the Touquoy gold mine in Nova Scotia, targeting reprocessing of approximately 3 million tonnes of gold ore. This restart is expected to create demand for experienced process plant, metallurgy, maintenance, and site operations professionals in the near term.\n\nGiven your background in [gold processing / mine operations], I wanted to reach out to see if you'd be open to a conversation about opportunities at this project.\n\nWould you have 15 minutes for a quick call this week?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named operator (Atlantic Mining) announces restart of named project (Touquoy Mine) to reprocess 3M tonnes of gold ore in Nova Scotia, constituting a discrete workforce-demand event in the mining sector.",
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "67233574-ad73-40ae-a1cb-f53ca365e49d",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "source_published_at": "2026-05-08T13:13:00.000Z",
-    "phase": "construction",
-    "phase_evidence": "Article states Atlantic Mining 'readies to reprocess' ore, indicating operational restart/ramp-up is imminent rather than at a planning or pre-FID stage.",
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "1-3mo",
-    "key_people": [],
-    "contact_archetypes": [
-      "site_manager",
-      "hiring_manager",
-      "project_manager"
     ],
     "prompt_version": "phase-targeting-v1"
   },
@@ -8094,6 +8094,76 @@
     "prompt_version": "phase-targeting-v1"
   },
   {
+    "headline": "Canada Announces National Nuclear Energy Strategy & Microreactor Investment for Remote/Defence Sites",
+    "body": "Minister of Energy and Natural Resources Tim Hodgson has announced the government's intention to release a \"transformative\" Nuclear Energy Strategy for Canada before the end of the year - and will also invest millions of dollars to assess the potential of a Canadian-controlled microreactor that could provide heat and electricity to remote and northern defence-related facilities and operations.",
+    "url": "https://www.world-nuclear-news.org//articles/canada-announces-new-nuclear-strategy-and-microreactor-initiative",
+    "published_at": "2026-04-30T13:46:31.000Z",
+    "hash": "12a9654d709c712d",
+    "subsector": "nuclear",
+    "discipline_tags": [],
+    "signal_type": "regulatory",
+    "region": "canada",
+    "country": "canada",
+    "tldr": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "cd0ebf4b-8017-431e-995a-2050f7b0d357",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "source_published_at": "2026-04-30T13:46:31.000Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/canada-announces-new-nuclear-strategy-and-microreactor-initiative"
+      }
+    ],
+    "bd_relevant": false,
+    "bd_relevance_reason": "Generic national policy announcement with no named operator, contractor, or specific project — no discrete labor-demand event to act on.",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [
+      {
+        "name": "Tim Hodgson",
+        "title": "Minister of Energy and Natural Resources",
+        "company": "Government of Canada",
+        "hiring_relevance": "context_only"
+      }
+    ],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
     "headline": null,
     "body": "Abu Dhabi National Oil Co. has managed to keep a trickle of liquefied natural gas exports moving through the Strait of Hormuz by concealing tanker locations,...",
     "url": "https://www.rigzone.com/news/adnoc_lng_tankers_go_dark_to_get_gas_through_hormuz-07-may-2026-183636-article/?rss=true",
@@ -8531,76 +8601,6 @@
     "outreach_readiness": null,
     "estimated_hiring_window": null,
     "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "headline": "Canada Announces National Nuclear Energy Strategy & Microreactor Investment for Remote/Defence Sites",
-    "body": "Minister of Energy and Natural Resources Tim Hodgson has announced the government's intention to release a \"transformative\" Nuclear Energy Strategy for Canada before the end of the year - and will also invest millions of dollars to assess the potential of a Canadian-controlled microreactor that could provide heat and electricity to remote and northern defence-related facilities and operations.",
-    "url": "https://www.world-nuclear-news.org//articles/canada-announces-new-nuclear-strategy-and-microreactor-initiative",
-    "published_at": "2026-04-30T13:46:31.000Z",
-    "hash": "12a9654d709c712d",
-    "subsector": "nuclear",
-    "discipline_tags": [],
-    "signal_type": "regulatory",
-    "region": "canada",
-    "country": "canada",
-    "tldr": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "cd0ebf4b-8017-431e-995a-2050f7b0d357",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "source_published_at": "2026-04-30T13:46:31.000Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/canada-announces-new-nuclear-strategy-and-microreactor-initiative"
-      }
-    ],
-    "bd_relevant": false,
-    "bd_relevance_reason": "Generic national policy announcement with no named operator, contractor, or specific project — no discrete labor-demand event to act on.",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [
-      {
-        "name": "Tim Hodgson",
-        "title": "Minister of Energy and Natural Resources",
-        "company": "Government of Canada",
-        "hiring_relevance": "context_only"
-      }
-    ],
     "contact_archetypes": [],
     "prompt_version": "phase-targeting-v1"
   },

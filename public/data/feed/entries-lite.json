@@ -459,6 +459,108 @@
     "contract_value_usd": null
   },
   {
+    "id": "e841eef4-1b82-4fd5-80cb-fe5f24b00f4d",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/freeport-delays-grasberg-full-restart-to-early-2028/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "regulatory",
+    "region": "indonesia",
+    "country": "indonesia",
+    "headline": "Freeport Grasberg Phased Ramp to 65% Capacity H2 2026, Full Restart Delayed to Early 2028",
+    "operator": {
+      "name": "Freeport-McMoRan"
+    },
+    "hiring_entity": {
+      "name": "Freeport-McMoRan"
+    },
+    "project_name": "Grasberg",
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": "2028-Q1",
+      "duration_months": 18
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "50d39266-fc22-4c4c-8622-c9cfc17a5dde",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/ontarios-darlington-smr-renews-canadas-nuclear-maturity/"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "ndt_inspection"
+    ],
+    "signal_type": "fid",
+    "region": "ontario-canada",
+    "country": "canada",
+    "headline": "Darlington SMR Construction Begins — First SMR in G7, Ontario Canada",
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": "Darlington SMR",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
+    "id": "67233574-ad73-40ae-a1cb-f53ca365e49d",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/touquoy-mine-reboot-to-yield-180m-in-canadian-gold/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "ndt_inspection"
+    ],
+    "signal_type": "epc_award",
+    "region": "atlantic-canada",
+    "country": "canada",
+    "headline": "Atlantic Mining Reboots Touquoy Mine to Reprocess 3M Tonnes of Gold Ore, Nova Scotia",
+    "operator": {
+      "name": "Atlantic Mining"
+    },
+    "hiring_entity": {
+      "name": "Atlantic Mining"
+    },
+    "project_name": "Touquoy Mine",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
     "id": "ec37a3c7-d25e-4a05-8b3b-b48cd79405bf",
     "ingested_at": "2026-05-12T12:35:36.640Z",
     "sources": [
@@ -986,108 +1088,6 @@
       "name": "Cameco"
     },
     "project_name": "McArthur River Mine / Key Lake Mill",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null
-  },
-  {
-    "id": "e841eef4-1b82-4fd5-80cb-fe5f24b00f4d",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/freeport-delays-grasberg-full-restart-to-early-2028/"
-      }
-    ],
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations",
-      "energy_trades"
-    ],
-    "signal_type": "regulatory",
-    "region": "indonesia",
-    "country": "indonesia",
-    "headline": "Freeport Grasberg Phased Ramp to 65% Capacity H2 2026, Full Restart Delayed to Early 2028",
-    "operator": {
-      "name": "Freeport-McMoRan"
-    },
-    "hiring_entity": {
-      "name": "Freeport-McMoRan"
-    },
-    "project_name": "Grasberg",
-    "mob_window": {
-      "start": "2026-Q3",
-      "end": "2028-Q1",
-      "duration_months": 18
-    },
-    "contract_value_usd": null
-  },
-  {
-    "id": "50d39266-fc22-4c4c-8622-c9cfc17a5dde",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/ontarios-darlington-smr-renews-canadas-nuclear-maturity/"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades",
-      "ndt_inspection"
-    ],
-    "signal_type": "fid",
-    "region": "ontario-canada",
-    "country": "canada",
-    "headline": "Darlington SMR Construction Begins — First SMR in G7, Ontario Canada",
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": "Darlington SMR",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null
-  },
-  {
-    "id": "67233574-ad73-40ae-a1cb-f53ca365e49d",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/touquoy-mine-reboot-to-yield-180m-in-canadian-gold/"
-      }
-    ],
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations",
-      "ndt_inspection"
-    ],
-    "signal_type": "epc_award",
-    "region": "atlantic-canada",
-    "country": "canada",
-    "headline": "Atlantic Mining Reboots Touquoy Mine to Reprocess 3M Tonnes of Gold Ore, Nova Scotia",
-    "operator": {
-      "name": "Atlantic Mining"
-    },
-    "hiring_entity": {
-      "name": "Atlantic Mining"
-    },
-    "project_name": "Touquoy Mine",
     "mob_window": {
       "start": null,
       "end": null,
@@ -3233,6 +3233,36 @@
     "contract_value_usd": null
   },
   {
+    "id": "cd0ebf4b-8017-431e-995a-2050f7b0d357",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/canada-announces-new-nuclear-strategy-and-microreactor-initiative"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [],
+    "signal_type": "regulatory",
+    "region": "canada",
+    "country": "canada",
+    "headline": "Canada Announces National Nuclear Energy Strategy & Microreactor Investment for Remote/Defence Sites",
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null
+  },
+  {
     "id": "dae80e43-7cfc-498e-8619-fe370f0bce70",
     "ingested_at": "2026-05-08T01:16:59.182Z",
     "sources": [
@@ -3428,36 +3458,6 @@
     "region": "us-idaho",
     "country": "united_states",
     "headline": "US DOE & NRC Advance Licensing for Aalo Atomics Aalo-X SMR and Oklo Aurora Powerhouse",
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null
-  },
-  {
-    "id": "cd0ebf4b-8017-431e-995a-2050f7b0d357",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/canada-announces-new-nuclear-strategy-and-microreactor-initiative"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [],
-    "signal_type": "regulatory",
-    "region": "canada",
-    "country": "canada",
-    "headline": "Canada Announces National Nuclear Energy Strategy & Microreactor Investment for Remote/Defence Sites",
     "operator": {
       "name": null
     },
