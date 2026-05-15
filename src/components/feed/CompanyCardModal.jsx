@@ -100,7 +100,7 @@ export default function CompanyCardModal({ slug, name, entryId, onClose }) {
   const [overviewEmpty, setOverviewEmpty] = useState(false)
   const [activeJobs, setActiveJobs] = useState(0)
   const [revealContacts, setRevealContacts] = useState(false)
-  const { contacts, loading: contactsLoading, error: contactsError, cached: contactsCached } = usePdlContacts(revealContacts ? name : null)
+  const { contacts, loading: contactsLoading, error: contactsError, errorCode: contactsErrorCode, errorMessage: contactsErrorMessage, cached: contactsCached } = usePdlContacts(revealContacts ? name : null)
 
   useEffect(() => {
     if (!name) return
@@ -246,7 +246,24 @@ export default function CompanyCardModal({ slug, name, entryId, onClose }) {
               </div>
             )}
             {revealContacts && contactsLoading && <div className="text-sm text-gray-500">Loading…</div>}
-            {revealContacts && contactsError && <div className="text-sm text-gray-400 italic">PDL contacts unavailable for this company.</div>}
+            {revealContacts && contactsErrorCode === 'daily_cap' && (
+              <div className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded px-3 py-2">
+                Daily PDL credit cap reached. Showing cached results only — try again tomorrow.
+              </div>
+            )}
+            {revealContacts && contactsErrorCode === 'credits_exhausted' && (
+              <div className="text-sm text-red-700 bg-red-50 border border-red-200 rounded px-3 py-2">
+                PDL credits exhausted. Contact admin to top up.
+              </div>
+            )}
+            {revealContacts && contactsErrorCode === 'origin_not_allowed' && (
+              <div className="text-sm text-red-700 bg-red-50 border border-red-200 rounded px-3 py-2">
+                BD feed not authorized from this origin. Contact admin.
+              </div>
+            )}
+            {revealContacts && contactsError && !['daily_cap', 'credits_exhausted', 'origin_not_allowed'].includes(contactsErrorCode) && (
+              <div className="text-sm text-gray-400 italic">PDL contacts unavailable for this company.</div>
+            )}
             {revealContacts && !contactsLoading && !contactsError && contacts.length === 0 && <div className="text-sm text-gray-500 italic">No PDL contacts available for this company.</div>}
             {revealContacts && (
               <div className="flex flex-col gap-2 max-h-[380px] overflow-y-auto pr-1">

@@ -4,15 +4,43 @@ import { useEffect, useState } from 'react'
 const WORKER_BASE = import.meta.env.VITE_WORKER_BASE || 'https://pdl-company-feed.jesse-82d.workers.dev'
 
 export function usePdlContacts(companyName) {
-  const [state, setState] = useState({ contacts: [], loading: !!companyName, error: null, cached: undefined })
+  const [state, setState] = useState({
+    contacts: [], loading: !!companyName, error: null,
+    errorCode: null, errorMessage: null, cached: undefined,
+  })
   useEffect(() => {
     if (!companyName) return
     let cancelled = false
     setState(s => ({ ...s, loading: true }))
     fetch(`${WORKER_BASE}/api/contacts/${encodeURIComponent(companyName)}`)
-      .then(r => r.ok ? r.json() : Promise.reject(`HTTP ${r.status}`))
-      .then(data => { if (!cancelled) setState({ contacts: data.contacts || [], loading: false, error: null, cached: !!data.cached }) })
-      .catch(err => { if (!cancelled) setState({ contacts: [], loading: false, error: String(err), cached: undefined }) })
+      .then(r => r.ok
+        ? r.json()
+        : r.status === 403
+          ? Promise.resolve({ contacts: [], error: 'origin_not_allowed', message: 'BD feed not authorized from this origin.' })
+          : Promise.reject(`HTTP ${r.status}`))
+      .then(data => {
+        if (cancelled) return
+        if (data.error === 'daily_cap' || data.error === 'credits_exhausted' || data.error === 'origin_not_allowed') {
+          setState({
+            contacts: data.contacts || [],
+            loading: false,
+            error: data.error,
+            errorCode: data.error,
+            errorMessage: data.message || data.error,
+            cached: !!data.cached,
+          })
+          return
+        }
+        setState({
+          contacts: data.contacts || [],
+          loading: false,
+          error: null,
+          errorCode: null,
+          errorMessage: null,
+          cached: !!data.cached,
+        })
+      })
+      .catch(err => { if (!cancelled) setState({ contacts: [], loading: false, error: String(err), errorCode: 'network', errorMessage: String(err), cached: undefined }) })
     return () => { cancelled = true }
   }, [companyName])
   return state
