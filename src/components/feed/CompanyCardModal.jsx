@@ -98,6 +98,7 @@ export default function CompanyCardModal({ slug, name, entryId, onClose }) {
   const [overview, setOverview] = useState(null)
   const [overviewLoading, setOverviewLoading] = useState(false)
   const [overviewEmpty, setOverviewEmpty] = useState(false)
+  const [noPublicRecords, setNoPublicRecords] = useState(false)
   const [activeJobs, setActiveJobs] = useState(0)
   const [revealContacts, setRevealContacts] = useState(false)
   const { contacts, loading: contactsLoading, error: contactsError, errorCode: contactsErrorCode, errorMessage: contactsErrorMessage, cached: contactsCached } = usePdlContacts(revealContacts ? name : null)
@@ -106,6 +107,7 @@ export default function CompanyCardModal({ slug, name, entryId, onClose }) {
     if (!name) return
     setOverview(null)
     setOverviewEmpty(false)
+    setNoPublicRecords(false)
     setOverviewLoading(false)
     setRevealContacts(false)
     // Pre-flight: if contacts are already KV-cached, auto-show (free).
@@ -129,6 +131,7 @@ export default function CompanyCardModal({ slug, name, entryId, onClose }) {
               const mapped = mapWorkerResponseToOverview(data)
               setOverview(mapped)
               setOverviewEmpty(!mapped)
+              setNoPublicRecords(data?.error === 'no_public_records')
               setOverviewLoading(false)
             })
             .catch(() => {
@@ -188,7 +191,10 @@ export default function CompanyCardModal({ slug, name, entryId, onClose }) {
           <div className="md:w-[360px] shrink-0 p-5 bg-white md:border-r border-gray-100">
             <div className="text-[11px] font-bold uppercase tracking-widest text-indigo-600 mb-2">Overview · via PDL</div>
             {overviewLoading && <div className="text-xs text-gray-400 mb-3">Loading company data…</div>}
-            {!overviewLoading && overviewEmpty && !overview && (
+            {!overviewLoading && noPublicRecords && !overview && (
+              <div className="text-xs text-gray-500 mb-3 italic">No public records found for this company.</div>
+            )}
+            {!overviewLoading && overviewEmpty && !noPublicRecords && !overview && (
               <div className="text-xs text-gray-400 mb-3 italic">No PDL company data available.</div>
             )}
             <div className="grid grid-cols-2 gap-2 mb-4 text-sm">
