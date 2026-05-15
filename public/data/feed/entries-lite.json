@@ -17,14 +17,12 @@
     "signal_type": "regulatory",
     "region": "alaska",
     "country": "united_states",
-    "headline": "Trilogy Metals' Arctic Cu-Zn-Pb-Au-Ag Project Accepted into FAST-41 Federal Permitting Program",
+    "headline": "Trilogy Metals' Arctic Cu-Zn Project Accepted into FAST-41 Federal Permitting Program",
     "operator": {
-      "name": "Ambler Metals LLC",
-      "matched_company_slug": null
+      "name": "Ambler Metals LLC"
     },
     "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
+      "name": "Ambler Metals LLC"
     },
     "project_name": "Arctic Project",
     "mob_window": {
@@ -34,6 +32,9 @@
     },
     "contract_value_usd": null,
     "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
     "outreach_readiness": "cold",
     "estimated_hiring_window": "12mo+"
   },
@@ -50,22 +51,19 @@
     "subsector": "offshore-og",
     "discipline_tags": [
       "process_plant_operations",
-      "marine_offshore_ops",
-      "ndt_inspection"
+      "marine_offshore_ops"
     ],
     "signal_type": "decom",
     "region": "uk-north-sea",
     "country": "united_kingdom",
-    "headline": "Perenco Restarts Davy Gas Field Production in UK North Sea — Previously Earmarked for Decom",
+    "headline": "Perenco Restarts Davy Gas Field Production in UK North Sea After 5-Year Shut-In",
     "operator": {
-      "name": "Perenco",
-      "matched_company_slug": null
+      "name": "Perenco"
     },
     "hiring_entity": {
-      "name": "Perenco",
-      "matched_company_slug": null
+      "name": "Perenco"
     },
-    "project_name": "Davy Field",
+    "project_name": "Davy Gas Field",
     "mob_window": {
       "start": null,
       "end": null,
@@ -73,6 +71,9 @@
     },
     "contract_value_usd": null,
     "phase": "operating",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
     "outreach_readiness": "hot",
     "estimated_hiring_window": "1-3mo"
   },
@@ -90,19 +91,17 @@
     "discipline_tags": [
       "industrial_construction",
       "energy_trades",
-      "drilling_operations"
+      "ndt_inspection"
     ],
     "signal_type": "fid",
     "region": "ontario-canada",
     "country": "canada",
-    "headline": "Agnico Eagle to Invest C$14B in Ontario Mining Ops; C$2B Earmarked for Detour Lake Underground",
+    "headline": "Agnico Eagle Plans C$14B Ontario Mining Investment; C$2B for Detour Lake Underground",
     "operator": {
-      "name": "Agnico Eagle",
-      "matched_company_slug": null
+      "name": "Agnico Eagle"
     },
     "hiring_entity": {
-      "name": "Agnico Eagle",
-      "matched_company_slug": null
+      "name": "Agnico Eagle"
     },
     "project_name": "Detour Lake Underground",
     "mob_window": {
@@ -110,8 +109,11 @@
       "end": null,
       "duration_months": null
     },
-    "contract_value_usd": 10000000000,
+    "contract_value_usd": 1470000000,
     "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
     "outreach_readiness": "warming",
     "estimated_hiring_window": "6-12mo"
   },
@@ -167,14 +169,14 @@
       "process_plant_operations"
     ],
     "signal_type": "tender",
-    "region": "us-west",
+    "region": "us-intermountain-west",
     "country": "united_states",
     "headline": "Found Industries & ARES Strategic Mining Sign MOU for Gallium/Germanium/Fluorspar Recovery at Utah's Lost Sheep Mine",
     "operator": {
       "name": "ARES Strategic Mining"
     },
     "hiring_entity": {
-      "name": "Found Industries"
+      "name": "Found Industries / Found Metals"
     },
     "project_name": "Lost Sheep Mine",
     "mob_window": {
@@ -184,6 +186,9 @@
     },
     "contract_value_usd": null,
     "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
     "outreach_readiness": "cold",
     "estimated_hiring_window": "12mo+"
   },
@@ -220,8 +225,11 @@
     },
     "contract_value_usd": null,
     "phase": "pre_sanction",
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "1-3mo"
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "3-6mo"
   },
   {
     "id": "d21a857f-e026-4430-a01d-12bd5f7d5da7",
@@ -234,30 +242,30 @@
       }
     ],
     "subsector": "mining",
-    "discipline_tags": [
-      "drilling_operations",
-      "survey_geophysical"
-    ],
-    "signal_type": "tender",
-    "region": "canada-manitoba",
-    "country": "canada",
-    "headline": "1911 Gold Expands L10 Zone at True North Mine with Underground Drill Program",
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "headline": null,
     "operator": {
-      "name": "1911 Gold Corporation"
+      "name": null
     },
     "hiring_entity": {
-      "name": "1911 Gold Corporation"
+      "name": null
     },
-    "project_name": "True North Mine – L10 Zone Expansion",
+    "project_name": null,
     "mob_window": {
       "start": null,
       "end": null,
       "duration_months": null
     },
     "contract_value_usd": null,
-    "phase": "operating",
-    "outreach_readiness": "live_now",
-    "estimated_hiring_window": "now"
+    "phase": null,
+    "construction_subphase": null,
+    "lifecycle_track": null,
+    "decom_stage": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null
   },
   {
     "id": "ea72781f-8dd5-4c36-b5c6-bd795d0ff4f5",
@@ -377,21 +385,24 @@
     "country": "united_states",
     "headline": "NRC Grants Subsequent Licence Renewals for St Lucie Units 1 & 2 Through 2056/2063",
     "operator": {
-      "name": "Florida Power & Light"
+      "name": "NextEra Energy (St Lucie Nuclear Power Plant)"
     },
     "hiring_entity": {
-      "name": "Florida Power & Light"
+      "name": null
     },
-    "project_name": "St Lucie Nuclear Power Plant",
+    "project_name": "St Lucie Nuclear Power Plant Units 1 & 2",
     "mob_window": {
       "start": null,
       "end": null,
       "duration_months": null
     },
     "contract_value_usd": null,
-    "phase": "operating",
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "ongoing"
+    "phase": null,
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null
   },
   {
     "id": "952bec1b-ad99-4468-a33f-47f1bbd3c928",
@@ -409,7 +420,7 @@
       "survey_geophysical"
     ],
     "signal_type": "regulatory",
-    "region": "greenland",
+    "region": "west-greenland",
     "country": "greenland",
     "headline": "80 Mile Secures Exploration Permits for Disko-Nuussuaq Ni-Cu-Co-PGE Drill Program, July Start",
     "operator": {
@@ -418,16 +429,19 @@
     "hiring_entity": {
       "name": "80 Mile"
     },
-    "project_name": "Disko-Nuussuaq",
+    "project_name": "Disko-Nuussuaq Ni-Cu-Co-PGE Project",
     "mob_window": {
-      "start": "2025-Q3",
+      "start": null,
       "end": null,
       "duration_months": null
     },
     "contract_value_usd": null,
     "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
     "outreach_readiness": "hot",
-    "estimated_hiring_window": "1-3mo"
+    "estimated_hiring_window": "now"
   },
   {
     "id": "9509d877-100f-4146-8470-ff0d67b9ccf7",
@@ -474,12 +488,12 @@
     ],
     "subsector": "mining",
     "discipline_tags": [
-      "energy_trades",
       "industrial_construction",
+      "energy_trades",
       "process_plant_operations"
     ],
     "signal_type": "fid",
-    "region": "uk-southwest",
+    "region": "uk-cornwall",
     "country": "united_kingdom",
     "headline": "Cornish Metals Secures $210M to Restart South Crofty Tin Mine in Cornwall",
     "operator": {
@@ -496,8 +510,11 @@
     },
     "contract_value_usd": 210000000,
     "phase": "sanctioned_engineering",
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "3-6mo"
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo"
   },
   {
     "id": "6f923c41-072f-45e1-b8ac-3074e60bcddd",
@@ -553,7 +570,6 @@
       "rov_subsea",
       "marine_offshore_ops",
       "process_plant_operations",
-      "drilling_operations",
       "energy_trades"
     ],
     "signal_type": "fid",
@@ -561,12 +577,12 @@
     "country": "united_states",
     "headline": "Shell & INEOS Sign Joint Tieback Agreement Using Appomattox Hub in US Gulf",
     "operator": {
-      "name": "Shell PLC"
+      "name": "Shell PLC / INEOS Group (joint)"
     },
     "hiring_entity": {
-      "name": "Shell PLC / INEOS Group"
+      "name": null
     },
-    "project_name": "Appomattox Hub Tieback Program",
+    "project_name": "Appomattox Hub Tieback Development",
     "mob_window": {
       "start": null,
       "end": null,
@@ -574,6 +590,9 @@
     },
     "contract_value_usd": null,
     "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
     "outreach_readiness": "cold",
     "estimated_hiring_window": "12mo+"
   },
@@ -606,11 +625,14 @@
     "project_name": "Grasberg",
     "mob_window": {
       "start": "2026-Q3",
-      "end": "2028-Q1",
+      "end": "2027-Q4",
       "duration_months": 18
     },
     "contract_value_usd": null,
-    "phase": "operating",
+    "phase": "construction",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
     "outreach_readiness": "warming",
     "estimated_hiring_window": "6-12mo"
   },
@@ -642,13 +664,15 @@
     },
     "project_name": "Darlington SMR",
     "mob_window": {
-      "start": null,
+      "start": "2025-Q2",
       "end": null,
       "duration_months": null
     },
     "contract_value_usd": null,
     "phase": "construction",
     "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
     "outreach_readiness": "live_now",
     "estimated_hiring_window": "now"
   },
@@ -664,12 +688,12 @@
     ],
     "subsector": "mining",
     "discipline_tags": [
+      "energy_trades",
       "industrial_construction",
-      "process_plant_operations",
-      "energy_trades"
+      "process_plant_operations"
     ],
     "signal_type": "epc_award",
-    "region": "atlantic-canada",
+    "region": "canada-atlantic",
     "country": "canada",
     "headline": "Atlantic Mining Reboots Touquoy Mine to Reprocess 3M Tonnes of Gold Ore, Nova Scotia",
     "operator": {
@@ -687,6 +711,8 @@
     "contract_value_usd": null,
     "phase": "construction",
     "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
     "outreach_readiness": "hot",
     "estimated_hiring_window": "1-3mo"
   },
@@ -715,7 +741,7 @@
       "name": "Eni"
     },
     "hiring_entity": {
-      "name": null
+      "name": "Eni"
     },
     "project_name": null,
     "mob_window": {
@@ -725,8 +751,11 @@
     },
     "contract_value_usd": null,
     "phase": "pre_sanction",
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+"
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo"
   },
   {
     "id": "747a1f36-c745-4c2f-8c17-47849fe4e9f2",
@@ -787,7 +816,7 @@
     "hiring_entity": {
       "name": "Allseas"
     },
-    "project_name": "TMC–Allseas Commercial Seabed Nodule Mining Production System",
+    "project_name": "TMC-Allseas Commercial Seabed Nodule Mining Offshore Production System",
     "mob_window": {
       "start": null,
       "end": null,
@@ -795,6 +824,9 @@
     },
     "contract_value_usd": null,
     "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
     "outreach_readiness": "warming",
     "estimated_hiring_window": "6-12mo"
   },
@@ -809,11 +841,8 @@
       }
     ],
     "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations"
-    ],
-    "signal_type": "regulatory",
+    "discipline_tags": [],
+    "signal_type": null,
     "region": "canada-saskatchewan",
     "country": "canada",
     "headline": "Cameco Halts McArthur River Mine & Key Lake Mill After Saskatchewan Floods",
@@ -821,18 +850,21 @@
       "name": "Cameco"
     },
     "hiring_entity": {
-      "name": "Cameco"
+      "name": null
     },
-    "project_name": "McArthur River Mine / Key Lake Mill",
+    "project_name": "McArthur River / Key Lake",
     "mob_window": {
       "start": null,
       "end": null,
       "duration_months": null
     },
     "contract_value_usd": null,
-    "phase": "operating",
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo"
+    "phase": null,
+    "construction_subphase": null,
+    "lifecycle_track": null,
+    "decom_stage": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null
   },
   {
     "id": "2c60bdbc-ebc3-4cca-91e8-afde40b626d3",
@@ -868,8 +900,10 @@
     "contract_value_usd": null,
     "phase": "construction",
     "construction_subphase": "rampup",
-    "outreach_readiness": "live_now",
-    "estimated_hiring_window": "now"
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo"
   },
   {
     "id": "4dba3920-66c3-4d22-a725-1553fb76f74b",
@@ -884,8 +918,7 @@
     "subsector": "onshore-renewables",
     "discipline_tags": [
       "energy_trades",
-      "industrial_construction",
-      "process_plant_operations"
+      "industrial_construction"
     ],
     "signal_type": "fid",
     "region": "brazil",
@@ -899,12 +932,15 @@
     },
     "project_name": "Neoenergia Brazil Networks Expansion 2030",
     "mob_window": {
-      "start": "2025-Q2",
+      "start": "2025-Q3",
       "end": "2030-Q4",
       "duration_months": 66
     },
     "contract_value_usd": 10210000000,
     "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
     "outreach_readiness": "warming",
     "estimated_hiring_window": "6-12mo"
   },
@@ -920,11 +956,11 @@
     ],
     "subsector": "offshore-og",
     "discipline_tags": [
-      "marine_offshore_ops",
-      "process_plant_operations"
+      "process_plant_operations",
+      "marine_offshore_ops"
     ],
     "signal_type": "regulatory",
-    "region": "norway-north-sea",
+    "region": "norwegian-north-sea",
     "country": "norway",
     "headline": "Equinor Brings Eirin Gas Field Onstream in Norwegian North Sea via Tieback",
     "operator": {
@@ -941,6 +977,9 @@
     },
     "contract_value_usd": null,
     "phase": "operating",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
     "outreach_readiness": "cold",
     "estimated_hiring_window": "ongoing"
   },
@@ -959,9 +998,9 @@
       "drilling_operations",
       "marine_offshore_ops"
     ],
-    "signal_type": "rig_fixture",
+    "signal_type": "epc_award",
     "region": "west-africa",
-    "country": "republic_of_the_congo",
+    "country": "congo",
     "headline": "Perenco Completes 5-Well EOR Infill Drilling at Tchibouela East Offshore Congo",
     "operator": {
       "name": "Perenco"
@@ -976,9 +1015,12 @@
       "duration_months": null
     },
     "contract_value_usd": null,
-    "phase": "operating",
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "ongoing"
+    "phase": null,
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null
   },
   {
     "id": "57147cd7-6e16-45cc-9767-f383939634af",
@@ -994,15 +1036,15 @@
     "discipline_tags": [
       "energy_trades",
       "industrial_construction",
-      "process_plant_operations",
-      "pipeline_mechanical"
+      "pipeline_mechanical",
+      "process_plant_operations"
     ],
     "signal_type": "fid",
     "region": "papua-new-guinea",
     "country": "papua_new_guinea",
     "headline": "ExxonMobil-Led PNG LNG JV Takes FID on Upstream Tie-In Development",
     "operator": {
-      "name": "ExxonMobil (PNG LNG JV)"
+      "name": "ExxonMobil"
     },
     "hiring_entity": {
       "name": null
@@ -1015,8 +1057,11 @@
     },
     "contract_value_usd": null,
     "phase": "sanctioned_engineering",
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "3-6mo"
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo"
   },
   {
     "id": "208014cf-9cfd-4ce9-afc4-5bfb0b44dd3d",
@@ -1052,8 +1097,10 @@
     "contract_value_usd": null,
     "phase": "construction",
     "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
     "outreach_readiness": "hot",
-    "estimated_hiring_window": "1-3mo"
+    "estimated_hiring_window": "3-6mo"
   },
   {
     "id": "b33985ee-4b53-49cb-9b19-2532b9be6298",
@@ -1137,10 +1184,9 @@
     ],
     "subsector": "nuclear",
     "discipline_tags": [
-      "energy_trades",
       "industrial_construction",
       "process_plant_operations",
-      "ndt_inspection"
+      "energy_trades"
     ],
     "signal_type": "fid",
     "region": "ontario-canada",
@@ -1160,6 +1206,9 @@
     },
     "contract_value_usd": 220000000,
     "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
     "outreach_readiness": "warming",
     "estimated_hiring_window": "6-12mo"
   },
@@ -1177,7 +1226,7 @@
     "discipline_tags": [
       "industrial_construction",
       "process_plant_operations",
-      "energy_trades"
+      "survey_geophysical"
     ],
     "signal_type": "regulatory",
     "region": "poland",
@@ -1197,6 +1246,9 @@
     },
     "contract_value_usd": null,
     "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
     "outreach_readiness": "cold",
     "estimated_hiring_window": "12mo+"
   },
@@ -1212,13 +1264,13 @@
     ],
     "subsector": "nuclear",
     "discipline_tags": [
-      "ndt_inspection",
-      "industrial_construction"
+      "industrial_construction",
+      "ndt_inspection"
     ],
     "signal_type": "decom",
     "region": "norway",
     "country": "norway",
-    "headline": "Norwegian Government Accelerates Kjeller Nuclear Facility Transfer to Norwegian Nuclear Decommissioning by Jan 2027",
+    "headline": "Norwegian Govt Accelerates Kjeller Nuclear Facility Transfer to NND by Jan 2027",
     "operator": {
       "name": "Norwegian Nuclear Decommissioning"
     },
@@ -1232,7 +1284,10 @@
       "duration_months": null
     },
     "contract_value_usd": null,
-    "phase": "pre_sanction",
+    "phase": null,
+    "construction_subphase": null,
+    "lifecycle_track": "decommissioning",
+    "decom_stage": "planning",
     "outreach_readiness": "warming",
     "estimated_hiring_window": "6-12mo"
   },
@@ -1248,12 +1303,11 @@
     ],
     "subsector": "nuclear",
     "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations",
       "energy_trades",
-      "ndt_inspection"
+      "industrial_construction",
+      "process_plant_operations"
     ],
-    "signal_type": "fid",
+    "signal_type": "epc_award",
     "region": "us-southeast",
     "country": "united_states",
     "headline": "Brookfield & The Nuclear Company JV to Complete VC Summer AP1000 Units in South Carolina",
@@ -1271,6 +1325,9 @@
     },
     "contract_value_usd": null,
     "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
     "outreach_readiness": "warming",
     "estimated_hiring_window": "6-12mo"
   },
@@ -1294,7 +1351,7 @@
     "country": "india",
     "headline": "Kudankulam Unit 3 Enters Active Commissioning Phase as Safety System Flushing Begins",
     "operator": {
-      "name": "Nuclear Power Corporation of India Limited"
+      "name": "Nuclear Power Corporation of India Limited (NPCIL)"
     },
     "hiring_entity": {
       "name": null
@@ -1308,8 +1365,10 @@
     "contract_value_usd": null,
     "phase": "construction",
     "construction_subphase": "commissioning",
-    "outreach_readiness": "live_now",
-    "estimated_hiring_window": "now"
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo"
   },
   {
     "id": "36af1d8f-46f6-4bad-b30a-dfc449c81769",
@@ -1326,7 +1385,7 @@
       "process_plant_operations",
       "industrial_construction"
     ],
-    "signal_type": "regulatory",
+    "signal_type": "fid",
     "region": "wyoming-usa",
     "country": "united_states",
     "headline": "Ur-Energy Begins Uranium Mining Operations at Second Wyoming ISR Project",
@@ -1344,6 +1403,9 @@
     },
     "contract_value_usd": null,
     "phase": "operating",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
     "outreach_readiness": "live_now",
     "estimated_hiring_window": "now"
   },
@@ -1379,9 +1441,12 @@
       "duration_months": null
     },
     "contract_value_usd": null,
-    "phase": "pre_sanction",
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+"
+    "phase": null,
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null
   },
   {
     "id": "6ad8a40c-c791-4592-a984-9b683a077b9f",
@@ -1406,7 +1471,7 @@
       "name": "Masdar"
     },
     "hiring_entity": {
-      "name": "JinkoSolar"
+      "name": "Masdar"
     },
     "project_name": "Abu Dhabi RTC Project",
     "mob_window": {
@@ -1417,6 +1482,8 @@
     "contract_value_usd": null,
     "phase": "sanctioned_engineering",
     "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
     "outreach_readiness": "warming",
     "estimated_hiring_window": "6-12mo"
   },
@@ -1436,7 +1503,7 @@
       "survey_geophysical"
     ],
     "signal_type": "regulatory",
-    "region": "central-canada",
+    "region": "ontario-canada",
     "country": "canada",
     "headline": "Falcon Gold Receives Drill Permit for Central Canada Gold Project, Atikokan Ontario – Quetico Fault Zone",
     "operator": {
@@ -1448,11 +1515,14 @@
     "project_name": "Central Canada Project",
     "mob_window": {
       "start": "2026-Q2",
-      "end": null,
+      "end": "2026-Q3",
       "duration_months": null
     },
     "contract_value_usd": null,
     "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
     "outreach_readiness": "hot",
     "estimated_hiring_window": "1-3mo"
   },
@@ -1472,7 +1542,7 @@
       "energy_trades"
     ],
     "signal_type": "fid",
-    "region": "philippines",
+    "region": "southeast-asia",
     "country": "philippines",
     "headline": "TotalEnergies & Nextnorth Break Ground on 440 MW Solar Farm in Philippines",
     "operator": {
@@ -1490,8 +1560,10 @@
     "contract_value_usd": null,
     "phase": "construction",
     "construction_subphase": "rampup",
-    "outreach_readiness": "live_now",
-    "estimated_hiring_window": "now"
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo"
   },
   {
     "id": "f96b5410-3ad2-4c11-81ed-c0ede6a77769",
@@ -1508,25 +1580,28 @@
       "process_plant_operations"
     ],
     "signal_type": "regulatory",
-    "region": "uk-northwest",
+    "region": "uk",
     "country": "united_kingdom",
     "headline": "Urenco Capenhurst Completes First LEU+ Trial Run, Commercial Production Imminent",
     "operator": {
       "name": "Urenco"
     },
     "hiring_entity": {
-      "name": "Urenco"
+      "name": null
     },
-    "project_name": "Capenhurst LEU+ Commercial Production",
+    "project_name": "Capenhurst LEU+ Production",
     "mob_window": {
       "start": null,
       "end": null,
       "duration_months": null
     },
     "contract_value_usd": null,
-    "phase": "operating",
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "3-6mo"
+    "phase": null,
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null
   },
   {
     "id": "bbb6c308-8692-4fb5-95f7-4608e139fe79",
@@ -1577,8 +1652,7 @@
     "subsector": "nuclear",
     "discipline_tags": [
       "industrial_construction",
-      "process_plant_operations",
-      "energy_trades"
+      "process_plant_operations"
     ],
     "signal_type": "epc_award",
     "region": "france",
@@ -1590,7 +1664,7 @@
     "hiring_entity": {
       "name": "Arabelle Solutions"
     },
-    "project_name": "Arabelle Solutions Chalon-sur-Saône Factory / Orano Pierrelatte Engineering Building",
+    "project_name": "Arabelle Solutions Chalon-sur-Saône Factory",
     "mob_window": {
       "start": null,
       "end": null,
@@ -1598,8 +1672,11 @@
     },
     "contract_value_usd": null,
     "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
     "outreach_readiness": "warming",
-    "estimated_hiring_window": "3-6mo"
+    "estimated_hiring_window": "6-12mo"
   },
   {
     "id": "333482e2-0b56-4065-a4f7-484bdf571d69",
@@ -1616,7 +1693,7 @@
       "survey_geophysical"
     ],
     "signal_type": "regulatory",
-    "region": "us",
+    "region": "us-west",
     "country": "united_states",
     "headline": "Eagle Nuclear Energy Begins Environmental Baseline Studies at Aurora Uranium Project, US",
     "operator": {
@@ -1633,6 +1710,9 @@
     },
     "contract_value_usd": null,
     "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
     "outreach_readiness": "cold",
     "estimated_hiring_window": "12mo+"
   },
@@ -1649,8 +1729,7 @@
     "subsector": "mining",
     "discipline_tags": [
       "industrial_construction",
-      "energy_trades",
-      "process_plant_operations"
+      "energy_trades"
     ],
     "signal_type": "fid",
     "region": "ontario-canada",
@@ -1670,6 +1749,9 @@
     },
     "contract_value_usd": null,
     "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
     "outreach_readiness": "cold",
     "estimated_hiring_window": "12mo+"
   },
@@ -1721,15 +1803,15 @@
       "industrial_construction",
       "process_plant_operations"
     ],
-    "signal_type": "regulatory",
-    "region": "southern-france",
+    "signal_type": "fid",
+    "region": "france-south",
     "country": "france",
     "headline": "Stellaria & CEA Sign LOI for Alvin Experimental MSR Feasibility Study at Cadarache",
     "operator": {
       "name": "Stellaria"
     },
     "hiring_entity": {
-      "name": "Stellaria"
+      "name": "CEA (Alternative Energies & Atomic Energy Commission)"
     },
     "project_name": "Alvin Experimental MSR",
     "mob_window": {
@@ -1739,6 +1821,9 @@
     },
     "contract_value_usd": null,
     "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
     "outreach_readiness": "cold",
     "estimated_hiring_window": "12mo+"
   },
@@ -1768,7 +1853,7 @@
     "hiring_entity": {
       "name": "Rolls-Royce SMR"
     },
-    "project_name": "Temelín SMR",
+    "project_name": "Temelín Small Modular Reactor",
     "mob_window": {
       "start": null,
       "end": null,
@@ -1776,8 +1861,11 @@
     },
     "contract_value_usd": null,
     "phase": "pre_sanction",
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+"
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo"
   },
   {
     "id": "44a28d15-694d-4a4d-961a-f75741474adf",
@@ -1794,7 +1882,7 @@
       "energy_trades",
       "industrial_construction"
     ],
-    "signal_type": "epc_award",
+    "signal_type": "fid",
     "region": "canada-atlantic",
     "country": "canada",
     "headline": "Envision Energy & Cape Breton China Corp Launch 300 MW Wind-Battery Hybrid Project in Cape Breton, Canada",
@@ -1812,6 +1900,9 @@
     },
     "contract_value_usd": null,
     "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
     "outreach_readiness": "cold",
     "estimated_hiring_window": "12mo+"
   },
@@ -1894,31 +1985,31 @@
         "url": "https://www.prnewswire.com/news-releases/jdenergy-nimmt-in-ungarn-das-erste-energieversorgungsprojekt-in-ubersee-in-betrieb-302767651.html"
       }
     ],
-    "subsector": "onshore-renewables",
-    "discipline_tags": [
-      "process_plant_operations",
-      "industrial_construction"
-    ],
-    "signal_type": "epc_award",
-    "region": "central-europe",
-    "country": "hungary",
-    "headline": "JDEnergy Commissions 11 MW/22 MWh BESS Project for MVM in Hungary",
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "headline": null,
     "operator": {
-      "name": "MVM"
+      "name": null
     },
     "hiring_entity": {
-      "name": "JDEnergy"
+      "name": null
     },
-    "project_name": "MVM 11 MW/22 MWh BESS Hungary",
+    "project_name": null,
     "mob_window": {
       "start": null,
       "end": null,
       "duration_months": null
     },
     "contract_value_usd": null,
-    "phase": "operating",
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "ongoing"
+    "phase": null,
+    "construction_subphase": null,
+    "lifecycle_track": null,
+    "decom_stage": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null
   },
   {
     "id": "909bee1b-1339-4e04-889e-60b1c48d7504",
@@ -2141,14 +2232,14 @@
     "signal_type": "epc_award",
     "region": "us-gulf-coast",
     "country": "united_states",
-    "headline": "SEG Solar Announces 4 GW Solar Module Manufacturing Plant Construction in Houston, TX",
+    "headline": "SEG Solar to Build 4 GW Solar Module Manufacturing Plant in Houston, TX",
     "operator": {
       "name": "SEG Solar"
     },
     "hiring_entity": {
       "name": "SEG Solar"
     },
-    "project_name": "SEG Solar Houston 4 GW Module Manufacturing Plant",
+    "project_name": "SEG Solar Houston 4 GW Manufacturing Plant",
     "mob_window": {
       "start": null,
       "end": null,
@@ -2157,6 +2248,8 @@
     "contract_value_usd": null,
     "phase": "construction",
     "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
     "outreach_readiness": "hot",
     "estimated_hiring_window": "1-3mo"
   },
@@ -2225,6 +2318,9 @@
     },
     "contract_value_usd": null,
     "phase": "operating",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
     "outreach_readiness": "warming",
     "estimated_hiring_window": "ongoing"
   },
@@ -2273,11 +2369,10 @@
     ],
     "subsector": "nuclear",
     "discipline_tags": [
-      "process_plant_operations",
-      "industrial_construction"
+      "process_plant_operations"
     ],
     "signal_type": "regulatory",
-    "region": "bangladesh",
+    "region": "south-asia",
     "country": "bangladesh",
     "headline": "Rooppur NPP Unit 1 Issued Operating Licence — Ready for First Criticality",
     "operator": {
@@ -2293,7 +2388,10 @@
       "duration_months": null
     },
     "contract_value_usd": null,
-    "phase": "operating",
+    "phase": "construction",
+    "construction_subphase": "commissioning",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
     "outreach_readiness": "hot",
     "estimated_hiring_window": "1-3mo"
   },
@@ -2661,6 +2759,8 @@
     "contract_value_usd": null,
     "phase": "construction",
     "construction_subphase": "peak",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
     "outreach_readiness": "hot",
     "estimated_hiring_window": "3-6mo"
   },
@@ -3921,6 +4021,9 @@
     },
     "contract_value_usd": null,
     "phase": "operating",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
     "outreach_readiness": "warming",
     "estimated_hiring_window": "ongoing"
   },
@@ -4099,31 +4202,31 @@
         "url": "https://www.world-nuclear-news.org//articles/british-us-consortium-aims-to-build-uk-fusion-plant"
       }
     ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations"
-    ],
-    "signal_type": "fid",
-    "region": "united-kingdom",
-    "country": "united_kingdom",
-    "headline": "UK Infinity Fusion Consortium (Type One Energy, Tokamak Energy, AECOM) targets first private UK fusion plant",
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "headline": null,
     "operator": {
-      "name": "UK Infinity Fusion Consortium (Type One Energy / Tokamak Energy)"
+      "name": null
     },
     "hiring_entity": {
-      "name": "AECOM"
+      "name": null
     },
-    "project_name": "UK Infinity Fusion Plant",
+    "project_name": null,
     "mob_window": {
       "start": null,
       "end": null,
       "duration_months": null
     },
     "contract_value_usd": null,
-    "phase": "pre_sanction",
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+"
+    "phase": null,
+    "construction_subphase": null,
+    "lifecycle_track": null,
+    "decom_stage": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null
   },
   {
     "id": "2712358f-fe18-4772-a05c-1be0f6a861db",
