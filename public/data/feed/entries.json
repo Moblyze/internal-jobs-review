@@ -2,6 +2,101 @@
   {
     "sources": [
       {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/trilogy-metals-announces-acceptance-of-alaskas-high-grade-arctic-copper-zinc-lead-gold-silver-project-into-the-fast-41-federal-permitting-program-302773296.html"
+      }
+    ],
+    "headline": "Trilogy Metals' Arctic Cu-Zn-Pb-Au-Ag Project Accepted into FAST-41 Federal Permitting Program",
+    "body": "VANCOUVER, BC, May 15, 2026 /PRNewswire/ - Trilogy Metals Inc. (NYSE American: TMQ) (TSX: TMQ) (\"Trilogy Metals\", \"Trilogy\" or the \"Company\") announced today that its flagship Arctic Project in northwestern Alaska's Ambler Mining District, being advanced by Ambler Metals LLC (\"Ambler...",
+    "url": "https://www.prnewswire.com/news-releases/trilogy-metals-announces-acceptance-of-alaskas-high-grade-arctic-copper-zinc-lead-gold-silver-project-into-the-fast-41-federal-permitting-program-302773296.html",
+    "published_at": "2026-05-15T10:30:00.000Z",
+    "hash": "316b0a13a870d34f",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "survey_geophysical"
+    ],
+    "signal_type": "regulatory",
+    "region": "alaska",
+    "country": "united_states",
+    "tldr": "Ambler Metals LLC (Trilogy Metals JV) has secured FAST-41 federal permitting status for the Arctic Project in Alaska's Ambler Mining District, accelerating the regulatory pathway toward potential FID and future construction workforce demand.",
+    "operator": {
+      "name": "Ambler Metals LLC",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Arctic Project",
+    "scope": [
+      "permitting",
+      "mine_development"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Permitting Manager",
+        "Environmental Affairs Manager",
+        "Mine Development Engineer",
+        "Regulatory Affairs Specialist",
+        "Project Engineer – Mining"
+      ],
+      "skills": [
+        "federal permitting",
+        "FAST-41",
+        "NEPA",
+        "mine development",
+        "copper mining",
+        "Alaska regulatory"
+      ],
+      "certs_freetext": [
+        "MSHA",
+        "PE – Mining"
+      ],
+      "geo_rtw": "US work authorization required; Alaska experience preferred",
+      "project_experience": [
+        "Ambler Mining District",
+        "Pebble Project",
+        "Donlin Gold",
+        "Arctic Project"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"permitting manager\" OR \"regulatory affairs\" OR \"mine development engineer\" OR \"environmental manager\") AND (\"Alaska\" OR \"Ambler\" OR \"Arctic Project\") AND (\"copper\" OR \"zinc\" OR \"polymetallic\") AND (\"FAST-41\" OR \"NEPA\" OR \"federal permitting\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Ambler Metals' Arctic Project in Alaska just received FAST-41 federal permitting status — a key milestone ahead of potential FID. Would your background in mine permitting/development align with roles ramping here?",
+      "email_subject": "Arctic Project (Alaska) – FAST-41 Acceptance Opens Permitting & Development Roles",
+      "email_body": "Hi [Name],\n\nTrilogy Metals / Ambler Metals LLC just announced that the Arctic copper-zinc-gold project in Alaska's Ambler Mining District has been accepted into the FAST-41 federal permitting program — accelerating the path toward construction.\n\nAs permitting progresses, we expect demand to grow for experienced mine development engineers, permitting managers, and environmental specialists with Alaska and polymetallic project backgrounds.\n\nWould you be open to a brief call to discuss how your experience maps to what's coming?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Regulatory milestone (FAST-41 acceptance) for a named mining project (Arctic Project) operated by a named entity (Ambler Metals LLC), signaling advancing permitting and future workforce demand in the mining sector.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Project is being advanced through federal permitting under FAST-41, indicating pre-FID / pre-sanction stage with no construction or EPC award mentioned.",
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "8736e745-de95-47c5-9a06-8340be6009f9",
+    "ingested_at": "2026-05-15T12:41:39.077Z",
+    "source_published_at": "2026-05-15T10:30:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "sources": [
+      {
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/perenco_restarts_davy_gas_production_in_uk_north_sea-15-may-2026-183697-article/?rss=true"
@@ -98,101 +193,6 @@
     "contact_archetypes": [
       "ops_director",
       "hiring_manager"
-    ],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "sources": [
-      {
-        "id": "pr_newswire_energy",
-        "name": "PR Newswire (Energy)",
-        "url": "https://www.prnewswire.com/news-releases/trilogy-metals-announces-acceptance-of-alaskas-high-grade-arctic-copper-zinc-lead-gold-silver-project-into-the-fast-41-federal-permitting-program-302773296.html"
-      }
-    ],
-    "headline": "Trilogy Metals' Arctic Cu-Zn-Pb-Au-Ag Project Accepted into FAST-41 Federal Permitting Program",
-    "body": "VANCOUVER, BC, May 15, 2026 /PRNewswire/ - Trilogy Metals Inc. (NYSE American: TMQ) (TSX: TMQ) (\"Trilogy Metals\", \"Trilogy\" or the \"Company\") announced today that its flagship Arctic Project in northwestern Alaska's Ambler Mining District, being advanced by Ambler Metals LLC (\"Ambler...",
-    "url": "https://www.prnewswire.com/news-releases/trilogy-metals-announces-acceptance-of-alaskas-high-grade-arctic-copper-zinc-lead-gold-silver-project-into-the-fast-41-federal-permitting-program-302773296.html",
-    "published_at": "2026-05-15T10:30:00.000Z",
-    "hash": "316b0a13a870d34f",
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "survey_geophysical"
-    ],
-    "signal_type": "regulatory",
-    "region": "alaska",
-    "country": "united_states",
-    "tldr": "Ambler Metals LLC (Trilogy Metals JV) has secured FAST-41 federal permitting status for the Arctic Project in Alaska's Ambler Mining District, accelerating the regulatory pathway toward potential FID and future construction workforce demand.",
-    "operator": {
-      "name": "Ambler Metals LLC",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Arctic Project",
-    "scope": [
-      "permitting",
-      "mine_development"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Permitting Manager",
-        "Environmental Affairs Manager",
-        "Mine Development Engineer",
-        "Regulatory Affairs Specialist",
-        "Project Engineer – Mining"
-      ],
-      "skills": [
-        "federal permitting",
-        "FAST-41",
-        "NEPA",
-        "mine development",
-        "copper mining",
-        "Alaska regulatory"
-      ],
-      "certs_freetext": [
-        "MSHA",
-        "PE – Mining"
-      ],
-      "geo_rtw": "US work authorization required; Alaska experience preferred",
-      "project_experience": [
-        "Ambler Mining District",
-        "Pebble Project",
-        "Donlin Gold",
-        "Arctic Project"
-      ],
-      "yoe_band": "8-15",
-      "seniority": "mid-senior",
-      "boolean_search": "(\"permitting manager\" OR \"regulatory affairs\" OR \"mine development engineer\" OR \"environmental manager\") AND (\"Alaska\" OR \"Ambler\" OR \"Arctic Project\") AND (\"copper\" OR \"zinc\" OR \"polymetallic\") AND (\"FAST-41\" OR \"NEPA\" OR \"federal permitting\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Ambler Metals' Arctic Project in Alaska just received FAST-41 federal permitting status — a key milestone ahead of potential FID. Would your background in mine permitting/development align with roles ramping here?",
-      "email_subject": "Arctic Project (Alaska) – FAST-41 Acceptance Opens Permitting & Development Roles",
-      "email_body": "Hi [Name],\n\nTrilogy Metals / Ambler Metals LLC just announced that the Arctic copper-zinc-gold project in Alaska's Ambler Mining District has been accepted into the FAST-41 federal permitting program — accelerating the path toward construction.\n\nAs permitting progresses, we expect demand to grow for experienced mine development engineers, permitting managers, and environmental specialists with Alaska and polymetallic project backgrounds.\n\nWould you be open to a brief call to discuss how your experience maps to what's coming?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Regulatory milestone (FAST-41 acceptance) for a named mining project (Arctic Project) operated by a named entity (Ambler Metals LLC), signaling advancing permitting and future workforce demand in the mining sector.",
-    "phase": "pre_sanction",
-    "phase_evidence": "Project is being advanced through federal permitting under FAST-41, indicating pre-FID / pre-sanction stage with no construction or EPC award mentioned.",
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "8736e745-de95-47c5-9a06-8340be6009f9",
-    "ingested_at": "2026-05-15T12:41:39.077Z",
-    "source_published_at": "2026-05-15T10:30:00.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "business_unit_director"
     ],
     "prompt_version": "phase-targeting-v1"
   },
@@ -2068,6 +2068,107 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/darlington-smr-nuclear-project-foundation-module-milestone"
+      }
+    ],
+    "headline": "Darlington SMR Basemat Module Set 35m Below Ground — Civil Works Construction Underway",
+    "body": "The giant Basemat module, which will serve as the foundation of the reactor building for the first small modular reactor to be built in a G7 country, has been set into place 35 metres below ground in the excavated reactor building shaft.",
+    "url": "https://www.world-nuclear-news.org//articles/darlington-smr-nuclear-project-foundation-module-milestone",
+    "published_at": "2026-05-01T16:17:13.000Z",
+    "hash": "c806c2fe49c62ed0",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "canada-ontario",
+    "country": "canada",
+    "tldr": "The Darlington SMR project in Canada has entered active civil construction with the basemat module placed 35m below grade, signalling a live hiring window for nuclear construction trades and civil works specialists.",
+    "operator": {
+      "name": "Ontario Power Generation"
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": "Darlington SMR",
+    "scope": [
+      "civil_works",
+      "reactor_building_construction",
+      "basemat_installation"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Construction Manager",
+        "Civil Works Superintendent",
+        "Structural Engineer",
+        "Construction Foreman",
+        "Concrete/Formwork Supervisor",
+        "Nuclear QA Inspector",
+        "Site Safety Officer"
+      ],
+      "skills": [
+        "nuclear civil construction",
+        "reinforced concrete",
+        "basemat installation",
+        "below-grade excavation",
+        "nuclear QA/QC",
+        "CANDU or SMR experience",
+        "heavy lift coordination"
+      ],
+      "certs_freetext": [
+        "CNSC Worker Certification",
+        "Nuclear Construction Safety",
+        "Red Seal Ironworker or Carpenter",
+        "CSTS-09"
+      ],
+      "geo_rtw": "Canada — Ontario work authorization required",
+      "project_experience": [
+        "Darlington Refurbishment",
+        "Bruce Power Life Extension",
+        "BWRX-300",
+        "NuScale VOYGR",
+        "Hinkley Point C"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"nuclear construction\" OR \"SMR\" OR \"small modular reactor\" OR \"BWRX\" OR \"CANDU\") AND (\"civil works\" OR \"basemat\" OR \"reactor building\" OR \"below grade\" OR \"reinforced concrete\" OR \"construction superintendent\" OR \"construction manager\") AND (\"Ontario\" OR \"Darlington\" OR \"Canada\") NOT (\"decommission\" OR \"analyst\" OR \"policy\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], the Darlington SMR just hit a major milestone — basemat set 35m below grade, meaning civil construction is live. We're placing nuclear construction specialists for this G7-first project. Would you be open to a quick chat?",
+      "email_subject": "Darlington SMR Civil Works Now Live — Nuclear Construction Roles Available",
+      "email_body": "Hi [Name],\n\nThe Darlington SMR project in Ontario has officially entered active civil construction, with the basemat module now set 35 metres below ground — a landmark moment as the first SMR under construction in a G7 country.\n\nThis means boots-on-ground hiring is underway for experienced nuclear construction professionals — civil superintendents, QA inspectors, structural engineers, and trades supervisors.\n\nGiven your background in [relevant experience], I wanted to reach out directly. Are you open to exploring opportunities on this project?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named project (Darlington SMR) has entered active civil construction with basemat placement confirmed, representing a discrete construction-phase workforce-demand event in the nuclear sector.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "2c60bdbc-ebc3-4cca-91e8-afde40b626d3",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "source_published_at": "2026-05-01T16:17:13.000Z",
+    "phase": "construction",
+    "phase_evidence": "Article states the Basemat module 'has been set into place 35 metres below ground in the excavated reactor building shaft,' confirming active civil construction has commenced.",
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": [],
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "sources": [
+      {
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/iberdrola_to_invest_10b_in_brazil_through_2030-11-may-2026-183655-article/?rss=true"
@@ -2457,107 +2558,6 @@
       "project_manager",
       "hiring_manager",
       "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/darlington-smr-nuclear-project-foundation-module-milestone"
-      }
-    ],
-    "headline": "Darlington SMR Basemat Module Set 35m Below Ground — Civil Works Construction Underway",
-    "body": "The giant Basemat module, which will serve as the foundation of the reactor building for the first small modular reactor to be built in a G7 country, has been set into place 35 metres below ground in the excavated reactor building shaft.",
-    "url": "https://www.world-nuclear-news.org//articles/darlington-smr-nuclear-project-foundation-module-milestone",
-    "published_at": "2026-05-01T16:17:13.000Z",
-    "hash": "c806c2fe49c62ed0",
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades"
-    ],
-    "signal_type": "epc_award",
-    "region": "canada-ontario",
-    "country": "canada",
-    "tldr": "The Darlington SMR project in Canada has entered active civil construction with the basemat module placed 35m below grade, signalling a live hiring window for nuclear construction trades and civil works specialists.",
-    "operator": {
-      "name": "Ontario Power Generation"
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": "Darlington SMR",
-    "scope": [
-      "civil_works",
-      "reactor_building_construction",
-      "basemat_installation"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Nuclear Construction Manager",
-        "Civil Works Superintendent",
-        "Structural Engineer",
-        "Construction Foreman",
-        "Concrete/Formwork Supervisor",
-        "Nuclear QA Inspector",
-        "Site Safety Officer"
-      ],
-      "skills": [
-        "nuclear civil construction",
-        "reinforced concrete",
-        "basemat installation",
-        "below-grade excavation",
-        "nuclear QA/QC",
-        "CANDU or SMR experience",
-        "heavy lift coordination"
-      ],
-      "certs_freetext": [
-        "CNSC Worker Certification",
-        "Nuclear Construction Safety",
-        "Red Seal Ironworker or Carpenter",
-        "CSTS-09"
-      ],
-      "geo_rtw": "Canada — Ontario work authorization required",
-      "project_experience": [
-        "Darlington Refurbishment",
-        "Bruce Power Life Extension",
-        "BWRX-300",
-        "NuScale VOYGR",
-        "Hinkley Point C"
-      ],
-      "yoe_band": "8-20",
-      "seniority": "mid-senior",
-      "boolean_search": "(\"nuclear construction\" OR \"SMR\" OR \"small modular reactor\" OR \"BWRX\" OR \"CANDU\") AND (\"civil works\" OR \"basemat\" OR \"reactor building\" OR \"below grade\" OR \"reinforced concrete\" OR \"construction superintendent\" OR \"construction manager\") AND (\"Ontario\" OR \"Darlington\" OR \"Canada\") NOT (\"decommission\" OR \"analyst\" OR \"policy\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], the Darlington SMR just hit a major milestone — basemat set 35m below grade, meaning civil construction is live. We're placing nuclear construction specialists for this G7-first project. Would you be open to a quick chat?",
-      "email_subject": "Darlington SMR Civil Works Now Live — Nuclear Construction Roles Available",
-      "email_body": "Hi [Name],\n\nThe Darlington SMR project in Ontario has officially entered active civil construction, with the basemat module now set 35 metres below ground — a landmark moment as the first SMR under construction in a G7 country.\n\nThis means boots-on-ground hiring is underway for experienced nuclear construction professionals — civil superintendents, QA inspectors, structural engineers, and trades supervisors.\n\nGiven your background in [relevant experience], I wanted to reach out directly. Are you open to exploring opportunities on this project?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named project (Darlington SMR) has entered active civil construction with basemat placement confirmed, representing a discrete construction-phase workforce-demand event in the nuclear sector.",
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "2c60bdbc-ebc3-4cca-91e8-afde40b626d3",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "source_published_at": "2026-05-01T16:17:13.000Z",
-    "phase": "construction",
-    "phase_evidence": "Article states the Basemat module 'has been set into place 35 metres below ground in the excavated reactor building shaft,' confirming active civil construction has commenced.",
-    "outreach_readiness": "live_now",
-    "estimated_hiring_window": "now",
-    "key_people": [],
-    "contact_archetypes": [
-      "site_manager",
-      "hiring_manager",
-      "project_manager"
     ],
     "prompt_version": "phase-targeting-v1"
   },
@@ -8802,6 +8802,100 @@
     "prompt_version": "phase-targeting-v1"
   },
   {
+    "headline": "India NFC-Kota Fuel Plant at Rawatbhata Receives AERB Operating Licence",
+    "body": "The Atomic Energy Regulatory Board has issued an operating licence for the NFC-Kota fuel plant at Rawatbhata in Rajasthan.",
+    "url": "https://www.world-nuclear-news.org//articles/second-indian-fuel-cycle-complex-gets-operating-licence",
+    "published_at": "2026-05-01T14:35:03.000Z",
+    "hash": "9a54cf5af58ee5cf",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "india-rajasthan",
+    "country": "india",
+    "tldr": "The Atomic Energy Regulatory Board has issued an operating licence for the NFC-Kota nuclear fuel plant at Rawatbhata, Rajasthan, signalling transition to operational phase and ongoing staffing demand for plant operations.",
+    "operator": {
+      "name": "Nuclear Fuel Complex (NFC)"
+    },
+    "hiring_entity": {
+      "name": "Nuclear Fuel Complex (NFC)"
+    },
+    "project_name": "NFC-Kota Fuel Plant, Rawatbhata",
+    "scope": [
+      "plant_operations",
+      "regulatory_licensing"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Plant Operator",
+        "Process Plant Operator",
+        "Shift Supervisor",
+        "Health Physics Officer",
+        "Instrumentation & Control Technician",
+        "Maintenance Engineer",
+        "Radiation Protection Supervisor"
+      ],
+      "skills": [
+        "nuclear fuel fabrication",
+        "process plant operations",
+        "radiation protection",
+        "instrumentation and control",
+        "nuclear safety",
+        "AERB compliance"
+      ],
+      "certs_freetext": [
+        "AERB authorisation",
+        "Radiation Protection Supervisor certificate",
+        "Nuclear Operator Licence"
+      ],
+      "geo_rtw": "India (Rajasthan) — Indian nationals or India RTW required",
+      "project_experience": [
+        "NFC Hyderabad",
+        "NPCIL Rawatbhata RAPS",
+        "BARC fuel cycle facilities"
+      ],
+      "yoe_band": "5-15",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"nuclear fuel\" OR \"nuclear plant operations\" OR \"fuel fabrication\") AND (\"process plant operator\" OR \"shift supervisor\" OR \"health physics\" OR \"radiation protection\") AND (\"AERB\" OR \"NPCIL\" OR \"NFC\" OR \"BARC\") AND (India OR Rajasthan OR Rawatbhata OR Kota)"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], the NFC-Kota fuel plant at Rawatbhata just received its AERB operating licence — ongoing ops roles are opening up. Your nuclear plant ops background looks relevant. Worth a quick chat?",
+      "email_subject": "NFC-Kota Rawatbhata — Operating Licence Granted, Ops Roles Opening",
+      "email_body": "Hi [Name],\n\nThe NFC-Kota nuclear fuel plant at Rawatbhata, Rajasthan has just been issued its operating licence by the Atomic Energy Regulatory Board, marking the transition to full operations.\n\nThis typically drives demand for experienced nuclear plant operators, shift supervisors, health physics officers, and I&C technicians on an ongoing basis.\n\nGiven your background in nuclear/process plant operations, I wanted to reach out to see if you'd be open to a conversation about opportunities in this space.\n\nBest regards,\n[Your Name]"
+    },
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "911a6717-580e-4b63-bd04-a7fcfad90355",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "source_published_at": "2026-05-01T14:35:03.000Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/second-indian-fuel-cycle-complex-gets-operating-licence"
+      }
+    ],
+    "bd_relevant": true,
+    "bd_relevance_reason": "Regulatory operating licence issued to a named operator (NFC) for a named nuclear fuel plant (NFC-Kota, Rawatbhata), signalling transition to operational phase with ongoing staffing demand.",
+    "phase": "operating",
+    "phase_evidence": "Article states AERB has issued an operating licence, confirming the plant is transitioning to or entering operational status.",
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "ongoing",
+    "key_people": [],
+    "contact_archetypes": [
+      "ops_director",
+      "hiring_manager"
+    ],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
     "headline": "US DOE & NRC Advance Licensing for Aalo Atomics Aalo-X SMR and Oklo Aurora Powerhouse",
     "body": "The US Department of Energy's Idaho Operations Office has approved the Documented Safety Analysis for Aalo Atomics' Aalo-X experimental reactor. Meanwhile, the US Nuclear Regulatory Commission has approved the Principal Design Criteria topical report for Oklo's Aurora powerhouse.",
     "url": "https://www.world-nuclear-news.org//articles/licensing-of-us-pilot-smrs-advances",
@@ -9051,100 +9145,6 @@
     "estimated_hiring_window": null,
     "key_people": [],
     "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "headline": "India NFC-Kota Fuel Plant at Rawatbhata Receives AERB Operating Licence",
-    "body": "The Atomic Energy Regulatory Board has issued an operating licence for the NFC-Kota fuel plant at Rawatbhata in Rajasthan.",
-    "url": "https://www.world-nuclear-news.org//articles/second-indian-fuel-cycle-complex-gets-operating-licence",
-    "published_at": "2026-05-01T14:35:03.000Z",
-    "hash": "9a54cf5af58ee5cf",
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "process_plant_operations"
-    ],
-    "signal_type": "regulatory",
-    "region": "india-rajasthan",
-    "country": "india",
-    "tldr": "The Atomic Energy Regulatory Board has issued an operating licence for the NFC-Kota nuclear fuel plant at Rawatbhata, Rajasthan, signalling transition to operational phase and ongoing staffing demand for plant operations.",
-    "operator": {
-      "name": "Nuclear Fuel Complex (NFC)"
-    },
-    "hiring_entity": {
-      "name": "Nuclear Fuel Complex (NFC)"
-    },
-    "project_name": "NFC-Kota Fuel Plant, Rawatbhata",
-    "scope": [
-      "plant_operations",
-      "regulatory_licensing"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Nuclear Plant Operator",
-        "Process Plant Operator",
-        "Shift Supervisor",
-        "Health Physics Officer",
-        "Instrumentation & Control Technician",
-        "Maintenance Engineer",
-        "Radiation Protection Supervisor"
-      ],
-      "skills": [
-        "nuclear fuel fabrication",
-        "process plant operations",
-        "radiation protection",
-        "instrumentation and control",
-        "nuclear safety",
-        "AERB compliance"
-      ],
-      "certs_freetext": [
-        "AERB authorisation",
-        "Radiation Protection Supervisor certificate",
-        "Nuclear Operator Licence"
-      ],
-      "geo_rtw": "India (Rajasthan) — Indian nationals or India RTW required",
-      "project_experience": [
-        "NFC Hyderabad",
-        "NPCIL Rawatbhata RAPS",
-        "BARC fuel cycle facilities"
-      ],
-      "yoe_band": "5-15",
-      "seniority": "mid-to-senior",
-      "boolean_search": "(\"nuclear fuel\" OR \"nuclear plant operations\" OR \"fuel fabrication\") AND (\"process plant operator\" OR \"shift supervisor\" OR \"health physics\" OR \"radiation protection\") AND (\"AERB\" OR \"NPCIL\" OR \"NFC\" OR \"BARC\") AND (India OR Rajasthan OR Rawatbhata OR Kota)"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], the NFC-Kota fuel plant at Rawatbhata just received its AERB operating licence — ongoing ops roles are opening up. Your nuclear plant ops background looks relevant. Worth a quick chat?",
-      "email_subject": "NFC-Kota Rawatbhata — Operating Licence Granted, Ops Roles Opening",
-      "email_body": "Hi [Name],\n\nThe NFC-Kota nuclear fuel plant at Rawatbhata, Rajasthan has just been issued its operating licence by the Atomic Energy Regulatory Board, marking the transition to full operations.\n\nThis typically drives demand for experienced nuclear plant operators, shift supervisors, health physics officers, and I&C technicians on an ongoing basis.\n\nGiven your background in nuclear/process plant operations, I wanted to reach out to see if you'd be open to a conversation about opportunities in this space.\n\nBest regards,\n[Your Name]"
-    },
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "911a6717-580e-4b63-bd04-a7fcfad90355",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "source_published_at": "2026-05-01T14:35:03.000Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/second-indian-fuel-cycle-complex-gets-operating-licence"
-      }
-    ],
-    "bd_relevant": true,
-    "bd_relevance_reason": "Regulatory operating licence issued to a named operator (NFC) for a named nuclear fuel plant (NFC-Kota, Rawatbhata), signalling transition to operational phase with ongoing staffing demand.",
-    "phase": "operating",
-    "phase_evidence": "Article states AERB has issued an operating licence, confirming the plant is transitioning to or entering operational status.",
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "ongoing",
-    "key_people": [],
-    "contact_archetypes": [
-      "ops_director",
-      "hiring_manager"
-    ],
     "prompt_version": "phase-targeting-v1"
   },
   {
