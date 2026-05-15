@@ -1505,14 +1505,14 @@
     "discipline_tags": [
       "industrial_construction",
       "energy_trades",
-      "ndt_inspection"
+      "process_plant_operations"
     ],
     "signal_type": "fid",
     "region": "ontario-canada",
     "country": "canada",
-    "tldr": "Construction has commenced on the Darlington SMR in Ontario, Canada — the first SMR in the G7 — signalling an active hiring window for nuclear construction trades and inspection personnel.",
+    "tldr": "Construction has commenced on the Darlington SMR in Ontario, the first SMR to break ground in a G7 nation. This marks the peak labor-demand window for trades, construction management, and nuclear-qualified personnel.",
     "operator": {
-      "name": null
+      "name": "Ontario Power Generation"
     },
     "hiring_entity": {
       "name": null
@@ -1521,7 +1521,7 @@
     "scope": [
       "smr_construction",
       "civil_works",
-      "mechanical_installation"
+      "nuclear_island_build"
     ],
     "mob_window": {
       "start": null,
@@ -1532,58 +1532,69 @@
     "targeting": {
       "job_titles_freetext": [
         "Nuclear Construction Manager",
-        "Site Superintendent",
-        "Civil Construction Supervisor",
+        "Site Manager",
+        "Civil Construction Superintendent",
+        "HSE Manager",
+        "Nuclear QA/QC Inspector",
         "Mechanical Superintendent",
-        "NDT Inspector",
-        "QA/QC Inspector Nuclear",
-        "Construction Trades Foreman",
-        "Health & Safety Advisor Nuclear",
-        "Commissioning Engineer"
+        "Electrical Superintendent",
+        "Commissioning Engineer",
+        "I&C Technician",
+        "Radiation Protection Technician",
+        "Boilermaker",
+        "Ironworker",
+        "Pipefitter",
+        "Electrician",
+        "Welder",
+        "NDT Inspector"
       ],
       "skills": [
         "nuclear construction",
         "SMR",
         "CANDU",
-        "reactor civil works",
-        "mechanical installation",
-        "QA nuclear",
-        "NDT",
-        "commissioning",
-        "CNSC regulations"
+        "pressurized water reactor",
+        "nuclear QA",
+        "N299",
+        "civil nuclear",
+        "radiation protection",
+        "mechanical completion",
+        "commissioning"
       ],
       "certs_freetext": [
-        "CNSC Nuclear Security Clearance",
-        "CSA N285",
-        "Red Seal trades certification",
-        "CGSB NDT Level II/III",
-        "NUPIC qualified"
+        "Nuclear Energy Worker (NEW) designation",
+        "CNSC certification",
+        "Red Seal trades",
+        "N299 QA",
+        "Radiation Protection certification",
+        "CSA N286"
       ],
-      "geo_rtw": "Canada — must hold valid right to work; Ontario preferred",
+      "geo_rtw": "Canada — Ontario work authorization required; G7 nationals eligible",
       "project_experience": [
         "Darlington Refurbishment",
         "Bruce Power Life Extension",
         "Pickering NGS",
-        "OPG nuclear projects"
+        "Point Lepreau Refurbishment",
+        "NuScale VOYGR",
+        "Hinkley Point C"
       ],
       "yoe_band": "8-20",
       "seniority": "mid-senior to principal",
-      "boolean_search": "(\"nuclear construction\" OR \"SMR\" OR \"small modular reactor\" OR \"CANDU\" OR \"reactor\" OR \"Darlington\") AND (\"construction manager\" OR \"site superintendent\" OR \"mechanical superintendent\" OR \"commissioning engineer\" OR \"NDT inspector\" OR \"QA inspector\" OR \"construction supervisor\") AND (\"Ontario\" OR \"Canada\") NOT (\"analyst\" OR \"policy\" OR \"finance\")"
+      "boolean_search": "(\"nuclear construction\" OR \"SMR\" OR \"small modular reactor\" OR \"CANDU\" OR \"civil nuclear\") AND (\"construction manager\" OR \"site manager\" OR \"superintendent\" OR \"commissioning engineer\" OR \"radiation protection\" OR \"QA inspector\" OR \"mechanical superintendent\" OR \"I&C technician\" OR \"pipefitter\" OR \"boilermaker\" OR \"NDT\") AND (\"Ontario\" OR \"Canada\") NOT (\"oil\" OR \"gas\" OR \"wind\")"
     },
     "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], construction has just kicked off on the Darlington SMR in Ontario — the first SMR in the G7. Your nuclear construction background looks like a strong fit for roles ramping now. Worth a quick chat?",
-      "email_subject": "Darlington SMR — Nuclear Construction Roles Now Live, Ontario",
-      "email_body": "Hi [Name],\n\nConstruction has officially begun on the Darlington Small Modular Reactor in Ontario — a landmark project and the first SMR to break ground in the G7.\n\nWith site activity now underway, there is immediate demand for experienced nuclear construction professionals including construction managers, mechanical superintendents, NDT/QA inspectors, and commissioning engineers.\n\nGiven your background in [relevant experience], I wanted to reach out directly before these positions are filled.\n\nWould you be open to a brief call this week to discuss how your experience aligns with what's needed on-site?\n\nBest regards,\n[Your Name]"
+      "linkedin_inmail": "Hi [Name], construction has just broken ground on the Darlington SMR in Ontario — the first SMR build in the G7. There will be significant demand for nuclear-qualified trades and construction professionals. Are you open to a conversation about opportunities on this landmark project?",
+      "email_subject": "Darlington SMR — Nuclear Construction Roles Now Active, Ontario",
+      "email_body": "Hi [Name],\n\nOntario Power Generation has officially commenced construction on the Darlington Small Modular Reactor — a historic first for the G7 and one of the most significant nuclear new-build projects in North America in decades.\n\nWith construction now underway, we are actively sourcing nuclear-qualified construction professionals across disciplines including civil/mechanical/electrical supervision, QA/QC, radiation protection, commissioning engineering, and skilled trades.\n\nGiven your background in [nuclear construction / civil nuclear / relevant discipline], I'd love to connect and discuss how your experience aligns with current openings.\n\nAre you available for a brief call this week?\n\nBest regards,\n[Your Name]"
     },
     "bd_relevant": true,
-    "bd_relevance_reason": "Named project (Darlington SMR) has entered active construction — the prime hiring window for nuclear trades, inspection, and construction management personnel.",
+    "bd_relevance_reason": "Construction start confirmed on a named nuclear project (Darlington SMR) in Ontario, Canada — a discrete workforce-demand event in the nuclear subsector with clear immediate hiring implications for trades and construction management.",
     "enrichment_status": "ok",
     "enrichment_model": "claude-sonnet-4-6",
     "id": "50d39266-fc22-4c4c-8622-c9cfc17a5dde",
     "ingested_at": "2026-05-12T12:35:36.640Z",
     "source_published_at": "2026-05-08T13:26:05.000Z",
     "phase": "construction",
-    "phase_evidence": "Article states 'Ontario has started construction on the first small modular reactor in the G7', confirming physical construction has commenced.",
+    "phase_evidence": "Article states 'Ontario has started construction on the first small modular reactor in the G7', confirming active construction phase.",
     "outreach_readiness": "live_now",
     "estimated_hiring_window": "now",
     "key_people": [],
@@ -1592,7 +1603,8 @@
       "hiring_manager",
       "project_manager"
     ],
-    "prompt_version": "phase-targeting-v1"
+    "prompt_version": "phase-targeting-v1.1",
+    "construction_subphase": "rampup"
   },
   {
     "sources": [
@@ -1611,12 +1623,12 @@
     "discipline_tags": [
       "industrial_construction",
       "process_plant_operations",
-      "ndt_inspection"
+      "energy_trades"
     ],
     "signal_type": "epc_award",
     "region": "atlantic-canada",
     "country": "canada",
-    "tldr": "Atlantic Mining is reactivating the Touquoy gold mine in Nova Scotia to reprocess approximately 3 million tonnes of ore, signalling an imminent workforce ramp-up for plant operations and processing roles.",
+    "tldr": "Atlantic Mining is reactivating the Touquoy gold mine in Nova Scotia to reprocess approximately 3 million tonnes of ore, signalling a near-term workforce ramp-up for plant operations and processing personnel.",
     "operator": {
       "name": "Atlantic Mining"
     },
@@ -1626,8 +1638,7 @@
     "project_name": "Touquoy Mine",
     "scope": [
       "ore_reprocessing",
-      "mine_restart",
-      "process_plant_operations"
+      "plant_reactivation"
     ],
     "mob_window": {
       "start": null,
@@ -1637,56 +1648,56 @@
     "contract_value_usd": null,
     "targeting": {
       "job_titles_freetext": [
-        "Processing Plant Operator",
-        "Mine Site Superintendent",
+        "Process Plant Supervisor",
+        "Plant Operator",
         "Metallurgist",
-        "Plant Maintenance Technician",
-        "Electrical Technician",
-        "Mechanical Technician",
+        "Mining Superintendent",
+        "Maintenance Technician",
+        "HSE Advisor",
         "Site Manager",
-        "Health & Safety Officer",
-        "Crusher Operator",
-        "Conveyor Technician"
+        "Heavy Equipment Operator",
+        "Electrical Technician"
       ],
       "skills": [
         "gold ore processing",
-        "heap leach or CIL processing",
+        "heap leach or CIL circuit operation",
         "plant commissioning",
-        "mine restart",
-        "preventive maintenance",
-        "tailings management",
-        "process control"
+        "mineral processing",
+        "site restart",
+        "maintenance planning"
       ],
       "certs_freetext": [
-        "Nova Scotia Mines Act certification",
-        "First Aid/CPR",
-        "H2S Alive",
-        "WHMIS"
+        "Nova Scotia Mine Rescue Certificate",
+        "WHMIS",
+        "First Aid Level 1",
+        "Red Seal (relevant trades)"
       ],
-      "geo_rtw": "Canada (Nova Scotia) — must have Canadian work authorization",
+      "geo_rtw": "Canada (Nova Scotia preferred); Canadian work authorization required",
       "project_experience": [
+        "Touquoy Mine",
         "Moose River Gold Mines",
+        "Atlantic Gold",
         "Beaver Dam Mine",
         "Fifteen Mile Stream"
       ],
       "yoe_band": "5-15",
-      "seniority": "mid-to-senior",
-      "boolean_search": "(\"mine restart\" OR \"gold processing\" OR \"ore reprocessing\" OR \"process plant operator\" OR \"metallurgist\") AND (\"Nova Scotia\" OR \"Atlantic Canada\" OR \"Canada\") AND (\"CIL\" OR \"carbon-in-leach\" OR \"heap leach\" OR \"gold mine\" OR \"open pit mining\") NOT (\"exploration\" OR \"junior mining\")"
+      "seniority": "mid to senior",
+      "boolean_search": "(\"mine\" OR \"mining\" OR \"mineral processing\" OR \"gold processing\" OR \"process plant\") AND (\"plant operator\" OR \"metallurgist\" OR \"process supervisor\" OR \"site superintendent\" OR \"maintenance technician\" OR \"heavy equipment operator\") AND (\"Nova Scotia\" OR \"Atlantic Canada\" OR \"Canada\") AND (\"ore processing\" OR \"CIL\" OR \"heap leach\" OR \"plant restart\" OR \"mine reactivation\")"
     },
     "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Atlantic Mining is reactivating the Touquoy gold mine in Nova Scotia to reprocess ~3M tonnes of ore — a workforce ramp-up is underway. Are you open to hearing about site roles? Happy to share details.",
-      "email_subject": "Touquoy Mine Restart – Process Plant & Site Roles | Nova Scotia",
-      "email_body": "Hi [Name],\n\nAtlantic Mining is rebooting operations at the Touquoy gold mine in Nova Scotia, targeting reprocessing of approximately 3 million tonnes of gold ore. This restart is expected to create demand for experienced process plant, metallurgy, maintenance, and site operations professionals in the near term.\n\nGiven your background in [gold processing / mine operations], I wanted to reach out to see if you'd be open to a conversation about opportunities at this project.\n\nWould you have 15 minutes for a quick call this week?\n\nBest regards,\n[Your Name]"
+      "linkedin_inmail": "Hi [Name], Atlantic Mining is rebooting the Touquoy gold mine in Nova Scotia to reprocess 3M tonnes of ore — a clear workforce ramp signal. Are you open to exploring site roles tied to this restart?",
+      "email_subject": "Touquoy Mine Restart — Process Plant & Site Roles, Nova Scotia",
+      "email_body": "Hi [Name],\n\nAtlantic Mining has announced the reactivation of the Touquoy Mine in Nova Scotia to reprocess approximately 3 million tonnes of gold ore. This restart points to near-term hiring across plant operations, maintenance, metallurgy, and site supervision.\n\nGiven your background in [relevant discipline], I wanted to reach out early before these roles go live. Would you be open to a quick call to discuss what's coming up at Touquoy and whether it could be a fit?\n\nBest regards,\n[Your Name]"
     },
     "bd_relevant": true,
-    "bd_relevance_reason": "Named operator (Atlantic Mining) announces restart of named project (Touquoy Mine) to reprocess 3M tonnes of gold ore in Nova Scotia, constituting a discrete workforce-demand event in the mining sector.",
+    "bd_relevance_reason": "Named operator (Atlantic Mining) announces reactivation of a named project (Touquoy Mine) to reprocess 3M tonnes of gold ore in Nova Scotia — a clear workforce-demand event in the mining sector.",
     "enrichment_status": "ok",
     "enrichment_model": "claude-sonnet-4-6",
     "id": "67233574-ad73-40ae-a1cb-f53ca365e49d",
     "ingested_at": "2026-05-12T12:35:36.640Z",
     "source_published_at": "2026-05-08T13:13:00.000Z",
     "phase": "construction",
-    "phase_evidence": "Article states Atlantic Mining 'readies to reprocess' ore, indicating operational restart/ramp-up is imminent rather than at a planning or pre-FID stage.",
+    "phase_evidence": "Article states Atlantic Mining 'readies to reprocess' the ore, indicating plant reactivation/restart is imminent rather than still in planning.",
     "outreach_readiness": "hot",
     "estimated_hiring_window": "1-3mo",
     "key_people": [],
@@ -1695,7 +1706,8 @@
       "hiring_manager",
       "project_manager"
     ],
-    "prompt_version": "phase-targeting-v1"
+    "prompt_version": "phase-targeting-v1.1",
+    "construction_subphase": "rampup"
   },
   {
     "sources": [
@@ -2073,7 +2085,7 @@
         "url": "https://www.world-nuclear-news.org//articles/darlington-smr-nuclear-project-foundation-module-milestone"
       }
     ],
-    "headline": "Darlington SMR Basemat Module Set 35m Below Ground — Civil Works Construction Underway",
+    "headline": "Darlington SMR Basemat Module Set 35m Below Ground — Civil Construction Underway",
     "body": "The giant Basemat module, which will serve as the foundation of the reactor building for the first small modular reactor to be built in a G7 country, has been set into place 35 metres below ground in the excavated reactor building shaft.",
     "url": "https://www.world-nuclear-news.org//articles/darlington-smr-nuclear-project-foundation-module-milestone",
     "published_at": "2026-05-01T16:17:13.000Z",
@@ -2086,7 +2098,7 @@
     "signal_type": "epc_award",
     "region": "canada-ontario",
     "country": "canada",
-    "tldr": "The Darlington SMR project in Canada has entered active civil construction with the basemat module placed 35m below grade, signalling a live hiring window for nuclear construction trades and civil works specialists.",
+    "tldr": "Civil construction is actively underway at the Darlington SMR site in Ontario, with the reactor building basemat module placed 35m below ground. This marks a peak hiring window for structural, civil, and nuclear construction trades.",
     "operator": {
       "name": "Ontario Power Generation"
     },
@@ -2096,8 +2108,8 @@
     "project_name": "Darlington SMR",
     "scope": [
       "civil_works",
-      "reactor_building_construction",
-      "basemat_installation"
+      "basemat_installation",
+      "reactor_building_construction"
     ],
     "mob_window": {
       "start": null,
@@ -2107,55 +2119,59 @@
     "contract_value_usd": null,
     "targeting": {
       "job_titles_freetext": [
+        "Civil Construction Superintendent",
         "Nuclear Construction Manager",
-        "Civil Works Superintendent",
         "Structural Engineer",
-        "Construction Foreman",
-        "Concrete/Formwork Supervisor",
-        "Nuclear QA Inspector",
-        "Site Safety Officer"
+        "Concrete Foreman",
+        "Ironworker Foreman",
+        "HSE Advisor – Nuclear Construction",
+        "Quality Control Inspector",
+        "Commissioning Engineer",
+        "Construction Planner/Scheduler"
       ],
       "skills": [
         "nuclear civil construction",
+        "basemat/foundation construction",
         "reinforced concrete",
-        "basemat installation",
-        "below-grade excavation",
-        "nuclear QA/QC",
-        "CANDU or SMR experience",
-        "heavy lift coordination"
+        "N299 quality programs",
+        "nuclear safety culture",
+        "excavation and shoring",
+        "structural steel erection",
+        "construction scheduling"
       ],
       "certs_freetext": [
-        "CNSC Worker Certification",
-        "Nuclear Construction Safety",
-        "Red Seal Ironworker or Carpenter",
-        "CSTS-09"
+        "Nuclear Quality Assurance (N299.1)",
+        "CSAW (Canadian Standards Association Welding)",
+        "CNSC awareness training",
+        "Construction Safety Training System (CSTS)",
+        "Working at Heights (Ontario)"
       ],
-      "geo_rtw": "Canada — Ontario work authorization required",
+      "geo_rtw": "Canada – Ontario work authorization required",
       "project_experience": [
-        "Darlington Refurbishment",
-        "Bruce Power Life Extension",
-        "BWRX-300",
-        "NuScale VOYGR",
+        "Bruce Power refurbishment",
+        "Pickering refurbishment",
+        "Point Lepreau refurbishment",
+        "Vogtle Units 3&4",
         "Hinkley Point C"
       ],
       "yoe_band": "8-20",
-      "seniority": "mid-senior",
-      "boolean_search": "(\"nuclear construction\" OR \"SMR\" OR \"small modular reactor\" OR \"BWRX\" OR \"CANDU\") AND (\"civil works\" OR \"basemat\" OR \"reactor building\" OR \"below grade\" OR \"reinforced concrete\" OR \"construction superintendent\" OR \"construction manager\") AND (\"Ontario\" OR \"Darlington\" OR \"Canada\") NOT (\"decommission\" OR \"analyst\" OR \"policy\")"
+      "seniority": "mid-senior to lead",
+      "boolean_search": "(\"nuclear construction\" OR \"SMR\" OR \"small modular reactor\" OR \"reactor building\" OR \"basemat\" OR \"nuclear civil\") AND (\"construction manager\" OR \"civil superintendent\" OR \"structural foreman\" OR \"ironworker\" OR \"concrete foreman\" OR \"HSE advisor\" OR \"QC inspector\" OR \"commissioning engineer\") AND (\"Ontario\" OR \"Canada\" OR \"Darlington\") AND (\"N299\" OR \"nuclear safety\" OR \"CNSC\" OR \"OPG\" OR \"reactor building\")"
     },
     "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], the Darlington SMR just hit a major milestone — basemat set 35m below grade, meaning civil construction is live. We're placing nuclear construction specialists for this G7-first project. Would you be open to a quick chat?",
-      "email_subject": "Darlington SMR Civil Works Now Live — Nuclear Construction Roles Available",
-      "email_body": "Hi [Name],\n\nThe Darlington SMR project in Ontario has officially entered active civil construction, with the basemat module now set 35 metres below ground — a landmark moment as the first SMR under construction in a G7 country.\n\nThis means boots-on-ground hiring is underway for experienced nuclear construction professionals — civil superintendents, QA inspectors, structural engineers, and trades supervisors.\n\nGiven your background in [relevant experience], I wanted to reach out directly. Are you open to exploring opportunities on this project?\n\nBest regards,\n[Your Name]"
+      "linkedin_inmail": "Hi [Name], civil construction is actively underway at the Darlington SMR — Canada's first SMR and a first-of-kind G7 project. With the basemat now set, trades and supervisory roles are live. Would love to connect if you're open to exploring opportunities on this landmark build.",
+      "email_subject": "Darlington SMR – Civil Construction Underway | Nuclear Construction Opportunities",
+      "email_body": "Hi [Name],\n\nCivil construction is now actively underway at the Darlington Small Modular Reactor project in Ontario — the first SMR to be built in a G7 country. The reactor building basemat module has just been set 35 metres below ground, signalling that the project is firmly in its construction phase and ramping toward peak trade demand.\n\nGiven your background in [nuclear/civil/structural construction], I wanted to reach out directly. Roles across construction supervision, civil engineering, HSE, QC, and trades are expected to be in demand as the build progresses.\n\nAre you open to a brief conversation about how your experience aligns with this project?\n\nBest regards,\n[Your Name]"
     },
     "bd_relevant": true,
-    "bd_relevance_reason": "Named project (Darlington SMR) has entered active civil construction with basemat placement confirmed, representing a discrete construction-phase workforce-demand event in the nuclear sector.",
+    "bd_relevance_reason": "Named project (Darlington SMR) is actively in civil construction with the basemat module set, confirming a live workforce-demand event in the nuclear sector.",
     "enrichment_status": "ok",
     "enrichment_model": "claude-sonnet-4-6",
     "id": "2c60bdbc-ebc3-4cca-91e8-afde40b626d3",
     "ingested_at": "2026-05-12T12:35:36.640Z",
     "source_published_at": "2026-05-01T16:17:13.000Z",
     "phase": "construction",
-    "phase_evidence": "Article states the Basemat module 'has been set into place 35 metres below ground in the excavated reactor building shaft,' confirming active civil construction has commenced.",
+    "phase_evidence": "Article states the Basemat module 'has been set into place 35 metres below ground in the excavated reactor building shaft,' confirming active civil construction is underway.",
     "outreach_readiness": "live_now",
     "estimated_hiring_window": "now",
     "key_people": [],
@@ -2164,7 +2180,8 @@
       "hiring_manager",
       "project_manager"
     ],
-    "prompt_version": "phase-targeting-v1"
+    "prompt_version": "phase-targeting-v1.1",
+    "construction_subphase": "rampup"
   },
   {
     "sources": [
@@ -2569,7 +2586,7 @@
         "url": "https://www.world-nuclear-news.org//articles/key-aerb-approval-issued-for-kudankulam-5-and-6"
       }
     ],
-    "headline": "AERB Issues Equipment Installation Permit for Kudankulam Units 5 & 6 — RPV, Steam Generators & Coolant Pumps",
+    "headline": "AERB Grants Equipment Installation Permit for Kudankulam Units 5 & 6 — RPV, Steam Generators & Coolant Pumps",
     "body": "India's Atomic Energy Regulatory Board has issued permission for the installation of major equipment, including the reactor pressure vessel, steam generators and coolant pumps, at Kudankulam nuclear power plant units 5 and 6.",
     "url": "https://www.world-nuclear-news.org//articles/key-aerb-approval-issued-for-kudankulam-5-and-6",
     "published_at": "2026-05-05T08:25:16.000Z",
@@ -2577,13 +2594,12 @@
     "subsector": "nuclear",
     "discipline_tags": [
       "industrial_construction",
-      "process_plant_operations",
-      "energy_trades"
+      "process_plant_operations"
     ],
     "signal_type": "regulatory",
-    "region": "south-asia",
+    "region": "india-south",
     "country": "india",
-    "tldr": "India's AERB has approved installation of major nuclear components (RPV, steam generators, coolant pumps) at Kudankulam Units 5 & 6, unlocking a key construction-phase milestone and signalling imminent demand for nuclear mechanical and installation trades.",
+    "tldr": "India's AERB has issued installation permits for major nuclear components at Kudankulam Units 5 & 6, unlocking the next construction phase. This signals active demand for nuclear mechanical installation specialists, rigging crews, and QA/QC personnel on-site.",
     "operator": {
       "name": "Nuclear Power Corporation of India Limited (NPCIL)"
     },
@@ -2593,9 +2609,9 @@
     "project_name": "Kudankulam Nuclear Power Plant Units 5 & 6",
     "scope": [
       "rpv_installation",
-      "steam_generator_installation",
-      "coolant_pump_installation",
-      "nuclear_mechanical_install"
+      "steam_generator_install",
+      "coolant_pump_install",
+      "major_equipment_installation"
     ],
     "mob_window": {
       "start": null,
@@ -2606,55 +2622,58 @@
     "targeting": {
       "job_titles_freetext": [
         "Nuclear Mechanical Installation Engineer",
-        "Reactor Equipment Installation Supervisor",
+        "Heavy Lift Rigging Supervisor",
         "Nuclear Construction Manager",
-        "Mechanical Commissioning Engineer",
-        "Nuclear QA/QC Inspector",
-        "Rigging & Lift Supervisor",
-        "NDT Inspector (Nuclear)",
-        "Welding Inspector (Nuclear)"
+        "QA/QC Inspector – Nuclear",
+        "Reactor Installation Specialist",
+        "Mechanical Completion Engineer",
+        "Site Construction Supervisor – Nuclear",
+        "Nuclear Welding Inspector",
+        "NDT Technician – Nuclear"
       ],
       "skills": [
         "reactor pressure vessel installation",
         "steam generator installation",
-        "nuclear mechanical construction",
-        "heavy lift rigging",
+        "nuclear component rigging",
         "nuclear QA/QC",
-        "VVER reactor systems",
-        "nuclear commissioning",
-        "pressure boundary welding"
+        "VVER reactor construction",
+        "mechanical installation nuclear",
+        "heavy lift operations",
+        "nuclear safety codes"
       ],
       "certs_freetext": [
+        "ASME Nuclear QA certification",
         "AERB authorization",
-        "Nuclear welding certification (ASME Section III / RCC-M)",
-        "CSWIP or PCN NDT Level 2/3",
-        "Radiation Protection certification"
+        "AWS CWI",
+        "CSWIP 3.1",
+        "IAEA nuclear safety training"
       ],
-      "geo_rtw": "India or AERB-authorised international nuclear specialists",
+      "geo_rtw": "India – on-site Kudankulam, Tamil Nadu; VVER-experienced candidates from Russia/Eastern Europe may be relevant via contractor channels",
       "project_experience": [
         "Kudankulam Units 1 & 2",
         "Kudankulam Units 3 & 4",
         "VVER-1000 construction projects",
-        "Rosatom EPC projects"
+        "Rostov Nuclear Power Plant",
+        "Bushehr Nuclear Power Plant"
       ],
       "yoe_band": "10-20",
-      "seniority": "senior-to-principal",
-      "boolean_search": "(\"nuclear\" OR \"VVER\" OR \"reactor\") AND (\"equipment installation\" OR \"RPV\" OR \"reactor pressure vessel\" OR \"steam generator\" OR \"coolant pump\") AND (\"mechanical installation\" OR \"nuclear construction\" OR \"commissioning\" OR \"QA/QC\" OR \"NDT\") AND (\"Kudankulam\" OR \"NPCIL\" OR \"Rosatom\" OR \"nuclear power plant\")"
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"nuclear\" OR \"VVER\" OR \"PWR\") AND (\"reactor pressure vessel\" OR \"RPV installation\" OR \"steam generator installation\" OR \"coolant pump\") AND (\"nuclear construction\" OR \"mechanical installation\" OR \"nuclear QA\" OR \"QA/QC nuclear\") AND (\"site manager\" OR \"construction manager\" OR \"installation engineer\" OR \"rigging supervisor\" OR \"NDT\" OR \"welding inspector\")"
     },
     "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], India's AERB just issued the equipment installation permit for Kudankulam Units 5 & 6 — RPV, steam generators & coolant pumps. Nuclear mechanical installation roles are opening up. Would you be open to a conversation?",
-      "email_subject": "Kudankulam Units 5 & 6 — Nuclear Equipment Installation Roles Opening Now",
-      "email_body": "Hi [Name],\n\nIndia's Atomic Energy Regulatory Board has just granted the equipment installation permit for Kudankulam Nuclear Power Plant Units 5 & 6, covering the reactor pressure vessel, steam generators, and coolant pumps — a significant construction-phase milestone.\n\nThis signals near-term demand for experienced nuclear mechanical installation engineers, QA/QC inspectors, NDT specialists, and commissioning professionals familiar with VVER reactor systems.\n\nGiven your background in [relevant experience], I'd love to connect and discuss whether this project could be a fit. Are you available for a brief call this week?\n\nBest regards,\n[Your Name]"
+      "linkedin_inmail": "Hi [Name], with AERB just clearing equipment installation at Kudankulam Units 5 & 6, RPV and steam generator work is mobilising now. Your nuclear installation background looks like a strong fit — open to a quick chat about the opportunity?",
+      "email_subject": "Kudankulam Units 5 & 6 — Nuclear Installation Roles Now Active",
+      "email_body": "Hi [Name],\n\nIndia's AERB has just issued the installation permit for the reactor pressure vessel, steam generators, and coolant pumps at Kudankulam Nuclear Power Plant Units 5 & 6 — meaning major mechanical installation work is now cleared to proceed.\n\nGiven your experience in nuclear component installation / VVER construction, I wanted to reach out directly. We're supporting contractor hiring on this programme and have a number of senior roles coming live in the near term.\n\nWould you be open to a 15-minute call this week to explore fit?\n\nBest regards,\n[Your Name]"
     },
     "bd_relevant": true,
-    "bd_relevance_reason": "Regulatory permit grant naming a specific nuclear project (Kudankulam Units 5 & 6) and implied operator (NPCIL), directly enabling a major construction-phase equipment installation scope with clear workforce demand.",
+    "bd_relevance_reason": "Regulatory permit issued by AERB for major nuclear equipment installation at a named project (Kudankulam Units 5 & 6), directly unlocking the next construction phase and signalling imminent labour demand for nuclear mechanical installation trades.",
     "enrichment_status": "ok",
     "enrichment_model": "claude-sonnet-4-6",
     "id": "208014cf-9cfd-4ce9-afc4-5bfb0b44dd3d",
     "ingested_at": "2026-05-12T12:35:36.640Z",
     "source_published_at": "2026-05-05T08:25:16.000Z",
     "phase": "construction",
-    "phase_evidence": "AERB has issued permission for the physical installation of major primary circuit equipment (RPV, steam generators, coolant pumps), placing the project firmly in the construction phase.",
+    "phase_evidence": "AERB has issued permission for the installation of major equipment including the reactor pressure vessel, steam generators and coolant pumps — active construction installation phase commencing.",
     "outreach_readiness": "hot",
     "estimated_hiring_window": "1-3mo",
     "key_people": [],
@@ -2663,7 +2682,8 @@
       "hiring_manager",
       "project_manager"
     ],
-    "prompt_version": "phase-targeting-v1"
+    "prompt_version": "phase-targeting-v1.1",
+    "construction_subphase": "rampup"
   },
   {
     "sources": [
@@ -2744,20 +2764,19 @@
     "subsector": "nuclear",
     "discipline_tags": [
       "process_plant_operations",
-      "industrial_construction",
-      "ndt_inspection"
+      "industrial_construction"
     ],
     "signal_type": "regulatory",
     "region": "turkey",
     "country": "turkey",
-    "tldr": "Turkey's nuclear regulator has issued a commissioning permit for Akkuyu NPP Unit 2, opening the active commissioning phase and signalling near-term demand for nuclear commissioning and operations personnel.",
+    "tldr": "Turkey's nuclear regulator has issued a commissioning permit for Akkuyu NPP Unit 2, opening the active commissioning phase and signalling near-term demand for commissioning engineers, startup specialists, and O&M technicians. Akkuyu is a Rosatom-led project, which restricts Western recruiter applicability.",
     "operator": {
-      "name": "Akkuyu Nuclear (Rosatom subsidiary)"
+      "name": "Akkuyu Nuclear JSC (Rosatom)"
     },
     "hiring_entity": {
       "name": null
     },
-    "project_name": "Akkuyu Nuclear Power Plant Unit 2",
+    "project_name": "Akkuyu NPP Unit 2",
     "scope": [
       "commissioning",
       "nuclear_startup"
@@ -2770,65 +2789,57 @@
     "contract_value_usd": null,
     "targeting": {
       "job_titles_freetext": [
-        "Nuclear Commissioning Engineer",
-        "Commissioning Manager",
-        "Reactor Systems Engineer",
-        "I&C Commissioning Engineer",
-        "Nuclear Operations Supervisor",
-        "Shift Supervisor",
-        "Health Physics Technician",
-        "NDT Inspector (Nuclear)"
+        "Commissioning Engineer",
+        "Startup Specialist",
+        "Nuclear Systems Engineer",
+        "I&C Commissioning Technician",
+        "Operations Shift Supervisor",
+        "Control Room Operator",
+        "Commissioning Manager"
       ],
       "skills": [
         "nuclear commissioning",
-        "reactor startup",
-        "VVER reactor systems",
-        "I&C systems",
-        "nuclear safety",
-        "radiation protection",
-        "pre-operational testing"
+        "pre-operational testing",
+        "systems handover",
+        "mechanical completion",
+        "PWR startup",
+        "instrumentation and control"
       ],
       "certs_freetext": [
-        "Nuclear Operating Licence",
-        "Radiation Protection Supervisor (RPS)",
-        "IAEA nuclear safety training",
-        "ASME N-stamp awareness"
+        "Nuclear safety certification",
+        "IAEA training qualification"
       ],
-      "geo_rtw": "Turkey or internationally mobile; note Russian-designed (VVER) plant — Western EEA-eligible candidates with VVER or PWR commissioning experience preferred",
+      "geo_rtw": "Turkey or internationally mobile; note Russia-affiliated project",
       "project_experience": [
-        "Hinkley Point C",
+        "Akkuyu NPP Unit 1",
+        "VVER commissioning",
         "Barakah NPP",
-        "Olkiluoto 3",
-        "Vogtle Units 3 & 4",
-        "Flamanville 3"
+        "Hinkley Point C"
       ],
       "yoe_band": "10-20",
-      "seniority": "Senior / Lead",
-      "boolean_search": "(\"nuclear commissioning\" OR \"reactor commissioning\" OR \"nuclear startup\" OR \"pre-operational testing\") AND (\"VVER\" OR \"PWR\" OR \"pressurized water reactor\") AND (\"commissioning engineer\" OR \"commissioning manager\" OR \"shift supervisor\" OR \"reactor engineer\" OR \"I&C engineer\") AND (\"NPP\" OR \"nuclear power plant\" OR \"nuclear\")"
+      "seniority": "senior",
+      "boolean_search": "(\"commissioning engineer\" OR \"startup engineer\" OR \"nuclear commissioning\" OR \"control room operator\" OR \"I&C commissioning\") AND (\"nuclear power\" OR \"NPP\" OR \"PWR\" OR \"VVER\") AND (\"commissioning\" OR \"pre-operational\" OR \"systems handover\" OR \"mechanical completion\")"
     },
     "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Akkuyu NPP Unit 2 in Turkey has just received its commissioning permit — active nuclear commissioning work is beginning. Your [VVER/PWR] commissioning background looks highly relevant. Worth a quick call?",
-      "email_subject": "Akkuyu NPP Unit 2 Commissioning Permit Granted — Nuclear Commissioning Roles Opening",
-      "email_body": "Hi [Name],\n\nTurkey's nuclear regulator has just issued the commissioning permit for Akkuyu Nuclear Power Plant Unit 2 — meaning active commissioning activities are set to begin imminently on this VVER-1200 project.\n\nGiven your background in nuclear commissioning / reactor startup, I wanted to reach out directly as senior commissioning engineers and operations supervisors with VVER or PWR experience will be in demand over the coming months.\n\nWould you be open to a brief conversation to explore whether this project could be a fit?\n\nBest regards,\n[Your Name]"
+      "linkedin_inmail": "Hi [Name], Akkuyu NPP Unit 2 in Turkey has just received its commissioning permit — commissioning engineers and startup specialists will be in demand imminently. Are you open to discussing roles on this campaign?",
+      "email_subject": "Akkuyu NPP Unit 2 Commissioning Permit Granted — Opportunities Emerging",
+      "email_body": "Hi [Name],\n\nTurkey's nuclear regulator has just granted the commissioning permit for Akkuyu NPP Unit 2, signalling an imminent ramp-up of commissioning activity at the site.\n\nGiven your background in nuclear commissioning / startup, I wanted to reach out to explore whether you'd be open to a conversation about opportunities linked to this campaign.\n\nThe project is Rosatom-led, so international mobility and relevant NPP commissioning experience will be key criteria.\n\nWould you be available for a brief call this week?\n\nBest regards,\n[Your Name]"
     },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Regulatory commissioning permit granted for a named nuclear project (Akkuyu NPP Unit 2), directly triggering a construction-to-commissioning workforce demand event.",
+    "bd_relevant": false,
+    "bd_relevance_reason": "Akkuyu NPP is a Rosatom (Russia-affiliated) project; per geo-hint rules this defaults to bd_relevant: false as no Western contractor or operator requiring Western/EEA-eligible labor is named in the article.",
     "enrichment_status": "ok",
     "enrichment_model": "claude-sonnet-4-6",
     "id": "bbd58e18-06ef-4804-bb0a-cf1331db9abb",
     "ingested_at": "2026-05-12T12:35:36.640Z",
     "source_published_at": "2026-05-07T11:24:59.000Z",
-    "phase": "construction",
-    "phase_evidence": "The regulator has granted a commissioning permit for Unit 2, indicating the plant has progressed through construction and is entering the active commissioning (hookup/commissioning) phase.",
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "1-3mo",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
     "key_people": [],
-    "contact_archetypes": [
-      "site_manager",
-      "hiring_manager",
-      "project_manager"
-    ],
-    "prompt_version": "phase-targeting-v1"
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1.1",
+    "construction_subphase": null
   },
   {
     "sources": [
@@ -3270,10 +3281,10 @@
       "process_plant_operations",
       "industrial_construction"
     ],
-    "signal_type": "regulatory",
+    "signal_type": "epc_award",
     "region": "india-south",
     "country": "india",
-    "tldr": "Kudankulam Nuclear Power Plant Unit 3 has entered active commissioning, signalling imminent staffing demand for commissioning and operations roles at the site.",
+    "tldr": "Kudankulam Nuclear Power Plant Unit 3 has entered active commissioning, signalling an immediate need for commissioning engineers, startup specialists, and O&M technicians at the site in India.",
     "operator": {
       "name": "Nuclear Power Corporation of India Limited"
     },
@@ -3283,7 +3294,8 @@
     "project_name": "Kudankulam Nuclear Power Plant Unit 3",
     "scope": [
       "commissioning",
-      "safety_systems"
+      "safety_systems",
+      "startup"
     ],
     "mob_window": {
       "start": null,
@@ -3294,62 +3306,66 @@
     "targeting": {
       "job_titles_freetext": [
         "Commissioning Engineer",
-        "Nuclear Commissioning Manager",
-        "I&C Commissioning Engineer",
-        "Shift Supervisor",
-        "Reactor Systems Engineer",
-        "Commissioning Lead",
-        "Safety Systems Engineer",
-        "Plant Operations Engineer"
+        "Nuclear Startup Specialist",
+        "I&C Commissioning Technician",
+        "Control Room Operator",
+        "Mechanical Completion Engineer",
+        "Systems Handover Engineer",
+        "Nuclear O&M Technician",
+        "HSE Advisor – Nuclear"
       ],
       "skills": [
         "nuclear commissioning",
-        "safety system testing",
-        "flushing procedures",
-        "VVER reactor systems",
-        "I&C commissioning",
-        "nuclear safety",
-        "plant startup"
+        "safety system flushing",
+        "pre-startup testing",
+        "mechanical completion",
+        "systems handover",
+        "PWR reactor commissioning",
+        "instrumentation and controls",
+        "nuclear safety culture"
       ],
       "certs_freetext": [
-        "Nuclear Safety qualification",
-        "AERB authorization",
-        "Authorized Nuclear Operator"
+        "Nuclear Safety Training Certification",
+        "IAEA safety standards familiarity",
+        "Radiation Protection Certificate",
+        "ASME N-stamp awareness"
       ],
-      "geo_rtw": "India or internationally mobile; AERB-cleared preferred",
+      "geo_rtw": "India – willing to relocate to Kudankulam, Tamil Nadu; international commissioning specialists considered",
       "project_experience": [
         "Kudankulam Unit 1",
         "Kudankulam Unit 2",
         "VVER-1000 commissioning",
-        "Rajasthan Atomic Power Station"
+        "Rooppur Nuclear Power Plant",
+        "Akkuyu Nuclear Power Plant"
       ],
       "yoe_band": "8-15",
       "seniority": "mid-senior",
-      "boolean_search": "(\"nuclear commissioning\" OR \"reactor commissioning\" OR \"safety system commissioning\") AND (\"VVER\" OR \"PWR\" OR \"nuclear power plant\") AND (\"commissioning engineer\" OR \"shift supervisor\" OR \"I&C engineer\" OR \"plant startup\") AND (India OR \"Kudankulam\" OR \"NPCIL\")"
+      "boolean_search": "(\"nuclear commissioning\" OR \"reactor commissioning\" OR \"startup engineer\" OR \"commissioning engineer\") AND (\"PWR\" OR \"VVER\" OR \"nuclear power plant\") AND (\"safety systems\" OR \"mechanical completion\" OR \"systems handover\" OR \"pre-startup\") AND (\"control room\" OR \"I&C\" OR \"instrumentation\" OR \"O&M\")"
     },
     "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Kudankulam Unit 3 has just entered active commissioning in India — are you open to exploring commissioning or ops roles at this milestone nuclear project? Happy to share details.",
-      "email_subject": "Kudankulam Unit 3 Commissioning — Opportunities Now Opening",
-      "email_body": "Hi [Name],\n\nKudankulam Nuclear Power Plant Unit 3 in India has just entered its active commissioning phase, with safety system flushing now underway. This signals imminent demand for experienced nuclear commissioning engineers, I&C specialists, and operations personnel.\n\nGiven your background in [relevant discipline], I wanted to reach out to see if you'd be open to a conversation about potential opportunities at this significant project.\n\nPlease let me know if you'd like to connect.\n\nBest regards,\n[Your Name]"
+      "linkedin_inmail": "Hi [Name], Kudankulam Unit 3 in India has just entered active commissioning — safety system flushing has begun. We're sourcing experienced nuclear commissioning engineers and startup specialists for this phase. Would you be open to a brief chat?",
+      "email_subject": "Kudankulam Unit 3 – Nuclear Commissioning Roles Now Live",
+      "email_body": "Hi [Name],\n\nKudankulam Nuclear Power Plant Unit 3 in Tamil Nadu, India has officially entered its active commissioning phase, marked by the start of safety system flushing. This signals immediate demand for commissioning engineers, I&C technicians, control room operators, and startup specialists.\n\nGiven your background in nuclear commissioning / VVER plant startup, I wanted to reach out directly. These roles are live now and mobilisation is imminent.\n\nWould you have 15 minutes this week to discuss the opportunity?\n\nBest regards,\n[Your Name]"
     },
     "bd_relevant": true,
-    "bd_relevance_reason": "Named project (Kudankulam Unit 3) entering active commissioning phase signals an immediate workforce-demand event in the nuclear sector.",
+    "bd_relevance_reason": "Named project (Kudankulam Nuclear Power Plant Unit 3) has entered active commissioning, a discrete phase transition signalling immediate workforce demand for commissioning and startup personnel.",
     "enrichment_status": "ok",
     "enrichment_model": "claude-sonnet-4-6",
     "id": "748b55bd-ea39-42fa-8eed-dd3fd1cac5d8",
     "ingested_at": "2026-05-12T10:57:04.891Z",
     "source_published_at": "2026-04-28T11:17:55.000Z",
     "phase": "construction",
-    "phase_evidence": "Article states safety system flushing marks 'the beginning of the active commissioning phase', placing the unit in late-stage construction/commissioning.",
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "1-3mo",
+    "phase_evidence": "Article states safety system flushing has begun, described as 'the beginning of the active commissioning phase', placing Unit 3 at the commissioning sub-phase of construction.",
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
     "key_people": [],
     "contact_archetypes": [
       "site_manager",
       "hiring_manager",
       "project_manager"
     ],
-    "prompt_version": "phase-targeting-v1"
+    "prompt_version": "phase-targeting-v1.1",
+    "construction_subphase": "commissioning"
   },
   {
     "sources": [
@@ -3559,12 +3575,13 @@
     "hash": "c1a878977bb68e45",
     "subsector": "onshore-renewables",
     "discipline_tags": [
-      "industrial_construction"
+      "industrial_construction",
+      "energy_trades"
     ],
     "signal_type": "epc_award",
     "region": "abu-dhabi",
     "country": "united_arab_emirates",
-    "tldr": "JinkoSolar has signed a 2GW PV module supply agreement with Masdar for the Abu Dhabi RTC project, signaling a construction-phase ramp-up requiring solar installation and EPC trades.",
+    "tldr": "JinkoSolar has signed a 2GW PV module supply agreement with Masdar for the Abu Dhabi RTC project, signaling an upcoming construction-phase labor demand window for solar installation and commissioning trades.",
     "operator": {
       "name": "Masdar"
     },
@@ -3586,55 +3603,59 @@
       "job_titles_freetext": [
         "Solar Installation Supervisor",
         "PV Construction Manager",
-        "EPC Project Manager",
-        "Solar Commissioning Engineer",
-        "Balance of Plant Engineer"
+        "Electrical Superintendent",
+        "Commissioning Engineer",
+        "HSE Advisor",
+        "Module Installation Technician"
       ],
       "skills": [
         "PV module installation",
         "solar farm construction",
-        "balance of plant",
+        "HV electrical",
         "commissioning",
-        "large-scale solar EPC"
+        "SCADA",
+        "utility-scale solar"
       ],
       "certs_freetext": [
-        "NEBOSH",
-        "GWO",
-        "BSEE"
+        "BSEE",
+        "OSHA 30",
+        "CompEx",
+        "IEC 62446"
       ],
-      "geo_rtw": "UAE / Abu Dhabi eligible",
+      "geo_rtw": "UAE / Abu Dhabi — right to work or mobilisable internationally",
       "project_experience": [
         "Noor Abu Dhabi",
         "Al Dhafra Solar PV",
         "Mohammed bin Rashid Al Maktoum Solar Park"
       ],
-      "yoe_band": "8-15",
-      "seniority": "mid-senior",
-      "boolean_search": "(\"solar\" OR \"PV\" OR \"photovoltaic\") AND (\"construction manager\" OR \"installation supervisor\" OR \"commissioning engineer\" OR \"EPC project manager\" OR \"balance of plant\") AND (\"large scale\" OR \"utility scale\" OR \"2GW\" OR \"solar farm\") AND (\"UAE\" OR \"Abu Dhabi\" OR \"Middle East\")"
+      "yoe_band": "6-15",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"solar\" OR \"PV\" OR \"photovoltaic\") AND (\"construction manager\" OR \"installation supervisor\" OR \"commissioning engineer\" OR \"electrical superintendent\") AND (\"utility scale\" OR \"large scale\" OR \"ground mount\") AND (\"UAE\" OR \"Abu Dhabi\" OR \"Middle East\" OR \"GCC\")"
     },
     "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Masdar & JinkoSolar just signed a 2GW PV supply deal for the Abu Dhabi RTC project — construction-phase solar EPC roles are opening up. Your background in utility-scale solar looks highly relevant. Worth a quick call?",
-      "email_subject": "2GW Solar Project – Abu Dhabi RTC | EPC & Construction Roles Opening",
-      "email_body": "Hi [Name],\n\nMasdar and JinkoSolar have formally signed a 2GW PV module supply agreement for the Abu Dhabi RTC Project, pointing to an imminent construction-phase ramp-up in the UAE.\n\nWe're sourcing experienced solar EPC and installation professionals — including Construction Managers, Commissioning Engineers, and BOP specialists — for roles tied to this programme.\n\nGiven your background in utility-scale solar, I'd love to connect and share more detail. Are you open to a brief call this week?\n\nBest regards,\n[Your Name]"
+      "linkedin_inmail": "Hi [Name], JinkoSolar has just signed a 2GW PV module supply deal with Masdar for a major Abu Dhabi solar project. Construction-phase roles are likely opening soon — your utility-scale solar background looks very relevant. Worth a quick chat?",
+      "email_subject": "2GW Masdar Solar Project – Abu Dhabi Construction Roles Opening",
+      "email_body": "Hi [Name],\n\nJinkoSolar has signed a 2GW PV module supply agreement with Masdar for the Abu Dhabi RTC Project, signalling an imminent construction ramp-up for one of the region's largest utility-scale solar developments.\n\nBased on your background in utility-scale PV construction and commissioning, I believe you could be a strong fit for upcoming supervisor or engineer roles on this programme.\n\nWould you be open to a brief call this week to discuss how your experience aligns with what Masdar and their EPC partners will be looking for?\n\nBest regards,\n[Your Name]"
     },
     "bd_relevant": true,
-    "bd_relevance_reason": "Named supply contract award between JinkoSolar and Masdar for a specific 2GW onshore renewables project (Abu Dhabi RTC), signalling construction-phase labor demand.",
+    "bd_relevance_reason": "Named operator (Masdar) and supplier (JinkoSolar) signed a 2GW PV module supply agreement for a named project (Abu Dhabi RTC), indicating an onshore-renewables construction ramp-up with clear labor demand implications.",
     "enrichment_status": "ok",
     "enrichment_model": "claude-sonnet-4-6",
     "id": "6ad8a40c-c791-4592-a984-9b683a077b9f",
     "ingested_at": "2026-05-12T10:57:04.891Z",
     "source_published_at": "2026-05-12T09:56:00.000Z",
-    "phase": "construction",
-    "phase_evidence": "A formal 2GW module supply agreement has been signed, indicating the project has moved into the procurement/construction phase.",
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "3-6mo",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "A strategic supply agreement for 2GW of PV modules has been officially signed, indicating the project is post-sanction and in procurement/pre-construction engineering phase.",
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
     "key_people": [],
     "contact_archetypes": [
-      "site_manager",
+      "project_manager",
       "hiring_manager",
-      "project_manager"
+      "business_unit_director"
     ],
-    "prompt_version": "phase-targeting-v1"
+    "prompt_version": "phase-targeting-v1.1",
+    "construction_subphase": null
   },
   {
     "sources": [
@@ -3753,20 +3774,20 @@
       "energy_trades"
     ],
     "signal_type": "fid",
-    "region": "southeast-asia",
+    "region": "philippines",
     "country": "philippines",
-    "tldr": "TotalEnergies and Nextnorth Holdings have reached financial close and begun construction on a 440 MW solar plant in the Philippines, signaling an active construction workforce ramp-up. Hiring for trades and construction roles is likely imminent.",
+    "tldr": "TotalEnergies and Nextnorth Holdings have reached financial close and commenced construction on a 440 MW solar project in the Philippines, opening a near-term hiring window for construction trades and project management personnel.",
     "operator": {
       "name": "TotalEnergies SE"
     },
     "hiring_entity": {
       "name": "Nextnorth Holdings Corp"
     },
-    "project_name": "440 MW Philippines Solar Farm",
+    "project_name": "440 MW Solar Farm Philippines",
     "scope": [
       "solar_epc",
-      "civil_construction",
-      "electrical_install"
+      "civil_works",
+      "electrical_installation"
     ],
     "mob_window": {
       "start": null,
@@ -3780,51 +3801,52 @@
         "Site Manager",
         "Electrical Superintendent",
         "Civil Works Supervisor",
-        "Commissioning Engineer",
         "HSE Manager",
-        "Project Manager – Renewables",
-        "Quantity Surveyor"
+        "Solar Project Manager",
+        "Commissioning Engineer",
+        "QA/QC Inspector"
       ],
       "skills": [
         "solar PV construction",
         "utility-scale solar",
         "civil works",
-        "HV electrical installation",
+        "electrical installation",
+        "HV cabling",
         "commissioning",
-        "project controls",
-        "SCADA",
-        "substation"
+        "HSE management",
+        "project controls"
       ],
       "certs_freetext": [
-        "IOSH Managing Safely",
         "NEBOSH",
-        "Electrical Engineer license (Philippines PRC)",
-        "PVTEC Solar PV certification"
+        "IOSH",
+        "PMP",
+        "Electrical Engineer license"
       ],
-      "geo_rtw": "Philippines or Southeast Asia-mobile",
+      "geo_rtw": "Philippines or SEA-eligible",
       "project_experience": [
         "utility-scale solar Philippines",
-        "TotalEnergies renewables Asia",
-        "solar farm construction SEA"
+        "solar farm Southeast Asia",
+        "TotalEnergies renewables",
+        "onshore renewables EPC"
       ],
       "yoe_band": "7-15",
       "seniority": "mid-senior",
-      "boolean_search": "(\"solar\" OR \"solar PV\" OR \"photovoltaic\") AND (\"construction manager\" OR \"site manager\" OR \"commissioning engineer\" OR \"electrical superintendent\" OR \"project manager\") AND (\"utility scale\" OR \"large scale\" OR \"440MW\" OR \"renewables\") AND (\"Philippines\" OR \"Southeast Asia\" OR \"SEA\")"
+      "boolean_search": "(\"solar\" OR \"PV\" OR \"photovoltaic\") AND (\"construction manager\" OR \"site manager\" OR \"electrical superintendent\" OR \"commissioning engineer\" OR \"HSE manager\") AND (\"utility-scale\" OR \"large-scale solar\" OR \"solar farm\") AND (\"Philippines\" OR \"Southeast Asia\" OR \"SEA\")"
     },
     "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], TotalEnergies & Nextnorth just broke ground on a 440 MW solar farm in the Philippines — construction is live. We're placing site managers, electrical supers & commissioning engineers. Open to a quick chat?",
-      "email_subject": "440 MW Solar Build in Philippines – Construction Roles Now Open",
-      "email_body": "Hi [Name],\n\nTotalEnergies SE and Nextnorth Holdings Corp have reached financial close and begun construction on a 440 MW utility-scale solar project in the Philippines — one of the largest in the region.\n\nWith ground broken and construction underway, the project is actively ramping its site team. We're currently sourcing:\n\n• Solar Construction / Site Managers\n• Electrical Superintendents & Engineers\n• Commissioning Engineers\n• HSE Managers\n• Civil Works Supervisors\n\nIf you have utility-scale solar construction experience and are open to a Philippines-based role, I'd love to connect. Would you be available for a brief call this week?\n\nBest regards,\n[Your Name]"
+      "linkedin_inmail": "Hi [Name], TotalEnergies & Nextnorth have just broken ground on a 440 MW solar farm in the Philippines. Construction is live — are you open to site roles in SEA? Happy to share details.",
+      "email_subject": "440 MW Solar Construction – Philippines | Site Roles Now Open",
+      "email_body": "Hi [Name],\n\nTotalEnergies SE and Nextnorth Holdings have reached financial close and commenced construction on a 440 MW utility-scale solar project in the Philippines.\n\nWith ground broken and construction underway, we are sourcing experienced solar construction professionals — Site Managers, Electrical Superintendents, HSE Leads, and Commissioning Engineers — for near-term mobilisation.\n\nGiven your background in utility-scale solar / onshore renewables construction, I wanted to reach out directly. Would you be open to a brief call to discuss the opportunity?\n\nBest regards,\n[Your Name]"
     },
     "bd_relevant": true,
-    "bd_relevance_reason": "Financial close reached and construction launched for a named 440 MW solar project by named operator TotalEnergies and local partner Nextnorth, signaling an active construction workforce demand event.",
+    "bd_relevance_reason": "Financial close reached and construction launched on a named 440 MW solar project by named operator TotalEnergies and local partner Nextnorth Holdings, representing a live construction-phase workforce demand event.",
     "enrichment_status": "ok",
     "enrichment_model": "claude-sonnet-4-6",
     "id": "2037e6fd-19c6-4bc2-861b-c9354b7c4bea",
     "ingested_at": "2026-05-11T17:02:42.449Z",
     "source_published_at": "2026-05-04T10:26:49.000Z",
     "phase": "construction",
-    "phase_evidence": "Article states the parties have 'reached financial close and launched construction' confirming active build phase has commenced.",
+    "phase_evidence": "Article states parties have 'reached financial close and launched construction' confirming active construction phase.",
     "outreach_readiness": "live_now",
     "estimated_hiring_window": "now",
     "key_people": [],
@@ -3833,7 +3855,8 @@
       "hiring_manager",
       "project_manager"
     ],
-    "prompt_version": "phase-targeting-v1"
+    "prompt_version": "phase-targeting-v1.1",
+    "construction_subphase": "rampup"
   },
   {
     "sources": [
@@ -5300,25 +5323,26 @@
     "hash": "297beab976eae484",
     "subsector": "onshore-renewables",
     "discipline_tags": [
-      "industrial_construction"
+      "industrial_construction",
+      "energy_trades"
     ],
     "signal_type": "epc_award",
-    "region": "us-texas",
+    "region": "us-gulf-coast",
     "country": "united_states",
-    "tldr": "SEG Solar is constructing a new 4 GW solar module manufacturing facility in Houston, TX, signaling an industrial construction ramp-up with near-term trades and construction workforce demand.",
+    "tldr": "SEG Solar is breaking ground on a 4 GW solar module manufacturing facility in Houston, TX, signaling a significant industrial construction ramp-up and near-term trades and construction management hiring.",
     "operator": {
       "name": "SEG Solar"
     },
     "hiring_entity": {
       "name": "SEG Solar"
     },
-    "project_name": "SEG Solar Houston Manufacturing Plant",
+    "project_name": "SEG Solar Houston 4 GW Module Manufacturing Plant",
     "scope": [
       "manufacturing_facility_construction",
-      "solar_module_plant"
+      "solar_module_production"
     ],
     "mob_window": {
-      "start": "2026-Q2",
+      "start": null,
       "end": null,
       "duration_months": null
     },
@@ -5326,53 +5350,57 @@
     "targeting": {
       "job_titles_freetext": [
         "Construction Manager",
+        "Site Manager",
+        "HSE Manager",
         "Project Manager",
-        "Site Superintendent",
-        "MEP Superintendent",
-        "Civil Construction Superintendent",
-        "Commissioning Engineer",
-        "QA/QC Inspector",
+        "Mechanical Superintendent",
+        "Electrical Superintendent",
         "Industrial Electrician",
-        "Mechanical Installer"
+        "Structural Steel Erector",
+        "Commissioning Engineer",
+        "Facilities Engineer"
       ],
       "skills": [
-        "industrial facility construction",
+        "industrial construction",
         "manufacturing plant build-out",
-        "MEP installation",
-        "commissioning",
-        "quality assurance",
-        "project controls"
+        "solar manufacturing",
+        "facility commissioning",
+        "greenfield construction",
+        "electrical installation",
+        "mechanical installation",
+        "HSE management"
       ],
       "certs_freetext": [
         "OSHA 30",
         "PMP",
-        "NCCER Industrial Construction"
+        "NCCER",
+        "First Aid/CPR"
       ],
-      "geo_rtw": "US work authorization required, Houston TX preferred",
+      "geo_rtw": "US work authorization required; Houston, TX on-site",
       "project_experience": [
-        "First Solar manufacturing plants",
-        "Qcells US manufacturing",
-        "industrial greenfield construction",
-        "solar module factory builds"
+        "solar module manufacturing",
+        "gigafactory construction",
+        "industrial plant construction",
+        "greenfield manufacturing facility"
       ],
       "yoe_band": "8-15",
       "seniority": "mid-senior",
-      "boolean_search": "(\"construction manager\" OR \"site superintendent\" OR \"project manager\" OR \"commissioning engineer\" OR \"MEP superintendent\") AND (\"manufacturing plant\" OR \"industrial construction\" OR \"greenfield facility\") AND (\"solar\" OR \"renewable energy\" OR \"photovoltaic\") AND (\"Houston\" OR \"Texas\")"
+      "boolean_search": "(\"Construction Manager\" OR \"Site Manager\" OR \"Project Manager\" OR \"Mechanical Superintendent\" OR \"Electrical Superintendent\" OR \"Commissioning Engineer\") AND (\"manufacturing facility\" OR \"industrial construction\" OR \"greenfield\" OR \"plant construction\") AND (\"solar\" OR \"renewable energy\" OR \"photovoltaic\" OR \"manufacturing\") AND (Houston OR Texas)"
     },
     "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], SEG Solar is ramping construction on a new 4 GW solar module manufacturing plant in Houston, TX. Given your industrial construction background, I'd love to connect on roles opening up. Are you open to a quick chat?",
-      "email_subject": "Construction Roles – SEG Solar 4 GW Houston Manufacturing Plant",
-      "email_body": "Hi [Name],\n\nSEG Solar has announced construction of a 4 GW solar module manufacturing facility in Houston, TX — one of the largest solar manufacturing builds in the US market right now.\n\nGiven your experience in industrial/manufacturing facility construction, I wanted to reach out about construction management and supervisory roles coming online for this project.\n\nWould you be open to a 15-minute call this week to discuss?\n\nBest regards,\n[Your Name]"
+      "linkedin_inmail": "Hi [Name], SEG Solar is building a 4 GW solar module manufacturing plant in Houston — a major industrial construction ramp. We're sourcing experienced construction and commissioning professionals for this project. Would you be open to a quick chat?",
+      "email_subject": "Construction Opportunity — SEG Solar 4 GW Plant, Houston TX",
+      "email_body": "Hi [Name],\n\nSEG Solar has announced construction of a new 4 GW solar module manufacturing facility in Houston, TX — one of the largest solar manufacturing builds in the US to date.\n\nWe are sourcing experienced construction managers, site supervisors, HSE leads, and commissioning engineers with industrial or manufacturing plant backgrounds for this project.\n\nGiven your background in [relevant discipline], I wanted to reach out directly to see if this could be a fit or if you know someone in your network who might be interested.\n\nHappy to share more details — are you available for a brief call this week?\n\nBest regards,\n[Your Name]"
     },
     "bd_relevant": true,
-    "bd_relevance_reason": "Named operator (SEG Solar) announces construction of a large-scale onshore renewables manufacturing facility in Houston, TX — a discrete industrial construction workforce-demand event.",
+    "bd_relevance_reason": "Named operator (SEG Solar) announces construction of a large greenfield industrial manufacturing facility in Houston, TX, creating a discrete and actionable labor-demand event for construction and commissioning professionals.",
     "enrichment_status": "ok",
     "enrichment_model": "claude-sonnet-4-6",
     "id": "6fa1a58f-1f38-411f-9371-82a6ca68781f",
     "ingested_at": "2026-05-08T14:43:44.605Z",
     "source_published_at": "2026-05-08T13:10:00.000Z",
     "phase": "construction",
-    "phase_evidence": "Article states SEG Solar 'announced the construction' of the new plant, indicating the build phase has commenced.",
+    "phase_evidence": "Article states SEG Solar 'anunció hoy la construcción' (announced today the construction) of the new 4 GW manufacturing plant, confirming a construction phase initiation.",
     "outreach_readiness": "hot",
     "estimated_hiring_window": "1-3mo",
     "key_people": [],
@@ -5381,7 +5409,8 @@
       "hiring_manager",
       "project_manager"
     ],
-    "prompt_version": "phase-targeting-v1"
+    "prompt_version": "phase-targeting-v1.1",
+    "construction_subphase": "rampup"
   },
   {
     "sources": [
@@ -6349,7 +6378,7 @@
     "signal_type": "epc_award",
     "region": "france-south",
     "country": "france",
-    "tldr": "US ITER has delivered the final central solenoid modules to the ITER fusion reactor construction site in Cadarache, France, signalling active assembly-phase work and ongoing technical staffing demand at the project.",
+    "tldr": "US ITER has delivered the final central solenoid modules to the ITER fusion reactor construction site in Cadarache, France, signalling active construction-phase activity and ongoing specialist labor demand for reactor assembly.",
     "operator": {
       "name": "ITER Organization"
     },
@@ -6360,7 +6389,7 @@
     "scope": [
       "magnet_assembly",
       "component_delivery",
-      "nuclear_construction"
+      "reactor_construction"
     ],
     "mob_window": {
       "start": null,
@@ -6370,45 +6399,45 @@
     "contract_value_usd": null,
     "targeting": {
       "job_titles_freetext": [
-        "Nuclear Construction Engineer",
+        "Nuclear Construction Manager",
         "Magnet Systems Engineer",
-        "Mechanical Installation Engineer",
-        "Commissioning Engineer",
-        "Site Construction Manager",
-        "Nuclear Quality Assurance Engineer",
-        "Electrical Engineer – HV Magnets"
+        "Cryogenic Systems Engineer",
+        "Mechanical Commissioning Engineer",
+        "Nuclear Installation Supervisor",
+        "Structural Mechanical Engineer",
+        "Quality Assurance Engineer",
+        "NDT Inspector"
       ],
       "skills": [
         "superconducting magnets",
         "cryogenic systems",
-        "nuclear construction",
-        "heavy lift installation",
-        "quality assurance",
-        "mechanical integration",
-        "fusion technology"
+        "nuclear reactor construction",
+        "large-scale component installation",
+        "quality control",
+        "mechanical assembly",
+        "precision alignment"
       ],
       "certs_freetext": [
-        "Nuclear Safety Qualification",
-        "ASME NQA-1",
-        "ISO 9001",
-        "European nuclear construction certification"
+        "ASME N-stamp",
+        "Nuclear Safety Certification",
+        "NDT Level II/III (ASNT)",
+        "EURATOM clearance"
       ],
-      "geo_rtw": "EU/EEA or France work-authorised preferred; international secondments considered",
+      "geo_rtw": "EU work authorization or French work permit eligible",
       "project_experience": [
-        "ITER",
-        "JET (Joint European Torus)",
         "Hinkley Point C",
         "Flamanville EPR",
-        "CERN"
+        "NIF (National Ignition Facility)",
+        "JET (Joint European Torus)"
       ],
-      "yoe_band": "8-15",
+      "yoe_band": "10-20",
       "seniority": "Senior / Lead",
-      "boolean_search": "(\"ITER\" OR \"fusion reactor\" OR \"superconducting magnet\" OR \"central solenoid\") AND (\"nuclear construction\" OR \"magnet systems\" OR \"cryogenic\" OR \"commissioning\" OR \"mechanical integration\") AND (\"construction engineer\" OR \"systems engineer\" OR \"installation engineer\" OR \"QA engineer\" OR \"commissioning engineer\") AND (France OR Cadarache OR \"EU authorised to work\")"
+      "boolean_search": "(\"nuclear construction\" OR \"reactor assembly\" OR \"superconducting magnet\" OR \"cryogenic systems\" OR \"fusion reactor\") AND (\"construction manager\" OR \"mechanical engineer\" OR \"commissioning engineer\" OR \"installation supervisor\" OR \"NDT inspector\") AND (\"ITER\" OR \"tokamak\" OR \"nuclear\" OR \"Cadarache\" OR \"large-scale assembly\")"
     },
     "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], with US ITER completing final central solenoid deliveries at Cadarache, assembly work is ramping now. We're placing senior nuclear construction and magnet systems engineers on-site. Would you be open to a quick conversation?",
-      "email_subject": "ITER Cadarache – Senior Nuclear Construction & Magnet Systems Roles",
-      "email_body": "Hi [Name],\n\nUS ITER has just completed final deliveries of the central solenoid for the ITER reactor at Cadarache, marking a key milestone in the active construction phase of one of the world's most complex nuclear projects.\n\nWith assembly work now in full swing, we're sourcing experienced professionals in nuclear construction engineering, superconducting/cryogenic magnet systems, mechanical integration, and commissioning for on-site roles in southern France.\n\nGiven your background in [relevant experience], I thought this could be a compelling next step. Are you open to a brief call this week to explore the opportunities?\n\nBest regards,\n[Your Name]"
+      "linkedin_inmail": "Hi [Name], with US ITER completing final central solenoid deliveries at Cadarache, ITER construction is at a critical assembly phase. Your background in [nuclear/cryogenic/mechanical] makes you a strong fit — open to a confidential conversation?",
+      "email_subject": "ITER Cadarache — Senior Construction & Engineering Roles | Nuclear Assembly Phase",
+      "email_body": "Hi [Name],\n\nUS ITER has just completed final deliveries of the central solenoid magnet for the ITER reactor at Cadarache, France, marking a significant milestone in the reactor's active construction phase.\n\nWith assembly and commissioning work ramping up on-site, there is growing demand for experienced nuclear construction, cryogenic systems, and mechanical installation professionals.\n\nGiven your experience in [relevant discipline], I wanted to reach out to explore whether you'd be open to a confidential discussion about opportunities tied to this programme.\n\nWould you have 15 minutes this week?\n\nBest regards,\n[Your Name]"
     },
     "enrichment_status": "ok",
     "enrichment_model": "claude-sonnet-4-6",
@@ -6423,18 +6452,19 @@
       }
     ],
     "bd_relevant": true,
-    "bd_relevance_reason": "Named hiring entity (US ITER) has completed a discrete component delivery milestone for a named nuclear construction project (ITER, Cadarache), confirming active construction-phase workforce demand.",
+    "bd_relevance_reason": "Named contractor (US ITER) completing a discrete component delivery milestone for a named nuclear megaproject (ITER at Cadarache), indicating active construction-phase labor demand for reactor assembly specialists.",
     "phase": "construction",
-    "phase_evidence": "Article states the reactor is 'under construction in Cadarache' and that final component deliveries have been completed, confirming active construction phase.",
+    "phase_evidence": "Article states the ITER reactor is 'under construction in Cadarache' and US ITER has completed final deliveries of the central solenoid, confirming active construction phase.",
     "outreach_readiness": "hot",
-    "estimated_hiring_window": "1-3mo",
+    "estimated_hiring_window": "3-6mo",
     "key_people": [],
     "contact_archetypes": [
       "site_manager",
       "hiring_manager",
       "project_manager"
     ],
-    "prompt_version": "phase-targeting-v1"
+    "prompt_version": "phase-targeting-v1.1",
+    "construction_subphase": "peak"
   },
   {
     "headline": null,
