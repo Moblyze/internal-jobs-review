@@ -26,6 +26,13 @@ function liteProjection(entry) {
     project_name: entry.project_name,
     mob_window: entry.mob_window,
     contract_value_usd: entry.contract_value_usd,
+    // Phase signals — surfaced on the collapsed card (Stepper + readiness/window)
+    phase: entry.phase,
+    construction_subphase: entry.construction_subphase,
+    lifecycle_track: entry.lifecycle_track,
+    decom_stage: entry.decom_stage,
+    outreach_readiness: entry.outreach_readiness,
+    estimated_hiring_window: entry.estimated_hiring_window,
   }
 }
 

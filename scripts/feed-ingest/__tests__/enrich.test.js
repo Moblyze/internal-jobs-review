@@ -263,6 +263,59 @@ test('buildPrompt embeds the construction sub-phase rubric + schema field', () =
   assert.match(p, /"construction_subphase"/)
 })
 
+test('buildPrompt embeds the lifecycle_track rubric + decom_stage schema', () => {
+  const p = buildPrompt({ headline: 'X', body: 'Y' }, mockTaxonomy, [])
+  assert.match(p, /LIFECYCLE TRACK/)
+  assert.match(p, /DECOM STAGE/)
+  assert.match(p, /greenfield/)
+  assert.match(p, /decommissioning/)
+  assert.match(p, /"lifecycle_track"/)
+  assert.match(p, /"decom_stage"/)
+  assert.match(p, /planning/)
+  assert.match(p, /active_execution/)
+})
+
+test('enrichEntry: lifecycle_track + decom_stage land on decom response', async () => {
+  const decomPayload = {
+    ...validSonnetResponse,
+    signal_type: 'epc_award',
+    lifecycle_track: 'decommissioning',
+    decom_stage: 'contract_awarded',
+    phase: null,
+    construction_subphase: null,
+  }
+  const client = makeFakeClient({
+    gateText: JSON.stringify({ bd_relevant: true, reason: 'Decom EPC' }),
+    sonnetText: JSON.stringify(decomPayload),
+  })
+  const result = await enrichEntry(
+    { headline: 'Allseas wins Brent Bravo decom', body: 'b', source: { id: 's' } },
+    mockTaxonomy,
+    { client }
+  )
+  assert.equal(result.lifecycle_track, 'decommissioning')
+  assert.equal(result.decom_stage, 'contract_awarded')
+})
+
+test('enrichEntry: lifecycle_track defaults to greenfield for normal entries', async () => {
+  const greenfieldPayload = {
+    ...validSonnetResponse,
+    lifecycle_track: 'greenfield',
+    decom_stage: null,
+  }
+  const client = makeFakeClient({
+    gateText: JSON.stringify({ bd_relevant: true, reason: 'EPC award' }),
+    sonnetText: JSON.stringify(greenfieldPayload),
+  })
+  const result = await enrichEntry(
+    { headline: 'h', body: 'b', source: { id: 's' } },
+    mockTaxonomy,
+    { client }
+  )
+  assert.equal(result.lifecycle_track, 'greenfield')
+  assert.equal(result.decom_stage, null)
+})
+
 test('enrichEntry: construction_subphase lands on successful Sonnet response', async () => {
   const sonnetPayload = {
     ...validSonnetResponse,

@@ -1,8 +1,8 @@
 // src/components/feed/FeedCard.jsx
-import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import BdCardExpanded from './BdCardExpanded'
 import ReadinessBadge from './ReadinessBadge'
+import Stepper from './Stepper'
 import { formatRelativeOrAbsolute } from '../../utils/feed/relativeTime'
 import { getSizeTier } from '../../utils/feed/sizeTier'
 
@@ -13,6 +13,14 @@ const SUBSECTOR_PILL = {
   'onshore-renewables':'bg-green-100 text-green-800',
   'nuclear':           'bg-violet-100 text-violet-800',
   'mining':            'bg-slate-100 text-slate-800',
+}
+const SUBSECTOR_TIP = {
+  'offshore-og':         'Offshore oil & gas — deepwater + shelf production, FPSO/FSO, subsea, drilling',
+  'onshore-og':          'Onshore oil & gas — pipelines, refineries, drilling, LNG terminals',
+  'offshore-wind':       'Offshore wind — monopile, jacket, floating',
+  'onshore-renewables':  'Onshore renewables — solar, onshore wind, BESS',
+  'nuclear':             'Nuclear — PWR/BWR, SMR, refurbishment, new build',
+  'mining':              'Mining — hard rock, surface, mineral processing',
 }
 const SIGNAL_PILL = {
   'fid':         'bg-green-100 text-green-800',
@@ -25,19 +33,43 @@ const SIGNAL_PILL = {
   'decom':       'bg-slate-100 text-slate-800',
   'regulatory':  'bg-gray-100 text-gray-800',
 }
+const SIGNAL_TIP = {
+  'fid':         'Final Investment Decision — project formally sanctioned; engineering ramp begins.',
+  'epc_award':   'EPC contract awarded — contractor won engineering, procurement & construction scope. Engineering hires start within 1–3mo.',
+  'tender':      'Tender open — operator soliciting bids; no winner yet. Long lead.',
+  'rig_fixture': 'Rig fixture — drilling rig contracted to an operator for a specific campaign.',
+  'vessel_mob':  'Vessel mobilization — offshore vessel/rig moving to site for active work. Immediate hiring window.',
+  'lease_round': 'Lease round / block award — acreage assigned to operator. Years from active hiring.',
+  'replacement': 'Contractor replacement mid-project — work re-tendering likely; near-term staffing turnover.',
+  'decom':       'Decommissioning — end-of-life dismantling or plug-and-abandonment scope.',
+  'regulatory':  'Regulatory milestone — permit, license, or approval that unblocks hiring.',
+}
 
 function PillSubsector({ taxonomy, id }) {
   const t = taxonomy?.subsectors.find(s => s.id === id)
   if (!t) return null
-  return <span className={`text-[11px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full ${SUBSECTOR_PILL[id] || 'bg-gray-100 text-gray-800'}`}>{t.label}</span>
+  return (
+    <span
+      className={`pill-tip text-[11px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full ${SUBSECTOR_PILL[id] || 'bg-gray-100 text-gray-800'}`}
+      data-tooltip={SUBSECTOR_TIP[id]}
+    >
+      {t.label}
+    </span>
+  )
 }
 function PillSignal({ taxonomy, id }) {
   const t = taxonomy?.signal_types.find(s => s.id === id)
   if (!t) return null
-  return <span className={`text-[11px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full ${SIGNAL_PILL[id] || 'bg-gray-100 text-gray-800'}`}>● {t.label}</span>
+  return (
+    <span
+      className={`pill-tip text-[11px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full ${SIGNAL_PILL[id] || 'bg-gray-100 text-gray-800'}`}
+      data-tooltip={SIGNAL_TIP[id]}
+    >
+      ● {t.label}
+    </span>
+  )
 }
 const SIZE_LABEL = { solo: 'Solo', small: 'Small', midsize: 'Midsize', large: 'Large', mega: 'Mega', unknown: '?' }
-const SUBPHASE_LABEL = { rampup: 'Ramp-up', peak: 'Peak', commissioning: 'Commissioning' }
 
 function SizeBadge({ tier }) {
   if (!tier || tier === 'unknown') return null
@@ -64,22 +96,22 @@ export default function FeedCard({ entry, taxonomy, pdlCache, onOperatorClick, o
   const contractorTier = getSizeTier(contractor, pdlCache)
 
   return (
-    <article className="bg-white border border-gray-200 rounded-lg p-4 mb-2 transition-shadow hover:shadow-md cursor-pointer" onClick={() => setExpanded(x => !x)}>
-      <div className="flex flex-wrap gap-1.5 items-center mb-2">
-        <PillSubsector taxonomy={taxonomy} id={entry.subsector} />
-        <PillRegion region={entry.region} country={entry.country} />
-        <PillSignal taxonomy={taxonomy} id={entry.signal_type} />
-        <ReadinessBadge readiness={entry.outreach_readiness} />
-        <span className="text-xs text-gray-400 ml-auto">
-          {formatRelativeOrAbsolute(entry.ingested_at)} · {entry.sources?.[0]?.name}
-        </span>
+    <article className="feed-card bg-white border border-gray-200 rounded-lg p-4 mb-2 transition-shadow hover:shadow-md cursor-pointer" onClick={() => setExpanded(x => !x)}>
+      <div className="grid grid-cols-[1fr_auto] gap-x-4 gap-y-2 items-start mb-2">
+        <div className="flex flex-wrap gap-1.5 items-center">
+          <PillSubsector taxonomy={taxonomy} id={entry.subsector} />
+          <PillRegion region={entry.region} country={entry.country} />
+          <PillSignal taxonomy={taxonomy} id={entry.signal_type} />
+          <ReadinessBadge readiness={entry.outreach_readiness} />
+        </div>
+        <div className="flex flex-col items-end gap-1.5 min-w-0" onClick={e => e.stopPropagation()}>
+          <span className="text-xs text-gray-400 whitespace-nowrap">
+            {formatRelativeOrAbsolute(entry.ingested_at)} · {entry.sources?.[0]?.name}
+          </span>
+          <Stepper entry={entry} />
+        </div>
       </div>
       <h3 className="text-base font-semibold leading-snug mb-1">{entry.headline}</h3>
-      {entry.phase === 'construction' && SUBPHASE_LABEL[entry.construction_subphase] && (
-        <div className="text-xs italic text-gray-500 mb-1">
-          Construction · {SUBPHASE_LABEL[entry.construction_subphase]}
-        </div>
-      )}
       {entry.estimated_hiring_window && (
         <div className="text-xs italic text-gray-500 mb-1">
           Likely hiring: {entry.estimated_hiring_window}

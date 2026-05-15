@@ -19,8 +19,9 @@ function needsBackfill(entry) {
   if (entry.bd_relevant === false) return false
   // v1: entries never enriched for phase
   if (!entry.phase && !entry.prompt_version) return true
-  // v1.1: construction-phase entries that haven't been seen by v1.1
-  if (entry.phase === 'construction' && entry.prompt_version !== 'phase-targeting-v1.1') return true
+  // v1.2: any entry missing lifecycle_track (everything pre-v1.2). One pass
+  //       fills both lifecycle_track and decom_stage on decom-flagged entries.
+  if (!entry.lifecycle_track && entry.prompt_version !== 'phase-targeting-v1.2') return true
   return false
 }
 

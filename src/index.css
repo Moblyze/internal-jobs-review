@@ -11,3 +11,201 @@ body {
   -moz-osx-font-smoothing: grayscale;
   @apply bg-gray-50;
 }
+
+/* ── BD Feed · Phase Stepper ──────────────────────────────────────
+   Compact 6-stage stepper rendered in the top-right corner of each
+   FeedCard. Hover reveals a popover listing all stages. */
+.stepper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px 4px 6px;
+  border: 1px solid rgb(229 231 235);
+  border-radius: 9999px;
+  background: white;
+  cursor: help;
+  outline: none;
+}
+.stepper:focus-visible {
+  box-shadow: 0 0 0 2px rgb(59 130 246 / 0.4);
+}
+.stepper--unknown { background: rgb(249 250 251); }
+.stepper__dots {
+  position: relative;
+  display: inline-grid;
+  grid-auto-flow: column;
+  gap: 5px;
+  align-items: center;
+}
+.stepper__dots::before {
+  content: '';
+  grid-row: 1;
+  grid-column: 1 / -1;
+  height: 1px;
+  background: rgb(15 23 42 / 0.16);
+  align-self: center;
+  justify-self: stretch;
+  z-index: 0;
+  margin: 0 4px;
+}
+.stepper__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+  border: 1.5px solid rgb(15 23 42 / 0.16);
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+.stepper--unknown .stepper__dot {
+  border-style: dashed;
+  border-color: rgb(148 163 184);
+  opacity: 0.55;
+}
+.stepper__dot--current {
+  background: rgb(2 132 199);
+  border-color: rgb(2 132 199);
+  box-shadow: 0 0 0 2.5px rgb(2 132 199 / 0.20);
+  width: 9px;
+  height: 9px;
+}
+.stepper__label {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgb(2 132 199);
+  white-space: nowrap;
+}
+.stepper--unknown .stepper__label {
+  color: rgb(148 163 184);
+  font-style: italic;
+  font-weight: 500;
+}
+.stepper__popover {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: max-content;
+  max-width: min(420px, calc(100vw - 32px));
+  background: white;
+  border: 1px solid rgb(229 231 235);
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgb(15 23 42 / 0.12), 0 2px 6px rgb(15 23 42 / 0.06);
+  padding: 12px 14px;
+  z-index: 50;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity 140ms ease, transform 140ms ease, visibility 140ms;
+  pointer-events: none;
+  text-align: left;
+}
+.stepper:hover .stepper__popover,
+.stepper:focus-within .stepper__popover {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.stepper__popover-title {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgb(71 85 105);
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgb(229 231 235);
+}
+.stepper__popover-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 0;
+  font-size: 12.5px;
+  color: rgb(71 85 105);
+  line-height: 1.3;
+  white-space: nowrap;
+}
+.stepper__popover-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+  border: 1.5px solid rgb(15 23 42 / 0.16);
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+.stepper__popover-row--current .stepper__popover-dot {
+  background: rgb(2 132 199);
+  border-color: rgb(2 132 199);
+  box-shadow: 0 0 0 2px rgb(2 132 199 / 0.20);
+}
+.stepper__popover-row--current {
+  color: rgb(15 23 42);
+  font-weight: 600;
+}
+.stepper__popover-stage {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  flex-shrink: 0;
+}
+.stepper__popover-row--current .stepper__popover-stage {
+  color: rgb(2 132 199);
+}
+.stepper__popover-meaning {
+  font-weight: 400;
+  color: rgb(100 116 139);
+}
+
+/* Elevate hovered card so its popover floats above siblings */
+article.feed-card { position: relative; }
+article.feed-card:has(.stepper:hover),
+article.feed-card:has(.stepper:focus-within),
+article.feed-card:has(.pill-tip:hover) { z-index: 100; }
+
+/* ── BD Feed · Pill tooltips ─────────────────────────────────────── */
+.pill-tip { position: relative; }
+.pill-tip[data-tooltip] { cursor: help; }
+.pill-tip[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 0;
+  width: max-content;
+  max-width: min(320px, calc(100vw - 32px));
+  background: white;
+  border: 1px solid rgb(229 231 235);
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: normal;
+  line-height: 1.45;
+  color: rgb(71 85 105);
+  white-space: normal;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 140ms ease, visibility 140ms;
+  z-index: 80;
+  box-shadow: 0 6px 18px rgb(15 23 42 / 0.10), 0 1px 4px rgb(15 23 42 / 0.06);
+}
+.pill-tip[data-tooltip]:hover::after,
+.pill-tip[data-tooltip]:focus-visible::after {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 200ms;
+}
+
+@media (max-width: 560px) {
+  .stepper__popover { right: auto; left: 0; }
+}

@@ -5,10 +5,12 @@ const GATE_MODEL = 'claude-haiku-4-5-20251001'
 const MAX_TOKENS = 2048
 const GATE_MAX_TOKENS = 256
 
-export const PROMPT_VERSION = 'phase-targeting-v1.1'
+export const PROMPT_VERSION = 'phase-targeting-v1.2'
 
 export const PHASES = ['pre_sanction', 'sanctioned_engineering', 'construction', 'operating']
 export const CONSTRUCTION_SUBPHASES = ['rampup', 'peak', 'commissioning']
+export const LIFECYCLE_TRACKS = ['greenfield', 'decommissioning']
+export const DECOM_STAGES = ['planning', 'permits', 'contract_awarded', 'mobilization', 'active_execution', 'site_clearance']
 export const READINESS = ['cold', 'warming', 'hot', 'live_now']
 export const HIRING_WINDOWS = ['now', '1-3mo', '3-6mo', '6-12mo', '12mo+', 'ongoing']
 export const HIRING_RELEVANCE = ['likely_decision_maker', 'context_only']
@@ -103,6 +105,18 @@ CONSTRUCTION SUB-PHASE — only applies when phase = "construction". Otherwise l
   - peak: full-scale fabrication, installation, hookup. Maximum trade headcount: welders, fitters, riggers, electricians, I&C techs, NDT, scaffolders, rope-access. THE prime moment for contingent labor demand.
   - commissioning: hookup complete or near-complete; pre-startup, mechanical completion, systems handover. Hiring shifts to commissioning engineers, O&M techs, control-room operators, startup specialists.
 
+LIFECYCLE TRACK — which lifecycle the project sits on. Pick exactly one:
+  - greenfield: new-build project (or expansion/brownfield tie-in to existing asset). Uses the phase/construction-subphase taxonomy above.
+  - decommissioning: end-of-life work on an asset being retired. Plug & abandonment (P&A), topsides/jacket removal, demolition, site clearance. Different role mix: lift specialists, divers, well-killers, demolition fabricators.
+
+DECOM STAGE — only applies when lifecycle_track = "decommissioning". Leave null for greenfield. Pick exactly one:
+  - planning: operator publicly announces decom intent; FEED/strategy study. >12mo from active hiring.
+  - permits: regulatory filings, NSTA/BSEE/CNSC approval. 6-12mo from active hiring.
+  - contract_awarded: decom EPC contract awarded (Allseas, Heerema, DeepOcean, Saipem decom, etc.). 3-6mo from hiring.
+  - mobilization: vessel mob, shore base spin-up, crew rotation planning. 1-3mo from hiring.
+  - active_execution: P&A, heavy lift, well kills, dismantling underway. THE prime moment for decom contingent labor.
+  - site_clearance: final survey, demobilisation, site restoration. Winding down.
+
 KEY PEOPLE — extract individuals named in the article body WITH A TITLE. Skip generic "spokesperson" quotes.
   hiring_relevance: 'likely_decision_maker' for Project Director, Project Manager, VP Operations, Site Manager, GM, Hiring Manager, COO, head of TA.
   hiring_relevance: 'context_only' for CEO, board members, press contacts, government officials, analysts, competitors.`
@@ -177,6 +191,8 @@ OUTPUT SCHEMA (JSON only, no prose):
   "phase": "pre_sanction" | "sanctioned_engineering" | "construction" | "operating" | null,
   "phase_evidence": "1 sentence pointing at the article phrase that supports your phase call" | null,
   "construction_subphase": "rampup" | "peak" | "commissioning" | null,
+  "lifecycle_track": "greenfield" | "decommissioning",
+  "decom_stage": "planning" | "permits" | "contract_awarded" | "mobilization" | "active_execution" | "site_clearance" | null,
   "outreach_readiness": "cold" | "warming" | "hot" | "live_now" | null,
   "estimated_hiring_window": "now" | "1-3mo" | "3-6mo" | "6-12mo" | "12mo+" | "ongoing" | null,
   "key_people": [
