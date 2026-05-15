@@ -2,6 +2,203 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/perenco_restarts_davy_gas_production_in_uk_north_sea-15-may-2026-183697-article/?rss=true"
+      }
+    ],
+    "headline": "Perenco Restarts Davy Gas Field Production in UK North Sea — Previously Earmarked for Decom",
+    "body": "Perenco said Friday it has resumed natural gas production at the Davy field in United Kingdom waters five years after shut-in.\n\r\n\r\n\"Earmarked for decom...",
+    "url": "https://www.rigzone.com/news/perenco_restarts_davy_gas_production_in_uk_north_sea-15-may-2026-183697-article/?rss=true",
+    "published_at": "2026-05-15T08:55:24.000Z",
+    "hash": "63814d65b32825fa",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "process_plant_operations",
+      "marine_offshore_ops",
+      "ndt_inspection"
+    ],
+    "signal_type": "decom",
+    "region": "uk-north-sea",
+    "country": "united_kingdom",
+    "tldr": "Perenco has resumed gas production at the Davy field in the UK North Sea after a five-year shut-in. The field was previously earmarked for decommissioning, signalling a potential near-term ops and maintenance hiring window before eventual decom scope.",
+    "operator": {
+      "name": "Perenco",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Perenco",
+      "matched_company_slug": null
+    },
+    "project_name": "Davy Field",
+    "scope": [
+      "production_restart",
+      "operations_maintenance",
+      "decom_planning"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Production Operator",
+        "Platform Operations Supervisor",
+        "Process Technician",
+        "Decommissioning Engineer",
+        "Integrity Engineer",
+        "Offshore Installation Manager",
+        "Well Abandonment Engineer"
+      ],
+      "skills": [
+        "gas production operations",
+        "offshore platform restart",
+        "production shutdown and restart",
+        "well integrity",
+        "decommissioning planning",
+        "process safety",
+        "UKCS operations"
+      ],
+      "certs_freetext": [
+        "BOSIET/FOET",
+        "OPITO",
+        "UKCS offshore survival",
+        "MIST",
+        "CompEx (where applicable)"
+      ],
+      "geo_rtw": "UK right-to-work or UKCS-eligible",
+      "project_experience": [
+        "UKCS late-life asset operations",
+        "brownfield production restart",
+        "North Sea decommissioning"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"Production Operator\" OR \"Platform Operator\" OR \"Offshore Installation Manager\" OR \"Decommissioning Engineer\" OR \"Integrity Engineer\" OR \"Process Technician\") AND (\"North Sea\" OR \"UKCS\" OR \"offshore UK\") AND (\"gas production\" OR \"late-life asset\" OR \"production restart\" OR \"decommissioning\" OR \"well abandonment\") AND (\"BOSIET\" OR \"OPITO\" OR \"MIST\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Perenco has just restarted production at the Davy field in the UK North Sea after a 5-year shut-in — with decom still on the horizon. Are you open to ops or decom roles on UKCS late-life assets?",
+      "email_subject": "Perenco Davy Field Restart — Ops & Decom Opportunities, UK North Sea",
+      "email_body": "Hi [Name],\n\nPerenco has restarted natural gas production at the Davy field in the UK North Sea following a five-year shut-in. With the field previously earmarked for decommissioning, there is likely a hiring window for both near-term production operations and forward-looking decom planning roles.\n\nGiven your background in [UKCS operations / decommissioning / late-life asset management], I wanted to reach out to explore whether you'd be open to a conversation about opportunities on this or similar campaigns.\n\nHappy to share more detail if useful.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Perenco) has restarted production at a named field (Davy) in the UK North Sea after a five-year shut-in, with decommissioning previously planned — creating both near-term ops staffing demand and a future decom scope signal.",
+    "phase": "operating",
+    "phase_evidence": "Article states Perenco 'has resumed natural gas production at the Davy field' — the asset is now operational, with decom flagged as a future event.",
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "0fe44783-c27f-48f4-8e43-da33027e58f5",
+    "ingested_at": "2026-05-15T12:41:39.077Z",
+    "source_published_at": "2026-05-15T08:55:24.000Z",
+    "contact_archetypes": [
+      "ops_director",
+      "hiring_manager"
+    ],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/trilogy-metals-announces-acceptance-of-alaskas-high-grade-arctic-copper-zinc-lead-gold-silver-project-into-the-fast-41-federal-permitting-program-302773296.html"
+      }
+    ],
+    "headline": "Trilogy Metals' Arctic Cu-Zn-Pb-Au-Ag Project Accepted into FAST-41 Federal Permitting Program",
+    "body": "VANCOUVER, BC, May 15, 2026 /PRNewswire/ - Trilogy Metals Inc. (NYSE American: TMQ) (TSX: TMQ) (\"Trilogy Metals\", \"Trilogy\" or the \"Company\") announced today that its flagship Arctic Project in northwestern Alaska's Ambler Mining District, being advanced by Ambler Metals LLC (\"Ambler...",
+    "url": "https://www.prnewswire.com/news-releases/trilogy-metals-announces-acceptance-of-alaskas-high-grade-arctic-copper-zinc-lead-gold-silver-project-into-the-fast-41-federal-permitting-program-302773296.html",
+    "published_at": "2026-05-15T10:30:00.000Z",
+    "hash": "316b0a13a870d34f",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "survey_geophysical"
+    ],
+    "signal_type": "regulatory",
+    "region": "alaska",
+    "country": "united_states",
+    "tldr": "Ambler Metals LLC (Trilogy Metals JV) has secured FAST-41 federal permitting status for the Arctic Project in Alaska's Ambler Mining District, accelerating the regulatory pathway toward potential FID and future construction workforce demand.",
+    "operator": {
+      "name": "Ambler Metals LLC",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Arctic Project",
+    "scope": [
+      "permitting",
+      "mine_development"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Permitting Manager",
+        "Environmental Affairs Manager",
+        "Mine Development Engineer",
+        "Regulatory Affairs Specialist",
+        "Project Engineer – Mining"
+      ],
+      "skills": [
+        "federal permitting",
+        "FAST-41",
+        "NEPA",
+        "mine development",
+        "copper mining",
+        "Alaska regulatory"
+      ],
+      "certs_freetext": [
+        "MSHA",
+        "PE – Mining"
+      ],
+      "geo_rtw": "US work authorization required; Alaska experience preferred",
+      "project_experience": [
+        "Ambler Mining District",
+        "Pebble Project",
+        "Donlin Gold",
+        "Arctic Project"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"permitting manager\" OR \"regulatory affairs\" OR \"mine development engineer\" OR \"environmental manager\") AND (\"Alaska\" OR \"Ambler\" OR \"Arctic Project\") AND (\"copper\" OR \"zinc\" OR \"polymetallic\") AND (\"FAST-41\" OR \"NEPA\" OR \"federal permitting\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Ambler Metals' Arctic Project in Alaska just received FAST-41 federal permitting status — a key milestone ahead of potential FID. Would your background in mine permitting/development align with roles ramping here?",
+      "email_subject": "Arctic Project (Alaska) – FAST-41 Acceptance Opens Permitting & Development Roles",
+      "email_body": "Hi [Name],\n\nTrilogy Metals / Ambler Metals LLC just announced that the Arctic copper-zinc-gold project in Alaska's Ambler Mining District has been accepted into the FAST-41 federal permitting program — accelerating the path toward construction.\n\nAs permitting progresses, we expect demand to grow for experienced mine development engineers, permitting managers, and environmental specialists with Alaska and polymetallic project backgrounds.\n\nWould you be open to a brief call to discuss how your experience maps to what's coming?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Regulatory milestone (FAST-41 acceptance) for a named mining project (Arctic Project) operated by a named entity (Ambler Metals LLC), signaling advancing permitting and future workforce demand in the mining sector.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Project is being advanced through federal permitting under FAST-41, indicating pre-FID / pre-sanction stage with no construction or EPC award mentioned.",
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "8736e745-de95-47c5-9a06-8340be6009f9",
+    "ingested_at": "2026-05-15T12:41:39.077Z",
+    "source_published_at": "2026-05-15T10:30:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "sources": [
+      {
         "id": "mining_com",
         "name": "MINING.com",
         "url": "https://www.mining.com/agnico-to-invest-10b-in-ontario-operations-province-says/"
@@ -1605,6 +1802,272 @@
   {
     "sources": [
       {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/gold-candle-acquires-pan-american-silvers-larder-property-in-the-abitibi/"
+      }
+    ],
+    "headline": "Gold Candle Acquires Pan American Silver's Larder Property in Ontario's Abitibi Region",
+    "body": "Gold Candle announced it will acquire all the assets that comprise Pan American Silver’s (TSX: PAAS) Larder property in the Abitibi region of Ontario, Canada for 15,000,000 common shares, which will result […]",
+    "url": "https://www.mining.com/gold-candle-acquires-pan-american-silvers-larder-property-in-the-abitibi/",
+    "published_at": "2026-05-11T20:25:47.000Z",
+    "hash": "ee2d1ff3ea3246c3",
+    "subsector": "mining",
+    "discipline_tags": [],
+    "signal_type": "lease_round",
+    "region": "ontario-canada",
+    "country": "canada",
+    "tldr": null,
+    "operator": {
+      "name": "Gold Candle"
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": "Larder Property",
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "bd_relevant": false,
+    "bd_relevance_reason": "This is an M&A/asset acquisition deal with no FID, contract award, or named workforce ramp-up event that signals discrete labor demand at the Larder property.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "747a1f36-c745-4c2f-8c17-47849fe4e9f2",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "source_published_at": "2026-05-11T20:25:47.000Z",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/tmc-allseas-strike-first-seabed-nodule-mining-deal/"
+      }
+    ],
+    "headline": "TMC & Allseas Strike First Commercial Seabed Nodule Mining Deal — 3M Tonnes/Year Target",
+    "body": "Deep-sea mining hopeful advances commercial plans with offshore production system targeting 3M tonnes annually.",
+    "url": "https://www.mining.com/tmc-allseas-strike-first-seabed-nodule-mining-deal/",
+    "published_at": "2026-05-11T12:59:00.000Z",
+    "hash": "09b27588adf4a444",
+    "subsector": "mining",
+    "discipline_tags": [
+      "marine_offshore_ops",
+      "rov_subsea",
+      "industrial_construction"
+    ],
+    "signal_type": "epc_award",
+    "region": "international-waters",
+    "country": null,
+    "tldr": "The Metals Company (TMC) and Allseas have signed a first commercial agreement for a deep-sea nodule mining production system targeting 3 million tonnes per year, signalling an imminent ramp-up in offshore mining crew and vessel demand. Recruiters should target marine, subsea, and offshore operations talent as mobilisation planning accelerates.",
+    "operator": {
+      "name": "The Metals Company (TMC)"
+    },
+    "hiring_entity": {
+      "name": "Allseas"
+    },
+    "project_name": "TMC–Allseas Commercial Seabed Nodule Mining Production System",
+    "scope": [
+      "offshore_production_system",
+      "seabed_nodule_collection",
+      "vessel_operations"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Offshore Production Superintendent",
+        "Marine Operations Superintendent",
+        "ROV Supervisor",
+        "Subsea Engineer",
+        "Offshore Installation Manager",
+        "Marine Technician",
+        "Dynamic Positioning Officer",
+        "Production Systems Engineer",
+        "Seabed Mining Engineer",
+        "Vessel Master"
+      ],
+      "skills": [
+        "deep-sea mining",
+        "offshore production systems",
+        "ROV operations",
+        "dynamic positioning",
+        "marine operations",
+        "subsea systems",
+        "nodule collection",
+        "heavy lift vessel",
+        "offshore campaign management"
+      ],
+      "certs_freetext": [
+        "STCW",
+        "Dynamic Positioning (DP) Certificate",
+        "BOSIET/HUET",
+        "GWO",
+        "Offshore Medical (ENG1 or equivalent)"
+      ],
+      "geo_rtw": "International — EU/EEA/UK/AU/NZ/US passport or equivalent offshore work authorisation",
+      "project_experience": [
+        "Allseas Pioneering Spirit",
+        "offshore heavy lift campaigns",
+        "subsea installation projects",
+        "deepwater mineral extraction",
+        "FPSO offshore operations"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"seabed mining\" OR \"deep sea mining\" OR \"nodule mining\" OR \"offshore mining\") AND (\"marine operations\" OR \"ROV\" OR \"subsea\" OR \"offshore production\") AND (\"Allseas\" OR \"TMC\" OR \"The Metals Company\" OR \"offshore installation\" OR \"dynamic positioning\" OR \"DP officer\") AND (\"superintendent\" OR \"supervisor\" OR \"engineer\" OR \"OIM\" OR \"vessel master\" OR \"technician\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], TMC & Allseas just signed the first commercial seabed nodule mining deal targeting 3M t/yr — a major offshore mining ramp-up. Your [ROV/marine ops] background looks highly relevant. Worth a quick chat about upcoming roles?",
+      "email_subject": "TMC & Allseas Seabed Mining Deal — Offshore Roles Ramping Up",
+      "email_body": "Hi [Name],\n\nThe Metals Company (TMC) and Allseas have just announced the first commercial seabed nodule mining agreement, targeting a 3-million-tonne-per-year offshore production system. This represents a significant new labour-demand event in deep-sea mining.\n\nGiven your background in [marine operations / ROV / subsea / offshore production], I wanted to reach out early as roles in vessel operations, subsea engineering, and offshore production management are likely to come to market as mobilisation planning ramps up.\n\nWould you be open to a brief call to discuss how your experience maps to this campaign?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "First commercial contract award between named operator TMC and contractor Allseas for an offshore seabed nodule mining production system targeting 3M tonnes/year — a discrete workforce-demand event in the mining subsector naming both operator and hiring entity.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "c0bff2b6-1bc4-4bb9-a945-f0d0e30c4646",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "source_published_at": "2026-05-11T12:59:00.000Z",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Article describes the deal as a 'first commercial' agreement for an offshore production system, indicating the project has moved beyond concept into commercial/engineering planning but has not yet commenced construction or operations.",
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/cameco-halts-saskatchewan-uranium-operations-after-floods/"
+      }
+    ],
+    "headline": "Cameco Halts McArthur River Mine & Key Lake Mill After Saskatchewan Floods",
+    "body": "Flooding in northern Saskatchewan has disrupted supply routes to the McArthur River mine and Key Lake mill.",
+    "url": "https://www.mining.com/cameco-halts-saskatchewan-uranium-operations-after-floods/",
+    "published_at": "2026-05-11T10:58:00.000Z",
+    "hash": "0057877753f09e1c",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "canada-saskatchewan",
+    "country": "canada",
+    "tldr": "Cameco has suspended operations at McArthur River mine and Key Lake mill due to flood-disrupted supply routes in northern Saskatchewan, signaling a potential restart/recovery workforce ramp once access is restored.",
+    "operator": {
+      "name": "Cameco"
+    },
+    "hiring_entity": {
+      "name": "Cameco"
+    },
+    "project_name": "McArthur River Mine / Key Lake Mill",
+    "scope": [
+      "mine_operations",
+      "mill_operations",
+      "site_recovery"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mine Operations Supervisor",
+        "Mill Operator",
+        "Mining Engineer",
+        "Maintenance Technician",
+        "Site Logistics Coordinator",
+        "Uranium Processing Operator"
+      ],
+      "skills": [
+        "uranium mining",
+        "mill operations",
+        "process plant",
+        "site logistics",
+        "remote site operations",
+        "maintenance"
+      ],
+      "certs_freetext": [
+        "CANDU radiation safety",
+        "blasting certificate",
+        "underground mining certification"
+      ],
+      "geo_rtw": "Canada (Saskatchewan) — must have right to work in Canada",
+      "project_experience": [
+        "Cigar Lake",
+        "Rabbit Lake",
+        "Millennium Mine"
+      ],
+      "yoe_band": "5-15",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"McArthur River\" OR \"Key Lake\" OR \"uranium mine\" OR \"uranium mill\") AND (\"mine operator\" OR \"mill operator\" OR \"mining engineer\" OR \"maintenance technician\" OR \"process plant\") AND (\"Saskatchewan\" OR \"northern Canada\" OR \"remote site\") AND (Cameco OR \"uranium processing\" OR \"underground mining\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Cameco's McArthur River mine and Key Lake mill are temporarily halted due to Saskatchewan flooding — restart will require experienced mine/mill talent. Are you open to hearing about upcoming opportunities?",
+      "email_subject": "McArthur River / Key Lake Restart — Upcoming Talent Opportunities with Cameco",
+      "email_body": "Hi [Name],\n\nCameco has suspended operations at its McArthur River mine and Key Lake mill following flooding in northern Saskatchewan. As the situation stabilises and access routes are restored, a workforce restart will be needed across mine operations, mill processing, and site maintenance.\n\nGiven your background in [uranium mining / process plant operations / remote site work], I wanted to reach out early to gauge your interest in potential opportunities as Cameco resumes full operations.\n\nWould you be open to a brief call to discuss?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Cameco) and two named assets (McArthur River mine, Key Lake mill) are halted due to flooding, implying a near-term workforce restart/recovery demand event in the mining sector.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "2b68deda-7002-437f-90fb-34fcb89c8263",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "source_published_at": "2026-05-11T10:58:00.000Z",
+    "phase": "operating",
+    "phase_evidence": "Article states flooding 'disrupted supply routes' to an operational mine and mill, implying existing production assets now temporarily offline awaiting restart.",
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "contact_archetypes": [
+      "ops_director",
+      "hiring_manager"
+    ],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "sources": [
+      {
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/iberdrola_to_invest_10b_in_brazil_through_2030-11-may-2026-183655-article/?rss=true"
@@ -2786,272 +3249,6 @@
       "project_manager",
       "hiring_manager",
       "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/gold-candle-acquires-pan-american-silvers-larder-property-in-the-abitibi/"
-      }
-    ],
-    "headline": "Gold Candle Acquires Pan American Silver's Larder Property in Ontario's Abitibi Region",
-    "body": "Gold Candle announced it will acquire all the assets that comprise Pan American Silver’s (TSX: PAAS) Larder property in the Abitibi region of Ontario, Canada for 15,000,000 common shares, which will result […]",
-    "url": "https://www.mining.com/gold-candle-acquires-pan-american-silvers-larder-property-in-the-abitibi/",
-    "published_at": "2026-05-11T20:25:47.000Z",
-    "hash": "ee2d1ff3ea3246c3",
-    "subsector": "mining",
-    "discipline_tags": [],
-    "signal_type": "lease_round",
-    "region": "ontario-canada",
-    "country": "canada",
-    "tldr": null,
-    "operator": {
-      "name": "Gold Candle"
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": "Larder Property",
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "bd_relevant": false,
-    "bd_relevance_reason": "This is an M&A/asset acquisition deal with no FID, contract award, or named workforce ramp-up event that signals discrete labor demand at the Larder property.",
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "747a1f36-c745-4c2f-8c17-47849fe4e9f2",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "source_published_at": "2026-05-11T20:25:47.000Z",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/tmc-allseas-strike-first-seabed-nodule-mining-deal/"
-      }
-    ],
-    "headline": "TMC & Allseas Strike First Commercial Seabed Nodule Mining Deal — 3M Tonnes/Year Target",
-    "body": "Deep-sea mining hopeful advances commercial plans with offshore production system targeting 3M tonnes annually.",
-    "url": "https://www.mining.com/tmc-allseas-strike-first-seabed-nodule-mining-deal/",
-    "published_at": "2026-05-11T12:59:00.000Z",
-    "hash": "09b27588adf4a444",
-    "subsector": "mining",
-    "discipline_tags": [
-      "marine_offshore_ops",
-      "rov_subsea",
-      "industrial_construction"
-    ],
-    "signal_type": "epc_award",
-    "region": "international-waters",
-    "country": null,
-    "tldr": "The Metals Company (TMC) and Allseas have signed a first commercial agreement for a deep-sea nodule mining production system targeting 3 million tonnes per year, signalling an imminent ramp-up in offshore mining crew and vessel demand. Recruiters should target marine, subsea, and offshore operations talent as mobilisation planning accelerates.",
-    "operator": {
-      "name": "The Metals Company (TMC)"
-    },
-    "hiring_entity": {
-      "name": "Allseas"
-    },
-    "project_name": "TMC–Allseas Commercial Seabed Nodule Mining Production System",
-    "scope": [
-      "offshore_production_system",
-      "seabed_nodule_collection",
-      "vessel_operations"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Offshore Production Superintendent",
-        "Marine Operations Superintendent",
-        "ROV Supervisor",
-        "Subsea Engineer",
-        "Offshore Installation Manager",
-        "Marine Technician",
-        "Dynamic Positioning Officer",
-        "Production Systems Engineer",
-        "Seabed Mining Engineer",
-        "Vessel Master"
-      ],
-      "skills": [
-        "deep-sea mining",
-        "offshore production systems",
-        "ROV operations",
-        "dynamic positioning",
-        "marine operations",
-        "subsea systems",
-        "nodule collection",
-        "heavy lift vessel",
-        "offshore campaign management"
-      ],
-      "certs_freetext": [
-        "STCW",
-        "Dynamic Positioning (DP) Certificate",
-        "BOSIET/HUET",
-        "GWO",
-        "Offshore Medical (ENG1 or equivalent)"
-      ],
-      "geo_rtw": "International — EU/EEA/UK/AU/NZ/US passport or equivalent offshore work authorisation",
-      "project_experience": [
-        "Allseas Pioneering Spirit",
-        "offshore heavy lift campaigns",
-        "subsea installation projects",
-        "deepwater mineral extraction",
-        "FPSO offshore operations"
-      ],
-      "yoe_band": "8-20",
-      "seniority": "mid-senior",
-      "boolean_search": "(\"seabed mining\" OR \"deep sea mining\" OR \"nodule mining\" OR \"offshore mining\") AND (\"marine operations\" OR \"ROV\" OR \"subsea\" OR \"offshore production\") AND (\"Allseas\" OR \"TMC\" OR \"The Metals Company\" OR \"offshore installation\" OR \"dynamic positioning\" OR \"DP officer\") AND (\"superintendent\" OR \"supervisor\" OR \"engineer\" OR \"OIM\" OR \"vessel master\" OR \"technician\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], TMC & Allseas just signed the first commercial seabed nodule mining deal targeting 3M t/yr — a major offshore mining ramp-up. Your [ROV/marine ops] background looks highly relevant. Worth a quick chat about upcoming roles?",
-      "email_subject": "TMC & Allseas Seabed Mining Deal — Offshore Roles Ramping Up",
-      "email_body": "Hi [Name],\n\nThe Metals Company (TMC) and Allseas have just announced the first commercial seabed nodule mining agreement, targeting a 3-million-tonne-per-year offshore production system. This represents a significant new labour-demand event in deep-sea mining.\n\nGiven your background in [marine operations / ROV / subsea / offshore production], I wanted to reach out early as roles in vessel operations, subsea engineering, and offshore production management are likely to come to market as mobilisation planning ramps up.\n\nWould you be open to a brief call to discuss how your experience maps to this campaign?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "First commercial contract award between named operator TMC and contractor Allseas for an offshore seabed nodule mining production system targeting 3M tonnes/year — a discrete workforce-demand event in the mining subsector naming both operator and hiring entity.",
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "c0bff2b6-1bc4-4bb9-a945-f0d0e30c4646",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "source_published_at": "2026-05-11T12:59:00.000Z",
-    "phase": "sanctioned_engineering",
-    "phase_evidence": "Article describes the deal as a 'first commercial' agreement for an offshore production system, indicating the project has moved beyond concept into commercial/engineering planning but has not yet commenced construction or operations.",
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": [],
-    "contact_archetypes": [
-      "project_manager",
-      "hiring_manager",
-      "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/cameco-halts-saskatchewan-uranium-operations-after-floods/"
-      }
-    ],
-    "headline": "Cameco Halts McArthur River Mine & Key Lake Mill After Saskatchewan Floods",
-    "body": "Flooding in northern Saskatchewan has disrupted supply routes to the McArthur River mine and Key Lake mill.",
-    "url": "https://www.mining.com/cameco-halts-saskatchewan-uranium-operations-after-floods/",
-    "published_at": "2026-05-11T10:58:00.000Z",
-    "hash": "0057877753f09e1c",
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations"
-    ],
-    "signal_type": "regulatory",
-    "region": "canada-saskatchewan",
-    "country": "canada",
-    "tldr": "Cameco has suspended operations at McArthur River mine and Key Lake mill due to flood-disrupted supply routes in northern Saskatchewan, signaling a potential restart/recovery workforce ramp once access is restored.",
-    "operator": {
-      "name": "Cameco"
-    },
-    "hiring_entity": {
-      "name": "Cameco"
-    },
-    "project_name": "McArthur River Mine / Key Lake Mill",
-    "scope": [
-      "mine_operations",
-      "mill_operations",
-      "site_recovery"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Mine Operations Supervisor",
-        "Mill Operator",
-        "Mining Engineer",
-        "Maintenance Technician",
-        "Site Logistics Coordinator",
-        "Uranium Processing Operator"
-      ],
-      "skills": [
-        "uranium mining",
-        "mill operations",
-        "process plant",
-        "site logistics",
-        "remote site operations",
-        "maintenance"
-      ],
-      "certs_freetext": [
-        "CANDU radiation safety",
-        "blasting certificate",
-        "underground mining certification"
-      ],
-      "geo_rtw": "Canada (Saskatchewan) — must have right to work in Canada",
-      "project_experience": [
-        "Cigar Lake",
-        "Rabbit Lake",
-        "Millennium Mine"
-      ],
-      "yoe_band": "5-15",
-      "seniority": "mid-to-senior",
-      "boolean_search": "(\"McArthur River\" OR \"Key Lake\" OR \"uranium mine\" OR \"uranium mill\") AND (\"mine operator\" OR \"mill operator\" OR \"mining engineer\" OR \"maintenance technician\" OR \"process plant\") AND (\"Saskatchewan\" OR \"northern Canada\" OR \"remote site\") AND (Cameco OR \"uranium processing\" OR \"underground mining\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Cameco's McArthur River mine and Key Lake mill are temporarily halted due to Saskatchewan flooding — restart will require experienced mine/mill talent. Are you open to hearing about upcoming opportunities?",
-      "email_subject": "McArthur River / Key Lake Restart — Upcoming Talent Opportunities with Cameco",
-      "email_body": "Hi [Name],\n\nCameco has suspended operations at its McArthur River mine and Key Lake mill following flooding in northern Saskatchewan. As the situation stabilises and access routes are restored, a workforce restart will be needed across mine operations, mill processing, and site maintenance.\n\nGiven your background in [uranium mining / process plant operations / remote site work], I wanted to reach out early to gauge your interest in potential opportunities as Cameco resumes full operations.\n\nWould you be open to a brief call to discuss?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named operator (Cameco) and two named assets (McArthur River mine, Key Lake mill) are halted due to flooding, implying a near-term workforce restart/recovery demand event in the mining sector.",
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "2b68deda-7002-437f-90fb-34fcb89c8263",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "source_published_at": "2026-05-11T10:58:00.000Z",
-    "phase": "operating",
-    "phase_evidence": "Article states flooding 'disrupted supply routes' to an operational mine and mill, implying existing production assets now temporarily offline awaiting restart.",
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": [],
-    "contact_archetypes": [
-      "ops_director",
-      "hiring_manager"
     ],
     "prompt_version": "phase-targeting-v1"
   },
@@ -8542,6 +8739,69 @@
     "prompt_version": "phase-targeting-v1"
   },
   {
+    "headline": null,
+    "body": "The Korea Atomic Energy Research Institute has signed a technology transfer agreement with Arinus Co for a technology that protects cells from radiation using an antioxidant ingredient contained in citrus fruit peel.",
+    "url": "https://www.world-nuclear-news.org//articles/tangerine-peels-radiation-health-properties-",
+    "published_at": "2026-05-01T10:26:55.000Z",
+    "hash": "e53d83c209b497f1",
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "tldr": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "ec64b4e3-6f18-4df0-9b30-3a4774d8da5e",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "source_published_at": "2026-05-01T10:26:55.000Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/tangerine-peels-radiation-health-properties-"
+      }
+    ],
+    "bd_relevant": false,
+    "bd_relevance_reason": "Technology transfer agreement for a radiation-protection biotech product with no discrete workforce-demand event, no project, and no staffing or construction signal in any qualifying energy subsector.",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
     "headline": "US DOE & NRC Advance Licensing for Aalo Atomics Aalo-X SMR and Oklo Aurora Powerhouse",
     "body": "The US Department of Energy's Idaho Operations Office has approved the Documented Safety Analysis for Aalo Atomics' Aalo-X experimental reactor. Meanwhile, the US Nuclear Regulatory Commission has approved the Principal Design Criteria topical report for Oklo's Aurora powerhouse.",
     "url": "https://www.world-nuclear-news.org//articles/licensing-of-us-pilot-smrs-advances",
@@ -8942,69 +9202,6 @@
     ],
     "bd_relevant": false,
     "bd_relevance_reason": "Tech/research milestone announcement with no contract award, workforce ramp-up, or staffing-demand signal.",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "headline": null,
-    "body": "The Korea Atomic Energy Research Institute has signed a technology transfer agreement with Arinus Co for a technology that protects cells from radiation using an antioxidant ingredient contained in citrus fruit peel.",
-    "url": "https://www.world-nuclear-news.org//articles/tangerine-peels-radiation-health-properties-",
-    "published_at": "2026-05-01T10:26:55.000Z",
-    "hash": "e53d83c209b497f1",
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "tldr": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "ec64b4e3-6f18-4df0-9b30-3a4774d8da5e",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "source_published_at": "2026-05-01T10:26:55.000Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/tangerine-peels-radiation-health-properties-"
-      }
-    ],
-    "bd_relevant": false,
-    "bd_relevance_reason": "Technology transfer agreement for a radiation-protection biotech product with no discrete workforce-demand event, no project, and no staffing or construction signal in any qualifying energy subsector.",
     "phase": null,
     "phase_evidence": null,
     "outreach_readiness": null,
