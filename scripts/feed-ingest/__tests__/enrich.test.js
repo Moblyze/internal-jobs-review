@@ -254,6 +254,34 @@ test('buildPrompt embeds the new phase/readiness rules and the key_people guidan
   assert.match(p, /likely_decision_maker/)
 })
 
+test('buildPrompt embeds the construction sub-phase rubric + schema field', () => {
+  const p = buildPrompt({ headline: 'X', body: 'Y' }, mockTaxonomy, [])
+  assert.match(p, /CONSTRUCTION SUB-PHASE/)
+  assert.match(p, /rampup/)
+  assert.match(p, /peak/)
+  assert.match(p, /commissioning/)
+  assert.match(p, /"construction_subphase"/)
+})
+
+test('enrichEntry: construction_subphase lands on successful Sonnet response', async () => {
+  const sonnetPayload = {
+    ...validSonnetResponse,
+    phase: 'construction',
+    construction_subphase: 'peak',
+  }
+  const client = makeFakeClient({
+    gateText: JSON.stringify({ bd_relevant: true, reason: 'EPC award' }),
+    sonnetText: JSON.stringify(sonnetPayload),
+  })
+  const result = await enrichEntry(
+    { headline: 'Saipem hookup peak', body: 'b', source: { id: 's' } },
+    mockTaxonomy,
+    { client }
+  )
+  assert.equal(result.phase, 'construction')
+  assert.equal(result.construction_subphase, 'peak')
+})
+
 test('enrichEntry: skipGate option bypasses Haiku and calls Sonnet directly', async () => {
   const client = makeFakeClient({
     gateText: JSON.stringify({ bd_relevant: false, reason: 'should not be consulted' }),

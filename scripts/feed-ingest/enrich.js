@@ -5,9 +5,10 @@ const GATE_MODEL = 'claude-haiku-4-5-20251001'
 const MAX_TOKENS = 2048
 const GATE_MAX_TOKENS = 256
 
-export const PROMPT_VERSION = 'phase-targeting-v1'
+export const PROMPT_VERSION = 'phase-targeting-v1.1'
 
 export const PHASES = ['pre_sanction', 'sanctioned_engineering', 'construction', 'operating']
+export const CONSTRUCTION_SUBPHASES = ['rampup', 'peak', 'commissioning']
 export const READINESS = ['cold', 'warming', 'hot', 'live_now']
 export const HIRING_WINDOWS = ['now', '1-3mo', '3-6mo', '6-12mo', '12mo+', 'ongoing']
 export const HIRING_RELEVANCE = ['likely_decision_maker', 'context_only']
@@ -97,6 +98,11 @@ CONSISTENCY RULE — phase, readiness, and window must align. Allowed pairings (
   - construction → hot or live_now, window now, 1-3mo, or 3-6mo
   - operating → cold (no new ramp) OR warming/hot with window ongoing (maintenance)
 
+CONSTRUCTION SUB-PHASE — only applies when phase = "construction". Otherwise leave null. Pick exactly one:
+  - rampup: early fabrication / civil works / module assembly. Construction Managers, HSE leads, planners, early-trades supervisors hiring. Trade headcount is climbing but not at peak.
+  - peak: full-scale fabrication, installation, hookup. Maximum trade headcount: welders, fitters, riggers, electricians, I&C techs, NDT, scaffolders, rope-access. THE prime moment for contingent labor demand.
+  - commissioning: hookup complete or near-complete; pre-startup, mechanical completion, systems handover. Hiring shifts to commissioning engineers, O&M techs, control-room operators, startup specialists.
+
 KEY PEOPLE — extract individuals named in the article body WITH A TITLE. Skip generic "spokesperson" quotes.
   hiring_relevance: 'likely_decision_maker' for Project Director, Project Manager, VP Operations, Site Manager, GM, Hiring Manager, COO, head of TA.
   hiring_relevance: 'context_only' for CEO, board members, press contacts, government officials, analysts, competitors.`
@@ -170,6 +176,7 @@ OUTPUT SCHEMA (JSON only, no prose):
   "bd_relevance_reason": "one sentence explaining why this is or is not BD-relevant",
   "phase": "pre_sanction" | "sanctioned_engineering" | "construction" | "operating" | null,
   "phase_evidence": "1 sentence pointing at the article phrase that supports your phase call" | null,
+  "construction_subphase": "rampup" | "peak" | "commissioning" | null,
   "outreach_readiness": "cold" | "warming" | "hot" | "live_now" | null,
   "estimated_hiring_window": "now" | "1-3mo" | "3-6mo" | "6-12mo" | "12mo+" | "ongoing" | null,
   "key_people": [

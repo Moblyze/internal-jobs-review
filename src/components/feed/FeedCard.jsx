@@ -37,6 +37,7 @@ function PillSignal({ taxonomy, id }) {
   return <span className={`text-[11px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full ${SIGNAL_PILL[id] || 'bg-gray-100 text-gray-800'}`}>● {t.label}</span>
 }
 const SIZE_LABEL = { solo: 'Solo', small: 'Small', midsize: 'Midsize', large: 'Large', mega: 'Mega', unknown: '?' }
+const SUBPHASE_LABEL = { rampup: 'Ramp-up', peak: 'Peak', commissioning: 'Commissioning' }
 
 function SizeBadge({ tier }) {
   if (!tier || tier === 'unknown') return null
@@ -74,6 +75,11 @@ export default function FeedCard({ entry, taxonomy, pdlCache, onOperatorClick, o
         </span>
       </div>
       <h3 className="text-base font-semibold leading-snug mb-1">{entry.headline}</h3>
+      {entry.phase === 'construction' && SUBPHASE_LABEL[entry.construction_subphase] && (
+        <div className="text-xs italic text-gray-500 mb-1">
+          Construction · {SUBPHASE_LABEL[entry.construction_subphase]}
+        </div>
+      )}
       {entry.estimated_hiring_window && (
         <div className="text-xs italic text-gray-500 mb-1">
           Likely hiring: {entry.estimated_hiring_window}

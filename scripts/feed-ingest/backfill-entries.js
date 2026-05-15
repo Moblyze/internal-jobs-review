@@ -16,7 +16,12 @@ const WINDOW_DAYS = 30
 const DRY_RUN = process.argv.includes('--dry-run')
 
 function needsBackfill(entry) {
-  return entry.bd_relevant !== false && !entry.phase && !entry.prompt_version
+  if (entry.bd_relevant === false) return false
+  // v1: entries never enriched for phase
+  if (!entry.phase && !entry.prompt_version) return true
+  // v1.1: construction-phase entries that haven't been seen by v1.1
+  if (entry.phase === 'construction' && entry.prompt_version !== 'phase-targeting-v1.1') return true
+  return false
 }
 
 async function main() {
