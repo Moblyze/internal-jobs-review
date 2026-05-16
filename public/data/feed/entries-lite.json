@@ -758,39 +758,6 @@
     "estimated_hiring_window": "6-12mo"
   },
   {
-    "id": "747a1f36-c745-4c2f-8c17-47849fe4e9f2",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/gold-candle-acquires-pan-american-silvers-larder-property-in-the-abitibi/"
-      }
-    ],
-    "subsector": "mining",
-    "discipline_tags": [],
-    "signal_type": "lease_round",
-    "region": "ontario-canada",
-    "country": "canada",
-    "headline": "Gold Candle Acquires Pan American Silver's Larder Property in Ontario's Abitibi Region",
-    "operator": {
-      "name": "Gold Candle"
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": "Larder Property",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null
-  },
-  {
     "id": "c0bff2b6-1bc4-4bb9-a945-f0d0e30c4646",
     "ingested_at": "2026-05-12T12:35:36.640Z",
     "sources": [
@@ -1330,6 +1297,39 @@
     "decom_stage": null,
     "outreach_readiness": "warming",
     "estimated_hiring_window": "6-12mo"
+  },
+  {
+    "id": "747a1f36-c745-4c2f-8c17-47849fe4e9f2",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/gold-candle-acquires-pan-american-silvers-larder-property-in-the-abitibi/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [],
+    "signal_type": "lease_round",
+    "region": "ontario-canada",
+    "country": "canada",
+    "headline": "Gold Candle Acquires Pan American Silver's Larder Property in Ontario's Abitibi Region",
+    "operator": {
+      "name": "Gold Candle"
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": "Larder Property",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null
   },
   {
     "id": "748b55bd-ea39-42fa-8eed-dd3fd1cac5d8",
@@ -4028,6 +4028,39 @@
     "estimated_hiring_window": "ongoing"
   },
   {
+    "id": "2712358f-fe18-4772-a05c-1be0f6a861db",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "sources": [
+      {
+        "id": "sec_edgar_8k",
+        "name": "SEC EDGAR 8-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1697500/000119312526209192/0001193125-26-209192-index.htm"
+      }
+    ],
+    "subsector": null,
+    "discipline_tags": [],
+    "signal_type": null,
+    "region": null,
+    "country": null,
+    "headline": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null
+  },
+  {
     "id": "da3a43d3-02b5-460b-8bf8-22ac9426d0e1",
     "ingested_at": "2026-05-08T01:16:59.182Z",
     "sources": [
@@ -4225,39 +4258,6 @@
     "construction_subphase": null,
     "lifecycle_track": null,
     "decom_stage": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null
-  },
-  {
-    "id": "2712358f-fe18-4772-a05c-1be0f6a861db",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "sources": [
-      {
-        "id": "sec_edgar_8k",
-        "name": "SEC EDGAR 8-K",
-        "url": "https://www.sec.gov/Archives/edgar/data/1697500/000119312526209192/0001193125-26-209192-index.htm"
-      }
-    ],
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "headline": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": null,
     "outreach_readiness": null,
     "estimated_hiring_window": null
   }
