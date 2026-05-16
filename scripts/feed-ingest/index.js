@@ -33,6 +33,8 @@ function liteProjection(entry) {
     decom_stage: entry.decom_stage,
     outreach_readiness: entry.outreach_readiness,
     estimated_hiring_window: entry.estimated_hiring_window,
+    // Article-extracted named people — aggregated by company in modal
+    key_people: entry.key_people,
   }
 }
 
@@ -133,7 +135,12 @@ async function main() {
   // 7. Write.
   const persistedRejected = trimRejectedToWindow([...stillValidRejected, ...newlyRejected])
   await writeFile(PATHS.ENTRIES, JSON.stringify(trimmed, null, 2))
-  await writeFile(PATHS.ENTRIES_LITE, JSON.stringify(trimmed.map(liteProjection), null, 2))
+  // Filter out gated-out and BD-irrelevant entries before writing the lite file.
+  // They live in entries.json (full archive) but should never render in the SPA.
+  const liteRendered = trimmed
+    .filter(e => e.bd_relevant !== false && e.enrichment_status !== 'gated_out' && e.headline)
+    .map(liteProjection)
+  await writeFile(PATHS.ENTRIES_LITE, JSON.stringify(liteRendered, null, 2))
   await writeFile(PATHS.SOURCES, JSON.stringify(updatedSources, null, 2))
   await writeFile(PATHS.REJECTED_HASHES, JSON.stringify(persistedRejected, null, 2))
 
