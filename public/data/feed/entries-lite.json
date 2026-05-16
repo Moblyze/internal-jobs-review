@@ -530,46 +530,6 @@
     "key_people": []
   },
   {
-    "id": "4dba3920-66c3-4d22-a725-1553fb76f74b",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/iberdrola_to_invest_10b_in_brazil_through_2030-11-may-2026-183655-article/?rss=true"
-      }
-    ],
-    "subsector": "onshore-renewables",
-    "discipline_tags": [
-      "energy_trades",
-      "industrial_construction"
-    ],
-    "signal_type": "fid",
-    "region": "brazil",
-    "country": "brazil",
-    "headline": "Iberdrola/Neoenergia to Invest $10B in Brazil Energy Networks Expansion through 2030",
-    "operator": {
-      "name": "Iberdrola / Neoenergia"
-    },
-    "hiring_entity": {
-      "name": "Neoenergia"
-    },
-    "project_name": "Neoenergia Brazil Networks Expansion 2030",
-    "mob_window": {
-      "start": "2025-Q3",
-      "end": "2030-Q4",
-      "duration_months": 66
-    },
-    "contract_value_usd": 10210000000,
-    "phase": "sanctioned_engineering",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": []
-  },
-  {
     "id": "ce7f00b1-fd73-4843-bce7-75e16880141d",
     "ingested_at": "2026-05-12T12:35:36.640Z",
     "sources": [
@@ -607,6 +567,46 @@
     "decom_stage": null,
     "outreach_readiness": "cold",
     "estimated_hiring_window": "ongoing",
+    "key_people": []
+  },
+  {
+    "id": "4dba3920-66c3-4d22-a725-1553fb76f74b",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/iberdrola_to_invest_10b_in_brazil_through_2030-11-may-2026-183655-article/?rss=true"
+      }
+    ],
+    "subsector": "onshore-renewables",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction"
+    ],
+    "signal_type": "fid",
+    "region": "brazil",
+    "country": "brazil",
+    "headline": "Iberdrola/Neoenergia to Invest $10B in Brazil Energy Networks Expansion through 2030",
+    "operator": {
+      "name": "Iberdrola / Neoenergia"
+    },
+    "hiring_entity": {
+      "name": "Neoenergia"
+    },
+    "project_name": "Neoenergia Brazil Networks Expansion 2030",
+    "mob_window": {
+      "start": "2025-Q3",
+      "end": "2030-Q4",
+      "duration_months": 66
+    },
+    "contract_value_usd": 10210000000,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
     "key_people": []
   },
   {

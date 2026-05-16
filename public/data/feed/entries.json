@@ -2083,30 +2083,36 @@
   {
     "sources": [
       {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/gold-candle-acquires-pan-american-silvers-larder-property-in-the-abitibi/"
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/equinor_starts_gas_production_at_eirin_in_norwegian_north_sea-10-may-2026-183650-article/?rss=true"
       }
     ],
-    "headline": "Gold Candle Acquires Pan American Silver's Larder Property in Ontario's Abitibi Region",
-    "body": "Gold Candle announced it will acquire all the assets that comprise Pan American Silver’s (TSX: PAAS) Larder property in the Abitibi region of Ontario, Canada for 15,000,000 common shares, which will result […]",
-    "url": "https://www.mining.com/gold-candle-acquires-pan-american-silvers-larder-property-in-the-abitibi/",
-    "published_at": "2026-05-11T20:25:47.000Z",
-    "hash": "ee2d1ff3ea3246c3",
-    "subsector": "mining",
-    "discipline_tags": [],
-    "signal_type": "lease_round",
-    "region": "ontario-canada",
-    "country": "canada",
-    "tldr": null,
+    "headline": "Equinor Brings Eirin Gas Field Onstream in Norwegian North Sea via Tieback",
+    "body": "Equinor ASA has put onstream the Eirin field in the North Sea, growing Norway's capacity to export natural gas to Europe.\n\r\n\r\nThe tieback development h...",
+    "url": "https://www.rigzone.com/news/equinor_starts_gas_production_at_eirin_in_norwegian_north_sea-10-may-2026-183650-article/?rss=true",
+    "published_at": "2026-05-10T11:00:00.000Z",
+    "hash": "d094b612783e5cbb",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "process_plant_operations",
+      "marine_offshore_ops"
+    ],
+    "signal_type": "regulatory",
+    "region": "norwegian-north-sea",
+    "country": "norway",
+    "tldr": "Equinor has brought the Eirin tieback field onstream in the Norwegian North Sea. Project is now operational; any hiring demand is limited to ongoing maintenance and operations roles.",
     "operator": {
-      "name": "Gold Candle"
+      "name": "Equinor"
     },
     "hiring_entity": {
       "name": null
     },
-    "project_name": "Larder Property",
-    "scope": [],
+    "project_name": "Eirin",
+    "scope": [
+      "tieback",
+      "gas_production"
+    ],
     "mob_window": {
       "start": null,
       "end": null,
@@ -2114,34 +2120,61 @@
     },
     "contract_value_usd": null,
     "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
+      "job_titles_freetext": [
+        "Offshore Operations Technician",
+        "Production Operator",
+        "Maintenance Engineer",
+        "Process Engineer",
+        "Subsea Engineer"
+      ],
+      "skills": [
+        "gas production",
+        "tieback operations",
+        "process operations",
+        "subsea systems",
+        "offshore maintenance"
+      ],
+      "certs_freetext": [
+        "BOSIET",
+        "NOROG",
+        "Norwegian Offshore Medic"
+      ],
+      "geo_rtw": "Norway / EEA work-eligible",
+      "project_experience": [
+        "Aasta Hansteen",
+        "Snohvit",
+        "Gullfaks",
+        "Oseberg"
+      ],
+      "yoe_band": "5-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"Production Operator\" OR \"Offshore Operator\" OR \"Process Technician\" OR \"Maintenance Engineer\") AND (\"Norwegian North Sea\" OR \"NCS\" OR \"Equinor\") AND (\"gas production\" OR \"tieback\" OR \"subsea\")"
     },
     "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
+      "linkedin_inmail": "Hi [Name], Equinor's Eirin gas field has just come onstream in the Norwegian North Sea. If you're open to ongoing ops/maintenance roles on the NCS, I'd love to connect.",
+      "email_subject": "Equinor Eirin Field – Ongoing Ops & Maintenance Roles, Norwegian North Sea",
+      "email_body": "Hi [Name],\n\nEquinor has just brought the Eirin gas tieback field onstream in the Norwegian North Sea. With the field now producing, there is ongoing demand for experienced production operators, maintenance engineers, and process technicians familiar with NCS operations.\n\nIf you are open to exploring opportunities on the Norwegian Continental Shelf, I'd welcome a brief conversation.\n\nBest regards,\n[Your Name]"
     },
-    "bd_relevant": false,
-    "bd_relevance_reason": "This is an M&A/asset acquisition deal with no FID, contract award, or named workforce ramp-up event that signals discrete labor demand at the Larder property.",
+    "bd_relevant": true,
+    "bd_relevance_reason": "Field brought onstream by named operator (Equinor) on a named project (Eirin), indicating transition to operating phase with ongoing maintenance and operations staffing demand.",
     "enrichment_status": "ok",
     "enrichment_model": "claude-sonnet-4-6",
-    "id": "747a1f36-c745-4c2f-8c17-47849fe4e9f2",
+    "id": "ce7f00b1-fd73-4843-bce7-75e16880141d",
     "ingested_at": "2026-05-12T12:35:36.640Z",
-    "source_published_at": "2026-05-11T20:25:47.000Z",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
+    "source_published_at": "2026-05-10T11:00:00.000Z",
+    "phase": "operating",
+    "phase_evidence": "Article states Equinor 'has put onstream the Eirin field,' confirming the asset is now in production.",
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "ongoing",
     "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
+    "contact_archetypes": [
+      "ops_director",
+      "hiring_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null
   },
   {
     "sources": [
@@ -2241,102 +2274,6 @@
       "project_manager",
       "hiring_manager",
       "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1.2",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null
-  },
-  {
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/equinor_starts_gas_production_at_eirin_in_norwegian_north_sea-10-may-2026-183650-article/?rss=true"
-      }
-    ],
-    "headline": "Equinor Brings Eirin Gas Field Onstream in Norwegian North Sea via Tieback",
-    "body": "Equinor ASA has put onstream the Eirin field in the North Sea, growing Norway's capacity to export natural gas to Europe.\n\r\n\r\nThe tieback development h...",
-    "url": "https://www.rigzone.com/news/equinor_starts_gas_production_at_eirin_in_norwegian_north_sea-10-may-2026-183650-article/?rss=true",
-    "published_at": "2026-05-10T11:00:00.000Z",
-    "hash": "d094b612783e5cbb",
-    "subsector": "offshore-og",
-    "discipline_tags": [
-      "process_plant_operations",
-      "marine_offshore_ops"
-    ],
-    "signal_type": "regulatory",
-    "region": "norwegian-north-sea",
-    "country": "norway",
-    "tldr": "Equinor has brought the Eirin tieback field onstream in the Norwegian North Sea. Project is now operational; any hiring demand is limited to ongoing maintenance and operations roles.",
-    "operator": {
-      "name": "Equinor"
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": "Eirin",
-    "scope": [
-      "tieback",
-      "gas_production"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Offshore Operations Technician",
-        "Production Operator",
-        "Maintenance Engineer",
-        "Process Engineer",
-        "Subsea Engineer"
-      ],
-      "skills": [
-        "gas production",
-        "tieback operations",
-        "process operations",
-        "subsea systems",
-        "offshore maintenance"
-      ],
-      "certs_freetext": [
-        "BOSIET",
-        "NOROG",
-        "Norwegian Offshore Medic"
-      ],
-      "geo_rtw": "Norway / EEA work-eligible",
-      "project_experience": [
-        "Aasta Hansteen",
-        "Snohvit",
-        "Gullfaks",
-        "Oseberg"
-      ],
-      "yoe_band": "5-15",
-      "seniority": "mid-senior",
-      "boolean_search": "(\"Production Operator\" OR \"Offshore Operator\" OR \"Process Technician\" OR \"Maintenance Engineer\") AND (\"Norwegian North Sea\" OR \"NCS\" OR \"Equinor\") AND (\"gas production\" OR \"tieback\" OR \"subsea\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Equinor's Eirin gas field has just come onstream in the Norwegian North Sea. If you're open to ongoing ops/maintenance roles on the NCS, I'd love to connect.",
-      "email_subject": "Equinor Eirin Field – Ongoing Ops & Maintenance Roles, Norwegian North Sea",
-      "email_body": "Hi [Name],\n\nEquinor has just brought the Eirin gas tieback field onstream in the Norwegian North Sea. With the field now producing, there is ongoing demand for experienced production operators, maintenance engineers, and process technicians familiar with NCS operations.\n\nIf you are open to exploring opportunities on the Norwegian Continental Shelf, I'd welcome a brief conversation.\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Field brought onstream by named operator (Equinor) on a named project (Eirin), indicating transition to operating phase with ongoing maintenance and operations staffing demand.",
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "ce7f00b1-fd73-4843-bce7-75e16880141d",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "source_published_at": "2026-05-10T11:00:00.000Z",
-    "phase": "operating",
-    "phase_evidence": "Article states Equinor 'has put onstream the Eirin field,' confirming the asset is now in production.",
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "ongoing",
-    "key_people": [],
-    "contact_archetypes": [
-      "ops_director",
-      "hiring_manager"
     ],
     "prompt_version": "phase-targeting-v1.2",
     "construction_subphase": null,
@@ -3214,6 +3151,69 @@
     "construction_subphase": null,
     "lifecycle_track": "greenfield",
     "decom_stage": null
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/gold-candle-acquires-pan-american-silvers-larder-property-in-the-abitibi/"
+      }
+    ],
+    "headline": "Gold Candle Acquires Pan American Silver's Larder Property in Ontario's Abitibi Region",
+    "body": "Gold Candle announced it will acquire all the assets that comprise Pan American Silver’s (TSX: PAAS) Larder property in the Abitibi region of Ontario, Canada for 15,000,000 common shares, which will result […]",
+    "url": "https://www.mining.com/gold-candle-acquires-pan-american-silvers-larder-property-in-the-abitibi/",
+    "published_at": "2026-05-11T20:25:47.000Z",
+    "hash": "ee2d1ff3ea3246c3",
+    "subsector": "mining",
+    "discipline_tags": [],
+    "signal_type": "lease_round",
+    "region": "ontario-canada",
+    "country": "canada",
+    "tldr": null,
+    "operator": {
+      "name": "Gold Candle"
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": "Larder Property",
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "bd_relevant": false,
+    "bd_relevance_reason": "This is an M&A/asset acquisition deal with no FID, contract award, or named workforce ramp-up event that signals discrete labor demand at the Larder property.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "747a1f36-c745-4c2f-8c17-47849fe4e9f2",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "source_published_at": "2026-05-11T20:25:47.000Z",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
   },
   {
     "sources": [
