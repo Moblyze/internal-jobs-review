@@ -75,6 +75,36 @@ function daysAgo(iso) {
   return mo === 1 ? '1mo ago' : `${mo}mo ago`
 }
 
+const US_STATE_ABBREV = {
+  Alabama: 'AL', Alaska: 'AK', Arizona: 'AZ', Arkansas: 'AR', California: 'CA',
+  Colorado: 'CO', Connecticut: 'CT', Delaware: 'DE', Florida: 'FL', Georgia: 'GA',
+  Hawaii: 'HI', Idaho: 'ID', Illinois: 'IL', Indiana: 'IN', Iowa: 'IA',
+  Kansas: 'KS', Kentucky: 'KY', Louisiana: 'LA', Maine: 'ME', Maryland: 'MD',
+  Massachusetts: 'MA', Michigan: 'MI', Minnesota: 'MN', Mississippi: 'MS', Missouri: 'MO',
+  Montana: 'MT', Nebraska: 'NE', Nevada: 'NV', 'New Hampshire': 'NH', 'New Jersey': 'NJ',
+  'New Mexico': 'NM', 'New York': 'NY', 'North Carolina': 'NC', 'North Dakota': 'ND', Ohio: 'OH',
+  Oklahoma: 'OK', Oregon: 'OR', Pennsylvania: 'PA', 'Rhode Island': 'RI', 'South Carolina': 'SC',
+  'South Dakota': 'SD', Tennessee: 'TN', Texas: 'TX', Utah: 'UT', Vermont: 'VT',
+  Virginia: 'VA', Washington: 'WA', 'West Virginia': 'WV', Wisconsin: 'WI', Wyoming: 'WY',
+  'District of Columbia': 'DC',
+}
+
+function formatHq(loc) {
+  if (!loc) return null
+  const city = loc.locality || null
+  const region = loc.region || null
+  const country = loc.country || null
+  const isUS = country === 'United States' || country === 'US' || country === 'USA'
+  const regionDisplay = isUS && region ? (US_STATE_ABBREV[region] || region) : region
+  // US: "Houston, TX" (drop the redundant "United States")
+  // Non-US with region: "Aberdeen, Scotland, United Kingdom"
+  // Non-US no region: "Paris, France"
+  if (isUS) {
+    return [city, regionDisplay].filter(Boolean).join(', ') || null
+  }
+  return [city, regionDisplay, country].filter(Boolean).join(', ') || null
+}
+
 function mapWorkerResponseToOverview(data) {
   if (!data || data._empty) return null
   return {
@@ -84,6 +114,7 @@ function mapWorkerResponseToOverview(data) {
     founded: data.founded || null,
     location: {
       locality: data.location?.locality || null,
+      region: data.location?.region || null,
       country: data.location?.country || null,
     },
     ticker: data.ticker || null,
@@ -360,15 +391,14 @@ export default function CompanyCardModal({ slug, name, entryId, onClose }) {
             {!overviewLoading && overviewEmpty && !noPublicRecords && !overview && (
               <div className="text-xs text-gray-400 mb-3 italic">No public company data available.</div>
             )}
-            <div className="grid grid-cols-2 gap-2 mb-4 text-sm">
+            <div className="grid grid-cols-[3fr_2fr] gap-x-3 gap-y-2 mb-4 text-sm">
               {overview?.size && <div>
                 <div className="text-[10px] uppercase font-semibold text-gray-400">Headcount</div>
                 <div className="font-semibold">{overview.employee_count ? overview.employee_count.toLocaleString() : overview.size}</div>
                 {overview.employee_count && <div className="text-[10px] text-gray-400">{overview.size} range</div>}
               </div>}
               {overview?.founded && <div><div className="text-[10px] uppercase font-semibold text-gray-400">Founded</div><div className="font-semibold">{overview.founded}</div></div>}
-              {overview?.location?.locality && <div><div className="text-[10px] uppercase font-semibold text-gray-400">HQ</div><div className="font-medium">{overview.location.locality}{overview.location.country ? `, ${overview.location.country}` : ''}</div></div>}
-              {overview?.ticker && <div><div className="text-[10px] uppercase font-semibold text-gray-400">Ticker</div><div className="font-semibold">{overview.ticker.toUpperCase()}</div></div>}
+              {overview?.location?.locality && <div><div className="text-[10px] uppercase font-semibold text-gray-400">HQ</div><div className="font-medium">{formatHq(overview.location)}</div></div>}
               <div>
                 <div className="text-[10px] uppercase font-semibold text-gray-400">Live jobs</div>
                 {activeJobs > 0 ? (
@@ -379,6 +409,7 @@ export default function CompanyCardModal({ slug, name, entryId, onClose }) {
                   <div className="font-medium text-gray-300">—</div>
                 )}
               </div>
+              {overview?.ticker && <div><div className="text-[10px] uppercase font-semibold text-gray-400">Ticker</div><div className="font-semibold">{overview.ticker.toUpperCase()}</div></div>}
             </div>
             {overview?.summary && (
               <div className="mb-3">
@@ -393,29 +424,19 @@ export default function CompanyCardModal({ slug, name, entryId, onClose }) {
                 ))}
               </div>
             )}
-            {countries.length > 0 && (
-              <div className="mb-3">
-                <div className="text-[10px] uppercase font-semibold text-gray-400 mb-1">Operates in</div>
-                <div className="flex flex-wrap gap-1">
-                  {countries.map(c => (
-                    <span key={c} className="text-[10px] bg-emerald-50 text-emerald-800 border border-emerald-200 px-2 py-0.5 rounded-full">{prettySlug(c)}</span>
-                  ))}
-                </div>
-              </div>
-            )}
-            {subsectors.length > 0 && (
-              <div className="mb-3">
-                <div className="text-[10px] uppercase font-semibold text-gray-400 mb-1">Sub-sectors</div>
-                <div className="flex flex-wrap gap-1">
-                  {subsectors.map(s => (
-                    <span key={s} className="text-[10px] bg-violet-50 text-violet-800 border border-violet-200 px-2 py-0.5 rounded-full">{prettySlug(s)}</span>
-                  ))}
-                </div>
-              </div>
-            )}
             {bdSignals.length > 0 && (
               <div className="mb-1">
-                <div className="text-[10px] uppercase font-semibold text-gray-400 mb-1">Recent BD signals ({bdSignals.length})</div>
+                <div className="text-[10px] uppercase font-semibold text-gray-400 mb-1.5">Recent BD signals ({bdSignals.length})</div>
+                {(countries.length > 0 || subsectors.length > 0) && (
+                  <div className="flex flex-wrap gap-1 mb-2">
+                    {countries.map(c => (
+                      <span key={`c-${c}`} className="text-[10px] bg-emerald-50 text-emerald-800 border border-emerald-200 px-2 py-0.5 rounded-full">{prettySlug(c)}</span>
+                    ))}
+                    {subsectors.map(s => (
+                      <span key={`s-${s}`} className="text-[10px] bg-violet-50 text-violet-800 border border-violet-200 px-2 py-0.5 rounded-full">{prettySlug(s)}</span>
+                    ))}
+                  </div>
+                )}
                 <div className="flex flex-col gap-2 max-h-[280px] overflow-y-auto pr-1">
                   {bdSignals.slice(0, 8).map(e => (
                     <div key={e.id} className="text-xs border-l-2 border-indigo-200 pl-2">
