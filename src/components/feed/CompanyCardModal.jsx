@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { logTelemetry, postContactFeedback, enrichPerson } from '../../hooks/usePdlContacts'
 
-const COMPANY_CACHE_URL = `${import.meta.env.BASE_URL || '/'}data/pdl-company-cache.json`
 const FILTER_OPTIONS_URL = `${import.meta.env.BASE_URL || '/'}data/filter-options.json`
 const DECISION_MAKERS_URL = `${import.meta.env.BASE_URL || '/'}data/feed/decision_makers.json`
 const WORKER_BASE = import.meta.env.VITE_WORKER_BASE || 'https://pdl-company-feed.jesse-82d.workers.dev'
@@ -228,36 +227,31 @@ export default function CompanyCardModal({ slug, name, entryId, onClose }) {
     setNoPublicRecords(false)
     setOverviewLoading(false)
     setAgentContacts([])
-    Promise.all([fetch(COMPANY_CACHE_URL).then(r => r.json()).catch(() => ({})),
-                 fetch(FILTER_OPTIONS_URL).then(r => r.json()).catch(() => ({})),
+    setOverviewLoading(true)
+    Promise.all([fetch(FILTER_OPTIONS_URL).then(r => r.json()).catch(() => ({})),
                  fetch(DECISION_MAKERS_URL).then(r => r.json()).catch(() => ({}))])
-      .then(([cache, filterOpts, decisionMakers]) => {
+      .then(([filterOpts, decisionMakers]) => {
         const dmEntry = decisionMakers?.[name?.toLowerCase()] || null
         setAgentContacts(Array.isArray(dmEntry?.contacts) ? dmEntry.contacts : [])
-        const localHit = cache?.[name] || cache?.[name.toLowerCase()] || null
         const c = (filterOpts.companies || []).find(c => c.name?.toLowerCase() === name.toLowerCase())
         setActiveJobs(c?.count || 0)
-
-        if (localHit) {
-          setOverview(localHit)
-        } else {
-          // Local cache miss — try live Worker fetch
-          setOverviewLoading(true)
-          fetch(`${WORKER_BASE}/api/company/${encodeURIComponent(name)}`)
-            .then(r => r.json())
-            .then(data => {
-              const mapped = mapWorkerResponseToOverview(data)
-              setOverview(mapped)
-              setOverviewEmpty(!mapped)
-              setNoPublicRecords(data?.error === 'no_public_records')
-              setOverviewLoading(false)
-            })
-            .catch(() => {
-              setOverview(null)
-              setOverviewEmpty(true)
-              setOverviewLoading(false)
-            })
-        }
+      })
+    // Always hit the Worker for company overview — the cascade (Wikidata/EDGAR/
+    // Companies House/GLEIF/Brreg/EPA FRS → PDL backstop) is the source of truth.
+    // Worker caches results in KV for 90d, so subsequent opens are instant.
+    fetch(`${WORKER_BASE}/api/company/${encodeURIComponent(name)}`)
+      .then(r => r.json())
+      .then(data => {
+        const mapped = mapWorkerResponseToOverview(data)
+        setOverview(mapped)
+        setOverviewEmpty(!mapped)
+        setNoPublicRecords(data?.error === 'no_public_records')
+        setOverviewLoading(false)
+      })
+      .catch(() => {
+        setOverview(null)
+        setOverviewEmpty(true)
+        setOverviewLoading(false)
       })
     logTelemetry({ type: 'company_card_open', company: name, slug })
   }, [name])
