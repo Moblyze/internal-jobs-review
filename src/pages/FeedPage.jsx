@@ -74,14 +74,6 @@ export default function FeedPage() {
           />
         ))}
 
-        {!loading && filters.timeRange !== 'all' && (
-          <button
-            onClick={() => setFilters({ ...filters, timeRange: filters.timeRange === '30d' ? '90d' : 'all' })}
-            className="text-sm text-blue-600 hover:underline mt-4"
-          >
-            View older →
-          </button>
-        )}
       </div>
 
       <ComingSoonSection />

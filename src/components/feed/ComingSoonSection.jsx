@@ -3,8 +3,8 @@ const ROADMAP = [
   { id: 'saved-presets', title: 'Saved & "my patch" filter presets', desc: 'Save a filter combination as a named preset. Personalize for each recruiter\'s desk.' },
   { id: 'vessel-tracking', title: 'Vessel-tracking signals', desc: 'Heavy-lift, cable-lay, and DSV/CSV vessel mobilizations from Marine Traffic. Catches crewing windows 30-45 days before press releases.' },
   { id: 'paid-sources', title: 'Paid trade sources', desc: 'Upstream Online, MEED, Mining Journal once we evaluate a shared agency seat.' },
-  { id: 'per-contact-outreach', title: 'Per-contact personalized outreach', desc: 'Tailored InMail and email drafts for each TA contact based on their tenure, region, and projects shipped.' },
-  { id: 'company-prebake', title: 'Pre-baked company cards', desc: 'After a PDL plan upgrade, top-N most-clicked companies refresh quarterly so card opens are instant for high-traffic targets.' },
+  { id: 'outreach-drafts', title: 'Per-contact outreach drafts', desc: 'Tailored InMail and email drafts for each decision-maker, primed with their tenure, region, and the specific BD signal that triggered the card.' },
+  { id: 'bulk-enrich', title: 'One-click bulk contact enrichment', desc: 'Look up email + phone for every contact on a company card in one shot, with a credit estimate up front.' },
 ]
 
 export default function ComingSoonSection() {
