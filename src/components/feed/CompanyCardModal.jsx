@@ -225,7 +225,7 @@ function AgentContactCard({ p, companyName, entryId, companyDomain }) {
             {!enriching && !enrichError && (
               <button
                 onClick={handleFindContact}
-                title="Looks up work email + direct phone via Hunter Email Finder (1 credit). Falls back to PDL Person Enrichment if Hunter has no match. Cached 30 days."
+                title="Looks up work email + direct phone via Hunter Email Finder (1 credit). Falls back to PDL Person Enrichment if Hunter has no match. Cached 90 days; re-tried after 24h if no contact info found."
                 className="text-blue-700 hover:underline"
               >
                 Find contact info →
@@ -238,7 +238,7 @@ function AgentContactCard({ p, companyName, entryId, companyDomain }) {
             {enrichError === 'error' && (
               <button
                 onClick={handleFindContact}
-                title="Looks up work email + direct phone via Hunter Email Finder (1 credit). Falls back to PDL Person Enrichment if Hunter has no match. Cached 30 days."
+                title="Looks up work email + direct phone via Hunter Email Finder (1 credit). Falls back to PDL Person Enrichment if Hunter has no match. Cached 90 days; re-tried after 24h if no contact info found."
                 className="text-blue-700 hover:underline"
               >
                 Lookup failed — retry
