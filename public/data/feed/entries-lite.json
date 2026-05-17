@@ -530,46 +530,6 @@
     "key_people": []
   },
   {
-    "id": "ce7f00b1-fd73-4843-bce7-75e16880141d",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/equinor_starts_gas_production_at_eirin_in_norwegian_north_sea-10-may-2026-183650-article/?rss=true"
-      }
-    ],
-    "subsector": "offshore-og",
-    "discipline_tags": [
-      "process_plant_operations",
-      "marine_offshore_ops"
-    ],
-    "signal_type": "regulatory",
-    "region": "norwegian-north-sea",
-    "country": "norway",
-    "headline": "Equinor Brings Eirin Gas Field Onstream in Norwegian North Sea via Tieback",
-    "operator": {
-      "name": "Equinor"
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": "Eirin",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "operating",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "ongoing",
-    "key_people": []
-  },
-  {
     "id": "4dba3920-66c3-4d22-a725-1553fb76f74b",
     "ingested_at": "2026-05-12T12:35:36.640Z",
     "sources": [
@@ -607,6 +567,46 @@
     "decom_stage": null,
     "outreach_readiness": "warming",
     "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
+    "id": "ce7f00b1-fd73-4843-bce7-75e16880141d",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/equinor_starts_gas_production_at_eirin_in_norwegian_north_sea-10-may-2026-183650-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "process_plant_operations",
+      "marine_offshore_ops"
+    ],
+    "signal_type": "regulatory",
+    "region": "norwegian-north-sea",
+    "country": "norway",
+    "headline": "Equinor Brings Eirin Gas Field Onstream in Norwegian North Sea via Tieback",
+    "operator": {
+      "name": "Equinor"
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": "Eirin",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "operating",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "ongoing",
     "key_people": []
   },
   {
