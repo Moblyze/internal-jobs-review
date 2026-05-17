@@ -26,7 +26,8 @@
     "generate-matrix": "node scripts/generate-source-matrix.js",
     "deduplicate-sheet": "node scripts/deduplicate-sheet.js",
     "format-overview": "node scripts/format-overview-sheet.js",
-    "ingest-feed": "node scripts/feed-ingest/index.js"
+    "ingest-feed": "node scripts/feed-ingest/index.js",
+    "discover-decision-makers": "node scripts/discover-decision-makers.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.74.0",

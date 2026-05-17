@@ -1,11 +1,37 @@
 // src/components/feed/CompanyCardModal.jsx
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { usePdlContacts, logTelemetry, postContactFeedback, checkContactsCached } from '../../hooks/usePdlContacts'
+import { usePdlContacts, logTelemetry, postContactFeedback, checkContactsCached, enrichPerson } from '../../hooks/usePdlContacts'
 
 const COMPANY_CACHE_URL = `${import.meta.env.BASE_URL || '/'}data/pdl-company-cache.json`
 const FILTER_OPTIONS_URL = `${import.meta.env.BASE_URL || '/'}data/filter-options.json`
+const DECISION_MAKERS_URL = `${import.meta.env.BASE_URL || '/'}data/feed/decision_makers.json`
 const WORKER_BASE = import.meta.env.VITE_WORKER_BASE || 'https://pdl-company-feed.jesse-82d.workers.dev'
+
+const PERSONA_LABELS = {
+  ta: 'TA',
+  hr: 'HR',
+  operations: 'OPS',
+  project: 'PRJ',
+  crewing: 'CRW',
+  other: 'OTH',
+}
+const PERSONA_LABELS_FULL = {
+  ta: 'Talent Acquisition',
+  hr: 'HR',
+  operations: 'Operations',
+  project: 'Project',
+  crewing: 'Crewing',
+  other: 'Other',
+}
+const PERSONA_BADGE_CLASS = {
+  ta: 'bg-violet-100 text-violet-800',
+  hr: 'bg-blue-100 text-blue-800',
+  operations: 'bg-green-100 text-green-800',
+  project: 'bg-amber-100 text-amber-800',
+  crewing: 'bg-teal-100 text-teal-800',
+  other: 'bg-gray-100 text-gray-700',
+}
 
 function mapWorkerResponseToOverview(data) {
   if (!data || data._empty) return null
@@ -28,7 +54,13 @@ function mapWorkerResponseToOverview(data) {
 }
 
 function letterAvatar(name) {
-  return (name || '?').split(/\s+/).slice(0, 2).map(s => s[0]?.toUpperCase()).filter(Boolean).join('')
+  // Strip nicknames/parentheticals/punctuation; take first letter of first two real word tokens.
+  const tokens = (name || '?')
+    .replace(/\([^)]*\)/g, ' ')
+    .split(/\s+/)
+    .map(t => t.replace(/[^A-Za-z]/g, ''))
+    .filter(Boolean)
+  return tokens.slice(0, 2).map(t => t[0].toUpperCase()).join('') || '?'
 }
 
 function ContactCard({ p, companyName, entryId }) {
@@ -50,7 +82,6 @@ function ContactCard({ p, companyName, entryId }) {
 
   return (
     <div className="bg-white border border-gray-200 rounded-lg p-3 flex gap-3 items-start">
-      <div className="w-10 h-10 rounded-md bg-indigo-100 text-indigo-700 font-semibold text-sm inline-flex items-center justify-center shrink-0">{letterAvatar(p.full_name)}</div>
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 flex-wrap">
           <span className="text-sm font-semibold text-gray-900">{p.full_name}</span>
@@ -94,6 +125,144 @@ function ContactCard({ p, companyName, entryId }) {
   )
 }
 
+function AgentContactCard({ p, companyName, entryId, companyDomain }) {
+  const [feedback, setFeedback] = useState(null)
+  const [enriched, setEnriched] = useState(null) // { email, phone, source, confidence, cached } | null
+  const [enriching, setEnriching] = useState(false)
+  const [enrichError, setEnrichError] = useState(null) // 'daily_cap' | 'credits_exhausted' | 'not_found' | 'error' | null
+  const persona = (p.persona || 'other').toLowerCase()
+  const badgeClass = PERSONA_BADGE_CLASS[persona] || PERSONA_BADGE_CLASS.other
+  const personaLabel = PERSONA_LABELS[persona] || persona
+  const personaLabelFull = PERSONA_LABELS_FULL[persona] || persona
+
+  const effectiveEmail = enriched?.email || p.email
+  const effectivePhone = enriched?.phone || p.phone
+
+  async function handleFindContact() {
+    if (enriching) return
+    setEnriching(true)
+    setEnrichError(null)
+    const linkedin = p.source_url && /linkedin\.com/i.test(p.source_url) ? p.source_url : null
+    const result = await enrichPerson({ linkedin_url: linkedin, name: p.name, company: companyName, domain: companyDomain })
+    setEnriching(false)
+    if (result?.error) {
+      setEnrichError(result.error === 'daily_cap' || result.error === 'credits_exhausted' ? result.error : 'error')
+      return
+    }
+    if (!result?.email && !result?.phone) {
+      setEnrichError('not_found')
+      return
+    }
+    setEnriched(result)
+  }
+
+  function handleFeedback(signal) {
+    if (feedback === signal) return
+    setFeedback(signal)
+    postContactFeedback({
+      company: companyName,
+      contact_id: p.source_url || p.name || null,
+      contact_title: p.title || null,
+      signal,
+      entry_id: entryId || null,
+      source: 'agent',
+    })
+  }
+
+  const linkedinUrl = p.source_url && /linkedin\.com/i.test(p.source_url) ? p.source_url : null
+  const sourceUrl = p.source_url || null
+
+  return (
+    <div className="bg-white border border-gray-200 rounded-lg p-3">
+      <div className="min-w-0">
+        <div className="flex items-center gap-2 flex-wrap">
+          <span className="text-sm font-semibold text-gray-900">{p.name}</span>
+          <span title={personaLabelFull} className={`text-[10px] font-semibold uppercase tracking-wider ${badgeClass} px-1.5 py-0.5 rounded shrink-0`}>{personaLabel}</span>
+        </div>
+        <div className="text-[13px] text-gray-700">{p.title}</div>
+        {(effectiveEmail || effectivePhone || p.location) && (
+          <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-0.5 text-[12px]">
+            {effectiveEmail && (
+              <a href={`mailto:${effectiveEmail}`} className="text-blue-700 hover:underline inline-flex items-center gap-1 min-w-0 max-w-full">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="shrink-0"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+                <span className="truncate">{effectiveEmail}</span>
+                {enriched?.source === 'hunter' && enriched?.confidence !== null && enriched?.confidence !== undefined && (
+                  <span className="text-[10px] text-gray-400 shrink-0">({enriched.confidence}% via Hunter)</span>
+                )}
+                {enriched?.source === 'pdl' && (
+                  <span className="text-[10px] text-gray-400 shrink-0">(via PDL)</span>
+                )}
+              </a>
+            )}
+            {effectivePhone && (
+              <a href={`tel:${effectivePhone}`} className="text-gray-700 hover:underline inline-flex items-center gap-1 shrink-0">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="shrink-0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                {effectivePhone}
+              </a>
+            )}
+            {p.location && (
+              <span className="text-gray-500 inline-flex items-center gap-1 shrink-0">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="shrink-0"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                {p.location}
+              </span>
+            )}
+          </div>
+        )}
+        {!effectiveEmail && (
+          <div className="mt-1 text-[11px]">
+            {!enriching && !enrichError && (
+              <button onClick={handleFindContact} className="text-blue-700 hover:underline">
+                Find contact info →
+              </button>
+            )}
+            {enriching && <span className="text-gray-400">Looking up contact info…</span>}
+            {enrichError === 'not_found' && <span className="text-gray-400 italic">No contact info found.</span>}
+            {enrichError === 'daily_cap' && <span className="text-amber-700">Daily lookup cap reached — try tomorrow.</span>}
+            {enrichError === 'credits_exhausted' && <span className="text-red-700">Credits exhausted.</span>}
+            {enrichError === 'error' && (
+              <button onClick={handleFindContact} className="text-blue-700 hover:underline">
+                Lookup failed — retry
+              </button>
+            )}
+          </div>
+        )}
+        <div className="mt-2 flex items-end justify-between gap-3">
+          <div className="flex items-center gap-3 flex-wrap min-w-0">
+            {linkedinUrl && (
+              <a href={linkedinUrl.startsWith('http') ? linkedinUrl : `https://${linkedinUrl}`} target="_blank" rel="noopener noreferrer" title="Open LinkedIn profile"
+                 className="text-[12px] text-[#0a66c2] hover:underline inline-flex items-center gap-1">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="shrink-0"><path d="M19 0h-14C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73c-.97 0-1.75-.79-1.75-1.75 0-.97.78-1.75 1.75-1.75s1.75.78 1.75 1.75c0 .96-.78 1.75-1.75 1.75zM20 19h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97V19h-3V8h2.88v1.5h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.6V19z"/></svg>
+                LinkedIn ↗
+              </a>
+            )}
+            {sourceUrl && !linkedinUrl && (
+              <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="text-[12px] text-blue-700 hover:underline">
+                Source ↗
+              </a>
+            )}
+          </div>
+          <div className="flex items-center gap-2 shrink-0">
+            <button
+              title="Mark as relevant target"
+              onClick={() => handleFeedback('up')}
+              className={`inline-flex items-center justify-center transition-colors ${feedback === 'up' ? 'text-green-600' : 'text-gray-300 hover:text-gray-500'}`}
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+            </button>
+            <button
+              title="Mark as wrong target"
+              onClick={() => handleFeedback('down')}
+              className={`inline-flex items-center justify-center transition-colors ${feedback === 'down' ? 'text-red-600' : 'text-gray-300 hover:text-gray-500'}`}
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function CompanyCardModal({ slug, name, entryId, onClose }) {
   const [overview, setOverview] = useState(null)
   const [overviewLoading, setOverviewLoading] = useState(false)
@@ -101,6 +270,7 @@ export default function CompanyCardModal({ slug, name, entryId, onClose }) {
   const [noPublicRecords, setNoPublicRecords] = useState(false)
   const [activeJobs, setActiveJobs] = useState(0)
   const [revealContacts, setRevealContacts] = useState(false)
+  const [agentContacts, setAgentContacts] = useState([])
   const { contacts, loading: contactsLoading, error: contactsError, errorCode: contactsErrorCode, errorMessage: contactsErrorMessage, cached: contactsCached } = usePdlContacts(revealContacts ? name : null)
 
   useEffect(() => {
@@ -110,12 +280,16 @@ export default function CompanyCardModal({ slug, name, entryId, onClose }) {
     setNoPublicRecords(false)
     setOverviewLoading(false)
     setRevealContacts(false)
+    setAgentContacts([])
     // Pre-flight: if contacts are already KV-cached, auto-show (free).
     // Otherwise leave revealContacts=false so the user clicks the explicit button.
     checkContactsCached(name).then(isCached => { if (isCached) setRevealContacts(true) })
     Promise.all([fetch(COMPANY_CACHE_URL).then(r => r.json()).catch(() => ({})),
-                 fetch(FILTER_OPTIONS_URL).then(r => r.json()).catch(() => ({}))])
-      .then(([cache, filterOpts]) => {
+                 fetch(FILTER_OPTIONS_URL).then(r => r.json()).catch(() => ({})),
+                 fetch(DECISION_MAKERS_URL).then(r => r.json()).catch(() => ({}))])
+      .then(([cache, filterOpts, decisionMakers]) => {
+        const dmEntry = decisionMakers?.[name?.toLowerCase()] || null
+        setAgentContacts(Array.isArray(dmEntry?.contacts) ? dmEntry.contacts : [])
         const localHit = cache?.[name] || cache?.[name.toLowerCase()] || null
         const c = (filterOpts.companies || []).find(c => c.name?.toLowerCase() === name.toLowerCase())
         setActiveJobs(c?.count || 0)
@@ -231,8 +405,21 @@ export default function CompanyCardModal({ slug, name, entryId, onClose }) {
           {/* Contacts */}
           <div className="flex-1 p-5 bg-gray-50 min-w-0">
             <div className="text-[11px] font-bold uppercase tracking-widest text-indigo-600 mb-1">Hiring decision-makers</div>
+
+            {agentContacts.length > 0 && (
+              <div className="mb-4">
+                <div className="text-xs text-gray-500 mb-2">Agent-discovered · {agentContacts.length} contact{agentContacts.length === 1 ? '' : 's'}</div>
+                <div className="flex flex-col gap-2 max-h-[300px] overflow-y-auto pr-1">
+                  {agentContacts.map((c, i) => (
+                    <AgentContactCard key={c.source_url || `${c.name}-${i}`} p={c} companyName={name} entryId={entryId} companyDomain={overview?.website || null} />
+                  ))}
+                </div>
+                <div className="border-t border-gray-200 mt-4" />
+              </div>
+            )}
+
             {revealContacts && !contactsLoading && (
-              <div className="text-xs text-gray-500 mb-1">Operations &amp; engineering managers · {contacts.length} returned</div>
+              <div className="text-xs text-gray-500 mb-1">{agentContacts.length > 0 ? 'Additional via PDL' : 'Operations & engineering managers'} · {contacts.length} returned</div>
             )}
             {revealContacts && contactsCached === true && (
               <div className="text-[11px] text-gray-400 mb-3">Loaded from cache · 0 credits</div>
@@ -241,12 +428,12 @@ export default function CompanyCardModal({ slug, name, entryId, onClose }) {
               <div className="text-[11px] text-gray-400 mb-3">Live fetch · ~5 credits used</div>
             )}
             {!revealContacts && (
-              <div className="flex flex-col items-center justify-center py-10 gap-2">
+              <div className={`flex flex-col items-center justify-center gap-2 ${agentContacts.length > 0 ? 'py-4' : 'py-10'}`}>
                 <button
                   onClick={() => setRevealContacts(true)}
                   className="px-4 py-2 bg-indigo-600 text-white text-sm font-semibold rounded-lg hover:bg-indigo-700 active:bg-indigo-800 transition-colors"
                 >
-                  Show contacts (~5 PDL credits)
+                  {agentContacts.length > 0 ? 'Look up additional contacts via PDL (~5 credits)' : 'Show contacts (~5 PDL credits)'}
                 </button>
                 <span className="text-[11px] text-gray-400">Skipped if cached</span>
               </div>

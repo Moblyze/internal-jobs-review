@@ -28,6 +28,12 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_MONITORING_WEBHOOK }}
         run: npm run ingest-feed
 
+      - name: Discover decision-makers for new companies
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: npm run discover-decision-makers
+        continue-on-error: true
+
       - name: Commit feed updates
         id: commit
         run: |

@@ -1,0 +1,2391 @@
+{
+  "_meta": {
+    "generated_at": "2026-05-15T00:00:00Z",
+    "method": "Anthropic web_search tool, claude-sonnet-4-6, ~3 searches per company",
+    "personas": [
+      "ta",
+      "hr",
+      "operations",
+      "project",
+      "crewing",
+      "other"
+    ],
+    "in_target_personas": [
+      "ta",
+      "hr",
+      "operations",
+      "project",
+      "crewing"
+    ],
+    "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
+    "last_updated_at": "2026-05-17T00:39:47.898Z"
+  },
+  "perenco": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Öykü Özsoy",
+        "title": "Head of Human Resources",
+        "persona": "hr",
+        "source_url": "https://www.linkedin.com/in/%C3%B6yk%C3%BC-%C3%B6zsoy-28a4a11a0/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Nicolas Chereau",
+        "title": "Operations Manager",
+        "persona": "operations",
+        "source_url": "https://www.linkedin.com/in/nicolas-chereau-b4737a94/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Paris, France"
+      },
+      {
+        "name": "Stéphane Barc",
+        "title": "Unknown (Perenco-affiliated, active on company content)",
+        "persona": "other",
+        "source_url": "https://www.linkedin.com/in/stephanebarc/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "ambler metals llc": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Cole Schaeffer",
+        "title": "Vice President, Human Resources, Community and Partnerships",
+        "persona": "hr",
+        "source_url": "https://www.prnewswire.com/news-releases/trilogy-metals-announces-expanded-management-team-at-ambler-metals-joint-venture-to-advance-upper-kobuk-mineral-projects-in-alaska-302693897.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Anchorage, AK, USA"
+      },
+      {
+        "name": "Bob Jacko",
+        "title": "Interim Vice President, Operations",
+        "persona": "operations",
+        "source_url": "https://www.zoominfo.com/c/ambler-metals-llc/481608097",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Fairbanks, AK, USA"
+      },
+      {
+        "name": "Jim Male",
+        "title": "Site Manager, Bornite Project",
+        "persona": "project",
+        "source_url": "https://www.amblermetals.com/leadership",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Fairbanks, AK, USA"
+      },
+      {
+        "name": "Kaleb Froehlich",
+        "title": "Managing Director",
+        "persona": "operations",
+        "source_url": "https://www.amblermetals.com/leadership",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Anchorage, AK, USA"
+      },
+      {
+        "name": "Cal Craig",
+        "title": "Environmental and Permitting Manager",
+        "persona": "other",
+        "source_url": "https://www.amblermetals.com/leadership",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Anchorage, AK, USA"
+      }
+    ]
+  },
+  "agnico eagle": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Patrice Gilbert",
+        "title": "Vice President, Human Resources",
+        "persona": "hr",
+        "source_url": "https://ca.linkedin.com/in/patrice-gilbert-6385b62b",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Nathan Cloet",
+        "title": "Director of Human Resources, Ontario",
+        "persona": "hr",
+        "source_url": "https://www.linkedin.com/in/nathan-cloet-827b8611/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Canada"
+      },
+      {
+        "name": "Claudia Dominguez",
+        "title": "Talent Acquisition Specialist",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/claudia-dominguez-89071b139/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Toronto, ON, Canada"
+      },
+      {
+        "name": "Natalia Burlacu",
+        "title": "Talent Acquisition Specialist",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/natalia-burlacu-933712200/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Daniel Racine",
+        "title": "Senior VP Operations",
+        "persona": "operations",
+        "source_url": "https://ca.linkedin.com/in/daniel-racine-35163a14",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "jaguar uranium corp.": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Steven Brian Gold",
+        "title": "President & Chief Executive Officer",
+        "persona": "operations",
+        "source_url": "https://jaguaruranium.com/directors-and-advisors/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Thornhill, Ontario, Canada"
+      }
+    ]
+  },
+  "80 mile": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": []
+  },
+  "cornish metals": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Don Turvey",
+        "title": "CEO and Director",
+        "persona": "operations",
+        "source_url": "https://uk.linkedin.com/in/don-turvey-792a73106",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Pool, Cornwall, UK"
+      },
+      {
+        "name": "Guillermo Alcazar",
+        "title": "Project Executive",
+        "persona": "project",
+        "source_url": "https://cornishmetals.com/corporate/management/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Steve Tarrant",
+        "title": "Mine Manager",
+        "persona": "operations",
+        "source_url": "https://www.linkedin.com/in/steve-tarrant-05010928/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Cornwall, UK"
+      },
+      {
+        "name": "Steven Kingstone",
+        "title": "Project / Operations (South Crofty)",
+        "persona": "project",
+        "source_url": "https://www.linkedin.com/in/steven-kingstone-6b6686ba/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Camborne, Cornwall, UK"
+      },
+      {
+        "name": "Andy Pix",
+        "title": "Director (formerly Cornish Metals Inc.)",
+        "persona": "operations",
+        "source_url": "https://www.linkedin.com/in/andy-pix-9042b61b/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Pool, Cornwall, UK"
+      }
+    ]
+  },
+  "freeport-mcmoran": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Betsy Johnson",
+        "title": "Manager, Talent Acquisition",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/betsy-johnson-137a861/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Phoenix, AZ, USA"
+      },
+      {
+        "name": "Danelle Miller",
+        "title": "Manager, Talent Acquisition",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/danellemiller/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Norma Franco",
+        "title": "Human Resources Director",
+        "persona": "hr",
+        "source_url": "https://www.linkedin.com/in/norma-franco-a6b50b201/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Globe, AZ, USA"
+      },
+      {
+        "name": "Tony Carroll",
+        "title": "International Human Resource Manager",
+        "persona": "hr",
+        "source_url": "https://www.linkedin.com/in/tony-carroll-704a714/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Rachel Breshears",
+        "title": "Senior Recruiter",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/rachel-breshears-229675a9/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Safford, AZ, USA"
+      }
+    ]
+  },
+  "ontario power generation": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Cameron Douglas",
+        "title": "Recruitment Manager",
+        "persona": "ta",
+        "source_url": "https://ca.linkedin.com/in/cameronrdouglas",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Cynthia Domjancic",
+        "title": "Senior Vice President Human Resources and Chief Ethics Officer",
+        "persona": "hr",
+        "source_url": null,
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Sandy Strecker",
+        "title": "HR Business Partner",
+        "persona": "hr",
+        "source_url": "https://www.linkedin.com/in/sandystrecker/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Greater Toronto Area, Canada"
+      },
+      {
+        "name": "Carla Anderson",
+        "title": "Talent Acquisition Consultant / HR Field Operations",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/carla-anderson-54357b7/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Toronto, ON, Canada"
+      },
+      {
+        "name": "Priyanka Gautam",
+        "title": "Talent Acquisition / Recruiter",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/priyanka-gautam-869923ab/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Toronto, ON, Canada"
+      }
+    ]
+  },
+  "atlantic mining": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": []
+  },
+  "eni": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Kim Sciunnach",
+        "title": "Career Guidance and Employer Branding Manager",
+        "persona": "ta",
+        "source_url": "https://business.linkedin.com/talent-solutions/case-studies/manufacturing/eni",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Rome, Italy"
+      },
+      {
+        "name": "Sandra Bass",
+        "title": "Head of HR and Services",
+        "persona": "hr",
+        "source_url": "https://www.linkedin.com/in/sandra-bass-66608714/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "East Hampshire, UK"
+      }
+    ]
+  },
+  "bruce power": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Karen Smith",
+        "title": "Senior Vice-President and Chief Human Resources Officer",
+        "persona": "hr",
+        "source_url": "https://www.linkedin.com/in/karen-smith-bruce-power/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Kincardine, ON, Canada"
+      },
+      {
+        "name": "Dan Miller",
+        "title": "Manager, Talent Acquisition",
+        "persona": "ta",
+        "source_url": "https://ca.linkedin.com/in/dan-miller-a4b687113",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Port Elgin, ON, Canada"
+      },
+      {
+        "name": "Komal Rani",
+        "title": "Human Resources Specialist – Talent Acquisition",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/komal-rani-recruiter/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Kincardine, ON, Canada"
+      },
+      {
+        "name": "Laurent Seigle",
+        "title": "Executive Vice-President, Projects",
+        "persona": "project",
+        "source_url": "https://www.brucepower.com/about-us/executive-team/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Tiverton, ON, Canada"
+      },
+      {
+        "name": "Jessica Martin",
+        "title": "Talent Acquisition (Recruiter – Operations/Student Programs)",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/zacharysward/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Tiverton, ON, Canada"
+      }
+    ]
+  },
+  "duke energy": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Ron Wages",
+        "title": "Director, Talent Acquisition",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/wages/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Charlotte, NC, USA"
+      },
+      {
+        "name": "Jamie Cannon",
+        "title": "Manager, Talent Acquisition",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/jamie-cannon-phr-54969a126/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Gastonia, NC, USA"
+      },
+      {
+        "name": "Julia McCorkle",
+        "title": "Talent Acquisition Partner",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/julia-mccorkle-96457658/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Charlotte, NC, USA"
+      },
+      {
+        "name": "Anthony Rose",
+        "title": "HR Director",
+        "persona": "hr",
+        "source_url": "https://www.linkedin.com/in/anthony-rose-09560428/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Sandra Douglas",
+        "title": "Senior HR Business Partner",
+        "persona": "hr",
+        "source_url": "https://www.linkedin.com/in/sandra-douglas-3b11bb32/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "adnoc": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Khaled Al Mulla",
+        "title": "Head Talent Sourcing, Talent Acquisition",
+        "persona": "ta",
+        "source_url": "https://ae.linkedin.com/in/khaled-al-mulla-b36420100",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "United Arab Emirates"
+      },
+      {
+        "name": "Fatema Al Zaabi",
+        "title": "Talent Acquisition Manager",
+        "persona": "ta",
+        "source_url": "https://ae.linkedin.com/in/fatema-al-zaabi-6904871b2",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Abu Dhabi, UAE"
+      },
+      {
+        "name": "Jasim Al Hosani",
+        "title": "Vice President, Human Resources",
+        "persona": "hr",
+        "source_url": null,
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Abu Dhabi, UAE"
+      },
+      {
+        "name": "Nora Almansoori",
+        "title": "Human Resources Manager",
+        "persona": "hr",
+        "source_url": "https://ae.linkedin.com/in/nora-almansoori-861032130",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Abu Dhabi, UAE"
+      },
+      {
+        "name": "Moza Al Falahi",
+        "title": "Talent Acquisition Recruiter",
+        "persona": "ta",
+        "source_url": null,
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Abu Dhabi, UAE"
+      }
+    ]
+  },
+  "equinor": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Mie Indrøy Higgins",
+        "title": "Recruitment Team Lead",
+        "persona": "ta",
+        "source_url": "https://uk.linkedin.com/in/mie-indr%C3%B8y-higgins",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Lavina Brown",
+        "title": "Sr. Recruiting Consultant – North America, Attraction & Recruitment",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/lavina-brown-856a898/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Caroline Hallmark",
+        "title": "HR Business Partner",
+        "persona": "hr",
+        "source_url": "https://www.linkedin.com/in/carolinehallmark/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Øivind Nilsen",
+        "title": "VP Operations",
+        "persona": "operations",
+        "source_url": "https://www.linkedin.com/in/%C3%B8ivind-nilsen-9b29a521/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Norway"
+      },
+      {
+        "name": "Eirin Løchen Johnstad",
+        "title": "Talent Recruiter",
+        "persona": "ta",
+        "source_url": "https://no.linkedin.com/in/eirin-l%C3%B8chen-johnstad-47b045123",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Norway"
+      }
+    ]
+  },
+  "exxonmobil": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Jason Hawthorne",
+        "title": "Head of Talent Acquisition",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/jason-hawthorne-43831b5a/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Spring, TX, USA"
+      },
+      {
+        "name": "Alfred Jackson",
+        "title": "Director of Talent Acquisition",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/alfred-jackson-a94b88b2/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Greater Chicago Area, USA"
+      },
+      {
+        "name": "Derek James",
+        "title": "Recruiting and Talent Acquisition Leader",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/derekjames/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Katie Graham",
+        "title": "Global HR Leader, Global Trading",
+        "persona": "hr",
+        "source_url": "https://www.linkedin.com/in/katie-graham-31579927/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Cory Quarles",
+        "title": "Upstream Global Operations",
+        "persona": "operations",
+        "source_url": "https://www.linkedin.com/in/cory-quarles/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "cameco": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Jennifer Peterson",
+        "title": "Senior Specialist, Workforce Planning & Talent Acquisition",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/jennpetersoncameco/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Saskatoon, SK, Canada"
+      },
+      {
+        "name": "Tanner Hardy",
+        "title": "Specialist, Workforce Planning & Talent Acquisition",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/tanner-hardy-0a5154163/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Saskatoon, SK, Canada"
+      },
+      {
+        "name": "Ryan Strate",
+        "title": "Director, Human Resources",
+        "persona": "hr",
+        "source_url": "https://ca.linkedin.com/in/ryan-strate-22a0b142",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Saskatoon, SK, Canada"
+      },
+      {
+        "name": "Brian Reilly",
+        "title": "Senior Vice-President & Chief Operating Officer",
+        "persona": "operations",
+        "source_url": "https://www.linkedin.com/company/cameco-corporation",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Saskatoon, SK, Canada"
+      },
+      {
+        "name": "Marion Garstang",
+        "title": "Executive (People/HR Function — per ZoomInfo directory)",
+        "persona": "hr",
+        "source_url": null,
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Saskatoon, SK, Canada"
+      }
+    ]
+  },
+  "totalenergies se": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Lauren McGee",
+        "title": "Talent Acquisition Partner",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/lauren-mcgee-27531940/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Jodie Ballou",
+        "title": "Talent Acquisition Coordinator - Trading / University Relations",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/jodie-ballou-760144228/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Valeriya Ivanova",
+        "title": "Talent Acquisition Specialist",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/valeriya-ivanova-3b55a131/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Paris, France"
+      },
+      {
+        "name": "Joan Dunham",
+        "title": "Human Resources Business Partner",
+        "persona": "hr",
+        "source_url": "https://www.linkedin.com/in/joan-dunham-30593135/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Brent Opfer",
+        "title": "VP of Operations - TEEP Barnett",
+        "persona": "operations",
+        "source_url": "https://www.linkedin.com/in/brent-opfer-98410693/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Arlington, TX, USA"
+      }
+    ]
+  },
+  "shell plc / ineos group (joint)": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Jaimene Gore",
+        "title": "Recruitment Manager Americas",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/jaimene-gore/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Brittney Lucas",
+        "title": "Human Resource Representative / Campus Recruiter",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/brittney-lucas-853558186/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Stacey Griswold",
+        "title": "HR Consultant",
+        "persona": "hr",
+        "source_url": "https://www.linkedin.com/in/stacey-griswold-a730a4103/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Friendswood, TX, USA"
+      },
+      {
+        "name": "Carolyn Murray",
+        "title": "HR Business Partner - Operations",
+        "persona": "hr",
+        "source_url": "https://www.linkedin.com/in/carolyn-semrau/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Clinton Township, MI, USA"
+      },
+      {
+        "name": "Misty Hejduk",
+        "title": "Vice President of Human Resources",
+        "persona": "hr",
+        "source_url": "https://www.linkedin.com/in/misty-hejduk-0878748/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "edf": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Angelina Edwards",
+        "title": "Offshore Talent Acquisition & HR Business Partner Lead",
+        "persona": "ta",
+        "source_url": "https://theorg.com/org/edf-renewables/org-chart/angelina-edwards",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Stephanie Benson Truong",
+        "title": "Talent Acquisition Partner",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/s-benson-truong/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "San Diego, CA, USA"
+      },
+      {
+        "name": "Jamie Sellen",
+        "title": "Senior Talent Acquisition Partner (North America)",
+        "persona": "ta",
+        "source_url": "https://www.zoominfo.com/p/Jamie-Sellen/5232870529",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Lilian Wilkirson",
+        "title": "Director, Human Resources",
+        "persona": "hr",
+        "source_url": "https://www.linkedin.com/in/lilian-wilkirson-765b41297/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "San Diego, CA, USA"
+      },
+      {
+        "name": "Tamera Iverson",
+        "title": "HR Professional",
+        "persona": "hr",
+        "source_url": "https://www.linkedin.com/in/tameraiverson/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Snohomish, WA, USA"
+      }
+    ]
+  },
+  "iberdrola / neoenergia": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Alonso Zabala",
+        "title": "Director of Talent Acquisition",
+        "persona": "ta",
+        "source_url": "https://fr.linkedin.com/in/alonso-zabala-b5bb29309",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Carolina Vilela Costa",
+        "title": "HR Business Partner",
+        "persona": "hr",
+        "source_url": "https://theorg.com/org/neoenergia/org-chart/carolina-vilela-costa",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Rio de Janeiro, Brazil"
+      },
+      {
+        "name": "John Ward",
+        "title": "Director, Region 4 Operations and Maintenance",
+        "persona": "operations",
+        "source_url": "https://www.linkedin.com/in/john-ward-85854a27/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Enrique Muniz Lopez",
+        "title": "Project Director - Iberdrola Engineering and Construction",
+        "persona": "project",
+        "source_url": "https://www.linkedin.com/in/enrique-muniz-lopez-91068817/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Greater Madrid Metropolitan Area, Spain"
+      },
+      {
+        "name": "Luis Perez Portela",
+        "title": "Project Director",
+        "persona": "project",
+        "source_url": "https://uk.linkedin.com/in/luis-perez-portela-9469b7123",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "neoenergia": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Fabio Folchetti",
+        "title": "Human Resources Director",
+        "persona": "hr",
+        "source_url": "https://rocketreach.co/neoenergia-management_b5c6e4a2f42e0d21",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Brazil"
+      },
+      {
+        "name": "Marcelo Lopes",
+        "title": "Diretor (Director)",
+        "persona": "operations",
+        "source_url": "https://br.linkedin.com/in/marcelo-lopes-3787a0a1",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Ricardo Goulart C. Brito",
+        "title": "Director – Quality / Operations",
+        "persona": "operations",
+        "source_url": "https://br.linkedin.com/in/ricardogcb",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Salvador, Brazil"
+      },
+      {
+        "name": "Eduardo Capelastegui",
+        "title": "CEO",
+        "persona": "other",
+        "source_url": "https://www.linkedin.com/company/neoenergia",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Brazil"
+      }
+    ]
+  },
+  "masdar": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Valentine van der Slikke-Kirillov",
+        "title": "Talent Acquisition Manager",
+        "persona": "ta",
+        "source_url": "https://ae.linkedin.com/in/valentinevdsmasdar/en",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "United Arab Emirates"
+      },
+      {
+        "name": "Diana Najdawi",
+        "title": "HR – Strategic HR Manager | Talent Acquisition | Employee Relations | Talent Management",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/diana-najdawi-a5450430/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Saeed Al Dahri",
+        "title": "HR Manager",
+        "persona": "hr",
+        "source_url": "https://ae.linkedin.com/in/saeed-al-dahri-9827a053",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "United Arab Emirates"
+      },
+      {
+        "name": "Latifa Almamari",
+        "title": "Human Resources Specialist",
+        "persona": "hr",
+        "source_url": "https://www.linkedin.com/in/latifa-almamari-935512201/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Alya Al Zaabi",
+        "title": "Senior Manager, Projects",
+        "persona": "project",
+        "source_url": "https://ae.linkedin.com/in/alya-al-zaabi-senior-manager-projects-47030292",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Abu Dhabi, UAE"
+      }
+    ]
+  },
+  "found industries / found metals": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Peter Godart",
+        "title": "CEO & Founder",
+        "persona": "other",
+        "source_url": "https://www.linkedin.com/in/petergodart/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Greater Boston, USA"
+      }
+    ]
+  },
+  "ares strategic mining": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "James Walker",
+        "title": "Chief Executive Officer & President",
+        "persona": "operations",
+        "source_url": "https://www.linkedin.com/in/jamesjohnwalker/",
+        "in_target_persona": true,
+        "email": "info@aresmining.com",
+        "phone": null,
+        "location": "Vancouver, BC, Canada"
+      },
+      {
+        "name": "Viktoriya Griffin",
+        "title": "Chief Financial Officer",
+        "persona": "other",
+        "source_url": "https://www.linkedin.com/in/viktoriya-griffin-cpa-ca-5b07b016/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "North Vancouver, BC, Canada"
+      },
+      {
+        "name": "Paul Sarjeant",
+        "title": "Vice President of Exploration",
+        "persona": "project",
+        "source_url": "https://www.aresmining.com/meet-the-team",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Mykel James",
+        "title": "Head of Investor Relations",
+        "persona": "other",
+        "source_url": "https://www.newmediawire.com/news/ares-strategic-mining-introduces-new-investor-relations-team-7086171",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "nextera energy (st lucie nuclear power plant)": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Ceraye Campbell",
+        "title": "Senior Corporate Recruiter – Nuclear Talent",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/ceraye-campbell-5b236091/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Orlando, FL, USA"
+      },
+      {
+        "name": "Julian Duncan",
+        "title": "Senior Manager, Talent Acquisition",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/julian-duncan-085056b7/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Robert Coffey",
+        "title": "Executive Vice President, Nuclear Division & Chief Nuclear Officer",
+        "persona": "operations",
+        "source_url": "https://www.linkedin.com/in/robert-coffey-ba530435/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "North Palm Beach, FL, USA"
+      },
+      {
+        "name": "Ryan Springer",
+        "title": "Nuclear Professional – Operations, Maintenance & Work Management",
+        "persona": "operations",
+        "source_url": "https://www.linkedin.com/in/ryan-springer-22606881/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Port St. Lucie, FL, USA"
+      },
+      {
+        "name": "Jessica Pimentel",
+        "title": "Sr. Director, Business Management – NextEra Energy",
+        "persona": "operations",
+        "source_url": "https://www.linkedin.com/in/jessicapimentel13/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Port St. Lucie, FL, USA"
+      }
+    ]
+  },
+  "allseas": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": []
+  },
+  "the metals company (tmc)": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Rutger (last name not publicly indexed)",
+        "title": "Project Manager – Nodule Collection System / Deep-Sea Mining",
+        "persona": "project",
+        "source_url": "https://metals.co/team/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "gold candle": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Leon LeBlanc",
+        "title": "President & COO",
+        "persona": "operations",
+        "source_url": null,
+        "in_target_persona": true,
+        "email": "contact@goldcandle.com",
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Rick Howes",
+        "title": "Chief Executive Officer",
+        "persona": "operations",
+        "source_url": "https://www.linkedin.com/in/rick-howes",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Toronto, ON, Canada"
+      },
+      {
+        "name": "Ebe Scherkus",
+        "title": "Board / Senior Mining Advisor (Former President & COO, Agnico Eagle)",
+        "persona": "operations",
+        "source_url": null,
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Dean Crick",
+        "title": "Exploration Manager / Chief Geologist",
+        "persona": "project",
+        "source_url": null,
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Northern Ontario, Canada"
+      },
+      {
+        "name": "Hannes Portmann",
+        "title": "Chief Financial Officer",
+        "persona": "other",
+        "source_url": "https://www.linkedin.com/in/hannes-portmann-784a498/",
+        "in_target_persona": false,
+        "email": "hportmann@goldcandle.com",
+        "phone": null,
+        "location": "Toronto, ON, Canada"
+      }
+    ]
+  },
+  "nuclear power corporation of india limited (npcil)": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": []
+  },
+  "akkuyu nuclear jsc (rosatom)": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Denis Sezemin",
+        "title": "Construction Organization Director",
+        "persona": "project",
+        "source_url": "https://en.wikipedia.org/wiki/Akkuyu_Nuclear_Power_Plant",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Mersin, Turkey"
+      },
+      {
+        "name": "Dmitry Nikitchenko",
+        "title": "Project Manager – EPCS (Akkuyu NPP & Rosatom/Rusatom Service)",
+        "persona": "project",
+        "source_url": "https://www.linkedin.com/in/nikitchenko-da/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Galina Kazantseva",
+        "title": "Human Resources Policy Advisor – Rosatom Science and Innovation Division",
+        "persona": "hr",
+        "source_url": "https://www.linkedin.com/in/galinakazantseva/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Olga Manzhos",
+        "title": "Engineer – Akkuyu Nuclear / Rosatom (Decommissioning)",
+        "persona": "other",
+        "source_url": "https://www.linkedin.com/posts/olga-manzhos-62468b254_rosatom-akkuyu-nuclear-activity-7067005705483952128-iu47",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "norwegian nuclear decommissioning": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Pål Mikkelsen",
+        "title": "CEO, Norsk nukleær dekommisjonering (Norwegian Nuclear Decommissioning)",
+        "persona": "operations",
+        "source_url": "https://www.linkedin.com/in/p%C3%A5l-mikkelsen-682b795/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Halden, Norway"
+      },
+      {
+        "name": "Nils Bøhmer",
+        "title": "Chief Technology Officer, Norwegian Nuclear Decommissioning (NND)",
+        "persona": "operations",
+        "source_url": "https://www.world-nuclear-news.org/articles/contract-for-planning-norway-s-decommissioning-pro",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Norway"
+      },
+      {
+        "name": "Ann-Cathrin Becken",
+        "title": "Sector Director of Administration, Norwegian Nuclear Decommissioning (NND)",
+        "persona": "hr",
+        "source_url": "https://afry.com/en/newsroom/press-releases/advansia-part-afry-and-partners-assists-nnd-in-important-decommissioning",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Norway"
+      }
+    ]
+  },
+  "the nuclear company": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Israel Gutierrez",
+        "title": "Head of Talent Acquisition",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/israelgutierrez-vp-talent-acquisition/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Trevor Schumacher",
+        "title": "Talent Acquisition",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/trevor-schumacher/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Elena Sanchez",
+        "title": "Talent Acquisition Specialist",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/elenamsanchez/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Boston, MA, USA"
+      },
+      {
+        "name": "Hernando A. Madroñero",
+        "title": "Head of Nuclear Deployment, Project Executive",
+        "persona": "project",
+        "source_url": "https://www.linkedin.com/in/hernando-madronero-a8728a1b",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Glen Chick",
+        "title": "Vice President of Project Strategy and Support",
+        "persona": "project",
+        "source_url": "https://www.businesswire.com/news/home/20250919554205/en/The-Nuclear-Company-Names-Project-Leader-for-First-Fleet-of-Nuclear-Reactors",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "brookfield / the nuclear company jv": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Israel Gutierrez",
+        "title": "Head of Talent Acquisition",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/israelgutierrez-vp-talent-acquisition/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "James Downs",
+        "title": "Talent Acquisition (Recruiting Team Lead / TA)",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/james-downs-161a25b1/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Trevor Schumacher",
+        "title": "Talent Acquisition",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/trevor-schumacher/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Elena Sanchez",
+        "title": "Talent Acquisition Specialist",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/elenamsanchez/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Boston, MA, USA"
+      },
+      {
+        "name": "Nicole Olver",
+        "title": "Talent Acquisition / People Ops",
+        "persona": "hr",
+        "source_url": "https://www.linkedin.com/in/nicoleolver/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "ur-energy": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Steven Hatten",
+        "title": "Chief Operating Officer",
+        "persona": "operations",
+        "source_url": "https://www.linkedin.com/in/steven-hatten-b6a453a3/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Wyoming, USA"
+      },
+      {
+        "name": "Matthew Gili",
+        "title": "President & Chief Executive Officer",
+        "persona": "operations",
+        "source_url": "https://www.linkedin.com/company/ur-energy-usa-inc-",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Littleton, CO, USA"
+      },
+      {
+        "name": "Ryan Schierman",
+        "title": "Vice President, Regulatory Affairs",
+        "persona": "operations",
+        "source_url": "https://www.ur-energy.com/investors/company-information/management-team",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Wyoming, USA"
+      },
+      {
+        "name": "John Cash",
+        "title": "Chairman of the Board (former CEO)",
+        "persona": "operations",
+        "source_url": "https://www.linkedin.com/in/john-cash-774b30143/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Casper, WY, USA"
+      },
+      {
+        "name": "Valerie Kimball",
+        "title": "IR Director",
+        "persona": "other",
+        "source_url": "https://www.ur-energy.com/news-media/press-releases/detail/391/ur-energy-announces-retirement-of-ceo-john-cash-names",
+        "in_target_persona": false,
+        "email": "Valerie.kimball@ur-energy.com",
+        "phone": "720-460-8534",
+        "location": null
+      }
+    ]
+  },
+  "canada nickel company": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Mark Selby",
+        "title": "CEO & Director",
+        "persona": "operations",
+        "source_url": "https://ca.linkedin.com/company/canada-nickel",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Toronto, ON, Canada"
+      },
+      {
+        "name": "Desmond (Last Name Not Published)",
+        "title": "Director of Construction / Project Delivery",
+        "persona": "project",
+        "source_url": "https://canadanickel.com/team/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Steve Balch",
+        "title": "VP Exploration",
+        "persona": "operations",
+        "source_url": "https://ca.linkedin.com/company/canada-nickel",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Ontario, Canada"
+      },
+      {
+        "name": "Chris Chang",
+        "title": "VP Corporate Development",
+        "persona": "other",
+        "source_url": "https://ca.linkedin.com/posts/canada-nickel_canadanickel-news-mining-activity-7009550962507874304-0fqA",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Pierre-Philippe (Last Name Not Published)",
+        "title": "Director, Environmental & Community Affairs (Permitting)",
+        "persona": "project",
+        "source_url": "https://canadanickel.com/team/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "falcon gold corp.": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Karim Rayani",
+        "title": "CEO & Director",
+        "persona": "other",
+        "source_url": "https://falcongold.ca/management/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Vancouver, BC, Canada"
+      },
+      {
+        "name": "Aaron Kemp",
+        "title": "Board Director (Mining Operations)",
+        "persona": "operations",
+        "source_url": "https://falcongold.ca/news-release/falcon-appoints-aaron-kemp-to-the-board-of-directors/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Santiago, Chile"
+      },
+      {
+        "name": "Ian Graham",
+        "title": "Director & Geologist",
+        "persona": "other",
+        "source_url": "https://falcongold.ca/management/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Geoff Balderson",
+        "title": "Chief Financial Officer",
+        "persona": "other",
+        "source_url": "https://www.zoominfo.com/c/falcon-gold-corp/348803042",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Ms. Alvarez",
+        "title": "Corporate Secretary / Paralegal",
+        "persona": "other",
+        "source_url": "https://falcongold.ca/management/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Vancouver, BC, Canada"
+      }
+    ]
+  },
+  "nextnorth holdings corp": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Miguel Mapa",
+        "title": "Founder & CEO",
+        "persona": "other",
+        "source_url": "https://www.linkedin.com/in/miguel-mapa-b33582bb/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Metro Manila, Philippines"
+      }
+    ]
+  },
+  "urenco": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Matt Grafflin",
+        "title": "Talent Acquisition Partner",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/mrgrafflin/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Richmond, IN, USA"
+      },
+      {
+        "name": "Shawn LeMaster, SHRM-SCP",
+        "title": "Talent Acquisition Business Partner",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/shawn-lemaster-shrm-scp-a1b63126/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Candice Haynes",
+        "title": "HR Business Partner",
+        "persona": "hr",
+        "source_url": "https://uk.linkedin.com/in/candice-haynes-620068167",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Paul Stenhoff",
+        "title": "Head of Operations",
+        "persona": "operations",
+        "source_url": "https://uk.linkedin.com/in/paul-stenhoff-a2b5741b",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Mike Lewis",
+        "title": "Head of Operations",
+        "persona": "operations",
+        "source_url": "https://uk.linkedin.com/in/mike-lewis-86736836",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "arabelle solutions": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Angela Osborne",
+        "title": "Human Resources Director",
+        "persona": "hr",
+        "source_url": "https://www.linkedin.com/in/angela-osborne-79b3b26/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Leicester, UK"
+      },
+      {
+        "name": "Anna Kopytowska",
+        "title": "President, Arabelle Solutions Poland & VP Executive Sourcing (Global)",
+        "persona": "operations",
+        "source_url": "https://hu.linkedin.com/in/eva-lipcsei-fekete",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Poland"
+      },
+      {
+        "name": "Magnus Pettersson",
+        "title": "Commercial Operations Director, Nuclear Services Region 2",
+        "persona": "operations",
+        "source_url": "https://www.linkedin.com/in/magnus-pettersson-712680116/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Norrköping, Sweden"
+      },
+      {
+        "name": "Iain Rutherford",
+        "title": "Employee at Arabelle Solutions (title not publicly confirmed)",
+        "persona": "other",
+        "source_url": "https://uk.linkedin.com/in/iain-rutherford-0542205",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Rugby, UK"
+      },
+      {
+        "name": "Antoine Levionnois",
+        "title": "Sales & Operations Planning",
+        "persona": "operations",
+        "source_url": "https://www.linkedin.com/in/antoine-levionnois-01076558/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "France"
+      }
+    ]
+  },
+  "eagle nuclear energy": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Mark Mukhija",
+        "title": "Chief Executive Officer & Founder",
+        "persona": "operations",
+        "source_url": "https://ca.linkedin.com/in/markmukhija",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Reno, NV, USA"
+      },
+      {
+        "name": "Chris Sorrells",
+        "title": "Chairman & CEO, Spring Valley Acquisition Corp. II (Eagle Nuclear Board)",
+        "persona": "other",
+        "source_url": "https://www.linkedin.com/in/chris-sorrells-5a6a836/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "gbm": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Marie Ellen Cubol",
+        "title": "HR Professional",
+        "persona": "hr",
+        "source_url": "https://www.linkedin.com/in/marie-ellen-cubol-4a080340/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "United Arab Emirates"
+      },
+      {
+        "name": "Pawandeep Singh Arora",
+        "title": "Regional Manager - Talent Development - HR (Gulf Region)",
+        "persona": "hr",
+        "source_url": "https://www.linkedin.com/in/pawandeep-singh-arora-b89b5a180/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Gulf Region (Oman)"
+      },
+      {
+        "name": "Salah Hamed",
+        "title": "HR Representative / GBM Oman Growth Lead",
+        "persona": "hr",
+        "source_url": "https://www.linkedin.com/in/salah-hamed-91b9951a/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Oman"
+      }
+    ]
+  },
+  "lumina": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": []
+  },
+  "cea (alternative energies & atomic energy commission)": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "童伟 (Tóng Wěi)",
+        "title": "HR",
+        "persona": "hr",
+        "source_url": "https://www.linkedin.com/in/%E4%BC%9F-%E7%AB%A5-2574a713b/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Manosque, France"
+      }
+    ]
+  },
+  "stellaria": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Nicolas Breyton",
+        "title": "President & CEO, Co-founder",
+        "persona": "other",
+        "source_url": "https://www.stellaria.fr/en/equipe/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Grenoble, France"
+      },
+      {
+        "name": "Guillaume Campioni",
+        "title": "Co-founder & Technical Director",
+        "persona": "other",
+        "source_url": "https://www.stellaria.fr/en/equipe/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Grenoble, France"
+      },
+      {
+        "name": "Lucas Tardieu",
+        "title": "Co-founder & Applications Engineer",
+        "persona": "other",
+        "source_url": "https://www.stellaria.fr/en/equipe/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Grenoble, France"
+      },
+      {
+        "name": "Bruno Desbrière",
+        "title": "Co-founder, Reactor Safety Expert",
+        "persona": "other",
+        "source_url": "https://www.stellaria.fr/en/equipe/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Grenoble, France"
+      },
+      {
+        "name": "Antoine Gerschenfeld",
+        "title": "Co-founder, Thermohydraulics & Neutronics Expert",
+        "persona": "other",
+        "source_url": "https://www.stellaria.fr/en/equipe/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Grenoble, France"
+      }
+    ]
+  },
+  "rolls-royce smr": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Martin Stubbs",
+        "title": "Head of Talent Acquisition",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/martinstubbs1/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Manchester, UK"
+      },
+      {
+        "name": "Sajid Mahmood",
+        "title": "Talent Acquisition SME",
+        "persona": "ta",
+        "source_url": "https://uk.linkedin.com/in/sajid-mahmood-81427627",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "United Kingdom"
+      },
+      {
+        "name": "Adam Ellis",
+        "title": "Director of Talent & HR",
+        "persona": "hr",
+        "source_url": null,
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "United Kingdom"
+      },
+      {
+        "name": "Ruth Todd CBE",
+        "title": "Operations and Supply Chain Director",
+        "persona": "operations",
+        "source_url": null,
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "United Kingdom"
+      },
+      {
+        "name": "Alex Warren",
+        "title": "Project Director",
+        "persona": "project",
+        "source_url": "https://uk.linkedin.com/in/alex-warren-0b90ba52",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "United Kingdom"
+      }
+    ]
+  },
+  "čez": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Petr Lavický",
+        "title": "HR Business Partner & Team Lead | Talent Acquisition, Employer Branding & Workforce Transformation",
+        "persona": "hr",
+        "source_url": "https://www.linkedin.com/in/petrlavicky/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Prague, Czech Republic"
+      },
+      {
+        "name": "Josef Lejček",
+        "title": "HR Director, Severočeské doly a.s. (ČEZ Group – Mining)",
+        "persona": "hr",
+        "source_url": "https://www.linkedin.com/in/josef-lejček-0a527355/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Czechia"
+      },
+      {
+        "name": "Martin Máca",
+        "title": "Strategic Recruitment, ČEZ Group",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/petrlavicky/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Josef Kaňkovský",
+        "title": "Strategic Recruitment, ČEZ Group",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/petrlavicky/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Pavel Šimák",
+        "title": "Strategic Recruitment, ČEZ Group",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/petrlavicky/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "envision energy": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Ryan Melchior",
+        "title": "Regional Head of Human Resources (USA)",
+        "persona": "hr",
+        "source_url": "https://rocketreach.co/envision-energy-hr-department_b5c0d322f42e0851",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Kane Xu",
+        "title": "Global VP",
+        "persona": "operations",
+        "source_url": "https://www.linkedin.com/company/envision-energy",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "cape breton china corp": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Dr. Bob Liu",
+        "title": "Founder",
+        "persona": "other",
+        "source_url": "https://www.prnewswire.com/news-releases/envision-energy-expands-north-america-presence-with-cape-breton-china-corp-on-300mw-hybrid-wind-and-bess-project-in-canada-302768053.html",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Sydney, Nova Scotia, Canada"
+      }
+    ]
+  },
+  "ekati diamond mine": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Travis Titley",
+        "title": "Senior HR Leader (Strategic HR & Labour Relations)",
+        "persona": "hr",
+        "source_url": "https://www.linkedin.com/in/travis-titley-9ba3046/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Edmonton, AB, Canada"
+      },
+      {
+        "name": "Peter Finnie",
+        "title": "HR Manager",
+        "persona": "hr",
+        "source_url": "https://www.linkedin.com/in/peter-finnie-68247819/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Calgary, AB, Canada"
+      },
+      {
+        "name": "Brittney F.",
+        "title": "Senior HR Business Partner & Labour Relations",
+        "persona": "hr",
+        "source_url": "https://www.linkedin.com/in/brittneyflaig/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Ritu Bansal",
+        "title": "Human Resources Coordinator & Recruiter",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/ritu-bansal1101/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Calgary, AB, Canada"
+      },
+      {
+        "name": "Jeff Reinson",
+        "title": "Employee at Burgundy Diamond Mines (role unconfirmed from public data)",
+        "persona": "other",
+        "source_url": "https://ca.linkedin.com/in/jeff-reinson-aab37341",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "jdenergy": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": []
+  },
+  "mvm": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": []
+  },
+  "pacific nuclear transport limited": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Ciara Middlehurst",
+        "title": "co-CEO (formerly Chief Operating Officer, NTS / PNTL Board)",
+        "persona": "operations",
+        "source_url": "https://uk.linkedin.com/in/ciara-middlehurst-90099b257",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Birchwood, UK"
+      },
+      {
+        "name": "Simon Warren",
+        "title": "Chief Engineer",
+        "persona": "operations",
+        "source_url": "https://rocketreach.co/pacific-nuclear-transport-limited-profile_b5952c39f681eb2f",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Moor Row, Cumbria, UK"
+      }
+    ]
+  },
+  "lg&e / kentucky utilities": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Steven Turner",
+        "title": "Vice President, Power Production",
+        "persona": "operations",
+        "source_url": "https://lge-ku.com/steven-turner",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Louisville, KY, USA"
+      },
+      {
+        "name": "Charles R. Brown",
+        "title": "Sr. Director, Project Engineering",
+        "persona": "project",
+        "source_url": "https://prospeo.io/c/lg-e-and-ku-energy",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Louisville, KY, USA"
+      }
+    ]
+  },
+  "seg solar": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Amy Quinones",
+        "title": "Human Resources Manager",
+        "persona": "hr",
+        "source_url": "https://www.linkedin.com/in/amy-quinones-626991393",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Andrea Price",
+        "title": "SEG Solar, Inc. (role not fully surfaced in public snippets)",
+        "persona": "hr",
+        "source_url": "https://www.linkedin.com/in/andrea-price-aa27b256",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Jun Zhuge",
+        "title": "Founder & COO",
+        "persona": "operations",
+        "source_url": "https://www.linkedin.com/in/jun-z-2a96a31a/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Pleasanton, CA, USA"
+      },
+      {
+        "name": "Mariano Mediano Arcas",
+        "title": "General Director",
+        "persona": "operations",
+        "source_url": "https://craft.co/seg-solar/executives",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Jim Wood",
+        "title": "President & CEO",
+        "persona": "other",
+        "source_url": "https://www.linkedin.com/in/jimmiewood/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      }
+    ]
+  },
+  "us iter": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Kathryn McCarthy",
+        "title": "Senior Advisor (formerly Director), US ITER Project",
+        "persona": "project",
+        "source_url": "https://www.linkedin.com/in/kathryn-mccarthy-b3656474/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Idaho Falls, ID, USA"
+      },
+      {
+        "name": "Amelia Campbell",
+        "title": "Technical Integration Manager, US ITER",
+        "persona": "project",
+        "source_url": "https://www.linkedin.com/in/amelia-campbell-engineer/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Oak Ridge, TN, USA"
+      },
+      {
+        "name": "Ben Hardy",
+        "title": "Manager, Plasma Heating Systems - US ITER Project",
+        "persona": "project",
+        "source_url": "https://www.linkedin.com/in/blhardy/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Oak Ridge, TN, USA"
+      },
+      {
+        "name": "Tripp Fulmer",
+        "title": "Team Lead, US ITER Port Integration",
+        "persona": "project",
+        "source_url": "https://www.linkedin.com/in/tripp-fulmer-ba188417/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Knoxville, TN, USA"
+      },
+      {
+        "name": "Ned Sauthoff",
+        "title": "Director, US ITER Project (former)",
+        "persona": "operations",
+        "source_url": "https://www.linkedin.com/in/ned-sauthoff-7571373/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Oak Ridge, TN, USA"
+      }
+    ]
+  },
+  "iter organization": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Liliia Biktuganova",
+        "title": "HR / Talent Acquisition Professional",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/biktuganova/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Manosque, France"
+      }
+    ]
+  },
+  "denarius metals corp.": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Federico Restrepo-Solano",
+        "title": "Chief Executive Officer",
+        "persona": "operations",
+        "source_url": "https://www.linkedin.com/in/federico-restrepo-solano-67a44716/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Colombia"
+      },
+      {
+        "name": "Mateo Restrepo Villegas",
+        "title": "President, Zancudo Metals",
+        "persona": "operations",
+        "source_url": "https://www.linkedin.com/in/mateo-restrepo-v-b124382b/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Medellín, Colombia"
+      },
+      {
+        "name": "Santiago Suarez",
+        "title": "Vice President, Corporate Development – Zancudo Metals",
+        "persona": "project",
+        "source_url": null,
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Colombia"
+      },
+      {
+        "name": "Sasha Villoza",
+        "title": "Corporate ESG Manager",
+        "persona": "hr",
+        "source_url": "https://ca.linkedin.com/in/sashavilloza",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Colombia"
+      },
+      {
+        "name": "Jesus Perez",
+        "title": "Vice President, Corporate Affairs (Spain Projects)",
+        "persona": "operations",
+        "source_url": null,
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Madrid, Spain"
+      }
+    ]
+  },
+  "commonwealth fusion systems": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Alex Mozdzanowska",
+        "title": "Chief People Officer",
+        "persona": "hr",
+        "source_url": "https://www.linkedin.com/in/alex-mozdzanowska-758a3410/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Cambridge, MA, USA"
+      },
+      {
+        "name": "John Kruep",
+        "title": "Senior Director, People Operations",
+        "persona": "hr",
+        "source_url": "https://hrtoday.in/john-kruep-joins-commonwealth-fusion-systems-as-senior-director-people-operations/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Cambridge, MA, USA"
+      },
+      {
+        "name": "Ken Mossman",
+        "title": "Talent Acquisition Consultant",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/ken-mossman-b61a17239/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "South Grafton, MA, USA"
+      },
+      {
+        "name": "Nichole Foley",
+        "title": "Talent Acquisition & People Leader",
+        "persona": "ta",
+        "source_url": "https://www.linkedin.com/in/nichole-foley/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Jessica Florez",
+        "title": "People Operations Specialist",
+        "persona": "hr",
+        "source_url": "https://www.linkedin.com/in/jessica-florez-82513610a/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Greater Boston, MA, USA"
+      }
+    ]
+  },
+  "nuclear fuel complex (nfc)": {
+    "discovered_at": "2026-05-17T00:39:47.898Z",
+    "contacts": [
+      {
+        "name": "Dr. Dinesh Srivastava",
+        "title": "Chairman & Chief Executive, Nuclear Fuel Complex (NFC)",
+        "persona": "operations",
+        "source_url": "https://www.linkedin.com/in/dr-dinesh-srivastava-ba049319/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Hyderabad, India"
+      },
+      {
+        "name": "Krishna Mirji",
+        "title": "Senior General Manager, Nuclear Fuel Complex (NFC), DAE India",
+        "persona": "operations",
+        "source_url": "https://www.linkedin.com/in/krishna-mirji-43771151/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Hyderabad, India"
+      },
+      {
+        "name": "Rekha Vijaya",
+        "title": "Employee, NFC - Nuclear Fuel Complex",
+        "persona": "hr",
+        "source_url": "https://www.linkedin.com/in/rekha-vijaya-a4095329",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Prashant Upadhyay",
+        "title": "Scientific Officer (SO/E), Nuclear Fuel Complex (NFC)",
+        "persona": "operations",
+        "source_url": "https://www.linkedin.com/in/prashant-upadhyay-9152a6169/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Ravi Subramanyam",
+        "title": "Employee, Nuclear Fuel Complex (NFC)",
+        "persona": "other",
+        "source_url": "https://www.linkedin.com/in/ravi-subramanyam-737929110",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  }
+}

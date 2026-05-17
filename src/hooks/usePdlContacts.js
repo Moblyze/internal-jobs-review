@@ -72,3 +72,17 @@ export function checkContactsCached(companyName) {
     .then(data => !!data.cached)
     .catch(() => false)
 }
+
+// Per-contact enrichment: hits the Worker's /api/person/enrich which tries Hunter
+// first (1 credit, by domain+name) and falls back to PDL Person Enrichment
+// (1 credit, by LinkedIn URL). Returns { email, phone, source, confidence, cached, error }.
+export function enrichPerson({ linkedin_url, name, company, domain } = {}) {
+  if (!name || !company) return Promise.resolve({ email: null, phone: null, source: null, error: 'bad_request' })
+  return fetch(`${WORKER_BASE}/api/person/enrich`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ linkedin_url: linkedin_url || null, name, company, domain: domain || null }),
+  })
+    .then(r => r.json())
+    .catch(err => ({ email: null, phone: null, source: null, error: String(err?.message || err) }))
+}
