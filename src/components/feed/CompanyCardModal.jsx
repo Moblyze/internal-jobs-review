@@ -5,6 +5,7 @@ import { logTelemetry, postContactFeedback, enrichPerson } from '../../hooks/use
 
 const FILTER_OPTIONS_URL = `${import.meta.env.BASE_URL || '/'}data/filter-options.json`
 const DECISION_MAKERS_URL = `${import.meta.env.BASE_URL || '/'}data/feed/decision_makers.json`
+const ENTRIES_LITE_URL = `${import.meta.env.BASE_URL || '/'}data/feed/entries-lite.json`
 const WORKER_BASE = import.meta.env.VITE_WORKER_BASE || 'https://pdl-company-feed.jesse-82d.workers.dev'
 
 const PERSONA_LABELS = {
@@ -41,6 +42,37 @@ const COMPANY_SOURCE_NAMES = {
   epa_frs: 'EPA FRS',
   opencorporates: 'OpenCorporates',
   pdl: 'PDL',
+}
+
+const SLUG_OVERRIDES = {
+  'offshore-og': 'Offshore O&G',
+  'onshore-og': 'Onshore O&G',
+  'onshore-renewables': 'Onshore Renewables',
+  'mining': 'Mining',
+  'nuclear': 'Nuclear',
+  'united_states': 'United States',
+  'united_kingdom': 'United Kingdom',
+  'united_arab_emirates': 'United Arab Emirates',
+  'czech_republic': 'Czech Republic',
+  'papua_new_guinea': 'Papua New Guinea',
+}
+
+function prettySlug(s) {
+  if (!s || typeof s !== 'string') return ''
+  if (SLUG_OVERRIDES[s]) return SLUG_OVERRIDES[s]
+  return s.replace(/_and_/g, ' & ').replace(/[_-]/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
+}
+
+function daysAgo(iso) {
+  if (!iso) return ''
+  const ms = Date.now() - new Date(iso).getTime()
+  if (isNaN(ms) || ms < 0) return ''
+  const d = Math.floor(ms / (1000 * 60 * 60 * 24))
+  if (d < 1) return 'today'
+  if (d === 1) return '1d ago'
+  if (d < 30) return `${d}d ago`
+  const mo = Math.floor(d / 30)
+  return mo === 1 ? '1mo ago' : `${mo}mo ago`
 }
 
 function mapWorkerResponseToOverview(data) {
@@ -219,6 +251,9 @@ export default function CompanyCardModal({ slug, name, entryId, onClose }) {
   const [noPublicRecords, setNoPublicRecords] = useState(false)
   const [activeJobs, setActiveJobs] = useState(0)
   const [agentContacts, setAgentContacts] = useState([])
+  const [bdSignals, setBdSignals] = useState([])
+  const [countries, setCountries] = useState([])
+  const [subsectors, setSubsectors] = useState([])
 
   useEffect(() => {
     if (!name) return
@@ -227,14 +262,26 @@ export default function CompanyCardModal({ slug, name, entryId, onClose }) {
     setNoPublicRecords(false)
     setOverviewLoading(false)
     setAgentContacts([])
+    setBdSignals([])
+    setCountries([])
+    setSubsectors([])
     setOverviewLoading(true)
     Promise.all([fetch(FILTER_OPTIONS_URL).then(r => r.json()).catch(() => ({})),
-                 fetch(DECISION_MAKERS_URL).then(r => r.json()).catch(() => ({}))])
-      .then(([filterOpts, decisionMakers]) => {
+                 fetch(DECISION_MAKERS_URL).then(r => r.json()).catch(() => ({})),
+                 fetch(ENTRIES_LITE_URL).then(r => r.json()).catch(() => [])])
+      .then(([filterOpts, decisionMakers, entriesLite]) => {
         const dmEntry = decisionMakers?.[name?.toLowerCase()] || null
         setAgentContacts(Array.isArray(dmEntry?.contacts) ? dmEntry.contacts : [])
         const c = (filterOpts.companies || []).find(c => c.name?.toLowerCase() === name.toLowerCase())
         setActiveJobs(c?.count || 0)
+
+        const lname = name?.toLowerCase()
+        const matching = (Array.isArray(entriesLite) ? entriesLite : [])
+          .filter(e => e?.hiring_entity?.name?.toLowerCase() === lname || e?.operator?.name?.toLowerCase() === lname)
+          .sort((a, b) => new Date(b.ingested_at || 0) - new Date(a.ingested_at || 0))
+        setBdSignals(matching)
+        setCountries([...new Set(matching.map(e => e.country).filter(Boolean))])
+        setSubsectors([...new Set(matching.map(e => e.subsector).filter(Boolean))])
       })
     // Always hit the Worker for company overview — the cascade (Wikidata/EDGAR/
     // Companies House/GLEIF/Brreg/EPA FRS → PDL backstop) is the source of truth.
@@ -322,6 +369,16 @@ export default function CompanyCardModal({ slug, name, entryId, onClose }) {
               {overview?.founded && <div><div className="text-[10px] uppercase font-semibold text-gray-400">Founded</div><div className="font-semibold">{overview.founded}</div></div>}
               {overview?.location?.locality && <div><div className="text-[10px] uppercase font-semibold text-gray-400">HQ</div><div className="font-medium">{overview.location.locality}{overview.location.country ? `, ${overview.location.country}` : ''}</div></div>}
               {overview?.ticker && <div><div className="text-[10px] uppercase font-semibold text-gray-400">Ticker</div><div className="font-semibold">{overview.ticker.toUpperCase()}</div></div>}
+              <div>
+                <div className="text-[10px] uppercase font-semibold text-gray-400">Live jobs</div>
+                {activeJobs > 0 ? (
+                  <Link to={`/?companies=${encodeURIComponent(name)}`} className="font-semibold text-blue-700 hover:underline inline-flex items-center gap-0.5">
+                    {activeJobs.toLocaleString()} ↗
+                  </Link>
+                ) : (
+                  <div className="font-medium text-gray-300">—</div>
+                )}
+              </div>
             </div>
             {overview?.summary && (
               <div className="mb-3">
@@ -336,11 +393,45 @@ export default function CompanyCardModal({ slug, name, entryId, onClose }) {
                 ))}
               </div>
             )}
-            {activeJobs > 0 && (
-              <Link to={`/?companies=${encodeURIComponent(name)}`} className="block bg-indigo-50 border border-indigo-200 rounded-lg p-3 text-blue-700 no-underline hover:bg-indigo-100">
-                <div className="text-2xl font-bold">{activeJobs}</div>
-                <div className="text-xs">active jobs on site · view →</div>
-              </Link>
+            {countries.length > 0 && (
+              <div className="mb-3">
+                <div className="text-[10px] uppercase font-semibold text-gray-400 mb-1">Operates in</div>
+                <div className="flex flex-wrap gap-1">
+                  {countries.map(c => (
+                    <span key={c} className="text-[10px] bg-emerald-50 text-emerald-800 border border-emerald-200 px-2 py-0.5 rounded-full">{prettySlug(c)}</span>
+                  ))}
+                </div>
+              </div>
+            )}
+            {subsectors.length > 0 && (
+              <div className="mb-3">
+                <div className="text-[10px] uppercase font-semibold text-gray-400 mb-1">Sub-sectors</div>
+                <div className="flex flex-wrap gap-1">
+                  {subsectors.map(s => (
+                    <span key={s} className="text-[10px] bg-violet-50 text-violet-800 border border-violet-200 px-2 py-0.5 rounded-full">{prettySlug(s)}</span>
+                  ))}
+                </div>
+              </div>
+            )}
+            {bdSignals.length > 0 && (
+              <div className="mb-1">
+                <div className="text-[10px] uppercase font-semibold text-gray-400 mb-1">Recent BD signals ({bdSignals.length})</div>
+                <div className="flex flex-col gap-2 max-h-[280px] overflow-y-auto pr-1">
+                  {bdSignals.slice(0, 8).map(e => (
+                    <div key={e.id} className="text-xs border-l-2 border-indigo-200 pl-2">
+                      <div className="text-[10px] text-gray-400 flex items-center gap-1.5 flex-wrap">
+                        <span>{daysAgo(e.ingested_at)}</span>
+                        {e.country && <><span className="text-gray-300">·</span><span>{prettySlug(e.country)}</span></>}
+                        {e.phase && <><span className="text-gray-300">·</span><span>{prettySlug(e.phase)}</span></>}
+                      </div>
+                      <div className="text-gray-700 leading-snug line-clamp-2">{e.headline}</div>
+                    </div>
+                  ))}
+                  {bdSignals.length > 8 && (
+                    <div className="text-[10px] text-gray-400 italic">+ {bdSignals.length - 8} more</div>
+                  )}
+                </div>
+              </div>
             )}
           </div>
 
