@@ -223,7 +223,11 @@ function AgentContactCard({ p, companyName, entryId, companyDomain }) {
         {!effectiveEmail && (
           <div className="mt-1 text-[11px]">
             {!enriching && !enrichError && (
-              <button onClick={handleFindContact} className="text-blue-700 hover:underline">
+              <button
+                onClick={handleFindContact}
+                title="Looks up work email + direct phone via Hunter Email Finder (1 credit). Falls back to PDL Person Enrichment if Hunter has no match. Cached 30 days."
+                className="text-blue-700 hover:underline"
+              >
                 Find contact info →
               </button>
             )}
@@ -232,7 +236,11 @@ function AgentContactCard({ p, companyName, entryId, companyDomain }) {
             {enrichError === 'daily_cap' && <span className="text-amber-700">Daily lookup cap reached — try tomorrow.</span>}
             {enrichError === 'credits_exhausted' && <span className="text-red-700">Credits exhausted.</span>}
             {enrichError === 'error' && (
-              <button onClick={handleFindContact} className="text-blue-700 hover:underline">
+              <button
+                onClick={handleFindContact}
+                title="Looks up work email + direct phone via Hunter Email Finder (1 credit). Falls back to PDL Person Enrichment if Hunter has no match. Cached 30 days."
+                className="text-blue-700 hover:underline"
+              >
                 Lookup failed — retry
               </button>
             )}
