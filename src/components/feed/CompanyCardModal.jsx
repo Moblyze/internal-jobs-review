@@ -203,6 +203,9 @@ function AgentContactCard({ p, companyName, entryId, companyDomain }) {
                 {enriched?.source === 'hunter' && enriched?.confidence !== null && enriched?.confidence !== undefined && (
                   <span className="text-[10px] text-gray-400 shrink-0">({enriched.confidence}% via Hunter)</span>
                 )}
+                {enriched?.source === 'getprospect' && (
+                  <span className="text-[10px] text-gray-400 shrink-0">(via GetProspect)</span>
+                )}
                 {enriched?.source === 'pdl' && (
                   <span className="text-[10px] text-gray-400 shrink-0">(via PDL)</span>
                 )}
@@ -227,7 +230,7 @@ function AgentContactCard({ p, companyName, entryId, companyDomain }) {
             {!enriching && !enrichError && (
               <button
                 onClick={handleFindContact}
-                title="Looks up work email + direct phone via Hunter Email Finder (1 credit). Falls back to PDL Person Enrichment if Hunter has no match. Cached 90 days; re-tried after 24h if no contact info found."
+                title="Looks up work email via Hunter → GetProspect → PDL. Free tiers first (100 lookups/mo across Hunter and GetProspect); PDL paid backstop. Cached 90 days; re-tried after 24h if no contact info found."
                 className="text-blue-700 hover:underline"
               >
                 Find contact info →
@@ -240,7 +243,7 @@ function AgentContactCard({ p, companyName, entryId, companyDomain }) {
             {enrichError === 'error' && (
               <button
                 onClick={handleFindContact}
-                title="Looks up work email + direct phone via Hunter Email Finder (1 credit). Falls back to PDL Person Enrichment if Hunter has no match. Cached 90 days; re-tried after 24h if no contact info found."
+                title="Looks up work email via Hunter → GetProspect → PDL. Free tiers first (100 lookups/mo across Hunter and GetProspect); PDL paid backstop. Cached 90 days; re-tried after 24h if no contact info found."
                 className="text-blue-700 hover:underline"
               >
                 Lookup failed — retry
