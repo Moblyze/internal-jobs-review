@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-05-18T13:20:43.300Z"
+    "last_updated_at": "2026-05-18T18:42:55.769Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -3385,6 +3385,186 @@
         "email": null,
         "phone": null,
         "location": "Greater Madrid Metropolitan Area, Spain"
+      }
+    ]
+  },
+  "nuclearelectrica": {
+    "discovered_at": "2026-05-18T18:42:55.769Z",
+    "contacts": [
+      {
+        "name": "Loredana Puscasu",
+        "title": "Human Resources Manager",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://rocketreach.co/societatea-nationala-nuclearelectrica-sa-hr-department_b4518c4dfc707dcb",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Romania"
+      },
+      {
+        "name": "Andrei Dumitrescu",
+        "title": "Professional Recruiter",
+        "persona": "ta",
+        "linkedin_url": null,
+        "source_url": "https://rocketreach.co/societatea-nationala-nuclearelectrica-sa-hr-department_b4518c4dfc707dcb",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Romania"
+      },
+      {
+        "name": "Romeo Urjan",
+        "title": "General Manager, Cernavoda NPP Branch (Deputy COO / VP NPP Operations)",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/romeourjan",
+        "source_url": "https://nuclearelectrica.ro/ir/en/team/romeo-urjan-2/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Bucharest, Romania"
+      },
+      {
+        "name": "Valentin Ovidiu Nae",
+        "title": "Chief Nuclear Officer, SNN / CEO RoPower Nuclear",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.thediplomat.ro/2025/01/10/nuclearelectrica-appoints-new-chief-nuclear-officer-new-general-manager-of-cernavoda-npp-branch/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Cernavoda, Romania"
+      },
+      {
+        "name": "Cosmin Ghita",
+        "title": "Chief Executive Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/cosminghita",
+        "source_url": "https://nuclearelectrica.ro/ir/en/team/cosmin-ghita-2/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Bucharest, Romania"
+      }
+    ]
+  },
+  "blykalla": {
+    "discovered_at": "2026-05-18T18:42:55.769Z",
+    "contacts": [
+      {
+        "name": "Michaela Berg",
+        "title": "Chief People & Culture Officer",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/bergmichaela",
+        "source_url": "https://careers.blykalla.com/people/1760140-michaela",
+        "in_target_persona": true,
+        "email": "michaela.berg@blykalla.com",
+        "phone": null,
+        "location": "Stockholm, Sweden"
+      },
+      {
+        "name": "Vidar Bjurström",
+        "title": "Talent Acquisition Specialist",
+        "persona": "ta",
+        "linkedin_url": null,
+        "source_url": "https://careers.blykalla.com/people/3890884-vidar-bjurstrom",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Stockholm, Sweden"
+      },
+      {
+        "name": "Fatima Rezaei",
+        "title": "Talent Acquisition Specialist",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/fatimarezaei",
+        "source_url": "https://careers.blykalla.com/people/1760140-michaela",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Stockholm, Sweden"
+      },
+      {
+        "name": "Merja Pukari",
+        "title": "COO",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/merjapukari",
+        "source_url": "https://leadcold.com/about-us/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Stockholm, Sweden"
+      },
+      {
+        "name": "Daniel Lindqvist",
+        "title": "Project Manager (SEALER-E)",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://www.blykalla.com/post/blykalla-welcomes-daniel-lindqvist-as-a-project-manager",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Stockholm, Sweden"
+      }
+    ]
+  },
+  "preussenelektra": {
+    "discovered_at": "2026-05-18T18:42:55.769Z",
+    "contacts": [
+      {
+        "name": "Steffen Meyer-Reus",
+        "title": "HR Business Partner",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/steffen-meyer-reus-084b86133",
+        "source_url": "https://www.linkedin.com/in/steffen-meyer-reus-084b86133/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Hameln, Germany"
+      },
+      {
+        "name": "Nina-Ruth Halbig",
+        "title": "HR Service Partner",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/nina-ruth-halbig-942541ba",
+        "source_url": "https://www.linkedin.com/in/nina-ruth-halbig-942541ba/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Bernd Kaiser",
+        "title": "Plant Manager – Kernkraftwerk Grafenrheinfeld",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/berndkaiser",
+        "source_url": "https://www.world-nuclear-news.org/Articles/Grafenrheinfeld-cooling-towers-taken-down",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Fürth, Germany"
+      },
+      {
+        "name": "Alexander Hemme",
+        "title": "Portfolio Management Decommissioning Nuclear",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/alexander-hemme-13972756",
+        "source_url": "https://www.linkedin.com/in/alexander-hemme-13972756/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Hannover-Braunschweig-Göttingen-Wolfsburg Region, Germany"
+      },
+      {
+        "name": "Christian Mamar",
+        "title": "Project Manager – Strategic Re-use of Nuclear Power Plant Sites",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/christian-mamar-3625a0b1",
+        "source_url": "https://www.linkedin.com/in/christian-mamar-3625a0b1/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
       }
     ]
   }
