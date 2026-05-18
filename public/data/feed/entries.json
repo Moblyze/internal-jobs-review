@@ -2179,6 +2179,69 @@
   {
     "sources": [
       {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/gold-candle-acquires-pan-american-silvers-larder-property-in-the-abitibi/"
+      }
+    ],
+    "headline": "Gold Candle Acquires Pan American Silver's Larder Property in Ontario's Abitibi Region",
+    "body": "Gold Candle announced it will acquire all the assets that comprise Pan American Silver’s (TSX: PAAS) Larder property in the Abitibi region of Ontario, Canada for 15,000,000 common shares, which will result […]",
+    "url": "https://www.mining.com/gold-candle-acquires-pan-american-silvers-larder-property-in-the-abitibi/",
+    "published_at": "2026-05-11T20:25:47.000Z",
+    "hash": "ee2d1ff3ea3246c3",
+    "subsector": "mining",
+    "discipline_tags": [],
+    "signal_type": "lease_round",
+    "region": "ontario-canada",
+    "country": "canada",
+    "tldr": null,
+    "operator": {
+      "name": "Gold Candle"
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": "Larder Property",
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "bd_relevant": false,
+    "bd_relevance_reason": "This is an M&A/asset acquisition deal with no FID, contract award, or named workforce ramp-up event that signals discrete labor demand at the Larder property.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "747a1f36-c745-4c2f-8c17-47849fe4e9f2",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "source_published_at": "2026-05-11T20:25:47.000Z",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "sources": [
+      {
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/iberdrola_to_invest_10b_in_brazil_through_2030-11-may-2026-183655-article/?rss=true"
@@ -3151,69 +3214,6 @@
     "construction_subphase": null,
     "lifecycle_track": "greenfield",
     "decom_stage": null
-  },
-  {
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/gold-candle-acquires-pan-american-silvers-larder-property-in-the-abitibi/"
-      }
-    ],
-    "headline": "Gold Candle Acquires Pan American Silver's Larder Property in Ontario's Abitibi Region",
-    "body": "Gold Candle announced it will acquire all the assets that comprise Pan American Silver’s (TSX: PAAS) Larder property in the Abitibi region of Ontario, Canada for 15,000,000 common shares, which will result […]",
-    "url": "https://www.mining.com/gold-candle-acquires-pan-american-silvers-larder-property-in-the-abitibi/",
-    "published_at": "2026-05-11T20:25:47.000Z",
-    "hash": "ee2d1ff3ea3246c3",
-    "subsector": "mining",
-    "discipline_tags": [],
-    "signal_type": "lease_round",
-    "region": "ontario-canada",
-    "country": "canada",
-    "tldr": null,
-    "operator": {
-      "name": "Gold Candle"
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": "Larder Property",
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "bd_relevant": false,
-    "bd_relevance_reason": "This is an M&A/asset acquisition deal with no FID, contract award, or named workforce ramp-up event that signals discrete labor demand at the Larder property.",
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "747a1f36-c745-4c2f-8c17-47849fe4e9f2",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "source_published_at": "2026-05-11T20:25:47.000Z",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
   },
   {
     "sources": [
