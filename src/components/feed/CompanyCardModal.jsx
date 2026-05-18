@@ -41,6 +41,7 @@ const COMPANY_SOURCE_NAMES = {
   brreg: 'Brønnøysundregistrene',
   epa_frs: 'EPA FRS',
   opencorporates: 'OpenCorporates',
+  apollo: 'Apollo',
   pdl: 'PDL',
   websearch: 'AI web research',
 }
