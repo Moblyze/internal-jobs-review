@@ -34,6 +34,14 @@ jobs:
         run: npm run discover-decision-makers
         continue-on-error: true
 
+      - name: Pre-warm company overview cache
+        # Hits the pdl-company-feed Worker once per distinct feed company so
+        # the cascade (Wikidata → … → WebSearch → Apollo) runs and the result
+        # lands in COMPANIES KV before any human opens a modal. Companies
+        # already cached return instantly and cost nothing.
+        run: npm run prewarm-company-overviews
+        continue-on-error: true
+
       - name: Commit feed updates
         id: commit
         run: |
