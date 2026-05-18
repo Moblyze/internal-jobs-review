@@ -42,6 +42,7 @@ const COMPANY_SOURCE_NAMES = {
   epa_frs: 'EPA FRS',
   opencorporates: 'OpenCorporates',
   pdl: 'PDL',
+  websearch: 'AI web research',
 }
 
 const SLUG_OVERRIDES = {
