@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-05-18T03:08:35.546Z"
+    "last_updated_at": "2026-05-18T13:20:43.300Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -3325,6 +3325,66 @@
         "email": null,
         "phone": null,
         "location": "Hyderabad, India"
+      }
+    ]
+  },
+  "santos ltd / repsol sa": {
+    "discovered_at": "2026-05-18T13:20:43.300Z",
+    "contacts": [
+      {
+        "name": "Kim Lee",
+        "title": "Executive Vice President, People & Culture (EVP People & Brand)",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/kim-lee-b339123b",
+        "source_url": "https://www.santos.com/about-us/our-leadership/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Adelaide, Australia"
+      },
+      {
+        "name": "Wanda Lewis",
+        "title": "Vice President, Human Resources",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://rocketreach.co/santos-ltd-management_b5c6300ef42e0c5e",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Steve Trench",
+        "title": "Executive Vice President, Operations and Technical Services",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.santos.com/about-us/our-leadership/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Australia"
+      },
+      {
+        "name": "Eva Gurruchaga",
+        "title": "Human Resources Manager",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/eva-gurruchaga-b742bb7",
+        "source_url": "https://www.linkedin.com/in/eva-gurruchaga-b742bb7/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Madrid, Spain"
+      },
+      {
+        "name": "Ignacio Fresneda Municio",
+        "title": "Human Resources Manager",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/ignaciofresneda",
+        "source_url": "https://www.linkedin.com/in/ignaciofresneda/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Greater Madrid Metropolitan Area, Spain"
       }
     ]
   }

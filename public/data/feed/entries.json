@@ -2,6 +2,117 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/santos_repsol_start_oil_production_at_alaska_project-18-may-2026-183712-article/?rss=true"
+      }
+    ],
+    "headline": "Santos & Repsol Bring Pikka Oil Development Onstream on Alaska North Slope",
+    "body": "Santos Ltd and Repsol SA have put onstream the Pikka oil development on Alaska's North Slope.\n\r\n\r\n\"At plateau, production from the asset will be equiva...",
+    "url": "https://www.rigzone.com/news/santos_repsol_start_oil_production_at_alaska_project-18-may-2026-183712-article/?rss=true",
+    "published_at": "2026-05-18T12:16:48.000Z",
+    "hash": "8572be20d97f6f4d",
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "process_plant_operations",
+      "drilling_operations",
+      "pipeline_mechanical",
+      "industrial_construction"
+    ],
+    "signal_type": "epc_award",
+    "region": "alaska-north-slope",
+    "country": "united_states",
+    "tldr": "Santos and Repsol have commenced production at the Pikka oil development on Alaska's North Slope. The project is now in operating phase, with ongoing maintenance and operations roles the primary labor demand signal.",
+    "operator": {
+      "name": "Santos Ltd / Repsol SA",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Pikka",
+    "scope": [
+      "production_startup",
+      "plateau_operations"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Production Operator",
+        "Field Operator",
+        "Operations Supervisor",
+        "Maintenance Technician",
+        "Instrument Technician",
+        "Rotating Equipment Technician",
+        "Process Engineer",
+        "HSE Advisor",
+        "Commissioning Engineer"
+      ],
+      "skills": [
+        "onshore oil production",
+        "arctic operations",
+        "North Slope Alaska",
+        "process operations",
+        "facility maintenance",
+        "rotating equipment",
+        "instrumentation",
+        "LOTO",
+        "permit to work"
+      ],
+      "certs_freetext": [
+        "TWIC",
+        "H2S Alive",
+        "OSHA 30",
+        "First Aid/CPR",
+        "Alaska state driver's license"
+      ],
+      "geo_rtw": "US work authorization required; Alaska North Slope",
+      "project_experience": [
+        "Prudhoe Bay",
+        "Kuparuk",
+        "Alpine",
+        "Point Thomson",
+        "Willow"
+      ],
+      "yoe_band": "5-15",
+      "seniority": "mid to senior",
+      "boolean_search": "(\"Production Operator\" OR \"Field Operator\" OR \"Operations Supervisor\" OR \"Maintenance Technician\" OR \"Instrument Technician\" OR \"Process Engineer\") AND (\"North Slope\" OR \"Alaska\" OR \"Prudhoe\" OR \"Kuparuk\" OR \"Arctic\") AND (\"onshore oil\" OR \"oil production\" OR \"oil field operations\" OR \"facility operations\") AND (\"Santos\" OR \"Repsol\" OR \"BP Alaska\" OR \"ConocoPhillips Alaska\" OR \"Hilcorp\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Santos & Repsol just brought the Pikka project onstream on Alaska's North Slope — ongoing ops roles are opening up. Your North Slope background looks like a strong fit. Worth a quick chat?",
+      "email_subject": "Pikka First Oil — Ops & Maintenance Roles Opening on Alaska North Slope",
+      "email_body": "Hi [Name],\n\nSantos and Repsol have officially brought the Pikka oil development onstream on Alaska's North Slope. With production now live and ramping toward plateau, ongoing operations and maintenance roles are expected to be in demand.\n\nGiven your experience in North Slope / Arctic onshore operations, I wanted to reach out directly — these positions tend to move quickly once production is established.\n\nWould you be open to a brief call this week to discuss what's available?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operators Santos and Repsol have commenced production at the Pikka project on Alaska's North Slope — a discrete production-start event implying ongoing operations and maintenance workforce demand.",
+    "phase": "operating",
+    "phase_evidence": "Article states Santos and Repsol 'have put onstream the Pikka oil development,' confirming first production has commenced.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "ongoing",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "df069322-8fff-4efd-883c-ce5de836cd1e",
+    "ingested_at": "2026-05-18T13:19:28.178Z",
+    "source_published_at": "2026-05-18T12:16:48.000Z",
+    "contact_archetypes": [
+      "ops_director",
+      "hiring_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/trilogy-metals-announces-acceptance-of-alaskas-high-grade-arctic-copper-zinc-lead-gold-silver-project-into-the-fast-41-federal-permitting-program-302773296.html"
@@ -2179,69 +2290,6 @@
   {
     "sources": [
       {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/gold-candle-acquires-pan-american-silvers-larder-property-in-the-abitibi/"
-      }
-    ],
-    "headline": "Gold Candle Acquires Pan American Silver's Larder Property in Ontario's Abitibi Region",
-    "body": "Gold Candle announced it will acquire all the assets that comprise Pan American Silver’s (TSX: PAAS) Larder property in the Abitibi region of Ontario, Canada for 15,000,000 common shares, which will result […]",
-    "url": "https://www.mining.com/gold-candle-acquires-pan-american-silvers-larder-property-in-the-abitibi/",
-    "published_at": "2026-05-11T20:25:47.000Z",
-    "hash": "ee2d1ff3ea3246c3",
-    "subsector": "mining",
-    "discipline_tags": [],
-    "signal_type": "lease_round",
-    "region": "ontario-canada",
-    "country": "canada",
-    "tldr": null,
-    "operator": {
-      "name": "Gold Candle"
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": "Larder Property",
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "bd_relevant": false,
-    "bd_relevance_reason": "This is an M&A/asset acquisition deal with no FID, contract award, or named workforce ramp-up event that signals discrete labor demand at the Larder property.",
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "747a1f36-c745-4c2f-8c17-47849fe4e9f2",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "source_published_at": "2026-05-11T20:25:47.000Z",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "sources": [
-      {
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/iberdrola_to_invest_10b_in_brazil_through_2030-11-may-2026-183655-article/?rss=true"
@@ -3214,6 +3262,69 @@
     "construction_subphase": null,
     "lifecycle_track": "greenfield",
     "decom_stage": null
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/gold-candle-acquires-pan-american-silvers-larder-property-in-the-abitibi/"
+      }
+    ],
+    "headline": "Gold Candle Acquires Pan American Silver's Larder Property in Ontario's Abitibi Region",
+    "body": "Gold Candle announced it will acquire all the assets that comprise Pan American Silver’s (TSX: PAAS) Larder property in the Abitibi region of Ontario, Canada for 15,000,000 common shares, which will result […]",
+    "url": "https://www.mining.com/gold-candle-acquires-pan-american-silvers-larder-property-in-the-abitibi/",
+    "published_at": "2026-05-11T20:25:47.000Z",
+    "hash": "ee2d1ff3ea3246c3",
+    "subsector": "mining",
+    "discipline_tags": [],
+    "signal_type": "lease_round",
+    "region": "ontario-canada",
+    "country": "canada",
+    "tldr": null,
+    "operator": {
+      "name": "Gold Candle"
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": "Larder Property",
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "bd_relevant": false,
+    "bd_relevance_reason": "This is an M&A/asset acquisition deal with no FID, contract award, or named workforce ramp-up event that signals discrete labor demand at the Larder property.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "747a1f36-c745-4c2f-8c17-47849fe4e9f2",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "source_published_at": "2026-05-11T20:25:47.000Z",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
   },
   {
     "sources": [
