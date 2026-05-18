@@ -25,7 +25,10 @@ const DM_PATH = resolve(ROOT, 'public/data/feed/decision_makers.json')
 
 const MODEL = 'claude-sonnet-4-6'
 const MAX_TOKENS = 2048
-const MAX_WEB_SEARCH_USES = 3
+// Pass 1 (discovery) typically uses 1-2 searches; Pass 2 needs a dedicated
+// search per contact to resolve their personal LinkedIn /in/ profile. Cap at
+// 10 so a full 5-contact company has 5 LinkedIn searches + room for Pass 1.
+const MAX_WEB_SEARCH_USES = 10
 const CONCURRENCY = 3 // parallel companies — keep modest to respect rate limits
 
 const TARGET_PERSONAS = ['ta', 'hr', 'operations', 'project', 'crewing']
@@ -73,7 +76,22 @@ Target personas (in priority order):
 - project   — Project / Construction / Site Managers and Directors
 - crewing   — Crewing, Mobilization, Workforce planning (offshore / heavy industry)
 
-Use the web_search tool to find LinkedIn profiles and other public sources. Prefer LinkedIn URLs (linkedin.com/in/...) for source_url.
+WORKFLOW — follow this two-pass approach:
+
+Pass 1 (discovery): Use the web_search tool to identify candidate names at this company. Useful queries include
+"<company> leadership team", "<company> management", "<company> directors", or news/press releases.
+
+Pass 2 (LinkedIn resolution — REQUIRED for every candidate): For each name you found in Pass 1, do a follow-up
+web_search like "<name> <company> LinkedIn" or "<name> LinkedIn <city>" to locate their PERSONAL LinkedIn profile.
+A LinkedIn profile URL looks like: https://www.linkedin.com/in/<slug>  (note the "/in/" path segment).
+
+FIELD RULES:
+- linkedin_url: REQUIRED whenever a LinkedIn /in/ profile can be located in Pass 2. Must be a canonical
+  https://www.linkedin.com/in/<slug> URL — strip query params and trailing slashes. If a Pass-2 search surfaces
+  the profile through a /posts/ or /pulse/ URL, derive the canonical /in/ URL from the same slug. Only set to
+  null after a deliberate Pass-2 search returned no /in/ result for that specific person.
+- source_url: where you originally discovered this person works at this company (Pass 1) — can be a company
+  leadership page, press release, conference bio, or the LinkedIn /in/ URL itself if that's where you found them.
 
 For EACH contact, also try to capture:
 - email:    A work email address ONLY if you find it explicitly published in a public source — investor-relations pages, press-release contacts, conference speaker bios, "Contact us" pages, regulatory filings (proxies, 10-Ks). NEVER guess, infer, or construct emails from a domain pattern. If unsure, return null.
@@ -88,7 +106,8 @@ Return ONLY a JSON object matching this schema — no prose, no markdown, no cod
       "name": "string",
       "title": "string",
       "persona": "ta" | "hr" | "operations" | "project" | "crewing" | "other",
-      "source_url": "string (LinkedIn URL preferred) or null",
+      "linkedin_url": "string (canonical https://www.linkedin.com/in/<slug>) or null",
+      "source_url": "string (any public URL where you verified this person works at this company) or null",
       "in_target_persona": true | false,
       "email": "string or null",
       "phone": "string or null",
@@ -130,11 +149,24 @@ function normalizeContact(raw) {
   const phone = phoneRaw && phoneRaw.length >= 6 ? phoneRaw : null
   const locationRaw = typeof raw.location === 'string' ? raw.location.trim() : ''
   const location = locationRaw && locationRaw.length >= 2 ? locationRaw : null
+  const sourceUrl = typeof raw.source_url === 'string' && raw.source_url.trim() ? raw.source_url.trim() : null
+  // linkedin_url: prefer explicit field, fall back to source_url if it's a /in/ URL.
+  // Normalize /posts/<slug-id>/ and /pulse/ paths back to canonical /in/<slug>.
+  let linkedinUrl = typeof raw.linkedin_url === 'string' && raw.linkedin_url.trim() ? raw.linkedin_url.trim() : null
+  if (!linkedinUrl && sourceUrl && /linkedin\.com\/in\//i.test(sourceUrl)) linkedinUrl = sourceUrl
+  if (linkedinUrl) {
+    linkedinUrl = linkedinUrl.split('?')[0].replace(/\/$/, '')
+    // /posts/<slug>-<id> → /in/<slug>  (slug before final hyphen-then-digits)
+    const postsMatch = linkedinUrl.match(/linkedin\.com\/posts\/([a-z0-9-]+?)(?:_[a-z0-9-]+)?$/i)
+    if (postsMatch) linkedinUrl = `https://www.linkedin.com/in/${postsMatch[1]}`
+    if (!/linkedin\.com\/in\//i.test(linkedinUrl)) linkedinUrl = null
+  }
   return {
     name,
     title,
     persona,
-    source_url: typeof raw.source_url === 'string' && raw.source_url.trim() ? raw.source_url.trim() : null,
+    linkedin_url: linkedinUrl,
+    source_url: sourceUrl,
     in_target_persona: TARGET_PERSONAS.includes(persona),
     email,
     phone,

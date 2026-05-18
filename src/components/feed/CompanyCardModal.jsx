@@ -183,7 +183,8 @@ function AgentContactCard({ p, companyName, entryId, companyDomain }) {
     })
   }
 
-  const linkedinUrl = p.source_url && /linkedin\.com/i.test(p.source_url) ? p.source_url : null
+  const linkedinUrl = p.linkedin_url
+    || (p.source_url && /linkedin\.com\/in\//i.test(p.source_url) ? p.source_url : null)
   const sourceUrl = p.source_url || null
 
   return (
