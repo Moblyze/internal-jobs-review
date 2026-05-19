@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-05-19T00:50:58.863Z"
+    "last_updated_at": "2026-05-19T13:12:59.624Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -3625,6 +3625,66 @@
         "email": null,
         "phone": null,
         "location": "Seadrift, TX, USA"
+      }
+    ]
+  },
+  "dow chemical": {
+    "discovered_at": "2026-05-19T13:12:59.624Z",
+    "contacts": [
+      {
+        "name": "Lisa Bryant",
+        "title": "Chief Human Resources Officer",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/lisa-bryant-9b293a13",
+        "source_url": "https://corporate.dow.com/en-us/about-dow/leadership/lisa-bryant.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Midland, MI, USA"
+      },
+      {
+        "name": "Karen S. Carter",
+        "title": "Chief Operating Officer (CEO-elect effective July 1, 2026)",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/karenscarter",
+        "source_url": "https://www.linkedin.com/in/karenscarter",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Midland, MI, USA"
+      },
+      {
+        "name": "John Sampson",
+        "title": "Senior Vice President, Operations, Manufacturing & Engineering",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/john-sampson-b0262a8",
+        "source_url": "https://corporate.dow.com/en-us/about-dow/leadership/john-sampson.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Midland, MI, USA"
+      },
+      {
+        "name": "Allie Brueck",
+        "title": "Global HR Director (formerly Director, Workforce Planning & Talent Acquisition)",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/alliebrueck",
+        "source_url": "https://www.comparably.com/companies/dow-chemical-company/human-resources",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Midland, MI, USA"
+      },
+      {
+        "name": "Judy Gross",
+        "title": "Global Director, Human Resources",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://www.comparably.com/companies/dow-chemical-company/human-resources",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Midland, MI, USA"
       }
     ]
   }

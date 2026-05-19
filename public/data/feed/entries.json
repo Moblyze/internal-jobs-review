@@ -2,6 +2,108 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/licensing-milestone-for-texas-smr-plant"
+      }
+    ],
+    "headline": "NRC Completes Ahead-of-Schedule Environmental Assessment for Dow's Long Mott SMR Plant in Texas",
+    "body": "The US regulator has completed its environmental assessment of the proposed Long Mott Generating Station advanced reactor facility at Dow Chemical's manufacturing site in Texas ahead of schedule.",
+    "url": "https://www.world-nuclear-news.org//articles/licensing-milestone-for-texas-smr-plant",
+    "published_at": "2026-05-19T09:32:33.000Z",
+    "hash": "8168f2a509515c27",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-gulf-coast",
+    "country": "united_states",
+    "tldr": "The US NRC has completed its environmental assessment of the Long Mott Generating Station SMR facility at Dow Chemical's Texas site ahead of schedule, advancing the project toward potential licensing and construction. This is a pre-sanction regulatory milestone signaling future workforce demand.",
+    "operator": {
+      "name": "Dow Chemical",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Long Mott Generating Station",
+    "scope": [
+      "environmental_assessment",
+      "smr_nuclear",
+      "advanced_reactor"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Project Manager",
+        "Reactor Engineer",
+        "Nuclear Licensing Engineer",
+        "SMR Development Manager",
+        "Nuclear Construction Manager",
+        "Regulatory Affairs Manager",
+        "HSE Manager – Nuclear"
+      ],
+      "skills": [
+        "SMR",
+        "advanced reactor",
+        "nuclear licensing",
+        "NRC regulatory process",
+        "FEED",
+        "nuclear project development"
+      ],
+      "certs_freetext": [
+        "NRC License",
+        "PMP",
+        "ASME Nuclear Certification"
+      ],
+      "geo_rtw": "US work-authorized",
+      "project_experience": [
+        "Vogtle Unit 3&4",
+        "NuScale CFPP",
+        "X-energy Dow SMR",
+        "TerraPower Natrium"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal",
+      "boolean_search": "(\"nuclear\" OR \"SMR\" OR \"advanced reactor\" OR \"small modular reactor\") AND (\"project manager\" OR \"licensing engineer\" OR \"reactor engineer\" OR \"nuclear construction\" OR \"regulatory affairs\") AND (\"NRC\" OR \"FSAR\" OR \"COLA\" OR \"nuclear design\") AND (Texas OR \"Gulf Coast\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], the Long Mott SMR project at Dow's Texas site just cleared its NRC environmental review ahead of schedule — licensing and construction hiring is coming. Are you open to a conversation about senior nuclear roles on this program?",
+      "email_subject": "Long Mott SMR (Dow Texas) – Senior Nuclear Roles Ahead of Licensing Decision",
+      "email_body": "Hi [Name],\n\nThe NRC has completed its environmental assessment of the Long Mott Generating Station — Dow Chemical's proposed SMR facility in Texas — ahead of schedule. This is a meaningful regulatory milestone that moves the project closer to a licensing decision and eventual construction sanction.\n\nAs the project approaches FID, demand for experienced nuclear professionals (licensing, project management, reactor engineering, construction oversight) will ramp quickly.\n\nWould you be open to a brief call to discuss how your background aligns with what this program will need? Happy to share more details on the timeline.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Regulatory milestone (NRC environmental assessment completed ahead of schedule) for a named advanced nuclear project (Long Mott Generating Station) at a named operator site (Dow Chemical, Texas), signaling progression toward licensing and eventual construction workforce demand.",
+    "phase": "pre_sanction",
+    "phase_evidence": "The article describes completion of an environmental assessment — a pre-licensing regulatory step — with no FID, EPC award, or construction authorization mentioned.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "52eeec4c-8bbd-4e23-9758-8dd40cf3b147",
+    "ingested_at": "2026-05-19T13:11:32.424Z",
+    "source_published_at": "2026-05-19T09:32:33.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/nrc-issues-environmental-assessment-with-finding-of-no-significant-impact-for-dow-and-x-energys-proposed-advanced-nuclear-project-in-texas-302775179.html"
@@ -2957,118 +3059,6 @@
   {
     "sources": [
       {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/png_lng_partners_approve_new_upstream_development-12-may-2026-183668-article/?rss=true"
-      }
-    ],
-    "headline": "ExxonMobil-Led PNG LNG JV Takes FID on Upstream Tie-In Development",
-    "body": "The Exxon Mobil Corp-led PNG LNG joint venture on Tuesday announced a final investment decision (FID) to proceed with a tie-in project to unlock more feed ga...",
-    "url": "https://www.rigzone.com/news/png_lng_partners_approve_new_upstream_development-12-may-2026-183668-article/?rss=true",
-    "published_at": "2026-05-12T12:09:44.000Z",
-    "hash": "f88f0d803997082f",
-    "subsector": "onshore-og",
-    "discipline_tags": [
-      "energy_trades",
-      "industrial_construction",
-      "pipeline_mechanical",
-      "process_plant_operations"
-    ],
-    "signal_type": "fid",
-    "region": "papua-new-guinea",
-    "country": "papua_new_guinea",
-    "tldr": "ExxonMobil-led PNG LNG JV has reached FID on an upstream tie-in project to supply additional feed gas, triggering EPC tendering and engineering ramp-up. Active hiring for construction trades and project professionals expected within 6-12 months.",
-    "operator": {
-      "name": "ExxonMobil"
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": "PNG LNG Upstream Tie-In Development",
-    "scope": [
-      "upstream_tie_in",
-      "feed_gas_development",
-      "pipeline_mechanical",
-      "onshore_epc"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Project Manager",
-        "Construction Manager",
-        "Pipeline Engineer",
-        "Process Engineer",
-        "HSE Manager",
-        "Commissioning Engineer",
-        "Project Controls Engineer",
-        "Mechanical Superintendent",
-        "Instrument & Controls Engineer",
-        "Site Manager"
-      ],
-      "skills": [
-        "LNG upstream tie-in",
-        "onshore gas development",
-        "pipeline construction",
-        "feed gas processing",
-        "project execution",
-        "EPC management",
-        "commissioning",
-        "HSE leadership"
-      ],
-      "certs_freetext": [
-        "BOSIET",
-        "NEBOSH",
-        "IOGP HSE",
-        "PNG work permit eligible"
-      ],
-      "geo_rtw": "Papua New Guinea; FIFO from Australia or regional hubs acceptable",
-      "project_experience": [
-        "PNG LNG",
-        "Papua LNG",
-        "Ichthys LNG",
-        "Prelude FLNG",
-        "Wheatstone LNG",
-        "Gorgon LNG"
-      ],
-      "yoe_band": "10-20",
-      "seniority": "Senior / Principal",
-      "boolean_search": "(\"PNG LNG\" OR \"Papua New Guinea LNG\" OR \"Papua LNG\") AND (\"upstream tie-in\" OR \"onshore gas\" OR \"feed gas\" OR \"LNG upstream\") AND (\"Construction Manager\" OR \"Project Manager\" OR \"Pipeline Engineer\" OR \"Process Engineer\" OR \"Commissioning Engineer\" OR \"HSE Manager\" OR \"Project Controls\" OR \"Mechanical Superintendent\") AND (\"FID\" OR \"EPC\" OR \"FIFO\" OR \"onshore construction\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], ExxonMobil's PNG LNG JV just took FID on a new upstream tie-in development in Papua New Guinea — EPC awards and construction ramp-up are next. Given your background in [LNG/onshore gas/pipeline], would you be open to a quick conversation about upcoming roles?",
-      "email_subject": "PNG LNG Upstream Tie-In — FID Taken, Project Roles Opening Up",
-      "email_body": "Hi [Name],\n\nExxonMobil-led PNG LNG JV has just announced a Final Investment Decision (FID) on a new upstream tie-in development in Papua New Guinea, unlocking additional feed gas supply for the existing LNG facility.\n\nWith FID confirmed, EPC contracting and detailed engineering will ramp up in the coming months, creating demand for experienced project professionals and construction specialists with LNG and onshore gas backgrounds.\n\nGiven your experience in [relevant area], I wanted to reach out early before these roles go to market. Happy to share more details — would you be open to a brief call this week?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "FID announced by named operator ExxonMobil on a named project (PNG LNG Upstream Tie-In), triggering EPC tendering and construction workforce demand in onshore O&G.",
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "57147cd7-6e16-45cc-9767-f383939634af",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "source_published_at": "2026-05-12T12:09:44.000Z",
-    "phase": "sanctioned_engineering",
-    "phase_evidence": "Article states the JV 'announced a final investment decision (FID) to proceed with a tie-in project,' placing the project at the start of the post-FID engineering phase.",
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": [],
-    "contact_archetypes": [
-      "project_manager",
-      "hiring_manager",
-      "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1.2",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null
-  },
-  {
-    "sources": [
-      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org//articles/key-aerb-approval-issued-for-kudankulam-5-and-6"
@@ -3176,6 +3166,118 @@
     ],
     "prompt_version": "phase-targeting-v1.2",
     "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null
+  },
+  {
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/png_lng_partners_approve_new_upstream_development-12-may-2026-183668-article/?rss=true"
+      }
+    ],
+    "headline": "ExxonMobil-Led PNG LNG JV Takes FID on Upstream Tie-In Development",
+    "body": "The Exxon Mobil Corp-led PNG LNG joint venture on Tuesday announced a final investment decision (FID) to proceed with a tie-in project to unlock more feed ga...",
+    "url": "https://www.rigzone.com/news/png_lng_partners_approve_new_upstream_development-12-may-2026-183668-article/?rss=true",
+    "published_at": "2026-05-12T12:09:44.000Z",
+    "hash": "f88f0d803997082f",
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "pipeline_mechanical",
+      "process_plant_operations"
+    ],
+    "signal_type": "fid",
+    "region": "papua-new-guinea",
+    "country": "papua_new_guinea",
+    "tldr": "ExxonMobil-led PNG LNG JV has reached FID on an upstream tie-in project to supply additional feed gas, triggering EPC tendering and engineering ramp-up. Active hiring for construction trades and project professionals expected within 6-12 months.",
+    "operator": {
+      "name": "ExxonMobil"
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": "PNG LNG Upstream Tie-In Development",
+    "scope": [
+      "upstream_tie_in",
+      "feed_gas_development",
+      "pipeline_mechanical",
+      "onshore_epc"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Project Manager",
+        "Construction Manager",
+        "Pipeline Engineer",
+        "Process Engineer",
+        "HSE Manager",
+        "Commissioning Engineer",
+        "Project Controls Engineer",
+        "Mechanical Superintendent",
+        "Instrument & Controls Engineer",
+        "Site Manager"
+      ],
+      "skills": [
+        "LNG upstream tie-in",
+        "onshore gas development",
+        "pipeline construction",
+        "feed gas processing",
+        "project execution",
+        "EPC management",
+        "commissioning",
+        "HSE leadership"
+      ],
+      "certs_freetext": [
+        "BOSIET",
+        "NEBOSH",
+        "IOGP HSE",
+        "PNG work permit eligible"
+      ],
+      "geo_rtw": "Papua New Guinea; FIFO from Australia or regional hubs acceptable",
+      "project_experience": [
+        "PNG LNG",
+        "Papua LNG",
+        "Ichthys LNG",
+        "Prelude FLNG",
+        "Wheatstone LNG",
+        "Gorgon LNG"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal",
+      "boolean_search": "(\"PNG LNG\" OR \"Papua New Guinea LNG\" OR \"Papua LNG\") AND (\"upstream tie-in\" OR \"onshore gas\" OR \"feed gas\" OR \"LNG upstream\") AND (\"Construction Manager\" OR \"Project Manager\" OR \"Pipeline Engineer\" OR \"Process Engineer\" OR \"Commissioning Engineer\" OR \"HSE Manager\" OR \"Project Controls\" OR \"Mechanical Superintendent\") AND (\"FID\" OR \"EPC\" OR \"FIFO\" OR \"onshore construction\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], ExxonMobil's PNG LNG JV just took FID on a new upstream tie-in development in Papua New Guinea — EPC awards and construction ramp-up are next. Given your background in [LNG/onshore gas/pipeline], would you be open to a quick conversation about upcoming roles?",
+      "email_subject": "PNG LNG Upstream Tie-In — FID Taken, Project Roles Opening Up",
+      "email_body": "Hi [Name],\n\nExxonMobil-led PNG LNG JV has just announced a Final Investment Decision (FID) on a new upstream tie-in development in Papua New Guinea, unlocking additional feed gas supply for the existing LNG facility.\n\nWith FID confirmed, EPC contracting and detailed engineering will ramp up in the coming months, creating demand for experienced project professionals and construction specialists with LNG and onshore gas backgrounds.\n\nGiven your experience in [relevant area], I wanted to reach out early before these roles go to market. Happy to share more details — would you be open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "FID announced by named operator ExxonMobil on a named project (PNG LNG Upstream Tie-In), triggering EPC tendering and construction workforce demand in onshore O&G.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "57147cd7-6e16-45cc-9767-f383939634af",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "source_published_at": "2026-05-12T12:09:44.000Z",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Article states the JV 'announced a final investment decision (FID) to proceed with a tie-in project,' placing the project at the start of the post-FID engineering phase.",
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2",
+    "construction_subphase": null,
     "lifecycle_track": "greenfield",
     "decom_stage": null
   },
@@ -9476,69 +9578,6 @@
     "prompt_version": "phase-targeting-v1"
   },
   {
-    "headline": "US DOE & NRC Advance Licensing for Aalo Atomics Aalo-X SMR and Oklo Aurora Powerhouse",
-    "body": "The US Department of Energy's Idaho Operations Office has approved the Documented Safety Analysis for Aalo Atomics' Aalo-X experimental reactor. Meanwhile, the US Nuclear Regulatory Commission has approved the Principal Design Criteria topical report for Oklo's Aurora powerhouse.",
-    "url": "https://www.world-nuclear-news.org//articles/licensing-of-us-pilot-smrs-advances",
-    "published_at": "2026-05-07T14:26:06.000Z",
-    "hash": "d80b309f38c1b420",
-    "subsector": "nuclear",
-    "discipline_tags": [],
-    "signal_type": "regulatory",
-    "region": "us-idaho",
-    "country": "united_states",
-    "tldr": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "da3a43d3-02b5-460b-8bf8-22ac9426d0e1",
-    "ingested_at": "2026-05-08T01:16:59.182Z",
-    "source_published_at": "2026-05-07T14:26:06.000Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/licensing-of-us-pilot-smrs-advances"
-      }
-    ],
-    "bd_relevant": false,
-    "bd_relevance_reason": "Regulatory licensing approvals for Aalo-X and Aurora are pre-construction milestones with no contract award, FID, EPC tender, or workforce ramp-up signal named in the article.",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
     "headline": null,
     "body": "Swedish lead-cooled small modular reactor technology developer Blykalla and global engineering company ABB have signed a Joint Development Agreement, marking a significant step forward in their collaboration and formally advancing their partnership.",
     "url": "https://www.world-nuclear-news.org//articles/blykalla-and-abb-enhance-cooperation",
@@ -9656,6 +9695,69 @@
     ],
     "bd_relevant": false,
     "bd_relevance_reason": "Generic partnership announcement describing a technology collaboration concept with no named project, contract award, FID, or discrete workforce-demand event.",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "headline": "US DOE & NRC Advance Licensing for Aalo Atomics Aalo-X SMR and Oklo Aurora Powerhouse",
+    "body": "The US Department of Energy's Idaho Operations Office has approved the Documented Safety Analysis for Aalo Atomics' Aalo-X experimental reactor. Meanwhile, the US Nuclear Regulatory Commission has approved the Principal Design Criteria topical report for Oklo's Aurora powerhouse.",
+    "url": "https://www.world-nuclear-news.org//articles/licensing-of-us-pilot-smrs-advances",
+    "published_at": "2026-05-07T14:26:06.000Z",
+    "hash": "d80b309f38c1b420",
+    "subsector": "nuclear",
+    "discipline_tags": [],
+    "signal_type": "regulatory",
+    "region": "us-idaho",
+    "country": "united_states",
+    "tldr": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "da3a43d3-02b5-460b-8bf8-22ac9426d0e1",
+    "ingested_at": "2026-05-08T01:16:59.182Z",
+    "source_published_at": "2026-05-07T14:26:06.000Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/licensing-of-us-pilot-smrs-advances"
+      }
+    ],
+    "bd_relevant": false,
+    "bd_relevance_reason": "Regulatory licensing approvals for Aalo-X and Aurora are pre-construction milestones with no contract award, FID, EPC tender, or workforce ramp-up signal named in the article.",
     "phase": null,
     "phase_evidence": null,
     "outreach_readiness": null,
