@@ -3172,6 +3172,179 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/norwegian-municipalities-initiate-investigation-work"
+      }
+    ],
+    "headline": "Norwegian Municipalities Launch SMR Nuclear Investigation Work Ahead of Licence Applications",
+    "body": "Several municipalities in Norway that have submitted proposals to the Ministry of Energy for possible nuclear power plants based on small modular reactors have decided to initiate investigation work for the projects and prepare technical reports that will form the basis for future licence applications.",
+    "url": "https://www.world-nuclear-news.org//articles/norwegian-municipalities-initiate-investigation-work",
+    "published_at": "2026-05-05T13:19:57.000Z",
+    "hash": "2cf87a3ceee3a588",
+    "subsector": "nuclear",
+    "discipline_tags": [],
+    "signal_type": "regulatory",
+    "region": "norway",
+    "country": "norway",
+    "tldr": null,
+    "operator": {
+      "name": null
+    },
+    "hiring_entity": {
+      "name": null
+    },
+    "project_name": null,
+    "scope": [],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [],
+      "skills": [],
+      "certs_freetext": [],
+      "geo_rtw": null,
+      "project_experience": [],
+      "yoe_band": null,
+      "seniority": null,
+      "boolean_search": null
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "bd_relevant": false,
+    "bd_relevance_reason": "Pre-licence investigation work with no named operator, contractor, or project; no discrete contract award, FID, or workforce-demand event to act on.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "b33985ee-4b53-49cb-9b19-2532b9be6298",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "source_published_at": "2026-05-05T13:19:57.000Z",
+    "phase": null,
+    "phase_evidence": null,
+    "outreach_readiness": null,
+    "estimated_hiring_window": null,
+    "key_people": [],
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/brookfield-and-the-nuclear-company-target-vcsummer"
+      }
+    ],
+    "headline": "Brookfield & The Nuclear Company JV to Complete VC Summer AP1000 Units in South Carolina",
+    "body": "A joint venture established by global investment firm Brookfield and nuclear project development and delivery company The Nuclear Company is to project manage the completion of the two VC Summer AP1000 units in South Carolina.",
+    "url": "https://www.world-nuclear-news.org//articles/brookfield-and-the-nuclear-company-target-vcsummer",
+    "published_at": "2026-05-05T13:23:58.000Z",
+    "hash": "b0f0e4f4ae7f4e37",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "us-southeast",
+    "country": "united_states",
+    "tldr": "A Brookfield/The Nuclear Company JV has been established to project-manage completion of the two mothballed VC Summer AP1000 units in South Carolina, signaling a major nuclear construction ramp-up with significant workforce demand ahead.",
+    "operator": {
+      "name": "Brookfield / The Nuclear Company JV"
+    },
+    "hiring_entity": {
+      "name": "The Nuclear Company"
+    },
+    "project_name": "VC Summer AP1000 Units 2 & 3",
+    "scope": [
+      "nuclear_construction",
+      "ap1000_completion",
+      "project_management"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Construction Manager",
+        "AP1000 Project Manager",
+        "Nuclear Project Director",
+        "Mechanical Construction Supervisor",
+        "Nuclear QA/QC Manager",
+        "Nuclear Commissioning Engineer",
+        "Nuclear I&C Engineer",
+        "Structural Engineer (Nuclear)",
+        "Nuclear Safety Manager",
+        "Outage/Construction Planner"
+      ],
+      "skills": [
+        "AP1000",
+        "nuclear construction",
+        "Westinghouse AP1000",
+        "nuclear QA/QC",
+        "NQA-1",
+        "nuclear commissioning",
+        "I&C nuclear",
+        "large capital project delivery",
+        "nuclear project controls"
+      ],
+      "certs_freetext": [
+        "NQA-1",
+        "10 CFR 50",
+        "NRC operator license",
+        "OSHA 30",
+        "PMP"
+      ],
+      "geo_rtw": "US work authorization required; South Carolina site-based",
+      "project_experience": [
+        "Vogtle Unit 3 & 4",
+        "VC Summer AP1000",
+        "Hinkley Point C",
+        "Barakah Nuclear"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "senior to principal",
+      "boolean_search": "(\"AP1000\" OR \"nuclear construction\" OR \"nuclear project manager\" OR \"nuclear commissioning\") AND (\"Westinghouse\" OR \"Vogtle\" OR \"VC Summer\" OR \"AP1000 completion\") AND (\"project manager\" OR \"construction manager\" OR \"commissioning engineer\" OR \"QA manager\" OR \"I&C\" OR \"project director\") AND (\"NQA-1\" OR \"10 CFR 50\" OR \"nuclear\" OR \"NRC\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Brookfield & The Nuclear Company JV are leading completion of the VC Summer AP1000 units in SC — a landmark nuclear construction restart. Given your AP1000/nuclear construction background, I'd love to connect about senior roles on this project.",
+      "email_subject": "VC Summer AP1000 Restart — Senior Nuclear Construction Roles | SC",
+      "email_body": "Hi [Name],\n\nA newly formed JV between Brookfield and The Nuclear Company has been appointed to project-manage the completion of the two VC Summer AP1000 units in South Carolina — one of the most significant nuclear construction restarts in US history.\n\nGiven your experience in [AP1000 / nuclear construction / commissioning], I wanted to reach out early as senior roles in project management, construction, QA/QC, and commissioning are expected to ramp up as the project moves forward.\n\nWould you be open to a brief call this week to explore fit?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "JV formation between named entities (Brookfield and The Nuclear Company) to project-manage completion of a named nuclear construction project (VC Summer AP1000 Units 2 & 3), constituting a discrete workforce-demand event in the nuclear sector.",
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "15252109-bd20-487b-b001-ab24900dda51",
+    "ingested_at": "2026-05-12T12:35:36.640Z",
+    "source_published_at": "2026-05-05T13:23:58.000Z",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Article states the JV 'is to project manage the completion' of the two units, indicating a project management mandate has been awarded but construction execution is not yet underway.",
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null
+  },
+  {
+    "sources": [
+      {
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/png_lng_partners_approve_new_upstream_development-12-may-2026-183668-article/?rss=true"
@@ -3280,69 +3453,6 @@
     "construction_subphase": null,
     "lifecycle_track": "greenfield",
     "decom_stage": null
-  },
-  {
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/norwegian-municipalities-initiate-investigation-work"
-      }
-    ],
-    "headline": "Norwegian Municipalities Launch SMR Nuclear Investigation Work Ahead of Licence Applications",
-    "body": "Several municipalities in Norway that have submitted proposals to the Ministry of Energy for possible nuclear power plants based on small modular reactors have decided to initiate investigation work for the projects and prepare technical reports that will form the basis for future licence applications.",
-    "url": "https://www.world-nuclear-news.org//articles/norwegian-municipalities-initiate-investigation-work",
-    "published_at": "2026-05-05T13:19:57.000Z",
-    "hash": "2cf87a3ceee3a588",
-    "subsector": "nuclear",
-    "discipline_tags": [],
-    "signal_type": "regulatory",
-    "region": "norway",
-    "country": "norway",
-    "tldr": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "bd_relevant": false,
-    "bd_relevance_reason": "Pre-licence investigation work with no named operator, contractor, or project; no discrete contract award, FID, or workforce-demand event to act on.",
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "b33985ee-4b53-49cb-9b19-2532b9be6298",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "source_published_at": "2026-05-05T13:19:57.000Z",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
   },
   {
     "sources": [
@@ -3745,116 +3855,6 @@
     "construction_subphase": null,
     "lifecycle_track": "decommissioning",
     "decom_stage": "planning"
-  },
-  {
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/brookfield-and-the-nuclear-company-target-vcsummer"
-      }
-    ],
-    "headline": "Brookfield & The Nuclear Company JV to Complete VC Summer AP1000 Units in South Carolina",
-    "body": "A joint venture established by global investment firm Brookfield and nuclear project development and delivery company The Nuclear Company is to project manage the completion of the two VC Summer AP1000 units in South Carolina.",
-    "url": "https://www.world-nuclear-news.org//articles/brookfield-and-the-nuclear-company-target-vcsummer",
-    "published_at": "2026-05-05T13:23:58.000Z",
-    "hash": "b0f0e4f4ae7f4e37",
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "energy_trades",
-      "industrial_construction",
-      "process_plant_operations"
-    ],
-    "signal_type": "epc_award",
-    "region": "us-southeast",
-    "country": "united_states",
-    "tldr": "A Brookfield/The Nuclear Company JV has been established to project-manage completion of the two mothballed VC Summer AP1000 units in South Carolina, signaling a major nuclear construction ramp-up with significant workforce demand ahead.",
-    "operator": {
-      "name": "Brookfield / The Nuclear Company JV"
-    },
-    "hiring_entity": {
-      "name": "The Nuclear Company"
-    },
-    "project_name": "VC Summer AP1000 Units 2 & 3",
-    "scope": [
-      "nuclear_construction",
-      "ap1000_completion",
-      "project_management"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Nuclear Construction Manager",
-        "AP1000 Project Manager",
-        "Nuclear Project Director",
-        "Mechanical Construction Supervisor",
-        "Nuclear QA/QC Manager",
-        "Nuclear Commissioning Engineer",
-        "Nuclear I&C Engineer",
-        "Structural Engineer (Nuclear)",
-        "Nuclear Safety Manager",
-        "Outage/Construction Planner"
-      ],
-      "skills": [
-        "AP1000",
-        "nuclear construction",
-        "Westinghouse AP1000",
-        "nuclear QA/QC",
-        "NQA-1",
-        "nuclear commissioning",
-        "I&C nuclear",
-        "large capital project delivery",
-        "nuclear project controls"
-      ],
-      "certs_freetext": [
-        "NQA-1",
-        "10 CFR 50",
-        "NRC operator license",
-        "OSHA 30",
-        "PMP"
-      ],
-      "geo_rtw": "US work authorization required; South Carolina site-based",
-      "project_experience": [
-        "Vogtle Unit 3 & 4",
-        "VC Summer AP1000",
-        "Hinkley Point C",
-        "Barakah Nuclear"
-      ],
-      "yoe_band": "10-20",
-      "seniority": "senior to principal",
-      "boolean_search": "(\"AP1000\" OR \"nuclear construction\" OR \"nuclear project manager\" OR \"nuclear commissioning\") AND (\"Westinghouse\" OR \"Vogtle\" OR \"VC Summer\" OR \"AP1000 completion\") AND (\"project manager\" OR \"construction manager\" OR \"commissioning engineer\" OR \"QA manager\" OR \"I&C\" OR \"project director\") AND (\"NQA-1\" OR \"10 CFR 50\" OR \"nuclear\" OR \"NRC\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Brookfield & The Nuclear Company JV are leading completion of the VC Summer AP1000 units in SC — a landmark nuclear construction restart. Given your AP1000/nuclear construction background, I'd love to connect about senior roles on this project.",
-      "email_subject": "VC Summer AP1000 Restart — Senior Nuclear Construction Roles | SC",
-      "email_body": "Hi [Name],\n\nA newly formed JV between Brookfield and The Nuclear Company has been appointed to project-manage the completion of the two VC Summer AP1000 units in South Carolina — one of the most significant nuclear construction restarts in US history.\n\nGiven your experience in [AP1000 / nuclear construction / commissioning], I wanted to reach out early as senior roles in project management, construction, QA/QC, and commissioning are expected to ramp up as the project moves forward.\n\nWould you be open to a brief call this week to explore fit?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "JV formation between named entities (Brookfield and The Nuclear Company) to project-manage completion of a named nuclear construction project (VC Summer AP1000 Units 2 & 3), constituting a discrete workforce-demand event in the nuclear sector.",
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "15252109-bd20-487b-b001-ab24900dda51",
-    "ingested_at": "2026-05-12T12:35:36.640Z",
-    "source_published_at": "2026-05-05T13:23:58.000Z",
-    "phase": "sanctioned_engineering",
-    "phase_evidence": "Article states the JV 'is to project manage the completion' of the two units, indicating a project management mandate has been awarded but construction execution is not yet underway.",
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": [],
-    "contact_archetypes": [
-      "project_manager",
-      "hiring_manager",
-      "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1.2",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null
   },
   {
     "sources": [
