@@ -1,5 +1,48 @@
 [
   {
+    "id": "0b76202c-3afd-461a-a1ad-b3e386139de3",
+    "ingested_at": "2026-05-19T00:49:22.281Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/nrc-issues-environmental-assessment-with-finding-of-no-significant-impact-for-dow-and-x-energys-proposed-advanced-nuclear-project-in-texas-302775179.html"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-texas",
+    "country": "united_states",
+    "headline": "NRC Issues FONSI for Dow & X-energy Advanced Nuclear Project in Texas — Construction Permit Milestone",
+    "operator": {
+      "name": "Dow / X-energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "X-energy Advanced Nuclear Project (Texas)",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "120cdb5a-e553-41b8-9103-3dfd7de00cba",
     "ingested_at": "2026-05-18T18:40:31.520Z",
     "sources": [

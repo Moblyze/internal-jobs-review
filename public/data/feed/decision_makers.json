@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-05-18T18:42:55.769Z"
+    "last_updated_at": "2026-05-19T00:50:58.863Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -3565,6 +3565,66 @@
         "email": null,
         "phone": null,
         "location": null
+      }
+    ]
+  },
+  "dow / x-energy": {
+    "discovered_at": "2026-05-19T00:50:58.863Z",
+    "contacts": [
+      {
+        "name": "Rachel Lappin Scheinman",
+        "title": "Chief Human Capital Officer",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/rachellappinscheinman",
+        "source_url": "https://x-energy.com/news/x-energy-expands-executive-team-with-addition-of-new-commercial-and-human-capital-leadership/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "New York, NY, USA"
+      },
+      {
+        "name": "Dragan Popovic",
+        "title": "Executive Vice President & Chief of Global Operations",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/dragan-popovic-9b0b652",
+        "source_url": "https://x-energy.com/media/news-releases/x-energy-appoints-dragan-popovic-as-chief-of-global-operations",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Canada"
+      },
+      {
+        "name": "Carol Tansley",
+        "title": "Vice President of Projects",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/carol-tansley-722271",
+        "source_url": "https://www.tipranks.com/news/private-companies/x-energy-highlights-leadership-and-talent-focus-in-nuclear-project-execution",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Rockville, MD, USA"
+      },
+      {
+        "name": "Donna Harrison",
+        "title": "Manager, Human Resources",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/donna-harrison-864851235",
+        "source_url": "https://www.linkedin.com/in/donna-harrison-864851235",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Rockville, MD, USA"
+      },
+      {
+        "name": "Heather R. Lyons",
+        "title": "Manufacturing Site Director, Seadrift Operations",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/heather-r-lyons-1146187",
+        "source_url": "https://countyprogress.com/calhoun-cutting-edge-nuclear/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Seadrift, TX, USA"
       }
     ]
   }
