@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-05-20T00:53:51.723Z"
+    "last_updated_at": "2026-05-20T12:59:17.094Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -3691,5 +3691,125 @@
   "nouveau monde graphite": {
     "discovered_at": "2026-05-20T00:53:51.723Z",
     "contacts": []
+  },
+  "ecopetrol / aes colombia": {
+    "discovered_at": "2026-05-20T12:59:17.094Z",
+    "contacts": [
+      {
+        "name": "Victoria Irene Sepúlveda Ballesteros",
+        "title": "Vicepresidenta Corporativa de Talento Humano",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/victoria-sep%C3%BAlveda-ballesteros",
+        "source_url": "https://www.ecopetrol.com.co/wps/portal/Home/es/noticias/detalle/cambios-alta-gerencia-representantes-legales",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Bogotá, Colombia"
+      },
+      {
+        "name": "Lorena Lara",
+        "title": "Human Resources Director",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/lorena-lara-452b418",
+        "source_url": "https://theorg.com/org/aes/org-chart/lorena-lara",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Mexico City, CDMX, Mexico"
+      },
+      {
+        "name": "Angela Pérez",
+        "title": "Human Resources Manager",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://rocketreach.co/ecopetrol-hr-department_b5c67dcaf42e0c82",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Colombia"
+      },
+      {
+        "name": "Rafael Guzmán",
+        "title": "Vicepresidente Ejecutivo Operativo (encargado)",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.ecopetrol.com.co/wps/portal/Home/es/noticias/detalle/cambios-alta-gerencia-representantes-legales",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Bogotá, Colombia"
+      },
+      {
+        "name": "Tish Mendoza",
+        "title": "Chief Human Resources Officer & Executive Vice President",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://www.globaldata.com/company-profile/the-aes-corp/executives/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Arlington, VA, USA"
+      }
+    ]
+  },
+  "ecopetrol": {
+    "discovered_at": "2026-05-20T12:59:17.094Z",
+    "contacts": [
+      {
+        "name": "Victoria Irene Sepúlveda Ballesteros",
+        "title": "Corporate Vice President of Human Talent (Talento Humano)",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/victoria-sep%C3%BAlveda-ballesteros",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/0001444406/000129281424001654/ex99-1.htm",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Bogotá, Colombia"
+      },
+      {
+        "name": "Juan Carlos Hurtado Parra",
+        "title": "Acting President / Executive Vice President of Hydrocarbons",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/juancarloshurtadop",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/0001444406/000129281425003913/ex99-1.htm",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Bogotá, Colombia"
+      },
+      {
+        "name": "Carlos Mauricio Avila Saldarriaga",
+        "title": "Vice President of Subsidiaries and Assets with Partners",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/carlos-mauricio-avila-saldarriaga-15665746",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/0001444406/000129281424003803/ex99-1.htm",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Bogotá, Colombia"
+      },
+      {
+        "name": "Jaime Andrés García",
+        "title": "Vice President of Administration and Services",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://people.equilar.com/bio/person/jaime-garca-ecopetrol-sa/61116611",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Bogotá, Colombia"
+      },
+      {
+        "name": "David Alfredo Riaño Alarcón",
+        "title": "Executive Vice President of Energy Transition (Low Emissions Solutions)",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://www.sec.gov/Archives/edgar/data/0001444406/000129281424003308/ex99-1.htm",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Bogotá, Colombia"
+      }
+    ]
   }
 }
