@@ -702,3 +702,49 @@ companies:
     records_per_page: 15
     total_pages_estimate: 3
     sheet_name: "PG&E"
+
+  # === ADP WorkforceNow platform (added 2026-05-22) ===
+
+  phoenix_international:
+    name: "Phoenix International Holdings"
+    # ADP WorkforceNow career portal embedded as iframe on phnx-international.com/careers/current-job-openings/
+    # iframe src extracted 2026-05-22: cid=9ad26477-299e-4424-a781-cf8da5eb4b2e
+    platform: adp
+    base_url: "https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=9ad26477-299e-4424-a781-cf8da5eb4b2e&ccId=19000101_000001&type=JS&lang=en_US"
+    rate_limit_delay: 3.0
+    adp_config:
+      cid: "9ad26477-299e-4424-a781-cf8da5eb4b2e"
+      cc_id: "19000101_000001"
+      lang: "en_US"
+    sheet_name: "Phoenix International"
+
+  # === Workable ATS (added 2026-05-22) ===
+
+  dof:
+    name: "DOF"
+    platform: workable
+    base_url: "https://dof.workable.com/"
+    workable_slug: "dof"
+    rate_limit_delay: 2.0
+    # Workable uses API-first approach, selectors not needed
+    selectors: {}
+    sheet_name: "DOF"
+
+  # === Workday large board — capped like kbr (added 2026-05-22) ===
+
+  fugro:
+    name: "Fugro"
+    # Large Workday board. Cap at 200 most recent jobs to stay within timeout.
+    platform: workday
+    base_url: "https://fugro.wd3.myworkdayjobs.com/Careers"
+    rate_limit_delay: 2.5
+    max_detail_pages: 200
+    timeout_seconds: 1200
+    selectors:
+      job_list: '[data-automation-id="jobResults"]'
+      job_card: 'a[data-automation-id="jobTitle"]'
+      job_title: '[data-automation-id="jobPostingHeader"]'
+      location: '[data-automation-id="locations"]'
+      posted_date: '[data-automation-id="postedOn"]'
+      description: '[data-automation-id="jobPostingDescription"]'
+    sheet_name: "Fugro"
