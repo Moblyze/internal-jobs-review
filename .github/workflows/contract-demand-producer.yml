@@ -1,0 +1,52 @@
+name: Contract Demand Producer (W3)
+
+# Extracts the named end-operator from live contract postings (Atlas + trade
+# boards), counts postings per operator, and writes the `active_contract_demand`
+# column on the target-clients Companies tab (+ a "Contract Demand Leads" tab).
+# Phase 2 of the BD pipeline reads that column.
+
+on:
+  schedule:
+    # Mon 14:00 UTC — deliberately OFFSET from the BD Phase 2 triage cron
+    # (Mon 06:00 UTC) so the two sessions never write the Companies tab at once.
+    - cron: '0 14 * * 1'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (fetch + match + print, no Sheet write)'
+        required: false
+        type: boolean
+        default: false
+
+concurrency:
+  group: contract-demand-producer
+  cancel-in-progress: false
+
+jobs:
+  produce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: scrapers
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: scrapers/requirements.txt
+      - run: pip install -r requirements.txt
+      - name: Run contract-demand producer
+        env:
+          # IMPORTANT: this service account must be granted EDITOR on the
+          # target-clients Sheet (1fIW4JxCNTQDT5J8g7bgPDK0lUYo0WF8Yfgras6GVem4).
+          # The default internal-jobs-review SA may not have it yet — share the
+          # Sheet with the SA's client_email, or set a secret for one that does.
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            python contract_demand_producer.py
+          else
+            python contract_demand_producer.py --commit
+          fi
