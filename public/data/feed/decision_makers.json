@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-05-20T12:59:17.094Z"
+    "last_updated_at": "2026-05-22T07:20:06.494Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -3809,6 +3809,66 @@
         "email": null,
         "phone": null,
         "location": "Bogotá, Colombia"
+      }
+    ]
+  },
+  "perpetua resources": {
+    "discovered_at": "2026-05-22T07:20:06.494Z",
+    "contacts": [
+      {
+        "name": "Dustin Rissmiller",
+        "title": "Vice President, Human Resources",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/dustin-rissmiller-9516411",
+        "source_url": "https://www.investors.perpetuaresources.com/investors/corporate-management",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Denver, CO, USA"
+      },
+      {
+        "name": "Jim Norine",
+        "title": "Senior Vice President, Projects",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/jim-norine-6b6832a4",
+        "source_url": "https://www.investors.perpetuaresources.com/investors/corporate-management",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Tucson, AZ, USA"
+      },
+      {
+        "name": "Tim Kahl",
+        "title": "Senior Vice President, Technical Services",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/tim-kahl-968a86107",
+        "source_url": "https://www.investors.perpetuaresources.com/investors/corporate-management",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Bozeman, MT, USA"
+      },
+      {
+        "name": "Travis Walker",
+        "title": "Operations General Manager, Stibnite Gold Project",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/travis-walker-88659238",
+        "source_url": "https://www.linkedin.com/in/travis-walker-88659238",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Stibnite, ID, USA"
+      },
+      {
+        "name": "Jon Cherry",
+        "title": "President & CEO",
+        "persona": "other",
+        "linkedin_url": "https://www.linkedin.com/in/jon-cherry-68827899",
+        "source_url": "https://www.investors.perpetuaresources.com/investors/corporate-management",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Boise, ID, USA"
       }
     ]
   }

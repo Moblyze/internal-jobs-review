@@ -1,5 +1,47 @@
 [
   {
+    "id": "e2e6227d-6238-4cf0-b1ee-a2ce4ab61732",
+    "ingested_at": "2026-05-22T07:18:59.705Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/perpetua-resources-gets-2-9b-exim-loan-for-stibnite-gold-antimony-project-in-idaho/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "us-idaho",
+    "country": "united_states",
+    "headline": "Perpetua Resources Secures $2.9B EXIM Loan for Stibnite Gold-Antimony Project, Idaho",
+    "operator": {
+      "name": "Perpetua Resources",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Perpetua Resources",
+      "matched_company_slug": null
+    },
+    "project_name": "Stibnite Gold-Antimony Project",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 2900000000,
+    "phase": "construction",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": []
+  },
+  {
     "id": "e100bd33-5388-408a-956d-e1adadeeeddd",
     "ingested_at": "2026-05-20T12:57:34.481Z",
     "sources": [

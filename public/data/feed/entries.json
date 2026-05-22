@@ -2,6 +2,113 @@
   {
     "sources": [
       {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/perpetua-resources-gets-2-9b-exim-loan-for-stibnite-gold-antimony-project-in-idaho/"
+      }
+    ],
+    "headline": "Perpetua Resources Secures $2.9B EXIM Loan for Stibnite Gold-Antimony Project, Idaho",
+    "body": "Last year, the company began early works construction at the project, which was fast-tracked by the Trump administration.",
+    "url": "https://www.mining.com/perpetua-resources-gets-2-9b-exim-loan-for-stibnite-gold-antimony-project-in-idaho/",
+    "published_at": "2026-05-21T23:55:32.000Z",
+    "hash": "7527343ae3e4bc10",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "us-idaho",
+    "country": "united_states",
+    "tldr": "Perpetua Resources has secured a $2.9B EXIM Bank loan for the Stibnite gold-antimony mine in Idaho, with early works construction already underway. This signals active and expanding labor demand at a named project with major financing now confirmed.",
+    "operator": {
+      "name": "Perpetua Resources",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Perpetua Resources",
+      "matched_company_slug": null
+    },
+    "project_name": "Stibnite Gold-Antimony Project",
+    "scope": [
+      "early_works_construction",
+      "mine_development",
+      "civil_works"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 2900000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Construction Manager",
+        "Site Manager",
+        "HSE Manager",
+        "Civil Construction Superintendent",
+        "Mining Construction Engineer",
+        "Project Controls Manager",
+        "Earthworks Supervisor",
+        "Commissioning Manager"
+      ],
+      "skills": [
+        "mine construction",
+        "open pit mining",
+        "civil earthworks",
+        "project controls",
+        "HSE management",
+        "heavy civil construction",
+        "brownfield mine development"
+      ],
+      "certs_freetext": [
+        "MSHA Part 46/48",
+        "OSHA 30",
+        "PMP",
+        "First Aid/CPR"
+      ],
+      "geo_rtw": "US work authorization required",
+      "project_experience": [
+        "Bingham Canyon",
+        "Donlin Gold",
+        "Pebble Mine",
+        "Resolution Copper",
+        "Twin Metals"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"Construction Manager\" OR \"Site Manager\" OR \"HSE Manager\" OR \"Mining Construction Engineer\" OR \"Project Controls\") AND (\"mine development\" OR \"open pit\" OR \"civil construction\" OR \"earthworks\") AND (\"Idaho\" OR \"Pacific Northwest\" OR \"Western US\") AND (\"MSHA\" OR \"mining\" OR \"gold\" OR \"antimony\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Perpetua Resources is ramping up construction at the Stibnite Gold-Antimony Project in Idaho following a $2.9B EXIM loan. Early works are already underway — are you open to hearing about senior site roles?",
+      "email_subject": "Senior Construction Roles – Stibnite Gold Mine, Idaho (Perpetua Resources)",
+      "email_body": "Hi [Name],\n\nPerpetua Resources has just secured a $2.9B EXIM Bank loan for the Stibnite Gold-Antimony Project in Idaho, with early works construction already underway following a Trump administration fast-track.\n\nThis represents a significant ramp-up in labor demand for experienced mining construction professionals. I'm currently placing candidates in Construction Manager, HSE Lead, and Project Controls roles supporting the project.\n\nGiven your background in [relevant field], I thought this could be a strong fit. Would you have 15 minutes this week for a quick call?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Perpetua Resources) has secured a $2.9B project loan and begun early works construction at the named Stibnite Gold-Antimony Project in Idaho, signaling active and expanding labor demand in mining.",
+    "phase": "construction",
+    "phase_evidence": "Article states 'the company began early works construction at the project' confirming construction phase is active.",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "e2e6227d-6238-4cf0-b1ee-a2ce4ab61732",
+    "ingested_at": "2026-05-22T07:18:59.705Z",
+    "source_published_at": "2026-05-21T23:55:32.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/ecopetrol-advances-acquisition-of-the-jemeiwaa-kai-wind-cluster-in-la-guajira-with-the-purchase-of-a-49-interest-in-the-jk1-and-jk2-wind-projects-302777666.html"
