@@ -649,3 +649,35 @@ companies:
       wait_for: "a[href*='/show-job/']"
       detail_wait_for: "[class*='description']"
     sheet_name: "EIVA"
+
+  conocophillips:
+    name: "ConocoPhillips"
+    # Global Workday board (External). Covers Alaska + Norway/NCS assets.
+    # Onboarded from BD target-clients Scrape Build Queue (2026-05-21).
+    platform: workday
+    base_url: "https://conocophillips.wd1.myworkdayjobs.com/External"
+    rate_limit_delay: 2.5
+    selectors:
+      job_list: '[data-automation-id="jobResults"]'
+      job_card: 'a[data-automation-id="jobTitle"]'
+      job_title: '[data-automation-id="jobPostingHeader"]'
+      location: '[data-automation-id="locations"]'
+      posted_date: '[data-automation-id="postedOn"]'
+      description: '[data-automation-id="jobPostingDescription"]'
+    sheet_name: "ConocoPhillips"
+
+  equinor:
+    name: "Equinor"
+    # Global Workday board (EQNR). Covers Mongstad refinery + NCS offshore assets.
+    # Onboarded from BD target-clients Scrape Build Queue (2026-05-21).
+    platform: workday
+    base_url: "https://equinor.wd3.myworkdayjobs.com/EQNR"
+    rate_limit_delay: 2.5
+    selectors:
+      job_list: '[data-automation-id="jobResults"]'
+      job_card: 'a[data-automation-id="jobTitle"]'
+      job_title: '[data-automation-id="jobPostingHeader"]'
+      location: '[data-automation-id="locations"]'
+      posted_date: '[data-automation-id="postedOn"]'
+      description: '[data-automation-id="jobPostingDescription"]'
+    sheet_name: "Equinor"
