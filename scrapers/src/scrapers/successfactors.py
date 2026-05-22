@@ -366,11 +366,12 @@ class SuccessFactorsScraper(BaseScraper):
                 self.logger.info("css_fallback_complete", layout="table", jobs_extracted=len(jobs))
                 return jobs
 
-            # Fallback to list-based layout (Halliburton)
+            # Fallback to list-based layout (Halliburton, PG&E)
+            # Note: prefer '#search-results-list li' over '[data-job-id]' to avoid
+            # matching Save Job <button data-job-id> elements on PG&E-style portals.
             job_cards = await page.locator(
                 '#search-results-list li, '
-                '.search-results-list .job-result, '
-                '[data-job-id]'
+                '.search-results-list .job-result'
             ).all()
 
             if job_cards and len(job_cards) > 0:
@@ -378,15 +379,39 @@ class SuccessFactorsScraper(BaseScraper):
 
                 for card in job_cards:
                     try:
-                        # Extract title and URL
+                        title = None
+                        url = None
+
+                        # Strategy A: link-inside-heading (Halliburton: <h2><a>Title</a></h2>)
                         title_link = card.locator(
                             'h2 a, '
                             '[role="heading"] a, '
                             '.job-title a'
                         ).first
 
-                        title = await title_link.inner_text()
-                        url = await title_link.get_attribute('href')
+                        if await title_link.count() > 0:
+                            title = await title_link.inner_text(timeout=5000)
+                            url = await title_link.get_attribute('href', timeout=5000)
+
+                        # Strategy B: heading-inside-link (PG&E: <a><h2>Title</h2></a>)
+                        if not title:
+                            outer_link = card.locator('a:has(h2)').first
+                            if await outer_link.count() > 0:
+                                url = await outer_link.get_attribute('href', timeout=5000)
+                                heading = outer_link.locator('h2').first
+                                if await heading.count() > 0:
+                                    title = await heading.inner_text(timeout=5000)
+
+                        # Strategy C: any <a> that looks like a job link
+                        if not title:
+                            any_link = card.locator('a[href*="/job/"]').first
+                            if await any_link.count() > 0:
+                                url = await any_link.get_attribute('href', timeout=5000)
+                                title = (await any_link.inner_text(timeout=5000)).strip().split('\n')[0]
+
+                        if not title or not url:
+                            self.logger.debug("css_card_no_title_or_url", card_html=(await card.inner_html())[:200])
+                            continue
 
                         # Extract location
                         location_elem = card.locator(
