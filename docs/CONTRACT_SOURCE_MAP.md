@@ -40,7 +40,8 @@ The aggregator layer (`scrapers/src/aggregators/`, run by `.github/workflows/dai
 | **Live & producing** | jobspy (Indeed/LinkedIn), adzuna, jooble, usajobs, rigzone, roadtechs, energyjobsearch, oilgasvacancy, gcaptain, oceancrew, linemancentral, riggaccess (rope), irata (rope), **airswift (agency)** |
 | **Fixed 2026-05-22** | **ogvenergy** — was rate-limited on CI IPs, hanging 30s/query and starving the 7 broad profiles (subsea_oil_gas, ndt_inspection, drilling_operations, marine_offshore_ops, pipeline_mechanical, survey_geophysical, process_plant_operations). Timeout capped 30s→8s; those profiles now run. |
 | **Revived & live 2026-05-22 (agency demand-intel)** | **nesfircroft** + **brunel** (discovered first-party JSON APIs), **oriongroup** (Vennture gateway API, `orionjobs.com`), **cammachbryant** (server-rendered, `wearecammach.com`, `jobType=3` contract filter). All agency-blind on end-client → *market-level* demand signal. |
-| **New niche adapters 2026-05-22** | **rovplanet** (subsea/ROV trade board — postings name the employer → *per-account* attribution), **underwaterjobs** (commercial diving). Registry now 24 adapters. |
+| **New niche adapters 2026-05-22** | **rovplanet** (subsea/ROV trade board — postings name the employer → *per-account* attribution), **underwaterjobs** (commercial diving). |
+| **Wave 2 agencies 2026-05-22** | **atlasprofessionals** (wp-json API, 436 contract jobs — **NAMES the end-client per job**: Saipem/Heerema/Noble/Boskalis/Ørsted → first AGENCY board with per-account attribution), **spencerogden** (Sourceflow API, 18 contract — end-client in description text, NLP-extractable), **petroplan** (TXM Group wp-json, Bullhorn-backed — probationary/low-yield, names client via ACF). **Registry now 27 adapters.** |
 | **Disabled — dead source** | energyjobline (bot wall since 2026-03), energypeople (subdomain dead), oiljobfinder (403) |
 | **Dropped — nonexistent / off-vertical** | `subseajobs.co.uk`, `rov-jobs.net`, `spratcertification.com` = NXDOMAIN; TowerClimber (SPRAT substitute) = telecom, off-vertical — rope access already covered by `irata` + `riggaccess`. |
 
@@ -52,13 +53,13 @@ Sorted roughly by contract-role density × focus-market coverage. "Covered?" = a
 
 | Source | URL | Type | Markets | Contract focus | Scrapeability | Covered? |
 |---|---|---|---|---|---|---|
-| Spencer Ogden | spencerogden.com/jobs | Agency | Gulf, NS, Norway, ME, WA, Brazil, APAC | Strong | JS (React XHR) | No |
+| Spencer Ogden | **www.spencer-ogden.com** (Sourceflow API) | Agency | Gulf, NS, Norway, ME, WA, Brazil, APAC | Strong | JSON API | **Yes** (end-client in desc text) |
 | Airswift | jobs.airswift.com | Agency | Gulf, NS, ME, Norway, APAC, WA, Brazil | Strong (10k+) | JS / works via adapter | **Yes** |
 | NES Fircroft | nesfircroft.com/jobs | Agency | all focus markets | Strong | JS SPA (Vennture) | Broken |
 | Brunel | brunel.net/en/jobs | Agency | NS, Norway, ME, NL, APAC, Brazil | Strong (contract-only) | JS (Sitecore React) | Broken |
 | Orion Group | **orionjobs.com**/job-search | Agency | NS, Norway, ME, WA, Gulf | Strong (diving div.) | Vennture gateway JSON API | **Yes** |
-| Petroplan | petroplan.com/jobs | Agency | NS, ME, Gulf, WA, APAC | Strong | JS (WP-JSON maybe) | No |
-| Atlas Professionals | atlasprofessionals.com/en/vacancies | Agency | NS, Norway, ME, APAC | Strong (offshore/marine) | JS (Next.js) | No |
+| Petroplan | **txmgroup.com**/wp-json (TXM parent) | Agency | NS, ME, Gulf, WA, APAC | Strong (but currently lean) | wp-json API | **Yes** (probationary; names client via ACF) |
+| Atlas Professionals | **atlasnextwave.com**/wp-json/wp/v2/job | Agency | NS, Norway, ME, APAC | Strong (offshore/marine) | wp-json API | **Yes — NAMES end-client** |
 | Fircroft | fircroft.com/jobs | Agency | NS, ME, APAC, WA, Gulf | Strong | JS SPA | No |
 | Cammach Bryant | **wearecammach.com**/jobs/filter?jobType=3 | Agency | NS (Aberdeen) | Strong (contract-filtered) | Server-rendered HTML | **Yes** |
 | Hays O&G | hays.com/jobs/oil-gas-jobs | Agency | NS, APAC, ME, Norway | Strong | JS (CF-protected) | No |
@@ -117,7 +118,11 @@ Spencer Ogden (single highest contract density), Petroplan (possible WP-JSON API
 
 Once the agency feeds are producing, build the pipeline that turns postings into BD signals:
 
-1. **End-employer attribution** — per source, sample real postings and measure how often the operator is named / inferable / blind. Prioritize sources with high recoverability.
+1. **End-employer attribution** — per source, how often the operator is named / inferable / blind. **Known so far:**
+   - *Structured & named (best):* **Atlas Professionals** (`client-name` taxonomy: Saipem, Heerema, Noble, Boskalis, Ørsted…), **Petroplan/TXM** (`acf.client_corporation_name`), **ROVPlanet** + **UnderwaterJobs** (trade boards — employer is the poster).
+   - *Named in free text (NLP-extractable):* **Spencer Ogden** ("…supporting a leading offshore wind developer…").
+   - *Blind (market-level signal only):* **NES Fircroft, Brunel, Orion, Cammach, Airswift** — agency model hides the client.
+   → Start the demand pipeline with the structured-named sources (Atlas first).
 2. **Employer extraction/inference** — parse the named client, or infer from project + location + role.
 3. **Demand signal** — write an `active_contract_demand` flag (+ count, role, recency) onto the matching target-client record.
 4. **Qualification input** — this is a *stronger* qualification signal than careers-page keyword density (the current proxy): "posted 3 contract ROV roles this month" beats "says 'subsea' a lot." Fold into target-clients Phase 2 qualification.
