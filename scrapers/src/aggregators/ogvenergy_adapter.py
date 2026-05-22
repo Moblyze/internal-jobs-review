@@ -73,7 +73,11 @@ class OGVEnergyAggregator(BaseAggregator):
             self._client = httpx.Client(
                 headers=HEADERS,
                 follow_redirects=True,
-                timeout=30,
+                # Endpoint responds in ~1s normally, but rate-limits CI runner IPs,
+                # causing 30s hangs that serially blew the 20-min budget of the 7
+                # broad profiles (subsea_oil_gas, ndt_inspection, etc.). Cap low so a
+                # blocked OGV fails fast instead of starving the whole profile.
+                timeout=8,
             )
         return self._client
 
