@@ -52,6 +52,11 @@ async function authenticate() {
   return await auth.getClient();
 }
 
+// Helper function to add delay between API requests to respect rate limits
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 function parseRow(row, sheetName, columnMap) {
   // Skip empty rows
   if (!row || row.length === 0) {
@@ -101,6 +106,9 @@ async function fetchAllJobs(auth) {
     spreadsheetId: await getSpreadsheetId(sheets),
   });
 
+  // Add delay to respect Google Sheets API rate limits
+  await sleep(1100);
+
   const allJobs = [];
 
   // Fetch data from each worksheet (company), skip Aggregator Jobs tab (handled separately)
@@ -118,6 +126,9 @@ async function fetchAllJobs(auth) {
       spreadsheetId: spreadsheet.data.spreadsheetId,
       range: `${sheetName}!A:N`, // All columns from the sheet (A-N = 14 columns, includes Employment Type)
     });
+
+    // Add delay to respect Google Sheets API rate limits (1 request per second)
+    await sleep(1100);
 
     const rows = response.data.values || [];
 
@@ -163,6 +174,9 @@ async function getSpreadsheetId(sheets) {
     fields: 'files(id, name)',
     spaces: 'drive',
   });
+
+  // Add delay to respect API rate limits
+  await sleep(1100);
 
   if (!response.data.files || response.data.files.length === 0) {
     throw new Error(`Spreadsheet "${SPREADSHEET_NAME}" not found. Make sure it's shared with the service account.`);
@@ -320,6 +334,9 @@ async function fetchAggregatorJobs(auth) {
       spreadsheetId: AGGREGATOR_SPREADSHEET_ID,
       range: 'Aggregator Jobs!A2:P', // Skip header row
     });
+
+    // Add delay to respect Google Sheets API rate limits
+    await sleep(1100);
 
     const rows = response.data.values || [];
     const jobs = rows.map(parseAggregatorRow).filter(j => j !== null);
