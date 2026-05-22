@@ -1,5 +1,44 @@
 [
   {
+    "id": "0e2467e8-d47f-4ba6-82a9-0ea475485de7",
+    "ingested_at": "2026-05-22T12:54:07.398Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/ithaca_completes_acquisition_in_shell_discovery_farms_down_fotla-22-may-2026-183754-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [],
+    "signal_type": "lease_round",
+    "region": "uk-north-sea",
+    "country": "united_kingdom",
+    "headline": "Ithaca Energy Acquires 50% Stake in Shell UKCS Licences, Farms Down Fotla",
+    "operator": {
+      "name": "Ithaca Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Ithaca Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Fotla",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "e2e6227d-6238-4cf0-b1ee-a2ce4ab61732",
     "ingested_at": "2026-05-22T07:18:59.705Z",
     "sources": [

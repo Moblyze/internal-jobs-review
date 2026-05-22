@@ -2,6 +2,98 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/ithaca_completes_acquisition_in_shell_discovery_farms_down_fotla-22-may-2026-183754-article/?rss=true"
+      }
+    ],
+    "headline": "Ithaca Energy Acquires 50% Stake in Shell UKCS Licences, Farms Down Fotla",
+    "body": "Ithaca Energy PLC, which produces oil and gas in the United Kingdom continental shelf, has completed the purchase of a 50 percent stake in two Shell PLC lice...",
+    "url": "https://www.rigzone.com/news/ithaca_completes_acquisition_in_shell_discovery_farms_down_fotla-22-may-2026-183754-article/?rss=true",
+    "published_at": "2026-05-22T08:57:26.000Z",
+    "hash": "9826283e49f22b17",
+    "subsector": "offshore-og",
+    "discipline_tags": [],
+    "signal_type": "lease_round",
+    "region": "uk-north-sea",
+    "country": "united_kingdom",
+    "tldr": "Ithaca Energy has completed acquisition of a 50% stake in two Shell UKCS licences and is farming down its Fotla interest. This signals upcoming exploration/appraisal activity on named blocks with a named operator, creating early-stage workforce demand.",
+    "operator": {
+      "name": "Ithaca Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Ithaca Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Fotla",
+    "scope": [
+      "exploration_licence_acquisition",
+      "farm_down"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Exploration Geologist",
+        "Geophysicist",
+        "Subsurface Manager",
+        "Wells Engineer",
+        "Business Development Manager"
+      ],
+      "skills": [
+        "UKCS exploration",
+        "licence management",
+        "subsurface evaluation",
+        "farm-in/farm-out",
+        "well planning"
+      ],
+      "certs_freetext": [
+        "Well Control (IWCF/IADC)",
+        "BOSIET"
+      ],
+      "geo_rtw": "UK right-to-work required",
+      "project_experience": [
+        "Fotla",
+        "UKCS North Sea exploration"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "senior",
+      "boolean_search": "(\"Exploration Geologist\" OR \"Geophysicist\" OR \"Subsurface Manager\" OR \"Wells Engineer\") AND (\"UKCS\" OR \"North Sea\" OR \"UK Continental Shelf\") AND (\"farm-in\" OR \"farm-out\" OR \"licence\" OR \"exploration\" OR \"appraisal\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Ithaca Energy has just completed a 50% stake acquisition in Shell UKCS licences and is active on Fotla. Early-stage subsurface and wells roles may be opening — are you open to a conversation?",
+      "email_subject": "Ithaca Energy UKCS Licence Acquisition — Subsurface & Wells Opportunities",
+      "email_body": "Hi [Name],\n\nIthaca Energy has completed the acquisition of a 50% stake in two Shell UKCS licences and is also farming down its Fotla interest — signalling active exploration and appraisal plans on the UK Continental Shelf.\n\nAs early-stage subsurface and wells activity ramps up, we are mapping talent for Exploration Geologist, Geophysicist, and Wells Engineer roles with UKCS experience.\n\nWould you be open to a brief call to discuss how your background aligns with where Ithaca is heading?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Completed licence acquisition naming operator Ithaca Energy and counterparty Shell, with a named project (Fotla) on the UKCS, constituting a direct operator change/block assignment triggering exploration workforce demand.",
+    "phase": "pre_sanction",
+    "phase_evidence": "The article describes a licence acquisition and farm-down — no FID or EPC award has occurred, placing this firmly in pre-sanction/exploration phase.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "0e2467e8-d47f-4ba6-82a9-0ea475485de7",
+    "ingested_at": "2026-05-22T12:54:07.398Z",
+    "source_published_at": "2026-05-22T08:57:26.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "mining_com",
         "name": "MINING.com",
         "url": "https://www.mining.com/perpetua-resources-gets-2-9b-exim-loan-for-stibnite-gold-antimony-project-in-idaho/"
