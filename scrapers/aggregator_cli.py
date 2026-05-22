@@ -37,6 +37,9 @@ from src.aggregators.rovplanet_adapter import ROVPlanetAggregator
 from src.aggregators.underwaterjobs_adapter import UnderwaterJobsAggregator
 from src.aggregators.oriongroup_adapter import OrionGroupAggregator
 from src.aggregators.cammachbryant_adapter import CammachBryantAggregator
+from src.aggregators.spencerogden_adapter import SpencerOgdenAggregator
+from src.aggregators.atlasprofessionals_adapter import AtlasProfessionalsAggregator
+from src.aggregators.petroplan_adapter import PetroplanAggregator
 from src.aggregators.dedup import AggregatorDedup
 from src.aggregators.relevance import RelevanceFilter
 from src.exporters.sheets import SheetsExporter
@@ -76,6 +79,10 @@ AGGREGATORS = {
     # Energy staffing agencies (Vennture-platform + server-rendered)
     "oriongroup": OrionGroupAggregator,
     "cammachbryant": CammachBryantAggregator,
+    # Wave 2 agencies — Atlas names the end-client (wp-json); SO/Petroplan blind
+    "spencerogden": SpencerOgdenAggregator,
+    "atlasprofessionals": AtlasProfessionalsAggregator,
+    "petroplan": PetroplanAggregator,
 }
 
 def load_profiles(path="config/aggregators.yaml"):
