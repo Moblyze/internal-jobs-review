@@ -1,18 +1,36 @@
 """
-NES Fircroft adapter - scrapes the world's largest energy staffing company.
+NES Fircroft adapter — scrapes the world's 2nd-largest energy staffing company.
 
-NES Fircroft (nesfircroft.com) is a Vennture-powered job board and the world's
-largest engineering and technical staffing company for the energy sector.
-Covers O&G, renewables, power, nuclear, mining, chemicals, and life sciences.
+NES Fircroft (nesfircroft.com) is powered by the Vennture ATS/job board platform.
+The site is a JS-rendered SPA; its static HTML contains no job listings.
 
-The site uses a client-side JavaScript job search (Vennture Dynamic Job Search)
-that loads jobs via AJAX. We query the Vennture API directly to get structured
-job data.
+HOW THIS WORKS (reverse-engineered from cdn2.wearevennture.co.uk/cdn/jobsearch/js/main.js):
+  1. GET  https://gateway.wearevennture.co.uk/auth?session=
+         → returns {"jwt": "<token>", ...}  (no login required — public anon JWT)
+  2. POST https://gateway.wearevennture.co.uk/job-search?local=uk&organisation=
+         Authorization: Bearer <jwt>
+         Body: {"keywords": "<kw>", "page": 1, "pageSize": 50,
+                "sortBy": "createddate", "sortType": "desc"}
+         → returns {"jobs": [...], "totalCount": N, "nextPageToken": "..."}
 
-Search: /job-search/?query={keyword}&type={Contract|Permanent}
-API: Vennture connector renders jobs client-side; we scrape the search page.
+The `local` value "uk" comes from window.ConnectorDynamicSearchArgs.folder embedded in
+the job-search page HTML:
+  <script>var ConnectorDynamicSearchArgs = {folder: "uk", language: "en", ...}</script>
 
-No API key required - this is a web scraper.
+The JWT is short-lived (~4 hours) and is obtained fresh per run.
+
+PAGINATION: use `nextPageToken` field returned in each response — pass it as
+`"pageToken": "<value>"` in the next POST body.
+
+RATE LIMITING: The gateway enforces per-IP limits. Use REQUEST_DELAY (≥2 s) between
+calls.  A single page of 50 results per keyword is safe; do NOT loop >5 pages per run.
+
+END-CLIENT VISIBILITY: NES Fircroft does not expose end-client/operator names in
+structured API fields (the `tenant` field always says "NES Fircroft"). Client names
+sometimes appear in the free-text `description` field (e.g., "Supporting ADNOC on …",
+"contracted by Equinor to …") but this is incidental and not reliable.
+
+No API key required.
 """
 
 import re
@@ -20,10 +38,9 @@ import time
 import json
 import logging
 from datetime import datetime
-from urllib.parse import urlencode
+from typing import Optional
 
 import httpx
-from bs4 import BeautifulSoup
 
 from src.models.job import JobPosting
 from src.aggregators.base import BaseAggregator, AggregatorFilters
@@ -31,13 +48,18 @@ from src.aggregators.base import BaseAggregator, AggregatorFilters
 logger = logging.getLogger(__name__)
 
 BASE_URL = "https://www.nesfircroft.com"
-SEARCH_URL = f"{BASE_URL}/job-search/"
+GATEWAY_BASE = "https://gateway.wearevennture.co.uk"
+AUTH_URL = f"{GATEWAY_BASE}/auth"
+SEARCH_URL = f"{GATEWAY_BASE}/job-search"
 
-# Vennture CDN base for the dynamic search JS
-VENNTURE_CDN = "https://cdn2.wearevennture.co.uk"
+# ConnectorDynamicSearchArgs.folder value embedded in NES Fircroft's job-search page HTML.
+LOCAL_PARAM = "uk"
 
-# Delay between requests (seconds)
-REQUEST_DELAY = 2.0
+# Seconds between HTTP requests — gateway rate-limits aggressive crawlers.
+REQUEST_DELAY = 2.5
+
+# Max jobs per page (gateway caps at 50).
+PAGE_SIZE = 50
 
 HEADERS = {
     "User-Agent": (
@@ -45,23 +67,11 @@ HEADERS = {
         "AppleWebKit/537.36 (KHTML, like Gecko) "
         "Chrome/131.0.0.0 Safari/537.36"
     ),
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-    "Accept-Language": "en-US,en;q=0.9",
-    "Referer": "https://www.nesfircroft.com/job-search/",
+    "Origin": BASE_URL,
+    "Referer": f"{BASE_URL}/job-search/",
+    "Accept": "application/json",
 }
 
-# NES Fircroft regional/industry URL patterns for targeted scraping
-INDUSTRY_PAGES = {
-    "oil_gas": "/industries/oil-and-gas-recruitment/",
-    "renewable": "/industries/renewable-energy-recruitment/",
-    "nuclear": "/industries/nuclear-recruitment/",
-    "mining": "/industries/mining-recruitment/",
-    "power": "/industries/power-recruitment/",
-    "chemicals": "/industries/chemicals-recruitment/",
-    "life_sciences": "/industries/life-science-recruitment/",
-}
-
-# Map our job_types to NES Fircroft types
 EMPLOYMENT_TYPE_MAP = {
     "contract": "Contract",
     "contractor": "Contract",
@@ -75,25 +85,26 @@ EMPLOYMENT_TYPE_MAP = {
 class NESFircroftAggregator(BaseAggregator):
     """Scraper adapter for NES Fircroft (nesfircroft.com).
 
-    World's largest energy staffing company. The site uses Vennture's dynamic
-    job search which renders jobs client-side via JavaScript. Since we can't
-    execute JS, we attempt to:
-    1. Scrape the server-rendered search page for any static content
-    2. Query industry-specific landing pages for job listings
-    3. Fall back to the Vennture API if available
-
-    Note: NES Fircroft's main job search requires JavaScript rendering. This
-    adapter provides partial coverage via direct page scraping.
+    Hits the Vennture gateway API directly — no Playwright needed.
+    Obtains a short-lived anon JWT, then POSTs keyword searches to
+    /job-search.  Returns real structured job data including title,
+    location, URL, employment type, salary, and description.
     """
 
     name = "nesfircroft"
 
     def __init__(self):
-        self._client: httpx.Client | None = None
+        self._client: Optional[httpx.Client] = None
+        self._jwt: Optional[str] = None
+        self._jwt_expires_at: float = 0.0
 
     def is_configured(self) -> bool:
-        """No API key needed - always configured."""
+        """No API key needed — always configured."""
         return True
+
+    # ------------------------------------------------------------------
+    # Internal HTTP helpers
+    # ------------------------------------------------------------------
 
     def _get_client(self) -> httpx.Client:
         if self._client is None:
@@ -104,460 +115,265 @@ class NESFircroftAggregator(BaseAggregator):
             )
         return self._client
 
-    def _fetch_page(self, url: str) -> BeautifulSoup:
-        """Fetch a page and return parsed BeautifulSoup."""
+    def _get_jwt(self) -> str:
+        """Return a valid anon JWT, refreshing if expired or missing."""
+        now = time.time()
+        if self._jwt and now < self._jwt_expires_at - 60:
+            return self._jwt
+
         client = self._get_client()
-        time.sleep(REQUEST_DELAY)
-        resp = client.get(url)
-        resp.raise_for_status()
-        return BeautifulSoup(resp.text, "html.parser")
+        try:
+            resp = client.get(
+                AUTH_URL,
+                params={"session": ""},
+            )
+            resp.raise_for_status()
+            data = resp.json()
+            self._jwt = data["jwt"]
+            # JWT payload encodes exp; decode it without a library
+            try:
+                import base64
+                payload_b64 = self._jwt.split(".")[1]
+                # Pad base64
+                padding = 4 - len(payload_b64) % 4
+                payload_b64 += "=" * (padding % 4)
+                payload = json.loads(base64.urlsafe_b64decode(payload_b64))
+                self._jwt_expires_at = float(payload.get("exp", now + 14400))
+            except Exception:
+                self._jwt_expires_at = now + 14400  # 4-hour fallback
 
-    def _try_vennture_api(self, keyword: str = "", job_type: str = "",
-                          page: int = 1, page_size: int = 20) -> list[dict]:
-        """Attempt to query the Vennture job search API directly.
+            logger.debug("NESFircroft: obtained fresh JWT")
+            return self._jwt
+        except Exception as e:
+            raise RuntimeError(f"NESFircroft: failed to obtain JWT: {e}") from e
 
-        The Vennture dynamic search connector typically uses endpoints like:
-        /api/jobsearch/search or similar patterns. This method tries common
-        API patterns used by Vennture-powered sites.
+    def _search_page(
+        self,
+        keyword: str,
+        job_types: list[str],
+        page: int = 1,
+        page_token: Optional[str] = None,
+    ) -> dict:
+        """POST one search page to the Vennture gateway.
+
+        Returns the raw parsed JSON dict (keys: jobs, totalCount, nextPageToken, …).
+        Raises on HTTP error or gateway-level failure.
         """
+        jwt = self._get_jwt()
         client = self._get_client()
 
-        # Common Vennture API patterns
-        api_urls = [
-            f"{BASE_URL}/api/jobsearch/search",
-            f"{BASE_URL}/api/jobs/search",
-            f"{BASE_URL}/umbraco/api/jobsearch/search",
-        ]
-
-        params = {
+        body: dict = {
             "keywords": keyword,
-            "page": str(page),
-            "pageSize": str(page_size),
+            "page": page,
+            "pageSize": PAGE_SIZE,
             "sortBy": "createddate",
             "sortType": "desc",
         }
-        if job_type:
-            params["type"] = job_type
+        if job_types:
+            body["jobTypes"] = job_types
+        if page_token:
+            body["pageToken"] = page_token
 
-        for api_url in api_urls:
-            try:
-                time.sleep(REQUEST_DELAY)
-                resp = client.get(
-                    api_url,
-                    params=params,
-                    headers={
-                        **HEADERS,
-                        "Accept": "application/json",
-                        "X-Requested-With": "XMLHttpRequest",
-                    },
-                )
-                if resp.status_code == 200:
-                    data = resp.json()
-                    if isinstance(data, dict) and "jobs" in data:
-                        return data["jobs"]
-                    if isinstance(data, dict) and "results" in data:
-                        return data["results"]
-                    if isinstance(data, list):
-                        return data
-            except (httpx.HTTPStatusError, json.JSONDecodeError, Exception) as e:
-                logger.debug(f"NESFircroft: API attempt {api_url} failed: {e}")
-                continue
+        params = {"local": LOCAL_PARAM, "organisation": ""}
 
-        return []
+        time.sleep(REQUEST_DELAY)
+        resp = client.post(
+            SEARCH_URL,
+            params=params,
+            json=body,
+            headers={
+                **HEADERS,
+                "Authorization": f"Bearer {jwt}",
+                "Content-Type": "application/json",
+            },
+        )
+        resp.raise_for_status()
 
-    def _scrape_industry_page(self, industry_path: str) -> list[dict]:
-        """Scrape an industry landing page for job listings.
+        # Response may contain non-UTF-8 bytes in descriptions.
+        raw = resp.content.decode("utf-8", errors="replace")
+        data = json.loads(raw)
 
-        Industry pages sometimes have statically rendered job listings
-        or embedded structured data.
-        """
-        jobs = []
-        try:
-            url = f"{BASE_URL}{industry_path}"
-            soup = self._fetch_page(url)
+        if data.get("message") == "Failed to execute job search":
+            raise RuntimeError("NESFircroft: gateway returned 'Failed to execute job search'")
 
-            # Look for JSON-LD structured data
-            for script in soup.find_all("script", type="application/ld+json"):
-                try:
-                    data = json.loads(script.string or "")
-                    if isinstance(data, dict) and data.get("@type") == "JobPosting":
-                        jobs.append(self._parse_jsonld_job(data))
-                    elif isinstance(data, list):
-                        for item in data:
-                            if isinstance(item, dict) and item.get("@type") == "JobPosting":
-                                jobs.append(self._parse_jsonld_job(item))
-                except (json.JSONDecodeError, TypeError):
-                    continue
+        return data
 
-            # Look for job listing elements on the page
-            for link in soup.select("a[href*='/job/'], a[href*='/jobs/']"):
-                href = link.get("href", "")
-                title = link.get_text(strip=True)
-                if href and title and len(title) > 3:
-                    if not href.startswith("http"):
-                        href = BASE_URL + href
-                    jobs.append({
-                        "title": title,
-                        "url": href,
-                        "company": "NES Fircroft",
-                        "location": "Various",
-                    })
+    # ------------------------------------------------------------------
+    # Parsing helpers
+    # ------------------------------------------------------------------
 
-        except Exception as e:
-            logger.debug(f"NESFircroft: failed to scrape {industry_path}: {e}")
-
-        return jobs
-
-    def _parse_jsonld_job(self, data: dict) -> dict:
-        """Parse a JSON-LD JobPosting into a job dict."""
-        title = data.get("title", "")
-        company = "NES Fircroft"
-        hiring_org = data.get("hiringOrganization", {})
-        if isinstance(hiring_org, dict):
-            company = hiring_org.get("name", company)
-
-        location = "Various"
-        job_location = data.get("jobLocation", {})
-        if isinstance(job_location, dict):
-            address = job_location.get("address", {})
-            if isinstance(address, dict):
-                parts = []
-                for field in ("addressLocality", "addressRegion", "addressCountry"):
-                    val = address.get(field, "")
-                    if val:
-                        parts.append(str(val))
-                if parts:
-                    location = ", ".join(parts)
-
-        return {
-            "title": title,
-            "company": company,
-            "location": location,
-            "url": data.get("url", f"{BASE_URL}/job-search/"),
-            "description": data.get("description", ""),
-            "employment_type": data.get("employmentType", ""),
-            "date_posted": data.get("datePosted", ""),
-            "salary": "",
-        }
-
-    def _scrape_search_page(self, keyword: str = "") -> list[dict]:
-        """Scrape the main search page.
-
-        The Vennture dynamic search renders client-side, so we may not get
-        job listings. We try to extract any server-rendered content.
-        """
-        jobs = []
-        try:
-            url = SEARCH_URL
-            if keyword:
-                url += f"?query={keyword}"
-
-            soup = self._fetch_page(url)
-
-            # Check for server-rendered job cards
-            for card in soup.select(
-                ".job-card, .search-result, .vacancy-card, "
-                "[class*=job-item], [class*=vacancy]"
-            ):
-                title_el = card.select_one("h2, h3, h4, a[href*='/job']")
-                if not title_el:
-                    continue
-
-                title = title_el.get_text(strip=True)
-                href = ""
-                if title_el.name == "a":
-                    href = title_el.get("href", "")
-                else:
-                    link = card.select_one("a[href*='/job']")
-                    if link:
-                        href = link.get("href", "")
-
-                if not title or not href:
-                    continue
-                if not href.startswith("http"):
-                    href = BASE_URL + href
-
-                location = "Various"
-                loc_el = card.select_one("[class*=location]")
-                if loc_el:
-                    location = loc_el.get_text(strip=True)
-
-                jobs.append({
-                    "title": title,
-                    "company": "NES Fircroft",
-                    "location": location,
-                    "url": href,
-                })
-
-            # Also check for JSON-LD on the search page
-            for script in soup.find_all("script", type="application/ld+json"):
-                try:
-                    data = json.loads(script.string or "")
-                    if isinstance(data, list):
-                        for item in data:
-                            if isinstance(item, dict) and item.get("@type") == "JobPosting":
-                                jobs.append(self._parse_jsonld_job(item))
-                except (json.JSONDecodeError, TypeError):
-                    continue
-
-        except Exception as e:
-            logger.warning(f"NESFircroft: search page scrape failed: {e}")
-
-        return jobs
-
-    def _parse_date(self, date_str: str) -> datetime | None:
-        """Parse date strings from various formats."""
+    @staticmethod
+    def _parse_date(date_str: Optional[str]) -> Optional[datetime]:
         if not date_str:
             return None
-        for fmt in ("%Y-%m-%d", "%Y-%m-%dT%H:%M:%S", "%d/%m/%Y", "%m/%d/%Y",
-                     "%d %b %Y", "%B %d, %Y"):
+        for fmt in (
+            "%Y-%m-%dT%H:%M:%S.%fZ",
+            "%Y-%m-%dT%H:%M:%SZ",
+            "%Y-%m-%dT%H:%M:%S%z",
+            "%Y-%m-%d",
+        ):
             try:
-                return datetime.strptime(date_str.strip()[:19], fmt)
+                return datetime.strptime(date_str[:26], fmt)
             except ValueError:
                 continue
         try:
             return datetime.fromisoformat(date_str.replace("Z", "+00:00"))
         except (ValueError, TypeError):
+            return None
+
+    @staticmethod
+    def _parse_location(loc_field) -> str:
+        if isinstance(loc_field, dict):
+            addr = loc_field.get("address", "").strip()
+            return addr if addr else "Various"
+        if isinstance(loc_field, str):
+            return loc_field.strip() or "Various"
+        return "Various"
+
+    @staticmethod
+    def _parse_salary(job: dict) -> Optional[str]:
+        salary_text = (job.get("salaryText") or "").strip()
+        if salary_text and salary_text.lower() not in ("0", "competitive", ""):
+            return salary_text
+        lo = job.get("salaryMinimum", "0")
+        hi = job.get("salaryMaximum", "0")
+        currency = job.get("salaryCurrency", "")
+        try:
+            lo_f = float(lo or 0)
+            hi_f = float(hi or 0)
+            if lo_f > 0 or hi_f > 0:
+                return f"{currency} {lo_f:,.0f} – {hi_f:,.0f}".strip()
+        except (ValueError, TypeError):
             pass
         return None
 
-    def _keyword_to_industries(self, keyword: str) -> list[str]:
-        """Map a keyword to relevant NES Fircroft industry pages."""
-        kw = keyword.lower()
-        matches = []
+    def _job_to_posting(self, job: dict, employment_type_hint: str = "") -> Optional[JobPosting]:
+        """Convert a Vennture API job dict to a JobPosting, or None if invalid."""
+        title = (job.get("title") or "").strip()
+        if not title:
+            return None
 
-        industry_keywords = {
-            "oil_gas": ["oil", "gas", "petroleum", "upstream", "downstream",
-                        "refinery", "pipeline", "subsea"],
-            "renewable": ["renewable", "solar", "wind", "green energy",
-                          "clean energy", "sustainability"],
-            "nuclear": ["nuclear", "decommissioning", "radiation"],
-            "mining": ["mining", "metals", "minerals", "quarry"],
-            "power": ["power", "electricity", "grid", "transmission",
-                       "distribution", "utility"],
-            "chemicals": ["chemical", "petrochemical", "pharma"],
-            "life_sciences": ["life science", "pharmaceutical", "biotech", "medical"],
-        }
+        # URL: relative path like /job/slug/ — prepend BASE_URL
+        url_path = (job.get("url") or "").strip()
+        if not url_path:
+            slug = job.get("slug", "")
+            url_path = f"/job/{slug}/" if slug else "/job-search/"
+        url = url_path if url_path.startswith("http") else BASE_URL + url_path
 
-        for industry, terms in industry_keywords.items():
-            for term in terms:
-                if term in kw:
-                    matches.append(industry)
-                    break
+        location = self._parse_location(job.get("location"))
 
-        # Default to oil_gas and renewable if no specific match
-        if not matches:
-            matches = ["oil_gas", "renewable"]
+        description = (job.get("description") or "").strip()
+        if not description or len(description) < 10:
+            description = f"{title} — NES Fircroft — {location}"
 
-        return matches
+        # Employment type: use API value if present, else hint from filters
+        job_types_raw = job.get("jobTypes") or []
+        employment_type: Optional[str] = None
+        if job_types_raw:
+            employment_type = ", ".join(str(t) for t in job_types_raw)
+        elif employment_type_hint:
+            employment_type = employment_type_hint
+
+        try:
+            return JobPosting(
+                title=title,
+                company="NES Fircroft",
+                location=location,
+                description=description,
+                url=url,
+                posted_date=self._parse_date(job.get("postDate") or job.get("expiryDate")),
+                employment_type=employment_type,
+                salary=self._parse_salary(job),
+                requisition_id=job.get("reference") or None,
+                source_aggregator="nesfircroft",
+            )
+        except Exception as e:
+            logger.debug(f"NESFircroft: skipping job '{title}': {e}")
+            return None
+
+    # ------------------------------------------------------------------
+    # Public interface (BaseAggregator)
+    # ------------------------------------------------------------------
 
     def count(self, filters: AggregatorFilters) -> int:
-        """Get approximate count of matching jobs.
-
-        Limited by JS-rendered search. Returns estimate from API or page scraping.
-        """
-        total = 0
+        """Return approximate count of matching jobs via a single API call."""
+        keyword = filters.keywords[0] if filters.keywords else ""
         try:
-            # Try API first
-            for keyword in filters.keywords[:2]:
-                api_jobs = self._try_vennture_api(keyword=keyword)
-                if api_jobs:
-                    total += len(api_jobs)
-                    continue
-
-                # Fallback: count from industry pages
-                industries = self._keyword_to_industries(keyword)
-                for ind in industries[:2]:
-                    path = INDUSTRY_PAGES.get(ind, "")
-                    if path:
-                        jobs = self._scrape_industry_page(path)
-                        total += len(jobs)
+            data = self._search_page(keyword=keyword, job_types=[], page=1)
+            return data.get("totalCount") or 0
         except Exception as e:
             logger.warning(f"NESFircroft count failed: {e}")
-
-        return total
+            return 0
 
     def search(self, filters: AggregatorFilters) -> list[JobPosting]:
-        """Search NES Fircroft for energy sector jobs.
+        """Search NES Fircroft via the Vennture gateway API.
 
-        Tries multiple approaches:
-        1. Vennture API direct query
-        2. Search page scraping
-        3. Industry page scraping
-
-        Note: Results may be limited due to client-side JS rendering.
+        Authenticates anonymously, posts keyword searches, and returns
+        real structured job listings.  Fetches up to 2 pages (100 jobs)
+        per keyword to respect rate limits; deduplicates by URL.
         """
         results: list[JobPosting] = []
         seen: set[str] = set()
 
-        # Determine employment type filter
-        job_type = ""
-        if filters.job_types:
-            for jt in filters.job_types:
-                mapped = EMPLOYMENT_TYPE_MAP.get(jt.lower())
-                if mapped:
-                    job_type = mapped
-                    break
+        # Map our job_type strings to Vennture values
+        vennture_types: list[str] = []
+        for jt in (filters.job_types or []):
+            mapped = EMPLOYMENT_TYPE_MAP.get(jt.lower())
+            if mapped and mapped not in vennture_types:
+                vennture_types.append(mapped)
+
+        employment_hint = vennture_types[0] if vennture_types else ""
 
         for keyword in filters.keywords:
             if len(results) >= filters.max_results:
                 break
 
-            # Strategy 1: Try Vennture API
-            api_jobs = self._try_vennture_api(
-                keyword=keyword, job_type=job_type
-            )
-            if api_jobs:
-                logger.info(f"NESFircroft: API returned {len(api_jobs)} jobs for '{keyword}'")
-                for job_data in api_jobs:
-                    if len(results) >= filters.max_results:
-                        break
-
-                    title = (
-                        job_data.get("title")
-                        or job_data.get("jobTitle")
-                        or job_data.get("Title")
-                        or ""
-                    )
-                    if not title:
-                        continue
-
-                    url = (
-                        job_data.get("url")
-                        or job_data.get("detailUrl")
-                        or job_data.get("Url")
-                        or ""
-                    )
-                    if url and not url.startswith("http"):
-                        url = BASE_URL + url
-                    if not url:
-                        url = SEARCH_URL
-
-                    if url in seen:
-                        continue
-                    seen.add(url)
-
-                    location = (
-                        job_data.get("location")
-                        or job_data.get("Location")
-                        or "Various"
-                    )
-                    description = (
-                        job_data.get("description")
-                        or job_data.get("summary")
-                        or f"{title} - NES Fircroft - {location}"
-                    )
-                    if len(description) < 10:
-                        description = f"{title} - NES Fircroft - {location}"
-
-                    date_str = (
-                        job_data.get("datePosted")
-                        or job_data.get("createdDate")
-                        or job_data.get("publishDate")
-                        or ""
-                    )
-
-                    try:
-                        job = JobPosting(
-                            title=title,
-                            company="NES Fircroft",
-                            location=location,
-                            description=description,
-                            url=url,
-                            posted_date=self._parse_date(date_str),
-                            employment_type=job_data.get("type", job_type),
-                            source_aggregator="nesfircroft",
-                        )
-                        results.append(job)
-                    except Exception as e:
-                        logger.debug(f"NESFircroft: skipping API job: {e}")
-
-                continue  # API worked, skip scraping for this keyword
-
-            # Strategy 2: Scrape search page
-            search_jobs = self._scrape_search_page(keyword)
-            if search_jobs:
-                logger.info(
-                    f"NESFircroft: search page has {len(search_jobs)} jobs for '{keyword}'"
-                )
-                for job_data in search_jobs:
-                    if len(results) >= filters.max_results:
-                        break
-
-                    url = job_data.get("url", "")
-                    if url in seen:
-                        continue
-                    seen.add(url)
-
-                    description = job_data.get("description", "")
-                    if not description or len(description) < 10:
-                        description = (
-                            f"{job_data.get('title', '')} - NES Fircroft "
-                            f"- {job_data.get('location', 'Various')}"
-                        )
-
-                    try:
-                        job = JobPosting(
-                            title=job_data.get("title", ""),
-                            company=job_data.get("company", "NES Fircroft"),
-                            location=job_data.get("location", "Various"),
-                            description=description,
-                            url=url or SEARCH_URL,
-                            posted_date=self._parse_date(job_data.get("date_posted", "")),
-                            employment_type=job_data.get("employment_type"),
-                            source_aggregator="nesfircroft",
-                        )
-                        results.append(job)
-                    except Exception as e:
-                        logger.debug(f"NESFircroft: skipping scraped job: {e}")
-
-                continue
-
-            # Strategy 3: Scrape industry pages
-            industries = self._keyword_to_industries(keyword)
-            for ind in industries:
+            page_token: Optional[str] = None
+            for page_num in range(1, 4):  # max 3 pages (150 jobs) per keyword
                 if len(results) >= filters.max_results:
                     break
 
-                path = INDUSTRY_PAGES.get(ind, "")
-                if not path:
-                    continue
+                try:
+                    data = self._search_page(
+                        keyword=keyword,
+                        job_types=vennture_types,
+                        page=page_num,
+                        page_token=page_token if page_num > 1 else None,
+                    )
+                except RuntimeError as e:
+                    logger.warning(f"NESFircroft: search failed for '{keyword}' page {page_num}: {e}")
+                    break
+                except Exception as e:
+                    logger.warning(f"NESFircroft: HTTP error for '{keyword}' page {page_num}: {e}")
+                    break
 
-                ind_jobs = self._scrape_industry_page(path)
+                jobs_raw = data.get("jobs") or []
+                total_count = data.get("totalCount", 0)
+                page_token = data.get("nextPageToken") or None
+
                 logger.info(
-                    f"NESFircroft: industry page '{ind}' has {len(ind_jobs)} jobs"
+                    f"NESFircroft: keyword='{keyword}' page={page_num} "
+                    f"got {len(jobs_raw)} jobs (total={total_count})"
                 )
 
-                for job_data in ind_jobs:
+                for job_data in jobs_raw:
                     if len(results) >= filters.max_results:
                         break
 
-                    url = job_data.get("url", "")
-                    if url in seen:
+                    posting = self._job_to_posting(job_data, employment_hint)
+                    if posting is None:
                         continue
-                    seen.add(url)
 
-                    description = job_data.get("description", "")
-                    if not description or len(description) < 10:
-                        description = (
-                            f"{job_data.get('title', '')} - NES Fircroft "
-                            f"- {job_data.get('location', 'Various')}"
-                        )
+                    url_str = str(posting.url)
+                    if url_str in seen:
+                        continue
+                    seen.add(url_str)
 
-                    try:
-                        job = JobPosting(
-                            title=job_data.get("title", ""),
-                            company=job_data.get("company", "NES Fircroft"),
-                            location=job_data.get("location", "Various"),
-                            description=description,
-                            url=url or SEARCH_URL,
-                            posted_date=self._parse_date(job_data.get("date_posted", "")),
-                            employment_type=job_data.get("employment_type"),
-                            source_aggregator="nesfircroft",
-                        )
-                        results.append(job)
-                    except Exception as e:
-                        logger.debug(f"NESFircroft: skipping industry job: {e}")
+                    results.append(posting)
+
+                # Stop paginating if no more pages
+                if not page_token or len(jobs_raw) < PAGE_SIZE:
+                    break
 
         logger.info(f"NESFircroft: found {len(results)} jobs total")
-        return results[:filters.max_results]
+        return results[: filters.max_results]

@@ -33,6 +33,8 @@ from src.aggregators.irata_adapter import IRATAAggregator
 from src.aggregators.airswift_adapter import AirswiftAggregator
 from src.aggregators.nesfircroft_adapter import NESFircroftAggregator
 from src.aggregators.brunel_adapter import BrunelAggregator
+from src.aggregators.rovplanet_adapter import ROVPlanetAggregator
+from src.aggregators.underwaterjobs_adapter import UnderwaterJobsAggregator
 from src.aggregators.dedup import AggregatorDedup
 from src.aggregators.relevance import RelevanceFilter
 from src.exporters.sheets import SheetsExporter
@@ -66,6 +68,9 @@ AGGREGATORS = {
     "airswift": AirswiftAggregator,
     "nesfircroft": NESFircroftAggregator,
     "brunel": BrunelAggregator,
+    # Subsea / diving niche boards
+    "rovplanet": ROVPlanetAggregator,
+    "underwaterjobs": UnderwaterJobsAggregator,
 }
 
 def load_profiles(path="config/aggregators.yaml"):
