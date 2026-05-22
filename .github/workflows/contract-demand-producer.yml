@@ -39,10 +39,9 @@ jobs:
       - run: pip install -r requirements.txt
       - name: Run contract-demand producer
         env:
-          # IMPORTANT: this service account must be granted EDITOR on the
-          # target-clients Sheet (1fIW4JxCNTQDT5J8g7bgPDK0lUYo0WF8Yfgras6GVem4).
-          # The default internal-jobs-review SA may not have it yet — share the
-          # Sheet with the SA's client_email, or set a secret for one that does.
+          # This SA has read+write on the target-clients Sheet
+          # (1fIW4JxCNTQDT5J8g7bgPDK0lUYo0WF8Yfgras6GVem4) — confirmed working
+          # in CI 2026-05-22 (it's the same shared SA the scraped-jobs crons use).
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
         run: |
           if [ "${{ inputs.dry_run }}" = "true" ]; then
