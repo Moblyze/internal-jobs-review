@@ -39,9 +39,10 @@ The aggregator layer (`scrapers/src/aggregators/`, run by `.github/workflows/dai
 |---|---|
 | **Live & producing** | jobspy (Indeed/LinkedIn), adzuna, jooble, usajobs, rigzone, roadtechs, energyjobsearch, oilgasvacancy, gcaptain, oceancrew, linemancentral, riggaccess (rope), irata (rope), **airswift (agency)** |
 | **Fixed 2026-05-22** | **ogvenergy** — was rate-limited on CI IPs, hanging 30s/query and starving the 7 broad profiles (subsea_oil_gas, ndt_inspection, drilling_operations, marine_offshore_ops, pipeline_mechanical, survey_geophysical, process_plant_operations). Timeout capped 30s→8s; those profiles now run. |
-| **Broken — adapter exists, ~0 yield** | **nesfircroft (agency)**, **brunel (agency)** — JS-walled SPAs the static scraper can't read. Revival in progress. |
+| **Revived & live 2026-05-22 (agency demand-intel)** | **nesfircroft** + **brunel** (discovered first-party JSON APIs), **oriongroup** (Vennture gateway API, `orionjobs.com`), **cammachbryant** (server-rendered, `wearecammach.com`, `jobType=3` contract filter). All agency-blind on end-client → *market-level* demand signal. |
+| **New niche adapters 2026-05-22** | **rovplanet** (subsea/ROV trade board — postings name the employer → *per-account* attribution), **underwaterjobs** (commercial diving). Registry now 24 adapters. |
 | **Disabled — dead source** | energyjobline (bot wall since 2026-03), energypeople (subdomain dead), oiljobfinder (403) |
-| **Building 2026-05-22** | Orion Group, Cammach Bryant, SubseaJobs.co.uk, ROV-Jobs.net, UnderwaterJobs.com, SPRAT |
+| **Dropped — nonexistent / off-vertical** | `subseajobs.co.uk`, `rov-jobs.net`, `spratcertification.com` = NXDOMAIN; TowerClimber (SPRAT substitute) = telecom, off-vertical — rope access already covered by `irata` + `riggaccess`. |
 
 ---
 
@@ -55,11 +56,11 @@ Sorted roughly by contract-role density × focus-market coverage. "Covered?" = a
 | Airswift | jobs.airswift.com | Agency | Gulf, NS, ME, Norway, APAC, WA, Brazil | Strong (10k+) | JS / works via adapter | **Yes** |
 | NES Fircroft | nesfircroft.com/jobs | Agency | all focus markets | Strong | JS SPA (Vennture) | Broken |
 | Brunel | brunel.net/en/jobs | Agency | NS, Norway, ME, NL, APAC, Brazil | Strong (contract-only) | JS (Sitecore React) | Broken |
-| Orion Group | oriongroup.net/job-search | Agency | NS, Norway, ME, WA, Gulf | Strong (diving div.) | Static (WordPress) | Building |
+| Orion Group | **orionjobs.com**/job-search | Agency | NS, Norway, ME, WA, Gulf | Strong (diving div.) | Vennture gateway JSON API | **Yes** |
 | Petroplan | petroplan.com/jobs | Agency | NS, ME, Gulf, WA, APAC | Strong | JS (WP-JSON maybe) | No |
 | Atlas Professionals | atlasprofessionals.com/en/vacancies | Agency | NS, Norway, ME, APAC | Strong (offshore/marine) | JS (Next.js) | No |
 | Fircroft | fircroft.com/jobs | Agency | NS, ME, APAC, WA, Gulf | Strong | JS SPA | No |
-| Cammach Bryant | cammachbryant.com/jobs | Agency | NS (Aberdeen) | Strong | Static (WordPress) | Building |
+| Cammach Bryant | **wearecammach.com**/jobs/filter?jobType=3 | Agency | NS (Aberdeen) | Strong (contract-filtered) | Server-rendered HTML | **Yes** |
 | Hays O&G | hays.com/jobs/oil-gas-jobs | Agency | NS, APAC, ME, Norway | Strong | JS (CF-protected) | No |
 | Rigzone | rigzone.com/jobs | Board | Global | Moderate | JS (403 bare curl) | Yes |
 | EnergyJobSearch / OilAndGasJobSearch | energyjobsearch.com | Board | Global (offshore/subsea) | Strong | JS (handled) | Yes |
@@ -70,10 +71,11 @@ Sorted roughly by contract-role density × focus-market coverage. "Covered?" = a
 | Roadtechs | roadtechs.com | Board | US domestic | Strong | Static | Yes |
 | riggaccess | rigg-access.com | Niche (rope) | Global | Strong | JSON API | Yes |
 | IRATA | irata.org/jobs | Association (rope) | NS, Global | Strong | Static | Yes |
-| SPRAT | spratcertification.com/job-board | Association (rope) | US, Canada | Strong | Static | Building |
-| SubseaJobs.co.uk | subseajobs.co.uk | Niche (subsea) | NS, Global | Strong | Static | Building |
-| ROV-Jobs.net | rov-jobs.net | Niche (subsea) | Global | Strong | Static | Building |
-| UnderwaterJobs.com | underwaterjobs.com | Niche (diving) | US-dominant, global | Strong | Static | Building |
+| ROVPlanet | rovplanet.com/jobs/list2 | Niche (subsea/ROV) | Global | Strong (employer-named) | Static | **Yes** |
+| UnderwaterJobs.com | underwaterjobs.com/all_jobs | Niche (diving) | US-dominant, global | Strong | Static | **Yes** |
+| SPRAT | spratcertification.com — NXDOMAIN | Association (rope) | — | — | dead | No (rope covered by irata/riggaccess) |
+| SubseaJobs.co.uk | subseajobs.co.uk — NXDOMAIN | Niche | — | — | dead | No |
+| ROV-Jobs.net | rov-jobs.net — NXDOMAIN | Niche | — | — | dead | No |
 | OilCareers (UK) | oilcareers.com | Board | NS, Global | Strong | Static | No |
 | CJHunter | cjhunter.com/jobs | Board | US (contract) | Strong | Static | No |
 | Adzuna / Jooble / Indeed (JobSpy) / USAJobs | — | Aggregator | Global / US | Moderate | API / JS | Yes |
