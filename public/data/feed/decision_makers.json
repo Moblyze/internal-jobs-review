@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-05-22T12:56:01.248Z"
+    "last_updated_at": "2026-05-22T18:41:32.071Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -3929,6 +3929,66 @@
         "email": null,
         "phone": null,
         "location": "Aberdeen, UK"
+      }
+    ]
+  },
+  "orano enrichment usa": {
+    "discovered_at": "2026-05-22T18:41:32.071Z",
+    "contacts": [
+      {
+        "name": "Robin Harris",
+        "title": "Vice President of Human Resources",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/robin-harris-0b15b0199",
+        "source_url": "https://www.linkedin.com/in/robin-harris-0b15b0199/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Lionel Antognelli",
+        "title": "VP Engineering and Projects",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/lionelantognelli",
+        "source_url": "https://adamswebsearch2.nrc.gov/webSearch2/main.jsp?AccessionNumber=ML25338A290",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Washington, DC, USA"
+      },
+      {
+        "name": "Peter Vescovi",
+        "title": "Licensing Manager / QA Manager",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/peter-vescovi-9a7238a2",
+        "source_url": "https://adamswebsearch2.nrc.gov/webSearch2/main.jsp?AccessionNumber=ML25338A290",
+        "in_target_persona": true,
+        "email": "peter.vescovi@orano.group",
+        "phone": "+1-336-420-8325",
+        "location": "Bethesda, MD, USA"
+      },
+      {
+        "name": "Matt Lucas",
+        "title": "Senior Project Manager",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/matthieu-lucas-nuclear",
+        "source_url": "https://kanterella.com/ML25037A243",
+        "in_target_persona": true,
+        "email": "matthieu.lucas@orano.group",
+        "phone": "+1-301-841-1776",
+        "location": "Arlington, VA, USA"
+      },
+      {
+        "name": "Jean-Luc Palayer",
+        "title": "President and CEO",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.orano.group/usa/en/about-us/leadership",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Bethesda, MD, USA"
       }
     ]
   }

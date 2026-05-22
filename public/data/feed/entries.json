@@ -2,6 +2,111 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/us-enrichment-plant-begins-accelerated-review"
+      }
+    ],
+    "headline": "NRC Accelerates 12-Month Review of Orano's Project IKE Uranium Enrichment Licence Application",
+    "body": "The US Nuclear Regulatory Commission intends to complete its technical review of Orano Enrichment USA's application for a licence to build and operate the Project IKE uranium enrichment facility within 12 months.",
+    "url": "https://www.world-nuclear-news.org//articles/us-enrichment-plant-begins-accelerated-review",
+    "published_at": "2026-05-22T13:35:54.000Z",
+    "hash": "8d839bbfb903a2d0",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-domestic",
+    "country": "united_states",
+    "tldr": "The US NRC has committed to completing its technical review of Orano Enrichment USA's Project IKE enrichment facility licence within 12 months, signalling a potential FID/construction ramp-up window opening in late 2025–2026.",
+    "operator": {
+      "name": "Orano Enrichment USA",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Orano Enrichment USA",
+      "matched_company_slug": null
+    },
+    "project_name": "Project IKE",
+    "scope": [
+      "licence_review",
+      "enrichment_facility_build_operate"
+    ],
+    "mob_window": {
+      "start": "2026-Q1",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Licensing Engineer",
+        "Regulatory Affairs Manager",
+        "Uranium Enrichment Process Engineer",
+        "Nuclear Construction Manager",
+        "NRC Licensing Specialist",
+        "Centrifuge Operations Engineer",
+        "Health Physics Supervisor",
+        "Nuclear Project Manager"
+      ],
+      "skills": [
+        "NRC licensing",
+        "uranium enrichment",
+        "centrifuge technology",
+        "10 CFR Part 70",
+        "nuclear safety analysis",
+        "FSAR preparation",
+        "radiological protection",
+        "nuclear facility construction"
+      ],
+      "certs_freetext": [
+        "NRC Certified Health Physicist",
+        "CHP (Certified Health Physicist)",
+        "PMP",
+        "PE (Nuclear)"
+      ],
+      "geo_rtw": "US work authorisation required",
+      "project_experience": [
+        "URENCO USA Eunice",
+        "Centrus American Centrifuge",
+        "Honeywell Metropolis Works",
+        "Portsmouth Gaseous Diffusion Plant"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "senior-to-principal",
+      "boolean_search": "(\"uranium enrichment\" OR \"nuclear enrichment\" OR \"centrifuge\" OR \"UF6\") AND (\"NRC licensing\" OR \"10 CFR Part 70\" OR \"nuclear facility\" OR \"FSAR\" OR \"license application\") AND (\"nuclear engineer\" OR \"licensing engineer\" OR \"regulatory affairs\" OR \"health physicist\" OR \"nuclear construction\") AND (\"Orano\" OR \"URENCO\" OR \"Centrus\" OR \"enrichment plant\" OR \"fuel cycle\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Orano Enrichment USA's Project IKE is entering accelerated NRC review — licence decision expected within 12 months. We're mapping nuclear licensing and construction talent ahead of that window. Would you be open to a quick conversation?",
+      "email_subject": "Project IKE – Nuclear Licensing & Construction Talent Ahead of NRC Decision",
+      "email_body": "Hi [Name],\n\nThe US NRC has committed to a 12-month accelerated technical review of Orano Enrichment USA's licence application for Project IKE, a new uranium enrichment facility. A positive decision would trigger an engineering and construction ramp-up, creating significant demand for nuclear licensing, process engineering, health physics, and construction management professionals.\n\nWe specialise in placing senior nuclear talent and are currently mapping candidates with NRC licensing, enrichment technology, and nuclear facility construction backgrounds ahead of this window.\n\nWould you have 15 minutes to discuss how we can support your hiring plans as the licence review progresses?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "NRC accelerated licence review for a named operator (Orano Enrichment USA) and named project (Project IKE) is a regulatory milestone with a clear downstream workforce-demand signal for nuclear construction and operations staffing.",
+    "phase": "pre_sanction",
+    "phase_evidence": "The article states the NRC 'intends to complete its technical review… within 12 months', confirming the project is still in the licensing/pre-FID stage.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "d24d79f7-17c0-45ae-bca4-c37f2b20d361",
+    "ingested_at": "2026-05-22T18:39:57.491Z",
+    "source_published_at": "2026-05-22T13:35:54.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/ithaca_completes_acquisition_in_shell_discovery_farms_down_fotla-22-may-2026-183754-article/?rss=true"
