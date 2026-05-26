@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-05-22T18:41:32.071Z"
+    "last_updated_at": "2026-05-26T18:53:23.008Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -3989,6 +3989,126 @@
         "email": null,
         "phone": null,
         "location": "Bethesda, MD, USA"
+      }
+    ]
+  },
+  "studsvik": {
+    "discovered_at": "2026-05-26T18:53:23.008Z",
+    "contacts": [
+      {
+        "name": "Veronica Fors",
+        "title": "Chief Human Resources Officer (CHRO)",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://news.cision.com/studsvik-ab/r/studsvik-strengthens-executive-management-team-to-accelerate-growth-and-innovation,c4163737",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Sweden"
+      },
+      {
+        "name": "Karl Thedéen",
+        "title": "President and CEO",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/karl-thedeen-24a8a33",
+        "source_url": "https://www.studsvik.com/about-us/meet-our-team/karl_thedeen/",
+        "in_target_persona": true,
+        "email": "karl.thedeen@studsvik.com",
+        "phone": "+46 70 65 66 508",
+        "location": "Stockholm, Sweden"
+      },
+      {
+        "name": "Florian Bühler",
+        "title": "Business Area President, Decommissioning & Radiation Protection Services",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/dipl-ing-fh-florian-b%C3%BChler-5b7054134",
+        "source_url": "https://www.studsvik.com/about-us/meet-our-team/florian-buhler/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Mannheim, Germany"
+      },
+      {
+        "name": "Robert Hayward",
+        "title": "Site Manager",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/robert-hayward-3b755045",
+        "source_url": "https://uk.linkedin.com/in/robert-hayward-3b755045",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "United Kingdom"
+      },
+      {
+        "name": "Joakim Lundström",
+        "title": "Business Development and Head of Sales, Fuel and Materials",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://news.cision.com/studsvik-ab/r/studsvik-strengthens-executive-management-team-to-accelerate-growth-and-innovation,c4163737",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Sweden"
+      }
+    ]
+  },
+  "desri": {
+    "discovered_at": "2026-05-26T18:53:23.008Z",
+    "contacts": [
+      {
+        "name": "Gloria Basem",
+        "title": "Chief People Officer",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/gloriabasem",
+        "source_url": "https://www.prnewswire.com/news-releases/d-e-shaw-renewable-investments-announces-additions-to-senior-management-team-302310749.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "New York, NY, USA"
+      },
+      {
+        "name": "Stephen Jones",
+        "title": "Chief Operating Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/stephenjones01",
+        "source_url": "https://www.prnewswire.com/news-releases/d-e-shaw-renewable-investments-announces-additions-to-senior-management-team-302310749.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Denver, CO, USA"
+      },
+      {
+        "name": "Jonathan Kett",
+        "title": "Executive Director",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/jonathan-kett-a3b77474",
+        "source_url": "https://www.linkedin.com/in/jonathan-kett-a3b77474/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Aaron Svedlow",
+        "title": "Executive Director, Development",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/aaron-svedlow-6b435a66",
+        "source_url": "https://www.linkedin.com/in/aaron-svedlow-6b435a66/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Cumberland County, ME, USA"
+      },
+      {
+        "name": "Jimmy Wuth",
+        "title": "Director",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/jimmy-wuth-74a52313",
+        "source_url": "https://www.linkedin.com/in/jimmy-wuth-74a52313/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Falls Church, VA, USA"
       }
     ]
   }
