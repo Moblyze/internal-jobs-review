@@ -49,6 +49,8 @@ TARGET_SHEET_ID = "1fIW4JxCNTQDT5J8g7bgPDK0lUYo0WF8Yfgras6GVem4"
 COMPANIES_TAB = "Companies"
 LEADS_TAB = "Contract Demand Leads"
 DEMAND_COLUMN = "active_contract_demand"
+DEMAND_SOURCES_COLUMN = "contract_demand_sources"
+DEMAND_ROLES_COLUMN = "contract_demand_sample_roles"
 SCOPES = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive",
@@ -204,10 +206,13 @@ def _gspread_client() -> gspread.Client:
 
 
 def match_demand_to_companies(demand: dict, companies: list[dict]):
-    """Return (matches {company_id: count}, unmatched [(operator, info)], log).
+    """Return (matches {company_id: count}, detail {company_id: {sources, titles}},
+    unmatched [(operator, info)], log).
 
     Match order (precision-first): exact normalized name → whole-token prefix →
-    core-token-set equality (catches 'Noble Drilling' ↔ 'Noble Corporation')."""
+    core-token-set equality (catches 'Noble Drilling' ↔ 'Noble Corporation').
+    `detail` aggregates the source boards + up to 3 sample role titles across every
+    operator that maps to a company — the sales-facing verification trail."""
     idx = []  # (norm_name, core, company_id, display)
     for row in companies:
         cid = row.get("company_id")
@@ -217,7 +222,7 @@ def match_demand_to_companies(demand: dict, companies: list[dict]):
             if key and key.strip():
                 idx.append((_normalize(key), _core(key), cid, row.get("legal_name") or row.get("common_name")))
 
-    matches, log, unmatched = {}, [], []
+    matches, detail, log, unmatched = {}, {}, [], []
     for operator, info in sorted(demand.items(), key=lambda kv: -kv[1]["count"]):
         op_norm, op_core = _normalize(operator), _core(operator)
         hit = next(((c, d) for n, _co, c, d in idx if n == op_norm), None)
@@ -231,10 +236,15 @@ def match_demand_to_companies(demand: dict, companies: list[dict]):
         if hit:
             cid, disp = hit
             matches[cid] = matches.get(cid, 0) + info["count"]
+            d = detail.setdefault(cid, {"sources": set(), "titles": []})
+            d["sources"].update(info["sources"])
+            for t in info["titles"]:
+                if t and t not in d["titles"] and len(d["titles"]) < 3:
+                    d["titles"].append(t)
             log.append((operator, info["count"], disp, method))
         else:
             unmatched.append((operator, info))
-    return matches, unmatched, log
+    return matches, detail, unmatched, log
 
 
 def write_demand(ws, matches: dict) -> int:
@@ -248,6 +258,39 @@ def write_demand(ws, matches: dict) -> int:
         for r, row in enumerate(all_values[1:], start=2)
         if id_col < len(row) and row[id_col] in matches
     ]
+    if cells:
+        ws.update_cells(cells, value_input_option="RAW")
+    return len(cells)
+
+
+def write_demand_detail(ws, detail: dict) -> int:
+    """Write source + sample-role columns for MATCHED companies (sales verification trail).
+
+    Back-compatible: silently no-ops on either column missing from the Companies
+    header, so it runs safely before the BD schema migration adds them. Returns the
+    number of cells written."""
+    all_values = ws.get_all_values()
+    headers = all_values[0] if all_values else []
+    if "company_id" not in headers:
+        return 0
+    id_col = headers.index("company_id")
+    targets = {name: headers.index(name) for name in
+               (DEMAND_SOURCES_COLUMN, DEMAND_ROLES_COLUMN) if name in headers}
+    if not targets:
+        return 0  # columns not added to the sheet yet — no-op
+    cells = []
+    for r, row in enumerate(all_values[1:], start=2):
+        if id_col >= len(row):
+            continue
+        d = detail.get(row[id_col])
+        if not d:
+            continue
+        if DEMAND_SOURCES_COLUMN in targets:
+            cells.append(gspread.Cell(row=r, col=targets[DEMAND_SOURCES_COLUMN] + 1,
+                                      value=", ".join(sorted(d["sources"]))))
+        if DEMAND_ROLES_COLUMN in targets:
+            cells.append(gspread.Cell(row=r, col=targets[DEMAND_ROLES_COLUMN] + 1,
+                                      value="; ".join(d["titles"])))
     if cells:
         ws.update_cells(cells, value_input_option="RAW")
     return len(cells)
@@ -282,7 +325,7 @@ def main() -> int:
 
     ss = _gspread_client().open_by_key(TARGET_SHEET_ID)
     ws = ss.worksheet(COMPANIES_TAB)
-    matches, unmatched, log = match_demand_to_companies(demand, ws.get_all_records())
+    matches, detail, unmatched, log = match_demand_to_companies(demand, ws.get_all_records())
 
     print(f"MATCHED to target-clients rows: {len(matches)} companies")
     for operator, count, disp, method in sorted(log, key=lambda x: -x[1])[:25]:
@@ -293,8 +336,10 @@ def main() -> int:
 
     if args.commit:
         n = write_demand(ws, matches)
+        detail_cells = write_demand_detail(ws, detail)
         leads = write_leads_tab(ss, unmatched)
-        print(f"\nWROTE active_contract_demand to {n} Companies rows; wrote {leads} rows to '{LEADS_TAB}'.")
+        print(f"\nWROTE active_contract_demand to {n} Companies rows ({detail_cells} source/role "
+              f"detail cells); wrote {leads} rows to '{LEADS_TAB}'.")
     else:
         print("\n(dry-run — no write. Re-run with --commit.)")
     return 0
