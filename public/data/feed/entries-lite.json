@@ -1,5 +1,49 @@
 [
   {
+    "id": "797e9545-06a0-4f56-b894-202bf8098a5c",
+    "ingested_at": "2026-05-27T18:51:06.084Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/cbi-awarded-contract-for-five-lng-storage-tanks-at-caturus-commonwealth-lng-facility-302783430.html"
+      }
+    ],
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations",
+      "ndt_inspection"
+    ],
+    "signal_type": "epc_award",
+    "region": "us-gulf-coast",
+    "country": "united_states",
+    "headline": "CB&I Awarded LNG Storage Tank EPC Contract at Caturus' Commonwealth LNG Facility",
+    "operator": {
+      "name": "Caturus",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "CB&I",
+      "matched_company_slug": null
+    },
+    "project_name": "Commonwealth LNG",
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": []
+  },
+  {
     "id": "32a7efe1-aabb-4f04-95d2-7050a0ba496a",
     "ingested_at": "2026-05-27T13:15:18.142Z",
     "sources": [

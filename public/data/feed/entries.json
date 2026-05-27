@@ -2,6 +2,139 @@
   {
     "sources": [
       {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/cbi-awarded-contract-for-five-lng-storage-tanks-at-caturus-commonwealth-lng-facility-302783430.html"
+      }
+    ],
+    "headline": "CB&I Awarded LNG Storage Tank EPC Contract at Caturus' Commonwealth LNG Facility",
+    "body": "THE WOODLANDS, Texas, May 27, 2026 /PRNewswire/ -- CB&I today announced it has received a significant* lump sum contract award and full notice to proceed from Technip Energies on behalf of Caturus for the engineering, procurement, fabrication, construction, and pre-commissioning of five...",
+    "url": "https://www.prnewswire.com/news-releases/cbi-awarded-contract-for-five-lng-storage-tanks-at-caturus-commonwealth-lng-facility-302783430.html",
+    "published_at": "2026-05-27T17:30:00.000Z",
+    "hash": "998436458d114913",
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations",
+      "ndt_inspection"
+    ],
+    "signal_type": "epc_award",
+    "region": "us-gulf-coast",
+    "country": "united_states",
+    "tldr": "CB&I has received a lump-sum EPC contract plus full notice to proceed from Technip Energies on behalf of Caturus for five LNG storage tanks at Commonwealth LNG. Full NTP signals imminent construction ramp-up and significant trades hiring.",
+    "operator": {
+      "name": "Caturus",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "CB&I",
+      "matched_company_slug": null
+    },
+    "project_name": "Commonwealth LNG",
+    "scope": [
+      "lng_storage_tanks_epc",
+      "engineering",
+      "procurement",
+      "fabrication",
+      "construction",
+      "pre_commissioning"
+    ],
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Construction Manager",
+        "Site Manager",
+        "LNG Tank Construction Superintendent",
+        "Civil/Structural Supervisor",
+        "Mechanical Supervisor",
+        "Welding Supervisor",
+        "HSE Manager",
+        "QA/QC Manager",
+        "NDT Inspector",
+        "Pre-commissioning Engineer",
+        "Procurement Engineer",
+        "Project Controls Engineer",
+        "Planning/Scheduling Engineer",
+        "Industrial Welder",
+        "Pipefitter",
+        "Structural Fitter",
+        "Rigger",
+        "Scaffolder",
+        "Electrician",
+        "Instrumentation Technician"
+      ],
+      "skills": [
+        "LNG storage tank construction",
+        "cryogenic tank fabrication",
+        "full containment LNG tanks",
+        "EPC lump sum",
+        "pre-commissioning",
+        "civil foundations",
+        "post-weld heat treatment",
+        "cryogenic piping",
+        "NDE/NDT",
+        "QA/QC",
+        "pressure vessel fabrication",
+        "industrial construction management"
+      ],
+      "certs_freetext": [
+        "ASME Section VIII",
+        "AWS CWI",
+        "API 620",
+        "NCCER",
+        "OSHA 30 Construction",
+        "TWIC Card"
+      ],
+      "geo_rtw": "US work-authorized, Louisiana/Texas Gulf Coast",
+      "project_experience": [
+        "Sabine Pass LNG",
+        "Corpus Christi LNG",
+        "Freeport LNG",
+        "Golden Pass LNG",
+        "Port Arthur LNG",
+        "Rio Grande LNG",
+        "Calcasieu Pass LNG"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid to senior",
+      "boolean_search": "(\"LNG\" OR \"liquefied natural gas\") AND (\"storage tank\" OR \"full containment tank\" OR \"cryogenic tank\") AND (\"construction\" OR \"fabrication\" OR \"EPC\") AND (\"CB&I\" OR \"McDermott\" OR \"Technip\" OR \"Bechtel\" OR \"Zachry\" OR \"KBR\") AND (\"Construction Manager\" OR \"Superintendent\" OR \"Welding Supervisor\" OR \"Mechanical Supervisor\" OR \"Pre-commissioning Engineer\" OR \"QA/QC\" OR \"NDT Inspector\" OR \"Site Manager\") AND (\"Louisiana\" OR \"Texas\" OR \"Gulf Coast\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], CB&I just received full NTP on a 5-tank LNG EPC at Commonwealth LNG (Caturus). This is a live ramp-up — [title] roles are likely opening now. Worth a quick chat?",
+      "email_subject": "CB&I – Commonwealth LNG Tank EPC | [Your Title] Opportunity – Gulf Coast",
+      "email_body": "Hi [Name],\n\nCB&I has just been awarded a lump-sum EPC contract — with full notice to proceed — for five LNG storage tanks at Caturus' Commonwealth LNG facility on the Gulf Coast. With full NTP in hand, the construction ramp-up is underway and they'll be building out site leadership and trades teams now.\n\nGiven your background in [LNG/cryogenic tank construction / EPC site management], I wanted to reach out directly. We're working closely with contractors active on this programme and similar Gulf Coast LNG builds.\n\nAre you open to a brief conversation about what's coming up?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "EPC contract award with full NTP naming CB&I as contractor, Technip Energies as EPC manager, and Caturus/Commonwealth LNG as operator/project for five LNG storage tanks — clear discrete workforce-demand event.",
+    "phase": "construction",
+    "phase_evidence": "Article states CB&I received 'full notice to proceed' for engineering, procurement, fabrication, construction, and pre-commissioning — indicating active execution has commenced.",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "797e9545-06a0-4f56-b894-202bf8098a5c",
+    "ingested_at": "2026-05-27T18:51:06.084Z",
+    "source_published_at": "2026-05-27T17:30:00.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/eni_baleine_partners_approve_phase_3_of_ivorian_project-27-may-2026-183786-article/?rss=true"

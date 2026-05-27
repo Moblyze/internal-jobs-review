@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-05-27T13:17:24.128Z"
+    "last_updated_at": "2026-05-27T18:53:10.259Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -4289,6 +4289,126 @@
         "email": null,
         "phone": null,
         "location": "UK"
+      }
+    ]
+  },
+  "cb&i": {
+    "discovered_at": "2026-05-27T18:53:10.259Z",
+    "contacts": [
+      {
+        "name": "Monique Vocke",
+        "title": "Vice President, Global Benefits and HR Shared Services",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/monique-vocke-5333824",
+        "source_url": "https://www.comparably.com/companies/cb-i/human-resources",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Metairie, LA, USA"
+      },
+      {
+        "name": "Palmer Angie",
+        "title": "HR Director",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/palmer-angie-657201a0",
+        "source_url": "https://www.zoominfo.com/p/Palmer-Angie/5324668529",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "The Woodlands, TX, USA"
+      },
+      {
+        "name": "Mike Williams",
+        "title": "HR Director, Americas",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://www.comparably.com/companies/cb-i/human-resources",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Brad Smith",
+        "title": "Director of Human Resources",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://rocketreach.co/cbi-hr-department_b5c59792f42e0e63",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Hayley Jones",
+        "title": "Global Talent Acquisition Coordinator",
+        "persona": "ta",
+        "linkedin_url": null,
+        "source_url": "https://www.comparably.com/companies/cb-i/human-resources",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "caturus": {
+    "discovered_at": "2026-05-27T18:53:10.259Z",
+    "contacts": [
+      {
+        "name": "Sonali Kothare",
+        "title": "Upstream Vice President, Human Resources",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/sonali-kothare-phr-m-s-51b57342",
+        "source_url": "https://www.zoominfo.com/p/Sonali-Kothare/10565021545",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Rodney Bush",
+        "title": "Director, Human Resources",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://www.zoominfo.com/p/Vicente-Gonzalez/2853908945",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Kjetil Jansen",
+        "title": "Chief Development Officer",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://caturus.com/leadership/kjetil-jansen/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Tim Wyatt",
+        "title": "President, Head of LNG and Gas Marketing",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/tim-wyatt-52760613",
+        "source_url": "https://www.prnewswire.com/news-releases/caturus-names-globally-recognized-lng-and-midstream-energy-experts-to-key-management-and-board-positions-302555928.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Dave Lawler",
+        "title": "Chief Executive Officer",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://caturus.com/leadership/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Denver, CO, USA"
       }
     ]
   }
