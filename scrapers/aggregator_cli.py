@@ -40,6 +40,7 @@ from src.aggregators.cammachbryant_adapter import CammachBryantAggregator
 from src.aggregators.spencerogden_adapter import SpencerOgdenAggregator
 from src.aggregators.atlasprofessionals_adapter import AtlasProfessionalsAggregator
 from src.aggregators.petroplan_adapter import PetroplanAggregator
+from src.aggregators.gulftalent_adapter import GulfTalentAggregator
 from src.aggregators.dedup import AggregatorDedup
 from src.aggregators.relevance import RelevanceFilter
 from src.exporters.sheets import SheetsExporter
@@ -83,6 +84,8 @@ AGGREGATORS = {
     "spencerogden": SpencerOgdenAggregator,
     "atlasprofessionals": AtlasProfessionalsAggregator,
     "petroplan": PetroplanAggregator,
+    # Structured Gulf board (headed Playwright — energy breadth, mostly permanent)
+    "gulftalent": GulfTalentAggregator,
 }
 
 def load_profiles(path="config/aggregators.yaml"):
