@@ -2,6 +2,231 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/eni_baleine_partners_approve_phase_3_of_ivorian_project-27-may-2026-183786-article/?rss=true"
+      }
+    ],
+    "headline": "Eni & Partners Take FID on Baleine Phase 3 Offshore Côte d'Ivoire",
+    "body": "Eni SpA and its partners have made a final investment decision (FID) to proceed with the third-phase development of Côte d’Ivoire's biggest hydrocarbon disco...",
+    "url": "https://www.rigzone.com/news/eni_baleine_partners_approve_phase_3_of_ivorian_project-27-may-2026-183786-article/?rss=true",
+    "published_at": "2026-05-27T08:50:19.000Z",
+    "hash": "91c17390f64cb297",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "marine_offshore_ops",
+      "rov_subsea",
+      "process_plant_operations",
+      "pipeline_mechanical"
+    ],
+    "signal_type": "fid",
+    "region": "west-africa",
+    "country": "cote_divoire",
+    "tldr": "Eni and its Baleine partners have sanctioned Phase 3 of Côte d'Ivoire's largest hydrocarbon development, triggering EPC tenders and engineering ramp-up. Active hiring across offshore construction and subsea disciplines expected within 3–6 months.",
+    "operator": {
+      "name": "Eni SpA",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Baleine Phase 3",
+    "scope": [
+      "field_development",
+      "subsea_install",
+      "topsides_epc",
+      "offshore_construction"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Project Director",
+        "Project Manager",
+        "Subsea Engineer",
+        "Offshore Construction Manager",
+        "SURF Engineer",
+        "FPSO Engineer",
+        "Commissioning Manager",
+        "HSE Manager",
+        "Marine Superintendent",
+        "Procurement Manager"
+      ],
+      "skills": [
+        "offshore project management",
+        "SURF installation",
+        "FPSO hookup",
+        "subsea systems",
+        "deepwater development",
+        "offshore construction",
+        "EPC management",
+        "West Africa operations"
+      ],
+      "certs_freetext": [
+        "BOSIET",
+        "HUET",
+        "OPITO offshore survival",
+        "GWO"
+      ],
+      "geo_rtw": "EU/EEA, UK, West Africa experienced",
+      "project_experience": [
+        "Baleine Phase 1",
+        "Baleine Phase 2",
+        "Sankofa",
+        "Jubilee",
+        "TEN",
+        "Coral Sul FLNG",
+        "Zohr"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"Baleine\" OR \"Côte d'Ivoire\" OR \"West Africa offshore\") AND (\"SURF\" OR \"FPSO\" OR \"subsea\" OR \"offshore construction\" OR \"deepwater\") AND (\"project manager\" OR \"project director\" OR \"construction manager\" OR \"commissioning manager\" OR \"subsea engineer\" OR \"marine superintendent\") AND (\"FID\" OR \"EPC\" OR \"field development\" OR \"topsides\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Eni just took FID on Baleine Phase 3 offshore Côte d'Ivoire — EPC awards and engineering ramp-up are imminent. Given your background in [subsea/offshore construction], I'd love to connect about upcoming roles on this campaign.",
+      "email_subject": "Baleine Phase 3 FID — Senior Offshore & Subsea Roles Opening Up",
+      "email_body": "Hi [Name],\n\nEni and its partners have just sanctioned Phase 3 of the Baleine field offshore Côte d'Ivoire — the country's largest hydrocarbon project. With FID now confirmed, EPC tenders and engineering mobilisation are expected to follow in the coming months.\n\nWe're actively mapping senior talent across subsea, offshore construction, FPSO, and commissioning disciplines for this campaign.\n\nGiven your experience in [relevant field], I'd welcome a brief call to discuss how your profile aligns with the opportunities coming to market.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "FID taken by named operator Eni on Baleine Phase 3 offshore Côte d'Ivoire, a discrete investment decision triggering EPC awards and workforce ramp-up in offshore O&G.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Article states Eni and partners 'made a final investment decision (FID) to proceed with the third-phase development', confirming sanction and transition into engineering.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "32a7efe1-aabb-4f04-95d2-7050a0ba496a",
+    "ingested_at": "2026-05-27T13:15:18.142Z",
+    "source_published_at": "2026-05-27T08:50:19.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/assystem-atkinsrealis-contracted-to-support-edf-in-the-uk"
+      }
+    ],
+    "headline": "Assystem & AtkinsRéalis Appointed to EDF/Sizewell C 5-Year Professional Services Framework",
+    "body": "French engineering group Assystem and Canadian engineering firm AtkinsRéalis have both been appointed by EDF and Sizewell C Limited to a new five-year Professional Services Framework.",
+    "url": "https://www.world-nuclear-news.org//articles/assystem-atkinsrealis-contracted-to-support-edf-in-the-uk",
+    "published_at": "2026-05-27T12:39:00.000Z",
+    "hash": "26abed9eff613174",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "uk",
+    "country": "united_kingdom",
+    "tldr": "EDF and Sizewell C Limited have contracted Assystem and AtkinsRéalis onto a new five-year Professional Services Framework, signalling sustained engineering and professional services hiring demand for the Sizewell C nuclear project in the UK.",
+    "operator": {
+      "name": "EDF / Sizewell C Limited",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Assystem / AtkinsRéalis",
+      "matched_company_slug": null
+    },
+    "project_name": "Sizewell C",
+    "scope": [
+      "professional_services_framework",
+      "engineering_support"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": 60
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Engineer",
+        "Civil/Structural Engineer",
+        "Mechanical Engineer",
+        "Electrical Engineer",
+        "Project Manager",
+        "Design Engineer",
+        "Safety Case Engineer",
+        "Technical Authority",
+        "Cost Engineer",
+        "Planning Engineer"
+      ],
+      "skills": [
+        "nuclear new build",
+        "PCSR",
+        "safety case",
+        "CDM",
+        "nuclear design",
+        "engineering assurance",
+        "project controls",
+        "programme management"
+      ],
+      "certs_freetext": [
+        "NEC3/NEC4",
+        "Chartered Engineer (CEng)",
+        "Nuclear Baseline Security Clearance",
+        "SC Clearance"
+      ],
+      "geo_rtw": "UK right-to-work required",
+      "project_experience": [
+        "Hinkley Point C",
+        "Wylfa Newydd",
+        "Bradwell B",
+        "Flamanville 3",
+        "Vogtle Units 3&4"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"nuclear engineer\" OR \"nuclear new build\" OR \"safety case\" OR \"civil engineer\" OR \"mechanical engineer\" OR \"electrical engineer\" OR \"planning engineer\" OR \"cost engineer\") AND (\"Sizewell\" OR \"Hinkley Point\" OR \"EDF\" OR \"nuclear power\" OR \"new build nuclear\") AND (\"AtkinsRéalis\" OR \"Assystem\" OR \"EDF\" OR \"Sizewell C\") AND (\"UK\" OR \"United Kingdom\" OR \"England\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Assystem & AtkinsRéalis have just been appointed to EDF's Sizewell C Professional Services Framework (5 years). We're sourcing nuclear engineers & PMs for roles on this programme — would you be open to a quick chat?",
+      "email_subject": "Sizewell C – Assystem/AtkinsRéalis Framework Roles | Nuclear Engineering & PM",
+      "email_body": "Hi [Name],\n\nAssystem and AtkinsRéalis have been appointed by EDF and Sizewell C Limited onto a new five-year Professional Services Framework, creating sustained demand for experienced nuclear engineers, project managers, and technical specialists in the UK.\n\nGiven your background in [nuclear new build / safety case / engineering], I thought this could be a well-timed opportunity to explore.\n\nWould you be open to a 15-minute call this week to discuss the types of roles coming through this framework?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named framework contract award by EDF/Sizewell C Limited to Assystem and AtkinsRéalis for a five-year professional services engagement on the Sizewell C nuclear project, directly signalling sustained engineering workforce demand.",
+    "phase": "pre_sanction",
+    "phase_evidence": "The article describes a Professional Services Framework appointment but does not reference FID or EPC contract award, consistent with pre-sanction development and FEED-stage support activity at Sizewell C.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "0d61c727-c068-403f-9d2c-1209cbecd919",
+    "ingested_at": "2026-05-27T13:15:18.142Z",
+    "source_published_at": "2026-05-27T12:39:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/desri-and-tierra-adentro-growth-capital-announce-start-of-construction-on-foxtail-flats-and-four-mile-mesa-solar-and-storage-projects-in-san-juan-county-nm-302781926.html"
