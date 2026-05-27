@@ -2,104 +2,6 @@
   {
     "sources": [
       {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/third-application-lodged-for-swedish-smr-plant"
-      }
-    ],
-    "headline": "Studsvik Applies to Swedish Government to Build SMR Plant at Nyköping Site",
-    "body": "Swedish nuclear technical services provider Studsvik has submitted an application to the Swedish government to construct a small modular reactor power plant at its existing site in Nyköping in Södermanland County.",
-    "url": "https://www.world-nuclear-news.org//articles/third-application-lodged-for-swedish-smr-plant",
-    "published_at": "2026-05-26T15:30:36.000Z",
-    "hash": "d30debb2c421fc96",
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations"
-    ],
-    "signal_type": "regulatory",
-    "region": "sweden",
-    "country": "sweden",
-    "tldr": "Studsvik has lodged a regulatory application to construct an SMR at its existing Nyköping site. Hiring is pre-sanction pending government approval — no near-term labor demand yet.",
-    "operator": {
-      "name": "Studsvik",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Studsvik Nyköping SMR",
-    "scope": [
-      "smr_construction",
-      "nuclear_new_build"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Nuclear Project Manager",
-        "SMR Development Engineer",
-        "Nuclear Licensing Manager",
-        "Reactor Design Engineer",
-        "Nuclear Safety Engineer"
-      ],
-      "skills": [
-        "SMR design",
-        "nuclear licensing",
-        "regulatory submissions",
-        "nuclear safety case",
-        "site development"
-      ],
-      "certs_freetext": [
-        "Nuclear Safety Qualification",
-        "SSM (Strålsäkerhetsmyndigheten) regulatory experience"
-      ],
-      "geo_rtw": "Sweden / EEA right to work",
-      "project_experience": [
-        "Hinkley Point C",
-        "NuScale VOYGR",
-        "Rolls-Royce SMR",
-        "Forsmark",
-        "Ringhals"
-      ],
-      "yoe_band": "10-20",
-      "seniority": "senior",
-      "boolean_search": "(\"SMR\" OR \"small modular reactor\" OR \"nuclear new build\") AND (\"project manager\" OR \"licensing manager\" OR \"nuclear engineer\" OR \"reactor engineer\") AND (\"Sweden\" OR \"Scandinavia\" OR \"Nordic\") AND (\"regulatory\" OR \"SSM\" OR \"nuclear safety\" OR \"FEED\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named operator (Studsvik) has filed a regulatory application to construct a named SMR project at a specific site (Nyköping), constituting a qualifying regulatory/permit event in the nuclear subsector.",
-    "phase": "pre_sanction",
-    "phase_evidence": "Article states Studsvik has 'submitted an application to the Swedish government to construct' the plant — regulatory approval not yet granted, project not sanctioned.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "9506efcf-eb6b-416f-90f0-7c912b000eea",
-    "ingested_at": "2026-05-26T18:51:42.393Z",
-    "source_published_at": "2026-05-26T15:30:36.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/desri-and-tierra-adentro-growth-capital-announce-start-of-construction-on-foxtail-flats-and-four-mile-mesa-solar-and-storage-projects-in-san-juan-county-nm-302781926.html"
@@ -200,6 +102,104 @@
       "site_manager",
       "hiring_manager",
       "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/third-application-lodged-for-swedish-smr-plant"
+      }
+    ],
+    "headline": "Studsvik Applies to Swedish Government to Build SMR Plant at Nyköping Site",
+    "body": "Swedish nuclear technical services provider Studsvik has submitted an application to the Swedish government to construct a small modular reactor power plant at its existing site in Nyköping in Södermanland County.",
+    "url": "https://www.world-nuclear-news.org//articles/third-application-lodged-for-swedish-smr-plant",
+    "published_at": "2026-05-26T15:30:36.000Z",
+    "hash": "d30debb2c421fc96",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "sweden",
+    "country": "sweden",
+    "tldr": "Studsvik has lodged a regulatory application to construct an SMR at its existing Nyköping site. Hiring is pre-sanction pending government approval — no near-term labor demand yet.",
+    "operator": {
+      "name": "Studsvik",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Studsvik Nyköping SMR",
+    "scope": [
+      "smr_construction",
+      "nuclear_new_build"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Project Manager",
+        "SMR Development Engineer",
+        "Nuclear Licensing Manager",
+        "Reactor Design Engineer",
+        "Nuclear Safety Engineer"
+      ],
+      "skills": [
+        "SMR design",
+        "nuclear licensing",
+        "regulatory submissions",
+        "nuclear safety case",
+        "site development"
+      ],
+      "certs_freetext": [
+        "Nuclear Safety Qualification",
+        "SSM (Strålsäkerhetsmyndigheten) regulatory experience"
+      ],
+      "geo_rtw": "Sweden / EEA right to work",
+      "project_experience": [
+        "Hinkley Point C",
+        "NuScale VOYGR",
+        "Rolls-Royce SMR",
+        "Forsmark",
+        "Ringhals"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "senior",
+      "boolean_search": "(\"SMR\" OR \"small modular reactor\" OR \"nuclear new build\") AND (\"project manager\" OR \"licensing manager\" OR \"nuclear engineer\" OR \"reactor engineer\") AND (\"Sweden\" OR \"Scandinavia\" OR \"Nordic\") AND (\"regulatory\" OR \"SSM\" OR \"nuclear safety\" OR \"FEED\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": null,
+      "email_subject": null,
+      "email_body": null
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Studsvik) has filed a regulatory application to construct a named SMR project at a specific site (Nyköping), constituting a qualifying regulatory/permit event in the nuclear subsector.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states Studsvik has 'submitted an application to the Swedish government to construct' the plant — regulatory approval not yet granted, project not sanctioned.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "9506efcf-eb6b-416f-90f0-7c912b000eea",
+    "ingested_at": "2026-05-26T18:51:42.393Z",
+    "source_published_at": "2026-05-26T15:30:36.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
     ],
     "prompt_version": "phase-targeting-v1.2"
   },
