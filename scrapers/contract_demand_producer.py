@@ -359,6 +359,74 @@ PRESERVED_COUNT_COLUMNS = (
     "broad_count", "tight_count", "unknown_geo_count",
     "match_basis", "last_match_run_at",
 )
+# Columns whose number-format the user is likely to customize (dates). We
+# capture their format before clearing the tab and restore it after re-writing,
+# so Jesse's chosen format ("MMM d, yyyy", etc.) survives producer runs.
+DATE_COLUMNS = ("scraped_at", "last_match_run_at")
+
+
+def _col_letter(idx_zero_based: int) -> str:
+    """0-based column index → A1 letter (handles up to ZZ)."""
+    n = idx_zero_based
+    out = ""
+    while True:
+        out = chr(ord("A") + (n % 26)) + out
+        n = n // 26 - 1
+        if n < 0:
+            break
+    return out
+
+
+def _read_column_date_formats(ss, sheet_title: str) -> dict[int, dict]:
+    """Read userEnteredFormat.numberFormat from row 2 (first data row) of each
+    DATE_COLUMNS index. Returns {col_idx: numberFormat-dict}. Cells with no
+    explicit format are omitted (so we don't propagate a None)."""
+    col_indices = [JOB_MATCHES_HEADERS.index(c) for c in DATE_COLUMNS]
+    if not col_indices:
+        return {}
+    # Read row 2 across the full date-column span via a single A1 range.
+    start = min(col_indices)
+    end = max(col_indices)
+    rng = f"'{sheet_title}'!{_col_letter(start)}2:{_col_letter(end)}2"
+    meta = ss.fetch_sheet_metadata(params={
+        "ranges": [rng],
+        "fields": "sheets.data.rowData.values(userEnteredFormat.numberFormat)",
+        "includeGridData": True,
+    })
+    formats: dict[int, dict] = {}
+    try:
+        values = meta["sheets"][0]["data"][0]["rowData"][0]["values"]
+    except (KeyError, IndexError):
+        return formats
+    for col_idx in col_indices:
+        offset = col_idx - start
+        if offset >= len(values):
+            continue
+        fmt = values[offset].get("userEnteredFormat", {}).get("numberFormat")
+        if fmt:
+            formats[col_idx] = fmt
+    return formats
+
+
+def _date_format_restore_requests(sheet_id: int, formats: dict[int, dict],
+                                  data_row_count: int) -> list[dict]:
+    """Build repeatCell requests that re-apply captured number formats to the
+    full data range of each DATE_COLUMNS column (rows 2..N+1)."""
+    if not formats or data_row_count <= 0:
+        return []
+    return [{
+        "repeatCell": {
+            "range": {
+                "sheetId": sheet_id,
+                "startRowIndex": 1,
+                "endRowIndex": 1 + data_row_count,
+                "startColumnIndex": col_idx,
+                "endColumnIndex": col_idx + 1,
+            },
+            "cell": {"userEnteredFormat": {"numberFormat": fmt}},
+            "fields": "userEnteredFormat.numberFormat",
+        }
+    } for col_idx, fmt in formats.items()]
 
 
 def write_job_matches_tab(ss, demand: dict, operator_to_company: dict) -> int:
@@ -374,9 +442,10 @@ def write_job_matches_tab(ss, demand: dict, operator_to_company: dict) -> int:
     # when written with USER_ENTERED, so cells can be re-formatted in the UI.
     scraped_at = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
 
-    # Read existing counts (keyed by job_id) before we clear the tab.
+    # Read existing counts + user's date-column formats before we clear the tab.
     titles = {ws.title for ws in ss.worksheets()}
     existing_counts: dict[str, dict] = {}
+    date_formats: dict[int, dict] = {}
     if JOB_MATCHES_TAB in titles:
         ws = ss.worksheet(JOB_MATCHES_TAB)
         for rec in ws.get_all_records():
@@ -385,6 +454,10 @@ def write_job_matches_tab(ss, demand: dict, operator_to_company: dict) -> int:
                 existing_counts[jid] = {
                     col: rec.get(col, "") for col in PRESERVED_COUNT_COLUMNS
                 }
+        # Capture Jesse's date-column number formats so they survive the
+        # ws.clear() + append_rows that would otherwise leave new cells with
+        # the Sheets default DATE_TIME format.
+        date_formats = _read_column_date_formats(ss, JOB_MATCHES_TAB)
         ws.clear()
     else:
         ws = None  # created below once we know the row count
@@ -420,7 +493,8 @@ def write_job_matches_tab(ss, demand: dict, operator_to_company: dict) -> int:
     # rule on data rows (row 2 onwards). Sales ticks the boxes, the moblyze-ops
     # workflow gathers job_id values from checked rows.
     # Also attach plain-English notes to the broad_count and tight_count header
-    # cells so sales can hover for definitions.
+    # cells so sales can hover for definitions, and restore the user's
+    # date-column number formats over the freshly-written data range.
     requests = list(_header_note_requests(ws.id))
     if rows:
         requests.append({
@@ -435,6 +509,7 @@ def write_job_matches_tab(ss, demand: dict, operator_to_company: dict) -> int:
                 "rule": {"condition": {"type": "BOOLEAN"}, "showCustomUi": True},
             }
         })
+    requests.extend(_date_format_restore_requests(ws.id, date_formats, len(rows)))
     if requests:
         ss.batch_update({"requests": requests})
     return len(rows)
