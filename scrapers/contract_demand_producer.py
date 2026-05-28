@@ -334,7 +334,9 @@ def write_job_matches_tab(ss, demand: dict, operator_to_company: dict) -> int:
     Tab is replaced on each run (cleared, headers re-written, rows appended). Count
     columns (broad_count/tight_count/match_basis/last_match_run_at) are left blank —
     populated by the moblyze-ops per-job match workflow."""
-    scraped_at = datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
+    # 'YYYY-MM-DD HH:MM:SS' (UTC) is auto-parsed as a datetime by Google Sheets
+    # when written with USER_ENTERED, so cells can be re-formatted in the UI.
+    scraped_at = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
     rows = []
     for operator, info in demand.items():
         cid = operator_to_company.get(operator)
@@ -359,7 +361,7 @@ def write_job_matches_tab(ss, demand: dict, operator_to_company: dict) -> int:
                               cols=len(JOB_MATCHES_HEADERS))
     ws.update(range_name="A1", values=[JOB_MATCHES_HEADERS])
     if rows:
-        ws.append_rows(rows, value_input_option="RAW")
+        ws.append_rows(rows, value_input_option="USER_ENTERED")
     return len(rows)
 
 
