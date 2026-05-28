@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-05-28T13:21:53.463Z"
+    "last_updated_at": "2026-05-28T18:57:51.527Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -4529,6 +4529,66 @@
         "email": null,
         "phone": null,
         "location": "Miami, FL, USA"
+      }
+    ]
+  },
+  "minera alamos": {
+    "discovered_at": "2026-05-28T18:57:51.527Z",
+    "contacts": [
+      {
+        "name": "Melissia Kershner",
+        "title": "Senior HR Generalist",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://www.zoominfo.com/pic/minera-alamos-inc/359407515",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Toronto, ON, Canada"
+      },
+      {
+        "name": "Darren Koningen",
+        "title": "President & COO",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/darren-koningen-3833b813",
+        "source_url": "https://mineraalamos.com/news/2025/minera-alamos-appoints-darren-blasutti-executive-vice-president-corporate-development/",
+        "in_target_persona": true,
+        "email": "dkoningen@mineraalamos.com",
+        "phone": "416-991-4941",
+        "location": "Toronto, ON, Canada"
+      },
+      {
+        "name": "Kevin Small",
+        "title": "Executive Vice President, Mining Operations",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.newsfilecorp.com/release/250417/Minera-Alamos-Announces-2025-Outlook-and-2024-Year-End-Financials",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Federico Alvarez",
+        "title": "President, Mexican Operations",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.newsfilecorp.com/release/296994/Minera-Alamos-Strengthens-Board-and-Management-Team-and-Proposes-Name-Change-to-Mining-Americas-Inc.",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Mexico"
+      },
+      {
+        "name": "Emery Crump",
+        "title": "Manager, Operations",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.zoominfo.com/pic/minera-alamos-inc/359407515",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
       }
     ]
   }

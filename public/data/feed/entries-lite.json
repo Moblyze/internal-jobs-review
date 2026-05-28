@@ -1,5 +1,48 @@
 [
   {
+    "id": "d0dfcf3c-e573-4715-aa15-45d7416374d6",
+    "ingested_at": "2026-05-28T18:56:09.544Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/minera-alamos-greenlights-copperstone-gold-mine-in-arizona/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "ndt_inspection"
+    ],
+    "signal_type": "fid",
+    "region": "us-southwest",
+    "country": "united_states",
+    "headline": "Minera Alamos Greenlights Copperstone Gold Mine in Arizona – FID Confirmed",
+    "operator": {
+      "name": "Minera Alamos",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Minera Alamos",
+      "matched_company_slug": null
+    },
+    "project_name": "Copperstone Gold Mine",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
     "id": "27ba68be-ed8a-4621-bdfd-cbbe2fe8a305",
     "ingested_at": "2026-05-28T13:19:32.543Z",
     "sources": [
