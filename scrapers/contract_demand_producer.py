@@ -53,15 +53,16 @@ LEADS_TAB = "Contract Demand Leads"
 JOB_MATCHES_TAB = "Contract Job Matches"
 JOB_MATCHES_HEADERS = [
     "selected", "job_id", "company_id", "operator", "title", "country", "source",
-    "scraped_at", "broad_count", "tight_count", "match_basis", "last_match_run_at",
+    "scraped_at", "broad_count", "tight_count", "unknown_geo_count",
+    "match_basis", "last_match_run_at",
 ]
 SELECTED_COL_INDEX = JOB_MATCHES_HEADERS.index("selected")  # 0-based
 
 # Sales-facing notes that appear when you hover the column header.
 JOB_MATCHES_HEADER_NOTES = {
     "broad_count": (
-        "Candidates matching this job's role + region.\n\n"
-        "• App users (selected the role)\n"
+        "Candidates matching this job's role AND region (tier1/tier2).\n\n"
+        "• App users (selected role, country known via app profile or Bullhorn ATS)\n"
         "• External pool (PDL + Bullhorn, role + region match)\n"
         "• No certification required\n\n"
         "Use as the headline 'top of funnel' outreach number."
@@ -69,9 +70,16 @@ JOB_MATCHES_HEADER_NOTES = {
     "tight_count": (
         "Subset of broad_count.\n\n"
         "• Moblyze APP users only\n"
-        "• Holds ≥1 of the role's required certs\n"
+        "• Role match + region match + holds ≥1 of role's required certs\n"
         "• External pool excluded (no structured cert data)\n\n"
         "Use when the prospect asks 'how many are already certified?'"
+    ),
+    "unknown_geo_count": (
+        "Additional app users who match the role but we don't know where "
+        "they live.\n\n"
+        "• Not counted in broad_count or tight_count (no country signal)\n"
+        "• Could be anywhere — possibly in the right region\n\n"
+        "Use as 'plus more we could reach out to' upside in outreach."
     ),
 }
 DEMAND_COLUMN = "active_contract_demand"
@@ -348,7 +356,8 @@ def write_leads_tab(ss, unmatched: list) -> int:
 
 
 PRESERVED_COUNT_COLUMNS = (
-    "broad_count", "tight_count", "match_basis", "last_match_run_at",
+    "broad_count", "tight_count", "unknown_geo_count",
+    "match_basis", "last_match_run_at",
 )
 
 
@@ -396,6 +405,7 @@ def write_job_matches_tab(ss, demand: dict, operator_to_company: dict) -> int:
                 jid, cid, operator, title, country, source, scraped_at,
                 prev.get("broad_count", ""),
                 prev.get("tight_count", ""),
+                prev.get("unknown_geo_count", ""),
                 prev.get("match_basis", ""),
                 prev.get("last_match_run_at", ""),
             ])
