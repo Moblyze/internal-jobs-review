@@ -153,6 +153,8 @@ def test_write_job_matches_tab_replaces_existing_tab_on_subsequent_run():
                             jobs=[{"title": "ROV Pilot", "country": "GB", "source": "atlas"}]),
     }
     ss, by_title = _make_ss_mock(existing_tabs=(m.JOB_MATCHES_TAB,))
+    # No existing rows on the tab.
+    by_title[m.JOB_MATCHES_TAB].get_all_records.return_value = []
     n = m.write_job_matches_tab(ss, demand, {"Boskalis": "boskalis-com"})
     assert n == 1
     ws = by_title[m.JOB_MATCHES_TAB]
@@ -160,6 +162,73 @@ def test_write_job_matches_tab_replaces_existing_tab_on_subsequent_run():
     ss.add_worksheet.assert_not_called()
     ws.update.assert_called_once()  # header re-written
     ws.append_rows.assert_called_once()
+
+
+def test_write_job_matches_tab_preserves_counts_for_matching_job_id():
+    """Counts should NOT be wiped when the same job re-appears in a later scrape —
+    sales' work is preserved."""
+    import contract_demand_producer as m
+    demand = {
+        "Boskalis": _demand(1, ["ROV Pilot"], ["atlas"],
+                            jobs=[{"title": "ROV Pilot", "country": "GB", "source": "atlas"}]),
+    }
+    operator_to_company = {"Boskalis": "boskalis-com"}
+    ss, by_title = _make_ss_mock(existing_tabs=(m.JOB_MATCHES_TAB,))
+
+    # Existing tab contents — last week's run had counts populated.
+    same_jid = m._job_id("atlas", "Boskalis", "ROV Pilot", "GB")
+    by_title[m.JOB_MATCHES_TAB].get_all_records.return_value = [{
+        "selected": False, "job_id": same_jid, "company_id": "boskalis-com",
+        "operator": "Boskalis", "title": "ROV Pilot", "country": "GB",
+        "source": "atlas", "scraped_at": "2026-05-21 14:00:00",
+        "broad_count": 318, "tight_count": 12,
+        "match_basis": "job_specific",
+        "last_match_run_at": "2026-05-22 09:30:00",
+    }]
+
+    n = m.write_job_matches_tab(ss, demand, operator_to_company)
+    assert n == 1
+    ws = by_title[m.JOB_MATCHES_TAB]
+    rows = ws.append_rows.call_args.args[0]
+    idx = {h: i for i, h in enumerate(m.JOB_MATCHES_HEADERS)}
+    assert rows[0][idx["broad_count"]] == 318
+    assert rows[0][idx["tight_count"]] == 12
+    assert rows[0][idx["match_basis"]] == "job_specific"
+    assert rows[0][idx["last_match_run_at"]] == "2026-05-22 09:30:00"
+    # scraped_at refreshes to current run; selected always resets.
+    assert rows[0][idx["scraped_at"]] != "2026-05-21 14:00:00"
+    assert rows[0][idx["selected"]] is False
+
+
+def test_write_job_matches_tab_drops_jobs_no_longer_in_scrape():
+    """Existing rows whose job_id isn't in the current scrape should NOT carry
+    over — they're no longer live postings."""
+    import contract_demand_producer as m
+    demand = {
+        "Boskalis": _demand(1, ["ROV Pilot"], ["atlas"],
+                            jobs=[{"title": "ROV Pilot", "country": "GB", "source": "atlas"}]),
+    }
+    ss, by_title = _make_ss_mock(existing_tabs=(m.JOB_MATCHES_TAB,))
+    by_title[m.JOB_MATCHES_TAB].get_all_records.return_value = [
+        # Same job — should be preserved with counts.
+        {"selected": False, "job_id": m._job_id("atlas", "Boskalis", "ROV Pilot", "GB"),
+         "company_id": "boskalis-com", "operator": "Boskalis",
+         "title": "ROV Pilot", "country": "GB", "source": "atlas",
+         "scraped_at": "2026-05-21 14:00:00", "broad_count": 318,
+         "tight_count": 12, "match_basis": "job_specific",
+         "last_match_run_at": "2026-05-22 09:30:00"},
+        # Stale job — not in current demand, must be dropped.
+        {"selected": False, "job_id": "STALE_ID", "company_id": "boskalis-com",
+         "operator": "Boskalis", "title": "Diver", "country": "NO",
+         "source": "rovplanet", "scraped_at": "2026-05-21 14:00:00",
+         "broad_count": 50, "tight_count": 2, "match_basis": "job_specific",
+         "last_match_run_at": "2026-05-22 09:30:00"},
+    ]
+    n = m.write_job_matches_tab(ss, demand, {"Boskalis": "boskalis-com"})
+    assert n == 1  # only the live job, stale dropped
+    rows = by_title[m.JOB_MATCHES_TAB].append_rows.call_args.args[0]
+    idx = {h: i for i, h in enumerate(m.JOB_MATCHES_HEADERS)}
+    assert rows[0][idx["job_id"]] != "STALE_ID"
 
 
 def test_write_job_matches_tab_empty_when_no_matches():

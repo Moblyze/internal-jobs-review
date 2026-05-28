@@ -60,22 +60,18 @@ SELECTED_COL_INDEX = JOB_MATCHES_HEADERS.index("selected")  # 0-based
 # Sales-facing notes that appear when you hover the column header.
 JOB_MATCHES_HEADER_NOTES = {
     "broad_count": (
-        "Total Moblyze candidates whose declared role matches this job's "
-        "title and who are located in (or willing to work in) a region "
-        "reachable from the job's country. Counts both Moblyze app users "
-        "(by their selected role) and the external sourcing pool "
-        "(PDL + Bullhorn, role + region match). Does NOT require any "
-        "certification. Use this for the headline 'top of funnel' number "
-        "in cold outreach."
+        "Candidates matching this job's role + region.\n\n"
+        "• App users (selected the role)\n"
+        "• External pool (PDL + Bullhorn, role + region match)\n"
+        "• No certification required\n\n"
+        "Use as the headline 'top of funnel' outreach number."
     ),
     "tight_count": (
-        "Stricter subset of broad_count: Moblyze APP users only who selected "
-        "the matching role AND have uploaded at least one of the certifications "
-        "that role lists as required (candidate_roles.required_certifications). "
-        "External sourcing pool is excluded because PDL/Bullhorn records "
-        "don't carry structured cert data. Use this when the prospect asks "
-        "'how many are already certified?' or when the role has a hard cert "
-        "requirement."
+        "Subset of broad_count.\n\n"
+        "• Moblyze APP users only\n"
+        "• Holds ≥1 of the role's required certs\n"
+        "• External pool excluded (no structured cert data)\n\n"
+        "Use when the prospect asks 'how many are already certified?'"
     ),
 }
 DEMAND_COLUMN = "active_contract_demand"
@@ -351,15 +347,39 @@ def write_leads_tab(ss, unmatched: list) -> int:
     return len(rows)
 
 
+PRESERVED_COUNT_COLUMNS = (
+    "broad_count", "tight_count", "match_basis", "last_match_run_at",
+)
+
+
 def write_job_matches_tab(ss, demand: dict, operator_to_company: dict) -> int:
     """Write one row per job for each matched operator to the 'Contract Job Matches' tab.
 
-    Tab is replaced on each run (cleared, headers re-written, rows appended). Count
-    columns (broad_count/tight_count/match_basis/last_match_run_at) are left blank —
-    populated by the moblyze-ops per-job match workflow."""
+    Counts persist across runs: if a job_id (sha1 of source+operator+title+country)
+    appears in both the existing tab AND the current scrape, the existing
+    broad_count/tight_count/match_basis/last_match_run_at are preserved so sales'
+    work isn't lost. New jobs get blank counts (need a match-workflow run). Jobs
+    that drop out of the current scrape are removed. The `selected` checkbox is
+    always reset to FALSE — it's a transient trigger, not persistent state."""
     # 'YYYY-MM-DD HH:MM:SS' (UTC) is auto-parsed as a datetime by Google Sheets
     # when written with USER_ENTERED, so cells can be re-formatted in the UI.
     scraped_at = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
+
+    # Read existing counts (keyed by job_id) before we clear the tab.
+    titles = {ws.title for ws in ss.worksheets()}
+    existing_counts: dict[str, dict] = {}
+    if JOB_MATCHES_TAB in titles:
+        ws = ss.worksheet(JOB_MATCHES_TAB)
+        for rec in ws.get_all_records():
+            jid = str(rec.get("job_id") or "").strip()
+            if jid:
+                existing_counts[jid] = {
+                    col: rec.get(col, "") for col in PRESERVED_COUNT_COLUMNS
+                }
+        ws.clear()
+    else:
+        ws = None  # created below once we know the row count
+
     rows = []
     for operator, info in demand.items():
         cid = operator_to_company.get(operator)
@@ -369,18 +389,18 @@ def write_job_matches_tab(ss, demand: dict, operator_to_company: dict) -> int:
             title = job.get("title", "")
             country = job.get("country", "")
             source = job.get("source", "")
+            jid = _job_id(source, operator, title, country)
+            prev = existing_counts.get(jid, {})
             rows.append([
-                False,  # 'selected' checkbox — sales ticks then runs per-job match
-                _job_id(source, operator, title, country),
-                cid, operator, title, country, source, scraped_at,
-                "", "", "", "",
+                False,  # 'selected' checkbox — always reset; transient trigger
+                jid, cid, operator, title, country, source, scraped_at,
+                prev.get("broad_count", ""),
+                prev.get("tight_count", ""),
+                prev.get("match_basis", ""),
+                prev.get("last_match_run_at", ""),
             ])
 
-    titles = {ws.title for ws in ss.worksheets()}
-    if JOB_MATCHES_TAB in titles:
-        ws = ss.worksheet(JOB_MATCHES_TAB)
-        ws.clear()
-    else:
+    if ws is None:
         ws = ss.add_worksheet(JOB_MATCHES_TAB, rows=max(len(rows) + 10, 50),
                               cols=len(JOB_MATCHES_HEADERS))
     ws.update(range_name="A1", values=[JOB_MATCHES_HEADERS])
