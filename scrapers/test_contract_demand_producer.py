@@ -124,21 +124,26 @@ def test_write_job_matches_tab_creates_tab_and_writes_matched_rows_only():
     ws.append_rows.assert_called_once()
     rows = ws.append_rows.call_args.args[0]
     assert len(rows) == 2
-    # Column order + content
-    titles_seen = [r[3] for r in rows]
-    operators_seen = {r[2] for r in rows}
-    sources_seen = [r[5] for r in rows]
+    # Column order + content (look up by header to survive future reordering)
+    idx = {h: i for i, h in enumerate(m.JOB_MATCHES_HEADERS)}
+    titles_seen = [r[idx["title"]] for r in rows]
+    operators_seen = {r[idx["operator"]] for r in rows}
+    sources_seen = [r[idx["source"]] for r in rows]
     assert operators_seen == {"Boskalis"}
     assert "ROV Pilot" in titles_seen and "Diver" in titles_seen
     assert "atlas" in sources_seen and "rovplanet" in sources_seen
-    # company_id in col 2 for every row
-    assert all(r[1] == "boskalis-com" for r in rows)
+    assert all(r[idx["company_id"]] == "boskalis-com" for r in rows)
+    # selected checkbox defaults FALSE
+    assert all(r[idx["selected"]] is False for r in rows)
     # count/match_basis cols left blank
+    blank_cols = ("broad_count", "tight_count", "match_basis", "last_match_run_at")
     for r in rows:
-        assert r[7] == "" and r[8] == "" and r[9] == "" and r[10] == ""
+        for c in blank_cols:
+            assert r[idx[c]] == ""
     # job_id is 16 hex chars and stable per (source,operator,title,country)
     for r in rows:
-        assert len(r[0]) == 16 and all(c in "0123456789abcdef" for c in r[0])
+        j = r[idx["job_id"]]
+        assert len(j) == 16 and all(c in "0123456789abcdef" for c in j)
 
 
 def test_write_job_matches_tab_replaces_existing_tab_on_subsequent_run():
@@ -167,3 +172,23 @@ def test_write_job_matches_tab_empty_when_no_matches():
     ws = by_title[m.JOB_MATCHES_TAB]
     ws.update.assert_called_once()  # headers still written
     ws.append_rows.assert_not_called()
+    # No rows to validate → no checkbox setDataValidation call
+    ss.batch_update.assert_not_called()
+
+
+def test_write_job_matches_tab_applies_checkbox_validation_to_selected_column():
+    import contract_demand_producer as m
+    demand = {
+        "Boskalis": _demand(1, ["ROV Pilot"], ["atlas"],
+                            jobs=[{"title": "ROV Pilot", "country": "GB", "source": "atlas"}]),
+    }
+    ss, _ = _make_ss_mock(existing_tabs=())
+    n = m.write_job_matches_tab(ss, demand, {"Boskalis": "boskalis-com"})
+    assert n == 1
+    ss.batch_update.assert_called_once()
+    req = ss.batch_update.call_args.args[0]["requests"][0]
+    assert req["setDataValidation"]["rule"]["condition"]["type"] == "BOOLEAN"
+    assert req["setDataValidation"]["range"]["startColumnIndex"] == m.SELECTED_COL_INDEX
+    assert req["setDataValidation"]["range"]["endColumnIndex"] == m.SELECTED_COL_INDEX + 1
+    assert req["setDataValidation"]["range"]["startRowIndex"] == 1  # skip header
+    assert req["setDataValidation"]["range"]["endRowIndex"] == 2    # one data row

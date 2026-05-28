@@ -52,9 +52,10 @@ COMPANIES_TAB = "Companies"
 LEADS_TAB = "Contract Demand Leads"
 JOB_MATCHES_TAB = "Contract Job Matches"
 JOB_MATCHES_HEADERS = [
-    "job_id", "company_id", "operator", "title", "country", "source",
+    "selected", "job_id", "company_id", "operator", "title", "country", "source",
     "scraped_at", "broad_count", "tight_count", "match_basis", "last_match_run_at",
 ]
+SELECTED_COL_INDEX = JOB_MATCHES_HEADERS.index("selected")  # 0-based
 DEMAND_COLUMN = "active_contract_demand"
 DEMAND_SOURCES_COLUMN = "contract_demand_sources"
 DEMAND_ROLES_COLUMN = "contract_demand_sample_roles"
@@ -347,6 +348,7 @@ def write_job_matches_tab(ss, demand: dict, operator_to_company: dict) -> int:
             country = job.get("country", "")
             source = job.get("source", "")
             rows.append([
+                False,  # 'selected' checkbox — sales ticks then runs per-job match
                 _job_id(source, operator, title, country),
                 cid, operator, title, country, source, scraped_at,
                 "", "", "", "",
@@ -362,6 +364,24 @@ def write_job_matches_tab(ss, demand: dict, operator_to_company: dict) -> int:
     ws.update(range_name="A1", values=[JOB_MATCHES_HEADERS])
     if rows:
         ws.append_rows(rows, value_input_option="USER_ENTERED")
+    # Render the 'selected' column as a checkbox via a BOOLEAN data-validation
+    # rule on data rows (row 2 onwards). Sales ticks the boxes, the moblyze-ops
+    # workflow gathers job_id values from checked rows.
+    if rows:
+        ss.batch_update({
+            "requests": [{
+                "setDataValidation": {
+                    "range": {
+                        "sheetId": ws.id,
+                        "startRowIndex": 1,
+                        "endRowIndex": 1 + len(rows),
+                        "startColumnIndex": SELECTED_COL_INDEX,
+                        "endColumnIndex": SELECTED_COL_INDEX + 1,
+                    },
+                    "rule": {"condition": {"type": "BOOLEAN"}, "showCustomUi": True},
+                }
+            }]
+        })
     return len(rows)
 
 
