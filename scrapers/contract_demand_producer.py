@@ -25,12 +25,14 @@ Usage:
 """
 
 import argparse
+import hashlib
 import html
 import json
 import os
 import re
 import sys
 from collections import defaultdict
+from datetime import datetime, timezone
 from pathlib import Path
 
 import gspread
@@ -48,6 +50,11 @@ from src.aggregators.underwaterjobs_adapter import UnderwaterJobsAggregator
 TARGET_SHEET_ID = "1fIW4JxCNTQDT5J8g7bgPDK0lUYo0WF8Yfgras6GVem4"
 COMPANIES_TAB = "Companies"
 LEADS_TAB = "Contract Demand Leads"
+JOB_MATCHES_TAB = "Contract Job Matches"
+JOB_MATCHES_HEADERS = [
+    "job_id", "company_id", "operator", "title", "country", "source",
+    "scraped_at", "broad_count", "tight_count", "match_basis", "last_match_run_at",
+]
 DEMAND_COLUMN = "active_contract_demand"
 DEMAND_SOURCES_COLUMN = "contract_demand_sources"
 DEMAND_ROLES_COLUMN = "contract_demand_sample_roles"
@@ -116,7 +123,7 @@ def _is_excludable(name: str) -> bool:
 
 
 def _new_demand_entry():
-    return {"count": 0, "titles": [], "countries": set(), "sources": set()}
+    return {"count": 0, "titles": [], "countries": set(), "sources": set(), "jobs": []}
 
 
 def _add(demand, operator, title, country, source):
@@ -127,6 +134,12 @@ def _add(demand, operator, title, country, source):
     if country:
         d["countries"].add(country)
     d["sources"].add(source)
+    d["jobs"].append({"title": title or "", "country": country or "", "source": source})
+
+
+def _job_id(source: str, operator: str, title: str, country: str) -> str:
+    raw = f"{source}|{operator}|{title}|{country}"
+    return hashlib.sha1(raw.encode("utf-8")).hexdigest()[:16]
 
 
 def fetch_atlas_demand(demand, max_pages=10):
@@ -222,7 +235,7 @@ def match_demand_to_companies(demand: dict, companies: list[dict]):
             if key and key.strip():
                 idx.append((_normalize(key), _core(key), cid, row.get("legal_name") or row.get("common_name")))
 
-    matches, detail, log, unmatched = {}, {}, [], []
+    matches, detail, log, unmatched, operator_to_company = {}, {}, [], [], {}
     for operator, info in sorted(demand.items(), key=lambda kv: -kv[1]["count"]):
         op_norm, op_core = _normalize(operator), _core(operator)
         hit = next(((c, d) for n, _co, c, d in idx if n == op_norm), None)
@@ -236,6 +249,7 @@ def match_demand_to_companies(demand: dict, companies: list[dict]):
         if hit:
             cid, disp = hit
             matches[cid] = matches.get(cid, 0) + info["count"]
+            operator_to_company[operator] = cid
             d = detail.setdefault(cid, {"sources": set(), "titles": []})
             d["sources"].update(info["sources"])
             for t in info["titles"]:
@@ -244,7 +258,7 @@ def match_demand_to_companies(demand: dict, companies: list[dict]):
             log.append((operator, info["count"], disp, method))
         else:
             unmatched.append((operator, info))
-    return matches, detail, unmatched, log
+    return matches, detail, unmatched, log, operator_to_company
 
 
 def write_demand(ws, matches: dict) -> int:
@@ -314,6 +328,41 @@ def write_leads_tab(ss, unmatched: list) -> int:
     return len(rows)
 
 
+def write_job_matches_tab(ss, demand: dict, operator_to_company: dict) -> int:
+    """Write one row per job for each matched operator to the 'Contract Job Matches' tab.
+
+    Tab is replaced on each run (cleared, headers re-written, rows appended). Count
+    columns (broad_count/tight_count/match_basis/last_match_run_at) are left blank —
+    populated by the moblyze-ops per-job match workflow."""
+    scraped_at = datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
+    rows = []
+    for operator, info in demand.items():
+        cid = operator_to_company.get(operator)
+        if not cid:
+            continue
+        for job in info.get("jobs", []):
+            title = job.get("title", "")
+            country = job.get("country", "")
+            source = job.get("source", "")
+            rows.append([
+                _job_id(source, operator, title, country),
+                cid, operator, title, country, source, scraped_at,
+                "", "", "", "",
+            ])
+
+    titles = {ws.title for ws in ss.worksheets()}
+    if JOB_MATCHES_TAB in titles:
+        ws = ss.worksheet(JOB_MATCHES_TAB)
+        ws.clear()
+    else:
+        ws = ss.add_worksheet(JOB_MATCHES_TAB, rows=max(len(rows) + 10, 50),
+                              cols=len(JOB_MATCHES_HEADERS))
+    ws.update(range_name="A1", values=[JOB_MATCHES_HEADERS])
+    if rows:
+        ws.append_rows(rows, value_input_option="RAW")
+    return len(rows)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--commit", action="store_true", help="Write the column + leads tab (default: dry-run).")
@@ -325,7 +374,8 @@ def main() -> int:
 
     ss = _gspread_client().open_by_key(TARGET_SHEET_ID)
     ws = ss.worksheet(COMPANIES_TAB)
-    matches, detail, unmatched, log = match_demand_to_companies(demand, ws.get_all_records())
+    matches, detail, unmatched, log, operator_to_company = match_demand_to_companies(
+        demand, ws.get_all_records())
 
     print(f"MATCHED to target-clients rows: {len(matches)} companies")
     for operator, count, disp, method in sorted(log, key=lambda x: -x[1])[:25]:
@@ -338,8 +388,10 @@ def main() -> int:
         n = write_demand(ws, matches)
         detail_cells = write_demand_detail(ws, detail)
         leads = write_leads_tab(ss, unmatched)
+        job_rows = write_job_matches_tab(ss, demand, operator_to_company)
         print(f"\nWROTE active_contract_demand to {n} Companies rows ({detail_cells} source/role "
-              f"detail cells); wrote {leads} rows to '{LEADS_TAB}'.")
+              f"detail cells); wrote {leads} rows to '{LEADS_TAB}'; "
+              f"wrote {job_rows} rows to '{JOB_MATCHES_TAB}'.")
     else:
         print("\n(dry-run — no write. Re-run with --commit.)")
     return 0
