@@ -56,6 +56,27 @@ JOB_MATCHES_HEADERS = [
     "scraped_at", "broad_count", "tight_count", "match_basis", "last_match_run_at",
 ]
 SELECTED_COL_INDEX = JOB_MATCHES_HEADERS.index("selected")  # 0-based
+
+# Sales-facing notes that appear when you hover the column header.
+JOB_MATCHES_HEADER_NOTES = {
+    "broad_count": (
+        "Total Moblyze candidates whose declared role matches this job's "
+        "title and who are located in (or willing to work in) a region "
+        "reachable from the job's country. Counts both Moblyze app users "
+        "(by their selected role) and the external sourcing pool "
+        "(PDL + Bullhorn, role + region match). Does NOT require any "
+        "certification. Use this for the headline 'top of funnel' number "
+        "in cold outreach."
+    ),
+    "tight_count": (
+        "Stricter subset of broad_count: Moblyze APP users only who hold "
+        "the certification required by this role (per candidate_roles."
+        "certification_id). External sourcing pool is excluded here "
+        "because PDL/Bullhorn records don't carry structured cert data. "
+        "Use this when the prospect asks 'how many already certified?' "
+        "or when the role has a hard cert requirement."
+    ),
+}
 DEMAND_COLUMN = "active_contract_demand"
 DEMAND_SOURCES_COLUMN = "contract_demand_sources"
 DEMAND_ROLES_COLUMN = "contract_demand_sample_roles"
@@ -367,22 +388,44 @@ def write_job_matches_tab(ss, demand: dict, operator_to_company: dict) -> int:
     # Render the 'selected' column as a checkbox via a BOOLEAN data-validation
     # rule on data rows (row 2 onwards). Sales ticks the boxes, the moblyze-ops
     # workflow gathers job_id values from checked rows.
+    # Also attach plain-English notes to the broad_count and tight_count header
+    # cells so sales can hover for definitions.
+    requests = list(_header_note_requests(ws.id))
     if rows:
-        ss.batch_update({
-            "requests": [{
-                "setDataValidation": {
-                    "range": {
-                        "sheetId": ws.id,
-                        "startRowIndex": 1,
-                        "endRowIndex": 1 + len(rows),
-                        "startColumnIndex": SELECTED_COL_INDEX,
-                        "endColumnIndex": SELECTED_COL_INDEX + 1,
-                    },
-                    "rule": {"condition": {"type": "BOOLEAN"}, "showCustomUi": True},
-                }
-            }]
+        requests.append({
+            "setDataValidation": {
+                "range": {
+                    "sheetId": ws.id,
+                    "startRowIndex": 1,
+                    "endRowIndex": 1 + len(rows),
+                    "startColumnIndex": SELECTED_COL_INDEX,
+                    "endColumnIndex": SELECTED_COL_INDEX + 1,
+                },
+                "rule": {"condition": {"type": "BOOLEAN"}, "showCustomUi": True},
+            }
         })
+    if requests:
+        ss.batch_update({"requests": requests})
     return len(rows)
+
+
+def _header_note_requests(sheet_id: int) -> list[dict]:
+    """Yield repeatCell requests that set hover-notes on each documented header."""
+    out = []
+    for col_name, note in JOB_MATCHES_HEADER_NOTES.items():
+        col = JOB_MATCHES_HEADERS.index(col_name)
+        out.append({
+            "repeatCell": {
+                "range": {
+                    "sheetId": sheet_id,
+                    "startRowIndex": 0, "endRowIndex": 1,
+                    "startColumnIndex": col, "endColumnIndex": col + 1,
+                },
+                "cell": {"note": note},
+                "fields": "note",
+            }
+        })
+    return out
 
 
 def main() -> int:

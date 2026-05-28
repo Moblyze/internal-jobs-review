@@ -172,8 +172,10 @@ def test_write_job_matches_tab_empty_when_no_matches():
     ws = by_title[m.JOB_MATCHES_TAB]
     ws.update.assert_called_once()  # headers still written
     ws.append_rows.assert_not_called()
-    # No rows to validate → no checkbox setDataValidation call
-    ss.batch_update.assert_not_called()
+    # Header notes still attached (they describe the schema, independent of data).
+    # No data rows → no checkbox validation request.
+    requests = ss.batch_update.call_args.args[0]["requests"]
+    assert not any("setDataValidation" in r for r in requests)
 
 
 def test_write_job_matches_tab_applies_checkbox_validation_to_selected_column():
@@ -186,9 +188,49 @@ def test_write_job_matches_tab_applies_checkbox_validation_to_selected_column():
     n = m.write_job_matches_tab(ss, demand, {"Boskalis": "boskalis-com"})
     assert n == 1
     ss.batch_update.assert_called_once()
-    req = ss.batch_update.call_args.args[0]["requests"][0]
-    assert req["setDataValidation"]["rule"]["condition"]["type"] == "BOOLEAN"
-    assert req["setDataValidation"]["range"]["startColumnIndex"] == m.SELECTED_COL_INDEX
-    assert req["setDataValidation"]["range"]["endColumnIndex"] == m.SELECTED_COL_INDEX + 1
-    assert req["setDataValidation"]["range"]["startRowIndex"] == 1  # skip header
-    assert req["setDataValidation"]["range"]["endRowIndex"] == 2    # one data row
+    requests = ss.batch_update.call_args.args[0]["requests"]
+    # Find the checkbox validation request (regardless of position).
+    dv = next(r["setDataValidation"] for r in requests if "setDataValidation" in r)
+    assert dv["rule"]["condition"]["type"] == "BOOLEAN"
+    assert dv["range"]["startColumnIndex"] == m.SELECTED_COL_INDEX
+    assert dv["range"]["endColumnIndex"] == m.SELECTED_COL_INDEX + 1
+    assert dv["range"]["startRowIndex"] == 1  # skip header
+    assert dv["range"]["endRowIndex"] == 2    # one data row
+
+
+def test_write_job_matches_tab_attaches_header_notes_for_count_columns():
+    import contract_demand_producer as m
+    demand = {
+        "Boskalis": _demand(1, ["ROV Pilot"], ["atlas"],
+                            jobs=[{"title": "ROV Pilot", "country": "GB", "source": "atlas"}]),
+    }
+    ss, _ = _make_ss_mock(existing_tabs=())
+    m.write_job_matches_tab(ss, demand, {"Boskalis": "boskalis-com"})
+    requests = ss.batch_update.call_args.args[0]["requests"]
+    note_reqs = [r["repeatCell"] for r in requests if "repeatCell" in r]
+    # One note per documented column (broad_count + tight_count).
+    notes_by_col = {r["range"]["startColumnIndex"]: r["cell"]["note"] for r in note_reqs}
+    broad_col = m.JOB_MATCHES_HEADERS.index("broad_count")
+    tight_col = m.JOB_MATCHES_HEADERS.index("tight_count")
+    assert broad_col in notes_by_col
+    assert tight_col in notes_by_col
+    # Notes are non-trivial English (≥ 50 chars).
+    assert len(notes_by_col[broad_col]) > 50
+    assert len(notes_by_col[tight_col]) > 50
+
+
+def test_header_notes_always_written_even_with_no_matched_rows():
+    """Notes describe the schema, so they should land on every producer run —
+    even when no operators matched (the tab is created/cleared with headers
+    but no data rows)."""
+    import contract_demand_producer as m
+    demand = {"Unmatched": _demand(1, ["X"], ["atlas"],
+                                   jobs=[{"title": "X", "country": "", "source": "atlas"}])}
+    ss, _ = _make_ss_mock(existing_tabs=())
+    n = m.write_job_matches_tab(ss, demand, operator_to_company={})
+    assert n == 0
+    # batch_update is called for the header notes even though no data rows.
+    ss.batch_update.assert_called_once()
+    requests = ss.batch_update.call_args.args[0]["requests"]
+    assert any("repeatCell" in r for r in requests)
+    assert not any("setDataValidation" in r for r in requests)  # no rows → no checkbox range
