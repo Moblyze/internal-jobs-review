@@ -69,12 +69,13 @@ JOB_MATCHES_HEADER_NOTES = {
         "in cold outreach."
     ),
     "tight_count": (
-        "Stricter subset of broad_count: Moblyze APP users only who hold "
-        "the certification required by this role (per candidate_roles."
-        "certification_id). External sourcing pool is excluded here "
-        "because PDL/Bullhorn records don't carry structured cert data. "
-        "Use this when the prospect asks 'how many already certified?' "
-        "or when the role has a hard cert requirement."
+        "Stricter subset of broad_count: Moblyze APP users only who selected "
+        "the matching role AND have uploaded at least one of the certifications "
+        "that role lists as required (candidate_roles.required_certifications). "
+        "External sourcing pool is excluded because PDL/Bullhorn records "
+        "don't carry structured cert data. Use this when the prospect asks "
+        "'how many are already certified?' or when the role has a hard cert "
+        "requirement."
     ),
 }
 DEMAND_COLUMN = "active_contract_demand"
