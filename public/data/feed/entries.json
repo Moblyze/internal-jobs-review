@@ -4,6 +4,112 @@
       {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/matrix-renewables-and-solv-energy-break-ground-on-457mwdc-tormes-solar-project-in-navarro-county-texas-302784392.html"
+      }
+    ],
+    "headline": "SOLV Energy Breaks Ground on 457MWdc Tormes Solar Project in Navarro County, Texas for Matrix Renewables",
+    "body": "BARRY, Texas, May 28, 2026 /PRNewswire/ -- Matrix Renewables, the TPG Rise-backed global renewable platform, and EPC contractor SOLV Energy announced construction started on the Tormes Solar Project, marked by a groundbreaking ceremony on May 19. The groundbreaking ceremony brought...",
+    "url": "https://www.prnewswire.com/news-releases/matrix-renewables-and-solv-energy-break-ground-on-457mwdc-tormes-solar-project-in-navarro-county-texas-302784392.html",
+    "published_at": "2026-05-28T12:30:00.000Z",
+    "hash": "ffddad7f7b884832",
+    "subsector": "onshore-renewables",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction"
+    ],
+    "signal_type": "epc_award",
+    "region": "us-texas",
+    "country": "united_states",
+    "tldr": "Matrix Renewables and EPC contractor SOLV Energy have commenced construction on the 457MWdc Tormes Solar project in Navarro County, Texas. Groundbreaking occurred May 19, 2026, signalling active trade and construction labour demand now.",
+    "operator": {
+      "name": "Matrix Renewables",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "SOLV Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Tormes Solar Project",
+    "scope": [
+      "solar_epc",
+      "civil_works",
+      "electrical_install"
+    ],
+    "mob_window": {
+      "start": "2026-Q2",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Solar Construction Manager",
+        "Site Superintendent",
+        "HSE Manager",
+        "Electrical Foreman",
+        "PV Installer",
+        "Civil Superintendent",
+        "Commissioning Engineer",
+        "Project Controls Engineer",
+        "Quality Inspector"
+      ],
+      "skills": [
+        "utility-scale solar construction",
+        "PV module installation",
+        "HV electrical installation",
+        "civil grading",
+        "construction scheduling",
+        "OSHA site safety",
+        "substation erection"
+      ],
+      "certs_freetext": [
+        "OSHA 30 Construction",
+        "NCCER Electrical",
+        "First Aid/CPR",
+        "NABCEP PV Installation Professional"
+      ],
+      "geo_rtw": "US work authorization required; Navarro County, Texas",
+      "project_experience": [
+        "utility-scale solar EPC",
+        "onshore wind construction",
+        "large-scale battery storage (BESS) install"
+      ],
+      "yoe_band": "5-15",
+      "seniority": "mid to senior trades and supervision",
+      "boolean_search": "(\"solar\" OR \"photovoltaic\" OR \"PV\") AND (\"construction manager\" OR \"site superintendent\" OR \"electrical foreman\" OR \"PV installer\" OR \"commissioning engineer\" OR \"HSE manager\") AND (\"utility-scale\" OR \"utility scale\") AND (\"Texas\" OR \"TX\" OR \"Navarro\") NOT (\"residential\" OR \"rooftop\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], SOLV Energy just broke ground on the 457MWdc Tormes Solar project in Navarro County, TX. Construction is live and crews are ramping. Are you open to hearing about opportunities on-site?",
+      "email_subject": "Tormes Solar – Live Construction Roles in Navarro County, TX (SOLV Energy / Matrix Renewables)",
+      "email_body": "Hi [Name],\n\nConstruction is officially underway on the Tormes Solar Project (457MWdc) in Navarro County, Texas — a Matrix Renewables development being built by SOLV Energy. The groundbreaking took place on May 19, 2026, meaning trades, supervision, and commissioning talent are needed now.\n\nGiven your background in utility-scale solar construction, I wanted to reach out directly. We are placing [role] professionals for this project and would welcome a quick call to discuss fit.\n\nAre you available this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Construction start confirmed with named EPC contractor (SOLV Energy) and operator/developer (Matrix Renewables) on a 457MWdc named solar project in Texas, signalling immediate trade and supervision labour demand.",
+    "phase": "construction",
+    "phase_evidence": "Article states 'construction started on the Tormes Solar Project, marked by a groundbreaking ceremony on May 19', confirming construction phase is active.",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "27ba68be-ed8a-4621-bdfd-cbbe2fe8a305",
+    "ingested_at": "2026-05-28T13:19:32.543Z",
+    "source_published_at": "2026-05-28T12:30:00.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/cbi-awarded-contract-for-five-lng-storage-tanks-at-caturus-commonwealth-lng-facility-302783430.html"
       }
     ],

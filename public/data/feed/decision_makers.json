@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-05-27T18:53:10.259Z"
+    "last_updated_at": "2026-05-28T13:21:53.463Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -4409,6 +4409,126 @@
         "email": null,
         "phone": null,
         "location": "Denver, CO, USA"
+      }
+    ]
+  },
+  "solv energy": {
+    "discovered_at": "2026-05-28T13:21:53.463Z",
+    "contacts": [
+      {
+        "name": "Todd Roeder",
+        "title": "Global Talent Acquisition Leader",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/toddroeder",
+        "source_url": "https://www.linkedin.com/in/toddroeder/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "United States"
+      },
+      {
+        "name": "Brandi Pearson",
+        "title": "Chief People Officer",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/brandi-pearson-4b720310b",
+        "source_url": "https://www.solvenergy.com/who-we-are",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "San Diego, CA, USA"
+      },
+      {
+        "name": "Kevin Deters",
+        "title": "Chief Operating Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/kevin-deters",
+        "source_url": "https://www.solvenergy.com/news/solv-energy-announces-new-chief-operating-officer-kevin-deters",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "San Diego, CA, USA"
+      },
+      {
+        "name": "Kevin Magayah",
+        "title": "Vice President & Regional Manager",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://theorg.com/org/solv-energy/org-chart/kevin-magayah",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Danielle Edelson-Benson",
+        "title": "Talent Acquisition Recruiter",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/daniellejbenson",
+        "source_url": "https://www.linkedin.com/in/daniellejbenson/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "New York City Metropolitan Area, USA"
+      }
+    ]
+  },
+  "matrix renewables": {
+    "discovered_at": "2026-05-28T13:21:53.463Z",
+    "contacts": [
+      {
+        "name": "Katrina Ta",
+        "title": "Talent Acquisition Manager",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/katrina-ta",
+        "source_url": "https://theorg.com/org/matrix-renewables/org-chart/katrina-ta",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Chicago, IL, USA"
+      },
+      {
+        "name": "Caro Chapatte",
+        "title": "Chief Human Resources Officer",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/caro-chapatte",
+        "source_url": "https://matrixrenewables.com/team/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Madrid, Spain"
+      },
+      {
+        "name": "Giora Salita",
+        "title": "Chief Operating Officer",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://matrixrenewables.com/press-releases/giora-salita-appointed-as-coo-for-matrix-renewables/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Miami, FL, USA"
+      },
+      {
+        "name": "Cindy Tindell",
+        "title": "Managing Director, Head of U.S.",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/cindy-tindell-64b93439",
+        "source_url": "https://matrixrenewables.com/team/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Palm Beach, FL, USA"
+      },
+      {
+        "name": "Javier Tirado",
+        "title": "VP EPC",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/javiertiradopmp",
+        "source_url": "https://theorg.com/org/matrix-renewables",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Miami, FL, USA"
       }
     ]
   }

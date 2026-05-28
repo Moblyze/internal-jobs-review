@@ -1,5 +1,47 @@
 [
   {
+    "id": "27ba68be-ed8a-4621-bdfd-cbbe2fe8a305",
+    "ingested_at": "2026-05-28T13:19:32.543Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/matrix-renewables-and-solv-energy-break-ground-on-457mwdc-tormes-solar-project-in-navarro-county-texas-302784392.html"
+      }
+    ],
+    "subsector": "onshore-renewables",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction"
+    ],
+    "signal_type": "epc_award",
+    "region": "us-texas",
+    "country": "united_states",
+    "headline": "SOLV Energy Breaks Ground on 457MWdc Tormes Solar Project in Navarro County, Texas for Matrix Renewables",
+    "operator": {
+      "name": "Matrix Renewables",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "SOLV Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Tormes Solar Project",
+    "mob_window": {
+      "start": "2026-Q2",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": []
+  },
+  {
     "id": "797e9545-06a0-4f56-b894-202bf8098a5c",
     "ingested_at": "2026-05-27T18:51:06.084Z",
     "sources": [
