@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-05-29T13:12:32.885Z"
+    "last_updated_at": "2026-05-29T18:57:29.613Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -4767,6 +4767,164 @@
         "source_url": "https://rocketreach.co/korea-hydro-nuclear-power-khnp-management_b5e449b8f42e64df",
         "in_target_persona": false,
         "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "commonwealth lng": {
+    "discovered_at": "2026-05-29T18:57:29.613Z",
+    "contacts": [
+      {
+        "name": "Cristina Perez",
+        "title": "VP of Human Resources",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/cristina-perez-49aa6b10",
+        "source_url": "https://commonwealthlng.com/leadership/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Les Hanson",
+        "title": "VP Operations",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/les-hanson-vice-president-operations-commonwealth-lng-9b41a0a4",
+        "source_url": "https://commonwealthlng.com/leadership/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Tony Diocee",
+        "title": "VP & Project Director",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/tony-diocee-23a05a3b",
+        "source_url": "https://commonwealthlng.com/leadership/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Anthony Eaton",
+        "title": "Chief Operating Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/anthony-tony-eaton-a146aa31",
+        "source_url": "https://commonwealthlng.com/leadership/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Jamie Gray",
+        "title": "Chief Operating Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/jamie-gray-b1a65219",
+        "source_url": "https://commonwealthlng.com/leadership/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      }
+    ]
+  },
+  "fulcrum point holdings / blue castle holdings": {
+    "discovered_at": "2026-05-29T18:57:29.613Z",
+    "contacts": [
+      {
+        "name": "Chris Hayter",
+        "title": "Founder, Fulcrum Point Holdings; President & COO, Hi Tech Solutions",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/chris-hayter-9980a223",
+        "source_url": "https://www.globenewswire.com/news-release/2026/05/28/3303130/0/en/Holtec-International-s-SMR-300-Chosen-to-Power-the-Green-River-Advanced-Nuclear-Project-in-Utah.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Kennewick, WA, USA"
+      },
+      {
+        "name": "Aaron Tilton",
+        "title": "CEO, Blue Castle Holdings",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/aarontilton-smartfi",
+        "source_url": "https://www.globenewswire.com/news-release/2026/05/28/3303130/0/en/Holtec-International-s-SMR-300-Chosen-to-Power-the-Green-River-Advanced-Nuclear-Project-in-Utah.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Springville, UT, USA"
+      },
+      {
+        "name": "Kirt Marlow",
+        "title": "Senior Vice President, Energy Deployment – Hi Tech Solutions (Fulcrum Point partner)",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/kirtmarlow",
+        "source_url": "https://www.htsnuclear.com/news/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "blue castle holdings / fulcrum point holdings jv": {
+    "discovered_at": "2026-05-29T18:57:29.613Z",
+    "contacts": [
+      {
+        "name": "Chris Hayter",
+        "title": "Founder, Fulcrum Point Holdings; President & COO, Hi Tech Solutions",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/chris-hayter-9980a223",
+        "source_url": "https://www.abc4.com/news/local-news/utah-nuclear-project-gains-momentum-new-partnership/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Eden, UT, USA"
+      },
+      {
+        "name": "Aaron Tilton",
+        "title": "President & CEO, Blue Castle Holdings",
+        "persona": "other",
+        "linkedin_url": "https://www.linkedin.com/in/aarontilton-smartfi",
+        "source_url": "https://www.techbuzznews.com/fulcrum-point-and-blue-castle-smr-project/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Springville, UT, USA"
+      },
+      {
+        "name": "David Williams",
+        "title": "CEO & Co-Founder, Hi Tech Solutions (operational partner of Fulcrum Point Holdings)",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.standard.net/news/local/2025/may/16/power-up-eden-man-playing-key-role-in-driving-utahs-nuclear-future/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Kennewick, WA, USA"
+      },
+      {
+        "name": "Michael Hayter",
+        "title": "Co-Founder & Board Member, Hi Tech Solutions",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/michaelhayter",
+        "source_url": "https://www.htsnuclear.com/about/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Richland, WA, USA"
+      },
+      {
+        "name": "Kaycee Conger",
+        "title": "Media / Communications Contact, Blue Castle Holdings",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://www.einpresswire.com/article/418630800/nuclear-plant-developer-reveals-cheap-global-electricity-for-cryptocurrency-miners",
+        "in_target_persona": true,
+        "email": "kayceeconger@bluecastleproject.com",
         "phone": null,
         "location": null
       }
