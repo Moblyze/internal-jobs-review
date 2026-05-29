@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-05-28T18:57:51.527Z"
+    "last_updated_at": "2026-05-29T13:12:32.885Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -4586,6 +4586,186 @@
         "linkedin_url": null,
         "source_url": "https://www.zoominfo.com/pic/minera-alamos-inc/359407515",
         "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "bechtel energy inc.": {
+    "discovered_at": "2026-05-29T13:12:32.885Z",
+    "contacts": [
+      {
+        "name": "Justin Zaccaria",
+        "title": "Chief Human Resources Officer",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/justin-zaccaria-7222628",
+        "source_url": "https://www.bechtel.com/people/leadership/justin-zaccaria/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Reston, VA, USA"
+      },
+      {
+        "name": "Alex Atkinson",
+        "title": "Senior Talent Acquisition Specialist",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/aatkinson83",
+        "source_url": "https://www.linkedin.com/in/aatkinson83/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Nancy Pena",
+        "title": "Talent Acquisition Specialist – Mining & Metals",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/nancy-pena-25b8bb10",
+        "source_url": "https://www.linkedin.com/in/nancy-pena-25b8bb10/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Paul Marsden",
+        "title": "President, Bechtel Energy Inc.",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/paul-marsden-51a06512",
+        "source_url": "https://www.bechtel.com/people/leadership/paul-marsden/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Marla L. Wright",
+        "title": "Global Manager, Business Development – Bechtel Energy",
+        "persona": "other",
+        "linkedin_url": "https://www.linkedin.com/in/marla-l-wright-p-e-a206381",
+        "source_url": "https://www.energyconnects.com/opinion/interviews/2023/july/hiring-and-developing-top-industry-talent-is-a-key-focus-for-bechtel/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      }
+    ]
+  },
+  "cheniere energy partners lp": {
+    "discovered_at": "2026-05-29T13:12:32.885Z",
+    "contacts": [
+      {
+        "name": "Tamara Anderson",
+        "title": "Manager, Organizational Effectiveness & Talent Acquisition",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/tamara-anderson-mba-phr",
+        "source_url": "https://www.linkedin.com/in/tamara-anderson-mba-phr",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Sam Ojofeitimi",
+        "title": "Lead Recruiter & Client Advisor",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/sammieo",
+        "source_url": "https://theorg.com/org/cheniere-energy/teams/human-resources-and-recruitment",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Susan Baber",
+        "title": "Director, Human Resources Business",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/susan-baber-0624125",
+        "source_url": "https://www.zoominfo.com/p/Susan-Baber/1976021060",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Park Roelse",
+        "title": "Director, Human Resources Operations",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/park-roelse-41740b12",
+        "source_url": "https://theorg.com/org/cheniere-energy/org-chart/park-roelse",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Katy, TX, USA"
+      },
+      {
+        "name": "Trevor Jack",
+        "title": "Senior Human Resources Business Partner",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/trevor-jack-7a425656",
+        "source_url": "https://rocketreach.co/cheniere-energy-inc-hr-department_b5c69861f42e0c90",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      }
+    ]
+  },
+  "korea hydro & nuclear power (khnp)": {
+    "discovered_at": "2026-05-29T13:12:32.885Z",
+    "contacts": [
+      {
+        "name": "Byung Park",
+        "title": "Associate Director",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/byung-chul-park",
+        "source_url": "https://rocketreach.co/korea-hydro-nuclear-power-khnp-management_b5e449b8f42e64df",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Ryan Ryu",
+        "title": "Deputy Director, Business Development",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://www.nrc.gov/docs/ML2406/ML24067A200.pdf",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Gyeongsan-si, Gyeongsangbuk-do, South Korea"
+      },
+      {
+        "name": "Bryan Kim",
+        "title": "General Manager",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://rocketreach.co/korea-hydro-nuclear-power-khnp-management_b5e449b8f42e64df",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Gyeongsan-si, Gyeongsangbuk-do, South Korea"
+      },
+      {
+        "name": "Chaseop Kim",
+        "title": "General Manager, Overseas NPP Project Section I",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://www.atlanticcouncil.org/event/the-next-decade-shaping-the-future-of-us-rok-nuclear-cooperation-virtual/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "South Korea"
+      },
+      {
+        "name": "Mihaela Cosor",
+        "title": "Document Control Manager",
+        "persona": "other",
+        "linkedin_url": null,
+        "source_url": "https://rocketreach.co/korea-hydro-nuclear-power-khnp-management_b5e449b8f42e64df",
+        "in_target_persona": false,
         "email": null,
         "phone": null,
         "location": null
