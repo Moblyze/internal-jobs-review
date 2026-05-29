@@ -65,16 +65,33 @@ def test_write_demand_detail_noop_when_columns_absent():
 def test_add_appends_per_job_entries():
     import contract_demand_producer as m
     demand = defaultdict(m._new_demand_entry)
-    m._add(demand, "Boskalis", "ROV Pilot", "GB", "atlas")
-    m._add(demand, "Boskalis", "Diver", "NO", "rovplanet")
+    m._add(demand, "Boskalis", "ROV Pilot", "GB", "atlas",
+           "https://atlas/job/1", "<p>Operate the ROV.</p>")
+    m._add(demand, "Boskalis", "Diver", "NO", "rovplanet")  # url/desc default empty
     jobs = demand["Boskalis"]["jobs"]
     assert jobs == [
-        {"title": "ROV Pilot", "country": "GB", "source": "atlas"},
-        {"title": "Diver", "country": "NO", "source": "rovplanet"},
+        {"title": "ROV Pilot", "country": "GB", "source": "atlas",
+         "url": "https://atlas/job/1", "description": "Operate the ROV."},
+        {"title": "Diver", "country": "NO", "source": "rovplanet",
+         "url": "", "description": ""},
     ]
     # aggregate fields still populated
     assert demand["Boskalis"]["count"] == 2
     assert demand["Boskalis"]["sources"] == {"atlas", "rovplanet"}
+
+
+def test_strip_html_normalizes_excerpt():
+    import contract_demand_producer as m
+    out = m._strip_html("<p>Operate <strong>ROV</strong> &amp; survey.</p>\n  ")
+    assert out == "Operate ROV & survey."
+
+
+def test_add_truncates_long_description():
+    import contract_demand_producer as m
+    demand = defaultdict(m._new_demand_entry)
+    long_desc = "x" * (m.DESCRIPTION_MAX_LEN + 500)
+    m._add(demand, "Op", "T", "GB", "atlas", "u", long_desc)
+    assert len(demand["Op"]["jobs"][0]["description"]) == m.DESCRIPTION_MAX_LEN
 
 
 def _make_ss_mock(existing_tabs=()):

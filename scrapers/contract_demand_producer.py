@@ -51,11 +51,14 @@ TARGET_SHEET_ID = "1fIW4JxCNTQDT5J8g7bgPDK0lUYo0WF8Yfgras6GVem4"
 COMPANIES_TAB = "Companies"
 LEADS_TAB = "Contract Demand Leads"
 JOB_MATCHES_TAB = "Contract Job Matches"
+# `source_url` + `description` are appended at the end so sales' existing date
+# column formatting on H (scraped_at) and M (last_match_run_at) stays in place.
 JOB_MATCHES_HEADERS = [
     "selected", "job_id", "company_id", "operator", "title", "country", "source",
     "scraped_at", "broad_count", "tight_count", "unknown_geo_count",
-    "match_basis", "last_match_run_at",
+    "match_basis", "last_match_run_at", "source_url", "description",
 ]
+DESCRIPTION_MAX_LEN = 1000  # truncate to keep sheet manageable
 SELECTED_COL_INDEX = JOB_MATCHES_HEADERS.index("selected")  # 0-based
 
 # Sales-facing notes that appear when you hover the column header.
@@ -153,7 +156,17 @@ def _new_demand_entry():
     return {"count": 0, "titles": [], "countries": set(), "sources": set(), "jobs": []}
 
 
-def _add(demand, operator, title, country, source):
+def _strip_html(s: str) -> str:
+    """Remove HTML tags + collapse whitespace. Used for adapter-provided
+    descriptions that may carry inline markup from WP excerpts."""
+    if not s:
+        return ""
+    s = re.sub(r"<[^>]+>", " ", s)
+    s = html.unescape(s)
+    return " ".join(s.split())
+
+
+def _add(demand, operator, title, country, source, url="", description=""):
     d = demand[operator]
     d["count"] += 1
     if title and len(d["titles"]) < 3:
@@ -161,7 +174,11 @@ def _add(demand, operator, title, country, source):
     if country:
         d["countries"].add(country)
     d["sources"].add(source)
-    d["jobs"].append({"title": title or "", "country": country or "", "source": source})
+    desc = _strip_html(description)[:DESCRIPTION_MAX_LEN]
+    d["jobs"].append({
+        "title": title or "", "country": country or "", "source": source,
+        "url": (url or "").strip(), "description": desc,
+    })
 
 
 def _job_id(source: str, operator: str, title: str, country: str) -> str:
@@ -194,7 +211,11 @@ def fetch_atlas_demand(demand, max_pages=10):
             title = job.get("title")
             title = title.get("rendered", "") if isinstance(title, dict) else str(title or "")
             countries = terms.get("country") or [""]
-            _add(demand, operator, title, countries[0], "atlas")
+            url = (job.get("link") or "").strip()
+            excerpt = job.get("excerpt") or {}
+            description = (excerpt.get("rendered") if isinstance(excerpt, dict)
+                           else str(excerpt)) or ""
+            _add(demand, operator, title, countries[0], "atlas", url, description)
         seen += len(jobs)
         if total is not None and seen >= total:
             break
@@ -223,7 +244,9 @@ def fetch_tradeboard_demand(demand, adapter_cls, source):
         if _is_excludable(operator):
             continue
         _add(demand, operator, str(_result_field(r, "title")),
-             str(_result_field(r, "location")), source)
+             str(_result_field(r, "location")), source,
+             str(_result_field(r, "url")),
+             str(_result_field(r, "description")))
 
 
 def collect_demand() -> dict:
@@ -481,6 +504,8 @@ def write_job_matches_tab(ss, demand: dict, operator_to_company: dict) -> int:
                 prev.get("unknown_geo_count", ""),
                 prev.get("match_basis", ""),
                 prev.get("last_match_run_at", ""),
+                job.get("url", ""),
+                job.get("description", ""),
             ])
 
     if ws is None:
