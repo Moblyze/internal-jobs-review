@@ -12,6 +12,9 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
+// Rate limiting helper to avoid Google Sheets API quota issues
+const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -118,6 +121,9 @@ async function fetchAllJobs(auth) {
       spreadsheetId: spreadsheet.data.spreadsheetId,
       range: `${sheetName}!A:N`, // All columns from the sheet (A-N = 14 columns, includes Employment Type)
     });
+
+    // Rate limiting: wait 1 second between API calls to stay within Google Sheets quotas
+    await sleep(1000);
 
     const rows = response.data.values || [];
 
