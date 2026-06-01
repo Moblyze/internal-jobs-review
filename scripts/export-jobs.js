@@ -112,6 +112,14 @@ async function fetchAllJobs(auth) {
       continue;
     }
 
+    // Skip backup snapshot tabs created by the cleanup script (e.g.
+    // "Aggregator - finnco (backup 2026-06-01)"). They hold pre-cleanup rows;
+    // ingesting them would re-import deleted noise/duplicates into the site.
+    if (/\(backup/i.test(sheetName)) {
+      console.log(`Skipping "${sheetName}" (backup snapshot tab)`);
+      continue;
+    }
+
     console.log(`Fetching jobs from "${sheetName}"...`);
 
     const response = await sheets.spreadsheets.values.get({

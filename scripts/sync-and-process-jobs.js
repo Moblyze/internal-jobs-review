@@ -194,8 +194,10 @@ async function fetchJobsFromSheets(auth) {
   for (const sheet of spreadsheet.data.sheets) {
     const sheetName = sheet.properties.title;
 
-    // Skip non-data sheets
-    if (SKIP_SHEETS.includes(sheetName)) {
+    // Skip non-data sheets and cleanup backup snapshot tabs (e.g.
+    // "Aggregator - finnco (backup 2026-06-01)") — ingesting backups would
+    // re-import pre-cleanup noise/duplicates.
+    if (SKIP_SHEETS.includes(sheetName) || /\(backup/i.test(sheetName)) {
       log(`   Skipping "${sheetName}" (not employer data)`);
       continue;
     }
