@@ -223,11 +223,14 @@ async function readSheetData(authClient) {
     }
   }
 
-  // Use direct tab when available, fall back to aggregator tab
+  // Use direct tab when available, fall back to aggregator tab.
+  // Tag the source so the guardrail can flag aggregator-sourced (keyword-search)
+  // clients that come back implausibly large.
   const matchedSheets = [];
   for (const employer of TARGET_EMPLOYERS) {
-    const match = directMatches.get(employer) || aggregatorMatches.get(employer);
-    if (match) matchedSheets.push(match);
+    const direct = directMatches.get(employer);
+    const match = direct || aggregatorMatches.get(employer);
+    if (match) matchedSheets.push({ ...match, source: direct ? 'direct' : 'aggregator' });
   }
 
   if (matchedSheets.length === 0) return {};
@@ -272,6 +275,7 @@ async function readSheetData(authClient) {
 
     const active = new Set();
     const removed = new Set();
+    let rawActive = 0; // non-removed rows BEFORE dedup — used to detect duplicate accumulation
     let ropeAccessCount = 0;
     let rovCount = 0;
     let otherCount = 0;
@@ -288,6 +292,7 @@ async function readSheetData(authClient) {
       if (status === 'removed' || status === 'inactive' || status === 'closed') {
         removed.add(key);
       } else {
+        rawActive++;
         // Only classify if this is a new unique active job (avoid double-counting duplicates)
         const isNew = !active.has(key);
         active.add(key);
@@ -312,6 +317,8 @@ async function readSheetData(authClient) {
       active,
       removed,
       activeCount: active.size,
+      rawActiveCount: rawActive,
+      source: matchedSheets[idx].source,
       removedCount: removed.size,
       ropeAccessCount,
       rovCount,
@@ -320,6 +327,44 @@ async function readSheetData(authClient) {
   }
 
   return result;
+}
+
+// ── Guardrail / Sanity Checks ────────────────────────────────────────────────
+
+// Thresholds for the auto sanity-check flags appended to the digest.
+const DUP_RATIO_FLAG = 3;     // raw rows >= 3x unique => duplicate accumulation
+const DUP_MIN_ROWS = 200;     // ignore small tabs where a high ratio is meaningless
+const AGG_NOISE_FLAG = 50;    // an aggregator-sourced client over this is suspicious
+
+/**
+ * Flag the two failure modes that have actually bitten us:
+ *   1. Duplicate-row accumulation (raw rows >> unique) — a write-path regression.
+ *   2. Aggregator/keyword-sourced clients coming back implausibly large —
+ *      keyword bleed (the Finnco / Rig Integrity / IO Consulting incident).
+ * Returns a list of human-readable flag strings (empty on a clean day).
+ */
+function computeGuardrailFlags(currentData) {
+  const flags = [];
+  for (const [employer, d] of Object.entries(currentData)) {
+    const name = DISPLAY_NAMES[employer] || employer;
+    const live = d.activeCount || 0;
+    const raw = d.rawActiveCount || 0;
+
+    if (raw >= DUP_MIN_ROWS && live > 0 && raw / live >= DUP_RATIO_FLAG) {
+      flags.push(
+        `${name}: ${raw} rows but only ${live} unique (${(raw / live).toFixed(1)}× ` +
+        `duplication) — check the scraper write path`
+      );
+    }
+
+    if (d.source === 'aggregator' && live > AGG_NOISE_FLAG) {
+      flags.push(
+        `${name}: ${live} live from a keyword-search (aggregator) source ` +
+        `— verify these actually name the company`
+      );
+    }
+  }
+  return flags;
 }
 
 function normalise(s) {
@@ -511,31 +556,49 @@ function buildSlackMessage(diff, isFirstRun, currentData) {
   if (diff.totalRemoved > 0) parts.push(`${diff.totalRemoved} removed`);
   const summary = parts.length > 0 ? parts.join(', ') : 'no changes';
 
+  const flags = computeGuardrailFlags(currentData);
+
+  const blocks = [
+    {
+      type: 'section',
+      text: {
+        type: 'mrkdwn',
+        text: `:clipboard: *Daily Job Scan Complete — ${new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}*`,
+      },
+    },
+    {
+      type: 'section',
+      text: {
+        type: 'mrkdwn',
+        text: '```\n' + table + '\n```',
+      },
+    },
+  ];
+
+  // Only surfaced when something looks off — no noise on clean days.
+  if (flags.length > 0) {
+    blocks.push({
+      type: 'section',
+      text: {
+        type: 'mrkdwn',
+        text: ':rotating_light: *Sanity-check flags* (auto):\n' + flags.map(f => `• ${f}`).join('\n'),
+      },
+    });
+  }
+
+  blocks.push({
+    type: 'section',
+    text: {
+      type: 'mrkdwn',
+      text: changeNote + `\n<${SHEET_URL}|Review sheet>`,
+    },
+  });
+
+  const flagSuffix = flags.length > 0 ? ` :rotating_light: ${flags.length} sanity flag${flags.length === 1 ? '' : 's'}` : '';
+
   return {
-    text: `Daily Job Scan: ${summary}. ${diff.totalLive} active jobs.`,
-    blocks: [
-      {
-        type: 'section',
-        text: {
-          type: 'mrkdwn',
-          text: `:clipboard: *Daily Job Scan Complete — ${new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}*`,
-        },
-      },
-      {
-        type: 'section',
-        text: {
-          type: 'mrkdwn',
-          text: '```\n' + table + '\n```',
-        },
-      },
-      {
-        type: 'section',
-        text: {
-          type: 'mrkdwn',
-          text: changeNote + `\n<${SHEET_URL}|Review sheet>`,
-        },
-      },
-    ],
+    text: `Daily Job Scan: ${summary}. ${diff.totalLive} active jobs.${flagSuffix}`,
+    blocks,
   };
 }
 
