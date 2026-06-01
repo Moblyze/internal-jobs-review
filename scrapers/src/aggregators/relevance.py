@@ -2,6 +2,12 @@
 
 Removes false positive jobs that don't match the search profile's domain.
 Runs AFTER dedup filtering. Each profile defines:
+  - relevance_require: (optional) at least one keyword MUST appear in title or
+    company (NOT description). Use for company-specific profiles to require the
+    actual company name and reject keyword-bleed (e.g. a "Finnco" profile that
+    must not keep generic "Energy Jobline" postings). Description is excluded
+    here on purpose: a tangential mention of the company in a long description
+    is not evidence the job belongs to that company.
   - relevance_include: at least one keyword must appear in title/company/description
   - relevance_exclude: if any keyword appears in title, the job is excluded
 """
@@ -14,9 +20,15 @@ logger = logging.getLogger(__name__)
 class RelevanceFilter:
     """Filter aggregator results by relevance to the search profile."""
 
-    def __init__(self, include_keywords: list[str] = None, exclude_keywords: list[str] = None):
+    def __init__(
+        self,
+        include_keywords: list[str] = None,
+        exclude_keywords: list[str] = None,
+        require_keywords: list[str] = None,
+    ):
         self.include_keywords = [k.lower() for k in (include_keywords or [])]
         self.exclude_keywords = [k.lower() for k in (exclude_keywords or [])]
+        self.require_keywords = [k.lower() for k in (require_keywords or [])]
 
     def _get_field(self, job, field: str) -> str:
         """Get a field from a job object or dict, returning lowercase string."""
@@ -50,6 +62,17 @@ class RelevanceFilter:
             if matched:
                 return False, f"title matched exclude keyword '{matched}'"
 
+        # Check required keywords against title and company ONLY (not description).
+        # This is the company-name gate for company-specific profiles: a job is
+        # kept only if it actually names the target employer in its title or
+        # company field. Prevents generic industry keywords ("energy",
+        # "engineering") from passing unrelated jobs through.
+        if self.require_keywords:
+            title_company = f"{title} {company}"
+            matched = self._matches_any(title_company, self.require_keywords)
+            if not matched:
+                return False, "no required keyword (company name) in title/company"
+
         # Check inclusions against title, company, and description (loose match)
         if self.include_keywords:
             searchable = f"{title} {company} {description}"
@@ -71,7 +94,7 @@ class RelevanceFilter:
             'kept': 0,
         }
 
-        if not self.include_keywords and not self.exclude_keywords:
+        if not self.include_keywords and not self.exclude_keywords and not self.require_keywords:
             # No relevance config -- pass everything through
             stats['kept'] = len(jobs)
             return jobs, stats

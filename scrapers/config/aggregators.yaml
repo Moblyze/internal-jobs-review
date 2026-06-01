@@ -555,6 +555,8 @@ search_profiles:
       - "Helix Offshore"
     job_types: ["contract", "temporary"]
     countries: ["us", "gb"]
+    relevance_require:
+      - "helix"
     relevance_include:
       - "helix"
       - "offshore"
@@ -585,6 +587,8 @@ search_profiles:
       - "Interocean Marine"
     job_types: ["contract", "temporary"]
     countries: ["us", "gb", "ae", "sg"]
+    relevance_require:
+      - "interocean"
     relevance_include:
       - "interocean"
       - "marine"
@@ -614,6 +618,9 @@ search_profiles:
       - "Altrad Alpha"
     job_types: ["contract", "temporary"]
     countries: ["us", "gb", "au", "ae"]
+    relevance_require:
+      - "altrad"
+      - "sparrows"
     relevance_include:
       - "altrad"
       - "sparrows"
@@ -646,6 +653,8 @@ search_profiles:
       - "ROVOP Limited"
     job_types: ["contract", "temporary"]
     countries: ["us", "gb", "au", "ae", "sg"]
+    relevance_require:
+      - "rovop"
     relevance_include:
       - "rovop"
       - "rov"
@@ -671,6 +680,8 @@ search_profiles:
       - "Oceaneering International"
     job_types: ["contract", "temporary"]
     countries: ["us", "gb", "no", "au", "ae"]
+    relevance_require:
+      - "oceaneering"
     relevance_include:
       - "oceaneering"
       - "rov"
@@ -699,6 +710,8 @@ search_profiles:
       - "Petrofac Engineering"
     job_types: ["contract", "temporary"]
     countries: ["us", "gb", "ae", "my", "om"]
+    relevance_require:
+      - "petrofac"
     relevance_include:
       - "petrofac"
       - "epc"
@@ -728,6 +741,9 @@ search_profiles:
       - "LRQA Group"
     job_types: ["contract", "temporary"]
     countries: ["us", "gb", "ae", "sg"]
+    relevance_require:
+      - "lrqa"
+      - "lloyd's register"
     relevance_include:
       - "lrqa"
       - "inspection"
@@ -756,6 +772,9 @@ search_profiles:
       - "Thome Group"
     job_types: ["contract", "temporary"]
     countries: ["no", "sg", "gb", "in"]
+    relevance_require:
+      - "osm"
+      - "thome"
     relevance_include:
       - "osm"
       - "thome"
@@ -783,6 +802,8 @@ search_profiles:
       - "Wellsafe"
     job_types: ["contract", "temporary"]
     countries: ["gb", "no"]
+    relevance_require:
+      - "wellsafe"
     relevance_include:
       - "wellsafe"
       - "well decommissioning"
@@ -809,6 +830,9 @@ search_profiles:
       - "Dron and Dickson"
     job_types: ["contract", "temporary"]
     countries: ["gb", "ae"]
+    relevance_require:
+      - "dron"
+      - "dickson"
     relevance_include:
       - "dron"
       - "dickson"
@@ -835,6 +859,8 @@ search_profiles:
       - "Sulmara Subsea"
     job_types: ["contract", "temporary"]
     countries: ["gb", "no", "au"]
+    relevance_require:
+      - "sulmara"
     relevance_include:
       - "sulmara"
       - "subsea"
@@ -862,6 +888,8 @@ search_profiles:
       - "AllRig"
     job_types: ["contract", "temporary"]
     countries: ["nl", "gb", "us", "ae"]
+    relevance_require:
+      - "allrig"
     relevance_include:
       - "allrig"
       - "rig"
@@ -887,6 +915,8 @@ search_profiles:
       - "Coast Renewable"
     job_types: ["contract", "temporary"]
     countries: ["gb"]
+    relevance_require:
+      - "coast renewable"
     relevance_include:
       - "coast renewable"
       - "wind"
@@ -912,6 +942,9 @@ search_profiles:
       - "Taurus IG"
     job_types: ["contract", "temporary"]
     countries: ["us"]
+    relevance_require:
+      - "taurus industrial"
+      - "taurus ig"
     relevance_include:
       - "taurus"
       - "industrial"
@@ -942,6 +975,10 @@ search_profiles:
       - "Ponticelli"
     job_types: ["contract", "temporary"]
     countries: ["gb", "no"]
+    relevance_require:
+      - "ponticelli"
+      - "pbs offshore"
+      - "pbs by ponticelli"
     relevance_include:
       - "pbs"
       - "ponticelli"
@@ -970,6 +1007,8 @@ search_profiles:
       - "IO Consulting Group"
     job_types: ["contract", "temporary"]
     countries: ["gb", "ae"]
+    relevance_require:
+      - "io consulting"
     relevance_include:
       - "io consulting"
       - "energy"
@@ -997,6 +1036,8 @@ search_profiles:
       - "Finnco Service"
     job_types: ["contract", "temporary"]
     countries: ["gb", "no"]
+    relevance_require:
+      - "finnco"
     relevance_include:
       - "finnco"
       - "energy"
@@ -1020,6 +1061,8 @@ search_profiles:
       - "Rig Integrity"
     job_types: ["contract", "temporary"]
     countries: ["us"]
+    relevance_require:
+      - "rig integrity"
     relevance_include:
       - "rig integrity"
       - "rig inspection"

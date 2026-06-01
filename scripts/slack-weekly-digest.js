@@ -104,8 +104,20 @@ async function authenticate() {
 
 // ── Sheet Reading ────────────────────────────────────────────────────────────
 
+// Aliases for matching sheet tab names that don't contain the full employer name
+const TAB_ALIASES = {
+  'Rig Integrity Solutions': ['rig_integrity', 'rig integrity'],
+};
+
 /**
  * Read all worksheets and return per-employer active job counts.
+ *
+ * Mirrors the daily digest's methodology so the two digests are consistent:
+ *   - prefer a direct employer tab over an Aggregator tab (avoids double-count)
+ *   - dedup active jobs by `title|||url` (the sheet accumulates duplicate rows
+ *     across scrape runs; counting raw rows previously inflated the weekly
+ *     total to ~6x the deduped daily total)
+ *
  * Returns: { [employerName]: { activeCount: number } }
  */
 async function readSheetData(authClient) {
@@ -117,62 +129,90 @@ async function readSheetData(authClient) {
   });
 
   const sheetTitles = spreadsheet.data.sheets.map(s => s.properties.title);
-  const skipSheets = new Set(['Overview', 'Source Coverage Matrix', 'Target Companies', 'Aggregator Jobs', 'Template']);
+  const skipSheets = new Set(['Overview', 'Source Coverage Matrix', 'Target Companies', 'Aggregator Jobs', 'Template', 'Client Jobs - Aggregated', '_Client Org Lookup', '_Roles', '_Certs', 'Run History']);
 
-  const result = {};
+  // Match tabs to employers, preferring direct tabs over Aggregator tabs.
+  const directMatches = new Map();     // employer -> title
+  const aggregatorMatches = new Map(); // employer -> title
 
   for (const title of sheetTitles) {
     if (skipSheets.has(title)) continue;
 
-    const matchedEmployer = TARGET_EMPLOYERS.find(emp =>
-      title.toLowerCase().includes(emp.toLowerCase()) ||
-      emp.toLowerCase().includes(title.toLowerCase()) ||
-      normalise(title) === normalise(emp)
-    );
+    const isAggregator = title.startsWith('Aggregator');
+    const titleLower = title.toLowerCase();
+    const titleNorm = normalise(title);
+
+    const matchedEmployer = TARGET_EMPLOYERS.find(emp => {
+      if (titleLower.includes(emp.toLowerCase()) ||
+          emp.toLowerCase().includes(titleLower) ||
+          titleNorm === normalise(emp) ||
+          titleNorm.includes(normalise(emp)) ||
+          normalise(emp).includes(titleNorm)) {
+        return true;
+      }
+      const aliases = TAB_ALIASES[emp];
+      if (aliases) return aliases.some(alias => titleLower.includes(alias));
+      return false;
+    });
 
     if (!matchedEmployer) continue;
 
-    try {
-      const response = await sheets.spreadsheets.values.get({
-        spreadsheetId: SPREADSHEET_ID,
-        range: `'${title}'`,
-      });
-
-      const rows = response.data.values || [];
-      if (rows.length <= 1) {
-        result[matchedEmployer] = { activeCount: 0 };
-        continue;
-      }
-
-      const headers = rows[0].map(h => h.trim().toLowerCase());
-      const titleCol = headers.indexOf('title');
-      const urlCol = headers.indexOf('url');
-      const statusCol = headers.indexOf('status');
-
-      if (titleCol === -1 || urlCol === -1) {
-        console.warn(`  Skipping "${title}": missing Title or URL column`);
-        continue;
-      }
-
-      let activeCount = 0;
-
-      for (let i = 1; i < rows.length; i++) {
-        const row = rows[i];
-        const jobTitle = (row[titleCol] || '').trim();
-        const jobUrl = (row[urlCol] || '').trim();
-        if (!jobTitle || !jobUrl) continue;
-
-        const status = statusCol !== -1 ? (row[statusCol] || '').trim().toLowerCase() : 'active';
-
-        if (status !== 'removed' && status !== 'inactive' && status !== 'closed') {
-          activeCount++;
-        }
-      }
-
-      result[matchedEmployer] = { activeCount };
-    } catch (err) {
-      console.warn(`  Error reading "${title}": ${err.message}`);
+    if (isAggregator) {
+      if (!aggregatorMatches.has(matchedEmployer)) aggregatorMatches.set(matchedEmployer, title);
+    } else {
+      if (!directMatches.has(matchedEmployer)) directMatches.set(matchedEmployer, title);
     }
+  }
+
+  const matchedSheets = []; // { title, employer }
+  for (const employer of TARGET_EMPLOYERS) {
+    const title = directMatches.get(employer) || aggregatorMatches.get(employer);
+    if (title) matchedSheets.push({ title, employer });
+  }
+
+  const result = {};
+  if (matchedSheets.length === 0) return result;
+
+  const ranges = matchedSheets.map(s => `'${s.title}'`);
+  const batchResponse = await sheets.spreadsheets.values.batchGet({
+    spreadsheetId: SPREADSHEET_ID,
+    ranges,
+  });
+  const valueRanges = batchResponse.data.valueRanges || [];
+
+  for (let idx = 0; idx < matchedSheets.length; idx++) {
+    const { title, employer } = matchedSheets[idx];
+    const rows = valueRanges[idx]?.values || [];
+
+    if (rows.length <= 1) {
+      result[employer] = { activeCount: 0 };
+      continue;
+    }
+
+    const headers = rows[0].map(h => h.trim().toLowerCase());
+    const titleCol = headers.indexOf('title');
+    const urlCol = headers.indexOf('url');
+    const statusCol = headers.indexOf('status');
+
+    if (titleCol === -1 || urlCol === -1) {
+      console.warn(`  Skipping "${title}": missing Title or URL column`);
+      continue;
+    }
+
+    const active = new Set();
+    for (let i = 1; i < rows.length; i++) {
+      const row = rows[i];
+      const jobTitle = (row[titleCol] || '').trim();
+      const jobUrl = (row[urlCol] || '').trim();
+      if (!jobTitle || !jobUrl) continue;
+
+      const status = statusCol !== -1 ? (row[statusCol] || '').trim().toLowerCase() : 'active';
+      if (status !== 'removed' && status !== 'inactive' && status !== 'closed') {
+        active.add(`${jobTitle}|||${jobUrl}`);
+      }
+    }
+
+    result[employer] = { activeCount: active.size };
   }
 
   return result;

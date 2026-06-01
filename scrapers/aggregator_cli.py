@@ -203,6 +203,7 @@ def cmd_search(args):
     relevance = RelevanceFilter(
         include_keywords=profile.get("relevance_include", []),
         exclude_keywords=profile.get("relevance_exclude", []),
+        require_keywords=profile.get("relevance_require", []),
     )
     filtered, rel_stats = relevance.filter_results(filtered)
 
@@ -234,8 +235,20 @@ def cmd_search(args):
         exporter = get_sheets_exporter()
         if exporter:
             try:
-                exported = exporter.export_jobs(filtered[:args.limit], sheet_name)
-                print(f"  Successfully exported {exported} jobs to '{sheet_name}'")
+                # Upsert against the sheet: only append jobs whose URL isn't
+                # already present. Aggregator boards return stable URLs across
+                # runs, so without this guard every run re-appended the full
+                # result set, accumulating exact-duplicate rows (the cause of
+                # the inflated counts in the jobs-aggregated Slack digest).
+                candidates = filtered[:args.limit]
+                existing_urls = exporter.get_existing_job_urls(sheet_name)
+                new_jobs = [j for j in candidates if str(j.url) not in existing_urls]
+                skipped = len(candidates) - len(new_jobs)
+                exported = exporter.export_jobs(new_jobs, sheet_name) if new_jobs else 0
+                print(
+                    f"  Successfully exported {exported} new jobs to '{sheet_name}' "
+                    f"({skipped} already present, skipped)"
+                )
             except Exception as e:
                 print(f"  ERROR: Export failed: {e}")
 
