@@ -1,5 +1,92 @@
 [
   {
+    "id": "4d4e141d-3cf1-470d-843e-543e4c5a1ea1",
+    "ingested_at": "2026-06-01T14:06:33.593Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/totalenergies_seeks_approval_for_frances_biggest_re_project-01-jun-2026-183815-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-wind",
+    "discipline_tags": [
+      "marine_offshore_ops",
+      "industrial_construction",
+      "energy_trades",
+      "survey_geophysical"
+    ],
+    "signal_type": "regulatory",
+    "region": "france-normandy",
+    "country": "france",
+    "headline": "TotalEnergies Files for Authorization on €4.5B 1.5GW Normandy Offshore Wind Farm",
+    "operator": {
+      "name": "TotalEnergies SE",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Normandy Offshore Wind Farm",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 5240000000,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
+    "id": "5e2363f4-1db6-4c6b-9fe5-ca4e7e4332c7",
+    "ingested_at": "2026-06-01T14:06:33.593Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/second-hinkley-point-c-reactor-vessel-installed"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "uk-southwest",
+    "country": "united_kingdom",
+    "headline": "Hinkley Point C Unit 2 Reactor Pressure Vessel Installed — Construction Advancing",
+    "operator": {
+      "name": "EDF Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Hinkley Point C",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "peak",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": []
+  },
+  {
     "id": "5300f297-db49-43a8-a655-aa6eb45dbdd1",
     "ingested_at": "2026-05-29T18:55:26.672Z",
     "sources": [
@@ -852,49 +939,6 @@
     "key_people": []
   },
   {
-    "id": "976a8fc4-40f5-488a-84c2-0591c13ed685",
-    "ingested_at": "2026-05-18T18:40:31.520Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/blykalla-applies-to-build-swedish-smr-plant"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations",
-      "energy_trades"
-    ],
-    "signal_type": "regulatory",
-    "region": "sweden",
-    "country": "sweden",
-    "headline": "Blykalla Applies to Build 6-Reactor SMR Plant at Norrsundet, Gävle, Sweden",
-    "operator": {
-      "name": "Blykalla",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Norrsundet SEALER SMR Plant",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "pre_sanction",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
-    "key_people": []
-  },
-  {
     "id": "bb15ec7f-ff98-4de9-b7ea-e41930527ca7",
     "ingested_at": "2026-05-18T18:40:31.520Z",
     "sources": [
@@ -935,6 +979,49 @@
     "decom_stage": "permits",
     "outreach_readiness": "warming",
     "estimated_hiring_window": "3-6mo",
+    "key_people": []
+  },
+  {
+    "id": "976a8fc4-40f5-488a-84c2-0591c13ed685",
+    "ingested_at": "2026-05-18T18:40:31.520Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/blykalla-applies-to-build-swedish-smr-plant"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "regulatory",
+    "region": "sweden",
+    "country": "sweden",
+    "headline": "Blykalla Applies to Build 6-Reactor SMR Plant at Norrsundet, Gävle, Sweden",
+    "operator": {
+      "name": "Blykalla",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Norrsundet SEALER SMR Plant",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
     "key_people": []
   },
   {
