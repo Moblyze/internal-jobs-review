@@ -1,0 +1,43 @@
+name: Prewarm Contacts (high-relevance, free tiers)
+
+# Relevance-gated contact prewarm. Fills the Worker's CONTACTS KV with work
+# emails for the most relevant employers' top decision-makers, using ONLY the
+# free enrichment tiers (Hunter + GetProspect). PDL (paid) is never touched here.
+#
+# Currently manual-dispatch only. Once the relevance ranking is signed off,
+# uncomment the schedule to run once daily (it's idempotent — cached contacts
+# cost nothing on re-run, and a per-run cap paces free-tier spend).
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Print the ranked plan without spending'
+        type: boolean
+        default: false
+      max:
+        description: 'Max free lookups this run'
+        default: '25'
+  # schedule:
+  #   - cron: '0 15 * * *'  # daily 15:00 UTC, after the morning ingest
+
+jobs:
+  prewarm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Prewarm contacts
+        run: |
+          ARGS=""
+          if [ "${{ inputs.dry_run }}" = "true" ]; then ARGS="$ARGS --dry-run"; fi
+          if [ -n "${{ inputs.max }}" ]; then ARGS="$ARGS --max ${{ inputs.max }}"; fi
+          npm run prewarm-contacts -- $ARGS

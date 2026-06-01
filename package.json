@@ -28,7 +28,8 @@
     "format-overview": "node scripts/format-overview-sheet.js",
     "ingest-feed": "node scripts/feed-ingest/index.js",
     "discover-decision-makers": "node scripts/discover-decision-makers.js",
-    "prewarm-company-overviews": "node scripts/prewarm-company-overviews.js"
+    "prewarm-company-overviews": "node scripts/prewarm-company-overviews.js",
+    "prewarm-contacts": "node scripts/prewarm-contacts.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.74.0",
