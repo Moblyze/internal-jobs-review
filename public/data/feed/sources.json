@@ -21,8 +21,9 @@
       "offshore-og"
     ],
     "default_signal_pill": null,
-    "active": true,
-    "last_seen_ok_at": null
+    "active": false,
+    "last_seen_ok_at": null,
+    "deactivated_reason": "feed 404 — site replatformed to Nuxt SPA, no RSS path (verified 2026-06-01)"
   },
   {
     "id": "energy_voice",
@@ -34,8 +35,9 @@
       "offshore-wind"
     ],
     "default_signal_pill": null,
-    "active": true,
-    "last_seen_ok_at": null
+    "active": false,
+    "last_seen_ok_at": null,
+    "deactivated_reason": "Cloudflare anti-bot 403 — not fetchable by rss-parser; needs JS-capable fetcher"
   },
   {
     "id": "4c_offshore",
@@ -46,14 +48,15 @@
       "offshore-wind"
     ],
     "default_signal_pill": null,
-    "active": true,
-    "last_seen_ok_at": null
+    "active": false,
+    "last_seen_ok_at": null,
+    "deactivated_reason": "Cloudflare anti-bot 403 — not fetchable by rss-parser; needs JS-capable fetcher"
   },
   {
     "id": "windeurope",
     "name": "WindEurope",
     "type": "rss",
-    "url": "https://windeurope.org/newsroom/news/feed/",
+    "url": "https://windeurope.org/feed/",
     "subsector_hint": [
       "offshore-wind",
       "onshore-renewables"
@@ -83,8 +86,9 @@
       "onshore-og"
     ],
     "default_signal_pill": null,
-    "active": true,
-    "last_seen_ok_at": null
+    "active": false,
+    "last_seen_ok_at": null,
+    "deactivated_reason": "feed 404 — site replatformed (PageForge), no RSS path (verified 2026-06-01)"
   },
   {
     "id": "hydrogen_insight",
@@ -95,8 +99,9 @@
       "onshore-renewables"
     ],
     "default_signal_pill": null,
-    "active": true,
-    "last_seen_ok_at": null
+    "active": false,
+    "last_seen_ok_at": null,
+    "deactivated_reason": "Arc/Zephr SPA returns HTML, no RSS endpoint (verified 2026-06-01)"
   },
   {
     "id": "pr_newswire_energy",
@@ -136,14 +141,27 @@
       "offshore-og"
     ],
     "default_signal_pill": "regulatory",
+    "active": false,
+    "last_seen_ok_at": null,
+    "deactivated_reason": "no public RSS feed exists (verified 2026-06-01)"
+  },
+  {
+    "id": "bsee_us",
+    "name": "BSEE US",
+    "type": "rss",
+    "url": "https://www.bsee.gov/rss.xml",
+    "subsector_hint": [
+      "offshore-og"
+    ],
+    "default_signal_pill": "regulatory",
     "active": true,
     "last_seen_ok_at": null
   },
   {
-    "id": "bsee_us",
-    "name": "BSEE/BOEM US",
+    "id": "boem_us",
+    "name": "BOEM US",
     "type": "rss",
-    "url": "https://www.bsee.gov/newsroom/rss.xml",
+    "url": "https://www.boem.gov/rss.xml",
     "subsector_hint": [
       "offshore-og"
     ],
