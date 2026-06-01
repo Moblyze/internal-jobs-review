@@ -16,12 +16,12 @@ export const RELEVANCE_WEIGHTS = {
   // subsector (one per entry) — oil & gas is the core book; offshore work
   // carries subsea/rope-access overlap.
   subsector: {
-    'offshore-og': 3,
-    'onshore-og': 3,
-    'offshore-wind': 2,
+    'offshore-og': 4,        // oil & gas — top priority
+    'onshore-og': 4,         // oil & gas — top priority
+    'offshore-wind': 3,      // subsea + rope-access overlap
     'onshore-renewables': 1,
-    'nuclear': 1,
-    'mining': 1,
+    'nuclear': 0.5,          // deprioritized
+    'mining': 0.5,           // deprioritized
   },
   // discipline_tags (several per entry) — summed. Subsea + O&G trades score
   // highest; NDT / industrial construction are rope-access proxies.
@@ -103,14 +103,14 @@ function hiringName(entry) {
 // Aggregate entries into ranked hiring targets. Returns an array of
 // { name, totalScore, bestScore, signalCount, matched, subsectors } sorted by
 // totalScore desc, filtered to those whose best signal clears QUALIFY_MIN_BEST_SCORE.
-export function rankHiringTargets(entries, { nowMs = Date.now(), minBestScore = QUALIFY_MIN_BEST_SCORE } = {}) {
+export function rankHiringTargets(entries, { nowMs = Date.now(), minBestScore = QUALIFY_MIN_BEST_SCORE, breadthWeight = 0.3 } = {}) {
   const byCompany = new Map()
   for (const e of entries || []) {
     const name = hiringName(e)
     if (!name) continue
     const { score, matched } = scoreEntry(e, nowMs)
-    const cur = byCompany.get(name) || { name, totalScore: 0, bestScore: 0, signalCount: 0, matched: new Set(), subsectors: new Set() }
-    cur.totalScore += score
+    const cur = byCompany.get(name) || { name, sumScore: 0, bestScore: 0, signalCount: 0, matched: new Set(), subsectors: new Set() }
+    cur.sumScore += score
     cur.bestScore = Math.max(cur.bestScore, score)
     cur.signalCount += 1
     for (const m of matched) cur.matched.add(m)
@@ -119,7 +119,13 @@ export function rankHiringTargets(entries, { nowMs = Date.now(), minBestScore = 
   }
   return [...byCompany.values()]
     .filter(c => c.bestScore >= minBestScore)
-    .map(c => ({ ...c, totalScore: Math.round(c.totalScore * 10) / 10, matched: [...c.matched], subsectors: [...c.subsectors] }))
+    .map(c => {
+      // Rank on the strongest single signal plus a damped breadth bonus, so a few
+      // strong (high-relevance) signals beat a pile of weak ones — signal volume
+      // alone shouldn't lift a low-priority sector above a focused O&G/subsea target.
+      const totalScore = Math.round((c.bestScore + breadthWeight * (c.sumScore - c.bestScore)) * 10) / 10
+      return { name: c.name, totalScore, bestScore: c.bestScore, signalCount: c.signalCount, matched: [...c.matched], subsectors: [...c.subsectors] }
+    })
     .sort((a, b) => b.totalScore - a.totalScore || b.bestScore - a.bestScore)
 }
 

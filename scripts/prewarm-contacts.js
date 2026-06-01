@@ -101,9 +101,10 @@ async function main() {
   console.log(`[prewarm-contacts] worker=${WORKER_BASE}`)
   console.log(`[prewarm-contacts] ${ranked.length} high-relevance companies → ${worklist.length} contacts needing email (cap ${args.max}/run, ${CONTACTS_PER_COMPANY}/company)`)
   console.log('')
-  console.log('  Rank  Score  Company                              Tags')
+  console.log('  Rank  Score  Company                              Subsectors / signals')
   ranked.slice(0, 25).forEach((c, i) => {
-    console.log(`  ${String(i + 1).padStart(4)}  ${String(c.totalScore).padStart(5)}  ${c.name.slice(0, 35).padEnd(35)}  ${(c.matched.join(',') || '—')}`)
+    const why = [c.subsectors.join(','), c.matched.length ? `[${c.matched.join(',')}]` : ''].filter(Boolean).join(' ')
+    console.log(`  ${String(i + 1).padStart(4)}  ${String(c.totalScore).padStart(5)}  ${c.name.slice(0, 35).padEnd(35)}  ${why || '—'}`)
   })
   console.log('')
 

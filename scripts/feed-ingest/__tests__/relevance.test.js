@@ -19,9 +19,9 @@ test('scoreEntry: O&G + subsea + live_now scores high', () => {
     contract_value_usd: 250_000_000,
     ingested_at: '2026-05-30T00:00:00Z',
   }, NOW)
-  // 3 (offshore-og) + 3 (rov_subsea) + 3 (drilling) + 2 (subsea kw) + 1 (oil_gas kw: platform)
-  //   + 3 (live_now) + 2 (construction) + 2 (contract>=100M) + 1 (recency<=14d) = 20
-  assert.equal(score, 20)
+  // 4 (offshore-og) + 3 (rov_subsea) + 3 (drilling) + 2 (subsea kw) + 1 (oil_gas kw: platform)
+  //   + 3 (live_now) + 2 (construction) + 2 (contract>=100M) + 1 (recency<=14d) = 21
+  assert.equal(score, 21)
   assert.ok(matched.includes('subsea'))
   assert.ok(matched.includes('oil_gas'))
 })
@@ -36,8 +36,8 @@ test('scoreEntry: rope access caught via headline keyword (no taxonomy tag)', ()
     ingested_at: '2026-05-29T00:00:00Z',
   }, NOW)
   assert.ok(matched.includes('rope_access'))
-  // 2 (offshore-wind) + 1 (industrial_construction) + 3 (rope_access kw) + 2 (hot) + 1 (operating) + 1 (recency) = 10
-  assert.equal(score, 10)
+  // 3 (offshore-wind) + 1 (industrial_construction) + 3 (rope_access kw) + 2 (hot) + 1 (operating) + 1 (recency) = 11
+  assert.equal(score, 11)
 })
 
 test('scoreEntry: low-relevance cold mining signal scores low', () => {
@@ -49,8 +49,8 @@ test('scoreEntry: low-relevance cold mining signal scores low', () => {
     phase: 'pre_sanction',
     ingested_at: '2026-01-01T00:00:00Z',
   }, NOW)
-  // 1 (mining) + 1 (process_plant) + 0 + 0 + 0 + 0 = 2
-  assert.equal(score, 2)
+  // 0.5 (mining) + 1 (process_plant) + 0 + 0 + 0 + 0 = 1.5
+  assert.equal(score, 1.5)
 })
 
 test('rankHiringTargets: filters to high-relevance, prefers hiring_entity, sorts by total', () => {

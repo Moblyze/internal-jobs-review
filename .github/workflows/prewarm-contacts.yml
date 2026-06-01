@@ -4,9 +4,8 @@ name: Prewarm Contacts (high-relevance, free tiers)
 # emails for the most relevant employers' top decision-makers, using ONLY the
 # free enrichment tiers (Hunter + GetProspect). PDL (paid) is never touched here.
 #
-# Currently manual-dispatch only. Once the relevance ranking is signed off,
-# uncomment the schedule to run once daily (it's idempotent — cached contacts
-# cost nothing on re-run, and a per-run cap paces free-tier spend).
+# Runs once daily (idempotent — cached contacts cost nothing on re-run, and a
+# per-run cap paces free-tier spend), plus manual dispatch with a dry-run option.
 on:
   workflow_dispatch:
     inputs:
@@ -17,8 +16,8 @@ on:
       max:
         description: 'Max free lookups this run'
         default: '25'
-  # schedule:
-  #   - cron: '0 15 * * *'  # daily 15:00 UTC, after the morning ingest
+  schedule:
+    - cron: '0 15 * * *'  # daily 15:00 UTC, after the morning ingest
 
 jobs:
   prewarm:
