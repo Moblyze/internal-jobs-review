@@ -3,6 +3,40 @@ import yaml
 import hashlib
 import sqlite3
 import os
+from urllib.parse import urlsplit, urlunsplit, parse_qsl, urlencode
+
+# Query params that vary between scrapes for the SAME posting and so must be
+# dropped before a URL is used as a dedup key. Adzuna re-issues `se` (session)
+# and `v` tokens on every fetch, which otherwise makes one job look like many.
+_VOLATILE_URL_PARAMS = {
+    'se', 'v', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content',
+}
+
+
+def normalize_url(url: str) -> str:
+    """Canonicalize a job URL for deduplication.
+
+    Drops volatile query params (Adzuna session tokens, utm_*) and the
+    fragment, lowercases scheme/host, and strips a trailing slash, so the
+    same posting re-found on a later scrape collapses to a single dedup key.
+    Genuine identifiers (e.g. a job id in the path or a real query param) are
+    preserved, so distinct jobs stay distinct.
+    """
+    if not url:
+        return ''
+    try:
+        parts = urlsplit(url.strip())
+    except Exception:
+        return url.strip().lower()
+    if not parts.scheme and not parts.netloc:
+        return url.strip().lower()
+    query = [
+        (k, val) for k, val in parse_qsl(parts.query, keep_blank_values=True)
+        if k.lower() not in _VOLATILE_URL_PARAMS
+    ]
+    path = parts.path.rstrip('/') or '/'
+    return urlunsplit((parts.scheme.lower(), parts.netloc.lower(), path, urlencode(query), ''))
+
 
 class AggregatorDedup:
     """Deduplication for aggregator results against directly-scraped employers."""

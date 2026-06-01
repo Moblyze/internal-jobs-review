@@ -45,6 +45,7 @@ from google.oauth2.service_account import Credentials
 # Make `src...` importable when run from the scrapers/ dir.
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from src.aggregators.relevance import RelevanceFilter  # noqa: E402
+from src.aggregators.dedup import normalize_url  # noqa: E402
 
 SCOPES = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -98,7 +99,7 @@ def clean_rows(rows, profile_cfg):
             dropped_relevance += 1
             continue
 
-        key = f"{title}|||{url}"
+        key = f"{title}|||{normalize_url(url)}"
         if key in seen:
             dropped_dup += 1
             continue

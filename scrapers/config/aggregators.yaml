@@ -618,9 +618,11 @@ search_profiles:
       - "Altrad Alpha"
     job_types: ["contract", "temporary"]
     countries: ["us", "gb", "au", "ae"]
+    # Bare "sparrows" matched "Sparrows Point, MD" / "Sparrows Nest"; require
+    # the disambiguated brand instead (the firm is Altrad Sparrows / Sparrows Group).
     relevance_require:
       - "altrad"
-      - "sparrows"
+      - "sparrows group"
     relevance_include:
       - "altrad"
       - "sparrows"
@@ -830,9 +832,12 @@ search_profiles:
       - "Dron and Dickson"
     job_types: ["contract", "temporary"]
     countries: ["gb", "ae"]
+    # Require both surnames together: bare "dickson" matched "Dickson, TN"
+    # place-name jobs and bare "dron" matched "drone" roles.
     relevance_require:
-      - "dron"
-      - "dickson"
+      - "dron & dickson"
+      - "dron and dickson"
+      - "dron dickson"
     relevance_include:
       - "dron"
       - "dickson"

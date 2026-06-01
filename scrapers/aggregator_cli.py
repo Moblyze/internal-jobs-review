@@ -41,7 +41,7 @@ from src.aggregators.spencerogden_adapter import SpencerOgdenAggregator
 from src.aggregators.atlasprofessionals_adapter import AtlasProfessionalsAggregator
 from src.aggregators.petroplan_adapter import PetroplanAggregator
 from src.aggregators.gulftalent_adapter import GulfTalentAggregator
-from src.aggregators.dedup import AggregatorDedup
+from src.aggregators.dedup import AggregatorDedup, normalize_url
 from src.aggregators.relevance import RelevanceFilter
 from src.exporters.sheets import SheetsExporter
 
@@ -242,7 +242,16 @@ def cmd_search(args):
                 # the inflated counts in the jobs-aggregated Slack digest).
                 candidates = filtered[:args.limit]
                 existing_urls = exporter.get_existing_job_urls(sheet_name)
-                new_jobs = [j for j in candidates if str(j.url) not in existing_urls]
+                # Dedup on a normalized URL so Adzuna's per-fetch session tokens
+                # (?se=…) don't slip the same posting past the upsert each run.
+                seen = {normalize_url(u) for u in existing_urls}
+                new_jobs = []
+                for j in candidates:
+                    nu = normalize_url(str(j.url))
+                    if nu in seen:
+                        continue
+                    seen.add(nu)
+                    new_jobs.append(j)
                 skipped = len(candidates) - len(new_jobs)
                 exported = exporter.export_jobs(new_jobs, sheet_name) if new_jobs else 0
                 print(
