@@ -1,0 +1,113 @@
+name: Cleanup Aggregator Tabs + Post Digest
+
+# Manual one-shot: re-applies the relevance + dedup cleanup to the
+# `Aggregator - *` tabs in "Job Scraping Results", then re-runs the Slack
+# daily digest so #jobs-aggregated shows corrected numbers immediately
+# (without waiting for the next scheduled scrape).
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_cleanup:
+        description: 'Run the aggregator-tab dedupe/relevance cleanup'
+        required: false
+        type: boolean
+        default: true
+      dry_run:
+        description: 'Dry run (report only; do not modify the sheet or post to Slack)'
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  cleanup-and-digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: scrapers/requirements.txt
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Python dependencies
+        working-directory: scrapers
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Create service account credentials file
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          mkdir -p config
+          echo "$GOOGLE_SERVICE_ACCOUNT_JSON" > config/service_account.json
+          chmod 600 config/service_account.json
+
+      - name: Run aggregator-tab cleanup
+        if: inputs.run_cleanup == true
+        working-directory: scrapers
+        env:
+          GOOGLE_SERVICE_ACCOUNT_PATH: ${{ github.workspace }}/config/service_account.json
+          GOOGLE_SHEETS_SPREADSHEET_NAME: ${{ secrets.GOOGLE_SHEETS_SPREADSHEET_NAME }}
+        run: |
+          CMD="python scripts/dedupe_aggregator_tabs.py"
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            CMD="$CMD --dry-run"
+          fi
+          echo "Running: $CMD"
+          $CMD
+
+      - name: Download digest state from release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p data
+          gh release download scraper-state-latest -p digest-state.json -D data/ 2>/dev/null \
+            && echo "Restored digest state" \
+            || echo "No prior digest state — first run will post a baseline"
+
+      - name: Re-run Slack daily digest
+        env:
+          GOOGLE_SERVICE_ACCOUNT_PATH: ${{ github.workspace }}/config/service_account.json
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
+        run: |
+          CMD="node scripts/slack-daily-digest.js"
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            CMD="$CMD --dry-run"
+          fi
+          $CMD
+
+      - name: Upload digest state to release
+        if: always() && inputs.dry_run != true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -f data/digest-state.json ]; then
+            gh release view scraper-state-latest 2>/dev/null || \
+              gh release create scraper-state-latest \
+                --title "Scraper Dedup State" \
+                --notes "Persistent state for the daily scraping workflow."
+            gh release upload scraper-state-latest data/digest-state.json --clobber
+          fi
+
+      - name: Clean up credentials
+        if: always()
+        run: rm -f config/service_account.json
