@@ -86,3 +86,17 @@ export function enrichPerson({ linkedin_url, name, company, domain } = {}) {
     .then(r => r.json())
     .catch(err => ({ email: null, phone: null, source: null, error: String(err?.message || err) }))
 }
+
+// Cache-only lookup: hits /api/person/enrich with cache_only:true so it returns an
+// already-cached enrichment if present, or { miss: true } if not — and spends ZERO
+// credits either way. Safe to call automatically on mount to auto-show cached contacts.
+export function lookupCachedPerson({ linkedin_url, name, company, domain } = {}) {
+  if (!name || !company) return Promise.resolve({ miss: true })
+  return fetch(`${WORKER_BASE}/api/person/enrich`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ linkedin_url: linkedin_url || null, name, company, domain: domain || null, cache_only: true }),
+  })
+    .then(r => r.json())
+    .catch(() => ({ email: null, phone: null, source: null, miss: true }))
+}

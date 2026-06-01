@@ -1,7 +1,7 @@
 // src/components/feed/CompanyCardModal.jsx
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { logTelemetry, postContactFeedback, enrichPerson } from '../../hooks/usePdlContacts'
+import { logTelemetry, postContactFeedback, enrichPerson, lookupCachedPerson } from '../../hooks/usePdlContacts'
 
 const FILTER_OPTIONS_URL = `${import.meta.env.BASE_URL || '/'}data/filter-options.json`
 const DECISION_MAKERS_URL = `${import.meta.env.BASE_URL || '/'}data/feed/decision_makers.json`
@@ -144,6 +144,7 @@ function AgentContactCard({ p, companyName, entryId, companyDomain }) {
   const [enriched, setEnriched] = useState(null) // { email, phone, source, confidence, cached } | null
   const [enriching, setEnriching] = useState(false)
   const [enrichError, setEnrichError] = useState(null) // 'daily_cap' | 'credits_exhausted' | 'not_found' | 'error' | null
+  const [cacheChecking, setCacheChecking] = useState(false)
   const persona = (p.persona || 'other').toLowerCase()
   const badgeClass = PERSONA_BADGE_CLASS[persona] || PERSONA_BADGE_CLASS.other
   const personaLabel = PERSONA_LABELS[persona] || persona
@@ -169,6 +170,23 @@ function AgentContactCard({ p, companyName, entryId, companyDomain }) {
     }
     setEnriched(result)
   }
+
+  // On mount (per contact identity), silently check the Worker's cache for an already-enriched
+  // email/phone — cache_only:true spends zero credits. If found, auto-show it; if a miss, fall
+  // back to the manual "Find contact info" button. Skip entirely when p.email already exists.
+  useEffect(() => {
+    if (p.email || enriched) return
+    let cancelled = false
+    setCacheChecking(true)
+    const linkedin = p.source_url && /linkedin\.com/i.test(p.source_url) ? p.source_url : null
+    lookupCachedPerson({ linkedin_url: linkedin, name: p.name, company: companyName, domain: companyDomain })
+      .then(result => {
+        if (cancelled) return
+        if (result?.email || result?.phone) setEnriched(result)
+      })
+      .finally(() => { if (!cancelled) setCacheChecking(false) })
+    return () => { cancelled = true }
+  }, [p.source_url, p.name, companyName, companyDomain])
 
   function handleFeedback(signal) {
     if (feedback === signal) return
@@ -228,7 +246,8 @@ function AgentContactCard({ p, companyName, entryId, companyDomain }) {
         )}
         {!effectiveEmail && (
           <div className="mt-1 text-[11px]">
-            {!enriching && !enrichError && (
+            {cacheChecking && !enrichError && <span className="text-gray-400">Checking for contact info…</span>}
+            {!cacheChecking && !enriching && !enrichError && (
               <button
                 onClick={handleFindContact}
                 title="Looks up work email via Hunter → GetProspect → PDL. Free tiers first (100 lookups/mo across Hunter and GetProspect); PDL paid backstop. Cached 90 days; re-tried after 24h if no contact info found."
