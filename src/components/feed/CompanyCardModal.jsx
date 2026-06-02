@@ -236,6 +236,9 @@ function AgentContactCard({ p, companyName, entryId, companyDomain }) {
                 {enriched?.source === 'pdl' && (
                   <span className="text-[10px] text-gray-400 shrink-0">(via PDL)</span>
                 )}
+                {enriched?.source === 'pattern' && (
+                  <span className="text-[10px] text-gray-400 shrink-0" title="Derived from this company's verified email pattern (not provider-confirmed)">(via pattern)</span>
+                )}
               </a>
             )}
             {effectivePhone && (
