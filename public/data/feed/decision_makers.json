@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-06-02T13:23:08.710Z"
+    "last_updated_at": "2026-06-02T19:21:18.047Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -4991,6 +4991,126 @@
         "email": null,
         "phone": null,
         "location": "Japan"
+      }
+    ]
+  },
+  "day & zimmermann": {
+    "discovered_at": "2026-06-02T19:21:18.047Z",
+    "contacts": [
+      {
+        "name": "Daniel Ross",
+        "title": "SVP Human Resources & Chief Human Resources Officer",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/danjross",
+        "source_url": "https://www.dayzim.com/about/leadership/daniel-ross",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Philadelphia, PA, USA"
+      },
+      {
+        "name": "Andy Wright",
+        "title": "VP, Human Resources & Head of Talent Acquisition (Maintenance & Construction)",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/andy-wright-8130b31b",
+        "source_url": "https://www.thevision-mag.com/case-studies/andy-wright-day-zimmermann/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Greenville, SC, USA"
+      },
+      {
+        "name": "Tom Ensminger",
+        "title": "Vice President, Labor Relations (Maintenance & Construction)",
+        "persona": "crewing",
+        "linkedin_url": "https://www.linkedin.com/in/thomas-ensminger-pmp-45662328",
+        "source_url": "https://www.dayzim.com/news/day-zimmermann-labor-relations-leader-reelected-president-of-the-associated-maintenance-contractors",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Lancaster, PA, USA"
+      },
+      {
+        "name": "James Chesnut",
+        "title": "Senior Vice President, Nuclear Operations",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/james-chesnut-2632a17",
+        "source_url": "https://www.dayzim.com/news/james-chesnut-svp-nuclear-operations-named-to-center-for-energy-workforce-development-board-of-directors",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Phoenix, AZ, USA"
+      },
+      {
+        "name": "Patrick Phister",
+        "title": "Senior Vice President, Fossil Operations",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/patrickphister",
+        "source_url": "https://www.dayzim.com/news/patrick-phister-named-senior-vice-president-fossil-operations",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "deep fission, inc.": {
+    "discovered_at": "2026-06-02T19:21:18.047Z",
+    "contacts": [
+      {
+        "name": "Michael Brasel",
+        "title": "Chief Operating Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/michael-brasel",
+        "source_url": "https://ir.deepfission.com/company-info/executive-team",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Perham, MN, USA"
+      },
+      {
+        "name": "Mark Pérès",
+        "title": "Vice President of Engineering",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/mwperes",
+        "source_url": "https://www.businesswire.com/news/home/20241114695992/en/Deep-Fission-Welcomes-Former-Kairos-Power-Executive-as-VP-of-Engineering",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Greer, SC, USA"
+      },
+      {
+        "name": "Brian Treadway",
+        "title": "Senior Project Director",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://www.deepfission.com/about-us/world-class-team",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Adam Rose",
+        "title": "Principal Nuclear Operations Engineer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/adam-rose-5b089b11",
+        "source_url": "https://www.deepfission.com/about-us/senior-nuclear-experts",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Athens, AL, USA"
+      },
+      {
+        "name": "Jabu Dayton",
+        "title": "HR Advisory Board Member / Founder & CEO, Jabu HR",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/jabudayton",
+        "source_url": "https://deepfission.com/deep_fission_team_type/advisory-board/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Petaluma, CA, USA"
       }
     ]
   }

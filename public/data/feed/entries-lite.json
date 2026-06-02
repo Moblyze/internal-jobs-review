@@ -1,5 +1,48 @@
 [
   {
+    "id": "b4d3d026-b2d4-4aa9-a123-3ee1fdcc8ab5",
+    "ingested_at": "2026-06-02T19:18:55.824Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/day--zimmermann-deep-fission-partner-to-build-underground-small-modular-reactor-302788879.html"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "us",
+    "country": "united_states",
+    "headline": "Day & Zimmermann & Deep Fission Partner to Construct Underground Small Modular Reactor",
+    "operator": {
+      "name": "Deep Fission, Inc.",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Day & Zimmermann",
+      "matched_company_slug": null
+    },
+    "project_name": "Deep Fission Gravity Nuclear Reactor",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
     "id": "97a70b5f-3e44-4f45-8612-736079647398",
     "ingested_at": "2026-06-02T13:21:42.281Z",
     "sources": [

@@ -2,6 +2,118 @@
   {
     "sources": [
       {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/day--zimmermann-deep-fission-partner-to-build-underground-small-modular-reactor-302788879.html"
+      }
+    ],
+    "headline": "Day & Zimmermann & Deep Fission Partner to Construct Underground Small Modular Reactor",
+    "body": "PHILADELPHIA, June 2, 2026 /PRNewswire/ -- Day & Zimmermann (D&Z) and Deep Fission, Inc. (Deep Fission) announced today their partnership in the construction of Deep Fission's Gravity Nuclear Reactor, the company's proprietary underground nuclear reactor. Deep Fission is an advanced...",
+    "url": "https://www.prnewswire.com/news-releases/day--zimmermann-deep-fission-partner-to-build-underground-small-modular-reactor-302788879.html",
+    "published_at": "2026-06-02T15:48:00.000Z",
+    "hash": "de38bbc284a98aa8",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "us",
+    "country": "united_states",
+    "tldr": "Day & Zimmermann has been named construction partner for Deep Fission's proprietary underground Gravity Nuclear Reactor SMR. This partnership signals an imminent engineering and construction ramp-up with labor demand for nuclear-qualified trades and construction management.",
+    "operator": {
+      "name": "Deep Fission, Inc.",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Day & Zimmermann",
+      "matched_company_slug": null
+    },
+    "project_name": "Deep Fission Gravity Nuclear Reactor",
+    "scope": [
+      "underground_reactor_construction",
+      "smr_build",
+      "nuclear_civil_works"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Construction Manager",
+        "Site Manager",
+        "Nuclear Project Engineer",
+        "HSE Manager",
+        "Civil Works Supervisor",
+        "Mechanical Superintendent",
+        "Nuclear Quality Assurance Manager",
+        "Electrical Superintendent",
+        "I&C Technician",
+        "Commissioning Engineer"
+      ],
+      "skills": [
+        "SMR construction",
+        "underground nuclear facility",
+        "nuclear QA/QC",
+        "nuclear civil works",
+        "ASME nuclear codes",
+        "construction management",
+        "nuclear commissioning",
+        "radiation protection"
+      ],
+      "certs_freetext": [
+        "NRC Qualified",
+        "ASME NQA-1",
+        "40-Hour OSHA",
+        "NUPIC qualified supplier"
+      ],
+      "geo_rtw": "US work authorization required",
+      "project_experience": [
+        "Vogtle Units 3&4",
+        "NuScale UAMPS",
+        "TerraPower Natrium",
+        "Kairos Power Hermes",
+        "X-energy Xe-100"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "senior",
+      "boolean_search": "(\"nuclear construction\" OR \"SMR\" OR \"small modular reactor\" OR \"nuclear project manager\" OR \"nuclear site manager\") AND (\"Day Zimmermann\" OR \"nuclear EPC\" OR \"nuclear civil\" OR \"underground reactor\" OR \"NQA-1\" OR \"ASME nuclear\") AND (\"construction manager\" OR \"site superintendent\" OR \"commissioning engineer\" OR \"nuclear QA\" OR \"mechanical superintendent\" OR \"I&C technician\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Day & Zimmermann just announced they're building Deep Fission's underground SMR — a rare nuclear greenfield in the US. With your nuclear construction background, this could be a strong fit. Worth a quick call?",
+      "email_subject": "Nuclear Construction Opportunity — Day & Zimmermann / Deep Fission SMR Build",
+      "email_body": "Hi [Name],\n\nDay & Zimmermann has just been named construction partner for Deep Fission's Gravity Nuclear Reactor — an underground SMR and one of the most novel nuclear greenfield projects in the US market right now.\n\nGiven your experience in nuclear construction and project delivery, I wanted to reach out directly. D&Z will be ramping engineering and construction resources as this project progresses, and roles across construction management, nuclear QA, civil/mechanical supervision, and commissioning are likely to come to market.\n\nWould you be open to a brief conversation about how your background aligns with what's coming?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named EPC/construction partnership between Day & Zimmermann and Deep Fission for a specific named nuclear SMR project, signalling a construction workforce ramp-up.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "The article announces the partnership 'in the construction of Deep Fission's Gravity Nuclear Reactor', indicating a contract award and transition into engineering/pre-construction phase.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "b4d3d026-b2d4-4aa9-a123-3ee1fdcc8ab5",
+    "ingested_at": "2026-06-02T19:18:55.824Z",
+    "source_published_at": "2026-06-02T15:48:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director",
+      "hr_business_partner"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org//articles/fuel-transfer-work-begins-at-fukushima-daiichi-unit-2"
