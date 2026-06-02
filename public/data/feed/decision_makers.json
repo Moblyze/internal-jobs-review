@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-06-01T14:09:11.031Z"
+    "last_updated_at": "2026-06-02T13:23:08.710Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -4933,5 +4933,65 @@
   "edf energy": {
     "discovered_at": "2026-06-01T14:09:11.031Z",
     "contacts": []
+  },
+  "tokyo electric power company (tepco)": {
+    "discovered_at": "2026-06-02T13:23:08.710Z",
+    "contacts": [
+      {
+        "name": "Hiroto Takahashi",
+        "title": "Director and Chairman",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/hiroto-takahashi-8076a395",
+        "source_url": "https://www.linkedin.com/in/hiroto-takahashi-8076a395",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Tokyo, Japan"
+      },
+      {
+        "name": "Yamaki Koichiro",
+        "title": "Deputy General Manager",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/yamaki-koichiro-03032773",
+        "source_url": "https://www.linkedin.com/in/yamaki-koichiro-03032773",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Tokyo, Japan"
+      },
+      {
+        "name": "Takafumi Ihara",
+        "title": "International Affairs Lead, Nuclear",
+        "persona": "project",
+        "linkedin_url": "https://jp.linkedin.com/in/takafumi-ihara-087b30a8",
+        "source_url": "https://jp.linkedin.com/in/takafumi-ihara-087b30a8",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Japan"
+      },
+      {
+        "name": "Hiroshi Hashiuchi",
+        "title": "Executive General Manager, International Business Development Office",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/hiroshi-hashiuchi-0b612997",
+        "source_url": "https://www.linkedin.com/in/hiroshi-hashiuchi-0b612997",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Japan"
+      },
+      {
+        "name": "Masa Sakai",
+        "title": "Deputy General Manager",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/masa-sakai-312410b",
+        "source_url": "https://www.linkedin.com/in/masa-sakai-312410b",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Japan"
+      }
+    ]
   }
 }

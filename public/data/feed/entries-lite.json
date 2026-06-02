@@ -1,5 +1,47 @@
 [
   {
+    "id": "97a70b5f-3e44-4f45-8612-736079647398",
+    "ingested_at": "2026-06-02T13:21:42.281Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/fuel-transfer-work-begins-at-fukushima-daiichi-unit-2"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "decom",
+    "region": "japan",
+    "country": "japan",
+    "headline": "TEPCO Begins Fuel Assembly Removal from Fukushima Daiichi Unit 2 Used Fuel Pool",
+    "operator": {
+      "name": "Tokyo Electric Power Company (TEPCO)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Tokyo Electric Power Company (TEPCO)",
+      "matched_company_slug": null
+    },
+    "project_name": "Fukushima Daiichi Unit 2 Decommissioning",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": null,
+    "construction_subphase": null,
+    "lifecycle_track": "decommissioning",
+    "decom_stage": "active_execution",
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": []
+  },
+  {
     "id": "4d4e141d-3cf1-470d-843e-543e4c5a1ea1",
     "ingested_at": "2026-06-01T14:06:33.593Z",
     "sources": [
