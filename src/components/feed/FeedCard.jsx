@@ -76,6 +76,22 @@ function SizeBadge({ tier }) {
   return <span className="text-[10px] font-medium px-1.5 py-0.5 rounded bg-gray-100 text-gray-600 ml-1" title={`Company size: ${SIZE_LABEL[tier]}`}>{SIZE_LABEL[tier]}</span>
 }
 
+function ContactsBadge({ coverage, company }) {
+  if (!company || !coverage) return null
+  const c = coverage[company.toLowerCase()]
+  if (!c || !c.identified) return null
+  return (
+    <span
+      className="contacts-badge inline-flex items-center gap-1 text-[10px] font-medium px-1.5 py-0.5 rounded bg-indigo-50 text-indigo-700 ml-1 align-middle"
+      title={`${c.identified} decision-maker${c.identified === 1 ? '' : 's'} identified${c.with_email > 0 ? ` · ${c.with_email} with contact info` : ' · none with contact info yet'}`}
+    >
+      <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      {c.identified}
+      {c.with_email > 0 && <span className="text-green-700 font-semibold">· ✉ {c.with_email}</span>}
+    </span>
+  )
+}
+
 function PillRegion({ region, country }) {
   if (!region && !country) return null
   return (
@@ -86,7 +102,7 @@ function PillRegion({ region, country }) {
   )
 }
 
-export default function FeedCard({ entry, taxonomy, pdlCache, onOperatorClick, onContractorClick }) {
+export default function FeedCard({ entry, taxonomy, pdlCache, coverage, onOperatorClick, onContractorClick }) {
   const [expanded, setExpanded] = useState(false)
   const operator = entry.operator?.name
   const contractor = entry.hiring_entity?.name
@@ -121,11 +137,11 @@ export default function FeedCard({ entry, taxonomy, pdlCache, onOperatorClick, o
         <span><span className="text-gray-400">Hiring:</span> {contractor
           ? <button className="text-blue-700 font-medium hover:underline" onClick={e => { e.stopPropagation(); onContractorClick?.(conSlug, contractor, entry.id) }}>{contractor}</button>
           : <span className="text-gray-700">—</span>}
-          <SizeBadge tier={contractorTier} /></span>
+          <SizeBadge tier={contractorTier} /><ContactsBadge coverage={coverage} company={contractor} /></span>
         <span><span className="text-gray-400">Operator:</span> {operator
           ? <button className="text-blue-700 hover:underline" onClick={e => { e.stopPropagation(); onOperatorClick?.(opSlug, operator, entry.id) }}>{operator}</button>
           : <span className="text-gray-700">—</span>}
-          <SizeBadge tier={operatorTier} /></span>
+          <SizeBadge tier={operatorTier} /><ContactsBadge coverage={coverage} company={operator} /></span>
         {entry.mob_window?.start && (
           <span className="ml-auto font-medium text-gray-700">
             {entry.mob_window.start}{entry.mob_window.end ? ` → ${entry.mob_window.end}` : ''}

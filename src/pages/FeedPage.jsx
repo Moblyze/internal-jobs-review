@@ -1,5 +1,5 @@
 // src/pages/FeedPage.jsx
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import SEO from '../components/SEO'
 import FeedFilters from '../components/feed/FeedFilters'
 import FeedCard from '../components/feed/FeedCard'
@@ -43,6 +43,19 @@ export default function FeedPage() {
   const pdlCache = usePdlCache()
   const [companyModal, setCompanyModal] = useState(null)
 
+  // Per-company contact-coverage counts (counts only — no PII). Drives the small
+  // "N identified · M reachable" badge on each card. Best-effort: cards render
+  // fine without it.
+  const [coverage, setCoverage] = useState({})
+  useEffect(() => {
+    let cancelled = false
+    fetch(`${import.meta.env.BASE_URL || '/'}data/feed/contact_coverage.json`)
+      .then(r => r.ok ? r.json() : {})
+      .then(data => { if (!cancelled) setCoverage(data || {}) })
+      .catch(() => {})
+    return () => { cancelled = true }
+  }, [])
+
   const filtered = useMemo(() => applyFilters(entries, filters), [entries, filters])
 
   return (
@@ -69,6 +82,7 @@ export default function FeedPage() {
             entry={entry}
             taxonomy={taxonomy}
             pdlCache={pdlCache}
+            coverage={coverage}
             onOperatorClick={(slug, name, entryId) => setCompanyModal({ slug, name, entryId })}
             onContractorClick={(slug, name, entryId) => setCompanyModal({ slug, name, entryId })}
           />

@@ -29,7 +29,8 @@
     "ingest-feed": "node scripts/feed-ingest/index.js",
     "discover-decision-makers": "node scripts/discover-decision-makers.js",
     "prewarm-company-overviews": "node scripts/prewarm-company-overviews.js",
-    "prewarm-contacts": "node scripts/prewarm-contacts.js"
+    "prewarm-contacts": "node scripts/prewarm-contacts.js",
+    "build-contact-coverage": "node scripts/build-contact-coverage.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.74.0",
