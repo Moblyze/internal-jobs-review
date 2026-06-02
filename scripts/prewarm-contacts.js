@@ -38,7 +38,7 @@ const WORKER_BASE = process.env.PDL_COMPANY_FEED_BASE || 'https://pdl-company-fe
 const ORIGIN = process.env.PREWARM_ORIGIN || 'https://moblyze.github.io'
 const CONTACTS_PER_COMPANY = Number(process.env.PREWARM_CONTACTS_PER_COMPANY || 2)
 const MAX_PER_RUN = Number(process.env.PREWARM_MAX_PER_RUN || 25)
-const PER_REQUEST_TIMEOUT_MS = 30_000
+const PER_REQUEST_TIMEOUT_MS = 45_000
 
 function parseArgs() {
   const args = { dryRun: false, max: MAX_PER_RUN, limit: null }
@@ -51,14 +51,14 @@ function parseArgs() {
   return args
 }
 
-async function enrichPerson({ name, company, linkedin_url }) {
+async function enrichPerson({ name, company, linkedin_url, names }) {
   const controller = new AbortController()
   const t = setTimeout(() => controller.abort(), PER_REQUEST_TIMEOUT_MS)
   try {
     const res = await fetch(`${WORKER_BASE}/api/person/enrich`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Origin: ORIGIN },
-      body: JSON.stringify({ name, company, linkedin_url: linkedin_url || null, domain: null, free_only: true }),
+      body: JSON.stringify({ name, company, linkedin_url: linkedin_url || null, domain: null, free_only: true, allow_harvest: true, names: names || [] }),
       signal: controller.signal,
     })
     if (!res.ok) return { error: `http_${res.status}` }
@@ -86,6 +86,7 @@ async function main() {
   for (const company of ranked) {
     const dm = decisionMakers[company.name.toLowerCase()]
     const top = pickTopContacts(dm?.contacts, CONTACTS_PER_COMPANY)
+    const dmNames = (dm?.contacts || []).map(c => c.name).filter(Boolean)
     for (const c of top) {
       worklist.push({
         company: company.name,
@@ -94,6 +95,7 @@ async function main() {
         name: c.name,
         persona: c.persona || 'other',
         linkedin_url: c.linkedin_url || c.source_url || null,
+        names: dmNames,
       })
     }
   }
