@@ -117,7 +117,7 @@ async function main() {
   }
 
   let attempted = 0   // real lookups (cache misses) — paced against the cap
-  let found = 0, cachedHits = 0, misses = 0, stopped = null
+  let found = 0, cachedHits = 0, misses = 0, skippedNoDomain = 0, stopped = null
 
   for (const w of worklist) {
     if (attempted >= args.max) { stopped = 'per_run_cap'; break }
@@ -125,6 +125,10 @@ async function main() {
 
     if (r.error === 'daily_cap') { stopped = 'free_caps_exhausted'; break }
     if (r.error) { console.log(`  · ${w.name} @ ${w.company} → error (${r.error})`); continue }
+
+    // No domain to search on (company website not cached yet) — costs nothing and
+    // doesn't count against the cap; a later run retries once the domain is known.
+    if (r.skipped) { skippedNoDomain++; continue }
 
     if (r.cached) { cachedHits++; if (r.email) console.log(`  ✓ ${w.name} @ ${w.company} → cached ${r.email}`); continue }
 
@@ -139,7 +143,7 @@ async function main() {
   }
 
   console.log('')
-  console.log(`[prewarm-contacts] done · ${found} new emails · ${cachedHits} already cached · ${misses} no-result · ${attempted} free lookups spent`)
+  console.log(`[prewarm-contacts] done · ${found} new emails · ${cachedHits} already cached · ${misses} no-result · ${skippedNoDomain} skipped (no domain) · ${attempted} free lookups spent`)
   if (stopped === 'per_run_cap') console.log(`[prewarm-contacts] stopped at per-run cap (${args.max}); remaining targets will be picked up next run.`)
   if (stopped === 'free_caps_exhausted') console.log(`[prewarm-contacts] stopped: free enrichment caps reached for today. PDL (paid) is intentionally not used here.`)
 }
