@@ -139,6 +139,16 @@ function letterAvatar(name) {
   return tokens.slice(0, 2).map(t => t[0].toUpperCase()).join('') || '?'
 }
 
+// Resolve a contact's LinkedIn URL the SAME way the prewarm does (prefer the
+// explicit linkedin_url, else a source_url that happens to be LinkedIn). The
+// enrichment cache is keyed by this, so a mismatch here silently misses emails
+// the prewarm already cached under the linkedin_url key.
+function contactLinkedin(p) {
+  if (p.linkedin_url && /linkedin\.com/i.test(p.linkedin_url)) return p.linkedin_url
+  if (p.source_url && /linkedin\.com/i.test(p.source_url)) return p.source_url
+  return null
+}
+
 function AgentContactCard({ p, companyName, entryId, companyDomain }) {
   const [feedback, setFeedback] = useState(null)
   const [enriched, setEnriched] = useState(null) // { email, phone, source, confidence, cached } | null
@@ -157,8 +167,7 @@ function AgentContactCard({ p, companyName, entryId, companyDomain }) {
     if (enriching) return
     setEnriching(true)
     setEnrichError(null)
-    const linkedin = p.source_url && /linkedin\.com/i.test(p.source_url) ? p.source_url : null
-    const result = await enrichPerson({ linkedin_url: linkedin, name: p.name, company: companyName, domain: companyDomain })
+    const result = await enrichPerson({ linkedin_url: contactLinkedin(p), name: p.name, company: companyName, domain: companyDomain })
     setEnriching(false)
     if (result?.error) {
       setEnrichError(result.error === 'daily_cap' || result.error === 'credits_exhausted' ? result.error : 'error')
@@ -178,15 +187,14 @@ function AgentContactCard({ p, companyName, entryId, companyDomain }) {
     if (p.email || enriched) return
     let cancelled = false
     setCacheChecking(true)
-    const linkedin = p.source_url && /linkedin\.com/i.test(p.source_url) ? p.source_url : null
-    lookupCachedPerson({ linkedin_url: linkedin, name: p.name, company: companyName, domain: companyDomain })
+    lookupCachedPerson({ linkedin_url: contactLinkedin(p), name: p.name, company: companyName, domain: companyDomain })
       .then(result => {
         if (cancelled) return
         if (result?.email || result?.phone) setEnriched(result)
       })
       .finally(() => { if (!cancelled) setCacheChecking(false) })
     return () => { cancelled = true }
-  }, [p.source_url, p.name, companyName, companyDomain])
+  }, [p.linkedin_url, p.source_url, p.name, companyName, companyDomain])
 
   function handleFeedback(signal) {
     if (feedback === signal) return
