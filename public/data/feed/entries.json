@@ -2,6 +2,112 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/final-steam-generators-delivered-for-akkuyu"
+      }
+    ],
+    "headline": "Final Steam Generators Delivered for Akkuyu NPP Unit 4 — Reactor Hall Equipment Complete",
+    "body": "The arrival of the set of four steam generators for the fourth unit at Turkey’s Akkuyu Nuclear Power Plant completes the delivery of key reactor hall equipment.",
+    "url": "https://www.world-nuclear-news.org//articles/final-steam-generators-delivered-for-akkuyu",
+    "published_at": "2026-06-03T13:26:13.000Z",
+    "hash": "1a34dfc9cd3c699b",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "vessel_mob",
+    "region": "turkey",
+    "country": "turkey",
+    "tldr": "Delivery of the fourth and final set of steam generators to Akkuyu Nuclear Power Plant Unit 4 signals reactor hall equipment completion, pointing toward imminent hookup and commissioning activity requiring specialist nuclear construction and commissioning trades.",
+    "operator": {
+      "name": "Akkuyu Nuclear JSC",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Akkuyu Nuclear Power Plant Unit 4",
+    "scope": [
+      "reactor_hall_equipment_install",
+      "steam_generator_delivery",
+      "huc"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Commissioning Engineer",
+        "Mechanical Completion Engineer",
+        "Reactor Systems Superintendent",
+        "Nuclear Construction Manager",
+        "Steam Generator Installation Supervisor",
+        "HSE Lead – Nuclear",
+        "Hookup & Commissioning Coordinator"
+      ],
+      "skills": [
+        "nuclear power plant construction",
+        "steam generator installation",
+        "reactor hall equipment",
+        "mechanical completion",
+        "VVER commissioning",
+        "hookup and commissioning",
+        "nuclear quality assurance"
+      ],
+      "certs_freetext": [
+        "Nuclear Safety Training",
+        "VVER systems qualification",
+        "ISO 19443 QMS",
+        "Radiation Protection Certification"
+      ],
+      "geo_rtw": "Turkey or internationally mobile; note Rosatom project — Western recruiter applicability limited",
+      "project_experience": [
+        "Hinkley Point C",
+        "Barakah NPP",
+        "Olkiluoto 3",
+        "Vogtle Units 3&4",
+        "Flamanville 3"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"nuclear power plant\" OR \"NPP\" OR \"VVER\") AND (\"commissioning engineer\" OR \"mechanical completion\" OR \"hookup\" OR \"steam generator\" OR \"reactor hall\") AND (\"nuclear construction\" OR \"nuclear commissioning\" OR \"startup engineer\") AND (Turkey OR Akkuyu OR \"international nuclear\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], with all four steam generators now delivered to Akkuyu NPP Unit 4, commissioning activity is ramping fast. Your nuclear HUC background looks highly relevant — open to a quick conversation about roles on-site?",
+      "email_subject": "Akkuyu NPP Unit 4 – Nuclear Commissioning Roles | Equipment Delivery Complete",
+      "email_body": "Hi [Name],\n\nThe final set of steam generators has just been delivered to Akkuyu Nuclear Power Plant Unit 4 in Turkey, completing reactor hall equipment installation and signalling an accelerating move toward hookup and commissioning.\n\nGiven your experience in nuclear construction and commissioning, I wanted to reach out directly — there are likely to be specialist requirements for commissioning engineers, mechanical completion leads, and startup specialists in the near term.\n\nWould you be open to a brief call to discuss how your background aligns with what's coming up on this project?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named project (Akkuyu NPP Unit 4) milestone — final steam generator delivery completing reactor hall equipment — signals imminent hookup and commissioning phase with discrete labor demand in nuclear construction.",
+    "phase": "construction",
+    "phase_evidence": "Article states delivery of steam generators 'completes the delivery of key reactor hall equipment' for Unit 4, indicating late-stage construction ahead of commissioning.",
+    "construction_subphase": "commissioning",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "ed3b6e97-3dfd-4bf5-95b7-92efc0f803b5",
+    "ingested_at": "2026-06-03T19:23:42.007Z",
+    "source_published_at": "2026-06-03T13:26:13.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/day--zimmermann-deep-fission-partner-to-build-underground-small-modular-reactor-302788879.html"

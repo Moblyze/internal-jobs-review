@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-06-02T19:21:18.047Z"
+    "last_updated_at": "2026-06-03T19:25:13.826Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -5111,6 +5111,66 @@
         "email": null,
         "phone": null,
         "location": "Petaluma, CA, USA"
+      }
+    ]
+  },
+  "akkuyu nuclear jsc": {
+    "discovered_at": "2026-06-03T19:25:13.826Z",
+    "contacts": [
+      {
+        "name": "Marina Karaseva",
+        "title": "HR Director",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "http://www.akkuyu.com/first-young-turkish-nuclear-power-engineers-received-job-offers-for-akkuyu-npp-under-construction/update",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Ankara, Turkey"
+      },
+      {
+        "name": "Sergey Butskikh",
+        "title": "Chief Executive Officer (CEO)",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://rosatomnewsletter.com/2025/06/23/akkuyu-powering-turkeys-future/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Mersin, Turkey"
+      },
+      {
+        "name": "Denis Sezemin",
+        "title": "Construction Organization Director",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://en.wikipedia.org/wiki/Akkuyu_Nuclear_Power_Plant",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Mersin, Turkey"
+      },
+      {
+        "name": "Konstantin Ryzhak",
+        "title": "Managing Director",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "http://www.akkuyu.com/first-young-turkish-nuclear-power-engineers-received-job-offers-for-akkuyu-npp-under-construction/update",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Ankara, Turkey"
+      },
+      {
+        "name": "Anton Dedusenko",
+        "title": "Chairman of the Board",
+        "persona": "other",
+        "linkedin_url": null,
+        "source_url": "https://www.meforum.org/mef-online/turkey-weighs-forcible-takeover-of-russian-built-nuclear-power-plant",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Moscow, Russia"
       }
     ]
   }
