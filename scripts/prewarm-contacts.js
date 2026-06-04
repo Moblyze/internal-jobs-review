@@ -51,14 +51,19 @@ function parseArgs() {
   return args
 }
 
-async function enrichPerson({ name, company, linkedin_url, names }) {
+async function enrichPerson({ name, company, linkedin_url, names, mode }) {
   const controller = new AbortController()
   const t = setTimeout(() => controller.abort(), PER_REQUEST_TIMEOUT_MS)
   try {
+    // 'pattern' mode derives ONLY from a known domain pattern — $0, no Hunter/GP/PDL,
+    // no harvest. 'free' mode is the full free-tier cascade + one-shot harvest.
+    const payload = mode === 'pattern'
+      ? { name, company, linkedin_url: linkedin_url || null, domain: null, pattern_only: true }
+      : { name, company, linkedin_url: linkedin_url || null, domain: null, free_only: true, allow_harvest: true, names: names || [] }
     const res = await fetch(`${WORKER_BASE}/api/person/enrich`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Origin: ORIGIN },
-      body: JSON.stringify({ name, company, linkedin_url: linkedin_url || null, domain: null, free_only: true, allow_harvest: true, names: names || [] }),
+      body: JSON.stringify(payload),
       signal: controller.signal,
     })
     if (!res.ok) return { error: `http_${res.status}` }
@@ -80,15 +85,21 @@ async function main() {
   let ranked = rankHiringTargets(entries)
   if (args.limit) ranked = ranked.slice(0, args.limit)
 
-  // Build the worklist: top-N contacts at each high-relevance company that we
-  // actually have decision-makers for and that still need an email.
+  // Build the worklist per high-relevance company we have decision-makers for:
+  //   - top-N contacts → 'free' mode (Hunter/GetProspect free tiers + one-shot harvest)
+  //   - every OTHER decision-maker still needing an email → 'pattern' mode, which
+  //     derives for free from the company's known pattern (and is a no-op miss if
+  //     no pattern exists yet). This captures the rest of a company at $0 once a
+  //     single confirmed email has established the pattern.
   const worklist = []
   for (const company of ranked) {
     const dm = decisionMakers[company.name.toLowerCase()]
     const top = pickTopContacts(dm?.contacts, CONTACTS_PER_COMPANY)
+    const topKeys = new Set(top.map(c => c.source_url || c.name))
     const dmNames = (dm?.contacts || []).map(c => c.name).filter(Boolean)
     for (const c of top) {
       worklist.push({
+        mode: 'free',
         company: company.name,
         score: company.totalScore,
         matched: company.matched,
@@ -96,6 +107,17 @@ async function main() {
         persona: c.persona || 'other',
         linkedin_url: c.linkedin_url || c.source_url || null,
         names: dmNames,
+      })
+    }
+    for (const c of (dm?.contacts || [])) {
+      if (!c || !c.name || c.email) continue
+      if (topKeys.has(c.source_url || c.name)) continue
+      worklist.push({
+        mode: 'pattern',
+        company: company.name,
+        name: c.name,
+        persona: c.persona || 'other',
+        linkedin_url: c.linkedin_url || c.source_url || null,
       })
     }
   }
@@ -110,23 +132,35 @@ async function main() {
   })
   console.log('')
 
+  const freeCount = worklist.filter(w => w.mode === 'free').length
+  const patternCount = worklist.length - freeCount
+
   if (args.dryRun) {
-    console.log('[prewarm-contacts] --dry-run: planned lookups (no spend):')
-    worklist.slice(0, args.max).forEach((w, i) => {
-      console.log(`  ${String(i + 1).padStart(3)}. ${w.name} (${w.persona}) @ ${w.company}`)
+    console.log(`[prewarm-contacts] --dry-run: ${freeCount} free-tier lookups (cap ${args.max}) + ${patternCount} pattern-only derivations (free):`)
+    worklist.slice(0, args.max + patternCount).forEach((w, i) => {
+      console.log(`  ${String(i + 1).padStart(3)}. [${w.mode === 'pattern' ? 'patt' : 'free'}] ${w.name} (${w.persona}) @ ${w.company}`)
     })
     return
   }
 
-  let attempted = 0   // real lookups (cache misses) — paced against the cap
-  let found = 0, cachedHits = 0, misses = 0, skippedNoDomain = 0, stopped = null
+  let attempted = 0   // real free-tier lookups (cache misses) — paced against the cap
+  let found = 0, cachedHits = 0, misses = 0, skippedNoDomain = 0, derivedFree = 0, stopped = null
 
   for (const w of worklist) {
-    if (attempted >= args.max) { stopped = 'per_run_cap'; break }
+    const isPattern = w.mode === 'pattern'
+    // The per-run cap and the cap-stop apply ONLY to free-tier lookups. Pattern
+    // derivations are $0, so they always run regardless of the cap.
+    if (!isPattern && attempted >= args.max) { stopped = 'per_run_cap'; break }
     const r = await enrichPerson(w)
 
-    if (r.error === 'daily_cap') { stopped = 'free_caps_exhausted'; break }
+    if (r.error === 'daily_cap') { if (isPattern) continue; stopped = 'free_caps_exhausted'; break }
     if (r.error) { console.log(`  · ${w.name} @ ${w.company} → error (${r.error})`); continue }
+
+    if (isPattern) {
+      if (r.cached && r.email) { cachedHits++; continue }
+      if (r.email) { derivedFree++; console.log(`  ◇ ${w.name} @ ${w.company} → ${r.email} (pattern, free)`) }
+      continue
+    }
 
     // No domain to search on (company website not cached yet) — costs nothing and
     // doesn't count against the cap; a later run retries once the domain is known.
@@ -145,7 +179,7 @@ async function main() {
   }
 
   console.log('')
-  console.log(`[prewarm-contacts] done · ${found} new emails · ${cachedHits} already cached · ${misses} no-result · ${skippedNoDomain} skipped (no domain) · ${attempted} free lookups spent`)
+  console.log(`[prewarm-contacts] done · ${found} new emails · ${derivedFree} derived free (pattern) · ${cachedHits} already cached · ${misses} no-result · ${skippedNoDomain} skipped (no domain) · ${attempted} free lookups spent`)
   if (stopped === 'per_run_cap') console.log(`[prewarm-contacts] stopped at per-run cap (${args.max}); remaining targets will be picked up next run.`)
   if (stopped === 'free_caps_exhausted') console.log(`[prewarm-contacts] stopped: free enrichment caps reached for today. PDL (paid) is intentionally not used here.`)
 }
