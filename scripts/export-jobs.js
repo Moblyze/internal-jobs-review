@@ -93,6 +93,9 @@ function parseRow(row, sheetName, columnMap) {
   return job;
 }
 
+// Rate limiting helper to avoid Google Sheets API quota exceeded errors
+const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
 async function fetchAllJobs(auth) {
   const sheets = google.sheets({ version: 'v4', auth });
 
@@ -100,6 +103,9 @@ async function fetchAllJobs(auth) {
   const spreadsheet = await sheets.spreadsheets.get({
     spreadsheetId: await getSpreadsheetId(sheets),
   });
+
+  // Rate limit: Wait between API calls to avoid quota exceeded errors
+  await sleep(1200);
 
   const allJobs = [];
 
@@ -126,6 +132,10 @@ async function fetchAllJobs(auth) {
       spreadsheetId: spreadsheet.data.spreadsheetId,
       range: `${sheetName}!A:N`, // All columns from the sheet (A-N = 14 columns, includes Employment Type)
     });
+
+    // Rate limit: Wait 1.2 seconds between API calls to avoid quota exceeded errors
+    // Google Sheets API limit is ~100 requests per 100 seconds per user
+    await sleep(1200);
 
     const rows = response.data.values || [];
 
@@ -171,6 +181,9 @@ async function getSpreadsheetId(sheets) {
     fields: 'files(id, name)',
     spaces: 'drive',
   });
+
+  // Rate limit: Wait between API calls to avoid quota exceeded errors
+  await sleep(1200);
 
   if (!response.data.files || response.data.files.length === 0) {
     throw new Error(`Spreadsheet "${SPREADSHEET_NAME}" not found. Make sure it's shared with the service account.`);
@@ -328,6 +341,9 @@ async function fetchAggregatorJobs(auth) {
       spreadsheetId: AGGREGATOR_SPREADSHEET_ID,
       range: 'Aggregator Jobs!A2:P', // Skip header row
     });
+
+    // Rate limit: Wait between API calls to avoid quota exceeded errors
+    await sleep(1200);
 
     const rows = response.data.values || [];
     const jobs = rows.map(parseAggregatorRow).filter(j => j !== null);
