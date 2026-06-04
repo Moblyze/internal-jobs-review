@@ -58,7 +58,10 @@ async function enrichPerson({ name, company, linkedin_url, names, mode }) {
     // 'pattern' mode derives ONLY from a known domain pattern — $0, no Hunter/GP/PDL,
     // no harvest. 'free' mode is the full free-tier cascade + one-shot harvest.
     const payload = mode === 'pattern'
-      ? { name, company, linkedin_url: linkedin_url || null, domain: null, pattern_only: true }
+      // free_only is belt-and-suspenders: pattern_only already short-circuits before
+      // any provider, but if a Worker without pattern_only support is ever live, free_only
+      // still guarantees the paid PDL tier is never hit by these extra derivations.
+      ? { name, company, linkedin_url: linkedin_url || null, domain: null, pattern_only: true, free_only: true }
       : { name, company, linkedin_url: linkedin_url || null, domain: null, free_only: true, allow_harvest: true, names: names || [] }
     const res = await fetch(`${WORKER_BASE}/api/person/enrich`, {
       method: 'POST',
