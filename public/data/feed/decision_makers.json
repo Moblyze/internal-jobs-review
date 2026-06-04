@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-06-03T19:25:13.826Z"
+    "last_updated_at": "2026-06-04T13:12:11.901Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -5171,6 +5171,175 @@
         "email": null,
         "phone": null,
         "location": "Moscow, Russia"
+      }
+    ]
+  },
+  "deep fission": {
+    "discovered_at": "2026-06-04T13:12:11.901Z",
+    "contacts": [
+      {
+        "name": "Michael Brasel",
+        "title": "Chief Operating Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/michael-brasel",
+        "source_url": "https://www.deepfission.com/about-us/executive-leadership",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Brian Treadway",
+        "title": "Senior Project Director",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://www.deepfission.com/about-us/world-class-team",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Adam Rose",
+        "title": "Principal Nuclear Operations Engineer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/adam-rose-5b089b11",
+        "source_url": "https://deepfission.com/about/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Athens, AL, USA"
+      },
+      {
+        "name": "Elizabeth (Liz) Muller",
+        "title": "Co-Founder, President & CEO",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/elizabethmuller",
+        "source_url": "https://ir.deepfission.com/company-info/executive-team",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Berkeley, CA, USA"
+      },
+      {
+        "name": "Mark Pérès",
+        "title": "Vice President, Engineering",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://www.zoominfo.com/p/Anya-Scuderi/6191403730",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "greenland mines ltd": {
+    "discovered_at": "2026-06-04T13:12:11.901Z",
+    "contacts": [
+      {
+        "name": "Bo Møller Stensgaard",
+        "title": "President",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/bomoellerstensgaard",
+        "source_url": "https://www.prnewswire.com/news-releases/klotho-neurosciences-acquires-greenland-mines-corp-securing-control-of-a-68-billion-palladium-gold-platinum-and-critical-mineral-deposit-in-the-worlds-most-strategically-vital-emerging-trade-corridor-302703540.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Copenhagen, Denmark"
+      },
+      {
+        "name": "Hans Jensen",
+        "title": "Country Manager, Logistics & Studies",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.stocktitan.net/sec-filings/KLTO/8-k-klotho-neurosciences-inc-reports-material-event-82fa4615c5fb.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Greenland"
+      },
+      {
+        "name": "Gustavo Delendatti",
+        "title": "Vice President, Exploration",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/gustavo-delendatti-21576916",
+        "source_url": "https://greenlandmines.com/about/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Mendoza, Argentina"
+      },
+      {
+        "name": "Jakob Kløve Keiding",
+        "title": "Chief Geologist",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://www.prnewswire.com/news-releases/greenland-mines-appoints-dr-jakob-klove-keiding-as-chief-geologist-to-lead-next-phase-at-skaergaard-302735850.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Denmark"
+      }
+    ]
+  },
+  "encore energy corp.": {
+    "discovered_at": "2026-06-04T13:12:11.901Z",
+    "contacts": [
+      {
+        "name": "Dain McCoig",
+        "title": "Chief Operating Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/dain-mccoig-pe-5701b611",
+        "source_url": "https://www.prnewswire.com/news-releases/encore-energy-announces-continued-positive-uranium-extraction-rates-promotes-mr-dain-mccoig-to-chief-operating-officer-302514727.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Corpus Christi, TX, USA"
+      },
+      {
+        "name": "Daniel Calderon",
+        "title": "Director of Texas Operations",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/daniel-calderon-4b42bb31",
+        "source_url": "https://www.prnewswire.com/news-releases/encore-energy-increases-uranium-extraction-at-alta-mesa-isr-uranium-central-processing-plant-appoints-director-and-site-management-302421781.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Kingsville, TX, USA"
+      },
+      {
+        "name": "Richard H. Little",
+        "title": "Chief Executive Officer and Director",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/richard-h-little-99a8b378",
+        "source_url": "https://encoreuranium.com/corporate/management/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Ashley Forbes",
+        "title": "Vice President, Permitting and Regulatory Affairs",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://www.prnewswire.com/news-releases/encore-energy-corp-appoints-ms-ashley-forbes-as-vice-president-permitting-and-regulatory-affairs-302571141.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Dallas, TX, USA"
+      },
+      {
+        "name": "Kevin Kremke",
+        "title": "Chief Financial Officer",
+        "persona": "other",
+        "linkedin_url": null,
+        "source_url": "https://encoreuranium.com/corporate/management/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": null
       }
     ]
   }

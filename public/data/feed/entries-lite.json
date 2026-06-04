@@ -1,5 +1,131 @@
 [
   {
+    "id": "c92d61bb-1107-4576-aa6c-4becb28a3d1e",
+    "ingested_at": "2026-06-04T13:10:01.002Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/us-smr-developers-announce-partnerships"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "united-states",
+    "country": "united_states",
+    "headline": "Day & Zimmermann to Lead Pre-Construction & Above-Ground Works for Deep Fission Gravity SMR",
+    "operator": {
+      "name": "Deep Fission",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Day & Zimmermann",
+      "matched_company_slug": null
+    },
+    "project_name": "Deep Fission Gravity Reactor",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
+    "id": "e3f88628-e8c7-4cab-9db3-b2606a1960ae",
+    "ingested_at": "2026-06-04T13:10:01.002Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/greenland-mines-completes-site-visit-to-sarfartoq-nd-pr-rare-earth-magnet-project-in-greenland-prepares-2026-field-program-302790745.html"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "survey_geophysical"
+    ],
+    "signal_type": "lease_round",
+    "region": "greenland",
+    "country": "greenland",
+    "headline": "Greenland Mines Completes Site Visit to Sarfartoq Nd-Pr Rare Earth Project; 2026 Field Program Planned",
+    "operator": {
+      "name": "Greenland Mines Ltd",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Greenland Mines Ltd",
+      "matched_company_slug": null
+    },
+    "project_name": "Sarfartoq Nd-Pr Rare Earth Magnet Project",
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": "2026-Q4",
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
+    "id": "ece8f7f0-3723-4672-9dfc-4a1d4f3bce9f",
+    "ingested_at": "2026-06-04T13:10:01.002Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/encore-energy-announces-the-successful-completion-of-construction-at-the-upper-spring-creek-isr-uranium-project-302791154.html"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "us-southwest",
+    "country": "united_states",
+    "headline": "enCore Energy Completes Phase 1 Construction at Upper Spring Creek ISR Uranium Project",
+    "operator": {
+      "name": "enCore Energy Corp.",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "enCore Energy Corp.",
+      "matched_company_slug": null
+    },
+    "project_name": "Upper Spring Creek ISR Uranium Project",
+    "mob_window": {
+      "start": "2026-Q2",
+      "end": "2026-Q4",
+      "duration_months": 6
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "commissioning",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": []
+  },
+  {
     "id": "ed3b6e97-3dfd-4bf5-95b7-92efc0f803b5",
     "ingested_at": "2026-06-03T19:23:42.007Z",
     "sources": [
