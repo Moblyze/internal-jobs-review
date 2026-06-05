@@ -52,6 +52,11 @@ async function authenticate() {
   return await auth.getClient();
 }
 
+// Add delay to prevent hitting Google Sheets API rate limits
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 function parseRow(row, sheetName, columnMap) {
   // Skip empty rows
   if (!row || row.length === 0) {
@@ -121,6 +126,9 @@ async function fetchAllJobs(auth) {
     }
 
     console.log(`Fetching jobs from "${sheetName}"...`);
+
+    // Add delay to prevent hitting Google Sheets API rate limits
+    await sleep(100);
 
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: spreadsheet.data.spreadsheetId,
@@ -324,6 +332,9 @@ async function fetchAggregatorJobs(auth) {
 
   console.log('📊 Fetching aggregator jobs...');
   try {
+    // Add delay to prevent hitting Google Sheets API rate limits
+    await sleep(100);
+
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: AGGREGATOR_SPREADSHEET_ID,
       range: 'Aggregator Jobs!A2:P', // Skip header row
