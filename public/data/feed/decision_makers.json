@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-06-04T13:12:11.901Z"
+    "last_updated_at": "2026-06-05T00:55:18.673Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -5340,6 +5340,66 @@
         "email": null,
         "phone": null,
         "location": null
+      }
+    ]
+  },
+  "gold fields": {
+    "discovered_at": "2026-06-05T00:55:18.673Z",
+    "contacts": [
+      {
+        "name": "Mariëtte Steyn",
+        "title": "Executive Vice President: People and Sustainability",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/mari%C3%ABtte-steyn-38991b1a",
+        "source_url": "https://www.goldfields.com/executive-committee.php",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Sandton, South Africa"
+      },
+      {
+        "name": "Gerrit Lotz",
+        "title": "VP People and Organisational Effectiveness",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/gerrit-lotz-89517b14",
+        "source_url": "https://www.linkedin.com/in/gerrit-lotz-89517b14",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Johannesburg, South Africa"
+      },
+      {
+        "name": "Steve Martin",
+        "title": "Head of HR – South Deep Mine",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/steve-martin-430781b",
+        "source_url": "https://www.goldfields-southdeep.co.za/about-us/our-leadership",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Johannesburg, South Africa"
+      },
+      {
+        "name": "Catherine Abadji",
+        "title": "Vice President & Head of Human Resources and Corporate Affairs, West Africa",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/catherine-abadji-18442937",
+        "source_url": "https://www.goldfields-ghana.com/our-leadership.php",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Accra, Ghana"
+      },
+      {
+        "name": "Martin Preece",
+        "title": "Chief Operating Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/martin-preece-9647547",
+        "source_url": "https://www.goldfields.com/reports/annual-report-2023/chief-executive-officers-report.php",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Johannesburg, South Africa"
       }
     ]
   }

@@ -2,6 +2,109 @@
   {
     "sources": [
       {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/gold-fields-cree-first-nation-sign-iba-for-windfall-project-in-quebec/"
+      }
+    ],
+    "headline": "Gold Fields & Cree First Nation Sign IBA for Windfall Mine Project in Quebec",
+    "body": "Gold Fields plans to bring the mine into production by the end of 2026 or early 2027.",
+    "url": "https://www.mining.com/gold-fields-cree-first-nation-sign-iba-for-windfall-project-in-quebec/",
+    "published_at": "2026-06-03T00:08:42.000Z",
+    "hash": "9a141e27282e10bb",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "regulatory",
+    "region": "quebec-canada",
+    "country": "canada",
+    "tldr": "Gold Fields has signed an Impact and Benefit Agreement with the Cree First Nation for the Windfall mine in Quebec, targeting production by end-2026 or early 2027. This milestone clears a key pre-construction hurdle and signals an approaching ramp-up hiring window.",
+    "operator": {
+      "name": "Gold Fields",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Gold Fields",
+      "matched_company_slug": null
+    },
+    "project_name": "Windfall",
+    "scope": [
+      "mine_development",
+      "civil_works",
+      "underground_construction"
+    ],
+    "mob_window": {
+      "start": "2025-Q3",
+      "end": "2026-Q4",
+      "duration_months": 18
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mine Construction Manager",
+        "Underground Mining Superintendent",
+        "HSE Manager",
+        "Construction Planner",
+        "Mining Project Manager",
+        "Site Manager",
+        "Electrical Supervisor",
+        "Mechanical Supervisor"
+      ],
+      "skills": [
+        "underground mining",
+        "mine development",
+        "construction management",
+        "HSE",
+        "project planning",
+        "Quebec mining"
+      ],
+      "certs_freetext": [
+        "Quebec Mining Certificate",
+        "WHMIS",
+        "First Aid"
+      ],
+      "geo_rtw": "Canada — Quebec right-to-work preferred; bilingual (French/English) an asset",
+      "project_experience": [
+        "Eleonore Mine",
+        "Canadian Malartic",
+        "Detour Lake",
+        "Lac des Iles"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Superintendent / Manager",
+      "boolean_search": "(\"mine construction\" OR \"underground mining\" OR \"mine development\") AND (\"construction manager\" OR \"site manager\" OR \"superintendent\" OR \"project manager\") AND (\"Quebec\" OR \"Abitibi\") AND (\"Gold Fields\" OR \"Windfall\" OR \"Osisko\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Gold Fields just signed the IBA for the Windfall mine in Quebec — targeting production by end-2026. Ramp-up hiring is approaching. Would your availability align with a senior construction role on this project?",
+      "email_subject": "Windfall Mine (Gold Fields) — Senior Construction Roles Approaching",
+      "email_body": "Hi [Name],\n\nGold Fields has just signed an Impact and Benefit Agreement with the Cree First Nation for the Windfall gold mine in Quebec, clearing a significant pre-construction milestone. The project is targeting first production by end-2026 or early 2027, which puts active construction ramp-up within the next 6–12 months.\n\nGiven your background in [underground mining / mine construction / HSE], I wanted to reach out early — these roles tend to close quickly once mobilization kicks in.\n\nWould you be open to a brief call to discuss how your experience aligns with what Gold Fields will be looking for?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "IBA signing is a discrete regulatory/permitting milestone for the named Windfall mining project under operator Gold Fields, with a stated production target of end-2026/early 2027 implying near-term construction ramp-up.",
+    "phase": "pre_sanction",
+    "phase_evidence": "The article describes an IBA signing — a pre-construction community/regulatory agreement — with production not expected until end-2026 or early 2027, indicating the project has not yet reached FID or full construction sanction.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "1b9190fb-e6a7-47ff-b15b-ef42b4a2169a",
+    "ingested_at": "2026-06-05T00:53:25.400Z",
+    "source_published_at": "2026-06-03T00:08:42.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/greenland-mines-completes-site-visit-to-sarfartoq-nd-pr-rare-earth-magnet-project-in-greenland-prepares-2026-field-program-302790745.html"
