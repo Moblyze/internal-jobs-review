@@ -1,5 +1,90 @@
 [
   {
+    "id": "aadc4d25-6a40-4ad7-add5-6fc41e404002",
+    "ingested_at": "2026-06-05T18:43:05.429Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/bilfinger_offshore_workers_striking_over_pay-05-jun-2026-183868-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "marine_offshore_ops",
+      "process_plant_operations"
+    ],
+    "signal_type": "replacement",
+    "region": "uk-north-sea",
+    "country": "united_kingdom",
+    "headline": "Bilfinger Offshore Workers Strike Over Pay on Ithaca Energy North Sea Assets",
+    "operator": {
+      "name": "Ithaca Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Bilfinger",
+      "matched_company_slug": null
+    },
+    "project_name": null,
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "operating",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": []
+  },
+  {
+    "id": "6f7b3773-eb50-4ade-8140-948d58b3a87b",
+    "ingested_at": "2026-06-05T18:43:05.429Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/ceremony-to-mark-first-concrete-for-uzbekistan-smr"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "central-asia",
+    "country": "uzbekistan",
+    "headline": "First Concrete Poured for Uzbekistan's First SMR – Construction Phase Begins",
+    "operator": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Uzbekistan SMR",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": []
+  },
+  {
     "id": "1b9190fb-e6a7-47ff-b15b-ef42b4a2169a",
     "ingested_at": "2026-06-05T00:53:25.400Z",
     "sources": [

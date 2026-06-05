@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-06-05T00:55:18.673Z"
+    "last_updated_at": "2026-06-05T18:44:49.505Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -5400,6 +5400,44 @@
         "email": null,
         "phone": null,
         "location": "Johannesburg, South Africa"
+      }
+    ]
+  },
+  "bilfinger": {
+    "discovered_at": "2026-06-05T18:44:49.505Z",
+    "contacts": [
+      {
+        "name": "Richard Barnes",
+        "title": "Head of HR & HSEQ",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/richard-barnes-msc-cipd",
+        "source_url": "https://www.linkedin.com/in/richard-barnes-msc-cipd/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Tenisha Middleton",
+        "title": "Human Resources Generalist (Senior Recruiter)",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/tenisha-middleton-hr",
+        "source_url": "https://jobs.bilfinger.com/job/Deer-Park-Project-Manager-Texa-77536/1079830001",
+        "in_target_persona": true,
+        "email": "tenisha.middleton@bilfinger.com",
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Nick Rowlands",
+        "title": "Vice President Operations and Maintenance – Onshore",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.bilfinger.com/en/uk/news-events/press-releases/redefining-operations-and-maintenance-for-a-changing-energy-landscape/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "United Kingdom"
       }
     ]
   }
