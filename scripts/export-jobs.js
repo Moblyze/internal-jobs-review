@@ -93,13 +93,26 @@ function parseRow(row, sheetName, columnMap) {
   return job;
 }
 
+// Helper function to add delay between API calls to avoid quota limits
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 async function fetchAllJobs(auth) {
   const sheets = google.sheets({ version: 'v4', auth });
 
   // Get spreadsheet metadata to find all worksheets
+  const spreadsheetId = await getSpreadsheetId(sheets);
+
+  // Add delay after getting spreadsheet ID
+  await sleep(1500);
+
   const spreadsheet = await sheets.spreadsheets.get({
-    spreadsheetId: await getSpreadsheetId(sheets),
+    spreadsheetId: spreadsheetId,
   });
+
+  // Add delay after getting spreadsheet metadata
+  await sleep(1500);
 
   const allJobs = [];
 
@@ -126,6 +139,9 @@ async function fetchAllJobs(auth) {
       spreadsheetId: spreadsheet.data.spreadsheetId,
       range: `${sheetName}!A:N`, // All columns from the sheet (A-N = 14 columns, includes Employment Type)
     });
+
+    // Add delay between API calls to avoid quota limits (1.5 seconds)
+    await sleep(1500);
 
     const rows = response.data.values || [];
 
@@ -328,6 +344,9 @@ async function fetchAggregatorJobs(auth) {
       spreadsheetId: AGGREGATOR_SPREADSHEET_ID,
       range: 'Aggregator Jobs!A2:P', // Skip header row
     });
+
+    // Add delay to avoid quota limits
+    await sleep(1500);
 
     const rows = response.data.values || [];
     const jobs = rows.map(parseAggregatorRow).filter(j => j !== null);
