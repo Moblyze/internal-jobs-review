@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-06-08T13:33:37.630Z"
+    "last_updated_at": "2026-06-08T18:55:23.594Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -5498,6 +5498,66 @@
         "email": null,
         "phone": null,
         "location": "Cordova, IL, USA"
+      }
+    ]
+  },
+  "sempra infrastructure": {
+    "discovered_at": "2026-06-08T18:55:23.594Z",
+    "contacts": [
+      {
+        "name": "Randall L. Clark",
+        "title": "Senior Vice President and Chief Human Resources Officer",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/randall-clark-7284b52",
+        "source_url": "https://semprainfrastructure.com/who-we-are/leadership-team/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "San Diego, CA, USA"
+      },
+      {
+        "name": "Berkeley Horowitz",
+        "title": "HR Manager - PALNG",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/berkeleyhorowitz",
+        "source_url": "https://www.linkedin.com/in/berkeleyhorowitz/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Marco Alcala",
+        "title": "Senior HR Business Partner",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/marcoalcala57",
+        "source_url": "https://www.linkedin.com/in/marcoalcala57/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "San Diego, CA, USA"
+      },
+      {
+        "name": "Martin Hupka",
+        "title": "President, LNG",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/martin-hupka-50201647",
+        "source_url": "https://semprainfrastructure.com/who-we-are/leadership-team/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "San Diego, CA, USA"
+      },
+      {
+        "name": "Carlos Mauer",
+        "title": "Senior Vice President and Chief Business Officer, Energy Networks",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/carlos-mauer-a56b7a2a9",
+        "source_url": "https://semprainfrastructure.com/who-we-are/leadership-team/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Mexico City, Mexico"
       }
     ]
   }

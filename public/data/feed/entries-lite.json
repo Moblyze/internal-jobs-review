@@ -1,5 +1,47 @@
 [
   {
+    "id": "f3f6663d-9ea7-4ab7-ada3-d3025766bf10",
+    "ingested_at": "2026-06-08T18:53:47.414Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/eca_lng_in_mexico_starts_production-08-jun-2026-183877-article/?rss=true"
+      }
+    ],
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "vessel_mob",
+    "region": "mexico-baja-california",
+    "country": "mexico",
+    "headline": "Sempra Infrastructure ECA LNG Phase 1 Begins Production in Ensenada, Mexico",
+    "operator": {
+      "name": "Sempra Infrastructure",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Sempra Infrastructure",
+      "matched_company_slug": null
+    },
+    "project_name": "ECA LNG",
+    "mob_window": {
+      "start": "2025-Q2",
+      "end": "2025-Q3",
+      "duration_months": 3
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "commissioning",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": []
+  },
+  {
     "id": "d26a8e5c-90c6-4039-b475-85975f7d68fb",
     "ingested_at": "2026-06-08T13:32:06.350Z",
     "sources": [

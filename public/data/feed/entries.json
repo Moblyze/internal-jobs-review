@@ -2,6 +2,115 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/eca_lng_in_mexico_starts_production-08-jun-2026-183877-article/?rss=true"
+      }
+    ],
+    "headline": "Sempra Infrastructure ECA LNG Phase 1 Begins Production in Ensenada, Mexico",
+    "body": "Sempra Infrastructure has begun production at ECA LNG in Ensenada, Mexico, with commercial operations expected to launch in a few months.\n\r\n\r\n\"ECA LNG ...",
+    "url": "https://www.rigzone.com/news/eca_lng_in_mexico_starts_production-08-jun-2026-183877-article/?rss=true",
+    "published_at": "2026-06-08T14:58:08.000Z",
+    "hash": "42feb5356f50927e",
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "vessel_mob",
+    "region": "mexico-baja-california",
+    "country": "mexico",
+    "tldr": "Sempra Infrastructure has started production at ECA LNG in Ensenada, Mexico, with commercial operations expected within months. This commissioning-to-startup transition signals immediate demand for startup specialists, operations technicians, and control-room operators.",
+    "operator": {
+      "name": "Sempra Infrastructure",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Sempra Infrastructure",
+      "matched_company_slug": null
+    },
+    "project_name": "ECA LNG",
+    "scope": [
+      "lng_production",
+      "commissioning",
+      "startup"
+    ],
+    "mob_window": {
+      "start": "2025-Q2",
+      "end": "2025-Q3",
+      "duration_months": 3
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "LNG Commissioning Engineer",
+        "Startup Specialist",
+        "Process Operations Technician",
+        "Control Room Operator",
+        "Commissioning Lead",
+        "LNG Plant Operator",
+        "Operations Superintendent",
+        "Instrument & Control Technician"
+      ],
+      "skills": [
+        "LNG commissioning",
+        "process startup",
+        "DCS control systems",
+        "natural gas liquefaction",
+        "HAZOP",
+        "pre-startup safety review",
+        "PFD/P&ID interpretation",
+        "permit to work"
+      ],
+      "certs_freetext": [
+        "BOSIET",
+        "H2S Alive",
+        "CompEx",
+        "TWIC"
+      ],
+      "geo_rtw": "Mexico or North America — right to work or rotational acceptable",
+      "project_experience": [
+        "Sabine Pass LNG",
+        "Freeport LNG",
+        "Corpus Christi LNG",
+        "Cameron LNG",
+        "Costa Azul LNG",
+        "Altamira LNG"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"LNG\" OR \"liquefied natural gas\") AND (\"commissioning\" OR \"startup\" OR \"plant operator\" OR \"control room operator\") AND (\"process operations\" OR \"DCS\" OR \"liquefaction\" OR \"HAZOP\") AND (\"Mexico\" OR \"Baja California\" OR \"Ensenada\" OR \"rotational\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Sempra Infrastructure's ECA LNG in Ensenada, Mexico has just entered production with commercial ops weeks away. They'll need experienced LNG startup/commissioning specialists now. Are you open to a conversation?",
+      "email_subject": "ECA LNG Mexico — Commissioning & Startup Roles Starting Now",
+      "email_body": "Hi [Name],\n\nSempra Infrastructure has begun production at ECA LNG in Ensenada, Mexico, with commercial operations expected within the next few months. This puts them squarely in the commissioning-to-startup phase — the prime moment for experienced LNG operators, commissioning engineers, and control-room specialists.\n\nGiven your background in LNG commissioning and process startup, I wanted to reach out directly. Roles are likely to mobilise within weeks.\n\nWould you be open to a quick call this week to discuss?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Sempra Infrastructure) and project (ECA LNG) with a clear commissioning-to-startup transition signalling immediate operational staffing demand.",
+    "phase": "construction",
+    "phase_evidence": "Article states production has begun but commercial operations are still 'expected to launch in a few months', placing the project in late commissioning/pre-commercial startup.",
+    "construction_subphase": "commissioning",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "f3f6663d-9ea7-4ab7-ada3-d3025766bf10",
+    "ingested_at": "2026-06-08T18:53:47.414Z",
+    "source_published_at": "2026-06-08T14:58:08.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org//articles/ferc-waiver-clears-way-for-crane-clean-nuclear-interconnection"
