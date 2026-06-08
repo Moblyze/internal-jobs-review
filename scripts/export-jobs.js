@@ -15,11 +15,19 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Utility function to add delay between API calls
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 // Configuration
 const CREDENTIALS_PATH = path.join(__dirname, '../../job-scraping/config/service_account.json');
 const SPREADSHEET_NAME = 'Job Scraping Results'; // Must match .env in job-scraping
 const AGGREGATOR_SPREADSHEET_ID = '1xb3QBZG9Dtkyo_UmOGu3Oc3zMr2Cg1ohOyt-cd3WT7Y';
 const OUTPUT_PATH = path.join(__dirname, '../public/data/jobs.json');
+
+// Rate limiting configuration
+const API_DELAY_MS = 2000; // 2 second delay between API calls to avoid quota limits
 
 // Column mapping (matches JobPosting.to_sheet_row() order from scraper)
 // Updated: Employment Type added at column 10, shifting Status/StatusChanged/ScrapedAt
@@ -101,6 +109,9 @@ async function fetchAllJobs(auth) {
     spreadsheetId: await getSpreadsheetId(sheets),
   });
 
+  // Add delay after initial API call
+  await sleep(API_DELAY_MS);
+
   const allJobs = [];
 
   // Fetch data from each worksheet (company), skip Aggregator Jobs tab (handled separately)
@@ -126,6 +137,9 @@ async function fetchAllJobs(auth) {
       spreadsheetId: spreadsheet.data.spreadsheetId,
       range: `${sheetName}!A:N`, // All columns from the sheet (A-N = 14 columns, includes Employment Type)
     });
+
+    // Add delay to avoid hitting Google Sheets API rate limits
+    await sleep(API_DELAY_MS);
 
     const rows = response.data.values || [];
 
@@ -171,6 +185,9 @@ async function getSpreadsheetId(sheets) {
     fields: 'files(id, name)',
     spaces: 'drive',
   });
+
+  // Add delay after drive API call
+  await sleep(API_DELAY_MS);
 
   if (!response.data.files || response.data.files.length === 0) {
     throw new Error(`Spreadsheet "${SPREADSHEET_NAME}" not found. Make sure it's shared with the service account.`);
@@ -328,6 +345,9 @@ async function fetchAggregatorJobs(auth) {
       spreadsheetId: AGGREGATOR_SPREADSHEET_ID,
       range: 'Aggregator Jobs!A2:P', // Skip header row
     });
+
+    // Add delay after API call
+    await sleep(API_DELAY_MS);
 
     const rows = response.data.values || [];
     const jobs = rows.map(parseAggregatorRow).filter(j => j !== null);
