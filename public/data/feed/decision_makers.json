@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-06-05T18:44:49.505Z"
+    "last_updated_at": "2026-06-08T13:33:37.630Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -5438,6 +5438,66 @@
         "email": null,
         "phone": null,
         "location": "United Kingdom"
+      }
+    ]
+  },
+  "constellation energy": {
+    "discovered_at": "2026-06-08T13:33:37.630Z",
+    "contacts": [
+      {
+        "name": "Dee Torres",
+        "title": "Director, Talent Acquisition",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/dee-torres-2496b78",
+        "source_url": "https://www.zoominfo.com/p/Dee-Torres/1916727219",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Warrenville, IL, USA"
+      },
+      {
+        "name": "Susie Kutansky",
+        "title": "Executive Vice President & Chief Human Resources Officer",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/susie-kutansky-06566636",
+        "source_url": "https://www.constellationenergy.com/our-company/leadership/executive-profiles/susie-kutansky.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Bryan Hanson",
+        "title": "Senior Executive Vice President & Chief Generation Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/bryan-hanson-a9048411",
+        "source_url": "https://www.constellationenergy.com/our-company/leadership/executive-profiles/bryan-hanson.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Greater Chicago Area, IL, USA"
+      },
+      {
+        "name": "Doug Hild",
+        "title": "Site Vice President, Quad Cities Nuclear Plant",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/doug-hild-81145088",
+        "source_url": "https://www.linkedin.com/in/doug-hild-81145088/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Cordova, IL, USA"
+      },
+      {
+        "name": "Savannah Mussington",
+        "title": "Workforce Development Manager",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/doug-hild-81145088",
+        "source_url": "https://www.linkedin.com/in/doug-hild-81145088/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Cordova, IL, USA"
       }
     ]
   }
