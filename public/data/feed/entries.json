@@ -2,6 +2,114 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/dummy-fuel-successfully-loaded-in-akkuyu-1"
+      }
+    ],
+    "headline": "Akkuyu NPP Unit 1 Enters Commissioning Phase with Dummy Fuel Load",
+    "body": "The loading of 163 dummy nuclear fuel assemblies in Turkey's Akkuyu Nuclear Power Plant’s first unit is a key part of the commissioning process.",
+    "url": "https://www.world-nuclear-news.org//articles/dummy-fuel-successfully-loaded-in-akkuyu-1",
+    "published_at": "2026-06-09T12:44:14.000Z",
+    "hash": "f8a08f982f871348",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "regulatory",
+    "region": "turkey",
+    "country": "turkey",
+    "tldr": "Dummy fuel assembly loading at Akkuyu Nuclear Power Plant Unit 1 confirms active commissioning is underway, signalling immediate demand for commissioning engineers, startup specialists, and O&M technicians.",
+    "operator": {
+      "name": "Akkuyu Nuclear",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Akkuyu Nuclear",
+      "matched_company_slug": null
+    },
+    "project_name": "Akkuyu Nuclear Power Plant Unit 1",
+    "scope": [
+      "commissioning",
+      "fuel_load",
+      "pre_startup"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Commissioning Engineer",
+        "Startup Test Engineer",
+        "Reactor Systems Engineer",
+        "I&C Commissioning Technician",
+        "Operations Shift Supervisor",
+        "Control Room Operator",
+        "Nuclear Safety Engineer",
+        "Commissioning Manager"
+      ],
+      "skills": [
+        "nuclear commissioning",
+        "fuel handling",
+        "reactor startup",
+        "instrumentation and control",
+        "VVER commissioning",
+        "pre-operational testing",
+        "system handover",
+        "nuclear safety"
+      ],
+      "certs_freetext": [
+        "Nuclear Safety qualification",
+        "Radiation Protection certification",
+        "IAEA commissioning standards",
+        "Licensed Reactor Operator"
+      ],
+      "geo_rtw": "Turkey or internationally mobile; VVER/Russian-design NPP experience advantageous",
+      "project_experience": [
+        "Bushehr NPP",
+        "Tianwan NPP",
+        "Kudankulam NPP",
+        "Hinkley Point C",
+        "Barakah NPP"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "senior",
+      "boolean_search": "(\"nuclear commissioning\" OR \"reactor commissioning\" OR \"NPP commissioning\" OR \"startup engineer\" OR \"nuclear startup\") AND (\"VVER\" OR \"PWR\" OR \"reactor systems\" OR \"fuel handling\" OR \"pre-operational test\") AND (\"commissioning engineer\" OR \"shift supervisor\" OR \"control room operator\" OR \"I&C\" OR \"instrumentation and control\") AND (\"nuclear power plant\" OR \"NPP\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Akkuyu NPP Unit 1 in Turkey has just completed dummy fuel loading — commissioning is live. We're placing nuclear commissioning engineers and startup specialists on-site now. Worth a quick call?",
+      "email_subject": "Akkuyu NPP Unit 1 — Commissioning Roles Now Active",
+      "email_body": "Hi [Name],\n\nAkkuyu Nuclear Power Plant Unit 1 in Turkey has entered active commissioning following successful dummy fuel assembly loading — a key pre-startup milestone.\n\nThis opens immediate demand for:\n• Nuclear Commissioning Engineers\n• Startup & Test Engineers\n• I&C Commissioning Technicians\n• Control Room Operators / Shift Supervisors\n\nGiven your background in [relevant NPP/VVER experience], I'd love to explore whether this could be a fit.\n\nAre you open to a brief conversation this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Dummy fuel loading at named project (Akkuyu NPP Unit 1) confirms active commissioning phase, representing a discrete workforce-demand event for nuclear commissioning and startup personnel.",
+    "phase": "construction",
+    "phase_evidence": "Article states dummy fuel assembly loading is 'a key part of the commissioning process,' placing Unit 1 firmly in the commissioning sub-phase.",
+    "construction_subphase": "commissioning",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "e8f4e9e3-4e7e-4370-8618-5b7587c4068b",
+    "ingested_at": "2026-06-09T18:47:58.497Z",
+    "source_published_at": "2026-06-09T12:44:14.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "mining_com",
         "name": "MINING.com",
         "url": "https://www.mining.com/antofagasta-to-spend-900m-extending-zaldivar-mine-to-2051/"

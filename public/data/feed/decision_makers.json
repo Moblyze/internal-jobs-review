@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-06-09T00:51:38.347Z"
+    "last_updated_at": "2026-06-09T18:49:40.764Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -5738,6 +5738,66 @@
         "email": null,
         "phone": null,
         "location": null
+      }
+    ]
+  },
+  "akkuyu nuclear": {
+    "discovered_at": "2026-06-09T18:49:40.764Z",
+    "contacts": [
+      {
+        "name": "Anastasia Zoteeva",
+        "title": "Chief Executive Officer",
+        "persona": "other",
+        "linkedin_url": null,
+        "source_url": "https://www.neimagazine.com/news/akkuyu-nuclear-appoints-new-ceo-7027259/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Mersin, Turkey"
+      },
+      {
+        "name": "Denis Sezemin",
+        "title": "Director for Construction & Organisation of Production",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://www.neimagazine.com/new-build-life-extension/turkiyes-akkuyu-1-on-track-for-april-2025-commissioning/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Mersin, Turkey"
+      },
+      {
+        "name": "Anton Feoktistov",
+        "title": "Head of Project Management Department",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/anton-feoktistov",
+        "source_url": "https://www.linkedin.com/in/anton-feoktistov/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Mersin, Turkey"
+      },
+      {
+        "name": "Nelly Urazova",
+        "title": "Purchasing Director",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.akkuyuseminars.com/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Mersin, Turkey"
+      },
+      {
+        "name": "Alexey Brodetskiy",
+        "title": "Director for Administrative Support",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://www.akkuyuseminars.com/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Mersin, Turkey"
       }
     ]
   }

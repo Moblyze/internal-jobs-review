@@ -1,5 +1,47 @@
 [
   {
+    "id": "e8f4e9e3-4e7e-4370-8618-5b7587c4068b",
+    "ingested_at": "2026-06-09T18:47:58.497Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/dummy-fuel-successfully-loaded-in-akkuyu-1"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "regulatory",
+    "region": "turkey",
+    "country": "turkey",
+    "headline": "Akkuyu NPP Unit 1 Enters Commissioning Phase with Dummy Fuel Load",
+    "operator": {
+      "name": "Akkuyu Nuclear",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Akkuyu Nuclear",
+      "matched_company_slug": null
+    },
+    "project_name": "Akkuyu Nuclear Power Plant Unit 1",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "commissioning",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": []
+  },
+  {
     "id": "00f04f3d-376a-4576-83f9-105d19cecaf9",
     "ingested_at": "2026-06-09T00:49:09.041Z",
     "sources": [
