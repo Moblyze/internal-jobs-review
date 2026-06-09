@@ -2,6 +2,330 @@
   {
     "sources": [
       {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/antofagasta-to-spend-900m-extending-zaldivar-mine-to-2051/"
+      }
+    ],
+    "headline": "Antofagasta $900M Zaldívar Mine Extension to 2051 — 5,000 Construction Jobs Signalled",
+    "body": "The investment will replace freshwater use with treated wastewater by 2028, creating 5,000 construction jobs.",
+    "url": "https://www.mining.com/antofagasta-to-spend-900m-extending-zaldivar-mine-to-2051/",
+    "published_at": "2026-06-08T16:22:00.000Z",
+    "hash": "f123b25517fd3228",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "pipeline_mechanical"
+    ],
+    "signal_type": "fid",
+    "region": "chile-atacama",
+    "country": "chile",
+    "tldr": "Antofagasta has sanctioned a $900M investment to extend the Zaldívar copper mine to 2051, including a treated-wastewater infrastructure programme by 2028 that will create 5,000 construction jobs.",
+    "operator": {
+      "name": "Antofagasta",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Antofagasta",
+      "matched_company_slug": null
+    },
+    "project_name": "Zaldívar Mine Extension",
+    "scope": [
+      "mine_extension",
+      "water_infrastructure",
+      "civil_construction"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": "2028-Q4",
+      "duration_months": null
+    },
+    "contract_value_usd": 900000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Construction Manager",
+        "Site Manager",
+        "Civil Construction Superintendent",
+        "HSE Manager",
+        "Project Engineer",
+        "Pipeline Engineer",
+        "Water Infrastructure Engineer",
+        "Planning Engineer",
+        "Trades Supervisor",
+        "Mechanical Foreman"
+      ],
+      "skills": [
+        "mine construction",
+        "water treatment infrastructure",
+        "civil works",
+        "open-pit mining",
+        "project planning",
+        "HSE management",
+        "contractor management",
+        "pipeline installation",
+        "copper mining"
+      ],
+      "certs_freetext": [
+        "IOSH Managing Safely",
+        "NEBOSH",
+        "Chilean mining safety certification (SERNAGEOMIN)",
+        "First Aid"
+      ],
+      "geo_rtw": "Chile — work rights or willingness to relocate to Atacama region",
+      "project_experience": [
+        "Escondida",
+        "Collahuasi",
+        "Chuquicamata",
+        "Cerro Verde",
+        "Quebrada Blanca Phase 2"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid-senior to senior",
+      "boolean_search": "(\"Construction Manager\" OR \"Site Manager\" OR \"Civil Superintendent\" OR \"Project Engineer\" OR \"HSE Manager\" OR \"Trades Supervisor\") AND (\"mining\" OR \"copper mine\" OR \"open pit\" OR \"mine construction\") AND (\"Chile\" OR \"Atacama\" OR \"Latin America\") AND (\"water infrastructure\" OR \"pipeline\" OR \"civil works\" OR \"mine extension\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Antofagasta has sanctioned a $900M extension of Zaldívar copper mine in Chile through to 2051, with 5,000 construction roles expected. Your background in [mine/civil construction] looks highly relevant — would you be open to a conversation?",
+      "email_subject": "Zaldívar Mine Extension — 5,000 Construction Roles | Antofagasta $900M Programme",
+      "email_body": "Hi [Name],\n\nAntofagasta has approved a $900M investment to extend the Zaldívar copper mine in Chile's Atacama region through to 2051. The programme includes a major water infrastructure buildout (replacing freshwater with treated wastewater by 2028) and is expected to generate approximately 5,000 construction jobs.\n\nGiven your experience in [mine construction / civil works / water infrastructure], I wanted to reach out early — roles at superintendent, manager, and engineer level are likely to ramp in the near term.\n\nWould you be available for a brief call this week to discuss?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Antofagasta) has sanctioned a $900M mine-extension investment at the named Zaldívar project, explicitly citing 5,000 construction jobs — a discrete, actionable workforce-demand signal in mining.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "The article states Antofagasta 'will' invest $900M and replace freshwater use by 2028, indicating FID is taken and execution planning/engineering is now commencing.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "00f04f3d-376a-4576-83f9-105d19cecaf9",
+    "ingested_at": "2026-06-09T00:49:09.041Z",
+    "source_published_at": "2026-06-08T16:22:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/mcewen-sees-grey-fox-adding-15-years-to-ontario-mine-complex/"
+      }
+    ],
+    "headline": "McEwen Mining: Grey Fox PFS Forecasts 87k oz/yr Gold Output from 2028, Extending Ontario Complex 15 Years",
+    "body": "A PFS report forecasts annual gold production of 87,000 oz. from 2028 through 2041.",
+    "url": "https://www.mining.com/mcewen-sees-grey-fox-adding-15-years-to-ontario-mine-complex/",
+    "published_at": "2026-06-08T15:47:58.000Z",
+    "hash": "5a48208e46668879",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "ontario-canada",
+    "country": "canada",
+    "tldr": "McEwen Mining's Grey Fox prefeasibility study projects 87,000 oz/yr gold production from 2028–2041 at its Ontario complex, signalling a future construction and operations ramp-up — though FID has not yet been taken.",
+    "operator": {
+      "name": "McEwen Mining",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Grey Fox",
+    "scope": [
+      "prefeasibility_study",
+      "underground_mining",
+      "gold_production"
+    ],
+    "mob_window": {
+      "start": "2028-Q1",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mining Engineer",
+        "Project Manager – Mining",
+        "Mine Development Superintendent",
+        "Underground Mine Manager",
+        "Geotechnical Engineer",
+        "Process Plant Manager",
+        "HSE Manager"
+      ],
+      "skills": [
+        "underground gold mining",
+        "mine development",
+        "prefeasibility",
+        "production planning",
+        "mine scheduling"
+      ],
+      "certs_freetext": [
+        "P.Eng (Ontario)",
+        "Mine Manager Certificate of Competency Ontario"
+      ],
+      "geo_rtw": "Canada – Ontario work authorization required",
+      "project_experience": [
+        "Timmins",
+        "Fox Complex",
+        "Eleonore",
+        "Detour Lake",
+        "Kirkland Lake Gold"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "senior",
+      "boolean_search": "(\"Mining Engineer\" OR \"Mine Manager\" OR \"Mine Superintendent\" OR \"Underground Mine\" OR \"Project Manager\") AND (\"gold mining\" OR \"underground\" OR \"mine development\") AND (Ontario OR \"Northern Ontario\" OR Timmins OR \"Fox Complex\") NOT (\"open pit\" OR \"surface mine\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], McEwen Mining's Grey Fox PFS signals a major underground gold project in Ontario ramping from 2028. With your background in [relevant area], I'd love to connect ahead of upcoming hiring. Worth a quick chat?",
+      "email_subject": "Grey Fox Gold Project – Senior Mining Roles Coming | McEwen Mining Ontario",
+      "email_body": "Hi [Name],\n\nMcEwen Mining has published a PFS for its Grey Fox project in Ontario, forecasting 87,000 oz/yr gold production from 2028 through 2041 — a 15-year extension of their existing mine complex.\n\nWhile FID hasn't been taken yet, pre-construction and engineering ramp-up activity is likely to follow in the next 12–18 months, creating demand for experienced underground mining professionals.\n\nGiven your experience in [relevant discipline], I wanted to reach out early. Would you be open to a brief call to discuss how your background aligns with what's coming?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "PFS report names McEwen Mining as operator and Grey Fox as a discrete mining project with defined production forecasts, signalling a future workforce ramp-up event in the mining sector.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article describes a PFS (prefeasibility study) with production forecast from 2028, indicating pre-FID status — no sanction or EPC award has been made.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "b3632c47-ac3d-41c2-a333-f882b252fa91",
+    "ingested_at": "2026-06-09T00:49:09.041Z",
+    "source_published_at": "2026-06-08T15:47:58.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/gogold-approved-to-build-227m-mine-in-mexico/"
+      }
+    ],
+    "headline": "GoGold Gets FID on $227M Los Ricos South Silver Mine in Mexico",
+    "body": "Los Ricos South is envisioned to be a 15-year mine with the capacity to produce of 80 million oz. of payable silver-equivalent.",
+    "url": "https://www.mining.com/gogold-approved-to-build-227m-mine-in-mexico/",
+    "published_at": "2026-06-08T15:00:03.000Z",
+    "hash": "cb22fb257eb19df1",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "fid",
+    "region": "mexico",
+    "country": "mexico",
+    "tldr": "GoGold has received regulatory approval to build the Los Ricos South mine in Mexico, a $227M project envisioned as a 15-year operation producing 80Moz silver-equivalent. Construction hiring window is opening now.",
+    "operator": {
+      "name": "GoGold Resources",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "GoGold Resources",
+      "matched_company_slug": null
+    },
+    "project_name": "Los Ricos South",
+    "scope": [
+      "mine_construction",
+      "process_plant_build",
+      "site_civil_works"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 227000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mine Construction Manager",
+        "Project Manager – Mining",
+        "Site Manager",
+        "Process Plant Construction Superintendent",
+        "HSE Manager",
+        "Civil Construction Supervisor",
+        "Mechanical Superintendent",
+        "Electrical Superintendent",
+        "Commissioning Manager",
+        "Structural Fabrication Supervisor"
+      ],
+      "skills": [
+        "mine construction",
+        "process plant build",
+        "silver/gold mining",
+        "civil earthworks",
+        "structural steel erection",
+        "mechanical installation",
+        "commissioning",
+        "HSE management",
+        "Latin America project delivery"
+      ],
+      "certs_freetext": [
+        "MSHA certification",
+        "IOSH Managing Safely",
+        "NEBOSH",
+        "First Aid / Emergency Response"
+      ],
+      "geo_rtw": "Mexico or willing to relocate; Spanish language advantage",
+      "project_experience": [
+        "Los Ricos North",
+        "Guanajuato silver mines",
+        "Peñasquito",
+        "Fresnillo operations"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal",
+      "boolean_search": "(\"Mine Construction Manager\" OR \"Construction Superintendent\" OR \"Project Manager\" OR \"Site Manager\" OR \"Commissioning Manager\") AND (\"silver\" OR \"gold\" OR \"mining\" OR \"process plant\") AND (\"Mexico\" OR \"Latin America\" OR \"LATAM\") AND (\"greenfield\" OR \"new build\" OR \"mine development\" OR \"plant construction\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], GoGold Resources just got the green light to build the $227M Los Ricos South silver mine in Mexico — a 15-year, 80Moz AgEq project now moving into construction. Are you open to a conversation about senior site roles?",
+      "email_subject": "Los Ricos South Mine Build – Senior Construction Roles | GoGold $227M FID",
+      "email_body": "Hi [Name],\n\nGoGold Resources has just received approval to proceed with the construction of Los Ricos South, a $227M silver mine in Mexico targeting 80 million oz. of payable silver-equivalent over a 15-year mine life.\n\nWith FID now confirmed, the project is entering its construction ramp-up phase and will be building out a site leadership team across construction management, process plant, civil, mechanical, and HSE disciplines.\n\nGiven your background in [relevant experience], I'd love to explore whether you'd be open to discussing opportunities on this project.\n\nWould you have 15 minutes for a call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "FID (green light to build) granted for a named $227M mining project (Los Ricos South) by named operator GoGold Resources, triggering a clear construction-phase hiring demand signal.",
+    "phase": "construction",
+    "phase_evidence": "Article states GoGold 'gets green light to build' the mine, indicating FID has been passed and construction is commencing.",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "5576745c-19d8-4bc6-9a83-099e36a772ac",
+    "ingested_at": "2026-06-09T00:49:09.041Z",
+    "source_published_at": "2026-06-08T15:00:03.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/eca_lng_in_mexico_starts_production-08-jun-2026-183877-article/?rss=true"

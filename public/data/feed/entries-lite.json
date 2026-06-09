@@ -1,5 +1,133 @@
 [
   {
+    "id": "00f04f3d-376a-4576-83f9-105d19cecaf9",
+    "ingested_at": "2026-06-09T00:49:09.041Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/antofagasta-to-spend-900m-extending-zaldivar-mine-to-2051/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "pipeline_mechanical"
+    ],
+    "signal_type": "fid",
+    "region": "chile-atacama",
+    "country": "chile",
+    "headline": "Antofagasta $900M Zaldívar Mine Extension to 2051 — 5,000 Construction Jobs Signalled",
+    "operator": {
+      "name": "Antofagasta",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Antofagasta",
+      "matched_company_slug": null
+    },
+    "project_name": "Zaldívar Mine Extension",
+    "mob_window": {
+      "start": null,
+      "end": "2028-Q4",
+      "duration_months": null
+    },
+    "contract_value_usd": 900000000,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
+    "id": "b3632c47-ac3d-41c2-a333-f882b252fa91",
+    "ingested_at": "2026-06-09T00:49:09.041Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/mcewen-sees-grey-fox-adding-15-years-to-ontario-mine-complex/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "ontario-canada",
+    "country": "canada",
+    "headline": "McEwen Mining: Grey Fox PFS Forecasts 87k oz/yr Gold Output from 2028, Extending Ontario Complex 15 Years",
+    "operator": {
+      "name": "McEwen Mining",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Grey Fox",
+    "mob_window": {
+      "start": "2028-Q1",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
+    "id": "5576745c-19d8-4bc6-9a83-099e36a772ac",
+    "ingested_at": "2026-06-09T00:49:09.041Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/gogold-approved-to-build-227m-mine-in-mexico/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "fid",
+    "region": "mexico",
+    "country": "mexico",
+    "headline": "GoGold Gets FID on $227M Los Ricos South Silver Mine in Mexico",
+    "operator": {
+      "name": "GoGold Resources",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "GoGold Resources",
+      "matched_company_slug": null
+    },
+    "project_name": "Los Ricos South",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 227000000,
+    "phase": "construction",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": []
+  },
+  {
     "id": "f3f6663d-9ea7-4ab7-ada3-d3025766bf10",
     "ingested_at": "2026-06-08T18:53:47.414Z",
     "sources": [
