@@ -58,6 +58,7 @@ const TARGET_EMPLOYERS = [
   'IO Consulting',
   'Finnco',
   'Rig Integrity Solutions',
+  'Subsea7',
 ];
 
 // Short display names for compact Slack output
@@ -80,6 +81,7 @@ const SHORT_NAMES = {
   'IO Consulting': 'IO Consulting',
   'Finnco': 'Finnco',
   'Rig Integrity Solutions': 'Rig Integrity',
+  'Subsea7': 'Subsea7',
 };
 
 // ── Google Sheets Auth ───────────────────────────────────────────────────────
