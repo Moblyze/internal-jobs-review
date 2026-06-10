@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-06-09T18:49:40.764Z"
+    "last_updated_at": "2026-06-10T00:56:48.252Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -5798,6 +5798,126 @@
         "email": null,
         "phone": null,
         "location": "Mersin, Turkey"
+      }
+    ]
+  },
+  "txla": {
+    "discovered_at": "2026-06-10T00:56:48.252Z",
+    "contacts": [
+      {
+        "name": "Casey Glasgow",
+        "title": "Director of Health and Human Services (HR Contact)",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/casey-glasgow-351b0868",
+        "source_url": "https://txlasystems.com/contact-us/",
+        "in_target_persona": true,
+        "email": "casey.glasgow@txlasystems.com",
+        "phone": "832-579-6581",
+        "location": "Cleveland, TX, USA"
+      },
+      {
+        "name": "Travis Pavlock",
+        "title": "Manager, Operations",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/travis-pavlock-480aa67a",
+        "source_url": "https://www.datanyze.com/people/Travis-Pavlock/2092972835",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Huffman, TX, USA"
+      },
+      {
+        "name": "Matthew Johnson",
+        "title": "Chief Operating Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/matthew-johnson-92287b16",
+        "source_url": "https://theorg.com/org/txla-systems/org-chart/matthew-johnson",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Huffman, TX, USA"
+      },
+      {
+        "name": "Jared Lord",
+        "title": "Owner & CEO",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/jared-lord-319b5b21",
+        "source_url": "https://theorg.com/org/txla-systems/org-chart/jared-lord",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Jray Cox",
+        "title": "Director of Business Development (Electrical)",
+        "persona": "other",
+        "linkedin_url": "https://www.linkedin.com/in/jray-cox-a4a70a100",
+        "source_url": "https://txlasystems.com/contact/",
+        "in_target_persona": false,
+        "email": "jray.cox@txlasystems.com",
+        "phone": "281-428-6048",
+        "location": "Crosby, TX, USA"
+      }
+    ]
+  },
+  "flowtex energy": {
+    "discovered_at": "2026-06-10T00:56:48.252Z",
+    "contacts": [
+      {
+        "name": "Beau Flowers",
+        "title": "President & Chief Executive Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/beau-flowers-39a4178",
+        "source_url": "https://investorconnect.org/investor-connect-beau-flowers-of-flowtex-energy/",
+        "in_target_persona": true,
+        "email": "bflowers@flowtexenergy.com",
+        "phone": null,
+        "location": "Austin, TX, USA"
+      },
+      {
+        "name": "Joshua Hutchinson",
+        "title": "Operations Manager",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/joshua-hutchinson-1a3609231",
+        "source_url": "https://rocketreach.co/flowtex-energy-management_b4559a1cfc958a43",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Austin, TX, USA"
+      },
+      {
+        "name": "Landon Flowers",
+        "title": "Field Operations Manager",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://flowtexenergy.com/about",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Austin, TX, USA"
+      },
+      {
+        "name": "Kelsie Nolan",
+        "title": "Accounting & Employee Onboarding Manager",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://flowtexenergy.com/about",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Austin, TX, USA"
+      },
+      {
+        "name": "Krysta McDowell",
+        "title": "Construction Project Management",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://flowtexenergy.com/about",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Austin, TX, USA"
       }
     ]
   }

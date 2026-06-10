@@ -2,6 +2,109 @@
   {
     "sources": [
       {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/flowtex-energy-reports-record-well-performance-secures-six-new-wells-and-expands-into-aviation-and-real-estate-302795714.html"
+      }
+    ],
+    "headline": "FlowTex Energy Secures Six-Well Drilling Agreement with TXLA in East Texas Golden Triangle",
+    "body": "AUSTIN, Texas, June 9, 2026 /PRNewswire/ -- FlowTex Energy today announced a series of major milestones: record-breaking well performance across its East Texas portfolio, a new six-well drilling agreement with TXLA in the Golden Triangle region, a debut partnership with Jecobra Aviation...",
+    "url": "https://www.prnewswire.com/news-releases/flowtex-energy-reports-record-well-performance-secures-six-new-wells-and-expands-into-aviation-and-real-estate-302795714.html",
+    "published_at": "2026-06-09T19:30:00.000Z",
+    "hash": "eaa5e542e020ef3b",
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "drilling_operations"
+    ],
+    "signal_type": "tender",
+    "region": "us-onshore",
+    "country": "united_states",
+    "tldr": "FlowTex Energy has signed a six-well drilling agreement with TXLA in the Golden Triangle region of East Texas, signaling near-term drilling crew and well-services demand. Aviation and real estate diversification noted but not BD-relevant.",
+    "operator": {
+      "name": "FlowTex Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "TXLA",
+      "matched_company_slug": null
+    },
+    "project_name": "Golden Triangle Six-Well Program",
+    "scope": [
+      "drilling",
+      "well_services"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Drilling Supervisor",
+        "Company Man",
+        "Wellsite Geologist",
+        "Mud Engineer",
+        "Drilling Engineer",
+        "Rig Manager",
+        "HSE Supervisor",
+        "Completion Engineer",
+        "Production Engineer"
+      ],
+      "skills": [
+        "onshore drilling",
+        "well planning",
+        "completion operations",
+        "wellsite supervision",
+        "East Texas operations",
+        "drilling program management"
+      ],
+      "certs_freetext": [
+        "IWCF Well Control",
+        "BOSIET",
+        "H2S Alive"
+      ],
+      "geo_rtw": "Texas, USA — must be eligible to work in the United States",
+      "project_experience": [
+        "East Texas drilling programs",
+        "Haynesville Shale",
+        "Cotton Valley",
+        "Eagle Ford"
+      ],
+      "yoe_band": "5-15",
+      "seniority": "mid to senior",
+      "boolean_search": "(\"Drilling Supervisor\" OR \"Company Man\" OR \"Drilling Engineer\" OR \"Completion Engineer\" OR \"Wellsite Supervisor\" OR \"Rig Manager\") AND (\"onshore drilling\" OR \"well services\" OR \"East Texas\" OR \"Golden Triangle\" OR \"Haynesville\" OR \"Cotton Valley\") AND (Texas OR \"TX\") NOT (offshore)"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], FlowTex Energy & TXLA just signed a 6-well drilling program in East Texas's Golden Triangle. We're sourcing experienced drilling/completion supervisors for this campaign. Would you be open to a quick chat about fit?",
+      "email_subject": "6-Well East Texas Drilling Program — Drilling Supervisor Opportunities | FlowTex/TXLA",
+      "email_body": "Hi [Name],\n\nFlowTex Energy has just announced a six-well drilling agreement with TXLA targeting the Golden Triangle region of East Texas — and we're actively identifying drilling and completion professionals for this campaign.\n\nGiven your background in onshore Texas operations, I wanted to reach out directly. Roles we're supporting include Drilling Supervisors, Company Men, and Completion Engineers.\n\nWould you have 15 minutes this week to discuss? Happy to share more details on scope and timeline.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (FlowTex Energy) and drilling contractor/partner (TXLA) with a discrete six-well drilling agreement in a named region (Golden Triangle, East Texas), constituting a qualifying drilling contract signal.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Article states a 'new six-well drilling agreement' has been signed, indicating the program is greenlit and drilling is imminent but not yet underway.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "ca8b8468-d280-4353-8065-de459ff278d6",
+    "ingested_at": "2026-06-10T00:55:13.229Z",
+    "source_published_at": "2026-06-09T19:30:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org//articles/dummy-fuel-successfully-loaded-in-akkuyu-1"
