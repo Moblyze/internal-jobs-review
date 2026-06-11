@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-06-11T13:26:23.865Z"
+    "last_updated_at": "2026-06-11T19:04:42.156Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -5978,6 +5978,66 @@
         "email": null,
         "phone": null,
         "location": null
+      }
+    ]
+  },
+  "oklo": {
+    "discovered_at": "2026-06-11T19:04:42.156Z",
+    "contacts": [
+      {
+        "name": "Irma Garcia",
+        "title": "Senior Manager of People",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/irmagarcia27",
+        "source_url": "https://www.linkedin.com/in/irmagarcia27/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Claire Babbott",
+        "title": "Human Resources Manager",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/clairemnevels",
+        "source_url": "https://rocketreach.co/oklo-inc-hr-department_b5b5d0a3f6889e36",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Sam Doane",
+        "title": "Senior Director of Investor Relations (formerly Director of People & Culture)",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/sam-doane",
+        "source_url": "https://theorg.com/org/oklo/org-chart/sam-doane",
+        "in_target_persona": true,
+        "email": "investors@oklo.com",
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Danny Steiner",
+        "title": "Senior Director of Operations",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/dasteine",
+        "source_url": "https://www.linkedin.com/in/dasteine/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Los Angeles, CA, USA"
+      },
+      {
+        "name": "Stephanie Holmes",
+        "title": "Chief People and Culture Officer",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://people.equilar.com/bio/person/stephanie-holmes-oklo-inc/59027731",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Nashville, TN, USA"
       }
     ]
   }

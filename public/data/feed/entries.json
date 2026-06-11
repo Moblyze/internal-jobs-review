@@ -2,6 +2,98 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/doe-approval-milestone-for-oklo-reactor"
+      }
+    ],
+    "headline": "DOE Approves Preliminary Safety Analysis for Oklo Aurora Reactor at Idaho National Laboratory",
+    "body": "The US Department of Energy's approval of the Preliminary Documented Safety Analysis is a major step on the authorisation pathway for Oklo's Aurora powerhouse which is to be built at Idaho National Laboratory.",
+    "url": "https://www.world-nuclear-news.org//articles/doe-approval-milestone-for-oklo-reactor",
+    "published_at": "2026-06-11T14:32:55.000Z",
+    "hash": "e36b722a7d1be260",
+    "subsector": "nuclear",
+    "discipline_tags": [],
+    "signal_type": "regulatory",
+    "region": "us-idaho",
+    "country": "united_states",
+    "tldr": "The US DOE has approved the Preliminary Documented Safety Analysis for Oklo's Aurora powerhouse at Idaho National Laboratory, advancing the project along its regulatory authorisation pathway. This is a pre-FID milestone; active construction hiring remains 12+ months away.",
+    "operator": {
+      "name": "Oklo",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Aurora Powerhouse",
+    "scope": [
+      "regulatory_approval",
+      "nuclear_safety_analysis"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Licensing Engineer",
+        "Reactor Safety Analyst",
+        "Nuclear Regulatory Affairs Manager",
+        "Advanced Reactor Engineer"
+      ],
+      "skills": [
+        "nuclear licensing",
+        "safety analysis",
+        "NRC regulatory process",
+        "advanced reactor design",
+        "SMR"
+      ],
+      "certs_freetext": [
+        "PE Nuclear",
+        "ANS membership"
+      ],
+      "geo_rtw": "US work authorization required",
+      "project_experience": [
+        "NuScale VOYGR",
+        "TerraPower Natrium",
+        "X-energy Xe-100"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"nuclear licensing\" OR \"reactor safety\" OR \"safety analysis report\" OR \"PDSA\" OR \"advanced reactor\") AND (\"Oklo\" OR \"Aurora\" OR \"SMR\" OR \"microreactor\") AND (\"NRC\" OR \"DOE\" OR \"Idaho National Laboratory\" OR \"INL\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Oklo's Aurora reactor at INL just cleared a key DOE safety analysis milestone. As the project advances toward licensing, regulatory and safety engineering talent will be in demand. Worth a conversation?",
+      "email_subject": "Oklo Aurora – Nuclear Licensing & Safety Talent Pipeline",
+      "email_body": "Hi [Name],\n\nOklo's Aurora powerhouse at Idaho National Laboratory has reached a significant regulatory milestone — DOE approval of the Preliminary Documented Safety Analysis. This moves the project meaningfully along its authorisation pathway.\n\nAs the project advances toward NRC licensing and eventual construction, demand for nuclear licensing engineers, safety analysts, and advanced reactor specialists will grow. If you're open to exploring opportunities tied to this program, I'd welcome a brief call.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Regulatory approval milestone naming a specific operator (Oklo) and project (Aurora Powerhouse) at a named site (Idaho National Laboratory), advancing the nuclear project along its authorisation and eventual construction pathway.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article describes DOE approval of the Preliminary Documented Safety Analysis as a step on the 'authorisation pathway', indicating the project is pre-FID and still in regulatory licensing.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "e429cb5f-ab56-46bd-8a10-d778bd2160cf",
+    "ingested_at": "2026-06-11T19:03:16.302Z",
+    "source_published_at": "2026-06-11T14:32:55.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/meta-expands-partnership-with-rwe-through-a-long-term-corporate-ppa-for-rabbits-foot-solar-in-north-texas-302798053.html"

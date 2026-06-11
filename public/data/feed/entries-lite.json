@@ -1,5 +1,44 @@
 [
   {
+    "id": "e429cb5f-ab56-46bd-8a10-d778bd2160cf",
+    "ingested_at": "2026-06-11T19:03:16.302Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/doe-approval-milestone-for-oklo-reactor"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [],
+    "signal_type": "regulatory",
+    "region": "us-idaho",
+    "country": "united_states",
+    "headline": "DOE Approves Preliminary Safety Analysis for Oklo Aurora Reactor at Idaho National Laboratory",
+    "operator": {
+      "name": "Oklo",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Aurora Powerhouse",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "76b849b0-445c-48e9-871c-a546ad9530ff",
     "ingested_at": "2026-06-11T13:23:32.769Z",
     "sources": [
