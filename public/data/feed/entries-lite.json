@@ -1,5 +1,47 @@
 [
   {
+    "id": "76b849b0-445c-48e9-871c-a546ad9530ff",
+    "ingested_at": "2026-06-11T13:23:32.769Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/meta-expands-partnership-with-rwe-through-a-long-term-corporate-ppa-for-rabbits-foot-solar-in-north-texas-302798053.html"
+      }
+    ],
+    "subsector": "onshore-renewables",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "us-south",
+    "country": "united_states",
+    "headline": "RWE Rabbit's Foot Solar Breaks Ground in North Texas with Meta PPA — ~200 Construction Jobs",
+    "operator": {
+      "name": "RWE",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "RWE",
+      "matched_company_slug": null
+    },
+    "project_name": "Rabbit's Foot Solar",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": []
+  },
+  {
     "id": "ca8b8468-d280-4353-8065-de459ff278d6",
     "ingested_at": "2026-06-10T00:55:13.229Z",
     "sources": [

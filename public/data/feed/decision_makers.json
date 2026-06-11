@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-06-10T00:56:48.252Z"
+    "last_updated_at": "2026-06-11T13:26:23.865Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -5918,6 +5918,66 @@
         "email": null,
         "phone": null,
         "location": "Austin, TX, USA"
+      }
+    ]
+  },
+  "rwe": {
+    "discovered_at": "2026-06-11T13:26:23.865Z",
+    "contacts": [
+      {
+        "name": "April Morgan",
+        "title": "Senior Talent Acquisition Partner",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/april-morgan-442431241",
+        "source_url": "https://www.linkedin.com/in/april-morgan-442431241/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Austin, TX, USA"
+      },
+      {
+        "name": "Audrey Wood",
+        "title": "Senior Manager, Payroll & HRIS",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/audreywood-peopleculture",
+        "source_url": "https://www.linkedin.com/in/audreywood-peopleculture/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Andrew Flanagan",
+        "title": "Chief Executive Officer, RWE Americas LLC",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/andrew-flanagan-8a64477",
+        "source_url": "https://americas.rwe.com/rwe-clean-energy/management/andrew-flanagan/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Chicago, IL, USA"
+      },
+      {
+        "name": "Tony Zamberlan",
+        "title": "Vice President, Controls & Data Engineering",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.zoominfo.com/p/Tony-Zamberlan/1213600363",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Travis Carmen",
+        "title": "Vice President",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/travis-carmen-4781a567",
+        "source_url": "https://www.linkedin.com/in/travis-carmen-4781a567/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
       }
     ]
   }

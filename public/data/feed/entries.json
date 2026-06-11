@@ -4,6 +4,110 @@
       {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/meta-expands-partnership-with-rwe-through-a-long-term-corporate-ppa-for-rabbits-foot-solar-in-north-texas-302798053.html"
+      }
+    ],
+    "headline": "RWE Rabbit's Foot Solar Breaks Ground in North Texas with Meta PPA — ~200 Construction Jobs",
+    "body": "RWE's Rabbit's Foot Solar project to create nearly 200 construction jobs, generate $50 million in tax revenues over 40 years It is the fourth power purchase agreement signed between RWE and Meta since 2024 AUSTIN, Texas, June 11, 2026 /PRNewswire/ -- RWE and Meta today announced a new...",
+    "url": "https://www.prnewswire.com/news-releases/meta-expands-partnership-with-rwe-through-a-long-term-corporate-ppa-for-rabbits-foot-solar-in-north-texas-302798053.html",
+    "published_at": "2026-06-11T13:02:00.000Z",
+    "hash": "87fd35b74998fde2",
+    "subsector": "onshore-renewables",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "us-south",
+    "country": "united_states",
+    "tldr": "RWE's Rabbit's Foot Solar project in North Texas is moving forward under a long-term PPA with Meta, creating nearly 200 construction jobs. Active construction hiring window is imminent.",
+    "operator": {
+      "name": "RWE",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "RWE",
+      "matched_company_slug": null
+    },
+    "project_name": "Rabbit's Foot Solar",
+    "scope": [
+      "solar_epc",
+      "civil_works",
+      "electrical_install"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Solar Construction Manager",
+        "Site Manager",
+        "Electrical Superintendent",
+        "Civil Superintendent",
+        "HSE Manager",
+        "Solar EPC Project Manager",
+        "Commissioning Engineer",
+        "Balance of Plant Supervisor"
+      ],
+      "skills": [
+        "solar PV construction",
+        "balance of plant",
+        "HV electrical installation",
+        "civil earthworks",
+        "utility-scale solar",
+        "construction supervision",
+        "HSE management"
+      ],
+      "certs_freetext": [
+        "OSHA 30",
+        "NABCEP",
+        "First Aid/CPR"
+      ],
+      "geo_rtw": "US work authorization required; North Texas based",
+      "project_experience": [
+        "utility-scale solar",
+        "onshore renewables EPC",
+        "solar PV installation Texas"
+      ],
+      "yoe_band": "5-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"solar construction\" OR \"utility-scale solar\" OR \"solar EPC\" OR \"balance of plant\") AND (\"construction manager\" OR \"site manager\" OR \"electrical superintendent\" OR \"civil superintendent\" OR \"HSE manager\" OR \"commissioning engineer\") AND (\"Texas\" OR \"North Texas\" OR \"Southwest\") NOT (residential OR rooftop)"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], RWE is ramping construction on Rabbit's Foot Solar in North Texas (~200 jobs under a Meta PPA). Are you open to hearing about site leadership or trades roles on this project?",
+      "email_subject": "Construction Roles – RWE Rabbit's Foot Solar, North Texas",
+      "email_body": "Hi [Name],\n\nRWE has announced the Rabbit's Foot Solar project in North Texas, backed by a long-term PPA with Meta and expected to generate nearly 200 construction jobs.\n\nWe're sourcing site leadership, electrical and civil superintendents, HSE professionals, and commissioning engineers for this build.\n\nIf you're available or open to a conversation about the opportunity, I'd love to connect.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (RWE) and project (Rabbit's Foot Solar) with explicit construction workforce ramp (~200 jobs) triggered by a PPA with Meta in North Texas.",
+    "phase": "construction",
+    "phase_evidence": "Article states the project will 'create nearly 200 construction jobs', indicating active construction phase is underway or imminent.",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "76b849b0-445c-48e9-871c-a546ad9530ff",
+    "ingested_at": "2026-06-11T13:23:32.769Z",
+    "source_published_at": "2026-06-11T13:02:00.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/flowtex-energy-reports-record-well-performance-secures-six-new-wells-and-expands-into-aviation-and-real-estate-302795714.html"
       }
     ],
