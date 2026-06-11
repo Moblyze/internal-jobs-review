@@ -93,6 +93,11 @@ function parseRow(row, sheetName, columnMap) {
   return job;
 }
 
+// Utility function to add delay between API calls to avoid rate limiting
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 async function fetchAllJobs(auth) {
   const sheets = google.sheets({ version: 'v4', auth });
 
@@ -131,6 +136,8 @@ async function fetchAllJobs(auth) {
 
     if (rows.length === 0) {
       console.log(`  No data in ${sheetName}, skipping`);
+      // Add delay after API call to avoid rate limiting
+      await sleep(1000);
       continue;
     }
 
@@ -147,6 +154,8 @@ async function fetchAllJobs(auth) {
     if (missing.length > 0) {
       console.warn(`  ⚠️  ${sheetName} missing required columns: ${missing.join(', ')}`);
       console.warn(`  Available columns: ${headers.join(', ')}`);
+      // Add delay after API call to avoid rate limiting
+      await sleep(1000);
       continue;
     }
 
@@ -157,6 +166,9 @@ async function fetchAllJobs(auth) {
 
     console.log(`  Found ${jobs.length} jobs from ${sheetName}`);
     allJobs.push(...jobs);
+
+    // Add delay after each successful API call to avoid rate limiting
+    await sleep(1000);
   }
 
   return allJobs;
