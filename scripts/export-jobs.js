@@ -93,6 +93,9 @@ function parseRow(row, sheetName, columnMap) {
   return job;
 }
 
+// Add delay between API calls to avoid quota limits
+const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
 async function fetchAllJobs(auth) {
   const sheets = google.sheets({ version: 'v4', auth });
 
@@ -126,6 +129,9 @@ async function fetchAllJobs(auth) {
       spreadsheetId: spreadsheet.data.spreadsheetId,
       range: `${sheetName}!A:N`, // All columns from the sheet (A-N = 14 columns, includes Employment Type)
     });
+
+    // Add delay to avoid Google Sheets API quota limits (100 requests per 100 seconds per user)
+    await delay(1200); // 1.2 second delay between requests
 
     const rows = response.data.values || [];
 
@@ -324,6 +330,9 @@ async function fetchAggregatorJobs(auth) {
 
   console.log('📊 Fetching aggregator jobs...');
   try {
+    // Add small delay before aggregator fetch to space out API calls
+    await delay(1200);
+
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: AGGREGATOR_SPREADSHEET_ID,
       range: 'Aggregator Jobs!A2:P', // Skip header row
