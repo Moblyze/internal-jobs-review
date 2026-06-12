@@ -4,6 +4,115 @@
       {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/ceremony-marks-start-of-work-at-canadian-uranium-project"
+      }
+    ],
+    "headline": "Denison Mines Breaks Ground on Phoenix ISR Uranium Mine in Saskatchewan",
+    "body": "Denison Mines - alongside Indigenous and local community partners - has marked the start of site preparation and early works construction at the Phoenix In-Situ Recovery uranium mine in Saskatchewan with a ceremonial groundbreaking ceremony.",
+    "url": "https://www.world-nuclear-news.org//articles/ceremony-marks-start-of-work-at-canadian-uranium-project",
+    "published_at": "2026-06-12T14:04:04.000Z",
+    "hash": "000fe70637f378f1",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "canada-saskatchewan",
+    "country": "canada",
+    "tldr": "Denison Mines has commenced site preparation and early works construction at the Phoenix In-Situ Recovery uranium mine in Saskatchewan, signalling an active construction ramp-up and near-term labor demand for mining and process trades.",
+    "operator": {
+      "name": "Denison Mines",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Denison Mines",
+      "matched_company_slug": null
+    },
+    "project_name": "Phoenix In-Situ Recovery Uranium Mine",
+    "scope": [
+      "site_preparation",
+      "early_works_construction",
+      "isr_mine_development"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Construction Manager",
+        "Site Manager",
+        "HSE Manager",
+        "Civil Works Supervisor",
+        "Mining Construction Superintendent",
+        "Project Engineer",
+        "ISR Process Engineer",
+        "Commissioning Engineer",
+        "Heavy Equipment Operator",
+        "Earthworks Supervisor"
+      ],
+      "skills": [
+        "in-situ recovery",
+        "uranium mining",
+        "site preparation",
+        "civil earthworks",
+        "process plant construction",
+        "HSE management",
+        "Saskatchewan mining regulations"
+      ],
+      "certs_freetext": [
+        "Saskatchewan Mine Certificate",
+        "First Aid Level 3",
+        "Ground Disturbance Level 2",
+        "Confined Space Entry"
+      ],
+      "geo_rtw": "Canada — Saskatchewan work authorization required",
+      "project_experience": [
+        "Cigar Lake",
+        "McArthur River",
+        "Millennium Project",
+        "Wheeler River"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"uranium\" OR \"ISR\" OR \"in-situ recovery\") AND (\"construction manager\" OR \"site manager\" OR \"mining superintendent\" OR \"project engineer\" OR \"commissioning engineer\" OR \"HSE manager\") AND (\"Saskatchewan\" OR \"Canada\") AND (\"mine construction\" OR \"site preparation\" OR \"early works\" OR \"process plant\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Denison Mines has just broken ground on the Phoenix ISR Uranium Mine in Saskatchewan — early works construction is live. We're placing mining construction and process specialists for this ramp-up. Worth a conversation?",
+      "email_subject": "Phoenix ISR Uranium Mine – Construction Roles Now Live | Saskatchewan",
+      "email_body": "Hi [Name],\n\nDenison Mines has officially commenced site preparation and early works construction at the Phoenix In-Situ Recovery Uranium Mine in Saskatchewan following a ceremonial groundbreaking.\n\nThis signals active hiring demand for construction managers, HSE leads, civil supervisors, ISR process engineers, and commissioning specialists in the near term.\n\nGiven your background in [relevant experience], I'd welcome a quick call to explore whether this opportunity aligns with where you're headed next.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Groundbreaking marks the start of site preparation and early works construction at the named Phoenix ISR uranium mine, naming operator Denison Mines — a discrete construction-phase workforce demand event in the mining sector.",
+    "phase": "construction",
+    "phase_evidence": "Article states 'start of site preparation and early works construction' confirmed by a ceremonial groundbreaking.",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "11d42ef1-a94b-4003-86a9-beea236e36db",
+    "ingested_at": "2026-06-12T18:44:05.395Z",
+    "source_published_at": "2026-06-12T14:04:04.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org//articles/doe-approval-milestone-for-oklo-reactor"
       }
     ],

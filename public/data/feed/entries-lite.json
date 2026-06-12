@@ -1,5 +1,48 @@
 [
   {
+    "id": "11d42ef1-a94b-4003-86a9-beea236e36db",
+    "ingested_at": "2026-06-12T18:44:05.395Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/ceremony-marks-start-of-work-at-canadian-uranium-project"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "canada-saskatchewan",
+    "country": "canada",
+    "headline": "Denison Mines Breaks Ground on Phoenix ISR Uranium Mine in Saskatchewan",
+    "operator": {
+      "name": "Denison Mines",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Denison Mines",
+      "matched_company_slug": null
+    },
+    "project_name": "Phoenix In-Situ Recovery Uranium Mine",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": []
+  },
+  {
     "id": "e429cb5f-ab56-46bd-8a10-d778bd2160cf",
     "ingested_at": "2026-06-11T19:03:16.302Z",
     "sources": [
