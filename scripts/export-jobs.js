@@ -93,6 +93,11 @@ function parseRow(row, sheetName, columnMap) {
   return job;
 }
 
+// Helper function to add delay between API calls to respect rate limits
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 async function fetchAllJobs(auth) {
   const sheets = google.sheets({ version: 'v4', auth });
 
@@ -128,6 +133,9 @@ async function fetchAllJobs(auth) {
     });
 
     const rows = response.data.values || [];
+
+    // Add delay between API calls to respect Google Sheets rate limits
+    await delay(1500);
 
     if (rows.length === 0) {
       console.log(`  No data in ${sheetName}, skipping`);
