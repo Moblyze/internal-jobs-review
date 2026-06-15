@@ -1,5 +1,48 @@
 [
   {
+    "id": "d4507d70-1e94-4aa6-9d67-c43d47e0f486",
+    "ingested_at": "2026-06-15T19:26:13.493Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/swedish-new-nuclear-project-selects-rolls-royce-smrs"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "sweden",
+    "country": "sweden",
+    "headline": "Videberg Kraft Selects Rolls-Royce SMR for Three-Unit Project at Värö Peninsula, Sweden",
+    "operator": {
+      "name": "Videberg Kraft",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Rolls-Royce SMR",
+      "matched_company_slug": null
+    },
+    "project_name": "Videberg Kraft SMR Project – Värö Peninsula",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "e068f6e4-617b-41fd-b723-949139f208f7",
     "ingested_at": "2026-06-15T14:12:02.280Z",
     "sources": [

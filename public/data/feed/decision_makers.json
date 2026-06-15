@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-06-15T14:13:51.637Z"
+    "last_updated_at": "2026-06-15T19:27:44.322Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -6158,6 +6158,66 @@
         "email": null,
         "phone": null,
         "location": "Norway"
+      }
+    ]
+  },
+  "videberg kraft": {
+    "discovered_at": "2026-06-15T19:27:44.322Z",
+    "contacts": [
+      {
+        "name": "Desirée Comstedt",
+        "title": "Acting CEO (tf VD), Videberg Kraft AB",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/desireecomstedt",
+        "source_url": "https://group.vattenfall.com/se/nyheter-och-press/nyheter/2026/desiree-comstedt-tillforordnad-vd-i-videberg-kraft-ab-pa-heltid",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Stockholm, Sweden"
+      },
+      {
+        "name": "Karin Dufva",
+        "title": "Team Member, Videberg Kraft (People/Communications)",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/karin-dufva-1771a0a3",
+        "source_url": "https://www.linkedin.com/in/karin-dufva-1771a0a3/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Stockholm, Sweden"
+      },
+      {
+        "name": "Fredrik Hallberg",
+        "title": "Enterprise Architect, Videberg Kraft AB",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/hallbergarna",
+        "source_url": "https://www.linkedin.com/in/hallbergarna/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Stockholm, Sweden"
+      },
+      {
+        "name": "Patricia Kempff",
+        "title": "Communications & PRA, Videberg Kraft",
+        "persona": "other",
+        "linkedin_url": "https://www.linkedin.com/in/patricia-kempff",
+        "source_url": "https://www.linkedin.com/in/patricia-kempff/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Stockholm, Sweden"
+      },
+      {
+        "name": "Johan Dasht",
+        "title": "Board Chair (Styrelseordförande), Videberg Kraft AB",
+        "persona": "other",
+        "linkedin_url": null,
+        "source_url": "https://www.bolagsfakta.se/5595170571-Videberg_Kraft_AB",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Stockholm, Sweden"
       }
     ]
   }

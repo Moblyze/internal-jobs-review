@@ -2,6 +2,114 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/swedish-new-nuclear-project-selects-rolls-royce-smrs"
+      }
+    ],
+    "headline": "Videberg Kraft Selects Rolls-Royce SMR for Three-Unit Project at Värö Peninsula, Sweden",
+    "body": "Videberg Kraft has selected Rolls-Royce SMR as supplier for its project on the Värö Peninsula near Ringhals, where it plans to site three of the UK-based firm's small modular reactors.",
+    "url": "https://www.world-nuclear-news.org//articles/swedish-new-nuclear-project-selects-rolls-royce-smrs",
+    "published_at": "2026-06-15T16:03:30.000Z",
+    "hash": "164f70fcbff40bc2",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "sweden",
+    "country": "sweden",
+    "tldr": "Videberg Kraft has chosen Rolls-Royce SMR as supplier for three small modular reactors near Ringhals in Sweden, signalling an emerging nuclear construction pipeline. Early engineering and supply-chain labour demand anticipated as project advances toward FID.",
+    "operator": {
+      "name": "Videberg Kraft",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Rolls-Royce SMR",
+      "matched_company_slug": null
+    },
+    "project_name": "Videberg Kraft SMR Project – Värö Peninsula",
+    "scope": [
+      "smr_supply",
+      "nuclear_newbuild",
+      "site_development"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Project Manager",
+        "SMR Development Manager",
+        "Nuclear FEED Engineer",
+        "Licensing & Regulatory Affairs Manager",
+        "Nuclear Civil Engineer",
+        "Nuclear Safety Engineer",
+        "Site Development Manager",
+        "Nuclear I&C Engineer"
+      ],
+      "skills": [
+        "small modular reactor",
+        "nuclear new build",
+        "nuclear licensing",
+        "FEED",
+        "nuclear safety case",
+        "site selection",
+        "regulatory engagement",
+        "nuclear civil design"
+      ],
+      "certs_freetext": [
+        "Nuclear Safety Officer",
+        "EUR-ING (nuclear discipline)",
+        "Swedish Radiation Safety Authority (SSM) familiarity"
+      ],
+      "geo_rtw": "Sweden / EU work-authorised; UK nationals eligible",
+      "project_experience": [
+        "Ringhals",
+        "Hinkley Point C",
+        "Sizewell C",
+        "NuScale VOYGR",
+        "GE-Hitachi BWRX-300",
+        "Rolls-Royce SMR UK Generic Design Assessment"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal",
+      "boolean_search": "(\"small modular reactor\" OR \"SMR\" OR \"nuclear new build\" OR \"nuclear newbuild\") AND (\"project manager\" OR \"development manager\" OR \"FEED engineer\" OR \"licensing manager\" OR \"nuclear civil\" OR \"nuclear safety\") AND (Sweden OR Scandinavia OR \"Rolls-Royce SMR\" OR Ringhals OR \"nuclear licensing\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Videberg Kraft has just selected Rolls-Royce SMR for a 3-unit nuclear project in Sweden. Early FEED/licensing roles are emerging — your SMR/nuclear newbuild background looks highly relevant. Worth a quick chat?",
+      "email_subject": "Nuclear SMR Opportunity – Videberg Kraft / Rolls-Royce SMR, Sweden",
+      "email_body": "Hi [Name],\n\nVideberg Kraft has selected Rolls-Royce SMR to supply three small modular reactors at the Värö Peninsula near Ringhals, Sweden — one of the first concrete SMR project commitments in Scandinavia.\n\nAs the project moves through pre-FEED and licensing phases, demand for experienced nuclear professionals — licensing managers, FEED engineers, nuclear safety specialists, and civil/structural leads — will build quickly.\n\nGiven your background in [SMR / nuclear newbuild / nuclear licensing], I'd love to share what we're seeing and explore whether this aligns with your next move.\n\nAre you open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Videberg Kraft) has formally selected a named supplier (Rolls-Royce SMR) for a three-unit nuclear project at a specific site, constituting a discrete pre-sanction supplier selection event with clear future labour demand.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states Videberg Kraft 'plans to site' the reactors, indicating intent and supplier selection but no FID or EPC contract has been awarded yet.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "d4507d70-1e94-4aa6-9d67-c43d47e0f486",
+    "ingested_at": "2026-06-15T19:26:13.493Z",
+    "source_published_at": "2026-06-15T16:03:30.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/johan_sverdrup_partners_eye_phase_4-15-jun-2026-183922-article/?rss=true"
