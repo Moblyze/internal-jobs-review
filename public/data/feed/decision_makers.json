@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-06-12T18:45:21.804Z"
+    "last_updated_at": "2026-06-15T14:13:51.637Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -6098,6 +6098,66 @@
         "email": null,
         "phone": null,
         "location": null
+      }
+    ]
+  },
+  "equinor asa": {
+    "discovered_at": "2026-06-15T14:13:51.637Z",
+    "contacts": [
+      {
+        "name": "Aksel Stenerud",
+        "title": "Executive Vice President, People & Organisation",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/akselstenerud",
+        "source_url": "https://www.equinor.com/about-us/corporate-executive-committee",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Stavanger, Norway"
+      },
+      {
+        "name": "Geir Tungesvik",
+        "title": "Executive Vice President, Projects, Drilling & Procurement",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/geir-tungesvik-12a51a13",
+        "source_url": "https://www.equinor.com/about-us/corporate-executive-committee",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Stavanger, Norway"
+      },
+      {
+        "name": "Lavina Brown",
+        "title": "Sr. Recruiting Consultant, North America – Attraction & Recruitment",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/lavina-brown-856a898",
+        "source_url": "https://www.linkedin.com/in/lavina-brown-856a898",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Mie Indrøy Higgins",
+        "title": "Recruitment Team Lead at Equinor (via AMS)",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/mie-indr%C3%B8y-higgins",
+        "source_url": "https://www.linkedin.com/in/mie-indr%C3%B8y-higgins",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Camilla Salthe",
+        "title": "Executive Vice President, Safety, Security & Sustainability",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/camilla-salthe-00a4a5",
+        "source_url": "https://www.equinor.com/about-us/organisation",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Norway"
       }
     ]
   }

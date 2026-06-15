@@ -2,6 +2,112 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/johan_sverdrup_partners_eye_phase_4-15-jun-2026-183922-article/?rss=true"
+      }
+    ],
+    "headline": "Equinor & Partners Eye Johan Sverdrup Phase 4 Expansion",
+    "body": "Equinor ASA and its partners are planning to further extend the productive life of the Johan Sverdrup oilfield in the North Sea, Norway's biggest, beyond the...",
+    "url": "https://www.rigzone.com/news/johan_sverdrup_partners_eye_phase_4-15-jun-2026-183922-article/?rss=true",
+    "published_at": "2026-06-15T13:08:30.000Z",
+    "hash": "90865d9d3e03858b",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "process_plant_operations",
+      "marine_offshore_ops",
+      "drilling_operations"
+    ],
+    "signal_type": "fid",
+    "region": "norway-north-sea",
+    "country": "norway",
+    "tldr": "Equinor and its Johan Sverdrup partners are planning a Phase 4 life extension of Norway's largest oilfield. No FID yet, but workforce demand for engineering, drilling, and platform operations is on the horizon.",
+    "operator": {
+      "name": "Equinor ASA",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Johan Sverdrup Phase 4",
+    "scope": [
+      "field_life_extension",
+      "phase_4_development"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Field Development Engineer",
+        "Reservoir Engineer",
+        "Subsea Engineer",
+        "Drilling Engineer",
+        "Project Manager",
+        "FEED Engineer",
+        "Completions Engineer",
+        "Production Engineer"
+      ],
+      "skills": [
+        "field development planning",
+        "reservoir management",
+        "life extension studies",
+        "FEED",
+        "subsea systems",
+        "drilling engineering",
+        "North Sea operations"
+      ],
+      "certs_freetext": [
+        "BOSIET",
+        "NOROG offshore safety",
+        "GWO"
+      ],
+      "geo_rtw": "Norway / EEA right-to-work",
+      "project_experience": [
+        "Johan Sverdrup Phase 1",
+        "Johan Sverdrup Phase 2",
+        "Johan Castberg",
+        "Snorre",
+        "Troll"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "senior",
+      "boolean_search": "(\"Johan Sverdrup\" OR \"field life extension\" OR \"North Sea development\") AND (\"reservoir engineer\" OR \"field development engineer\" OR \"drilling engineer\" OR \"FEED engineer\" OR \"subsea engineer\" OR \"production engineer\") AND (\"Equinor\" OR \"Aker BP\" OR \"North Sea\") AND (Norway OR NCS OR \"Norwegian Continental Shelf\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Equinor and partners are scoping Johan Sverdrup Phase 4 on the NCS. With your background in [relevant discipline], you could be well-placed for upcoming FEED/engineering roles. Open to a quick chat?",
+      "email_subject": "Johan Sverdrup Phase 4 – Early-Stage Engineering Opportunities on the NCS",
+      "email_body": "Hi [Name],\n\nEquinor ASA and its partners are in early planning for a Phase 4 expansion of Johan Sverdrup, Norway's largest oilfield. While FID has not yet been taken, pre-FEED and FEED activities are expected to generate demand for senior engineers across reservoir, drilling, subsea, and production disciplines.\n\nGiven your experience in [relevant area], I'd love to connect and understand your availability and interest ahead of formal roles going live.\n\nWould you be open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Equinor) is planning a Phase 4 extension of the Johan Sverdrup field, a discrete field development planning event signalling upcoming FEED and engineering workforce demand on a named NCS project.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states partners are 'planning to further extend' the field, indicating pre-FID concept/planning stage with no sanction or contract award mentioned.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "e068f6e4-617b-41fd-b723-949139f208f7",
+    "ingested_at": "2026-06-15T14:12:02.280Z",
+    "source_published_at": "2026-06-15T13:08:30.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org//articles/ceremony-marks-start-of-work-at-canadian-uranium-project"
