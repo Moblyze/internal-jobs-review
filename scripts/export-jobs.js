@@ -93,6 +93,11 @@ function parseRow(row, sheetName, columnMap) {
   return job;
 }
 
+// Rate limiting helper to avoid Google Sheets API quota limits
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 async function fetchAllJobs(auth) {
   const sheets = google.sheets({ version: 'v4', auth });
 
@@ -121,6 +126,9 @@ async function fetchAllJobs(auth) {
     }
 
     console.log(`Fetching jobs from "${sheetName}"...`);
+
+    // Add delay between API calls to respect rate limits
+    await delay(1000); // 1 second delay between sheet fetches
 
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: spreadsheet.data.spreadsheetId,
@@ -323,6 +331,10 @@ async function fetchAggregatorJobs(auth) {
   const sheets = google.sheets({ version: 'v4', auth });
 
   console.log('📊 Fetching aggregator jobs...');
+
+  // Add delay before aggregator API call to respect rate limits
+  await delay(1000);
+
   try {
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: AGGREGATOR_SPREADSHEET_ID,
@@ -355,6 +367,10 @@ async function main() {
     const auth = await authenticate();
 
     console.log('📊 Fetching employer jobs from Google Sheets...');
+
+    // Add initial delay to avoid hitting rate limits immediately
+    await delay(500);
+
     const employerJobs = await fetchAllJobs(auth);
 
     const aggregatorJobs = await fetchAggregatorJobs(auth);
