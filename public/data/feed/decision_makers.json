@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-06-15T19:27:44.322Z"
+    "last_updated_at": "2026-06-16T13:53:53.512Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -6218,6 +6218,66 @@
         "email": null,
         "phone": null,
         "location": "Stockholm, Sweden"
+      }
+    ]
+  },
+  "chevron corp": {
+    "discovered_at": "2026-06-16T13:53:53.512Z",
+    "contacts": [
+      {
+        "name": "Michelle R. Green",
+        "title": "Chief Human Resources Officer",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/michelle-green-0644a428",
+        "source_url": "https://www.chevron.com/who-we-are/leadership/michelle-green",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Roxanne Hicks",
+        "title": "Manager, Talent Management",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/roxanne-hicks",
+        "source_url": "https://www.linkedin.com/in/roxanne-hicks/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Bruce Niemeyer",
+        "title": "President, Shale & Tight",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/bruce-niemeyer-chevron",
+        "source_url": "https://www.chevron.com/newsroom/2025/q1/chevron-announces-senior-leadership-changes",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Robert Clay Neff",
+        "title": "President, Upstream",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.chevron.com/who-we-are/leadership",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "T. Ryder Booth",
+        "title": "Chief Technology and Engineering Officer (formerly VP, Technology, Projects & Execution)",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://www.chevron.com/who-we-are/leadership",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
       }
     ]
   }

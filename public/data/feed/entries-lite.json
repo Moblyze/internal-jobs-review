@@ -1,5 +1,48 @@
 [
   {
+    "id": "068a700b-838b-469a-a38e-fa0abbb554cf",
+    "ingested_at": "2026-06-16T13:52:10.165Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/chevron_expands_exploration_footprint_in_greek_mediterranean-16-jun-2026-183929-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "survey_geophysical",
+      "marine_offshore_ops"
+    ],
+    "signal_type": "lease_round",
+    "region": "mediterranean",
+    "country": "greece",
+    "headline": "Chevron Acquires 70% Operating Stake in Block 10, Greek Mediterranean from HELLENiQ Energy",
+    "operator": {
+      "name": "Chevron Corp",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Chevron Corp",
+      "matched_company_slug": null
+    },
+    "project_name": "Block 10 Greece",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "d4507d70-1e94-4aa6-9d67-c43d47e0f486",
     "ingested_at": "2026-06-15T19:26:13.493Z",
     "sources": [

@@ -2,6 +2,111 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/chevron_expands_exploration_footprint_in_greek_mediterranean-16-jun-2026-183929-article/?rss=true"
+      }
+    ],
+    "headline": "Chevron Acquires 70% Operating Stake in Block 10, Greek Mediterranean from HELLENiQ Energy",
+    "body": "Chevron Corp has signed an agreement to acquire a 70 percent operating stake in Block 10 on Greece's side of the Mediterranean Sea from Helleniq Energy Holdi...",
+    "url": "https://www.rigzone.com/news/chevron_expands_exploration_footprint_in_greek_mediterranean-16-jun-2026-183929-article/?rss=true",
+    "published_at": "2026-06-16T09:33:45.000Z",
+    "hash": "c3cf8c4e68f3a679",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "survey_geophysical",
+      "marine_offshore_ops"
+    ],
+    "signal_type": "lease_round",
+    "region": "mediterranean",
+    "country": "greece",
+    "tldr": "Chevron has signed an agreement to take a 70% operating interest in Block 10 offshore Greece from HELLENiQ Energy, signalling an upcoming exploration campaign that will drive early-phase subsurface, drilling, and marine hiring.",
+    "operator": {
+      "name": "Chevron Corp",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Chevron Corp",
+      "matched_company_slug": null
+    },
+    "project_name": "Block 10 Greece",
+    "scope": [
+      "exploration_license_acquisition",
+      "block_operatorship"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Exploration Geologist",
+        "Geophysicist",
+        "Exploration Manager",
+        "Subsurface Advisor",
+        "Drilling Engineer",
+        "Well Planning Engineer",
+        "Country Manager Greece",
+        "Business Development Manager"
+      ],
+      "skills": [
+        "Mediterranean exploration",
+        "deepwater exploration",
+        "seismic interpretation",
+        "basin analysis",
+        "well planning",
+        "block operatorship",
+        "HSE offshore exploration"
+      ],
+      "certs_freetext": [
+        "BOSIET",
+        "OPITO Offshore Survival",
+        "EU work authorisation"
+      ],
+      "geo_rtw": "EU right-to-work preferred; Greece/Mediterranean experience advantageous",
+      "project_experience": [
+        "Ionian Sea exploration",
+        "Eastern Mediterranean deepwater",
+        "HELLENiQ Energy blocks",
+        "ExxonMobil Crete block",
+        "TotalEnergies Greece"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"Exploration Geologist\" OR \"Geophysicist\" OR \"Drilling Engineer\" OR \"Well Planning Engineer\" OR \"Subsurface Advisor\" OR \"Exploration Manager\") AND (\"Mediterranean\" OR \"Greece\" OR \"Ionian\" OR \"deepwater exploration\") AND (Chevron OR \"HELLENiQ\" OR \"offshore exploration\") AND (\"seismic interpretation\" OR \"basin analysis\" OR \"block operatorship\" OR \"well planning\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Chevron has just taken a 70% operating stake in Block 10 offshore Greece — early-phase exploration roles are likely on the horizon. Your Mediterranean exploration background looks highly relevant. Open to a quick chat?",
+      "email_subject": "Chevron Block 10 Greece — Exploration Roles Incoming?",
+      "email_body": "Hi [Name],\n\nChevron has signed an agreement to acquire a 70% operating interest in Block 10 in the Greek Mediterranean from HELLENiQ Energy. With operatorship confirmed, exploration planning, seismic work, and eventually drilling campaigns will follow — creating demand for senior subsurface, well planning, and offshore exploration talent.\n\nGiven your background in Mediterranean or deepwater exploration, I wanted to reach out early before roles are formally posted. Would you be open to a brief call to discuss how your experience aligns with what's likely to be needed?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Specific block award (Block 10, Greek Mediterranean) naming operator (Chevron) and incumbent (HELLENiQ Energy), constituting an exploration license/operatorship assignment with clear downstream labor-demand implications.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Agreement to acquire an operating stake in an exploration block implies pre-FID/pre-drill stage with no sanction or EPC award mentioned.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "068a700b-838b-469a-a38e-fa0abbb554cf",
+    "ingested_at": "2026-06-16T13:52:10.165Z",
+    "source_published_at": "2026-06-16T09:33:45.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org//articles/swedish-new-nuclear-project-selects-rolls-royce-smrs"
