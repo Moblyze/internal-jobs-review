@@ -1,5 +1,48 @@
 [
   {
+    "id": "eeef3cce-486d-408c-b9b2-9fed8dfbf64d",
+    "ingested_at": "2026-06-18T13:14:38.507Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/sites-selected-for-korean-nuclear-new-build"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "south-korea",
+    "country": "south_korea",
+    "headline": "Korea Hydro & Nuclear Power Selects Yeongdeok & Gijang Sites for New Large Reactors and SMR",
+    "operator": {
+      "name": "Korea Hydro & Nuclear Power",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Yeongdeok Nuclear New Build / Gijang SMR",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "068a700b-838b-469a-a38e-fa0abbb554cf",
     "ingested_at": "2026-06-16T13:52:10.165Z",
     "sources": [

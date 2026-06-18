@@ -2,6 +2,110 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/sites-selected-for-korean-nuclear-new-build"
+      }
+    ],
+    "headline": "Korea Hydro & Nuclear Power Selects Yeongdeok & Gijang Sites for New Large Reactors and SMR",
+    "body": "Yeongdeok in North Gyeongsang Province has been selected by Korea Hydro & Nuclear Power for two new large-scale nuclear reactors. Gijang, in Busan, has been chosen to site a new small modular reactor.",
+    "url": "https://www.world-nuclear-news.org//articles/sites-selected-for-korean-nuclear-new-build",
+    "published_at": "2026-06-18T13:55:09.000Z",
+    "hash": "8e0c31aba130c50c",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "south-korea",
+    "country": "south_korea",
+    "tldr": "KHNP has designated Yeongdeok (North Gyeongsang) for two large nuclear reactors and Gijang (Busan) for a new SMR, signalling early-stage site selection. No FID or EPC award yet, but labor demand will follow as projects progress toward sanction.",
+    "operator": {
+      "name": "Korea Hydro & Nuclear Power",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Yeongdeok Nuclear New Build / Gijang SMR",
+    "scope": [
+      "site_selection",
+      "new_build_reactor",
+      "smr"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Project Manager",
+        "Nuclear Construction Manager",
+        "Reactor Engineer",
+        "Site Preparation Manager",
+        "SMR Project Engineer",
+        "Nuclear Safety Engineer",
+        "Civil Construction Manager"
+      ],
+      "skills": [
+        "nuclear new build",
+        "reactor design",
+        "SMR",
+        "site preparation",
+        "nuclear safety",
+        "project controls",
+        "APR1400"
+      ],
+      "certs_freetext": [
+        "Nuclear Safety Culture certification",
+        "IAEA training"
+      ],
+      "geo_rtw": "South Korea or internationally mobile nuclear specialists",
+      "project_experience": [
+        "Barakah",
+        "Hinkley Point C",
+        "Vogtle",
+        "NuScale SMR",
+        "Rolls-Royce SMR"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "senior",
+      "boolean_search": "(\"nuclear new build\" OR \"reactor construction\" OR \"SMR\" OR \"small modular reactor\") AND (\"project manager\" OR \"construction manager\" OR \"nuclear engineer\" OR \"site manager\") AND (\"APR1400\" OR \"PWR\" OR \"new build\" OR \"IAEA\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Korea Hydro & Nuclear Power has selected sites for two large reactors at Yeongdeok and an SMR at Gijang. Pre-sanction phase — keen to connect ahead of EPC ramp. Worth a chat?",
+      "email_subject": "KHNP Yeongdeok / Gijang Nuclear New Build — Early Talent Mapping",
+      "email_body": "Hi [Name],\n\nKorea Hydro & Nuclear Power has officially selected Yeongdeok (North Gyeongsang) for two large-scale reactors and Gijang (Busan) for a new SMR project. Both are currently pre-sanction, but site selection is a key milestone before FEED and EPC awards follow.\n\nWe are mapping senior nuclear professionals with new-build and SMR experience ahead of the engineering ramp. Given your background in [relevant project], I'd value a conversation about your availability and interest.\n\nWould you be open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Korea Hydro & Nuclear Power) has officially selected sites for new nuclear reactors and an SMR, constituting a discrete site/license assignment event with future workforce-demand implications.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article describes site selection only — no FID, EPC award, or FEED contract mentioned — placing both projects firmly pre-sanction.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "eeef3cce-486d-408c-b9b2-9fed8dfbf64d",
+    "ingested_at": "2026-06-18T13:14:38.507Z",
+    "source_published_at": "2026-06-18T13:55:09.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/chevron_expands_exploration_footprint_in_greek_mediterranean-16-jun-2026-183929-article/?rss=true"
