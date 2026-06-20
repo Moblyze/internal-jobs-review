@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-06-19T18:42:40.477Z"
+    "last_updated_at": "2026-06-20T07:25:52.838Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -6454,6 +6454,66 @@
         "persona": "project",
         "linkedin_url": null,
         "source_url": "https://encoreuranium.com/news/encore-energy-corp-appoints-ms-ashley-forbes-as-vice-president-permitting-and-regulatory-affairs/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "newmont": {
+    "discovered_at": "2026-06-20T07:25:52.838Z",
+    "contacts": [
+      {
+        "name": "Laura (Sims) Garran",
+        "title": "Director, HR Projects",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/laura-sims-garran-7583b02b",
+        "source_url": "https://www.linkedin.com/in/laura-sims-garran-7583b02b/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Sabrina Wilson",
+        "title": "Regional Vice President, Human Resources",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://www.comparably.com/companies/newmont-mining/executive-team",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Deborah Leyva",
+        "title": "Regional Vice President, Human Resources",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://www.comparably.com/companies/newmont-mining/executive-team",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "David Fry",
+        "title": "Executive Vice President, Project Development",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://www.sec.gov/Archives/edgar/data/0001164727/000110465926074137/tm2617970d1_ex99-1.htm",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Denver, CO, USA"
+      },
+      {
+        "name": "Andrew Woodley",
+        "title": "Regional Vice President, North America Operations",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.comparably.com/companies/newmont-mining/executive-team",
         "in_target_persona": true,
         "email": null,
         "phone": null,

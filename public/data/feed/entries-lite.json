@@ -1,40 +1,40 @@
 [
   {
-    "id": "3f7a24e7-9fb3-423a-be12-ab38630c931a",
-    "ingested_at": "2026-06-19T18:40:51.322Z",
+    "id": "ee0e420b-f2f0-4d2f-bd83-d69d87a4ca85",
+    "ingested_at": "2026-06-20T07:24:40.592Z",
     "sources": [
       {
         "id": "mining_com",
         "name": "MINING.com",
-        "url": "https://www.mining.com/encore-okd-to-build-south-dakotas-first-isr-uranium-mine/"
+        "url": "https://www.mining.com/newmonts-red-chris-underground-expansion-gets-regulatory-green-light-in-bc/"
       }
     ],
     "subsector": "mining",
     "discipline_tags": [
-      "process_plant_operations",
       "industrial_construction",
-      "survey_geophysical"
+      "energy_trades",
+      "ndt_inspection"
     ],
     "signal_type": "regulatory",
-    "region": "us-midwest",
-    "country": "united_states",
-    "headline": "EnCore Energy Receives Regulatory OK to Build Dewey Burdock ISR Uranium Mine in South Dakota",
+    "region": "british-columbia-canada",
+    "country": "canada",
+    "headline": "Newmont's Red Chris Underground Block Cave Expansion Receives Regulatory Approval in BC",
     "operator": {
-      "name": "EnCore Energy",
+      "name": "Newmont",
       "matched_company_slug": null
     },
     "hiring_entity": {
-      "name": "EnCore Energy",
+      "name": "Newmont",
       "matched_company_slug": null
     },
-    "project_name": "Dewey Burdock",
+    "project_name": "Red Chris Underground Block Cave Expansion",
     "mob_window": {
       "start": null,
       "end": null,
       "duration_months": null
     },
     "contract_value_usd": null,
-    "phase": "sanctioned_engineering",
+    "phase": "pre_sanction",
     "construction_subphase": null,
     "lifecycle_track": "greenfield",
     "decom_stage": null,
@@ -85,6 +85,49 @@
     "decom_stage": null,
     "outreach_readiness": "hot",
     "estimated_hiring_window": "3-6mo",
+    "key_people": []
+  },
+  {
+    "id": "3f7a24e7-9fb3-423a-be12-ab38630c931a",
+    "ingested_at": "2026-06-19T18:40:51.322Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/encore-okd-to-build-south-dakotas-first-isr-uranium-mine/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction",
+      "survey_geophysical"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-midwest",
+    "country": "united_states",
+    "headline": "EnCore Energy Receives Regulatory OK to Build Dewey Burdock ISR Uranium Mine in South Dakota",
+    "operator": {
+      "name": "EnCore Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "EnCore Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Dewey Burdock",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
     "key_people": []
   },
   {
