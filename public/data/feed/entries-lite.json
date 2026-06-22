@@ -1,5 +1,47 @@
 [
   {
+    "id": "f0560b58-87df-4202-a767-e8ec11bf403c",
+    "ingested_at": "2026-06-22T13:56:22.661Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/greenland-mines-signs-drilling-contract-with-nordisk-fundering-for-expanded-2026-skaergaard-diamond-drilling-program-in-greenland-302805930.html"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "drilling_operations",
+      "survey_geophysical"
+    ],
+    "signal_type": "tender",
+    "region": "greenland",
+    "country": "greenland",
+    "headline": "Greenland Mines Signs Diamond Drilling Contract with Nordisk Fundering for 2026 Skaergaard Campaign",
+    "operator": {
+      "name": "Greenland Mines Ltd",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Nordisk Fundering A/S",
+      "matched_company_slug": null
+    },
+    "project_name": "Skaergaard",
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": "2026-Q3",
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": []
+  },
+  {
     "id": "ee0e420b-f2f0-4d2f-bd83-d69d87a4ca85",
     "ingested_at": "2026-06-20T07:24:40.592Z",
     "sources": [

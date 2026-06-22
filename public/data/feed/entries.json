@@ -2,6 +2,111 @@
   {
     "sources": [
       {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/greenland-mines-signs-drilling-contract-with-nordisk-fundering-for-expanded-2026-skaergaard-diamond-drilling-program-in-greenland-302805930.html"
+      }
+    ],
+    "headline": "Greenland Mines Signs Diamond Drilling Contract with Nordisk Fundering for 2026 Skaergaard Campaign",
+    "body": "CHARLOTTE, N.C., June 22, 2026 /PRNewswire/ -- Greenland Mines Ltd (\"Greenland Mines\" or the \"Company\") (Nasdaq: GRML) announces that it has signed a diamond drilling contract with Nordisk Fundering A/S (\"Nordisk Fundering\") in support of the 2026 field campaign at the Company's 80%-owned...",
+    "url": "https://www.prnewswire.com/news-releases/greenland-mines-signs-drilling-contract-with-nordisk-fundering-for-expanded-2026-skaergaard-diamond-drilling-program-in-greenland-302805930.html",
+    "published_at": "2026-06-22T12:30:00.000Z",
+    "hash": "dec654ad18b07f77",
+    "subsector": "mining",
+    "discipline_tags": [
+      "drilling_operations",
+      "survey_geophysical"
+    ],
+    "signal_type": "tender",
+    "region": "greenland",
+    "country": "greenland",
+    "tldr": "Greenland Mines Ltd has contracted Nordisk Fundering A/S for diamond drilling at its 80%-owned Skaergaard project in Greenland as part of the 2026 field campaign. Hiring demand for drillers, geologists, and field support personnel is imminent given the active season start.",
+    "operator": {
+      "name": "Greenland Mines Ltd",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Nordisk Fundering A/S",
+      "matched_company_slug": null
+    },
+    "project_name": "Skaergaard",
+    "scope": [
+      "diamond_drilling",
+      "field_campaign"
+    ],
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": "2026-Q3",
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Diamond Driller",
+        "Drill Helper",
+        "Geologist",
+        "Field Geologist",
+        "Core Logger",
+        "Drilling Supervisor",
+        "Camp Manager",
+        "HSE Advisor"
+      ],
+      "skills": [
+        "diamond core drilling",
+        "HQ/NQ drilling",
+        "core logging",
+        "remote camp operations",
+        "Arctic field work",
+        "geological sampling",
+        "drill rig operation"
+      ],
+      "certs_freetext": [
+        "First Aid/Remote First Aid",
+        "WHMIS",
+        "Wilderness Safety",
+        "H2S Alive"
+      ],
+      "geo_rtw": "Greenland / Nordic / EEA work authorization",
+      "project_experience": [
+        "Skaergaard",
+        "Greenland mineral exploration",
+        "Arctic drilling campaigns",
+        "Nordic mineral projects"
+      ],
+      "yoe_band": "3-10",
+      "seniority": "mid-level field / trades",
+      "boolean_search": "(\"diamond drilling\" OR \"core drilling\" OR \"diamond driller\" OR \"drill helper\") AND (\"exploration\" OR \"field campaign\" OR \"mineral drilling\") AND (\"Arctic\" OR \"Greenland\" OR \"remote site\" OR \"fly-in fly-out\" OR \"FIFO\") AND (\"core logging\" OR \"geological sampling\" OR \"HQ\" OR \"NQ\" OR \"drill rig\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Nordisk Fundering has just been contracted for the 2026 Skaergaard diamond drilling program in Greenland. We're sourcing experienced drillers & field geo staff for the upcoming season — keen to connect?",
+      "email_subject": "2026 Skaergaard Diamond Drilling – Field Roles Available (Greenland)",
+      "email_body": "Hi [Name],\n\nGreenland Mines Ltd has just awarded Nordisk Fundering A/S the diamond drilling contract for their 2026 Skaergaard field campaign in Greenland. Field mobilization is expected in Q3 2026.\n\nWe are sourcing experienced diamond drillers, drill helpers, field geologists, and core loggers with Arctic or remote-site experience for this campaign.\n\nIf you or anyone in your network is available and interested, I'd love to have a quick conversation.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Discrete drilling contract award naming operator (Greenland Mines Ltd) and contractor (Nordisk Fundering A/S) for a named mining project (Skaergaard) with an active 2026 field campaign.",
+    "phase": "construction",
+    "phase_evidence": "Article states a drilling contract has been signed 'in support of the 2026 field campaign,' indicating active field execution is imminent.",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "f0560b58-87df-4202-a767-e8ec11bf403c",
+    "ingested_at": "2026-06-22T13:56:22.661Z",
+    "source_published_at": "2026-06-22T12:30:00.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "mining_com",
         "name": "MINING.com",
         "url": "https://www.mining.com/newmonts-red-chris-underground-expansion-gets-regulatory-green-light-in-bc/"
