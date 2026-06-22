@@ -115,119 +115,6 @@
   {
     "sources": [
       {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/encore-okd-to-build-south-dakotas-first-isr-uranium-mine/"
-      }
-    ],
-    "headline": "EnCore Energy Receives Regulatory OK to Build Dewey Burdock ISR Uranium Mine in South Dakota",
-    "body": "Dewey Burdock is expected to process 1 million lb. of uranium per year, recovering more than 14 million lb. over its 28-year life.",
-    "url": "https://www.mining.com/encore-okd-to-build-south-dakotas-first-isr-uranium-mine/",
-    "published_at": "2026-06-19T14:55:59.000Z",
-    "hash": "ee06c583f3c74f6b",
-    "subsector": "mining",
-    "discipline_tags": [
-      "process_plant_operations",
-      "industrial_construction",
-      "survey_geophysical"
-    ],
-    "signal_type": "regulatory",
-    "region": "us-midwest",
-    "country": "united_states",
-    "tldr": "EnCore Energy has received approval to construct South Dakota's first in-situ recovery uranium mine, Dewey Burdock, targeting 1M lb/year output over a 28-year life. Construction approval signals near-term ramp-up hiring for ISR plant construction and operations.",
-    "operator": {
-      "name": "EnCore Energy",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "EnCore Energy",
-      "matched_company_slug": null
-    },
-    "project_name": "Dewey Burdock",
-    "scope": [
-      "isr_plant_construction",
-      "wellfield_development",
-      "processing_facility"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "ISR Mine Construction Manager",
-        "Wellfield Engineer",
-        "Process Plant Superintendent",
-        "HSE Manager",
-        "Uranium Processing Technician",
-        "Site Manager",
-        "Project Engineer – Mining",
-        "Environmental Compliance Specialist",
-        "Instrumentation & Control Technician",
-        "Commissioning Engineer"
-      ],
-      "skills": [
-        "in-situ recovery",
-        "ISR wellfield construction",
-        "uranium processing",
-        "ion exchange",
-        "reverse osmosis",
-        "wellfield drilling",
-        "mine permitting",
-        "process plant commissioning",
-        "environmental monitoring",
-        "NRC/Agreement State licensing"
-      ],
-      "certs_freetext": [
-        "NRC radioactive materials license",
-        "40-hour HAZWOPER",
-        "Mine Safety (MSHA Part 48)",
-        "South Dakota Contractor License"
-      ],
-      "geo_rtw": "US work authorization required – South Dakota, USA",
-      "project_experience": [
-        "Smith Ranch-Highland ISR",
-        "Lost Creek ISR",
-        "Nichols Ranch ISR",
-        "Crow Butte ISR",
-        "Alta Mesa ISR"
-      ],
-      "yoe_band": "8-15",
-      "seniority": "mid-to-senior",
-      "boolean_search": "(\"ISR\" OR \"in-situ recovery\" OR \"in situ recovery\") AND (\"uranium\" OR \"U3O8\") AND (\"mine construction\" OR \"wellfield\" OR \"processing plant\" OR \"ion exchange\" OR \"commissioning\") AND (\"South Dakota\" OR \"Wyoming\" OR \"Nebraska\" OR \"Texas\") AND (\"construction manager\" OR \"project engineer\" OR \"plant superintendent\" OR \"HSE manager\" OR \"wellfield engineer\" OR \"process technician\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], EnCore Energy just received approval to build Dewey Burdock — South Dakota's first ISR uranium mine. With construction ramping, ISR plant and wellfield talent will be in demand soon. Would you be open to a conversation?",
-      "email_subject": "Dewey Burdock ISR Uranium Mine – Construction Roles Opening | South Dakota",
-      "email_body": "Hi [Name],\n\nEnCore Energy has just received regulatory approval to build Dewey Burdock, South Dakota's first in-situ recovery uranium mine. With a projected 1 million lb./year output and a 28-year mine life, construction is set to ramp up and will require experienced ISR and process plant professionals.\n\nGiven your background in [ISR operations / uranium processing / mine construction], I wanted to reach out before these roles go live.\n\nWould you be open to a brief call this week to explore how your experience aligns?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Regulatory approval (permit grant) for EnCore Energy's named Dewey Burdock ISR uranium mine in South Dakota signals imminent construction ramp-up and workforce demand in the mining subsector.",
-    "phase": "sanctioned_engineering",
-    "phase_evidence": "Article states EnCore has been approved ('OK'd') to build the mine, indicating regulatory greenlight has been issued and construction/engineering mobilization is the next step.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "3f7a24e7-9fb3-423a-be12-ab38630c931a",
-    "ingested_at": "2026-06-19T18:40:51.322Z",
-    "source_published_at": "2026-06-19T14:55:59.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "hiring_manager",
-      "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/var_energi_to_proceed_with_balder_next_project-19-jun-2026-183954-article/?rss=true"
@@ -334,6 +221,119 @@
     "id": "51c1e8ff-4ebb-4e46-af9c-582e7239ef3f",
     "ingested_at": "2026-06-19T18:40:51.322Z",
     "source_published_at": "2026-06-19T13:20:38.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/encore-okd-to-build-south-dakotas-first-isr-uranium-mine/"
+      }
+    ],
+    "headline": "EnCore Energy Receives Regulatory OK to Build Dewey Burdock ISR Uranium Mine in South Dakota",
+    "body": "Dewey Burdock is expected to process 1 million lb. of uranium per year, recovering more than 14 million lb. over its 28-year life.",
+    "url": "https://www.mining.com/encore-okd-to-build-south-dakotas-first-isr-uranium-mine/",
+    "published_at": "2026-06-19T14:55:59.000Z",
+    "hash": "ee06c583f3c74f6b",
+    "subsector": "mining",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction",
+      "survey_geophysical"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-midwest",
+    "country": "united_states",
+    "tldr": "EnCore Energy has received approval to construct South Dakota's first in-situ recovery uranium mine, Dewey Burdock, targeting 1M lb/year output over a 28-year life. Construction approval signals near-term ramp-up hiring for ISR plant construction and operations.",
+    "operator": {
+      "name": "EnCore Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "EnCore Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Dewey Burdock",
+    "scope": [
+      "isr_plant_construction",
+      "wellfield_development",
+      "processing_facility"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "ISR Mine Construction Manager",
+        "Wellfield Engineer",
+        "Process Plant Superintendent",
+        "HSE Manager",
+        "Uranium Processing Technician",
+        "Site Manager",
+        "Project Engineer – Mining",
+        "Environmental Compliance Specialist",
+        "Instrumentation & Control Technician",
+        "Commissioning Engineer"
+      ],
+      "skills": [
+        "in-situ recovery",
+        "ISR wellfield construction",
+        "uranium processing",
+        "ion exchange",
+        "reverse osmosis",
+        "wellfield drilling",
+        "mine permitting",
+        "process plant commissioning",
+        "environmental monitoring",
+        "NRC/Agreement State licensing"
+      ],
+      "certs_freetext": [
+        "NRC radioactive materials license",
+        "40-hour HAZWOPER",
+        "Mine Safety (MSHA Part 48)",
+        "South Dakota Contractor License"
+      ],
+      "geo_rtw": "US work authorization required – South Dakota, USA",
+      "project_experience": [
+        "Smith Ranch-Highland ISR",
+        "Lost Creek ISR",
+        "Nichols Ranch ISR",
+        "Crow Butte ISR",
+        "Alta Mesa ISR"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"ISR\" OR \"in-situ recovery\" OR \"in situ recovery\") AND (\"uranium\" OR \"U3O8\") AND (\"mine construction\" OR \"wellfield\" OR \"processing plant\" OR \"ion exchange\" OR \"commissioning\") AND (\"South Dakota\" OR \"Wyoming\" OR \"Nebraska\" OR \"Texas\") AND (\"construction manager\" OR \"project engineer\" OR \"plant superintendent\" OR \"HSE manager\" OR \"wellfield engineer\" OR \"process technician\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], EnCore Energy just received approval to build Dewey Burdock — South Dakota's first ISR uranium mine. With construction ramping, ISR plant and wellfield talent will be in demand soon. Would you be open to a conversation?",
+      "email_subject": "Dewey Burdock ISR Uranium Mine – Construction Roles Opening | South Dakota",
+      "email_body": "Hi [Name],\n\nEnCore Energy has just received regulatory approval to build Dewey Burdock, South Dakota's first in-situ recovery uranium mine. With a projected 1 million lb./year output and a 28-year mine life, construction is set to ramp up and will require experienced ISR and process plant professionals.\n\nGiven your background in [ISR operations / uranium processing / mine construction], I wanted to reach out before these roles go live.\n\nWould you be open to a brief call this week to explore how your experience aligns?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Regulatory approval (permit grant) for EnCore Energy's named Dewey Burdock ISR uranium mine in South Dakota signals imminent construction ramp-up and workforce demand in the mining subsector.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Article states EnCore has been approved ('OK'd') to build the mine, indicating regulatory greenlight has been issued and construction/engineering mobilization is the next step.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "3f7a24e7-9fb3-423a-be12-ab38630c931a",
+    "ingested_at": "2026-06-19T18:40:51.322Z",
+    "source_published_at": "2026-06-19T14:55:59.000Z",
     "contact_archetypes": [
       "project_manager",
       "hiring_manager",
