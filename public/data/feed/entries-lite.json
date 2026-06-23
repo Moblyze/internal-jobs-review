@@ -1,5 +1,49 @@
 [
   {
+    "id": "b0ebf784-33be-47aa-b5dc-a4b5ee2a1f78",
+    "ingested_at": "2026-06-23T13:02:41.033Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/perenco_partners_ink_gas_sales_agreement_for_vietnam_project-23-jun-2026-183972-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "marine_offshore_ops",
+      "process_plant_operations",
+      "rov_subsea",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "vietnam-offshore",
+    "country": "vietnam",
+    "headline": "Perenco & Partners Sign Gas Sales Agreement for Su Tu Trang Phase 2B, Block 15-1 Vietnam",
+    "operator": {
+      "name": "Perenco",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Su Tu Trang (White Lion) Phase 2B",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "f0560b58-87df-4202-a767-e8ec11bf403c",
     "ingested_at": "2026-06-22T13:56:22.661Z",
     "sources": [

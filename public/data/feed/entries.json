@@ -2,6 +2,112 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/perenco_partners_ink_gas_sales_agreement_for_vietnam_project-23-jun-2026-183972-article/?rss=true"
+      }
+    ],
+    "headline": "Perenco & Partners Sign Gas Sales Agreement for Su Tu Trang Phase 2B, Block 15-1 Vietnam",
+    "body": "Perenco and its co-venturers in Block 15-1 offshore Vietnam have secured an agreement to supply natural gas from the Su Tu Trang (White Lion) Phase 2B projec...",
+    "url": "https://www.rigzone.com/news/perenco_partners_ink_gas_sales_agreement_for_vietnam_project-23-jun-2026-183972-article/?rss=true",
+    "published_at": "2026-06-23T10:36:47.000Z",
+    "hash": "2c80af461ae828ea",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "marine_offshore_ops",
+      "process_plant_operations",
+      "rov_subsea",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "vietnam-offshore",
+    "country": "vietnam",
+    "tldr": "Perenco and co-venturers have secured a gas sales agreement for the Su Tu Trang Phase 2B offshore Vietnam project, a key commercial milestone typically preceding FID and engineering/construction ramp-up. Labor demand likely to follow as project advances toward sanction.",
+    "operator": {
+      "name": "Perenco",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Su Tu Trang (White Lion) Phase 2B",
+    "scope": [
+      "gas_sales_agreement",
+      "offshore_development",
+      "phase_2b"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Offshore Project Manager",
+        "Subsea Engineer",
+        "Production Engineer",
+        "Commissioning Engineer",
+        "Marine Superintendent",
+        "Process Engineer",
+        "Drilling Engineer",
+        "HSE Manager"
+      ],
+      "skills": [
+        "offshore gas development",
+        "subsea production systems",
+        "FPSO operations",
+        "project execution",
+        "commissioning",
+        "Vietnamese offshore"
+      ],
+      "certs_freetext": [
+        "BOSIET/HUET",
+        "OPITO offshore survival",
+        "GWO"
+      ],
+      "geo_rtw": "Vietnam or SE Asia work-eligible",
+      "project_experience": [
+        "Su Tu Den",
+        "Su Tu Vang",
+        "Block 15-1",
+        "Cuu Long Basin",
+        "Nam Con Son"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"offshore Vietnam\" OR \"Cuu Long\" OR \"Block 15-1\" OR \"Su Tu\") AND (\"offshore project manager\" OR \"subsea engineer\" OR \"commissioning engineer\" OR \"process engineer\" OR \"production engineer\") AND (\"gas development\" OR \"FPSO\" OR \"offshore construction\" OR \"subsea installation\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Perenco's Su Tu Trang Phase 2B gas project offshore Vietnam is progressing toward development following a recent gas sales agreement. Are you open to discussing senior offshore roles on this upcoming campaign?",
+      "email_subject": "Senior Offshore Roles – Su Tu Trang Phase 2B | Perenco Vietnam",
+      "email_body": "Hi [Name],\n\nPerenco and its co-venturers on Block 15-1 offshore Vietnam have secured a gas sales agreement for the Su Tu Trang (White Lion) Phase 2B project — a clear step toward project sanction and execution.\n\nAs this project advances toward FID and engineering/construction ramp-up, operators and contractors in the region will be mobilising experienced offshore professionals.\n\nGiven your background in [offshore gas development / subsea engineering / commissioning], I'd love to connect and explore whether this could be a fit.\n\nAre you available for a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Gas sales agreement for named offshore project (Su Tu Trang Phase 2B, Block 15-1) with named operator (Perenco) is a pre-FID commercial milestone signalling upcoming workforce demand in offshore O&G.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Gas sales agreement secured — a commercial pre-FID milestone; no FID or EPC award mentioned in the article.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "b0ebf784-33be-47aa-b5dc-a4b5ee2a1f78",
+    "ingested_at": "2026-06-23T13:02:41.033Z",
+    "source_published_at": "2026-06-23T10:36:47.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/greenland-mines-signs-drilling-contract-with-nordisk-fundering-for-expanded-2026-skaergaard-diamond-drilling-program-in-greenland-302805930.html"
