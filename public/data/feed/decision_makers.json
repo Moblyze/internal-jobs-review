@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-06-23T18:49:16.936Z"
+    "last_updated_at": "2026-06-24T12:50:35.198Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -6804,6 +6804,66 @@
         "linkedin_url": null,
         "source_url": "https://www.neimagazine.com/news/akkuyu-nuclear-appoints-new-ceo-7027259/",
         "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "holtec international / edf": {
+    "discovered_at": "2026-06-24T12:50:35.198Z",
+    "contacts": [
+      {
+        "name": "Jack Johnston",
+        "title": "Director - Human Resources",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/jack-johnston-4b33404",
+        "source_url": "https://theorg.com/org/holtec-international/org-chart/jack-johnston",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Pittsburgh, PA, USA"
+      },
+      {
+        "name": "Tina Chen",
+        "title": "Vice President, Human Resources",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/tinachensd",
+        "source_url": "https://www.edf-re.com/about-us/meet-our-team/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "San Diego, CA, USA"
+      },
+      {
+        "name": "Angelina Edwards",
+        "title": "Offshore Talent Acquisition & HR Business Partner Lead",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/angelina-edwards-320aaaa8",
+        "source_url": "https://www.edf-re.com/careers/our-people/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "San Diego, CA, USA"
+      },
+      {
+        "name": "Gareth Thomas",
+        "title": "Director, Holtec Britain",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/gareth-thomas-0a2014123",
+        "source_url": "https://holtecbritain.com/about-us/",
+        "in_target_persona": true,
+        "email": "g.thomas@holtec.com",
+        "phone": null,
+        "location": "Suffolk, UK"
+      },
+      {
+        "name": "Pankaj (PK) Chaudhary",
+        "title": "President, Corporate Projects, Manufacturing & Supply Chain",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://holtecinternational.com/company/leadership/corporate-leadership/mr-pankaj-pk-chaudhary/",
+        "in_target_persona": true,
         "email": null,
         "phone": null,
         "location": null
