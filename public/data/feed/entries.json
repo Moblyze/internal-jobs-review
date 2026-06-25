@@ -2,6 +2,120 @@
   {
     "sources": [
       {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/blue-moon-metals-awards-epc-contract-for-nussir-processing-plant-and-receives-approval-of-waste-management-plan-final-mine-plan-and-extended-discharge-permit-302809873.html"
+      }
+    ],
+    "headline": "Blue Moon Metals Awards EPC Contract for Nussir Copper-Silver-Gold Processing Plant in Norway",
+    "body": "TORONTO, June 24, 2026 /PRNewswire/ - Blue Moon Metals Inc. (\"Blue Moon\" or the \"Company\") (TSXV: MOON) (NASDAQ: BMM) is pleased to announce several significant milestones towards advancing its Nussir copper-silver-gold project (\"Nussir\" or the \"Project\") in the Hammerfest Municipality,...",
+    "url": "https://www.prnewswire.com/news-releases/blue-moon-metals-awards-epc-contract-for-nussir-processing-plant-and-receives-approval-of-waste-management-plan-final-mine-plan-and-extended-discharge-permit-302809873.html",
+    "published_at": "2026-06-24T20:40:00.000Z",
+    "hash": "2283bc0dabed726c",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades",
+      "ndt_inspection"
+    ],
+    "signal_type": "epc_award",
+    "region": "norway",
+    "country": "norway",
+    "tldr": "Blue Moon Metals has awarded an EPC contract for the processing plant at its Nussir copper-silver-gold project in Hammerfest, Norway, alongside regulatory approvals for waste management and mine plan — signalling imminent construction ramp-up and trades hiring.",
+    "operator": {
+      "name": "Blue Moon Metals Inc.",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Nussir",
+    "scope": [
+      "processing_plant_epc",
+      "mine_construction",
+      "waste_management_infrastructure"
+    ],
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Construction Manager",
+        "EPC Project Manager",
+        "Process Plant Superintendent",
+        "HSE Manager",
+        "Mechanical Superintendent",
+        "Electrical Superintendent",
+        "Commissioning Manager",
+        "Site Manager",
+        "Civil Works Supervisor",
+        "Piping Supervisor"
+      ],
+      "skills": [
+        "EPC construction management",
+        "mineral processing plant",
+        "copper processing",
+        "hydrometallurgy",
+        "mine infrastructure",
+        "commissioning",
+        "HSE management",
+        "piping and mechanical installation"
+      ],
+      "certs_freetext": [
+        "NEBOSH",
+        "IOSH",
+        "Norwegian working environment certification",
+        "COMPEX (if applicable)",
+        "Scaffolding/rigging certification"
+      ],
+      "geo_rtw": "Norway / EEA right-to-work",
+      "project_experience": [
+        "Nussir",
+        "Aitik",
+        "Kevitsa",
+        "Eleonore",
+        "Boliden",
+        "Arctic mining projects"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"Construction Manager\" OR \"EPC Manager\" OR \"Site Manager\" OR \"Commissioning Manager\" OR \"Process Plant Superintendent\" OR \"Mechanical Superintendent\" OR \"Electrical Superintendent\") AND (\"mining\" OR \"mineral processing\" OR \"copper\" OR \"process plant\" OR \"EPC\") AND (\"Norway\" OR \"Arctic\" OR \"Scandinavia\" OR \"Northern Europe\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Blue Moon Metals has just awarded the EPC contract for the Nussir copper processing plant in Hammerfest, Norway — construction ramp-up is imminent. Your background in [EPC/process plant construction] looks very relevant. Worth a quick chat?",
+      "email_subject": "Nussir Copper Project — EPC Award | Construction Roles, Norway",
+      "email_body": "Hi [Name],\n\nBlue Moon Metals Inc. has just awarded the EPC contract for the processing plant at its Nussir copper-silver-gold project in Hammerfest, Norway, and has received key regulatory approvals covering the mine plan and waste management — clearing the path to full construction.\n\nThis signals an imminent ramp-up of site-based construction activity, and we are actively sourcing experienced [Construction Managers / Commissioning Managers / Mechanical Superintendents / HSE Leads] with mineral processing or large-scale EPC backgrounds for positions in Norway.\n\nGiven your experience in [relevant sector/project], I'd love to connect and share more detail on the opportunity.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "EPC contract award naming Blue Moon Metals as operator for the Nussir processing plant in Norway, alongside regulatory approvals signalling imminent construction workforce ramp-up in the mining sector.",
+    "phase": "construction",
+    "phase_evidence": "EPC contract for the processing plant has just been awarded and key regulatory approvals (waste management plan, final mine plan, discharge permit) received — construction is initiating.",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "7840d1ed-ad57-42bf-961a-9484608a92f7",
+    "ingested_at": "2026-06-25T00:51:04.440Z",
+    "source_published_at": "2026-06-24T20:40:00.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org//articles/holtec-and-edf-submit-uk-smr-project-proposal"

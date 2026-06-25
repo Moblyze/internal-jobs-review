@@ -1,5 +1,49 @@
 [
   {
+    "id": "7840d1ed-ad57-42bf-961a-9484608a92f7",
+    "ingested_at": "2026-06-25T00:51:04.440Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/blue-moon-metals-awards-epc-contract-for-nussir-processing-plant-and-receives-approval-of-waste-management-plan-final-mine-plan-and-extended-discharge-permit-302809873.html"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades",
+      "ndt_inspection"
+    ],
+    "signal_type": "epc_award",
+    "region": "norway",
+    "country": "norway",
+    "headline": "Blue Moon Metals Awards EPC Contract for Nussir Copper-Silver-Gold Processing Plant in Norway",
+    "operator": {
+      "name": "Blue Moon Metals Inc.",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Nussir",
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": []
+  },
+  {
     "id": "f5a99af9-0940-41d4-b51e-21956985328e",
     "ingested_at": "2026-06-24T12:49:08.834Z",
     "sources": [
