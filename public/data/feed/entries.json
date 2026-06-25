@@ -2,6 +2,224 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/swedish-state-to-take-majority-stake-in-videberg-kraft"
+      }
+    ],
+    "headline": "Swedish State Takes 60% Stake in Videberg Kraft SMR Project at Värö Peninsula",
+    "body": "The Swedish government has decided that the state will take a 60% stake in Videberg Kraft AB, which plans to build three Rolls-Royce small modular reactors on the Värö Peninsula near Ringhals.",
+    "url": "https://www.world-nuclear-news.org//articles/swedish-state-to-take-majority-stake-in-videberg-kraft",
+    "published_at": "2026-06-25T11:46:57.000Z",
+    "hash": "fd5bff88fc12c7ac",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "sweden",
+    "country": "sweden",
+    "tldr": "The Swedish government will hold a 60% stake in Videberg Kraft AB, which plans to build three Rolls-Royce SMRs near Ringhals. Project is pre-sanction but state backing signals serious intent and near-term FEED/EPC procurement activity.",
+    "operator": {
+      "name": "Videberg Kraft AB",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Videberg Kraft AB",
+      "matched_company_slug": null
+    },
+    "project_name": "Videberg Kraft SMR — Värö Peninsula",
+    "scope": [
+      "smr_construction",
+      "nuclear_newbuild",
+      "site_development"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Project Director",
+        "Nuclear Development Manager",
+        "SMR Project Manager",
+        "Nuclear FEED Manager",
+        "Licensing & Permitting Manager",
+        "Nuclear Construction Manager",
+        "Reactor Engineering Lead"
+      ],
+      "skills": [
+        "small modular reactor",
+        "SMR",
+        "nuclear project development",
+        "nuclear licensing",
+        "FEED management",
+        "nuclear regulatory affairs",
+        "Rolls-Royce SMR",
+        "nuclear newbuild"
+      ],
+      "certs_freetext": [
+        "Nuclear Safety Culture certification",
+        "IAEA nuclear management training",
+        "Swedish SSM regulatory familiarity"
+      ],
+      "geo_rtw": "Sweden / EEA right to work",
+      "project_experience": [
+        "Rolls-Royce SMR UK",
+        "Hinkley Point C",
+        "Olkiluoto 3",
+        "Ringhals",
+        "Forsmark"
+      ],
+      "yoe_band": "12-20",
+      "seniority": "Senior / Director",
+      "boolean_search": "(\"small modular reactor\" OR \"SMR\" OR \"nuclear newbuild\" OR \"Rolls-Royce SMR\") AND (\"project director\" OR \"project manager\" OR \"development manager\" OR \"construction manager\" OR \"licensing manager\") AND (\"nuclear\" OR \"reactor\") AND (\"FEED\" OR \"EPC\" OR \"pre-FID\" OR \"permitting\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], the Swedish state just took a 60% stake in Videberg Kraft AB — a 3-unit Rolls-Royce SMR project near Ringhals. Strong government backing signals FEED and EPC activity coming. Would your profile be a fit for early-phase nuclear development roles? Happy to share more.",
+      "email_subject": "Swedish SMR Project (Videberg Kraft) — Senior Nuclear Roles Emerging",
+      "email_body": "Hi [Name],\n\nThe Swedish government has confirmed a 60% ownership stake in Videberg Kraft AB, the developer behind a planned three-unit Rolls-Royce SMR installation on the Värö Peninsula near Ringhals.\n\nState backing at this level typically accelerates FEED procurement and early regulatory engagement, meaning senior nuclear development, licensing, and project management professionals will be in demand within the next 12–18 months.\n\nGiven your background in [relevant nuclear/SMR experience], I wanted to reach out early to explore whether this could be a strong next step.\n\nWould you be open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "State equity commitment to named operator Videberg Kraft AB for a three-unit Rolls-Royce SMR project is a discrete field development/operator assignment event signalling near-term FEED and workforce demand in nuclear.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states the project 'plans to build' the SMRs — no FID or EPC award yet, only state equity entry confirming development intent.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "ae3cacd4-160c-4700-a042-3cea847cc8a8",
+    "ingested_at": "2026-06-25T18:48:46.289Z",
+    "source_published_at": "2026-06-25T11:46:57.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/osge-signs-agreement-with-wloclawek-for-smr-plant"
+      }
+    ],
+    "headline": "Orlen Synthos Green Energy Signs SMR Cooperation Agreement with Włocławek for Up to 6 BWRX-300 Reactors",
+    "body": "The City of Włocławek and Orlen Synthos Green Energy have signed an agreement defining the principles of cooperation in connection with the construction of up to six BWRX-300 small modular reactors in the central Polish city.",
+    "url": "https://www.world-nuclear-news.org//articles/osge-signs-agreement-with-wloclawek-for-smr-plant",
+    "published_at": "2026-06-25T10:01:31.000Z",
+    "hash": "5c8b3d47a9fcf6ef",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "central-poland",
+    "country": "poland",
+    "tldr": "Orlen Synthos Green Energy (OSGE) has signed a cooperation agreement with the City of Włocławek for construction of up to six BWRX-300 SMRs. This is a pre-sanction signal indicating a future large-scale nuclear construction workforce demand in central Poland.",
+    "operator": {
+      "name": "Orlen Synthos Green Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Orlen Synthos Green Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Włocławek BWRX-300 SMR Plant",
+    "scope": [
+      "smr_construction",
+      "nuclear_civil_works",
+      "reactor_installation"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Project Manager",
+        "Nuclear Construction Manager",
+        "SMR Project Engineer",
+        "Nuclear Safety Manager",
+        "Reactor Systems Engineer",
+        "Nuclear Commissioning Engineer",
+        "Civil Construction Superintendent",
+        "Nuclear HSE Manager",
+        "Mechanical Engineer – Nuclear",
+        "Nuclear I&C Engineer"
+      ],
+      "skills": [
+        "BWRX-300",
+        "SMR",
+        "nuclear construction",
+        "reactor commissioning",
+        "nuclear safety",
+        "civil works nuclear",
+        "GE Hitachi",
+        "nuclear project management",
+        "IAEA standards",
+        "nuclear regulatory compliance"
+      ],
+      "certs_freetext": [
+        "Nuclear Safety Certificate",
+        "IAEA Training",
+        "EUR Nuclear Engineering qualification",
+        "EU nuclear site license familiarity"
+      ],
+      "geo_rtw": "EU/EEA right to work; Polish or EU work authorization",
+      "project_experience": [
+        "Hinkley Point C",
+        "Olkiluoto 3",
+        "Flamanville 3",
+        "NuScale VOYGR",
+        "GE Hitachi BWRX-300 Ontario Power"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal / Lead",
+      "boolean_search": "(\"nuclear\" OR \"SMR\" OR \"small modular reactor\" OR \"BWRX-300\") AND (\"construction manager\" OR \"project manager\" OR \"commissioning engineer\" OR \"reactor engineer\" OR \"nuclear safety\" OR \"I&C engineer\" OR \"HSE manager\") AND (\"nuclear power plant\" OR \"reactor construction\" OR \"GE Hitachi\" OR \"Hinkley\" OR \"Olkiluoto\" OR \"new build nuclear\") AND (\"Poland\" OR \"EU\" OR \"Europe\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Orlen Synthos Green Energy has signed a cooperation agreement with Włocławek for up to 6 BWRX-300 SMRs in Poland — a major nuclear new-build programme taking shape. Worth a conversation about your interest in early-stage nuclear roles in Central Europe?",
+      "email_subject": "Nuclear New-Build Opportunity – OSGE BWRX-300 SMR, Poland",
+      "email_body": "Hi [Name],\n\nOrlen Synthos Green Energy has formalised a cooperation agreement with the City of Włocławek for the construction of up to six BWRX-300 small modular reactors in central Poland — one of Europe's most significant emerging nuclear programmes.\n\nWhile the project is in pre-sanction phase, early-stage technical and project leadership talent is typically sought well ahead of FID to shape FEED, licensing, and construction planning.\n\nGiven your background in [nuclear construction / SMR / reactor engineering], I'd welcome a brief call to understand your appetite for this kind of opportunity.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named cooperation agreement between Orlen Synthos Green Energy and City of Włocławek for construction of up to six BWRX-300 SMRs — a discrete nuclear project signal with named operator and project location.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article describes a cooperation agreement 'defining the principles of cooperation in connection with the construction' — no FID or EPC award mentioned, indicating pre-sanction/pre-FID stage.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "045497ea-b09e-4382-900c-759c4debc7ab",
+    "ingested_at": "2026-06-25T18:48:46.289Z",
+    "source_published_at": "2026-06-25T10:01:31.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/blue-moon-metals-awards-epc-contract-for-nussir-processing-plant-and-receives-approval-of-waste-management-plan-final-mine-plan-and-extended-discharge-permit-302809873.html"

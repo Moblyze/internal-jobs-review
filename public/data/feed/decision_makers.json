@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-06-25T00:53:15.865Z"
+    "last_updated_at": "2026-06-25T18:51:19.675Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -6927,6 +6927,126 @@
         "email": "cks@bluemoonmetals.com",
         "phone": "(416) 230-3440",
         "location": "Toronto, ON, Canada"
+      }
+    ]
+  },
+  "videberg kraft ab": {
+    "discovered_at": "2026-06-25T18:51:19.675Z",
+    "contacts": [
+      {
+        "name": "Carina Malmgren Heander",
+        "title": "People & Culture (Recruitment & HR Lead)",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/carina-malmgren-heander-10a96327",
+        "source_url": "https://videbergkraft.se/en/team",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Sweden"
+      },
+      {
+        "name": "Maria Mellberg",
+        "title": "People & Culture (Recruitment & HR Lead)",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://videbergkraft.se/en/team",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Sweden"
+      },
+      {
+        "name": "Desirée Comstedt",
+        "title": "Acting CEO, Videberg Kraft",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/desireecomstedt",
+        "source_url": "https://videbergkraft.se/en/team",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Stockholm, Sweden"
+      },
+      {
+        "name": "Jörgen",
+        "title": "Head of Project Management Office (PMO)",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://videbergkraft.se/en/team",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Sweden"
+      },
+      {
+        "name": "Patricia Kempff",
+        "title": "Communications, Regulatory & Public Affairs",
+        "persona": "other",
+        "linkedin_url": "https://www.linkedin.com/in/patricia-kempff",
+        "source_url": "https://group.vattenfall.com/press-and-media/pressreleases/2026/videberg-kraft-invites-media-to-a-press-briefing/",
+        "in_target_persona": false,
+        "email": "patricia.kempff@videbergkraft.se",
+        "phone": "+46 73 360 60 60",
+        "location": "Stockholm, Sweden"
+      }
+    ]
+  },
+  "orlen synthos green energy": {
+    "discovered_at": "2026-06-25T18:51:19.675Z",
+    "contacts": [
+      {
+        "name": "Rafał Kasprów",
+        "title": "Chief Executive Officer (President of the Management Board)",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/rafa%C5%82-kaspr%C3%B3w-968318b",
+        "source_url": "https://www.laurentisenergy.com/releases/laurentis-signs-agreement-with-osge-to-support-preliminary-work-for-smr-development-in-poland/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Warsaw, Poland"
+      },
+      {
+        "name": "Jacek Drózd",
+        "title": "Vice President of the Management Board",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/jacek-j-drozd",
+        "source_url": "https://www.world-nuclear-news.org/articles/opg-osge-enhance-cooperation-on-smr-deployment-in-poland",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Warsaw, Poland"
+      },
+      {
+        "name": "Bartosz Fijałkowski",
+        "title": "Vice President of the Management Board",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/bartosz-fijalkowski-80b78478",
+        "source_url": "https://osge.com/zmiany-w-zarzadzie-osge/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Warsaw, Poland"
+      },
+      {
+        "name": "Bartosz Kurkiewicz",
+        "title": "Project Engineering Manager",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://rocketreach.co/orlen-synthos-green-energy-management_b7689e3fc53c768e",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Warsaw, Poland"
+      },
+      {
+        "name": "Piotr Walczak",
+        "title": "Senior Project Manager",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/piotr-walczak-467504103",
+        "source_url": "https://rocketreach.co/orlen-synthos-green-energy-management_b7689e3fc53c768e",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Warsaw, Poland"
       }
     ]
   }
