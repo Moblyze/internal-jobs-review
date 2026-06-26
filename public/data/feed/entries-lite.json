@@ -1,5 +1,50 @@
 [
   {
+    "id": "5e0471db-aae9-4308-8ed0-00b307efeddc",
+    "ingested_at": "2026-06-26T07:22:33.320Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/aker-solutions-awarded-engineering-and-maintenance-service-agreement-from-cenovus-energy-302811598.html"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "ndt_inspection",
+      "process_plant_operations",
+      "marine_offshore_ops",
+      "industrial_construction"
+    ],
+    "signal_type": "epc_award",
+    "region": "canada-atlantic",
+    "country": "canada",
+    "headline": "Aker Solutions Wins 5-Year Engineering & Maintenance Services Contract from Cenovus for White Rose Field",
+    "operator": {
+      "name": "Cenovus Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Aker Solutions",
+      "matched_company_slug": null
+    },
+    "project_name": "White Rose Field",
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": null,
+      "duration_months": 60
+    },
+    "contract_value_usd": null,
+    "phase": "operating",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": []
+  },
+  {
     "id": "ae3cacd4-160c-4700-a042-3cea847cc8a8",
     "ingested_at": "2026-06-25T18:48:46.289Z",
     "sources": [

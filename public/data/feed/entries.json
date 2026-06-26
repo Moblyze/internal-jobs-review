@@ -2,6 +2,120 @@
   {
     "sources": [
       {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/aker-solutions-awarded-engineering-and-maintenance-service-agreement-from-cenovus-energy-302811598.html"
+      }
+    ],
+    "headline": "Aker Solutions Wins 5-Year Engineering & Maintenance Services Contract from Cenovus for White Rose Field",
+    "body": "OSLO, Norway, June 26, 2026 /PRNewswire/ -- Aker Solutions has signed a sizeable¹ five-year agreement with Cenovus Energy Inc. for engineering and maintenance services on White Rose field assets. The White Rose field is located approximately 350 km east of St. John's, Newfoundland and...",
+    "url": "https://www.prnewswire.com/news-releases/aker-solutions-awarded-engineering-and-maintenance-service-agreement-from-cenovus-energy-302811598.html",
+    "published_at": "2026-06-26T06:29:00.000Z",
+    "hash": "8b30fb5f0f8db5d5",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "ndt_inspection",
+      "process_plant_operations",
+      "marine_offshore_ops",
+      "industrial_construction"
+    ],
+    "signal_type": "epc_award",
+    "region": "canada-atlantic",
+    "country": "canada",
+    "tldr": "Aker Solutions has secured a sizeable five-year engineering and maintenance services agreement with Cenovus Energy for the White Rose offshore field offshore Newfoundland. Ongoing staffing demand expected across engineering, inspection, and maintenance disciplines for the contract duration.",
+    "operator": {
+      "name": "Cenovus Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Aker Solutions",
+      "matched_company_slug": null
+    },
+    "project_name": "White Rose Field",
+    "scope": [
+      "engineering_services",
+      "maintenance_services",
+      "asset_integrity"
+    ],
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": null,
+      "duration_months": 60
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Maintenance Engineer",
+        "Offshore Maintenance Technician",
+        "Asset Integrity Engineer",
+        "Structural Engineer",
+        "Inspection Engineer",
+        "Mechanical Engineer",
+        "Electrical Engineer",
+        "Instrumentation Technician",
+        "NDT Technician",
+        "Offshore Construction Supervisor"
+      ],
+      "skills": [
+        "asset integrity management",
+        "offshore maintenance",
+        "engineering services",
+        "FPSO maintenance",
+        "structural inspection",
+        "mechanical maintenance",
+        "preventive maintenance",
+        "offshore operations"
+      ],
+      "certs_freetext": [
+        "BOSIET/HUET",
+        "CAPP offshore safety",
+        "PCOC (Transport Canada)",
+        "CGSB NDT Level II",
+        "ABSA pressure equipment"
+      ],
+      "geo_rtw": "Canada (Newfoundland RTW preferred; NL offshore experience an asset)",
+      "project_experience": [
+        "White Rose",
+        "Hibernia",
+        "Terra Nova",
+        "Hebron",
+        "SeaRose FPSO",
+        "West White Rose"
+      ],
+      "yoe_band": "7-20",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"Aker Solutions\" OR \"Cenovus\" OR \"White Rose\" OR \"SeaRose\" OR \"Hibernia\" OR \"Terra Nova\" OR \"Hebron\") AND (\"maintenance engineer\" OR \"asset integrity\" OR \"inspection engineer\" OR \"NDT technician\" OR \"offshore maintenance\" OR \"mechanical engineer\" OR \"instrumentation technician\" OR \"electrical engineer\") AND (\"offshore\" OR \"FPSO\" OR \"Newfoundland\" OR \"NL offshore\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Aker Solutions just secured a 5-year engineering & maintenance contract with Cenovus for the White Rose field offshore Newfoundland. We're sourcing [discipline] professionals now — would you be open to a quick chat about fit?",
+      "email_subject": "White Rose Field – Aker Solutions Engineering & Maintenance Roles | 5-Year Contract",
+      "email_body": "Hi [Name],\n\nAker Solutions has been awarded a five-year engineering and maintenance services agreement with Cenovus Energy for the White Rose offshore field, located ~350 km east of St. John's, Newfoundland.\n\nWith a multi-year contract now in place, Aker will be building out its project team across engineering, inspection, and maintenance disciplines. Given your background in [relevant discipline / offshore maintenance / asset integrity], I wanted to reach out directly.\n\nI'd love to spend 15 minutes understanding where you are in your career and whether this could be a strong fit.\n\nAre you available for a quick call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named contract award (Aker Solutions from Cenovus Energy) for a five-year engineering and maintenance services agreement on the White Rose offshore field, generating sustained staffing demand.",
+    "phase": "operating",
+    "phase_evidence": "The article describes a maintenance and engineering services agreement on existing White Rose field assets, indicating the field is operational and this is an ongoing asset support contract.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "5e0471db-aae9-4308-8ed0-00b307efeddc",
+    "ingested_at": "2026-06-26T07:22:33.320Z",
+    "source_published_at": "2026-06-26T06:29:00.000Z",
+    "contact_archetypes": [
+      "ops_director",
+      "hiring_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org//articles/swedish-state-to-take-majority-stake-in-videberg-kraft"

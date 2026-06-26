@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-06-25T18:51:19.675Z"
+    "last_updated_at": "2026-06-26T07:23:49.814Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -7047,6 +7047,126 @@
         "email": null,
         "phone": null,
         "location": "Warsaw, Poland"
+      }
+    ]
+  },
+  "aker solutions": {
+    "discovered_at": "2026-06-26T07:23:49.814Z",
+    "contacts": [
+      {
+        "name": "Kjetil Kristiansen",
+        "title": "EVP People & Transformation",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/kjetil-kristiansen",
+        "source_url": "https://www.akersolutions.com/who-we-are/management/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Norway"
+      },
+      {
+        "name": "Holger Iversen",
+        "title": "Senior Human Resources Manager",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/holger-iversen-50842a1a",
+        "source_url": "https://theorg.com/org/aker-solutions/org-chart/holger-iversen",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Norway"
+      },
+      {
+        "name": "Geir Glømmi",
+        "title": "EVP Fixed Facility Alliance Projects",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://www.akersolutions.com/news/news-archive/2025/newaker-solutions-announces-changes-to-the-executive-management-team-page/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Norway"
+      },
+      {
+        "name": "Guro Rausand",
+        "title": "EVP New Build",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://www.akersolutions.com/who-we-are/management/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Norway"
+      },
+      {
+        "name": "Sturla Magnus",
+        "title": "EVP Selected Projects",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/sturlamagnus",
+        "source_url": "https://www.akersolutions.com/news/news-archive/2025/newaker-solutions-announces-changes-to-the-executive-management-team-page/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Norway"
+      }
+    ]
+  },
+  "cenovus energy": {
+    "discovered_at": "2026-06-26T07:23:49.814Z",
+    "contacts": [
+      {
+        "name": "Candace Newman",
+        "title": "Senior Vice-President, Corporate Services",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/candace-newman-chrp-mba-369705b",
+        "source_url": "https://www.cenovus.com/Our-company/Leadership-team/Candace-Newman",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Calgary, AB, Canada"
+      },
+      {
+        "name": "Derek Shepherd",
+        "title": "Talent Acquisition Partner",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/derek-shepherd",
+        "source_url": "https://theorg.com/org/cenovus-energy/org-chart/derek-shepherd",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Toledo, OH, USA"
+      },
+      {
+        "name": "Andrew Dahlin",
+        "title": "Executive Vice-President & Chief Operating Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/andrewdahlin",
+        "source_url": "https://www.cenovus.com/Our-company/Leadership-team/Andrew-Dahlin",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Calgary, AB, Canada"
+      },
+      {
+        "name": "John Soini",
+        "title": "Executive Vice-President, Upstream – Thermal & Atlantic Offshore",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/johnsoini",
+        "source_url": "https://www.cenovus.com/Our-company/Leadership-team/John-Soini",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Canada"
+      },
+      {
+        "name": "Constance Riess",
+        "title": "Talent Acquisition Partner",
+        "persona": "ta",
+        "linkedin_url": null,
+        "source_url": "https://rocketreach.co/cenovus-energy-hr-department_b5cd0b20f42e0ad9",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
       }
     ]
   }
