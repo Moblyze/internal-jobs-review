@@ -1,5 +1,50 @@
 [
   {
+    "id": "6b071f57-c3ea-4961-9bd8-0e873e251ab3",
+    "ingested_at": "2026-06-26T12:47:51.415Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/var_energi_greenlights_gjoa_projects-26-jun-2026-183997-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "rov_subsea",
+      "marine_offshore_ops",
+      "energy_trades",
+      "industrial_construction",
+      "pipeline_mechanical"
+    ],
+    "signal_type": "fid",
+    "region": "norway-north-sea",
+    "country": "norway",
+    "headline": "Vår Energi FID on Gjøa Subsea Projects, Norway North Sea",
+    "operator": {
+      "name": "Vår Energi ASA",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Gjøa Subsea Projects",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
     "id": "5e0471db-aae9-4308-8ed0-00b307efeddc",
     "ingested_at": "2026-06-26T07:22:33.320Z",
     "sources": [

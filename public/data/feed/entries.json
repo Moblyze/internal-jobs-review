@@ -2,6 +2,121 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/var_energi_greenlights_gjoa_projects-26-jun-2026-183997-article/?rss=true"
+      }
+    ],
+    "headline": "Vår Energi FID on Gjøa Subsea Projects, Norway North Sea",
+    "body": "Vår Energi ASA and its partners have made a final investment decision to proceed with the Gjøa Subsea Projects on Norway's side of the North Sea, targeting a...",
+    "url": "https://www.rigzone.com/news/var_energi_greenlights_gjoa_projects-26-jun-2026-183997-article/?rss=true",
+    "published_at": "2026-06-26T10:46:24.000Z",
+    "hash": "59a533ec1c9c5133",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "rov_subsea",
+      "marine_offshore_ops",
+      "energy_trades",
+      "industrial_construction",
+      "pipeline_mechanical"
+    ],
+    "signal_type": "fid",
+    "region": "norway-north-sea",
+    "country": "norway",
+    "tldr": "Vår Energi and partners have taken FID on the Gjøa Subsea Projects offshore Norway, triggering EPC/SURF tendering and engineering ramp-up. Subsea, marine, and construction hiring expected within 3-12 months.",
+    "operator": {
+      "name": "Vår Energi ASA",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Gjøa Subsea Projects",
+    "scope": [
+      "subsea_install",
+      "fid",
+      "field_development"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Subsea Project Manager",
+        "Subsea Engineer",
+        "SURF Engineer",
+        "Offshore Installation Manager",
+        "Project Engineer",
+        "Construction Manager",
+        "Subsea Construction Superintendent",
+        "Pipeline Engineer",
+        "ROV Supervisor",
+        "Marine Coordinator"
+      ],
+      "skills": [
+        "subsea field development",
+        "SURF installation",
+        "pipeline design",
+        "subsea engineering",
+        "offshore project management",
+        "ROV operations",
+        "umbilicals risers flowlines",
+        "North Sea operations"
+      ],
+      "certs_freetext": [
+        "BOSIET/HUET",
+        "OPITO offshore survival",
+        "Norwegian Offshore Safety Certificate",
+        "Offshore Medical (OGUK or equivalent)"
+      ],
+      "geo_rtw": "Norway / EEA right-to-work",
+      "project_experience": [
+        "Gjøa",
+        "Johan Sverdrup",
+        "Snorre",
+        "Åsgard",
+        "Balder X",
+        "Duva",
+        "Nova"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"subsea project manager\" OR \"SURF engineer\" OR \"subsea construction manager\" OR \"subsea engineer\" OR \"pipeline engineer\" OR \"offshore installation manager\" OR \"ROV supervisor\") AND (\"North Sea\" OR \"NCS\" OR \"Norwegian Continental Shelf\") AND (\"subsea\" OR \"SURF\" OR \"umbilicals\" OR \"flowlines\" OR \"risers\") NOT (\"decommissioning\" OR \"onshore\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Vår Energi just took FID on the Gjøa Subsea Projects on the NCS — EPC/SURF contracts and engineering ramp-up will follow shortly. With your subsea background, you could be well-positioned. Worth a quick chat?",
+      "email_subject": "Gjøa Subsea Projects – FID Taken, Roles Opening Soon",
+      "email_body": "Hi [Name],\n\nVår Energi and partners have just sanctioned the Gjøa Subsea Projects offshore Norway. With FID now confirmed, EPC tenders and detailed engineering mobilisation are expected to follow in the coming months — driving demand for experienced subsea, SURF, and offshore construction professionals on the NCS.\n\nGiven your background in [relevant discipline], I wanted to reach out early before these roles go to market.\n\nWould you be open to a brief call this week to discuss how your experience aligns with what's coming?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "FID taken by named operator Vår Energi ASA on the Gjøa Subsea Projects offshore Norway, a discrete sanctioning event triggering downstream EPC and workforce demand.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Article states Vår Energi and partners 'have made a final investment decision to proceed with the Gjøa Subsea Projects', indicating FID just taken and engineering phase commencing.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "6b071f57-c3ea-4961-9bd8-0e873e251ab3",
+    "ingested_at": "2026-06-26T12:47:51.415Z",
+    "source_published_at": "2026-06-26T10:46:24.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/aker-solutions-awarded-engineering-and-maintenance-service-agreement-from-cenovus-energy-302811598.html"
