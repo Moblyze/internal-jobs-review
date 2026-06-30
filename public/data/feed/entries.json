@@ -4,6 +4,119 @@
       {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/first-nations-group-takes-stake-in-ontario-nuclear-plant"
+      }
+    ],
+    "headline": "Williams Treaties First Nations Invests CAD700M in OPG Darlington BWRX-300 New Nuclear Project",
+    "body": "The Williams Treaties First Nations is investing CAD700 million (USD492 million) in Ontario Power Generation's project to build a BWRX-300 reactor - the Darlington New Nuclear Project - with the support of loan guarantees from federal and provincial programmes.",
+    "url": "https://www.world-nuclear-news.org//articles/first-nations-group-takes-stake-in-ontario-nuclear-plant",
+    "published_at": "2026-06-30T12:01:48.000Z",
+    "hash": "f2c69ea5b1709688",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "fid",
+    "region": "ontario-canada",
+    "country": "canada",
+    "tldr": "Williams Treaties First Nations is taking a CAD700M equity stake in Ontario Power Generation's Darlington New Nuclear Project (BWRX-300 reactor), backed by federal and provincial loan guarantees. This capital commitment signals advancing project readiness and an upcoming construction labor ramp at Darlington.",
+    "operator": {
+      "name": "Ontario Power Generation",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Ontario Power Generation",
+      "matched_company_slug": null
+    },
+    "project_name": "Darlington New Nuclear Project",
+    "scope": [
+      "new_nuclear_build",
+      "bwrx300_reactor",
+      "civil_works",
+      "module_assembly"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 492000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Construction Manager",
+        "Nuclear Project Manager",
+        "Civil/Structural Engineer",
+        "Mechanical Superintendent",
+        "HSE Manager",
+        "Nuclear Commissioning Engineer",
+        "Quality Assurance Manager",
+        "Radiation Protection Technician",
+        "I&C Engineer",
+        "Electrical Superintendent"
+      ],
+      "skills": [
+        "BWRX-300",
+        "SMR construction",
+        "nuclear project delivery",
+        "CANDU experience",
+        "nuclear quality assurance",
+        "CSA N299",
+        "nuclear safety culture",
+        "commissioning",
+        "civil nuclear construction"
+      ],
+      "certs_freetext": [
+        "CSA N299",
+        "Canadian Nuclear Safety Commission (CNSC) awareness",
+        "WHMIS",
+        "Construction Safety Training System (CSTS)"
+      ],
+      "geo_rtw": "Canada (Ontario) — Canadian citizen or PR preferred; CNSC security clearance eligible",
+      "project_experience": [
+        "Darlington Refurbishment",
+        "Bruce Power Life Extension",
+        "Pickering Refurbishment",
+        "GE-Hitachi BWRX-300",
+        "NuScale SMR"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"nuclear construction\" OR \"new nuclear\" OR \"BWRX-300\" OR \"SMR\" OR \"small modular reactor\") AND (\"project manager\" OR \"construction manager\" OR \"commissioning engineer\" OR \"HSE manager\" OR \"I&C engineer\" OR \"QA manager\") AND (\"Ontario\" OR \"Darlington\" OR \"OPG\" OR \"Canada\") NOT (\"decommissioning\" OR \"waste management\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Ontario Power Generation's Darlington BWRX-300 project just secured a CAD700M First Nations equity stake — a strong signal of construction ramp approaching. Are you open to discussing senior nuclear construction roles on this landmark Canadian project?",
+      "email_subject": "Darlington New Nuclear Project — Senior Roles Emerging | OPG BWRX-300",
+      "email_body": "Hi [Name],\n\nOntario Power Generation's Darlington New Nuclear Project has just secured a CAD700 million investment from the Williams Treaties First Nations, backed by federal and provincial loan guarantees — a clear indicator that the project is advancing toward full construction mobilisation.\n\nWe're mapping senior talent for roles including Construction Manager, Nuclear Commissioning Engineer, HSE Lead, and I&C Superintendent for this landmark BWRX-300 deployment at Darlington.\n\nGiven your background in [nuclear construction / SMR / Darlington Refurbishment], I think this could be a compelling opportunity. Would you be open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Ontario Power Generation) and named project (Darlington New Nuclear Project) with a CAD700M equity investment signalling project advancement and near-term construction labor demand in nuclear.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "A CAD700M equity stake investment with federal and provincial loan guarantee support indicates the project has passed concept stage and is advancing through pre-construction/engineering toward construction mobilisation.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "1ca65623-746e-429d-9393-980690867ab9",
+    "ingested_at": "2026-06-30T18:40:36.787Z",
+    "source_published_at": "2026-06-30T12:01:48.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org//articles/fuel-loading-begins-at-slovakias-mochovce-4"
       }
     ],

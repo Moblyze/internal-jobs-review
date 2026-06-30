@@ -1,5 +1,48 @@
 [
   {
+    "id": "1ca65623-746e-429d-9393-980690867ab9",
+    "ingested_at": "2026-06-30T18:40:36.787Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/first-nations-group-takes-stake-in-ontario-nuclear-plant"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "fid",
+    "region": "ontario-canada",
+    "country": "canada",
+    "headline": "Williams Treaties First Nations Invests CAD700M in OPG Darlington BWRX-300 New Nuclear Project",
+    "operator": {
+      "name": "Ontario Power Generation",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Ontario Power Generation",
+      "matched_company_slug": null
+    },
+    "project_name": "Darlington New Nuclear Project",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 492000000,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
     "id": "ddb89ab8-8cb0-4327-aab6-5a0cdb831851",
     "ingested_at": "2026-06-30T12:45:17.555Z",
     "sources": [
