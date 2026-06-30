@@ -1,5 +1,49 @@
 [
   {
+    "id": "1e0103a8-7c16-46b7-8be5-2da1ceb7de81",
+    "ingested_at": "2026-06-30T07:22:52.028Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/technipfmc_bags_large_contract_to_deliver_new_var_energi_projects-30-jun-2026-184018-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "rov_subsea",
+      "marine_offshore_ops",
+      "energy_trades",
+      "industrial_construction"
+    ],
+    "signal_type": "epc_award",
+    "region": "norway-north-sea",
+    "country": "norway",
+    "headline": "TechnipFMC Awarded Subsea Contract for Vår Energi's Ofelia & Gjøa Nord Projects, Norway",
+    "operator": {
+      "name": "Vår Energi ASA",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "TechnipFMC",
+      "matched_company_slug": null
+    },
+    "project_name": "Ofelia & Gjøa Nord",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": []
+  },
+  {
     "id": "6b071f57-c3ea-4961-9bd8-0e873e251ab3",
     "ingested_at": "2026-06-26T12:47:51.415Z",
     "sources": [

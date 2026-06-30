@@ -4,6 +4,124 @@
       {
         "id": "rigzone",
         "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/technipfmc_bags_large_contract_to_deliver_new_var_energi_projects-30-jun-2026-184018-article/?rss=true"
+      }
+    ],
+    "headline": "TechnipFMC Awarded Subsea Contract for Vår Energi's Ofelia & Gjøa Nord Projects, Norway",
+    "body": "TechnipFMC PLC has received a contract to execute the Vår Energi ASA-led Ofelia and Gjøa Nord development projects on Norway's side of the North Sea.\n\r\n\r\n...",
+    "url": "https://www.rigzone.com/news/technipfmc_bags_large_contract_to_deliver_new_var_energi_projects-30-jun-2026-184018-article/?rss=true",
+    "published_at": "2026-06-30T06:30:00.000Z",
+    "hash": "da232a65747e1c48",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "rov_subsea",
+      "marine_offshore_ops",
+      "energy_trades",
+      "industrial_construction"
+    ],
+    "signal_type": "epc_award",
+    "region": "norway-north-sea",
+    "country": "norway",
+    "tldr": "TechnipFMC has been awarded a contract by Vår Energi to deliver the Ofelia and Gjøa Nord subsea development projects on the Norwegian North Sea, signalling an imminent engineering and offshore execution ramp-up.",
+    "operator": {
+      "name": "Vår Energi ASA",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "TechnipFMC",
+      "matched_company_slug": null
+    },
+    "project_name": "Ofelia & Gjøa Nord",
+    "scope": [
+      "subsea_epc",
+      "subsea_install",
+      "umbilicals_risers_flowlines"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Subsea Project Engineer",
+        "Subsea Installation Engineer",
+        "ROV Supervisor",
+        "Pipeline Engineer",
+        "Subsea Construction Manager",
+        "Offshore Installation Manager",
+        "SURF Engineer",
+        "Project Manager – Subsea",
+        "Commissioning Engineer",
+        "Subsea Controls Engineer"
+      ],
+      "skills": [
+        "SURF installation",
+        "subsea umbilicals",
+        "flowlines",
+        "risers",
+        "pipeline engineering",
+        "ROV operations",
+        "subsea project execution",
+        "Norwegian shelf experience",
+        "TechnipFMC systems",
+        "offshore construction management"
+      ],
+      "certs_freetext": [
+        "BOSIET/HUET",
+        "OPITO Offshore Survival",
+        "Norwegian Working Environment Act compliance",
+        "GWO Basic Safety",
+        "Subsea Engineering competency"
+      ],
+      "geo_rtw": "Norway (EU/EEA right-to-work preferred)",
+      "project_experience": [
+        "Johan Castberg",
+        "Snøhvit",
+        "Balder X",
+        "Kristin",
+        "Gjøa",
+        "Duva",
+        "Nova"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"Subsea Engineer\" OR \"SURF Engineer\" OR \"Pipeline Engineer\" OR \"Subsea Construction Manager\" OR \"Offshore Installation Manager\" OR \"ROV Supervisor\" OR \"Subsea Project Manager\" OR \"Commissioning Engineer\") AND (\"TechnipFMC\" OR \"Subsea 7\" OR \"Technip\" OR \"Aker Solutions\" OR \"Equinor\" OR \"Vår Energi\" OR \"TotalEnergies\") AND (\"Norwegian Continental Shelf\" OR \"NCS\" OR \"North Sea\" OR \"Norway\") AND (\"SURF\" OR \"umbilical\" OR \"flowline\" OR \"subsea installation\" OR \"ROV\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], TechnipFMC just landed the Ofelia & Gjøa Nord subsea contract with Vår Energi on the NCS — engineering ramp-up is imminent. Your SURF/subsea background looks like a strong fit. Worth a quick chat?",
+      "email_subject": "TechnipFMC – Ofelia & Gjøa Nord Subsea Contract | NCS Opportunity",
+      "email_body": "Hi [Name],\n\nTechnipFMC has been awarded the subsea development contract for Vår Energi's Ofelia and Gjøa Nord projects on the Norwegian Continental Shelf. With engineering execution ramping up, they will be looking for experienced subsea and SURF professionals in the near term.\n\nGiven your background in [subsea installation / pipeline engineering / ROV operations], I wanted to reach out to explore whether this could be a strong next move for you.\n\nAre you open to a brief call this week to discuss the opportunity?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named EPC/subsea contract award between TechnipFMC (contractor) and Vår Energi (operator) for the Ofelia and Gjøa Nord offshore O&G projects on the Norwegian Continental Shelf.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Article states TechnipFMC 'has received a contract to execute' the projects, indicating a contract award with engineering and execution to follow.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "1e0103a8-7c16-46b7-8be5-2da1ceb7de81",
+    "ingested_at": "2026-06-30T07:22:52.028Z",
+    "source_published_at": "2026-06-30T06:30:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director",
+      "hr_business_partner"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
         "url": "https://www.rigzone.com/news/var_energi_greenlights_gjoa_projects-26-jun-2026-183997-article/?rss=true"
       }
     ],

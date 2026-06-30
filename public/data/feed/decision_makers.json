@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-06-26T07:23:49.814Z"
+    "last_updated_at": "2026-06-30T07:24:10.032Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -7163,6 +7163,66 @@
         "persona": "ta",
         "linkedin_url": null,
         "source_url": "https://rocketreach.co/cenovus-energy-hr-department_b5cd0b20f42e0ad9",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "technipfmc": {
+    "discovered_at": "2026-06-30T07:24:10.032Z",
+    "contacts": [
+      {
+        "name": "Valeria Augusta dos Santos Iannone",
+        "title": "Executive Vice President, People & Culture",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://www.technipfmc.com/en/about-us/executive-officers/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Shel Nichols",
+        "title": "Talent Acquisition Manager",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/shel-nichols",
+        "source_url": "https://www.linkedin.com/in/shel-nichols",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Kevin Thomson",
+        "title": "Senior Vice President, Subsea Commercial",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/kevin-thomson-68297551",
+        "source_url": "https://www.linkedin.com/in/kevin-thomson-68297551",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Katy, TX, USA"
+      },
+      {
+        "name": "Jonathan Morley",
+        "title": "Vice President, Global Service Lines & Operations",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/jonathan-morley-13245476",
+        "source_url": "https://www.linkedin.com/in/jonathan-morley-13245476",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Jeff Bland",
+        "title": "HR Manager",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/jeff-bland-a95a60212",
+        "source_url": "https://www.linkedin.com/in/jeff-bland-a95a60212",
         "in_target_persona": true,
         "email": null,
         "phone": null,
