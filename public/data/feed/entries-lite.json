@@ -1,5 +1,90 @@
 [
   {
+    "id": "ddb89ab8-8cb0-4327-aab6-5a0cdb831851",
+    "ingested_at": "2026-06-30T12:45:17.555Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/fuel-loading-begins-at-slovakias-mochovce-4"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "regulatory",
+    "region": "central-europe",
+    "country": "slovakia",
+    "headline": "Fuel Loading Begins at Mochovce Unit 4 — Slovenské elektrárne Enters Active Commissioning",
+    "operator": {
+      "name": "Slovenské elektrárne",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Slovenské elektrárne",
+      "matched_company_slug": null
+    },
+    "project_name": "Mochovce Nuclear Power Plant Unit 4",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "commissioning",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": []
+  },
+  {
+    "id": "257083cc-6f50-4521-bfc7-58eee51654e5",
+    "ingested_at": "2026-06-30T12:45:17.555Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/polish-developer-applies-for-state-funding-for-three-smr-plants"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "regulatory",
+    "region": "poland",
+    "country": "poland",
+    "headline": "Orlen Synthos Green Energy Applies for CfD Funding for 14 BWRX-300 SMRs at Three Polish Sites",
+    "operator": {
+      "name": "Orlen Synthos Green Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Orlen Synthos Green Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "BWRX-300 SMR Programme Poland",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "1e0103a8-7c16-46b7-8be5-2da1ceb7de81",
     "ingested_at": "2026-06-30T07:22:52.028Z",
     "sources": [
