@@ -2,6 +2,114 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/us-uranium-project-completes-federal-permitting-process"
+      }
+    ],
+    "headline": "enCore Energy's Dewey Burdock ISR Uranium Project Completes Federal Permitting in South Dakota",
+    "body": "The US Nuclear Regulatory Commission has issued a 20-year renewal of the source materials licence for enCore Energy's Dewey Burdock In-Situ Recovery Uranium Project, completing the federal part of the permitting process for the South Dakota project.",
+    "url": "https://www.world-nuclear-news.org//articles/us-uranium-project-completes-federal-permitting-process",
+    "published_at": "2026-07-01T11:41:07.000Z",
+    "hash": "e0de6746214a63ed",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "drilling_operations",
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-midwest",
+    "country": "united_states",
+    "tldr": "The NRC has issued a 20-year source materials licence renewal for enCore Energy's Dewey Burdock In-Situ Recovery Uranium Project in South Dakota, completing the federal permitting phase. This clears a key regulatory hurdle and signals the project is moving toward construction and operations hiring.",
+    "operator": {
+      "name": "enCore Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "enCore Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Dewey Burdock In-Situ Recovery Uranium Project",
+    "scope": [
+      "isr_uranium",
+      "well_field_development",
+      "processing_plant"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "ISR Uranium Project Manager",
+        "Well Field Supervisor",
+        "Uranium Process Plant Operator",
+        "Health Physics Technician",
+        "Environmental Compliance Specialist",
+        "Drilling Supervisor",
+        "Wellfield Construction Manager",
+        "Radiation Protection Supervisor"
+      ],
+      "skills": [
+        "in-situ recovery",
+        "uranium mining",
+        "wellfield operations",
+        "NRC licensing",
+        "radiation protection",
+        "ion exchange",
+        "groundwater monitoring",
+        "drilling operations"
+      ],
+      "certs_freetext": [
+        "NRC Radiation Protection Certification",
+        "40-Hour HAZWOPER",
+        "Mine Safety MSHA",
+        "Wyoming/South Dakota ISR Operator Certification"
+      ],
+      "geo_rtw": "US work authorization required; South Dakota, USA",
+      "project_experience": [
+        "Crow Butte ISR Project",
+        "Smith Ranch-Highland ISR",
+        "Lost Creek ISR",
+        "Nichols Ranch ISR",
+        "Alta Mesa ISR"
+      ],
+      "yoe_band": "5-15",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"in-situ recovery\" OR \"ISR\" OR \"uranium mining\") AND (\"wellfield\" OR \"uranium processing\" OR \"ion exchange\" OR \"radiation protection\") AND (\"project manager\" OR \"supervisor\" OR \"operator\" OR \"health physics\" OR \"drilling supervisor\") AND (\"NRC\" OR \"uranium\" OR \"in situ leach\") NOT (\"gold\" OR \"copper\" OR \"coal\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], enCore Energy's Dewey Burdock ISR Uranium Project in South Dakota just secured its NRC federal licence — a key milestone before construction and ops ramp. Are you open to hearing about opportunities on this project?",
+      "email_subject": "Dewey Burdock ISR Uranium Project – Key Roles Opening Up Post-NRC Licence",
+      "email_body": "Hi [Name],\n\nenCore Energy's Dewey Burdock In-Situ Recovery Uranium Project in South Dakota has just completed its federal permitting process following NRC issuance of a 20-year source materials licence renewal. This is a significant pre-construction milestone that typically precedes a staffing ramp for wellfield, drilling, process plant, and HSE/radiation protection roles.\n\nGiven your background in [ISR operations / uranium mining / radiation protection], I wanted to reach out now before positions are formally advertised.\n\nWould you be open to a brief call to discuss how your experience aligns with what's coming up on this project?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Permit grant completing the federal licensing process for a named operator (enCore Energy) and named project (Dewey Burdock ISR Uranium Project) in the nuclear/mining subsector, signalling imminent construction and operations hiring.",
+    "phase": "pre_sanction",
+    "phase_evidence": "The article states this 'complet[es] the federal part of the permitting process,' indicating the project is still in the pre-FID/permitting phase with state approvals potentially still pending.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "e65f799b-2e99-42c3-9a94-7a2c69584370",
+    "ingested_at": "2026-07-01T18:43:03.707Z",
+    "source_published_at": "2026-07-01T11:41:07.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "mining_com",
         "name": "MINING.com",
         "url": "https://www.mining.com/energy-transition-minerals-receives-regional-approvals-for-penouta-mine-restart-in-spain/"
