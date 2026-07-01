@@ -1,5 +1,47 @@
 [
   {
+    "id": "7c45622d-53a4-4693-bd06-5adcac3f245a",
+    "ingested_at": "2026-07-01T07:34:47.026Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/guardian-may-skip-feasibility-on-660m-nevada-tungsten-mine/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "survey_geophysical"
+    ],
+    "signal_type": "fid",
+    "region": "us-nevada",
+    "country": "united_states",
+    "headline": "Guardian May Skip Feasibility on $660M Pilot Mountain Tungsten Mine, Nevada",
+    "operator": {
+      "name": "Guardian",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Pilot Mountain",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 660000000,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "1ca65623-746e-429d-9393-980690867ab9",
     "ingested_at": "2026-06-30T18:40:36.787Z",
     "sources": [

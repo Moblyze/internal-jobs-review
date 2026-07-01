@@ -2,6 +2,103 @@
   {
     "sources": [
       {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/guardian-may-skip-feasibility-on-660m-nevada-tungsten-mine/"
+      }
+    ],
+    "headline": "Guardian May Skip Feasibility on $660M Pilot Mountain Tungsten Mine, Nevada",
+    "body": "Pilot Mountain is among the most advanced US tungsten projects.",
+    "url": "https://www.mining.com/guardian-may-skip-feasibility-on-660m-nevada-tungsten-mine/",
+    "published_at": "2026-06-30T20:16:43.000Z",
+    "hash": "845a53c1e799d703",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "survey_geophysical"
+    ],
+    "signal_type": "fid",
+    "region": "us-nevada",
+    "country": "united_states",
+    "tldr": "Guardian is considering bypassing the feasibility study stage on its $660M Pilot Mountain tungsten mine in Nevada, potentially accelerating the path to project sanction and construction hiring.",
+    "operator": {
+      "name": "Guardian",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Pilot Mountain",
+    "scope": [
+      "mine_development",
+      "feasibility_bypass"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 660000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mine Development Manager",
+        "Project Manager Mining",
+        "Feasibility Study Manager",
+        "Mining Engineer",
+        "Geotechnical Engineer",
+        "Environmental Permitting Manager"
+      ],
+      "skills": [
+        "tungsten mining",
+        "mine feasibility",
+        "permitting",
+        "project development",
+        "CAPEX estimation"
+      ],
+      "certs_freetext": [
+        "SME registered member",
+        "PE Civil/Mining"
+      ],
+      "geo_rtw": "US work authorization",
+      "project_experience": [
+        "Pilot Mountain",
+        "Nevada tungsten projects",
+        "US critical minerals"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "senior",
+      "boolean_search": "(\"Mine Development Manager\" OR \"Mining Project Manager\" OR \"Feasibility Manager\" OR \"Mining Engineer\" OR \"Geotechnical Engineer\") AND (\"tungsten\" OR \"critical minerals\" OR \"Nevada\" OR \"open pit\" OR \"underground mine\") AND (\"feasibility\" OR \"CAPEX\" OR \"project development\" OR \"permitting\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Guardian is advancing the $660M Pilot Mountain tungsten mine in Nevada and may fast-track past feasibility. Strong fit for senior mine development professionals — worth a conversation?",
+      "email_subject": "Pilot Mountain Tungsten Mine – Senior Project Roles Emerging",
+      "email_body": "Hi [Name],\n\nGuardian is reportedly considering skipping the feasibility stage on its $660M Pilot Mountain tungsten mine in Nevada — one of the most advanced US tungsten projects — which could compress the timeline to active development and construction hiring significantly.\n\nGiven your background in [mine development / permitting / project engineering], I wanted to flag this early as a potential opportunity worth tracking.\n\nWould you be open to a brief call to discuss how your experience might align?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Guardian) and project (Pilot Mountain) with a $660M mine development signal indicating potential accelerated FID and imminent workforce ramp in the mining sector.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states Guardian 'may skip feasibility,' indicating the project is still in pre-FID/study phase with a potential shortcut to sanction.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "7c45622d-53a4-4693-bd06-5adcac3f245a",
+    "ingested_at": "2026-07-01T07:34:47.026Z",
+    "source_published_at": "2026-06-30T20:16:43.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org//articles/first-nations-group-takes-stake-in-ontario-nuclear-plant"
