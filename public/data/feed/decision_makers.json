@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-07-01T07:36:24.959Z"
+    "last_updated_at": "2026-07-01T13:02:16.992Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -7237,5 +7237,65 @@
   "guardian": {
     "discovered_at": "2026-07-01T07:36:24.959Z",
     "contacts": []
+  },
+  "energy transition minerals": {
+    "discovered_at": "2026-07-01T13:02:16.992Z",
+    "contacts": [
+      {
+        "name": "Daniel Mamadou-Blanco",
+        "title": "Managing Director",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/danielmamadou",
+        "source_url": "https://etransmin.com/board-and-management/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Singapore"
+      },
+      {
+        "name": "Mark Saxon",
+        "title": "Non-Executive Director",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/mark-saxon-mineral-exploration",
+        "source_url": "https://etransmin.com/board-and-management/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Melbourne, Australia"
+      },
+      {
+        "name": "Amy Jiang",
+        "title": "Non-Executive Director",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://etransmin.com/board-and-management/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Australia"
+      },
+      {
+        "name": "Sara Kelly",
+        "title": "Non-Executive Chair",
+        "persona": "other",
+        "linkedin_url": null,
+        "source_url": "https://etransmin.com/corporate-directory/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Perth, WA, Australia"
+      },
+      {
+        "name": "Ryan Sebbes",
+        "title": "Company Secretary",
+        "persona": "other",
+        "linkedin_url": null,
+        "source_url": "https://etransmin.com/board-and-management/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Perth, WA, Australia"
+      }
+    ]
   }
 }

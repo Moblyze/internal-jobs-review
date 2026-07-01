@@ -4,6 +4,114 @@
       {
         "id": "mining_com",
         "name": "MINING.com",
+        "url": "https://www.mining.com/energy-transition-minerals-receives-regional-approvals-for-penouta-mine-restart-in-spain/"
+      }
+    ],
+    "headline": "Energy Transition Minerals Receives Regional Approvals for Penouta Mine Restart in Spain",
+    "body": "Europe mines almost none of the metals Penouta yields — tin, tantalum and niobium.",
+    "url": "https://www.mining.com/energy-transition-minerals-receives-regional-approvals-for-penouta-mine-restart-in-spain/",
+    "published_at": "2026-07-01T12:51:45.000Z",
+    "hash": "66e55bad023be247",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "regulatory",
+    "region": "spain",
+    "country": "spain",
+    "tldr": "Energy Transition Minerals has secured regional regulatory approvals to restart the Penouta tin/tantalum/niobium mine in Spain, signalling an imminent workforce ramp-up for mining operations.",
+    "operator": {
+      "name": "Energy Transition Minerals",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Energy Transition Minerals",
+      "matched_company_slug": null
+    },
+    "project_name": "Penouta Mine",
+    "scope": [
+      "mine_restart",
+      "regulatory_approval"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mine Manager",
+        "Mining Engineer",
+        "Process Plant Superintendent",
+        "HSE Manager",
+        "Metallurgist",
+        "Drilling & Blasting Supervisor",
+        "Mineral Processing Engineer",
+        "Site Manager",
+        "Maintenance Superintendent"
+      ],
+      "skills": [
+        "hard rock mining",
+        "tin processing",
+        "tantalum",
+        "niobium",
+        "mineral processing",
+        "open pit operations",
+        "mine planning",
+        "process plant operations",
+        "HSE management"
+      ],
+      "certs_freetext": [
+        "WHMIS",
+        "First Aid",
+        "Explosives Handling Certificate",
+        "NEBOSH"
+      ],
+      "geo_rtw": "EU/EEA right-to-work, Spain-based or willing to relocate",
+      "project_experience": [
+        "Penouta",
+        "European critical minerals projects",
+        "tin mining",
+        "tantalum mining"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"Mine Manager\" OR \"Mining Engineer\" OR \"Process Plant Superintendent\" OR \"Metallurgist\" OR \"HSE Manager\" OR \"Mineral Processing Engineer\" OR \"Site Manager\") AND (\"tin\" OR \"tantalum\" OR \"niobium\" OR \"hard rock mining\" OR \"mineral processing\" OR \"open pit\") AND (Spain OR Europe OR \"critical minerals\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Energy Transition Minerals has just received regional approvals to restart the Penouta mine in Spain (tin/tantalum/niobium). A workforce ramp-up is expected soon — are you open to hearing about senior roles on this project?",
+      "email_subject": "Penouta Mine Restart – Senior Mining Roles | Spain",
+      "email_body": "Hi [Name],\n\nEnergy Transition Minerals has secured regional approvals to restart the Penouta mine in Galicia, Spain — one of Europe's rare sources of tin, tantalum, and niobium.\n\nAs the project moves toward operational restart, we anticipate demand for experienced mining professionals across engineering, processing, HSE, and site management disciplines.\n\nGiven your background in [relevant discipline], I wanted to reach out early to explore whether this opportunity aligns with your career plans.\n\nWould you be open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Regulatory approval granted for named operator (Energy Transition Minerals) to restart a named mine (Penouta) in Spain, constituting a permit grant qualifying event with clear workforce demand implications.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Regional approvals received for mine restart indicate the project has cleared a key regulatory gate and is moving toward operational ramp-up.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "c76c8558-3b83-479a-9d59-f479625c6e2d",
+    "ingested_at": "2026-07-01T13:00:46.490Z",
+    "source_published_at": "2026-07-01T12:51:45.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
         "url": "https://www.mining.com/guardian-may-skip-feasibility-on-660m-nevada-tungsten-mine/"
       }
     ],

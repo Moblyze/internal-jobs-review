@@ -1,5 +1,47 @@
 [
   {
+    "id": "c76c8558-3b83-479a-9d59-f479625c6e2d",
+    "ingested_at": "2026-07-01T13:00:46.490Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/energy-transition-minerals-receives-regional-approvals-for-penouta-mine-restart-in-spain/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "regulatory",
+    "region": "spain",
+    "country": "spain",
+    "headline": "Energy Transition Minerals Receives Regional Approvals for Penouta Mine Restart in Spain",
+    "operator": {
+      "name": "Energy Transition Minerals",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Energy Transition Minerals",
+      "matched_company_slug": null
+    },
+    "project_name": "Penouta Mine",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
     "id": "7c45622d-53a4-4693-bd06-5adcac3f245a",
     "ingested_at": "2026-07-01T07:34:47.026Z",
     "sources": [
