@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-07-02T12:44:31.064Z"
+    "last_updated_at": "2026-07-02T18:35:47.939Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -7417,6 +7417,66 @@
         "linkedin_url": null,
         "source_url": "https://www.ngenergyintl.com/about/board-of-directors/",
         "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "hudbay minerals": {
+    "discovered_at": "2026-07-02T18:35:47.939Z",
+    "contacts": [
+      {
+        "name": "Andre Lauzon",
+        "title": "Senior Vice President & Chief Operating Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/andre-lauzon-13845315",
+        "source_url": "https://hudbayminerals.com/about-us/board/person-details/default.aspx?ItemId=d0ed0c36-198c-422b-b63b-8cc82c69c009",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Toronto, ON, Canada"
+      },
+      {
+        "name": "Robert Carter",
+        "title": "Senior Vice President, Canada",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/rob-carter-a9534122",
+        "source_url": "https://hudbayminerals.com/about-us/board/person-details/default.aspx?ItemId=080ad960-503e-45ab-b919-59311ccd4410",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Manitoba, Canada"
+      },
+      {
+        "name": "Javier Del Rio",
+        "title": "Senior Vice President, South America and USA",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/javier-del-rio-icd-d-942b5b21",
+        "source_url": "https://hudbay.com/about-us/board/person-details/default.aspx?itemid=e33b78b5-de23-413b-b1a0-4b2a6d523900",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Tucson, AZ, USA"
+      },
+      {
+        "name": "John O'Shaughnessy",
+        "title": "Vice President, Manitoba Business Unit",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://hudbayminerals.com/investors/press-releases/press-release-details/2025/Hudbay-Delivers-Strong-Second-Quarter-2025-Results/default.aspx",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Manitoba, Canada"
+      },
+      {
+        "name": "Sheryl Brown",
+        "title": "Human Resources Manager",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://rocketreach.co/hudbay-minerals-inc-hr-department_b5c224f6f42e0e95",
+        "in_target_persona": true,
         "email": null,
         "phone": null,
         "location": null

@@ -4,38 +4,36 @@
       {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/sge-team-targets-14-bwrx300-smrs-uk"
+        "url": "https://www.world-nuclear-news.org//articles/supply-chain-challenges-prompt-cigar-lake-suspension"
       }
     ],
-    "headline": "SGE-Led Team Plans 14 BWRX-300 SMRs Across Three UK Sites with Samsung, Laing O'Rourke & Aecon",
-    "body": "Poland's SGE and a deployment team including Samsung C&T, Laing O'Rourke, Aecon Group and Google Cloud, have outlined plans for the privately financed deployment of 14 GE Vernova Hitachi BWRX-300 small modular reactors across three sites in the UK.",
-    "url": "https://www.world-nuclear-news.org//articles/sge-team-targets-14-bwrx300-smrs-uk",
-    "published_at": "2026-07-02T16:36:20.000Z",
-    "hash": "f3d6825dcb2d2a32",
-    "subsector": "nuclear",
+    "headline": "Cameco Suspends Cigar Lake Mine Operations Amid Sulphuric Acid Supply Issues at McClean Lake Mill",
+    "body": "Cameco has temporarily suspended operations at the Cigar Lake mine in northern Saskatchewan due to challenges related to sulphuric acid availability at Orano's McClean Lake mill, where ore from Cigar Lake is processed.",
+    "url": "https://www.world-nuclear-news.org//articles/supply-chain-challenges-prompt-cigar-lake-suspension",
+    "published_at": "2026-07-02T15:30:41.000Z",
+    "hash": "74e84b038016415f",
+    "subsector": "mining",
     "discipline_tags": [
       "industrial_construction",
-      "energy_trades",
       "process_plant_operations"
     ],
-    "signal_type": "fid",
-    "region": "uk",
-    "country": "united_kingdom",
-    "tldr": "SGE, Samsung C&T, Laing O'Rourke, Aecon Group and Google Cloud have outlined plans for 14 GE Vernova Hitachi BWRX-300 SMRs at three UK sites. This is a pre-sanction announcement signalling a significant future nuclear construction workforce ramp across the UK.",
+    "signal_type": "replacement",
+    "region": "canada-saskatchewan",
+    "country": "canada",
+    "tldr": "Cameco has temporarily halted operations at Cigar Lake uranium mine due to sulphuric acid supply constraints at Orano's McClean Lake processing mill. Suspension creates potential near-term demand for standby/restart personnel and supply chain specialists once operations resume.",
     "operator": {
-      "name": "SGE",
+      "name": "Cameco",
       "matched_company_slug": null
     },
     "hiring_entity": {
-      "name": "Laing O'Rourke / Aecon Group / Samsung C&T",
+      "name": "Cameco",
       "matched_company_slug": null
     },
-    "project_name": "BWRX-300 SMR UK Deployment (14-unit programme)",
+    "project_name": "Cigar Lake Mine",
     "scope": [
-      "smr_deployment",
-      "civil_construction",
-      "nuclear_epc",
-      "multi_site"
+      "mine_suspension",
+      "process_plant_ops",
+      "supply_chain_remediation"
     ],
     "mob_window": {
       "start": null,
@@ -45,72 +43,165 @@
     "contract_value_usd": null,
     "targeting": {
       "job_titles_freetext": [
-        "Nuclear Project Manager",
-        "SMR Construction Manager",
-        "Nuclear Civil Engineer",
-        "Reactor Commissioning Engineer",
-        "Nuclear HSE Manager",
-        "Nuclear Quality Assurance Manager",
-        "Nuclear Mechanical Engineer",
-        "Nuclear I&C Engineer",
-        "Nuclear Structural Engineer",
-        "Nuclear Programme Planner"
+        "Mine Operations Manager",
+        "Process Plant Superintendent",
+        "Supply Chain Manager",
+        "Maintenance Supervisor",
+        "Restart Coordinator",
+        "HSE Advisor",
+        "Metallurgist"
       ],
       "skills": [
-        "SMR construction",
-        "nuclear project delivery",
-        "BWRX-300",
-        "nuclear quality assurance",
-        "nuclear commissioning",
-        "civil nuclear",
-        "modular reactor",
-        "nuclear safety case",
-        "GE Vernova Hitachi",
-        "NEC contract"
+        "uranium mining",
+        "hydrometallurgy",
+        "acid plant operations",
+        "mine suspension management",
+        "care and maintenance",
+        "process plant restart",
+        "supply chain logistics"
       ],
       "certs_freetext": [
-        "Nuclear Baseline Security Clearance (UK)",
-        "SC Clearance (UK)",
-        "CSCS Nuclear",
-        "IOSH Managing Safely",
-        "APM Project Management Qualification"
+        "Saskatchewan Mine Manager Certificate",
+        "WHMIS",
+        "Radiation Protection Training"
       ],
-      "geo_rtw": "UK right-to-work required",
+      "geo_rtw": "Canada (Saskatchewan) — must be eligible to work in Canada",
       "project_experience": [
-        "Hinkley Point C",
-        "Sizewell C",
-        "Darlington SMR (Canada)",
-        "Horizon Nuclear Power",
-        "NuScale VOYGR",
-        "Rolls-Royce SMR"
+        "Cigar Lake",
+        "McClean Lake",
+        "McArthur River",
+        "Key Lake",
+        "Rabbit Lake"
       ],
-      "yoe_band": "10-20",
-      "seniority": "Senior / Principal / Lead",
-      "boolean_search": "(\"nuclear\" OR \"SMR\" OR \"small modular reactor\" OR \"BWRX-300\" OR \"GE Vernova\" OR \"Hitachi\") AND (\"construction manager\" OR \"project manager\" OR \"commissioning engineer\" OR \"civil nuclear\" OR \"nuclear engineer\" OR \"nuclear HSE\" OR \"nuclear QA\") AND (\"UK\" OR \"United Kingdom\" OR \"England\" OR \"Scotland\") NOT (\"oil\" OR \"gas\" OR \"wind\")"
+      "yoe_band": "8-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"Cigar Lake\" OR \"McClean Lake\" OR \"uranium mine\" OR \"uranium mining\") AND (\"mine operations\" OR \"process plant\" OR \"acid plant\" OR \"hydrometallurgy\" OR \"care and maintenance\" OR \"mine restart\") AND (\"Cameco\" OR \"Orano\" OR \"Saskatchewan\") AND (\"operations manager\" OR \"superintendent\" OR \"plant manager\" OR \"supply chain\" OR \"maintenance supervisor\" OR \"HSE advisor\")"
     },
     "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], the SGE-led team (Laing O'Rourke, Aecon, Samsung C&T) is planning 14 BWRX-300 SMRs across three UK sites. As this programme advances toward sanction, nuclear construction talent is being mapped now. Would you be open to a confidential conversation?",
-      "email_subject": "14 BWRX-300 SMRs UK — Nuclear Construction Talent Mapping",
-      "email_body": "Hi [Name],\n\nSGE, alongside Laing O'Rourke, Aecon Group, Samsung C&T and Google Cloud, has announced plans for 14 GE Vernova Hitachi BWRX-300 small modular reactors across three UK sites — one of the largest civil nuclear programmes announced in the UK in decades.\n\nAs the programme moves toward sanction and EPC mobilisation, we are proactively mapping senior nuclear construction, commissioning and engineering talent with civil nuclear or SMR programme experience.\n\nGiven your background in [relevant nuclear/construction discipline], I'd welcome a confidential conversation about how your experience aligns with the emerging opportunities on this programme.\n\nAre you available for a brief call this week?\n\nBest regards,\n[Your Name]"
+      "linkedin_inmail": "Hi [Name], Cameco's Cigar Lake suspension signals upcoming restart activity in Saskatchewan uranium. Given your background in [mine ops/process plant], keen to explore fit for roles as operations resume. Worth a quick call?",
+      "email_subject": "Cigar Lake Restart — Uranium Mining Ops & Process Plant Opportunities, Saskatchewan",
+      "email_body": "Hi [Name],\n\nCameco has temporarily suspended operations at the Cigar Lake uranium mine due to sulphuric acid supply issues at Orano's McClean Lake mill. As the operation moves toward restart, there will likely be demand for experienced mine operations, process plant, and supply chain professionals in northern Saskatchewan.\n\nGiven your background in [relevant discipline], I wanted to reach out ahead of the hiring curve.\n\nWould you be open to a brief conversation about potential opportunities as Cigar Lake resumes operations?\n\nBest regards,\n[Your Name]"
     },
     "bd_relevant": true,
-    "bd_relevance_reason": "Named deployment team (SGE, Samsung C&T, Laing O'Rourke, Aecon Group) has outlined plans for 14 BWRX-300 SMRs at three UK sites, constituting a large-scale nuclear workforce demand signal in the UK.",
-    "phase": "pre_sanction",
-    "phase_evidence": "Article states the team has 'outlined plans' for deployment — no FID, EPC award or sanction language is present.",
+    "bd_relevance_reason": "Named operator (Cameco) and project (Cigar Lake Mine) with a discrete operational suspension event implying near-term restart workforce demand in the mining sector.",
+    "phase": "operating",
+    "phase_evidence": "Article states Cameco has 'temporarily suspended operations' at the producing Cigar Lake mine, confirming it is an operational asset undergoing a temporary halt.",
     "construction_subphase": null,
     "lifecycle_track": "greenfield",
     "decom_stage": null,
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
     "key_people": [],
     "enrichment_status": "ok",
     "enrichment_model": "claude-sonnet-4-6",
-    "id": "3b95acb8-d236-4b98-b1f3-ad6ff38f53fa",
-    "ingested_at": "2026-07-02T12:42:29.541Z",
-    "source_published_at": "2026-07-02T16:36:20.000Z",
+    "id": "00115058-53b0-4f51-85db-582978436f93",
+    "ingested_at": "2026-07-02T18:33:40.697Z",
+    "source_published_at": "2026-07-02T15:30:41.000Z",
     "contact_archetypes": [
-      "project_manager",
-      "business_unit_director"
+      "ops_director",
+      "hiring_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/hudbay-gains-peru-approval-to-further-increase-constancia-mill-throughput/"
+      }
+    ],
+    "headline": "Hudbay Wins Peru Permit to Expand Constancia Mill to 34 Mtpa",
+    "body": "The new permit increases the Constancia mill's processing capacity from 31 million tonnes per annum (mtpa) to 34 mtpa.",
+    "url": "https://www.mining.com/hudbay-gains-peru-approval-to-further-increase-constancia-mill-throughput/",
+    "published_at": "2026-07-02T15:16:38.000Z",
+    "hash": "b67534556020cf10",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "peru",
+    "country": "peru",
+    "tldr": "Hudbay has received Peruvian regulatory approval to increase Constancia's mill throughput from 31 to 34 Mtpa, signalling a capacity expansion that will drive near-term operational and engineering hiring.",
+    "operator": {
+      "name": "Hudbay Minerals",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Hudbay Minerals",
+      "matched_company_slug": null
+    },
+    "project_name": "Constancia",
+    "scope": [
+      "mill_expansion",
+      "throughput_increase"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Process Plant Manager",
+        "Metallurgist",
+        "Concentrator Superintendent",
+        "Maintenance Superintendent",
+        "Process Engineer",
+        "Mill Operator",
+        "Commissioning Engineer",
+        "HSE Advisor"
+      ],
+      "skills": [
+        "copper concentrator operations",
+        "SAG/ball mill operations",
+        "throughput optimisation",
+        "process plant expansion",
+        "commissioning",
+        "mineral processing"
+      ],
+      "certs_freetext": [
+        "Peruvian mining regulatory compliance",
+        "MSHA or equivalent mine safety"
+      ],
+      "geo_rtw": "Peru or Latin America RTW; Spanish language asset",
+      "project_experience": [
+        "Constancia",
+        "Las Bambas",
+        "Cerro Verde",
+        "Antamina",
+        "Tintaya"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"process plant\" OR \"concentrator\" OR \"mill expansion\" OR \"mineral processing\") AND (\"copper\" OR \"molybdenum\") AND (\"Peru\" OR \"Latin America\") AND (\"throughput\" OR \"SAG mill\" OR \"ball mill\" OR \"commissioning\") AND (\"Hudbay\" OR \"Constancia\" OR \"Las Bambas\" OR \"Cerro Verde\" OR \"Antamina\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Hudbay just received Peruvian approval to expand Constancia's mill to 34 Mtpa — capacity ramp likely means near-term process/ops hires in Peru. Worth a conversation?",
+      "email_subject": "Constancia Mill Expansion — Process & Ops Talent",
+      "email_body": "Hi [Name],\n\nHudbay Minerals has secured Peruvian regulatory approval to increase the Constancia concentrator's throughput from 31 to 34 Mtpa. Expansions of this scale typically trigger near-term hiring across process engineering, metallurgy, plant operations, and maintenance.\n\nWe work with experienced copper concentrator professionals across Peru and Latin America and would welcome the chance to discuss how we might support Hudbay's ramp.\n\nAre you available for a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Regulatory permit granted to named operator Hudbay for a named project (Constancia) to expand mill throughput, signalling an operational ramp with direct workforce-demand implications in the mining sector.",
+    "phase": "operating",
+    "phase_evidence": "The permit increases an existing operating mill's processing capacity from 31 to 34 Mtpa, indicating an expansion of an already-producing asset.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "46257d1e-eb19-4185-a64c-590f1cbe7df6",
+    "ingested_at": "2026-07-02T18:33:40.697Z",
+    "source_published_at": "2026-07-02T15:16:38.000Z",
+    "contact_archetypes": [
+      "ops_director",
+      "hiring_manager"
     ],
     "prompt_version": "phase-targeting-v1.2"
   },
@@ -224,6 +315,121 @@
       "site_manager",
       "hiring_manager",
       "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/sge-team-targets-14-bwrx300-smrs-uk"
+      }
+    ],
+    "headline": "SGE-Led Team Plans 14 BWRX-300 SMRs Across Three UK Sites with Samsung, Laing O'Rourke & Aecon",
+    "body": "Poland's SGE and a deployment team including Samsung C&T, Laing O'Rourke, Aecon Group and Google Cloud, have outlined plans for the privately financed deployment of 14 GE Vernova Hitachi BWRX-300 small modular reactors across three sites in the UK.",
+    "url": "https://www.world-nuclear-news.org//articles/sge-team-targets-14-bwrx300-smrs-uk",
+    "published_at": "2026-07-02T16:36:20.000Z",
+    "hash": "f3d6825dcb2d2a32",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "fid",
+    "region": "uk",
+    "country": "united_kingdom",
+    "tldr": "SGE, Samsung C&T, Laing O'Rourke, Aecon Group and Google Cloud have outlined plans for 14 GE Vernova Hitachi BWRX-300 SMRs at three UK sites. This is a pre-sanction announcement signalling a significant future nuclear construction workforce ramp across the UK.",
+    "operator": {
+      "name": "SGE",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Laing O'Rourke / Aecon Group / Samsung C&T",
+      "matched_company_slug": null
+    },
+    "project_name": "BWRX-300 SMR UK Deployment (14-unit programme)",
+    "scope": [
+      "smr_deployment",
+      "civil_construction",
+      "nuclear_epc",
+      "multi_site"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Project Manager",
+        "SMR Construction Manager",
+        "Nuclear Civil Engineer",
+        "Reactor Commissioning Engineer",
+        "Nuclear HSE Manager",
+        "Nuclear Quality Assurance Manager",
+        "Nuclear Mechanical Engineer",
+        "Nuclear I&C Engineer",
+        "Nuclear Structural Engineer",
+        "Nuclear Programme Planner"
+      ],
+      "skills": [
+        "SMR construction",
+        "nuclear project delivery",
+        "BWRX-300",
+        "nuclear quality assurance",
+        "nuclear commissioning",
+        "civil nuclear",
+        "modular reactor",
+        "nuclear safety case",
+        "GE Vernova Hitachi",
+        "NEC contract"
+      ],
+      "certs_freetext": [
+        "Nuclear Baseline Security Clearance (UK)",
+        "SC Clearance (UK)",
+        "CSCS Nuclear",
+        "IOSH Managing Safely",
+        "APM Project Management Qualification"
+      ],
+      "geo_rtw": "UK right-to-work required",
+      "project_experience": [
+        "Hinkley Point C",
+        "Sizewell C",
+        "Darlington SMR (Canada)",
+        "Horizon Nuclear Power",
+        "NuScale VOYGR",
+        "Rolls-Royce SMR"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal / Lead",
+      "boolean_search": "(\"nuclear\" OR \"SMR\" OR \"small modular reactor\" OR \"BWRX-300\" OR \"GE Vernova\" OR \"Hitachi\") AND (\"construction manager\" OR \"project manager\" OR \"commissioning engineer\" OR \"civil nuclear\" OR \"nuclear engineer\" OR \"nuclear HSE\" OR \"nuclear QA\") AND (\"UK\" OR \"United Kingdom\" OR \"England\" OR \"Scotland\") NOT (\"oil\" OR \"gas\" OR \"wind\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], the SGE-led team (Laing O'Rourke, Aecon, Samsung C&T) is planning 14 BWRX-300 SMRs across three UK sites. As this programme advances toward sanction, nuclear construction talent is being mapped now. Would you be open to a confidential conversation?",
+      "email_subject": "14 BWRX-300 SMRs UK — Nuclear Construction Talent Mapping",
+      "email_body": "Hi [Name],\n\nSGE, alongside Laing O'Rourke, Aecon Group, Samsung C&T and Google Cloud, has announced plans for 14 GE Vernova Hitachi BWRX-300 small modular reactors across three UK sites — one of the largest civil nuclear programmes announced in the UK in decades.\n\nAs the programme moves toward sanction and EPC mobilisation, we are proactively mapping senior nuclear construction, commissioning and engineering talent with civil nuclear or SMR programme experience.\n\nGiven your background in [relevant nuclear/construction discipline], I'd welcome a confidential conversation about how your experience aligns with the emerging opportunities on this programme.\n\nAre you available for a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named deployment team (SGE, Samsung C&T, Laing O'Rourke, Aecon Group) has outlined plans for 14 BWRX-300 SMRs at three UK sites, constituting a large-scale nuclear workforce demand signal in the UK.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states the team has 'outlined plans' for deployment — no FID, EPC award or sanction language is present.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "3b95acb8-d236-4b98-b1f3-ad6ff38f53fa",
+    "ingested_at": "2026-07-02T12:42:29.541Z",
+    "source_published_at": "2026-07-02T16:36:20.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
     ],
     "prompt_version": "phase-targeting-v1.2"
   },
