@@ -1,5 +1,92 @@
 [
   {
+    "id": "3b95acb8-d236-4b98-b1f3-ad6ff38f53fa",
+    "ingested_at": "2026-07-02T12:42:29.541Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/sge-team-targets-14-bwrx300-smrs-uk"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "fid",
+    "region": "uk",
+    "country": "united_kingdom",
+    "headline": "SGE-Led Team Plans 14 BWRX-300 SMRs Across Three UK Sites with Samsung, Laing O'Rourke & Aecon",
+    "operator": {
+      "name": "SGE",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Laing O'Rourke / Aecon Group / Samsung C&T",
+      "matched_company_slug": null
+    },
+    "project_name": "BWRX-300 SMR UK Deployment (14-unit programme)",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
+    "id": "ff68b407-631e-45f6-8b4c-0901cd8ddb9f",
+    "ingested_at": "2026-07-02T12:42:29.541Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/ng-energy-provides-update-on-operations-at-sinu-9-and-maria-conchita-302816452.html"
+      }
+    ],
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "pipeline_mechanical",
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "tender",
+    "region": "colombia",
+    "country": "colombia",
+    "headline": "NG Energy Spuds Magico-2X at Sinú-9; Pipeline Loop Complete, Commissioning Underway at Jobo & Guayabal",
+    "operator": {
+      "name": "NG Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "NG Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Sinú-9 / Maria Conchita",
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": "2026-Q4",
+      "duration_months": 6
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "commissioning",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": []
+  },
+  {
     "id": "e65f799b-2e99-42c3-9a94-7a2c69584370",
     "ingested_at": "2026-07-01T18:43:03.707Z",
     "sources": [
@@ -170,48 +257,6 @@
     "key_people": []
   },
   {
-    "id": "ddb89ab8-8cb0-4327-aab6-5a0cdb831851",
-    "ingested_at": "2026-06-30T12:45:17.555Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/fuel-loading-begins-at-slovakias-mochovce-4"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "process_plant_operations",
-      "industrial_construction"
-    ],
-    "signal_type": "regulatory",
-    "region": "central-europe",
-    "country": "slovakia",
-    "headline": "Fuel Loading Begins at Mochovce Unit 4 — Slovenské elektrárne Enters Active Commissioning",
-    "operator": {
-      "name": "Slovenské elektrárne",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Slovenské elektrárne",
-      "matched_company_slug": null
-    },
-    "project_name": "Mochovce Nuclear Power Plant Unit 4",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "construction",
-    "construction_subphase": "commissioning",
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "live_now",
-    "estimated_hiring_window": "now",
-    "key_people": []
-  },
-  {
     "id": "257083cc-6f50-4521-bfc7-58eee51654e5",
     "ingested_at": "2026-06-30T12:45:17.555Z",
     "sources": [
@@ -252,6 +297,48 @@
     "decom_stage": null,
     "outreach_readiness": "cold",
     "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
+    "id": "ddb89ab8-8cb0-4327-aab6-5a0cdb831851",
+    "ingested_at": "2026-06-30T12:45:17.555Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/fuel-loading-begins-at-slovakias-mochovce-4"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "regulatory",
+    "region": "central-europe",
+    "country": "slovakia",
+    "headline": "Fuel Loading Begins at Mochovce Unit 4 — Slovenské elektrárne Enters Active Commissioning",
+    "operator": {
+      "name": "Slovenské elektrárne",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Slovenské elektrárne",
+      "matched_company_slug": null
+    },
+    "project_name": "Mochovce Nuclear Power Plant Unit 4",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "commissioning",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
     "key_people": []
   },
   {

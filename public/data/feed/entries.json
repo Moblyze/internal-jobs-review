@@ -4,6 +4,234 @@
       {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/sge-team-targets-14-bwrx300-smrs-uk"
+      }
+    ],
+    "headline": "SGE-Led Team Plans 14 BWRX-300 SMRs Across Three UK Sites with Samsung, Laing O'Rourke & Aecon",
+    "body": "Poland's SGE and a deployment team including Samsung C&T, Laing O'Rourke, Aecon Group and Google Cloud, have outlined plans for the privately financed deployment of 14 GE Vernova Hitachi BWRX-300 small modular reactors across three sites in the UK.",
+    "url": "https://www.world-nuclear-news.org//articles/sge-team-targets-14-bwrx300-smrs-uk",
+    "published_at": "2026-07-02T16:36:20.000Z",
+    "hash": "f3d6825dcb2d2a32",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "fid",
+    "region": "uk",
+    "country": "united_kingdom",
+    "tldr": "SGE, Samsung C&T, Laing O'Rourke, Aecon Group and Google Cloud have outlined plans for 14 GE Vernova Hitachi BWRX-300 SMRs at three UK sites. This is a pre-sanction announcement signalling a significant future nuclear construction workforce ramp across the UK.",
+    "operator": {
+      "name": "SGE",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Laing O'Rourke / Aecon Group / Samsung C&T",
+      "matched_company_slug": null
+    },
+    "project_name": "BWRX-300 SMR UK Deployment (14-unit programme)",
+    "scope": [
+      "smr_deployment",
+      "civil_construction",
+      "nuclear_epc",
+      "multi_site"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Project Manager",
+        "SMR Construction Manager",
+        "Nuclear Civil Engineer",
+        "Reactor Commissioning Engineer",
+        "Nuclear HSE Manager",
+        "Nuclear Quality Assurance Manager",
+        "Nuclear Mechanical Engineer",
+        "Nuclear I&C Engineer",
+        "Nuclear Structural Engineer",
+        "Nuclear Programme Planner"
+      ],
+      "skills": [
+        "SMR construction",
+        "nuclear project delivery",
+        "BWRX-300",
+        "nuclear quality assurance",
+        "nuclear commissioning",
+        "civil nuclear",
+        "modular reactor",
+        "nuclear safety case",
+        "GE Vernova Hitachi",
+        "NEC contract"
+      ],
+      "certs_freetext": [
+        "Nuclear Baseline Security Clearance (UK)",
+        "SC Clearance (UK)",
+        "CSCS Nuclear",
+        "IOSH Managing Safely",
+        "APM Project Management Qualification"
+      ],
+      "geo_rtw": "UK right-to-work required",
+      "project_experience": [
+        "Hinkley Point C",
+        "Sizewell C",
+        "Darlington SMR (Canada)",
+        "Horizon Nuclear Power",
+        "NuScale VOYGR",
+        "Rolls-Royce SMR"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal / Lead",
+      "boolean_search": "(\"nuclear\" OR \"SMR\" OR \"small modular reactor\" OR \"BWRX-300\" OR \"GE Vernova\" OR \"Hitachi\") AND (\"construction manager\" OR \"project manager\" OR \"commissioning engineer\" OR \"civil nuclear\" OR \"nuclear engineer\" OR \"nuclear HSE\" OR \"nuclear QA\") AND (\"UK\" OR \"United Kingdom\" OR \"England\" OR \"Scotland\") NOT (\"oil\" OR \"gas\" OR \"wind\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], the SGE-led team (Laing O'Rourke, Aecon, Samsung C&T) is planning 14 BWRX-300 SMRs across three UK sites. As this programme advances toward sanction, nuclear construction talent is being mapped now. Would you be open to a confidential conversation?",
+      "email_subject": "14 BWRX-300 SMRs UK — Nuclear Construction Talent Mapping",
+      "email_body": "Hi [Name],\n\nSGE, alongside Laing O'Rourke, Aecon Group, Samsung C&T and Google Cloud, has announced plans for 14 GE Vernova Hitachi BWRX-300 small modular reactors across three UK sites — one of the largest civil nuclear programmes announced in the UK in decades.\n\nAs the programme moves toward sanction and EPC mobilisation, we are proactively mapping senior nuclear construction, commissioning and engineering talent with civil nuclear or SMR programme experience.\n\nGiven your background in [relevant nuclear/construction discipline], I'd welcome a confidential conversation about how your experience aligns with the emerging opportunities on this programme.\n\nAre you available for a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named deployment team (SGE, Samsung C&T, Laing O'Rourke, Aecon Group) has outlined plans for 14 BWRX-300 SMRs at three UK sites, constituting a large-scale nuclear workforce demand signal in the UK.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states the team has 'outlined plans' for deployment — no FID, EPC award or sanction language is present.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "3b95acb8-d236-4b98-b1f3-ad6ff38f53fa",
+    "ingested_at": "2026-07-02T12:42:29.541Z",
+    "source_published_at": "2026-07-02T16:36:20.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/ng-energy-provides-update-on-operations-at-sinu-9-and-maria-conchita-302816452.html"
+      }
+    ],
+    "headline": "NG Energy Spuds Magico-2X at Sinú-9; Pipeline Loop Complete, Commissioning Underway at Jobo & Guayabal",
+    "body": "Magico-2X, the second well of the six-well 2026 drilling program at Sinú-9, was spudded on June 26, 2026, primarily targeting the newly discovered Pre-CDO–San Cayetano formation. INFRAES pipeline loop to Jobo has been completed; commissioning activities at the Jobo and Guayabal facilities...",
+    "url": "https://www.prnewswire.com/news-releases/ng-energy-provides-update-on-operations-at-sinu-9-and-maria-conchita-302816452.html",
+    "published_at": "2026-07-02T11:00:00.000Z",
+    "hash": "f4a93f945a4f1c64",
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "pipeline_mechanical",
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "tender",
+    "region": "colombia",
+    "country": "colombia",
+    "tldr": "NG Energy has spudded the second well of a six-well 2026 drilling program at Sinú-9 block in Colombia, with pipeline infrastructure complete and commissioning activities now live at the Jobo and Guayabal facilities — indicating an active, multi-discipline labor demand window across drilling, pipeline, and process commissioning roles.",
+    "operator": {
+      "name": "NG Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "NG Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Sinú-9 / Maria Conchita",
+    "scope": [
+      "drilling_campaign",
+      "pipeline_loop",
+      "facility_commissioning"
+    ],
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": "2026-Q4",
+      "duration_months": 6
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Drilling Supervisor",
+        "Company Man",
+        "Wellsite Geologist",
+        "Commissioning Engineer",
+        "Pipeline Commissioning Supervisor",
+        "Process Commissioning Engineer",
+        "HSE Supervisor",
+        "Facilities Superintendent",
+        "Instrumentation & Control Technician",
+        "Production Operator"
+      ],
+      "skills": [
+        "onshore drilling operations",
+        "well spud",
+        "pipeline commissioning",
+        "gas facility commissioning",
+        "pre-startup safety review",
+        "process plant startup",
+        "Colombia upstream operations",
+        "HAZOP",
+        "P&ID walkdown"
+      ],
+      "certs_freetext": [
+        "Well Control (IWCF or IADC)",
+        "H2S Alive",
+        "BOSIET or equivalent onshore safety",
+        "Colombian O&G regulatory awareness"
+      ],
+      "geo_rtw": "Colombia — must be eligible to work in Colombia or be expatriate with valid work permit",
+      "project_experience": [
+        "Sinú-9",
+        "Maria Conchita",
+        "Colombia onshore O&G",
+        "Latin America onshore drilling campaigns",
+        "gas facility commissioning"
+      ],
+      "yoe_band": "8-18",
+      "seniority": "Mid-senior to senior; supervisor/superintendent level preferred given active drilling and commissioning phase",
+      "boolean_search": "(\"drilling supervisor\" OR \"company man\" OR \"commissioning engineer\" OR \"commissioning supervisor\" OR \"wellsite geologist\" OR \"facilities superintendent\" OR \"production operator\") AND (\"onshore\" OR \"Colombia\" OR \"Latin America\") AND (\"drilling\" OR \"pipeline commissioning\" OR \"gas facility\" OR \"process commissioning\" OR \"startup\") AND (\"IWCF\" OR \"IADC\" OR \"well control\" OR \"pre-startup\" OR \"HAZOP\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], NG Energy has spudded well 2 of 6 at Sinú-9, Colombia, with pipeline and commissioning work live at Jobo & Guayabal. Active hiring window now — are you open to a conversation about drilling/commissioning roles on this program?",
+      "email_subject": "Active Roles: NG Energy Sinú-9 Drilling & Commissioning Program – Colombia 2026",
+      "email_body": "Hi [Name],\n\nNG Energy is executing a six-well 2026 drilling campaign at their Sinú-9 block in Colombia, with Magico-2X (well #2) spudded June 26, 2026. Simultaneously, the INFRAES pipeline loop to Jobo is complete and commissioning activities are live at the Jobo and Guayabal facilities.\n\nThis creates an immediate, multi-discipline demand window across:\n• Drilling Supervisors / Company Men\n• Pipeline & Facility Commissioning Engineers/Supervisors\n• Process/I&C Commissioning Technicians\n• HSE Supervisors\n\nGiven your background in [relevant discipline], I wanted to reach out directly. Would you be available for a brief call this week to discuss fit and timing?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (NG Energy) executing a six-well drilling program at named block (Sinú-9/Maria Conchita) with simultaneous pipeline loop completion and active facility commissioning — multiple discrete workforce demand signals across drilling and commissioning disciplines.",
+    "phase": "construction",
+    "phase_evidence": "Magico-2X spudded June 26, 2026 as part of an active six-well drilling program, and commissioning activities are stated as underway at Jobo and Guayabal facilities.",
+    "construction_subphase": "commissioning",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "ff68b407-631e-45f6-8b4c-0901cd8ddb9f",
+    "ingested_at": "2026-07-02T12:42:29.541Z",
+    "source_published_at": "2026-07-02T11:00:00.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org//articles/us-uranium-project-completes-federal-permitting-process"
       }
     ],
@@ -430,6 +658,112 @@
       {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/polish-developer-applies-for-state-funding-for-three-smr-plants"
+      }
+    ],
+    "headline": "Orlen Synthos Green Energy Applies for CfD Funding for 14 BWRX-300 SMRs at Three Polish Sites",
+    "body": "Orlen Synthos Green Energy has applied to Poland's Minister of Energy for a Contract for Difference for the construction of a total of 14 BWRX-300 small modular reactors at three locations in Poland.",
+    "url": "https://www.world-nuclear-news.org//articles/polish-developer-applies-for-state-funding-for-three-smr-plants",
+    "published_at": "2026-06-30T10:34:21.000Z",
+    "hash": "f39b58244e84eea5",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "regulatory",
+    "region": "poland",
+    "country": "poland",
+    "tldr": "Orlen Synthos Green Energy has filed for a Contract for Difference to fund 14 BWRX-300 small modular reactors across three Polish locations. Project remains pre-sanction pending state funding approval, with active hiring likely 12+ months out.",
+    "operator": {
+      "name": "Orlen Synthos Green Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Orlen Synthos Green Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "BWRX-300 SMR Programme Poland",
+    "scope": [
+      "nuclear_newbuild",
+      "smr_construction",
+      "civil_works"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Project Director",
+        "SMR Development Manager",
+        "Nuclear FEED Manager",
+        "Licensing & Permitting Manager",
+        "Nuclear Civil Engineering Lead",
+        "Nuclear Safety Engineer",
+        "Reactor Systems Engineer"
+      ],
+      "skills": [
+        "BWRX-300",
+        "small modular reactor",
+        "nuclear new build",
+        "Contract for Difference",
+        "nuclear licensing",
+        "FEED",
+        "nuclear regulatory affairs",
+        "boiling water reactor"
+      ],
+      "certs_freetext": [
+        "Nuclear Safety Case",
+        "EUR qualification",
+        "IAEA safety standards familiarity"
+      ],
+      "geo_rtw": "Poland / EU right-to-work",
+      "project_experience": [
+        "Hinkley Point C",
+        "Olkiluoto 3",
+        "Vogtle Units 3&4",
+        "NuScale UAMPS",
+        "GE-Hitachi BWRX-300 Ontario Power"
+      ],
+      "yoe_band": "12-20",
+      "seniority": "Senior / Principal",
+      "boolean_search": "(\"BWRX-300\" OR \"small modular reactor\" OR \"SMR\" OR \"nuclear new build\" OR \"BWR\" OR \"boiling water reactor\") AND (\"project director\" OR \"development manager\" OR \"licensing manager\" OR \"nuclear engineer\" OR \"FEED manager\" OR \"permitting\") AND (\"Poland\" OR \"CEE\" OR \"Europe\" OR \"Hinkley\" OR \"Olkiluoto\" OR \"Vogtle\" OR \"NuScale\" OR \"GE Hitachi\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Orlen Synthos Green Energy has just filed for state CfD funding to build 14 BWRX-300 SMRs across three Polish sites — pre-sanction now, engineering ramp incoming. Are you open to a conversation about senior nuclear development roles in Poland?",
+      "email_subject": "BWRX-300 SMR Programme Poland — Senior Nuclear Roles Incoming",
+      "email_body": "Hi [Name],\n\nOrlen Synthos Green Energy has formally applied to Poland's Minister of Energy for a Contract for Difference to fund the construction of 14 BWRX-300 small modular reactors at three locations across Poland.\n\nThe project is currently pre-sanction, but a CfD application signals serious intent to move toward FID — meaning FEED, licensing, and development hiring will begin ramping in the coming 12+ months.\n\nGiven your background in [nuclear new build / SMR / BWR programmes], I wanted to flag this early. We're already mapping candidates for senior nuclear development, licensing, and engineering roles ahead of the curve.\n\nWould you be open to a brief call to discuss how this aligns with your next move?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Orlen Synthos Green Energy) has filed a formal funding application for 14 BWRX-300 SMR units at three named Polish locations, constituting a pre-sanction project milestone with future labor-demand implications in nuclear construction.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states the developer 'has applied' for a Contract for Difference — a funding mechanism prerequisite to FID, confirming the project has not yet been sanctioned.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "257083cc-6f50-4521-bfc7-58eee51654e5",
+    "ingested_at": "2026-06-30T12:45:17.555Z",
+    "source_published_at": "2026-06-30T10:34:21.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org//articles/fuel-loading-begins-at-slovakias-mochovce-4"
       }
     ],
@@ -534,112 +868,6 @@
       "site_manager",
       "hiring_manager",
       "project_manager"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/polish-developer-applies-for-state-funding-for-three-smr-plants"
-      }
-    ],
-    "headline": "Orlen Synthos Green Energy Applies for CfD Funding for 14 BWRX-300 SMRs at Three Polish Sites",
-    "body": "Orlen Synthos Green Energy has applied to Poland's Minister of Energy for a Contract for Difference for the construction of a total of 14 BWRX-300 small modular reactors at three locations in Poland.",
-    "url": "https://www.world-nuclear-news.org//articles/polish-developer-applies-for-state-funding-for-three-smr-plants",
-    "published_at": "2026-06-30T10:34:21.000Z",
-    "hash": "f39b58244e84eea5",
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations",
-      "energy_trades"
-    ],
-    "signal_type": "regulatory",
-    "region": "poland",
-    "country": "poland",
-    "tldr": "Orlen Synthos Green Energy has filed for a Contract for Difference to fund 14 BWRX-300 small modular reactors across three Polish locations. Project remains pre-sanction pending state funding approval, with active hiring likely 12+ months out.",
-    "operator": {
-      "name": "Orlen Synthos Green Energy",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Orlen Synthos Green Energy",
-      "matched_company_slug": null
-    },
-    "project_name": "BWRX-300 SMR Programme Poland",
-    "scope": [
-      "nuclear_newbuild",
-      "smr_construction",
-      "civil_works"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Nuclear Project Director",
-        "SMR Development Manager",
-        "Nuclear FEED Manager",
-        "Licensing & Permitting Manager",
-        "Nuclear Civil Engineering Lead",
-        "Nuclear Safety Engineer",
-        "Reactor Systems Engineer"
-      ],
-      "skills": [
-        "BWRX-300",
-        "small modular reactor",
-        "nuclear new build",
-        "Contract for Difference",
-        "nuclear licensing",
-        "FEED",
-        "nuclear regulatory affairs",
-        "boiling water reactor"
-      ],
-      "certs_freetext": [
-        "Nuclear Safety Case",
-        "EUR qualification",
-        "IAEA safety standards familiarity"
-      ],
-      "geo_rtw": "Poland / EU right-to-work",
-      "project_experience": [
-        "Hinkley Point C",
-        "Olkiluoto 3",
-        "Vogtle Units 3&4",
-        "NuScale UAMPS",
-        "GE-Hitachi BWRX-300 Ontario Power"
-      ],
-      "yoe_band": "12-20",
-      "seniority": "Senior / Principal",
-      "boolean_search": "(\"BWRX-300\" OR \"small modular reactor\" OR \"SMR\" OR \"nuclear new build\" OR \"BWR\" OR \"boiling water reactor\") AND (\"project director\" OR \"development manager\" OR \"licensing manager\" OR \"nuclear engineer\" OR \"FEED manager\" OR \"permitting\") AND (\"Poland\" OR \"CEE\" OR \"Europe\" OR \"Hinkley\" OR \"Olkiluoto\" OR \"Vogtle\" OR \"NuScale\" OR \"GE Hitachi\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Orlen Synthos Green Energy has just filed for state CfD funding to build 14 BWRX-300 SMRs across three Polish sites — pre-sanction now, engineering ramp incoming. Are you open to a conversation about senior nuclear development roles in Poland?",
-      "email_subject": "BWRX-300 SMR Programme Poland — Senior Nuclear Roles Incoming",
-      "email_body": "Hi [Name],\n\nOrlen Synthos Green Energy has formally applied to Poland's Minister of Energy for a Contract for Difference to fund the construction of 14 BWRX-300 small modular reactors at three locations across Poland.\n\nThe project is currently pre-sanction, but a CfD application signals serious intent to move toward FID — meaning FEED, licensing, and development hiring will begin ramping in the coming 12+ months.\n\nGiven your background in [nuclear new build / SMR / BWR programmes], I wanted to flag this early. We're already mapping candidates for senior nuclear development, licensing, and engineering roles ahead of the curve.\n\nWould you be open to a brief call to discuss how this aligns with your next move?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named operator (Orlen Synthos Green Energy) has filed a formal funding application for 14 BWRX-300 SMR units at three named Polish locations, constituting a pre-sanction project milestone with future labor-demand implications in nuclear construction.",
-    "phase": "pre_sanction",
-    "phase_evidence": "Article states the developer 'has applied' for a Contract for Difference — a funding mechanism prerequisite to FID, confirming the project has not yet been sanctioned.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "257083cc-6f50-4521-bfc7-58eee51654e5",
-    "ingested_at": "2026-06-30T12:45:17.555Z",
-    "source_published_at": "2026-06-30T10:34:21.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "business_unit_director"
     ],
     "prompt_version": "phase-targeting-v1.2"
   },

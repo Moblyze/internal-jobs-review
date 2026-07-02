@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-07-01T13:02:16.992Z"
+    "last_updated_at": "2026-07-02T12:44:31.064Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -7295,6 +7295,131 @@
         "email": null,
         "phone": null,
         "location": "Perth, WA, Australia"
+      }
+    ]
+  },
+  "laing o'rourke / aecon group / samsung c&t": {
+    "discovered_at": "2026-07-02T12:44:31.064Z",
+    "contacts": [
+      {
+        "name": "Gordana Terkalas",
+        "title": "Senior Vice President & Chief People Officer",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/gordana-terkalas-35618462",
+        "source_url": "https://www.aecon.com/our-company/leadership/gordana-terkalas",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Toronto, ON, Canada"
+      },
+      {
+        "name": "Carly O'Shea",
+        "title": "Human Resources Director",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/carly-o-shea-chrl-314a2429",
+        "source_url": "https://hrtoday.in/carly-oshea-appointed-as-human-resources-director-at-aecon-group-inc/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Kincardine, ON, Canada"
+      },
+      {
+        "name": "Andrés Forero Ortega",
+        "title": "Human Resources Director",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/andresforeroortega",
+        "source_url": "https://www.linkedin.com/in/andresforeroortega/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Toronto, ON, Canada"
+      },
+      {
+        "name": "Scott Ryan",
+        "title": "Senior Vice President, Canada Nuclear Operations",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/scott-ryan-53082b69",
+        "source_url": "https://www.aecon.com/our-company/leadership",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Toronto, ON, Canada"
+      },
+      {
+        "name": "Val Deline",
+        "title": "Human Resources Director",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://www.linkedin.com/posts/val-deline-chrp-5b1bbb60_canada-to-welcome-those-fleeing-the-war-in-activity-6905866155970359296-b2iG",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Toronto, ON, Canada"
+      }
+    ]
+  },
+  "sge": {
+    "discovered_at": "2026-07-02T12:44:31.064Z",
+    "contacts": [
+      {
+        "name": "J. Allen Gantt",
+        "title": "Managing Director",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/j-allen-gantt-35b701131",
+        "source_url": "https://www.sgeme.com/sge-team.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Dubai, UAE"
+      }
+    ]
+  },
+  "ng energy": {
+    "discovered_at": "2026-07-02T12:44:31.064Z",
+    "contacts": [
+      {
+        "name": "Leonardo Chávez",
+        "title": "Vice President of Operations",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/leonardo-chavez-emba-89b6a320",
+        "source_url": "https://www.ngenergyintl.com/news-media/news/ng-energy-announces-commissioning-of-283km-pipeline-at-sinu-9-by-its-partners-infraes-and-kronos",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Bogotá, Colombia"
+      },
+      {
+        "name": "Jorge Fonseca Chaumer",
+        "title": "Chief Executive Officer",
+        "persona": "other",
+        "linkedin_url": "https://www.linkedin.com/in/jorge-fonseca-chaumer-784807157",
+        "source_url": "https://www.ngenergyintl.com/about/management/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "London, UK"
+      },
+      {
+        "name": "Don Sewell",
+        "title": "President & Director",
+        "persona": "other",
+        "linkedin_url": null,
+        "source_url": "https://www.newswire.ca/news-releases/ng-energy-provides-sinu-9-development-update-and-announces-transition-of-board-of-directors-and-senior-management-887622494.html",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Brian Paes-Braga",
+        "title": "Chairman of the Board",
+        "persona": "other",
+        "linkedin_url": null,
+        "source_url": "https://www.ngenergyintl.com/about/board-of-directors/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": null
       }
     ]
   }
