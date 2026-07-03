@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-07-03T12:43:08.923Z"
+    "last_updated_at": "2026-07-03T18:32:20.914Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -7540,6 +7540,66 @@
         "email": null,
         "phone": null,
         "location": "Perth, Australia"
+      }
+    ]
+  },
+  "holtec international": {
+    "discovered_at": "2026-07-03T18:32:20.914Z",
+    "contacts": [
+      {
+        "name": "Jack Johnston",
+        "title": "Director - Human Resources",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/jack-johnston-4b33404",
+        "source_url": "https://theorg.com/org/holtec-international/org-chart/jack-johnston",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Pittsburgh, PA, USA"
+      },
+      {
+        "name": "Daymileis Clavel",
+        "title": "Recruiter",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/daymileis-clavel-10590012a",
+        "source_url": "https://www.linkedin.com/in/daymileis-clavel-10590012a/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Miami, FL, USA"
+      },
+      {
+        "name": "Pankaj (PK) Chaudhary",
+        "title": "President, Corporate Projects, Manufacturing & Supply Chain",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/pk-chaudhary-b21b9969",
+        "source_url": "https://holtecinternational.com/company/leadership/corporate-leadership/mr-pankaj-pk-chaudhary/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Southampton Township, NJ, USA"
+      },
+      {
+        "name": "Mike Mlynarek",
+        "title": "Site Vice President, Palisades Nuclear Power Plant",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/mike-mlynarek-a8363169",
+        "source_url": "https://www.nrc.gov/docs/ML2519/ML25197A764.pdf",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Covert, MI, USA"
+      },
+      {
+        "name": "David Lewis",
+        "title": "Sr. Director Operations, SMR-160",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://finalscout.com/company/holtec_international",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Jupiter, FL, USA"
       }
     ]
   }

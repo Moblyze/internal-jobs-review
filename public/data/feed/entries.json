@@ -2,6 +2,219 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/palisades-enters-final-stage-of-work-before-restart"
+      }
+    ],
+    "headline": "Holtec Palisades Nuclear Plant Enters Final Pre-Restart Commissioning Phase",
+    "body": "Holtec International announced that over the past several weeks, the Palisades restart project reached a \"watershed moment\" as the last of the major projects were successfully closed out and the site transitioned from large-scale activities to the remaining routine maintenance, testing, inspection, and operational readiness work required before startup.",
+    "url": "https://www.world-nuclear-news.org//articles/palisades-enters-final-stage-of-work-before-restart",
+    "published_at": "2026-07-03T15:33:32.000Z",
+    "hash": "080760dc983759e0",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "ndt_inspection",
+      "industrial_construction"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-midwest",
+    "country": "united_states",
+    "tldr": "Holtec International announces Palisades nuclear restart has transitioned from major construction to final commissioning, maintenance, and operational readiness work — indicating imminent staffing demand for startup specialists and O&M technicians.",
+    "operator": {
+      "name": "Holtec International",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Holtec International",
+      "matched_company_slug": null
+    },
+    "project_name": "Palisades Nuclear Plant Restart",
+    "scope": [
+      "commissioning",
+      "pre_startup_testing",
+      "operational_readiness"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Commissioning Engineer",
+        "Startup Test Engineer",
+        "Nuclear Operations Technician",
+        "Reactor Operator",
+        "Senior Reactor Operator",
+        "Mechanical Completion Engineer",
+        "I&C Commissioning Technician",
+        "Nuclear Maintenance Technician",
+        "Operations Readiness Manager",
+        "Shift Supervisor"
+      ],
+      "skills": [
+        "nuclear plant startup",
+        "pre-operational testing",
+        "systems turnover",
+        "mechanical completion",
+        "operational readiness review",
+        "PWR operations",
+        "I&C testing",
+        "corrective action program",
+        "NRC licensing",
+        "procedure writing"
+      ],
+      "certs_freetext": [
+        "NRC Senior Reactor Operator License",
+        "NRC Reactor Operator License",
+        "10 CFR 50 training qualification",
+        "ANSI/ANS nuclear quality"
+      ],
+      "geo_rtw": "US work authorization required; site in Covert, Michigan",
+      "project_experience": [
+        "Vogtle Unit 3 & 4",
+        "Watts Bar Unit 2",
+        "Prairie Island",
+        "Diablo Canyon restart",
+        "Browns Ferry"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"commissioning engineer\" OR \"startup engineer\" OR \"reactor operator\" OR \"senior reactor operator\" OR \"nuclear operations\" OR \"I&C commissioning\" OR \"operational readiness\" OR \"nuclear maintenance\") AND (\"PWR\" OR \"pressurized water reactor\" OR \"nuclear plant\" OR \"NPP\") AND (\"startup\" OR \"pre-operational\" OR \"mechanical completion\" OR \"systems turnover\") AND (\"NRC\" OR \"10 CFR 50\" OR \"SRO\" OR \"RO license\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Holtec's Palisades nuclear restart is entering final commissioning and operational readiness — one of the most active US nuclear restart projects right now. Your [PWR/commissioning] background looks highly relevant. Would you be open to a quick call this week?",
+      "email_subject": "Palisades Nuclear Restart – Commissioning & Ops Readiness Roles | Michigan",
+      "email_body": "Hi [Name],\n\nHoltec International has announced that the Palisades nuclear restart project has entered its final phase, transitioning from major construction to commissioning, testing, inspection, and operational readiness work ahead of startup.\n\nThis represents an active hiring window for experienced nuclear professionals — particularly those with startup, commissioning, and licensed operator backgrounds on PWR units.\n\nI'm currently placing candidates for roles including Commissioning Engineers, Reactor Operators (SRO/RO), I&C Commissioning Technicians, and Operational Readiness specialists on this project.\n\nGiven your background in [relevant experience], I believe you could be a strong fit. Are you open to a brief conversation this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator Holtec International and project Palisades Nuclear Plant Restart with a clear transition to commissioning/operational readiness phase, signaling imminent nuclear staffing demand.",
+    "phase": "construction",
+    "phase_evidence": "Article states 'last of the major projects were successfully closed out and the site transitioned from large-scale activities to the remaining routine maintenance, testing, inspection, and operational readiness work required before startup.'",
+    "construction_subphase": "commissioning",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "e188de34-967e-4826-8182-01343fbd1efa",
+    "ingested_at": "2026-07-03T18:30:43.302Z",
+    "source_published_at": "2026-07-03T15:33:32.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/canadian-govt-commits-352m-to-red-chris-mine-expansion-in-british-columbia/"
+      }
+    ],
+    "headline": "Canadian Gov't Commits $352M to Red Chris Mine Expansion in British Columbia",
+    "body": "Last month, the project received crucial regulatory approvals.",
+    "url": "https://www.mining.com/canadian-govt-commits-352m-to-red-chris-mine-expansion-in-british-columbia/",
+    "published_at": "2026-07-03T15:25:11.000Z",
+    "hash": "d0ce9d382235c0bd",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "regulatory",
+    "region": "british-columbia-canada",
+    "country": "canada",
+    "tldr": "The Canadian government has committed $352M to the Red Chris mine expansion in BC, following regulatory approvals last month. This signals an imminent construction ramp-up and near-term labor demand.",
+    "operator": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Red Chris Mine Expansion",
+    "scope": [
+      "mine_expansion",
+      "construction"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 352000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Construction Manager",
+        "Project Manager",
+        "Site Manager",
+        "HSE Manager",
+        "Mining Engineer",
+        "Civil Engineer",
+        "Trades Supervisor"
+      ],
+      "skills": [
+        "mine construction",
+        "project management",
+        "HSE",
+        "civil works",
+        "underground mining"
+      ],
+      "certs_freetext": [
+        "NCSO",
+        "COR",
+        "Red Seal"
+      ],
+      "geo_rtw": "Canada — BC eligible",
+      "project_experience": [
+        "Red Chris Mine",
+        "Copper mine construction",
+        "BC mining projects"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"Construction Manager\" OR \"Site Manager\" OR \"Project Manager\" OR \"Mining Engineer\") AND (\"mine expansion\" OR \"open pit\" OR \"underground mining\" OR \"copper mine\") AND (\"British Columbia\" OR \"BC\" OR \"Canada\") AND (\"HSE\" OR \"project controls\" OR \"civil construction\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], the Red Chris Mine Expansion in BC just secured $352M in gov't funding following regulatory approval — construction ramp-up looks imminent. Are you open to exploring roles on this project?",
+      "email_subject": "Red Chris Mine Expansion – $352M Committed, Construction Roles Incoming",
+      "email_body": "Hi [Name],\n\nThe Red Chris Mine Expansion in British Columbia has just secured $352M in Canadian government funding, with regulatory approvals granted last month. This points to an active construction phase starting soon, with strong demand for experienced mining and construction professionals.\n\nGiven your background in [relevant experience], I'd love to connect and share what we're seeing in terms of upcoming roles on this project.\n\nWould you be open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named project (Red Chris Mine Expansion) with a $352M government funding commitment and recent regulatory approvals, signalling imminent construction ramp-up in the mining sector.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Project received regulatory approvals last month and government has now committed $352M, indicating post-approval pre-construction/early engineering stage.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "f496a1d0-e4ca-45be-9732-3b473d9e4e4c",
+    "ingested_at": "2026-07-03T18:30:43.302Z",
+    "source_published_at": "2026-07-03T15:25:11.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/exxonmobil_qatarenergy_affirm_commerciality_of_cyprus_discoveries-03-jul-2026-184052-article/?rss=true"

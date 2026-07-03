@@ -1,5 +1,90 @@
 [
   {
+    "id": "e188de34-967e-4826-8182-01343fbd1efa",
+    "ingested_at": "2026-07-03T18:30:43.302Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/palisades-enters-final-stage-of-work-before-restart"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "ndt_inspection",
+      "industrial_construction"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-midwest",
+    "country": "united_states",
+    "headline": "Holtec Palisades Nuclear Plant Enters Final Pre-Restart Commissioning Phase",
+    "operator": {
+      "name": "Holtec International",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Holtec International",
+      "matched_company_slug": null
+    },
+    "project_name": "Palisades Nuclear Plant Restart",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "commissioning",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": []
+  },
+  {
+    "id": "f496a1d0-e4ca-45be-9732-3b473d9e4e4c",
+    "ingested_at": "2026-07-03T18:30:43.302Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/canadian-govt-commits-352m-to-red-chris-mine-expansion-in-british-columbia/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "regulatory",
+    "region": "british-columbia-canada",
+    "country": "canada",
+    "headline": "Canadian Gov't Commits $352M to Red Chris Mine Expansion in British Columbia",
+    "operator": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Red Chris Mine Expansion",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 352000000,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
     "id": "c6684a2b-5d46-4eac-86f6-20b799d8c266",
     "ingested_at": "2026-07-03T12:41:30.590Z",
     "sources": [
