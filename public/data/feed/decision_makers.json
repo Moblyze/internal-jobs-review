@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-07-02T18:35:47.939Z"
+    "last_updated_at": "2026-07-03T12:43:08.923Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -7480,6 +7480,66 @@
         "email": null,
         "phone": null,
         "location": null
+      }
+    ]
+  },
+  "woodside energy": {
+    "discovered_at": "2026-07-03T12:43:08.923Z",
+    "contacts": [
+      {
+        "name": "Jennifer Barnes",
+        "title": "Talent Acquisition Specialist – People & Global Capability",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/jenniferbarnes2017",
+        "source_url": "https://www.linkedin.com/in/jenniferbarnes2017/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Perth, Australia"
+      },
+      {
+        "name": "Liz Westcott",
+        "title": "Chief Executive Officer and Managing Director",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/liz-westcott",
+        "source_url": "https://www.woodside.com/who-we-are/leadership",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Perth, Australia"
+      },
+      {
+        "name": "Daniel Kalms",
+        "title": "Executive Vice President and Chief Operating Officer, International",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/daniel-kalms-59a00489",
+        "source_url": "https://www.woodside.com/who-we-are/leadership",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Breyden Lonnie",
+        "title": "Acting Executive Vice President and Chief Operating Officer, Australia",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://theorg.com/org/woodside-energy/org-chart/liz-westcott",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Perth, Australia"
+      },
+      {
+        "name": "Rae Jack",
+        "title": "Business Performance Manager",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/rae-ramos-jack",
+        "source_url": "https://www.linkedin.com/in/rae-ramos-jack/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Perth, Australia"
       }
     ]
   }

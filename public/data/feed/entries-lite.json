@@ -1,32 +1,77 @@
 [
   {
-    "id": "46257d1e-eb19-4185-a64c-590f1cbe7df6",
-    "ingested_at": "2026-07-02T18:33:40.697Z",
+    "id": "c6684a2b-5d46-4eac-86f6-20b799d8c266",
+    "ingested_at": "2026-07-03T12:41:30.590Z",
     "sources": [
       {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/hudbay-gains-peru-approval-to-further-increase-constancia-mill-throughput/"
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/exxonmobil_qatarenergy_affirm_commerciality_of_cyprus_discoveries-03-jul-2026-184052-article/?rss=true"
       }
     ],
-    "subsector": "mining",
+    "subsector": "offshore-og",
     "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations"
+      "drilling_operations",
+      "survey_geophysical",
+      "rov_subsea",
+      "marine_offshore_ops"
     ],
-    "signal_type": "regulatory",
-    "region": "peru",
-    "country": "peru",
-    "headline": "Hudbay Wins Peru Permit to Expand Constancia Mill to 34 Mtpa",
+    "signal_type": "lease_round",
+    "region": "eastern-mediterranean",
+    "country": "cyprus",
+    "headline": "ExxonMobil & QatarEnergy Declare Commerciality on Two Cyprus Block 10 Discoveries",
     "operator": {
-      "name": "Hudbay Minerals",
+      "name": "ExxonMobil",
       "matched_company_slug": null
     },
     "hiring_entity": {
-      "name": "Hudbay Minerals",
+      "name": null,
       "matched_company_slug": null
     },
-    "project_name": "Constancia",
+    "project_name": "Block 10, Cyprus",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
+    "id": "cbcc1a76-d1b0-4c6d-80ec-ed0aaf415c1d",
+    "ingested_at": "2026-07-03T12:41:30.590Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/woodside_assumes_operatorship_of_aussie_gas_assets_from_exxonmobil-03-jul-2026-184053-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "marine_offshore_ops",
+      "process_plant_operations",
+      "drilling_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "australia",
+    "country": "australia",
+    "headline": "Woodside Assumes Operatorship of Gippsland Basin & Kipper Unit JVs from ExxonMobil",
+    "operator": {
+      "name": "Woodside Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Woodside Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Gippsland Basin Joint Venture / Kipper Unit Joint Venture",
     "mob_window": {
       "start": null,
       "end": null,
@@ -37,8 +82,8 @@
     "construction_subphase": null,
     "lifecycle_track": "greenfield",
     "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
     "key_people": []
   },
   {
@@ -69,6 +114,48 @@
       "matched_company_slug": null
     },
     "project_name": "Cigar Lake Mine",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "operating",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
+    "id": "46257d1e-eb19-4185-a64c-590f1cbe7df6",
+    "ingested_at": "2026-07-02T18:33:40.697Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/hudbay-gains-peru-approval-to-further-increase-constancia-mill-throughput/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "peru",
+    "country": "peru",
+    "headline": "Hudbay Wins Peru Permit to Expand Constancia Mill to 34 Mtpa",
+    "operator": {
+      "name": "Hudbay Minerals",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Hudbay Minerals",
+      "matched_company_slug": null
+    },
+    "project_name": "Constancia",
     "mob_window": {
       "start": null,
       "end": null,
