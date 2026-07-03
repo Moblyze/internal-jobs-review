@@ -1,47 +1,5 @@
 [
   {
-    "id": "00115058-53b0-4f51-85db-582978436f93",
-    "ingested_at": "2026-07-02T18:33:40.697Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/supply-chain-challenges-prompt-cigar-lake-suspension"
-      }
-    ],
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations"
-    ],
-    "signal_type": "replacement",
-    "region": "canada-saskatchewan",
-    "country": "canada",
-    "headline": "Cameco Suspends Cigar Lake Mine Operations Amid Sulphuric Acid Supply Issues at McClean Lake Mill",
-    "operator": {
-      "name": "Cameco",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Cameco",
-      "matched_company_slug": null
-    },
-    "project_name": "Cigar Lake Mine",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "operating",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": []
-  },
-  {
     "id": "46257d1e-eb19-4185-a64c-590f1cbe7df6",
     "ingested_at": "2026-07-02T18:33:40.697Z",
     "sources": [
@@ -69,6 +27,48 @@
       "matched_company_slug": null
     },
     "project_name": "Constancia",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "operating",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
+    "id": "00115058-53b0-4f51-85db-582978436f93",
+    "ingested_at": "2026-07-02T18:33:40.697Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/supply-chain-challenges-prompt-cigar-lake-suspension"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "replacement",
+    "region": "canada-saskatchewan",
+    "country": "canada",
+    "headline": "Cameco Suspends Cigar Lake Mine Operations Amid Sulphuric Acid Supply Issues at McClean Lake Mill",
+    "operator": {
+      "name": "Cameco",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Cameco",
+      "matched_company_slug": null
+    },
+    "project_name": "Cigar Lake Mine",
     "mob_window": {
       "start": null,
       "end": null,
