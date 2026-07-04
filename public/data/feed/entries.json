@@ -2,6 +2,106 @@
   {
     "sources": [
       {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/canadian-govt-commits-352m-to-red-chris-mine-expansion-in-british-columbia/"
+      }
+    ],
+    "headline": "Canadian Gov't Commits $352M to Red Chris Mine Expansion in British Columbia",
+    "body": "Last month, the project received crucial regulatory approvals.",
+    "url": "https://www.mining.com/canadian-govt-commits-352m-to-red-chris-mine-expansion-in-british-columbia/",
+    "published_at": "2026-07-03T15:25:11.000Z",
+    "hash": "d0ce9d382235c0bd",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "regulatory",
+    "region": "british-columbia-canada",
+    "country": "canada",
+    "tldr": "The Canadian government has committed $352M to the Red Chris mine expansion in BC, following regulatory approvals last month. This signals an imminent construction ramp-up and near-term labor demand.",
+    "operator": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Red Chris Mine Expansion",
+    "scope": [
+      "mine_expansion",
+      "construction"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 352000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Construction Manager",
+        "Project Manager",
+        "Site Manager",
+        "HSE Manager",
+        "Mining Engineer",
+        "Civil Engineer",
+        "Trades Supervisor"
+      ],
+      "skills": [
+        "mine construction",
+        "project management",
+        "HSE",
+        "civil works",
+        "underground mining"
+      ],
+      "certs_freetext": [
+        "NCSO",
+        "COR",
+        "Red Seal"
+      ],
+      "geo_rtw": "Canada — BC eligible",
+      "project_experience": [
+        "Red Chris Mine",
+        "Copper mine construction",
+        "BC mining projects"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"Construction Manager\" OR \"Site Manager\" OR \"Project Manager\" OR \"Mining Engineer\") AND (\"mine expansion\" OR \"open pit\" OR \"underground mining\" OR \"copper mine\") AND (\"British Columbia\" OR \"BC\" OR \"Canada\") AND (\"HSE\" OR \"project controls\" OR \"civil construction\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], the Red Chris Mine Expansion in BC just secured $352M in gov't funding following regulatory approval — construction ramp-up looks imminent. Are you open to exploring roles on this project?",
+      "email_subject": "Red Chris Mine Expansion – $352M Committed, Construction Roles Incoming",
+      "email_body": "Hi [Name],\n\nThe Red Chris Mine Expansion in British Columbia has just secured $352M in Canadian government funding, with regulatory approvals granted last month. This points to an active construction phase starting soon, with strong demand for experienced mining and construction professionals.\n\nGiven your background in [relevant experience], I'd love to connect and share what we're seeing in terms of upcoming roles on this project.\n\nWould you be open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named project (Red Chris Mine Expansion) with a $352M government funding commitment and recent regulatory approvals, signalling imminent construction ramp-up in the mining sector.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Project received regulatory approvals last month and government has now committed $352M, indicating post-approval pre-construction/early engineering stage.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "f496a1d0-e4ca-45be-9732-3b473d9e4e4c",
+    "ingested_at": "2026-07-03T18:30:43.302Z",
+    "source_published_at": "2026-07-03T15:25:11.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org//articles/palisades-enters-final-stage-of-work-before-restart"
@@ -109,106 +209,6 @@
       "site_manager",
       "hiring_manager",
       "project_manager"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/canadian-govt-commits-352m-to-red-chris-mine-expansion-in-british-columbia/"
-      }
-    ],
-    "headline": "Canadian Gov't Commits $352M to Red Chris Mine Expansion in British Columbia",
-    "body": "Last month, the project received crucial regulatory approvals.",
-    "url": "https://www.mining.com/canadian-govt-commits-352m-to-red-chris-mine-expansion-in-british-columbia/",
-    "published_at": "2026-07-03T15:25:11.000Z",
-    "hash": "d0ce9d382235c0bd",
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades"
-    ],
-    "signal_type": "regulatory",
-    "region": "british-columbia-canada",
-    "country": "canada",
-    "tldr": "The Canadian government has committed $352M to the Red Chris mine expansion in BC, following regulatory approvals last month. This signals an imminent construction ramp-up and near-term labor demand.",
-    "operator": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Red Chris Mine Expansion",
-    "scope": [
-      "mine_expansion",
-      "construction"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": 352000000,
-    "targeting": {
-      "job_titles_freetext": [
-        "Construction Manager",
-        "Project Manager",
-        "Site Manager",
-        "HSE Manager",
-        "Mining Engineer",
-        "Civil Engineer",
-        "Trades Supervisor"
-      ],
-      "skills": [
-        "mine construction",
-        "project management",
-        "HSE",
-        "civil works",
-        "underground mining"
-      ],
-      "certs_freetext": [
-        "NCSO",
-        "COR",
-        "Red Seal"
-      ],
-      "geo_rtw": "Canada — BC eligible",
-      "project_experience": [
-        "Red Chris Mine",
-        "Copper mine construction",
-        "BC mining projects"
-      ],
-      "yoe_band": "8-15",
-      "seniority": "mid-senior",
-      "boolean_search": "(\"Construction Manager\" OR \"Site Manager\" OR \"Project Manager\" OR \"Mining Engineer\") AND (\"mine expansion\" OR \"open pit\" OR \"underground mining\" OR \"copper mine\") AND (\"British Columbia\" OR \"BC\" OR \"Canada\") AND (\"HSE\" OR \"project controls\" OR \"civil construction\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], the Red Chris Mine Expansion in BC just secured $352M in gov't funding following regulatory approval — construction ramp-up looks imminent. Are you open to exploring roles on this project?",
-      "email_subject": "Red Chris Mine Expansion – $352M Committed, Construction Roles Incoming",
-      "email_body": "Hi [Name],\n\nThe Red Chris Mine Expansion in British Columbia has just secured $352M in Canadian government funding, with regulatory approvals granted last month. This points to an active construction phase starting soon, with strong demand for experienced mining and construction professionals.\n\nGiven your background in [relevant experience], I'd love to connect and share what we're seeing in terms of upcoming roles on this project.\n\nWould you be open to a brief call this week?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named project (Red Chris Mine Expansion) with a $352M government funding commitment and recent regulatory approvals, signalling imminent construction ramp-up in the mining sector.",
-    "phase": "sanctioned_engineering",
-    "phase_evidence": "Project received regulatory approvals last month and government has now committed $352M, indicating post-approval pre-construction/early engineering stage.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "f496a1d0-e4ca-45be-9732-3b473d9e4e4c",
-    "ingested_at": "2026-07-03T18:30:43.302Z",
-    "source_published_at": "2026-07-03T15:25:11.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "hiring_manager",
-      "business_unit_director"
     ],
     "prompt_version": "phase-targeting-v1.2"
   },
@@ -428,6 +428,108 @@
   {
     "sources": [
       {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/hudbay-gains-peru-approval-to-further-increase-constancia-mill-throughput/"
+      }
+    ],
+    "headline": "Hudbay Wins Peru Permit to Expand Constancia Mill to 34 Mtpa",
+    "body": "The new permit increases the Constancia mill's processing capacity from 31 million tonnes per annum (mtpa) to 34 mtpa.",
+    "url": "https://www.mining.com/hudbay-gains-peru-approval-to-further-increase-constancia-mill-throughput/",
+    "published_at": "2026-07-02T15:16:38.000Z",
+    "hash": "b67534556020cf10",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "peru",
+    "country": "peru",
+    "tldr": "Hudbay has received Peruvian regulatory approval to increase Constancia's mill throughput from 31 to 34 Mtpa, signalling a capacity expansion that will drive near-term operational and engineering hiring.",
+    "operator": {
+      "name": "Hudbay Minerals",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Hudbay Minerals",
+      "matched_company_slug": null
+    },
+    "project_name": "Constancia",
+    "scope": [
+      "mill_expansion",
+      "throughput_increase"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Process Plant Manager",
+        "Metallurgist",
+        "Concentrator Superintendent",
+        "Maintenance Superintendent",
+        "Process Engineer",
+        "Mill Operator",
+        "Commissioning Engineer",
+        "HSE Advisor"
+      ],
+      "skills": [
+        "copper concentrator operations",
+        "SAG/ball mill operations",
+        "throughput optimisation",
+        "process plant expansion",
+        "commissioning",
+        "mineral processing"
+      ],
+      "certs_freetext": [
+        "Peruvian mining regulatory compliance",
+        "MSHA or equivalent mine safety"
+      ],
+      "geo_rtw": "Peru or Latin America RTW; Spanish language asset",
+      "project_experience": [
+        "Constancia",
+        "Las Bambas",
+        "Cerro Verde",
+        "Antamina",
+        "Tintaya"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"process plant\" OR \"concentrator\" OR \"mill expansion\" OR \"mineral processing\") AND (\"copper\" OR \"molybdenum\") AND (\"Peru\" OR \"Latin America\") AND (\"throughput\" OR \"SAG mill\" OR \"ball mill\" OR \"commissioning\") AND (\"Hudbay\" OR \"Constancia\" OR \"Las Bambas\" OR \"Cerro Verde\" OR \"Antamina\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Hudbay just received Peruvian approval to expand Constancia's mill to 34 Mtpa — capacity ramp likely means near-term process/ops hires in Peru. Worth a conversation?",
+      "email_subject": "Constancia Mill Expansion — Process & Ops Talent",
+      "email_body": "Hi [Name],\n\nHudbay Minerals has secured Peruvian regulatory approval to increase the Constancia concentrator's throughput from 31 to 34 Mtpa. Expansions of this scale typically trigger near-term hiring across process engineering, metallurgy, plant operations, and maintenance.\n\nWe work with experienced copper concentrator professionals across Peru and Latin America and would welcome the chance to discuss how we might support Hudbay's ramp.\n\nAre you available for a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Regulatory permit granted to named operator Hudbay for a named project (Constancia) to expand mill throughput, signalling an operational ramp with direct workforce-demand implications in the mining sector.",
+    "phase": "operating",
+    "phase_evidence": "The permit increases an existing operating mill's processing capacity from 31 to 34 Mtpa, indicating an expansion of an already-producing asset.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "46257d1e-eb19-4185-a64c-590f1cbe7df6",
+    "ingested_at": "2026-07-02T18:33:40.697Z",
+    "source_published_at": "2026-07-02T15:16:38.000Z",
+    "contact_archetypes": [
+      "ops_director",
+      "hiring_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org//articles/supply-chain-challenges-prompt-cigar-lake-suspension"
@@ -523,108 +625,6 @@
     "id": "00115058-53b0-4f51-85db-582978436f93",
     "ingested_at": "2026-07-02T18:33:40.697Z",
     "source_published_at": "2026-07-02T15:30:41.000Z",
-    "contact_archetypes": [
-      "ops_director",
-      "hiring_manager"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/hudbay-gains-peru-approval-to-further-increase-constancia-mill-throughput/"
-      }
-    ],
-    "headline": "Hudbay Wins Peru Permit to Expand Constancia Mill to 34 Mtpa",
-    "body": "The new permit increases the Constancia mill's processing capacity from 31 million tonnes per annum (mtpa) to 34 mtpa.",
-    "url": "https://www.mining.com/hudbay-gains-peru-approval-to-further-increase-constancia-mill-throughput/",
-    "published_at": "2026-07-02T15:16:38.000Z",
-    "hash": "b67534556020cf10",
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations"
-    ],
-    "signal_type": "regulatory",
-    "region": "peru",
-    "country": "peru",
-    "tldr": "Hudbay has received Peruvian regulatory approval to increase Constancia's mill throughput from 31 to 34 Mtpa, signalling a capacity expansion that will drive near-term operational and engineering hiring.",
-    "operator": {
-      "name": "Hudbay Minerals",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Hudbay Minerals",
-      "matched_company_slug": null
-    },
-    "project_name": "Constancia",
-    "scope": [
-      "mill_expansion",
-      "throughput_increase"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Process Plant Manager",
-        "Metallurgist",
-        "Concentrator Superintendent",
-        "Maintenance Superintendent",
-        "Process Engineer",
-        "Mill Operator",
-        "Commissioning Engineer",
-        "HSE Advisor"
-      ],
-      "skills": [
-        "copper concentrator operations",
-        "SAG/ball mill operations",
-        "throughput optimisation",
-        "process plant expansion",
-        "commissioning",
-        "mineral processing"
-      ],
-      "certs_freetext": [
-        "Peruvian mining regulatory compliance",
-        "MSHA or equivalent mine safety"
-      ],
-      "geo_rtw": "Peru or Latin America RTW; Spanish language asset",
-      "project_experience": [
-        "Constancia",
-        "Las Bambas",
-        "Cerro Verde",
-        "Antamina",
-        "Tintaya"
-      ],
-      "yoe_band": "8-15",
-      "seniority": "mid-to-senior",
-      "boolean_search": "(\"process plant\" OR \"concentrator\" OR \"mill expansion\" OR \"mineral processing\") AND (\"copper\" OR \"molybdenum\") AND (\"Peru\" OR \"Latin America\") AND (\"throughput\" OR \"SAG mill\" OR \"ball mill\" OR \"commissioning\") AND (\"Hudbay\" OR \"Constancia\" OR \"Las Bambas\" OR \"Cerro Verde\" OR \"Antamina\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Hudbay just received Peruvian approval to expand Constancia's mill to 34 Mtpa — capacity ramp likely means near-term process/ops hires in Peru. Worth a conversation?",
-      "email_subject": "Constancia Mill Expansion — Process & Ops Talent",
-      "email_body": "Hi [Name],\n\nHudbay Minerals has secured Peruvian regulatory approval to increase the Constancia concentrator's throughput from 31 to 34 Mtpa. Expansions of this scale typically trigger near-term hiring across process engineering, metallurgy, plant operations, and maintenance.\n\nWe work with experienced copper concentrator professionals across Peru and Latin America and would welcome the chance to discuss how we might support Hudbay's ramp.\n\nAre you available for a brief call this week?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Regulatory permit granted to named operator Hudbay for a named project (Constancia) to expand mill throughput, signalling an operational ramp with direct workforce-demand implications in the mining sector.",
-    "phase": "operating",
-    "phase_evidence": "The permit increases an existing operating mill's processing capacity from 31 to 34 Mtpa, indicating an expansion of an already-producing asset.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "46257d1e-eb19-4185-a64c-590f1cbe7df6",
-    "ingested_at": "2026-07-02T18:33:40.697Z",
-    "source_published_at": "2026-07-02T15:16:38.000Z",
     "contact_archetypes": [
       "ops_director",
       "hiring_manager"
