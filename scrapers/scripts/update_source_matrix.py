@@ -19,7 +19,9 @@ import argparse
 import json
 import logging
 import os
+import random
 import sys
+import time
 from collections import defaultdict
 from datetime import datetime
 
@@ -55,6 +57,36 @@ COMPANIES_JSON_PATH = os.path.join(
 )
 
 
+def _is_rate_limit(err: Exception) -> bool:
+    """True if a gspread APIError is a 429 rate-limit / quota error."""
+    status = getattr(getattr(err, 'response', None), 'status_code', None)
+    if status == 429:
+        return True
+    text = str(err)
+    return 'Quota exceeded' in text or 'RATE_LIMIT_EXCEEDED' in text
+
+
+def _retry_429(fn, *args, max_retries=5, initial_delay=15.0, **kwargs):
+    """Call fn with exponential backoff on Sheets 429 rate-limit errors.
+
+    The read quota is per-minute per service account and is shared with the
+    Auto Data Sync export and the Slack digests, which can run concurrently
+    with this job — a 429 here recovers on its own once the window resets.
+    """
+    for attempt in range(max_retries + 1):
+        try:
+            return fn(*args, **kwargs)
+        except APIError as e:
+            if not _is_rate_limit(e) or attempt == max_retries:
+                raise
+            delay = min(initial_delay * (2 ** attempt), 120.0) + random.uniform(0, 5)
+            logger.warning(
+                f'Sheets rate limit (429), attempt {attempt + 1}/{max_retries + 1}; '
+                f'retrying in {delay:.0f}s'
+            )
+            time.sleep(delay)
+
+
 def authenticate(credentials_path: str):
     """Authenticate with Google Sheets API and return client + spreadsheet."""
     credentials = Credentials.from_service_account_file(credentials_path, scopes=SCOPES)
@@ -71,20 +103,20 @@ def read_employer_jobs(spreadsheet) -> list[dict]:
     """
     jobs = []
 
-    eligible = [ws for ws in spreadsheet.worksheets() if ws.title not in SKIP_SHEETS]
+    eligible = [ws for ws in _retry_429(spreadsheet.worksheets) if ws.title not in SKIP_SHEETS]
     if not eligible:
         return jobs
 
     ranges = [f"'{ws.title}'!A:Z" for ws in eligible]
     try:
-        batch = spreadsheet.values_batch_get(ranges)
+        batch = _retry_429(spreadsheet.values_batch_get, ranges)
         results = batch.get('valueRanges', [])
     except APIError as e:
         logger.warning(f'Batch read failed, falling back to per-tab: {e}')
         results = []
         for ws in eligible:
             try:
-                results.append({'values': ws.get_all_values()})
+                results.append({'values': _retry_429(ws.get_all_values)})
             except APIError as e2:
                 logger.warning(f'Failed to read worksheet {ws.title}: {e2}')
                 results.append({'values': []})
@@ -129,14 +161,14 @@ def read_aggregator_jobs(client) -> list[dict]:
     jobs = []
 
     try:
-        spreadsheet = client.open_by_key(AGGREGATOR_SPREADSHEET_ID)
-        ws = spreadsheet.worksheet('Aggregator Jobs')
+        spreadsheet = _retry_429(client.open_by_key, AGGREGATOR_SPREADSHEET_ID)
+        ws = _retry_429(spreadsheet.worksheet, 'Aggregator Jobs')
     except (WorksheetNotFound, gspread.exceptions.SpreadsheetNotFound) as e:
         logger.warning(f'Could not open aggregator spreadsheet: {e}')
         return jobs
 
     try:
-        all_values = ws.get_all_values()
+        all_values = _retry_429(ws.get_all_values)
     except APIError as e:
         logger.warning(f'Failed to read aggregator worksheet: {e}')
         return jobs
@@ -309,13 +341,14 @@ def write_matrix_to_sheet(spreadsheet, matrix: dict):
 
     # Get or create worksheet
     try:
-        ws = spreadsheet.worksheet(sheet_name)
-        ws.clear()
+        ws = _retry_429(spreadsheet.worksheet, sheet_name)
+        _retry_429(ws.clear)
         # Resize if needed
         if ws.row_count < total_rows + 5:
-            ws.resize(rows=total_rows + 10, cols=total_cols + 2)
+            _retry_429(ws.resize, rows=total_rows + 10, cols=total_cols + 2)
     except WorksheetNotFound:
-        ws = spreadsheet.add_worksheet(
+        ws = _retry_429(
+            spreadsheet.add_worksheet,
             title=sheet_name,
             rows=total_rows + 10,
             cols=total_cols + 2,
@@ -335,17 +368,17 @@ def write_matrix_to_sheet(spreadsheet, matrix: dict):
     last_col = col_to_letter(total_cols - 1)
     range_notation = f'A1:{last_col}{len(all_rows)}'
 
-    ws.update(values=all_rows, range_name=range_notation, value_input_option='RAW')
+    _retry_429(ws.update, values=all_rows, range_name=range_notation, value_input_option='RAW')
 
     # Bold header row
-    ws.format(f'A1:{last_col}1', {'textFormat': {'bold': True}})
+    _retry_429(ws.format, f'A1:{last_col}1', {'textFormat': {'bold': True}})
 
     # Bold totals row
     totals_row_num = len(all_rows)
-    ws.format(f'A{totals_row_num}:{last_col}{totals_row_num}', {'textFormat': {'bold': True}})
+    _retry_429(ws.format, f'A{totals_row_num}:{last_col}{totals_row_num}', {'textFormat': {'bold': True}})
 
     # Freeze row 1 and column A
-    ws.freeze(rows=1, cols=1)
+    _retry_429(ws.freeze, rows=1, cols=1)
 
     logger.info(
         f'Wrote {sheet_name}: {len(data_rows)} companies x {len(matrix["sources"])} sources'
@@ -366,12 +399,13 @@ def write_target_companies_to_sheet(spreadsheet, target_data: dict):
     total_cols = len(header_row)
 
     try:
-        ws = spreadsheet.worksheet(sheet_name)
-        ws.clear()
+        ws = _retry_429(spreadsheet.worksheet, sheet_name)
+        _retry_429(ws.clear)
         if ws.row_count < total_rows:
-            ws.resize(rows=total_rows, cols=total_cols + 2)
+            _retry_429(ws.resize, rows=total_rows, cols=total_cols + 2)
     except WorksheetNotFound:
-        ws = spreadsheet.add_worksheet(
+        ws = _retry_429(
+            spreadsheet.add_worksheet,
             title=sheet_name,
             rows=total_rows,
             cols=total_cols + 2,
@@ -389,13 +423,13 @@ def write_target_companies_to_sheet(spreadsheet, target_data: dict):
     last_col = col_to_letter(total_cols - 1)
     range_notation = f'A1:{last_col}{len(all_rows)}'
 
-    ws.update(values=all_rows, range_name=range_notation, value_input_option='RAW')
+    _retry_429(ws.update, values=all_rows, range_name=range_notation, value_input_option='RAW')
 
     # Bold header
-    ws.format(f'A1:{last_col}1', {'textFormat': {'bold': True}})
+    _retry_429(ws.format, f'A1:{last_col}1', {'textFormat': {'bold': True}})
 
     # Freeze row 1 and column A
-    ws.freeze(rows=1, cols=1)
+    _retry_429(ws.freeze, rows=1, cols=1)
 
     logger.info(f'Wrote {sheet_name}: {len(data_rows)} companies')
 
@@ -495,7 +529,7 @@ def main():
     # Authenticate
     logger.info('Authenticating with Google Sheets...')
     client = authenticate(credentials_path)
-    spreadsheet = client.open(spreadsheet_name)
+    spreadsheet = _retry_429(client.open, spreadsheet_name)
     logger.info(f'Connected to: {spreadsheet_name}')
 
     # Read all job data

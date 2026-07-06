@@ -40,6 +40,37 @@ const COLUMNS = {
   SCRAPED_AT: 13
 };
 
+/**
+ * Retry an async function with exponential backoff on rate-limit errors.
+ * Google Sheets API returns HTTP 429 or errors with "Quota exceeded" on rate
+ * limits. The read quota is per-minute, so it recovers on its own — the daily
+ * scrape's update-matrix job, the weekly digest, and this sync can all hit the
+ * same service account at once (same pattern as scripts/slack-daily-digest.js).
+ */
+async function withRetry(fn, { maxRetries = 5, initialDelayMs = 15_000 } = {}) {
+  for (let attempt = 0; attempt <= maxRetries; attempt++) {
+    try {
+      return await fn();
+    } catch (err) {
+      const isRateLimit =
+        err?.code === 429 ||
+        err?.status === 429 ||
+        err?.response?.status === 429 ||
+        (err?.message || '').includes('Quota exceeded') ||
+        (err?.message || '').includes('RATE_LIMIT_EXCEEDED') ||
+        (err?.message || '').includes('rateLimitExceeded');
+
+      if (!isRateLimit || attempt === maxRetries) {
+        throw err;
+      }
+
+      const delay = Math.min(initialDelayMs * Math.pow(2, attempt), 120_000);
+      console.log(`  Rate limited (attempt ${attempt + 1}/${maxRetries + 1}), retrying in ${Math.round(delay / 1000)}s...`);
+      await new Promise(resolve => setTimeout(resolve, delay));
+    }
+  }
+}
+
 async function authenticate() {
   const auth = new google.auth.GoogleAuth({
     keyFile: CREDENTIALS_PATH,
@@ -97,9 +128,10 @@ async function fetchAllJobs(auth) {
   const sheets = google.sheets({ version: 'v4', auth });
 
   // Get spreadsheet metadata to find all worksheets
-  const spreadsheet = await sheets.spreadsheets.get({
-    spreadsheetId: await getSpreadsheetId(sheets),
-  });
+  const spreadsheetId = await getSpreadsheetId(sheets);
+  const spreadsheet = await withRetry(() => sheets.spreadsheets.get({
+    spreadsheetId,
+  }));
 
   const allJobs = [];
 
@@ -122,10 +154,10 @@ async function fetchAllJobs(auth) {
 
     console.log(`Fetching jobs from "${sheetName}"...`);
 
-    const response = await sheets.spreadsheets.values.get({
+    const response = await withRetry(() => sheets.spreadsheets.values.get({
       spreadsheetId: spreadsheet.data.spreadsheetId,
       range: `${sheetName}!A:N`, // All columns from the sheet (A-N = 14 columns, includes Employment Type)
-    });
+    }));
 
     const rows = response.data.values || [];
 
@@ -166,11 +198,11 @@ async function getSpreadsheetId(sheets) {
   // Find spreadsheet by name
   const drive = google.drive({ version: 'v3', auth: sheets.context._options.auth });
 
-  const response = await drive.files.list({
+  const response = await withRetry(() => drive.files.list({
     q: `name='${SPREADSHEET_NAME}' and mimeType='application/vnd.google-apps.spreadsheet'`,
     fields: 'files(id, name)',
     spaces: 'drive',
-  });
+  }));
 
   if (!response.data.files || response.data.files.length === 0) {
     throw new Error(`Spreadsheet "${SPREADSHEET_NAME}" not found. Make sure it's shared with the service account.`);
@@ -324,10 +356,10 @@ async function fetchAggregatorJobs(auth) {
 
   console.log('📊 Fetching aggregator jobs...');
   try {
-    const response = await sheets.spreadsheets.values.get({
+    const response = await withRetry(() => sheets.spreadsheets.values.get({
       spreadsheetId: AGGREGATOR_SPREADSHEET_ID,
       range: 'Aggregator Jobs!A2:P', // Skip header row
-    });
+    }));
 
     const rows = response.data.values || [];
     const jobs = rows.map(parseAggregatorRow).filter(j => j !== null);
