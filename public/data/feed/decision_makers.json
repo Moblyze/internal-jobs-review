@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-07-03T18:32:20.914Z"
+    "last_updated_at": "2026-07-06T18:42:58.521Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -7600,6 +7600,66 @@
         "email": null,
         "phone": null,
         "location": "Jupiter, FL, USA"
+      }
+    ]
+  },
+  "b2gold": {
+    "discovered_at": "2026-07-06T18:42:58.521Z",
+    "contacts": [
+      {
+        "name": "Ninette Kröhnert",
+        "title": "VP, Human Resources",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/ninette-kr%C3%B6hnert-78061874",
+        "source_url": "https://rocketreach.co/b2gold-corp-hr-department_b5638c5ef6098546",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Vancouver, BC, Canada"
+      },
+      {
+        "name": "William Lytle",
+        "title": "SVP, Operations & Chief Operating Officer",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.globaldata.com/company-profile/b2gold-corp/executives/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Vancouver, BC, Canada"
+      },
+      {
+        "name": "Kellyann Williams",
+        "title": "Senior Manager, Global HR Practices & Governance",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://theorg.com/org/b2gold/teams/human-resources-and-training",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Vancouver, BC, Canada"
+      },
+      {
+        "name": "Yishan Dong",
+        "title": "Human Resources Manager, Corporate",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/yishan-dong",
+        "source_url": "https://theorg.com/org/b2gold/org-chart/yishan-dong",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Vancouver, BC, Canada"
+      },
+      {
+        "name": "Boubacar Angoiba",
+        "title": "HR Talent Acquisition, Administration & Development Coordinator",
+        "persona": "ta",
+        "linkedin_url": null,
+        "source_url": "https://theorg.com/org/b2gold/teams/human-resources-and-training",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Mali"
       }
     ]
   }

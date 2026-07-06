@@ -1,5 +1,54 @@
 [
   {
+    "id": "79915584-574e-4361-a856-a5a32f88bc69",
+    "ingested_at": "2026-07-06T18:41:07.463Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/b2golds-new-ceo-gets-his-goose-test/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "canada-nunavut",
+    "country": "canada",
+    "headline": "B2Gold Ramps Up Goose Gold Mine in Nunavut Under New CEO Mike Cinnamond",
+    "operator": {
+      "name": "B2Gold",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "B2Gold",
+      "matched_company_slug": null
+    },
+    "project_name": "Goose Gold Mine",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": [
+      {
+        "name": "Mike Cinnamond",
+        "title": "CEO",
+        "company": "B2Gold",
+        "hiring_relevance": "context_only"
+      }
+    ]
+  },
+  {
     "id": "736a710d-fe6f-4a6a-9fce-bb2557dbfe72",
     "ingested_at": "2026-07-04T18:23:37.878Z",
     "sources": [

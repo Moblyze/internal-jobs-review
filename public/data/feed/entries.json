@@ -4,6 +4,116 @@
       {
         "id": "mining_com",
         "name": "MINING.com",
+        "url": "https://www.mining.com/b2golds-new-ceo-gets-his-goose-test/"
+      }
+    ],
+    "headline": "B2Gold Ramps Up Goose Gold Mine in Nunavut Under New CEO Mike Cinnamond",
+    "body": "Mike Cinnamond faces a key test ramping up Nunavut’s Goose gold mine to revive million-ounce output and prove growth discipline.",
+    "url": "https://www.mining.com/b2golds-new-ceo-gets-his-goose-test/",
+    "published_at": "2026-07-06T14:00:00.000Z",
+    "hash": "609ff28c0acdc993",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "canada-nunavut",
+    "country": "canada",
+    "tldr": "B2Gold is ramping up its Goose gold mine in Nunavut toward million-ounce output, signalling active workforce demand at the site. New CEO Mike Cinnamond is leading the production ramp-up.",
+    "operator": {
+      "name": "B2Gold",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "B2Gold",
+      "matched_company_slug": null
+    },
+    "project_name": "Goose Gold Mine",
+    "scope": [
+      "production_rampup",
+      "mine_operations"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mine Manager",
+        "Production Superintendent",
+        "Process Plant Manager",
+        "Maintenance Superintendent",
+        "HSE Manager",
+        "Mining Engineer",
+        "Metallurgist",
+        "Site Manager"
+      ],
+      "skills": [
+        "gold mining",
+        "mine ramp-up",
+        "process plant operations",
+        "remote site operations",
+        "Arctic mining",
+        "production optimisation"
+      ],
+      "certs_freetext": [
+        "Mine Manager Certificate of Competency",
+        "First Aid Level 3",
+        "WHMIS"
+      ],
+      "geo_rtw": "Canada — must have Canadian work authorisation; remote/fly-in-fly-out Nunavut",
+      "project_experience": [
+        "Back River",
+        "Meadowbank",
+        "Hope Bay",
+        "Meliadine"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Superintendent / Management",
+      "boolean_search": "(\"Mine Manager\" OR \"Production Superintendent\" OR \"Process Plant Manager\" OR \"Maintenance Superintendent\" OR \"Mining Engineer\" OR \"Site Manager\") AND (\"gold mining\" OR \"open pit\" OR \"underground mining\") AND (\"ramp-up\" OR \"remote site\" OR \"FIFO\" OR \"Arctic\" OR \"Nunavut\" OR \"northern Canada\") AND (Canada)"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], B2Gold is ramping up its Goose gold mine in Nunavut toward million-ounce production. We're placing senior mining professionals for this remote ramp-up — open to a quick chat about fit?",
+      "email_subject": "Senior Mining Roles — B2Gold Goose Mine Ramp-Up, Nunavut",
+      "email_body": "Hi [Name],\n\nB2Gold is actively ramping up its Goose gold mine in Nunavut under new CEO Mike Cinnamond, targeting million-ounce annual output. This ramp-up phase typically drives strong demand for experienced mine operations, process plant, maintenance, and HSE professionals comfortable with remote/FIFO Arctic environments.\n\nGiven your background in [relevant discipline], I wanted to reach out to see if you'd be open to exploring opportunities tied to this project.\n\nHappy to share more detail — are you available for a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (B2Gold) and project (Goose Gold Mine) with an explicit production ramp-up signal indicating active workforce demand in the mining sector.",
+    "phase": "construction",
+    "phase_evidence": "Article states B2Gold is 'ramping up Nunavut's Goose gold mine to revive million-ounce output', indicating active production ramp-up phase.",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": [
+      {
+        "name": "Mike Cinnamond",
+        "title": "CEO",
+        "company": "B2Gold",
+        "hiring_relevance": "context_only"
+      }
+    ],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "79915584-574e-4361-a856-a5a32f88bc69",
+    "ingested_at": "2026-07-06T18:41:07.463Z",
+    "source_published_at": "2026-07-06T14:00:00.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
         "url": "https://www.mining.com/canadian-govt-commits-352m-to-red-chris-mine-expansion-in-british-columbia/"
       }
     ],
