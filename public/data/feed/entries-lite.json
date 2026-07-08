@@ -823,49 +823,6 @@
     "key_people": []
   },
   {
-    "id": "ae3cacd4-160c-4700-a042-3cea847cc8a8",
-    "ingested_at": "2026-06-25T18:48:46.289Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/swedish-state-to-take-majority-stake-in-videberg-kraft"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades",
-      "process_plant_operations"
-    ],
-    "signal_type": "regulatory",
-    "region": "sweden",
-    "country": "sweden",
-    "headline": "Swedish State Takes 60% Stake in Videberg Kraft SMR Project at Värö Peninsula",
-    "operator": {
-      "name": "Videberg Kraft AB",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Videberg Kraft AB",
-      "matched_company_slug": null
-    },
-    "project_name": "Videberg Kraft SMR — Värö Peninsula",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "pre_sanction",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
-    "key_people": []
-  },
-  {
     "id": "045497ea-b09e-4382-900c-759c4debc7ab",
     "ingested_at": "2026-06-25T18:48:46.289Z",
     "sources": [
@@ -894,6 +851,49 @@
       "matched_company_slug": null
     },
     "project_name": "Włocławek BWRX-300 SMR Plant",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
+    "id": "ae3cacd4-160c-4700-a042-3cea847cc8a8",
+    "ingested_at": "2026-06-25T18:48:46.289Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/swedish-state-to-take-majority-stake-in-videberg-kraft"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "sweden",
+    "country": "sweden",
+    "headline": "Swedish State Takes 60% Stake in Videberg Kraft SMR Project at Värö Peninsula",
+    "operator": {
+      "name": "Videberg Kraft AB",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Videberg Kraft AB",
+      "matched_company_slug": null
+    },
+    "project_name": "Videberg Kraft SMR — Värö Peninsula",
     "mob_window": {
       "start": null,
       "end": null,

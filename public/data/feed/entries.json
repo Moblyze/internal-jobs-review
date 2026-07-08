@@ -2071,112 +2071,6 @@
       {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/swedish-state-to-take-majority-stake-in-videberg-kraft"
-      }
-    ],
-    "headline": "Swedish State Takes 60% Stake in Videberg Kraft SMR Project at Värö Peninsula",
-    "body": "The Swedish government has decided that the state will take a 60% stake in Videberg Kraft AB, which plans to build three Rolls-Royce small modular reactors on the Värö Peninsula near Ringhals.",
-    "url": "https://www.world-nuclear-news.org//articles/swedish-state-to-take-majority-stake-in-videberg-kraft",
-    "published_at": "2026-06-25T11:46:57.000Z",
-    "hash": "fd5bff88fc12c7ac",
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades",
-      "process_plant_operations"
-    ],
-    "signal_type": "regulatory",
-    "region": "sweden",
-    "country": "sweden",
-    "tldr": "The Swedish government will hold a 60% stake in Videberg Kraft AB, which plans to build three Rolls-Royce SMRs near Ringhals. Project is pre-sanction but state backing signals serious intent and near-term FEED/EPC procurement activity.",
-    "operator": {
-      "name": "Videberg Kraft AB",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Videberg Kraft AB",
-      "matched_company_slug": null
-    },
-    "project_name": "Videberg Kraft SMR — Värö Peninsula",
-    "scope": [
-      "smr_construction",
-      "nuclear_newbuild",
-      "site_development"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Nuclear Project Director",
-        "Nuclear Development Manager",
-        "SMR Project Manager",
-        "Nuclear FEED Manager",
-        "Licensing & Permitting Manager",
-        "Nuclear Construction Manager",
-        "Reactor Engineering Lead"
-      ],
-      "skills": [
-        "small modular reactor",
-        "SMR",
-        "nuclear project development",
-        "nuclear licensing",
-        "FEED management",
-        "nuclear regulatory affairs",
-        "Rolls-Royce SMR",
-        "nuclear newbuild"
-      ],
-      "certs_freetext": [
-        "Nuclear Safety Culture certification",
-        "IAEA nuclear management training",
-        "Swedish SSM regulatory familiarity"
-      ],
-      "geo_rtw": "Sweden / EEA right to work",
-      "project_experience": [
-        "Rolls-Royce SMR UK",
-        "Hinkley Point C",
-        "Olkiluoto 3",
-        "Ringhals",
-        "Forsmark"
-      ],
-      "yoe_band": "12-20",
-      "seniority": "Senior / Director",
-      "boolean_search": "(\"small modular reactor\" OR \"SMR\" OR \"nuclear newbuild\" OR \"Rolls-Royce SMR\") AND (\"project director\" OR \"project manager\" OR \"development manager\" OR \"construction manager\" OR \"licensing manager\") AND (\"nuclear\" OR \"reactor\") AND (\"FEED\" OR \"EPC\" OR \"pre-FID\" OR \"permitting\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], the Swedish state just took a 60% stake in Videberg Kraft AB — a 3-unit Rolls-Royce SMR project near Ringhals. Strong government backing signals FEED and EPC activity coming. Would your profile be a fit for early-phase nuclear development roles? Happy to share more.",
-      "email_subject": "Swedish SMR Project (Videberg Kraft) — Senior Nuclear Roles Emerging",
-      "email_body": "Hi [Name],\n\nThe Swedish government has confirmed a 60% ownership stake in Videberg Kraft AB, the developer behind a planned three-unit Rolls-Royce SMR installation on the Värö Peninsula near Ringhals.\n\nState backing at this level typically accelerates FEED procurement and early regulatory engagement, meaning senior nuclear development, licensing, and project management professionals will be in demand within the next 12–18 months.\n\nGiven your background in [relevant nuclear/SMR experience], I wanted to reach out early to explore whether this could be a strong next step.\n\nWould you be open to a brief call this week?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "State equity commitment to named operator Videberg Kraft AB for a three-unit Rolls-Royce SMR project is a discrete field development/operator assignment event signalling near-term FEED and workforce demand in nuclear.",
-    "phase": "pre_sanction",
-    "phase_evidence": "Article states the project 'plans to build' the SMRs — no FID or EPC award yet, only state equity entry confirming development intent.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "ae3cacd4-160c-4700-a042-3cea847cc8a8",
-    "ingested_at": "2026-06-25T18:48:46.289Z",
-    "source_published_at": "2026-06-25T11:46:57.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org//articles/osge-signs-agreement-with-wloclawek-for-smr-plant"
       }
     ],
@@ -2278,6 +2172,112 @@
     "id": "045497ea-b09e-4382-900c-759c4debc7ab",
     "ingested_at": "2026-06-25T18:48:46.289Z",
     "source_published_at": "2026-06-25T10:01:31.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/swedish-state-to-take-majority-stake-in-videberg-kraft"
+      }
+    ],
+    "headline": "Swedish State Takes 60% Stake in Videberg Kraft SMR Project at Värö Peninsula",
+    "body": "The Swedish government has decided that the state will take a 60% stake in Videberg Kraft AB, which plans to build three Rolls-Royce small modular reactors on the Värö Peninsula near Ringhals.",
+    "url": "https://www.world-nuclear-news.org//articles/swedish-state-to-take-majority-stake-in-videberg-kraft",
+    "published_at": "2026-06-25T11:46:57.000Z",
+    "hash": "fd5bff88fc12c7ac",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "sweden",
+    "country": "sweden",
+    "tldr": "The Swedish government will hold a 60% stake in Videberg Kraft AB, which plans to build three Rolls-Royce SMRs near Ringhals. Project is pre-sanction but state backing signals serious intent and near-term FEED/EPC procurement activity.",
+    "operator": {
+      "name": "Videberg Kraft AB",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Videberg Kraft AB",
+      "matched_company_slug": null
+    },
+    "project_name": "Videberg Kraft SMR — Värö Peninsula",
+    "scope": [
+      "smr_construction",
+      "nuclear_newbuild",
+      "site_development"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Project Director",
+        "Nuclear Development Manager",
+        "SMR Project Manager",
+        "Nuclear FEED Manager",
+        "Licensing & Permitting Manager",
+        "Nuclear Construction Manager",
+        "Reactor Engineering Lead"
+      ],
+      "skills": [
+        "small modular reactor",
+        "SMR",
+        "nuclear project development",
+        "nuclear licensing",
+        "FEED management",
+        "nuclear regulatory affairs",
+        "Rolls-Royce SMR",
+        "nuclear newbuild"
+      ],
+      "certs_freetext": [
+        "Nuclear Safety Culture certification",
+        "IAEA nuclear management training",
+        "Swedish SSM regulatory familiarity"
+      ],
+      "geo_rtw": "Sweden / EEA right to work",
+      "project_experience": [
+        "Rolls-Royce SMR UK",
+        "Hinkley Point C",
+        "Olkiluoto 3",
+        "Ringhals",
+        "Forsmark"
+      ],
+      "yoe_band": "12-20",
+      "seniority": "Senior / Director",
+      "boolean_search": "(\"small modular reactor\" OR \"SMR\" OR \"nuclear newbuild\" OR \"Rolls-Royce SMR\") AND (\"project director\" OR \"project manager\" OR \"development manager\" OR \"construction manager\" OR \"licensing manager\") AND (\"nuclear\" OR \"reactor\") AND (\"FEED\" OR \"EPC\" OR \"pre-FID\" OR \"permitting\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], the Swedish state just took a 60% stake in Videberg Kraft AB — a 3-unit Rolls-Royce SMR project near Ringhals. Strong government backing signals FEED and EPC activity coming. Would your profile be a fit for early-phase nuclear development roles? Happy to share more.",
+      "email_subject": "Swedish SMR Project (Videberg Kraft) — Senior Nuclear Roles Emerging",
+      "email_body": "Hi [Name],\n\nThe Swedish government has confirmed a 60% ownership stake in Videberg Kraft AB, the developer behind a planned three-unit Rolls-Royce SMR installation on the Värö Peninsula near Ringhals.\n\nState backing at this level typically accelerates FEED procurement and early regulatory engagement, meaning senior nuclear development, licensing, and project management professionals will be in demand within the next 12–18 months.\n\nGiven your background in [relevant nuclear/SMR experience], I wanted to reach out early to explore whether this could be a strong next step.\n\nWould you be open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "State equity commitment to named operator Videberg Kraft AB for a three-unit Rolls-Royce SMR project is a discrete field development/operator assignment event signalling near-term FEED and workforce demand in nuclear.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states the project 'plans to build' the SMRs — no FID or EPC award yet, only state equity entry confirming development intent.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "ae3cacd4-160c-4700-a042-3cea847cc8a8",
+    "ingested_at": "2026-06-25T18:48:46.289Z",
+    "source_published_at": "2026-06-25T11:46:57.000Z",
     "contact_archetypes": [
       "project_manager",
       "business_unit_director"
