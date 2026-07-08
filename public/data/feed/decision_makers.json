@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-07-06T18:42:58.521Z"
+    "last_updated_at": "2026-07-08T18:36:32.044Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -7660,6 +7660,186 @@
         "email": null,
         "phone": null,
         "location": "Mali"
+      }
+    ]
+  },
+  "czech ministry of trade and industry / čez (implied dukovany operator)": {
+    "discovered_at": "2026-07-08T18:36:32.044Z",
+    "contacts": [
+      {
+        "name": "Petr Závodský",
+        "title": "Chairman of the Board of Directors / Chief Executive Officer",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/petr-zavodsky-88399535",
+        "source_url": "https://www.linkedin.com/in/petr-zavodsky-88399535/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Prague, Czech Republic"
+      },
+      {
+        "name": "Bohdan Zronek",
+        "title": "Member of the Board of Directors & Chief Nuclear Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/bohdan-zronek-64840820",
+        "source_url": "https://cz.linkedin.com/in/bohdan-zronek-64840820",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Prague, Czech Republic"
+      },
+      {
+        "name": "Roman Havlín",
+        "title": "Director, Jaderná elektrárna Dukovany (Dukovany Nuclear Power Plant)",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/havl%C3%ADn-roman-1a3040b0",
+        "source_url": "https://cz.linkedin.com/in/havl%C3%ADn-roman-1a3040b0",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Třebíč, Czech Republic"
+      },
+      {
+        "name": "Daniel Beneš",
+        "title": "CEO and Chairman of the Board of Directors, ČEZ Group",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/danielbene%C5%A1",
+        "source_url": "https://www.linkedin.com/in/danielbene%C5%A1/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Prague, Czech Republic"
+      },
+      {
+        "name": "Martin Šálek",
+        "title": "HR Manager – Nuclear Energy Division (ČEZ Group)",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/martinsalek01",
+        "source_url": "https://www.linkedin.com/in/martinsalek01/?_l=en",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Czech Republic"
+      }
+    ]
+  },
+  "south32": {
+    "discovered_at": "2026-07-08T18:36:32.044Z",
+    "contacts": [
+      {
+        "name": "Skylie Estep",
+        "title": "Human Resources Director, North America",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/skylieestep",
+        "source_url": "https://www.south32.net/news-media/latest-news/updates-from-our-hermosa-project",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Tucson, AZ, USA"
+      },
+      {
+        "name": "Pat Risner",
+        "title": "President, South32 Hermosa",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/pat-risner-2567b3b7",
+        "source_url": "https://www.permits.performance.gov/permitting-project/fast-41-covered-projects/south32-hermosa-critical-minerals-project",
+        "in_target_persona": true,
+        "email": "pat.risner@south32.net",
+        "phone": null,
+        "location": "Patagonia, AZ, USA"
+      },
+      {
+        "name": "Andy Thompson",
+        "title": "Vice President, Project Delivery – Hermosa",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/athompson70",
+        "source_url": "https://www.south32.net/news-media/latest-news/updates-from-our-hermosa-project",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Tucson, AZ, USA"
+      },
+      {
+        "name": "Noel Pillay",
+        "title": "Chief Operating Officer (Africa & Colombia)",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/noel-kumaran-pillay-517726286",
+        "source_url": "https://www.south32.net/about-us/our-board-and-lead-team",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Durban, South Africa"
+      },
+      {
+        "name": "Akmaral Muken",
+        "title": "Training and Learning Principal – Hermosa",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://south32hermosa.com/en_US/news-resources/news/south32s-hermosa-project-announces-key-operational-milestones",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Arizona, USA"
+      }
+    ]
+  },
+  "west red lake gold mines": {
+    "discovered_at": "2026-07-08T18:36:32.044Z",
+    "contacts": [
+      {
+        "name": "Hayley Halsall-Whitney",
+        "title": "Vice President, Operations",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/hhwhitney",
+        "source_url": "https://westredlakegold.com/west-red-lake-gold-strengthens-mine-operations-team-with-appointment-of-hayley-halsall-whitney-as-vice-president-operations/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Ontario, Canada"
+      },
+      {
+        "name": "Shane Williams",
+        "title": "President, CEO & Director",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/shane75williams",
+        "source_url": "https://westredlakegold.com/management-directors/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Vancouver, BC, Canada"
+      },
+      {
+        "name": "Sean McCormack",
+        "title": "Mine General Manager, Madsen Mine",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://www.globenewswire.com/news-release/2025/11/18/3189726/0/en/West-Red-Lake-Gold-Reports-Mid-Q4-Madsen-Mine-Update.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Red Lake, ON, Canada"
+      },
+      {
+        "name": "Maurice Mostert",
+        "title": "Vice President, Technical Services",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/maurice-mostert",
+        "source_url": "https://westredlakegold.com/west-red-lake-gold-mines-further-strengthens-management-team/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Vancouver, BC, Canada"
+      },
+      {
+        "name": "William Curry",
+        "title": "Senior Operations Manager, Madsen Mine",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.globenewswire.com/news-release/2025/11/18/3189726/0/en/West-Red-Lake-Gold-Reports-Mid-Q4-Madsen-Mine-Update.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Red Lake, ON, Canada"
       }
     ]
   }

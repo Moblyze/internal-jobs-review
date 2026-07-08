@@ -2,6 +2,315 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/czechs-report-on-progress-in-first-year-of-dukovany-project"
+      }
+    ],
+    "headline": "Dukovany Nuclear New-Build on Schedule: Geotechnical Surveys Complete, Conceptual Design Submitted",
+    "body": "Geotechnical surveys, including drilling more than 13 kilometres of exploratory wells, have been completed, the first conceptual design has been submitted, and several Czech suppliers selected in the year since contracts were signed for the new nuclear project at Dukovany, the Czech Ministry of Trade and Industry has reported.",
+    "url": "https://www.world-nuclear-news.org//articles/czechs-report-on-progress-in-first-year-of-dukovany-project",
+    "published_at": "2026-07-08T11:47:51.000Z",
+    "hash": "bf7b2f92e25e3ada",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "survey_geophysical",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "central-europe",
+    "country": "czech_republic",
+    "tldr": "Czech Ministry of Trade and Industry confirms Dukovany new nuclear unit is progressing through early engineering milestones — geotechnical drilling done, conceptual design submitted, Czech suppliers selected. Pre-sanction engineering hiring window is warming.",
+    "operator": {
+      "name": "Czech Ministry of Trade and Industry / ČEZ (implied Dukovany operator)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Dukovany New Nuclear Unit",
+    "scope": [
+      "geotechnical_survey",
+      "conceptual_design",
+      "supplier_selection"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Project Engineer",
+        "Geotechnical Engineer",
+        "Civil/Structural Engineer (Nuclear)",
+        "Conceptual Design Engineer",
+        "Nuclear FEED Engineer",
+        "Project Controls Engineer",
+        "Nuclear Licensing Engineer",
+        "Supply Chain Manager (Nuclear)"
+      ],
+      "skills": [
+        "nuclear new-build",
+        "geotechnical survey",
+        "conceptual design",
+        "FEED",
+        "nuclear civil works",
+        "project controls",
+        "nuclear supply chain",
+        "regulatory licensing"
+      ],
+      "certs_freetext": [
+        "EUR-ACE",
+        "IAEA training",
+        "nuclear safety certification",
+        "PE (nuclear/civil)"
+      ],
+      "geo_rtw": "EU/EEA work authorisation; Czech Republic based or willing to relocate",
+      "project_experience": [
+        "Hinkley Point C",
+        "Flamanville 3",
+        "Olkiluoto 3",
+        "Vogtle 3&4",
+        "Mochovce 3&4",
+        "Paks II"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"nuclear new build\" OR \"nuclear project\" OR \"NPP\" OR \"PWR\" OR \"VVER\") AND (\"conceptual design\" OR \"FEED\" OR \"geotechnical\" OR \"civil engineering\" OR \"project controls\" OR \"licensing\") AND (\"nuclear\" OR \"power plant\") AND (Czech OR Slovakia OR \"central Europe\" OR relocate)"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], the Dukovany new nuclear project in Czech Republic is progressing through early engineering — geotechnical surveys complete & conceptual design submitted. Are you open to hearing about upcoming roles?",
+      "email_subject": "Dukovany Nuclear New-Build — Early Engineering Roles Coming Up",
+      "email_body": "Hi [Name],\n\nThe Dukovany new nuclear unit in Czech Republic has just completed geotechnical surveys and submitted its first conceptual design, signalling that engineering staffing requirements will be building over the coming 12–18 months.\n\nGiven your background in [nuclear FEED / civil engineering / project controls], I wanted to reach out ahead of the curve to explore whether you'd be open to a conversation about potential opportunities on this programme.\n\nHappy to share more detail — would a brief call this week work for you?\n\nBest regards,\n[Your name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named nuclear new-build project (Dukovany) with confirmed early-engineering milestones (geotechnical surveys, conceptual design submission, supplier selection) indicating an active pre-sanction/early FEED phase with near-term staffing demand.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states 'first conceptual design has been submitted' and geotechnical surveys just completed, placing the project firmly in pre-FID/FEED engineering.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "c0ed5e6e-5aa1-4263-8c3a-61b0e2ba3ebb",
+    "ingested_at": "2026-07-08T18:32:35.353Z",
+    "source_published_at": "2026-07-08T11:47:51.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/south32-clears-key-us-hurdle-for-2b-arizona-mine/"
+      }
+    ],
+    "headline": "South32 Secures Federal Approval to Expand $2B Hermosa Mine in Arizona",
+    "body": "Federal approval allows South32 to expand Hermosa as the US pushes domestic critical minerals.",
+    "url": "https://www.mining.com/south32-clears-key-us-hurdle-for-2b-arizona-mine/",
+    "published_at": "2026-07-07T16:49:19.000Z",
+    "hash": "2f0c45fd8970bdd4",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-southwest",
+    "country": "united_states",
+    "tldr": "South32 has received a key federal regulatory approval to expand the Hermosa critical minerals mine in Arizona, unlocking a $2B project and signalling an imminent construction ramp-up hiring wave.",
+    "operator": {
+      "name": "South32",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "South32",
+      "matched_company_slug": null
+    },
+    "project_name": "Hermosa",
+    "scope": [
+      "mine_development",
+      "site_construction",
+      "critical_minerals_extraction"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 2000000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mine Construction Manager",
+        "HSE Manager",
+        "Project Manager – Mining",
+        "Site Manager",
+        "Electrical Superintendent",
+        "Mechanical Superintendent",
+        "Civil Construction Supervisor",
+        "Mining Engineer"
+      ],
+      "skills": [
+        "open-pit or underground mine construction",
+        "critical minerals",
+        "project execution",
+        "site management",
+        "HSE leadership",
+        "construction planning"
+      ],
+      "certs_freetext": [
+        "MSHA",
+        "PMP",
+        "OSHA 30"
+      ],
+      "geo_rtw": "US work authorization required; Arizona-based or relocatable",
+      "project_experience": [
+        "Resolution Copper",
+        "Rosemont Mine",
+        "Twin Metals",
+        "NorthMet"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Superintendent / Manager",
+      "boolean_search": "(\"Mine Construction Manager\" OR \"Mining Project Manager\" OR \"Site Manager\" OR \"Construction Superintendent\" OR \"Mining Engineer\") AND (\"critical minerals\" OR \"copper\" OR \"zinc\" OR \"manganese\" OR \"underground mine\" OR \"open pit\") AND (\"Arizona\" OR \"Southwest US\") AND (MSHA OR \"mine construction\" OR \"greenfield mine\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], South32's Hermosa mine in Arizona just cleared its key federal hurdle — a $2B critical minerals project now moving toward construction. Are you open to a conversation about senior site roles?",
+      "email_subject": "South32 Hermosa ($2B Arizona Mine) — Senior Construction Roles Coming",
+      "email_body": "Hi [Name],\n\nSouth32 has just received federal approval to expand its Hermosa critical minerals mine in Arizona — a $2B project now positioned to move into active construction.\n\nAs the project ramps up, there will be strong demand for experienced mine construction managers, site superintendents, HSE leads, and engineering professionals with greenfield mine build experience.\n\nGiven your background in [relevant experience], I wanted to reach out early before these roles go live publicly.\n\nWould you be open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Federal permit approval granted to named operator South32 for the $2B Hermosa mine expansion in Arizona — a regulatory milestone that directly unlocks construction-phase workforce demand.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Federal approval has been granted, clearing the key regulatory hurdle for South32 to proceed with expanding Hermosa, implying FID-equivalent greenlight ahead of construction mobilisation.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "c7cf4990-ebf6-41e2-9d77-8aeb37e3a270",
+    "ingested_at": "2026-07-08T18:32:35.353Z",
+    "source_published_at": "2026-07-07T16:49:19.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/assays-hint-at-future-mineable-gold-at-west-red-lakes-madsen-site/"
+      }
+    ],
+    "headline": "West Red Lake Gold Mines Reports High-Grade Madsen Drill Results Supporting 2027 Mine Plan",
+    "body": "West Red Lake Gold Mines reports high-grade Madsen drill results in Ontario, supporting potential 2027 mine plan additions at Austin complexes.",
+    "url": "https://www.mining.com/assays-hint-at-future-mineable-gold-at-west-red-lakes-madsen-site/",
+    "published_at": "2026-07-07T14:36:40.000Z",
+    "hash": "8f9302022f30c479",
+    "subsector": "mining",
+    "discipline_tags": [
+      "survey_geophysical",
+      "drilling_operations"
+    ],
+    "signal_type": "tender",
+    "region": "ontario-canada",
+    "country": "canada",
+    "tldr": "West Red Lake Gold Mines has released high-grade drill results at the Madsen site in Ontario, hinting at potential additions to the mine plan in 2027. No contract award or FID has been confirmed; this is a pre-sanction exploration signal.",
+    "operator": {
+      "name": "West Red Lake Gold Mines",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Madsen Mine – Austin Complexes",
+    "scope": [
+      "exploration_drilling",
+      "assay_sampling"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Exploration Geologist",
+        "Mine Geologist",
+        "Drill Coordinator",
+        "Resource Geologist",
+        "Senior Geologist"
+      ],
+      "skills": [
+        "gold exploration",
+        "underground drilling",
+        "resource estimation",
+        "assay interpretation",
+        "mine planning"
+      ],
+      "certs_freetext": [
+        "P.Geo",
+        "MRMR competency"
+      ],
+      "geo_rtw": "Canada – Ontario eligible",
+      "project_experience": [
+        "Madsen Mine",
+        "Red Lake Gold District",
+        "Austin Zone"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"Exploration Geologist\" OR \"Mine Geologist\" OR \"Resource Geologist\" OR \"Drill Coordinator\") AND (\"gold\" OR \"underground mining\") AND (\"Ontario\" OR \"Red Lake\") AND (\"resource estimation\" OR \"assay\" OR \"mine planning\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], West Red Lake Gold Mines is advancing high-grade drill results at the Madsen site in Ontario toward a potential 2027 mine plan. Would you be open to a conversation about roles at this stage?",
+      "email_subject": "Madsen Mine Exploration Roles – West Red Lake Gold, Ontario",
+      "email_body": "Hi [Name],\n\nWest Red Lake Gold Mines has published encouraging high-grade assay results at its Madsen site in Ontario, pointing toward potential 2027 mine plan additions at the Austin complexes. As they advance toward resource definition and future development decisions, experienced exploration and mine geology professionals will be in demand.\n\nGiven your background in gold exploration / underground mining in Ontario, I wanted to reach out early. Would you be open to a brief call to discuss how your experience aligns with upcoming needs at this project?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (West Red Lake Gold Mines) with a named project (Madsen Mine, Austin Complexes) in mining, reporting drill results that support a potential 2027 mine plan addition — a pre-sanction exploration signal with forward workforce implications.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states results are 'supporting potential 2027 mine plan additions,' indicating pre-FID exploration stage.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "bd1300f8-7648-4979-9e7a-0fd5432c7450",
+    "ingested_at": "2026-07-08T18:32:35.353Z",
+    "source_published_at": "2026-07-07T14:36:40.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/equinor_awards_contracts_for_norway_tiebacks-08-jul-2026-184084-article/?rss=true"
@@ -761,108 +1070,6 @@
   {
     "sources": [
       {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/hudbay-gains-peru-approval-to-further-increase-constancia-mill-throughput/"
-      }
-    ],
-    "headline": "Hudbay Wins Peru Permit to Expand Constancia Mill to 34 Mtpa",
-    "body": "The new permit increases the Constancia mill's processing capacity from 31 million tonnes per annum (mtpa) to 34 mtpa.",
-    "url": "https://www.mining.com/hudbay-gains-peru-approval-to-further-increase-constancia-mill-throughput/",
-    "published_at": "2026-07-02T15:16:38.000Z",
-    "hash": "b67534556020cf10",
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations"
-    ],
-    "signal_type": "regulatory",
-    "region": "peru",
-    "country": "peru",
-    "tldr": "Hudbay has received Peruvian regulatory approval to increase Constancia's mill throughput from 31 to 34 Mtpa, signalling a capacity expansion that will drive near-term operational and engineering hiring.",
-    "operator": {
-      "name": "Hudbay Minerals",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Hudbay Minerals",
-      "matched_company_slug": null
-    },
-    "project_name": "Constancia",
-    "scope": [
-      "mill_expansion",
-      "throughput_increase"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Process Plant Manager",
-        "Metallurgist",
-        "Concentrator Superintendent",
-        "Maintenance Superintendent",
-        "Process Engineer",
-        "Mill Operator",
-        "Commissioning Engineer",
-        "HSE Advisor"
-      ],
-      "skills": [
-        "copper concentrator operations",
-        "SAG/ball mill operations",
-        "throughput optimisation",
-        "process plant expansion",
-        "commissioning",
-        "mineral processing"
-      ],
-      "certs_freetext": [
-        "Peruvian mining regulatory compliance",
-        "MSHA or equivalent mine safety"
-      ],
-      "geo_rtw": "Peru or Latin America RTW; Spanish language asset",
-      "project_experience": [
-        "Constancia",
-        "Las Bambas",
-        "Cerro Verde",
-        "Antamina",
-        "Tintaya"
-      ],
-      "yoe_band": "8-15",
-      "seniority": "mid-to-senior",
-      "boolean_search": "(\"process plant\" OR \"concentrator\" OR \"mill expansion\" OR \"mineral processing\") AND (\"copper\" OR \"molybdenum\") AND (\"Peru\" OR \"Latin America\") AND (\"throughput\" OR \"SAG mill\" OR \"ball mill\" OR \"commissioning\") AND (\"Hudbay\" OR \"Constancia\" OR \"Las Bambas\" OR \"Cerro Verde\" OR \"Antamina\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Hudbay just received Peruvian approval to expand Constancia's mill to 34 Mtpa — capacity ramp likely means near-term process/ops hires in Peru. Worth a conversation?",
-      "email_subject": "Constancia Mill Expansion — Process & Ops Talent",
-      "email_body": "Hi [Name],\n\nHudbay Minerals has secured Peruvian regulatory approval to increase the Constancia concentrator's throughput from 31 to 34 Mtpa. Expansions of this scale typically trigger near-term hiring across process engineering, metallurgy, plant operations, and maintenance.\n\nWe work with experienced copper concentrator professionals across Peru and Latin America and would welcome the chance to discuss how we might support Hudbay's ramp.\n\nAre you available for a brief call this week?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Regulatory permit granted to named operator Hudbay for a named project (Constancia) to expand mill throughput, signalling an operational ramp with direct workforce-demand implications in the mining sector.",
-    "phase": "operating",
-    "phase_evidence": "The permit increases an existing operating mill's processing capacity from 31 to 34 Mtpa, indicating an expansion of an already-producing asset.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "46257d1e-eb19-4185-a64c-590f1cbe7df6",
-    "ingested_at": "2026-07-02T18:33:40.697Z",
-    "source_published_at": "2026-07-02T15:16:38.000Z",
-    "contact_archetypes": [
-      "ops_director",
-      "hiring_manager"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org//articles/supply-chain-challenges-prompt-cigar-lake-suspension"
@@ -958,6 +1165,108 @@
     "id": "00115058-53b0-4f51-85db-582978436f93",
     "ingested_at": "2026-07-02T18:33:40.697Z",
     "source_published_at": "2026-07-02T15:30:41.000Z",
+    "contact_archetypes": [
+      "ops_director",
+      "hiring_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/hudbay-gains-peru-approval-to-further-increase-constancia-mill-throughput/"
+      }
+    ],
+    "headline": "Hudbay Wins Peru Permit to Expand Constancia Mill to 34 Mtpa",
+    "body": "The new permit increases the Constancia mill's processing capacity from 31 million tonnes per annum (mtpa) to 34 mtpa.",
+    "url": "https://www.mining.com/hudbay-gains-peru-approval-to-further-increase-constancia-mill-throughput/",
+    "published_at": "2026-07-02T15:16:38.000Z",
+    "hash": "b67534556020cf10",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "peru",
+    "country": "peru",
+    "tldr": "Hudbay has received Peruvian regulatory approval to increase Constancia's mill throughput from 31 to 34 Mtpa, signalling a capacity expansion that will drive near-term operational and engineering hiring.",
+    "operator": {
+      "name": "Hudbay Minerals",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Hudbay Minerals",
+      "matched_company_slug": null
+    },
+    "project_name": "Constancia",
+    "scope": [
+      "mill_expansion",
+      "throughput_increase"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Process Plant Manager",
+        "Metallurgist",
+        "Concentrator Superintendent",
+        "Maintenance Superintendent",
+        "Process Engineer",
+        "Mill Operator",
+        "Commissioning Engineer",
+        "HSE Advisor"
+      ],
+      "skills": [
+        "copper concentrator operations",
+        "SAG/ball mill operations",
+        "throughput optimisation",
+        "process plant expansion",
+        "commissioning",
+        "mineral processing"
+      ],
+      "certs_freetext": [
+        "Peruvian mining regulatory compliance",
+        "MSHA or equivalent mine safety"
+      ],
+      "geo_rtw": "Peru or Latin America RTW; Spanish language asset",
+      "project_experience": [
+        "Constancia",
+        "Las Bambas",
+        "Cerro Verde",
+        "Antamina",
+        "Tintaya"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"process plant\" OR \"concentrator\" OR \"mill expansion\" OR \"mineral processing\") AND (\"copper\" OR \"molybdenum\") AND (\"Peru\" OR \"Latin America\") AND (\"throughput\" OR \"SAG mill\" OR \"ball mill\" OR \"commissioning\") AND (\"Hudbay\" OR \"Constancia\" OR \"Las Bambas\" OR \"Cerro Verde\" OR \"Antamina\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Hudbay just received Peruvian approval to expand Constancia's mill to 34 Mtpa — capacity ramp likely means near-term process/ops hires in Peru. Worth a conversation?",
+      "email_subject": "Constancia Mill Expansion — Process & Ops Talent",
+      "email_body": "Hi [Name],\n\nHudbay Minerals has secured Peruvian regulatory approval to increase the Constancia concentrator's throughput from 31 to 34 Mtpa. Expansions of this scale typically trigger near-term hiring across process engineering, metallurgy, plant operations, and maintenance.\n\nWe work with experienced copper concentrator professionals across Peru and Latin America and would welcome the chance to discuss how we might support Hudbay's ramp.\n\nAre you available for a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Regulatory permit granted to named operator Hudbay for a named project (Constancia) to expand mill throughput, signalling an operational ramp with direct workforce-demand implications in the mining sector.",
+    "phase": "operating",
+    "phase_evidence": "The permit increases an existing operating mill's processing capacity from 31 to 34 Mtpa, indicating an expansion of an already-producing asset.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "46257d1e-eb19-4185-a64c-590f1cbe7df6",
+    "ingested_at": "2026-07-02T18:33:40.697Z",
+    "source_published_at": "2026-07-02T15:16:38.000Z",
     "contact_archetypes": [
       "ops_director",
       "hiring_manager"
