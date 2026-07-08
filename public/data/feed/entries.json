@@ -2,6 +2,123 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/equinor_awards_contracts_for_norway_tiebacks-08-jul-2026-184084-article/?rss=true"
+      }
+    ],
+    "headline": "Equinor Awards ~$613M Contracts for Four Norway Tieback Projects",
+    "body": "Equinor ASA and its partners have signed contracts worth around NOK 6 billion ($613.39 million) for four tieback projects in different stages of development ...",
+    "url": "https://www.rigzone.com/news/equinor_awards_contracts_for_norway_tiebacks-08-jul-2026-184084-article/?rss=true",
+    "published_at": "2026-07-08T08:05:40.000Z",
+    "hash": "a2ddc8b6e3b7a94f",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "ndt_inspection",
+      "industrial_construction",
+      "pipeline_mechanical",
+      "rov_subsea",
+      "marine_offshore_ops",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "norway-north-sea",
+    "country": "norway",
+    "tldr": "Equinor and partners have signed NOK 6 billion (~$613M) in contracts across four tieback projects at various development stages offshore Norway, signalling a broad engineering and construction hiring wave across multiple campaigns.",
+    "operator": {
+      "name": "Equinor ASA",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Norway Tiebacks (four unnamed projects)",
+    "scope": [
+      "tieback_epc",
+      "subsea_install",
+      "pipeline_mechanical",
+      "hookup_commissioning"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 613390000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Subsea Project Engineer",
+        "Tieback Project Manager",
+        "Pipeline Engineer",
+        "Subsea Installation Engineer",
+        "Commissioning Engineer",
+        "Construction Manager",
+        "Subsea Controls Engineer",
+        "Structural Engineer",
+        "Offshore Commissioning Technician",
+        "SURF Engineer"
+      ],
+      "skills": [
+        "subsea tieback",
+        "SURF installation",
+        "pipeline engineering",
+        "hookup and commissioning",
+        "subsea controls",
+        "offshore project management",
+        "FEED to EPC transition",
+        "Norway continental shelf"
+      ],
+      "certs_freetext": [
+        "BOSIET/HUET",
+        "Norwegian Offshore Safety Certificate (NOSC)",
+        "Offshore Medical (Norwegian standard)",
+        "GWO Basic Safety"
+      ],
+      "geo_rtw": "Norway / NCS — EU/EEA right-to-work preferred",
+      "project_experience": [
+        "Snorre Expansion",
+        "Johan Castberg",
+        "Balder X",
+        "Kristin Satellite",
+        "Tyrihans tieback",
+        "Trestakk"
+      ],
+      "yoe_band": "8-18",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"subsea tieback\" OR \"SURF\" OR \"pipeline tieback\" OR \"subsea installation\") AND (\"Equinor\" OR \"NCS\" OR \"Norwegian Continental Shelf\") AND (\"project engineer\" OR \"project manager\" OR \"commissioning engineer\" OR \"construction manager\" OR \"pipeline engineer\" OR \"subsea engineer\") AND (Norway OR Stavanger OR Bergen OR Oslo)"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Equinor has just awarded ~$613M in contracts for four Norway tieback projects — multiple hiring campaigns now opening on the NCS. Are you available or open to contract/perm roles in subsea/SURF or commissioning? Happy to share details.",
+      "email_subject": "Equinor Norway Tiebacks — $613M Contract Wave | Subsea/SURF & Commissioning Roles",
+      "email_body": "Hi [Name],\n\nEquinor and its partners have just signed contracts worth approximately NOK 6 billion (~$613M) across four tieback projects on the Norwegian Continental Shelf, covering multiple stages of development.\n\nThis signals a significant near-term demand for subsea, pipeline, SURF, and commissioning professionals on the NCS.\n\nGiven your background in [relevant discipline], I wanted to reach out before these roles are formally posted. I'm currently mapping candidates for project engineering, construction management, and commissioning positions tied to these campaigns.\n\nAre you currently available or open to hearing more? I'd welcome a quick call to discuss fit and timing.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Equinor has awarded NOK 6B (~$613M) in EPC/tieback contracts across four named development projects offshore Norway, a clear multi-project workforce demand signal.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Article states contracts have been signed for projects 'in different stages of development', indicating post-FID engineering and execution phases are active.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "20e23ec0-8fc5-4f94-86b4-092193662eb6",
+    "ingested_at": "2026-07-08T12:37:26.761Z",
+    "source_published_at": "2026-07-08T08:05:40.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "mining_com",
         "name": "MINING.com",
         "url": "https://www.mining.com/b2golds-new-ceo-gets-his-goose-test/"

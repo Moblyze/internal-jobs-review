@@ -1,5 +1,52 @@
 [
   {
+    "id": "20e23ec0-8fc5-4f94-86b4-092193662eb6",
+    "ingested_at": "2026-07-08T12:37:26.761Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/equinor_awards_contracts_for_norway_tiebacks-08-jul-2026-184084-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "ndt_inspection",
+      "industrial_construction",
+      "pipeline_mechanical",
+      "rov_subsea",
+      "marine_offshore_ops",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "norway-north-sea",
+    "country": "norway",
+    "headline": "Equinor Awards ~$613M Contracts for Four Norway Tieback Projects",
+    "operator": {
+      "name": "Equinor ASA",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Norway Tiebacks (four unnamed projects)",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 613390000,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": []
+  },
+  {
     "id": "79915584-574e-4361-a856-a5a32f88bc69",
     "ingested_at": "2026-07-06T18:41:07.463Z",
     "sources": [
