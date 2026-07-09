@@ -1,5 +1,47 @@
 [
   {
+    "id": "12f3cc8d-75f5-4122-bfdb-28573b9bd3a9",
+    "ingested_at": "2026-07-09T12:59:12.601Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/lifetime-extension-agreed-for-sizewell-b-to-2055"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "regulatory",
+    "region": "uk",
+    "country": "united_kingdom",
+    "headline": "Sizewell B Nuclear Plant Secures 20-Year Lifetime Extension to 2055 — EDF & UK Gov Terms Agreed",
+    "operator": {
+      "name": "EDF",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "EDF",
+      "matched_company_slug": null
+    },
+    "project_name": "Sizewell B Lifetime Extension",
+    "mob_window": {
+      "start": null,
+      "end": "2055-Q4",
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "operating",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "ongoing",
+    "key_people": []
+  },
+  {
     "id": "4300e457-d369-4232-9f5b-2caed4342b10",
     "ingested_at": "2026-07-09T00:40:17.309Z",
     "sources": [

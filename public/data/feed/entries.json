@@ -2,6 +2,117 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/lifetime-extension-agreed-for-sizewell-b-to-2055"
+      }
+    ],
+    "headline": "Sizewell B Nuclear Plant Secures 20-Year Lifetime Extension to 2055 — EDF & UK Gov Terms Agreed",
+    "body": "The UK's Sizewell B nuclear power plant is set to get a 20-year lifetime extension after terms were agreed by the UK government and operator EDF.",
+    "url": "https://www.world-nuclear-news.org//articles/lifetime-extension-agreed-for-sizewell-b-to-2055",
+    "published_at": "2026-07-09T09:14:10.000Z",
+    "hash": "2b3405be198f8862",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "regulatory",
+    "region": "uk",
+    "country": "united_kingdom",
+    "tldr": "EDF and the UK government have agreed terms for a 20-year lifetime extension of Sizewell B to 2055, signalling a sustained maintenance and refurbishment workforce demand at the plant for the coming decades.",
+    "operator": {
+      "name": "EDF",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "EDF",
+      "matched_company_slug": null
+    },
+    "project_name": "Sizewell B Lifetime Extension",
+    "scope": [
+      "life_extension",
+      "maintenance_refurbishment",
+      "long_term_operations"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": "2055-Q4",
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Operations Manager",
+        "Reactor Engineer",
+        "Maintenance Engineer",
+        "Nuclear Safety Engineer",
+        "Outage Manager",
+        "I&C Engineer",
+        "Nuclear Plant Operator",
+        "Mechanical Maintenance Technician",
+        "Electrical Maintenance Technician",
+        "Radiation Protection Supervisor"
+      ],
+      "skills": [
+        "PWR operations",
+        "nuclear maintenance",
+        "life extension",
+        "outage management",
+        "nuclear safety case",
+        "I&C systems",
+        "reactor engineering",
+        "radiation protection",
+        "mechanical integrity"
+      ],
+      "certs_freetext": [
+        "Nuclear Licensed Site experience",
+        "SQEP (Suitably Qualified and Experienced Person)",
+        "RPS (Radiation Protection Supervisor)",
+        "IOSH",
+        "NEBOSH"
+      ],
+      "geo_rtw": "UK right-to-work required; Suffolk, England",
+      "project_experience": [
+        "Hinkley Point B",
+        "Heysham",
+        "Torness",
+        "Hartlepool",
+        "Hinkley Point C"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"nuclear\" OR \"PWR\" OR \"pressurised water reactor\") AND (\"life extension\" OR \"long term operation\" OR \"LTO\" OR \"outage\" OR \"maintenance\" OR \"operations\") AND (\"Sizewell\" OR \"EDF\" OR \"nuclear power plant\") AND (\"reactor engineer\" OR \"operations manager\" OR \"I&C engineer\" OR \"maintenance engineer\" OR \"radiation protection\" OR \"nuclear safety\") AND (\"UK\" OR \"United Kingdom\" OR \"Suffolk\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], EDF has just agreed a 20-year lifetime extension for Sizewell B to 2055 — creating sustained demand for nuclear ops, maintenance and engineering talent in Suffolk. Would love to connect on opportunities tied to this programme.",
+      "email_subject": "Sizewell B Life Extension to 2055 — Nuclear Ops & Engineering Opportunities",
+      "email_body": "Hi [Name],\n\nEDF and the UK government have formally agreed terms for a 20-year lifetime extension of Sizewell B, keeping the plant operational to 2055. This represents a significant, long-horizon workforce commitment covering nuclear operations, outage management, I&C, mechanical and electrical maintenance, and safety engineering at the Suffolk site.\n\nGiven your background in [relevant discipline], I wanted to reach out early — these programmes typically begin mobilising engineering and ops talent well ahead of formal announcements.\n\nI'd welcome a brief call to explore how your experience aligns with the upcoming demand. Are you open to a conversation this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Field development plan / operating life extension approval naming EDF as operator and Sizewell B as the project, with direct workforce demand implications across nuclear operations and maintenance disciplines to 2055.",
+    "phase": "operating",
+    "phase_evidence": "Article states terms for a 20-year lifetime extension have been agreed, confirming the plant remains in operation rather than entering new construction or decommissioning.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "ongoing",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "12f3cc8d-75f5-4122-bfdb-28573b9bd3a9",
+    "ingested_at": "2026-07-09T12:59:12.601Z",
+    "source_published_at": "2026-07-09T09:14:10.000Z",
+    "contact_archetypes": [
+      "ops_director",
+      "hiring_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/strathcona-resources-ltd-announces-first-steam-at-meota-central-and-provides-update-on-lloydminster-thermal-business-302821329.html"
