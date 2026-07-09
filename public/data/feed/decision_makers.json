@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-07-08T18:36:32.044Z"
+    "last_updated_at": "2026-07-09T00:41:40.274Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -7840,6 +7840,66 @@
         "email": null,
         "phone": null,
         "location": "Red Lake, ON, Canada"
+      }
+    ]
+  },
+  "strathcona resources ltd.": {
+    "discovered_at": "2026-07-09T00:41:40.274Z",
+    "contacts": [
+      {
+        "name": "Dale Babiak",
+        "title": "Chief Operating Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/dale-babiak-9966345a",
+        "source_url": "https://www.strathconaresources.com/strathcona-resources-ltd-announces-retirement-of-president-and-ceo-rob-morgan-and-appointment-of-new-leaders/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Calgary, AB, Canada"
+      },
+      {
+        "name": "Scott Seipert",
+        "title": "Senior Vice-President, Finance (overseeing HR)",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/scott-seipert-a75bbb148",
+        "source_url": "https://www.strathconaresources.com/about-us/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Calgary, AB, Canada"
+      },
+      {
+        "name": "Kim Chiu",
+        "title": "President, SCR Cold Lake",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/kim-chiu-3731b22a",
+        "source_url": "https://www.strathconaresources.com/about-us/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Calgary, AB, Canada"
+      },
+      {
+        "name": "Al Grabas",
+        "title": "President, SCR Montney",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/al-grabas-96388b43",
+        "source_url": "https://www.strathconaresources.com/strathcona-resources-ltd-announces-retirement-of-president-and-ceo-rob-morgan-and-appointment-of-new-leaders/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Calgary, AB, Canada"
+      },
+      {
+        "name": "Seamus Murphy",
+        "title": "President, SCR Lloydminster Conventional",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/seamus-murphy-46306312",
+        "source_url": "https://www.strathconaresources.com/strathcona-resources-ltd-announces-retirement-of-president-and-ceo-rob-morgan-and-appointment-of-new-leaders/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Calgary, AB, Canada"
       }
     ]
   }
