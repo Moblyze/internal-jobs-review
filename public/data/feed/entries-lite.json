@@ -1,5 +1,47 @@
 [
   {
+    "id": "b9b02726-6089-44fa-8b43-cd02f00f0431",
+    "ingested_at": "2026-07-09T18:38:11.879Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/reactor-vessel-installed-in-el-dabaas-second-unit"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "north-africa",
+    "country": "egypt",
+    "headline": "Reactor Pressure Vessel Installed in El Dabaa NPP Unit 2 — Construction Milestone",
+    "operator": {
+      "name": "El Dabaa Nuclear Power Plant",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "El Dabaa Nuclear Power Plant Unit 2",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "peak",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": []
+  },
+  {
     "id": "12f3cc8d-75f5-4122-bfdb-28573b9bd3a9",
     "ingested_at": "2026-07-09T12:59:12.601Z",
     "sources": [
@@ -85,6 +127,49 @@
     "key_people": []
   },
   {
+    "id": "c0ed5e6e-5aa1-4263-8c3a-61b0e2ba3ebb",
+    "ingested_at": "2026-07-08T18:32:35.353Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/czechs-report-on-progress-in-first-year-of-dukovany-project"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "survey_geophysical",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "central-europe",
+    "country": "czech_republic",
+    "headline": "Dukovany Nuclear New-Build on Schedule: Geotechnical Surveys Complete, Conceptual Design Submitted",
+    "operator": {
+      "name": "Czech Ministry of Trade and Industry / ČEZ (implied Dukovany operator)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Dukovany New Nuclear Unit",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
     "id": "c7cf4990-ebf6-41e2-9d77-8aeb37e3a270",
     "ingested_at": "2026-07-08T18:32:35.353Z",
     "sources": [
@@ -166,49 +251,6 @@
     "decom_stage": null,
     "outreach_readiness": "cold",
     "estimated_hiring_window": "12mo+",
-    "key_people": []
-  },
-  {
-    "id": "c0ed5e6e-5aa1-4263-8c3a-61b0e2ba3ebb",
-    "ingested_at": "2026-07-08T18:32:35.353Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/czechs-report-on-progress-in-first-year-of-dukovany-project"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "survey_geophysical",
-      "energy_trades"
-    ],
-    "signal_type": "epc_award",
-    "region": "central-europe",
-    "country": "czech_republic",
-    "headline": "Dukovany Nuclear New-Build on Schedule: Geotechnical Surveys Complete, Conceptual Design Submitted",
-    "operator": {
-      "name": "Czech Ministry of Trade and Industry / ČEZ (implied Dukovany operator)",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Dukovany New Nuclear Unit",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "pre_sanction",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
     "key_people": []
   },
   {

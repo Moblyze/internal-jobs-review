@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-07-09T00:41:40.274Z"
+    "last_updated_at": "2026-07-09T18:39:34.424Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -7900,6 +7900,66 @@
         "email": null,
         "phone": null,
         "location": "Calgary, AB, Canada"
+      }
+    ]
+  },
+  "el dabaa nuclear power plant": {
+    "discovered_at": "2026-07-09T18:39:34.424Z",
+    "contacts": [
+      {
+        "name": "Khaled Atya Abdallah",
+        "title": "El-Dabaa NPP Project Manager (NPPA)",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://impact-mission.org/events/alexandria2025/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "El Dabaa, Egypt"
+      },
+      {
+        "name": "Mohammed Saad Dwiddar",
+        "title": "Advisor to NPPA Board Chairman for Nuclear Projects & O&M (former El-Dabaa Project Manager)",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://world-nuclear.org/events/1033/speakers-2026",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Cairo, Egypt"
+      },
+      {
+        "name": "Mohamed Ramadan",
+        "title": "Vice Board Chairman for Operation and Maintenance, NPPA",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://rosatom-energy.ru/en/media/rosatom-news/main-construction-phase-for-el-dabaa-nuclear-power-plant-project-begins-in-egypt/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Cairo, Egypt"
+      },
+      {
+        "name": "Sayed Salah Motayasser",
+        "title": "Sector Head of Execution and Engineering Services, NPPA",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.constructionweekonline.com/projects-tenders/el-dabaa-nuclear",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Cairo, Egypt"
+      },
+      {
+        "name": "Amged El-Wakeel",
+        "title": "Former Board Chairman, NPPA (Jan 2025 departed; now Professor & Consultant)",
+        "persona": "other",
+        "linkedin_url": "https://www.linkedin.com/in/amged-el-wakeel-85531264",
+        "source_url": "https://www.linkedin.com/in/amged-el-wakeel-85531264/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Cairo, Egypt"
       }
     ]
   }

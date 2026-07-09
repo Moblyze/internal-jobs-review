@@ -4,6 +4,111 @@
       {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/reactor-vessel-installed-in-el-dabaas-second-unit"
+      }
+    ],
+    "headline": "Reactor Pressure Vessel Installed in El Dabaa NPP Unit 2 — Construction Milestone",
+    "body": "A ceremony has been held to mark the installation of the reactor pressure vessel in the second unit at Egypt's El Dabaa Nuclear Power Plant.",
+    "url": "https://www.world-nuclear-news.org//articles/reactor-vessel-installed-in-el-dabaas-second-unit",
+    "published_at": "2026-07-09T10:24:05.000Z",
+    "hash": "a142c16d3caa6f11",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "north-africa",
+    "country": "egypt",
+    "tldr": "Installation of the reactor pressure vessel in Unit 2 at Egypt's El Dabaa Nuclear Power Plant signals active construction phase, with ongoing demand for nuclear construction, commissioning, and specialist trades personnel.",
+    "operator": {
+      "name": "El Dabaa Nuclear Power Plant",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "El Dabaa Nuclear Power Plant Unit 2",
+    "scope": [
+      "reactor_vessel_install",
+      "nuclear_construction"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Construction Manager",
+        "Reactor Installation Engineer",
+        "Nuclear Mechanical Engineer",
+        "Commissioning Engineer",
+        "HSE Manager – Nuclear",
+        "QA/QC Inspector – Nuclear",
+        "I&C Technician",
+        "NDT Inspector"
+      ],
+      "skills": [
+        "reactor pressure vessel installation",
+        "nuclear construction",
+        "mechanical completion",
+        "quality assurance nuclear",
+        "ASME nuclear codes",
+        "commissioning",
+        "instrumentation and control"
+      ],
+      "certs_freetext": [
+        "ASME N-Stamp",
+        "Nuclear Safety certification",
+        "IAEA training",
+        "PMP"
+      ],
+      "geo_rtw": "Egypt / international nuclear construction experience",
+      "project_experience": [
+        "Akkuyu NPP",
+        "Barakah NPP",
+        "Hinkley Point C",
+        "Olkiluoto 3"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "senior",
+      "boolean_search": "(\"nuclear construction\" OR \"reactor installation\" OR \"nuclear commissioning\" OR \"nuclear mechanical\") AND (\"reactor pressure vessel\" OR \"RPV\" OR \"nuclear power plant\" OR \"NPP\") AND (\"commissioning engineer\" OR \"construction manager\" OR \"QA/QC\" OR \"NDT\" OR \"I&C\") AND (\"ASME\" OR \"IAEA\" OR \"nuclear safety\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], with reactor pressure vessel installation now complete at El Dabaa NPP Unit 2 in Egypt, nuclear construction roles are ramping. Your background in nuclear construction/commissioning looks highly relevant — open to a conversation?",
+      "email_subject": "Nuclear Construction Opportunity — El Dabaa NPP Unit 2, Egypt",
+      "email_body": "Hi [Name],\n\nThe reactor pressure vessel has just been installed in Unit 2 at Egypt's El Dabaa Nuclear Power Plant, marking a significant construction milestone and signalling active ramp-up of specialist staffing needs.\n\nGiven your experience in nuclear construction and commissioning, I wanted to reach out regarding potential opportunities on this project or similar programmes in the region.\n\nWould you be open to a brief call to discuss?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named nuclear project (El Dabaa NPP Unit 2) with a discrete construction milestone (reactor pressure vessel installation) confirming active construction phase and associated specialist labor demand.",
+    "phase": "construction",
+    "phase_evidence": "Article states the reactor pressure vessel has been installed in Unit 2, confirming active construction is underway.",
+    "construction_subphase": "peak",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "b9b02726-6089-44fa-8b43-cd02f00f0431",
+    "ingested_at": "2026-07-09T18:38:11.879Z",
+    "source_published_at": "2026-07-09T10:24:05.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org//articles/lifetime-extension-agreed-for-sizewell-b-to-2055"
       }
     ],
@@ -226,6 +331,115 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/czechs-report-on-progress-in-first-year-of-dukovany-project"
+      }
+    ],
+    "headline": "Dukovany Nuclear New-Build on Schedule: Geotechnical Surveys Complete, Conceptual Design Submitted",
+    "body": "Geotechnical surveys, including drilling more than 13 kilometres of exploratory wells, have been completed, the first conceptual design has been submitted, and several Czech suppliers selected in the year since contracts were signed for the new nuclear project at Dukovany, the Czech Ministry of Trade and Industry has reported.",
+    "url": "https://www.world-nuclear-news.org//articles/czechs-report-on-progress-in-first-year-of-dukovany-project",
+    "published_at": "2026-07-08T11:47:51.000Z",
+    "hash": "bf7b2f92e25e3ada",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "survey_geophysical",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "central-europe",
+    "country": "czech_republic",
+    "tldr": "Czech Ministry of Trade and Industry confirms Dukovany new nuclear unit is progressing through early engineering milestones — geotechnical drilling done, conceptual design submitted, Czech suppliers selected. Pre-sanction engineering hiring window is warming.",
+    "operator": {
+      "name": "Czech Ministry of Trade and Industry / ČEZ (implied Dukovany operator)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Dukovany New Nuclear Unit",
+    "scope": [
+      "geotechnical_survey",
+      "conceptual_design",
+      "supplier_selection"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Project Engineer",
+        "Geotechnical Engineer",
+        "Civil/Structural Engineer (Nuclear)",
+        "Conceptual Design Engineer",
+        "Nuclear FEED Engineer",
+        "Project Controls Engineer",
+        "Nuclear Licensing Engineer",
+        "Supply Chain Manager (Nuclear)"
+      ],
+      "skills": [
+        "nuclear new-build",
+        "geotechnical survey",
+        "conceptual design",
+        "FEED",
+        "nuclear civil works",
+        "project controls",
+        "nuclear supply chain",
+        "regulatory licensing"
+      ],
+      "certs_freetext": [
+        "EUR-ACE",
+        "IAEA training",
+        "nuclear safety certification",
+        "PE (nuclear/civil)"
+      ],
+      "geo_rtw": "EU/EEA work authorisation; Czech Republic based or willing to relocate",
+      "project_experience": [
+        "Hinkley Point C",
+        "Flamanville 3",
+        "Olkiluoto 3",
+        "Vogtle 3&4",
+        "Mochovce 3&4",
+        "Paks II"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"nuclear new build\" OR \"nuclear project\" OR \"NPP\" OR \"PWR\" OR \"VVER\") AND (\"conceptual design\" OR \"FEED\" OR \"geotechnical\" OR \"civil engineering\" OR \"project controls\" OR \"licensing\") AND (\"nuclear\" OR \"power plant\") AND (Czech OR Slovakia OR \"central Europe\" OR relocate)"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], the Dukovany new nuclear project in Czech Republic is progressing through early engineering — geotechnical surveys complete & conceptual design submitted. Are you open to hearing about upcoming roles?",
+      "email_subject": "Dukovany Nuclear New-Build — Early Engineering Roles Coming Up",
+      "email_body": "Hi [Name],\n\nThe Dukovany new nuclear unit in Czech Republic has just completed geotechnical surveys and submitted its first conceptual design, signalling that engineering staffing requirements will be building over the coming 12–18 months.\n\nGiven your background in [nuclear FEED / civil engineering / project controls], I wanted to reach out ahead of the curve to explore whether you'd be open to a conversation about potential opportunities on this programme.\n\nHappy to share more detail — would a brief call this week work for you?\n\nBest regards,\n[Your name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named nuclear new-build project (Dukovany) with confirmed early-engineering milestones (geotechnical surveys, conceptual design submission, supplier selection) indicating an active pre-sanction/early FEED phase with near-term staffing demand.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states 'first conceptual design has been submitted' and geotechnical surveys just completed, placing the project firmly in pre-FID/FEED engineering.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "c0ed5e6e-5aa1-4263-8c3a-61b0e2ba3ebb",
+    "ingested_at": "2026-07-08T18:32:35.353Z",
+    "source_published_at": "2026-07-08T11:47:51.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "mining_com",
         "name": "MINING.com",
         "url": "https://www.mining.com/south32-clears-key-us-hurdle-for-2b-arizona-mine/"
@@ -417,115 +631,6 @@
     "id": "bd1300f8-7648-4979-9e7a-0fd5432c7450",
     "ingested_at": "2026-07-08T18:32:35.353Z",
     "source_published_at": "2026-07-07T14:36:40.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/czechs-report-on-progress-in-first-year-of-dukovany-project"
-      }
-    ],
-    "headline": "Dukovany Nuclear New-Build on Schedule: Geotechnical Surveys Complete, Conceptual Design Submitted",
-    "body": "Geotechnical surveys, including drilling more than 13 kilometres of exploratory wells, have been completed, the first conceptual design has been submitted, and several Czech suppliers selected in the year since contracts were signed for the new nuclear project at Dukovany, the Czech Ministry of Trade and Industry has reported.",
-    "url": "https://www.world-nuclear-news.org//articles/czechs-report-on-progress-in-first-year-of-dukovany-project",
-    "published_at": "2026-07-08T11:47:51.000Z",
-    "hash": "bf7b2f92e25e3ada",
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "survey_geophysical",
-      "energy_trades"
-    ],
-    "signal_type": "epc_award",
-    "region": "central-europe",
-    "country": "czech_republic",
-    "tldr": "Czech Ministry of Trade and Industry confirms Dukovany new nuclear unit is progressing through early engineering milestones — geotechnical drilling done, conceptual design submitted, Czech suppliers selected. Pre-sanction engineering hiring window is warming.",
-    "operator": {
-      "name": "Czech Ministry of Trade and Industry / ČEZ (implied Dukovany operator)",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Dukovany New Nuclear Unit",
-    "scope": [
-      "geotechnical_survey",
-      "conceptual_design",
-      "supplier_selection"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Nuclear Project Engineer",
-        "Geotechnical Engineer",
-        "Civil/Structural Engineer (Nuclear)",
-        "Conceptual Design Engineer",
-        "Nuclear FEED Engineer",
-        "Project Controls Engineer",
-        "Nuclear Licensing Engineer",
-        "Supply Chain Manager (Nuclear)"
-      ],
-      "skills": [
-        "nuclear new-build",
-        "geotechnical survey",
-        "conceptual design",
-        "FEED",
-        "nuclear civil works",
-        "project controls",
-        "nuclear supply chain",
-        "regulatory licensing"
-      ],
-      "certs_freetext": [
-        "EUR-ACE",
-        "IAEA training",
-        "nuclear safety certification",
-        "PE (nuclear/civil)"
-      ],
-      "geo_rtw": "EU/EEA work authorisation; Czech Republic based or willing to relocate",
-      "project_experience": [
-        "Hinkley Point C",
-        "Flamanville 3",
-        "Olkiluoto 3",
-        "Vogtle 3&4",
-        "Mochovce 3&4",
-        "Paks II"
-      ],
-      "yoe_band": "8-20",
-      "seniority": "mid-to-senior",
-      "boolean_search": "(\"nuclear new build\" OR \"nuclear project\" OR \"NPP\" OR \"PWR\" OR \"VVER\") AND (\"conceptual design\" OR \"FEED\" OR \"geotechnical\" OR \"civil engineering\" OR \"project controls\" OR \"licensing\") AND (\"nuclear\" OR \"power plant\") AND (Czech OR Slovakia OR \"central Europe\" OR relocate)"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], the Dukovany new nuclear project in Czech Republic is progressing through early engineering — geotechnical surveys complete & conceptual design submitted. Are you open to hearing about upcoming roles?",
-      "email_subject": "Dukovany Nuclear New-Build — Early Engineering Roles Coming Up",
-      "email_body": "Hi [Name],\n\nThe Dukovany new nuclear unit in Czech Republic has just completed geotechnical surveys and submitted its first conceptual design, signalling that engineering staffing requirements will be building over the coming 12–18 months.\n\nGiven your background in [nuclear FEED / civil engineering / project controls], I wanted to reach out ahead of the curve to explore whether you'd be open to a conversation about potential opportunities on this programme.\n\nHappy to share more detail — would a brief call this week work for you?\n\nBest regards,\n[Your name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named nuclear new-build project (Dukovany) with confirmed early-engineering milestones (geotechnical surveys, conceptual design submission, supplier selection) indicating an active pre-sanction/early FEED phase with near-term staffing demand.",
-    "phase": "pre_sanction",
-    "phase_evidence": "Article states 'first conceptual design has been submitted' and geotechnical surveys just completed, placing the project firmly in pre-FID/FEED engineering.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "c0ed5e6e-5aa1-4263-8c3a-61b0e2ba3ebb",
-    "ingested_at": "2026-07-08T18:32:35.353Z",
-    "source_published_at": "2026-07-08T11:47:51.000Z",
     "contact_archetypes": [
       "project_manager",
       "business_unit_director"
