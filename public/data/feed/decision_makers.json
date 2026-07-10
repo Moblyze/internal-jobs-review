@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-07-10T12:49:30.709Z"
+    "last_updated_at": "2026-07-10T18:33:48.941Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -8020,6 +8020,33 @@
         "email": null,
         "phone": null,
         "location": null
+      }
+    ]
+  },
+  "meitner energy": {
+    "discovered_at": "2026-07-10T18:33:48.941Z",
+    "contacts": [
+      {
+        "name": "Teófilo Lacroze",
+        "title": "CEO, Meitner Energy Latam",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/teofilo-lacroze-7a4872",
+        "source_url": "https://neutronbytes.com/2026/07/09/argentina-plans-300-mw-smr-at-atucha/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Greater Buenos Aires, Argentina"
+      },
+      {
+        "name": "Pablo Franzetti",
+        "title": "Director of External Affairs and New Business (Argentina)",
+        "persona": "other",
+        "linkedin_url": null,
+        "source_url": "https://neutronbytes.com/2026/07/09/argentina-plans-300-mw-smr-at-atucha/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Buenos Aires, Argentina"
       }
     ]
   }
