@@ -2,6 +2,109 @@
   {
     "sources": [
       {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/guardian-metal-montana-mining-association-forge-us-tungsten-processing-alliance/"
+      }
+    ],
+    "headline": "Guardian Metal & Montana Mining Association Form US Tungsten Processing Alliance – First Ore Shipments Late Summer 2026",
+    "body": "First shipments of legacy ore are expected by late summer 2026.",
+    "url": "https://www.mining.com/guardian-metal-montana-mining-association-forge-us-tungsten-processing-alliance/",
+    "published_at": "2026-07-10T23:54:46.000Z",
+    "hash": "7210bff1266fc786",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "us-montana",
+    "country": "united_states",
+    "tldr": "Guardian Metal and the Montana Mining Association have announced a tungsten processing alliance with first legacy ore shipments expected by late summer 2026, signaling a near-term ramp-up in processing operations and associated workforce demand.",
+    "operator": {
+      "name": "Guardian Metal",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Guardian Metal",
+      "matched_company_slug": null
+    },
+    "project_name": "Montana Tungsten Processing Alliance",
+    "scope": [
+      "ore_processing",
+      "legacy_ore_handling"
+    ],
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mineral Processing Operator",
+        "Process Plant Supervisor",
+        "Metallurgist",
+        "Plant Maintenance Technician",
+        "HSE Officer",
+        "Mine Site Logistics Coordinator",
+        "Ore Handling Supervisor"
+      ],
+      "skills": [
+        "tungsten processing",
+        "mineral processing",
+        "ore handling",
+        "hydrometallurgy",
+        "plant operations",
+        "heavy industry maintenance"
+      ],
+      "certs_freetext": [
+        "MSHA Part 46 or Part 48",
+        "First Aid/CPR",
+        "Confined Space Entry",
+        "Forklift Operator Certification"
+      ],
+      "geo_rtw": "US work authorization required; Montana-based or willing to relocate",
+      "project_experience": [
+        "tungsten mining",
+        "critical minerals processing",
+        "molybdenum processing",
+        "rare earth processing"
+      ],
+      "yoe_band": "5-15",
+      "seniority": "mid to senior",
+      "boolean_search": "(\"tungsten processing\" OR \"mineral processing\" OR \"ore processing\" OR \"hydrometallurgy\") AND (\"process operator\" OR \"plant supervisor\" OR \"metallurgist\" OR \"ore handling\" OR \"plant maintenance\") AND (\"mining\" OR \"critical minerals\") AND (Montana OR \"United States\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Guardian Metal is ramping up tungsten processing operations in Montana with first ore shipments targeted for late summer 2026. Given your background in mineral processing, I'd love to explore if there's a fit. Are you open to a quick chat?",
+      "email_subject": "Tungsten Processing Roles – Guardian Metal Montana Ramp-Up (2026)",
+      "email_body": "Hi [Name],\n\nI wanted to reach out regarding an exciting opportunity tied to Guardian Metal's new tungsten processing alliance with the Montana Mining Association. First legacy ore shipments are expected by late summer 2026, which means the team will be building out its operational workforce in the coming months.\n\nGiven your experience in mineral or process plant operations, I believe you could be a strong fit for roles coming online during this ramp-up phase.\n\nWould you be open to a 15-minute call to discuss? I'm happy to work around your schedule.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operators (Guardian Metal, Montana Mining Association) announce a tungsten processing alliance with a defined first-shipment milestone of late summer 2026, constituting a discrete workforce-demand event in the mining subsector.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "First shipments of legacy ore are expected by late summer 2026, indicating the alliance is confirmed and operational ramp-up is being planned, consistent with a post-sanction engineering/preparation phase.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "397a92b4-c6f2-46a3-9db6-df9217741ce5",
+    "ingested_at": "2026-07-11T00:34:58.547Z",
+    "source_published_at": "2026-07-10T23:54:46.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org//articles/argentina-announces-privately-financed-smr-plan"
@@ -551,6 +654,115 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/czechs-report-on-progress-in-first-year-of-dukovany-project"
+      }
+    ],
+    "headline": "Dukovany Nuclear New-Build on Schedule: Geotechnical Surveys Complete, Conceptual Design Submitted",
+    "body": "Geotechnical surveys, including drilling more than 13 kilometres of exploratory wells, have been completed, the first conceptual design has been submitted, and several Czech suppliers selected in the year since contracts were signed for the new nuclear project at Dukovany, the Czech Ministry of Trade and Industry has reported.",
+    "url": "https://www.world-nuclear-news.org//articles/czechs-report-on-progress-in-first-year-of-dukovany-project",
+    "published_at": "2026-07-08T11:47:51.000Z",
+    "hash": "bf7b2f92e25e3ada",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "survey_geophysical",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "central-europe",
+    "country": "czech_republic",
+    "tldr": "Czech Ministry of Trade and Industry confirms Dukovany new nuclear unit is progressing through early engineering milestones — geotechnical drilling done, conceptual design submitted, Czech suppliers selected. Pre-sanction engineering hiring window is warming.",
+    "operator": {
+      "name": "Czech Ministry of Trade and Industry / ČEZ (implied Dukovany operator)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Dukovany New Nuclear Unit",
+    "scope": [
+      "geotechnical_survey",
+      "conceptual_design",
+      "supplier_selection"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Project Engineer",
+        "Geotechnical Engineer",
+        "Civil/Structural Engineer (Nuclear)",
+        "Conceptual Design Engineer",
+        "Nuclear FEED Engineer",
+        "Project Controls Engineer",
+        "Nuclear Licensing Engineer",
+        "Supply Chain Manager (Nuclear)"
+      ],
+      "skills": [
+        "nuclear new-build",
+        "geotechnical survey",
+        "conceptual design",
+        "FEED",
+        "nuclear civil works",
+        "project controls",
+        "nuclear supply chain",
+        "regulatory licensing"
+      ],
+      "certs_freetext": [
+        "EUR-ACE",
+        "IAEA training",
+        "nuclear safety certification",
+        "PE (nuclear/civil)"
+      ],
+      "geo_rtw": "EU/EEA work authorisation; Czech Republic based or willing to relocate",
+      "project_experience": [
+        "Hinkley Point C",
+        "Flamanville 3",
+        "Olkiluoto 3",
+        "Vogtle 3&4",
+        "Mochovce 3&4",
+        "Paks II"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"nuclear new build\" OR \"nuclear project\" OR \"NPP\" OR \"PWR\" OR \"VVER\") AND (\"conceptual design\" OR \"FEED\" OR \"geotechnical\" OR \"civil engineering\" OR \"project controls\" OR \"licensing\") AND (\"nuclear\" OR \"power plant\") AND (Czech OR Slovakia OR \"central Europe\" OR relocate)"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], the Dukovany new nuclear project in Czech Republic is progressing through early engineering — geotechnical surveys complete & conceptual design submitted. Are you open to hearing about upcoming roles?",
+      "email_subject": "Dukovany Nuclear New-Build — Early Engineering Roles Coming Up",
+      "email_body": "Hi [Name],\n\nThe Dukovany new nuclear unit in Czech Republic has just completed geotechnical surveys and submitted its first conceptual design, signalling that engineering staffing requirements will be building over the coming 12–18 months.\n\nGiven your background in [nuclear FEED / civil engineering / project controls], I wanted to reach out ahead of the curve to explore whether you'd be open to a conversation about potential opportunities on this programme.\n\nHappy to share more detail — would a brief call this week work for you?\n\nBest regards,\n[Your name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named nuclear new-build project (Dukovany) with confirmed early-engineering milestones (geotechnical surveys, conceptual design submission, supplier selection) indicating an active pre-sanction/early FEED phase with near-term staffing demand.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states 'first conceptual design has been submitted' and geotechnical surveys just completed, placing the project firmly in pre-FID/FEED engineering.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "c0ed5e6e-5aa1-4263-8c3a-61b0e2ba3ebb",
+    "ingested_at": "2026-07-08T18:32:35.353Z",
+    "source_published_at": "2026-07-08T11:47:51.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "mining_com",
         "name": "MINING.com",
         "url": "https://www.mining.com/south32-clears-key-us-hurdle-for-2b-arizona-mine/"
@@ -742,115 +954,6 @@
     "id": "bd1300f8-7648-4979-9e7a-0fd5432c7450",
     "ingested_at": "2026-07-08T18:32:35.353Z",
     "source_published_at": "2026-07-07T14:36:40.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/czechs-report-on-progress-in-first-year-of-dukovany-project"
-      }
-    ],
-    "headline": "Dukovany Nuclear New-Build on Schedule: Geotechnical Surveys Complete, Conceptual Design Submitted",
-    "body": "Geotechnical surveys, including drilling more than 13 kilometres of exploratory wells, have been completed, the first conceptual design has been submitted, and several Czech suppliers selected in the year since contracts were signed for the new nuclear project at Dukovany, the Czech Ministry of Trade and Industry has reported.",
-    "url": "https://www.world-nuclear-news.org//articles/czechs-report-on-progress-in-first-year-of-dukovany-project",
-    "published_at": "2026-07-08T11:47:51.000Z",
-    "hash": "bf7b2f92e25e3ada",
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "survey_geophysical",
-      "energy_trades"
-    ],
-    "signal_type": "epc_award",
-    "region": "central-europe",
-    "country": "czech_republic",
-    "tldr": "Czech Ministry of Trade and Industry confirms Dukovany new nuclear unit is progressing through early engineering milestones — geotechnical drilling done, conceptual design submitted, Czech suppliers selected. Pre-sanction engineering hiring window is warming.",
-    "operator": {
-      "name": "Czech Ministry of Trade and Industry / ČEZ (implied Dukovany operator)",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Dukovany New Nuclear Unit",
-    "scope": [
-      "geotechnical_survey",
-      "conceptual_design",
-      "supplier_selection"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Nuclear Project Engineer",
-        "Geotechnical Engineer",
-        "Civil/Structural Engineer (Nuclear)",
-        "Conceptual Design Engineer",
-        "Nuclear FEED Engineer",
-        "Project Controls Engineer",
-        "Nuclear Licensing Engineer",
-        "Supply Chain Manager (Nuclear)"
-      ],
-      "skills": [
-        "nuclear new-build",
-        "geotechnical survey",
-        "conceptual design",
-        "FEED",
-        "nuclear civil works",
-        "project controls",
-        "nuclear supply chain",
-        "regulatory licensing"
-      ],
-      "certs_freetext": [
-        "EUR-ACE",
-        "IAEA training",
-        "nuclear safety certification",
-        "PE (nuclear/civil)"
-      ],
-      "geo_rtw": "EU/EEA work authorisation; Czech Republic based or willing to relocate",
-      "project_experience": [
-        "Hinkley Point C",
-        "Flamanville 3",
-        "Olkiluoto 3",
-        "Vogtle 3&4",
-        "Mochovce 3&4",
-        "Paks II"
-      ],
-      "yoe_band": "8-20",
-      "seniority": "mid-to-senior",
-      "boolean_search": "(\"nuclear new build\" OR \"nuclear project\" OR \"NPP\" OR \"PWR\" OR \"VVER\") AND (\"conceptual design\" OR \"FEED\" OR \"geotechnical\" OR \"civil engineering\" OR \"project controls\" OR \"licensing\") AND (\"nuclear\" OR \"power plant\") AND (Czech OR Slovakia OR \"central Europe\" OR relocate)"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], the Dukovany new nuclear project in Czech Republic is progressing through early engineering — geotechnical surveys complete & conceptual design submitted. Are you open to hearing about upcoming roles?",
-      "email_subject": "Dukovany Nuclear New-Build — Early Engineering Roles Coming Up",
-      "email_body": "Hi [Name],\n\nThe Dukovany new nuclear unit in Czech Republic has just completed geotechnical surveys and submitted its first conceptual design, signalling that engineering staffing requirements will be building over the coming 12–18 months.\n\nGiven your background in [nuclear FEED / civil engineering / project controls], I wanted to reach out ahead of the curve to explore whether you'd be open to a conversation about potential opportunities on this programme.\n\nHappy to share more detail — would a brief call this week work for you?\n\nBest regards,\n[Your name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named nuclear new-build project (Dukovany) with confirmed early-engineering milestones (geotechnical surveys, conceptual design submission, supplier selection) indicating an active pre-sanction/early FEED phase with near-term staffing demand.",
-    "phase": "pre_sanction",
-    "phase_evidence": "Article states 'first conceptual design has been submitted' and geotechnical surveys just completed, placing the project firmly in pre-FID/FEED engineering.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "c0ed5e6e-5aa1-4263-8c3a-61b0e2ba3ebb",
-    "ingested_at": "2026-07-08T18:32:35.353Z",
-    "source_published_at": "2026-07-08T11:47:51.000Z",
     "contact_archetypes": [
       "project_manager",
       "business_unit_director"

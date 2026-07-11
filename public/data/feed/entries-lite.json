@@ -1,5 +1,47 @@
 [
   {
+    "id": "397a92b4-c6f2-46a3-9db6-df9217741ce5",
+    "ingested_at": "2026-07-11T00:34:58.547Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/guardian-metal-montana-mining-association-forge-us-tungsten-processing-alliance/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "us-montana",
+    "country": "united_states",
+    "headline": "Guardian Metal & Montana Mining Association Form US Tungsten Processing Alliance – First Ore Shipments Late Summer 2026",
+    "operator": {
+      "name": "Guardian Metal",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Guardian Metal",
+      "matched_company_slug": null
+    },
+    "project_name": "Montana Tungsten Processing Alliance",
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
     "id": "f2564e47-5427-4e27-b198-db61974dd7c5",
     "ingested_at": "2026-07-10T18:32:32.182Z",
     "sources": [
@@ -213,6 +255,49 @@
     "key_people": []
   },
   {
+    "id": "c0ed5e6e-5aa1-4263-8c3a-61b0e2ba3ebb",
+    "ingested_at": "2026-07-08T18:32:35.353Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/czechs-report-on-progress-in-first-year-of-dukovany-project"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "survey_geophysical",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "central-europe",
+    "country": "czech_republic",
+    "headline": "Dukovany Nuclear New-Build on Schedule: Geotechnical Surveys Complete, Conceptual Design Submitted",
+    "operator": {
+      "name": "Czech Ministry of Trade and Industry / ČEZ (implied Dukovany operator)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Dukovany New Nuclear Unit",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
     "id": "c7cf4990-ebf6-41e2-9d77-8aeb37e3a270",
     "ingested_at": "2026-07-08T18:32:35.353Z",
     "sources": [
@@ -294,49 +379,6 @@
     "decom_stage": null,
     "outreach_readiness": "cold",
     "estimated_hiring_window": "12mo+",
-    "key_people": []
-  },
-  {
-    "id": "c0ed5e6e-5aa1-4263-8c3a-61b0e2ba3ebb",
-    "ingested_at": "2026-07-08T18:32:35.353Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/czechs-report-on-progress-in-first-year-of-dukovany-project"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "survey_geophysical",
-      "energy_trades"
-    ],
-    "signal_type": "epc_award",
-    "region": "central-europe",
-    "country": "czech_republic",
-    "headline": "Dukovany Nuclear New-Build on Schedule: Geotechnical Surveys Complete, Conceptual Design Submitted",
-    "operator": {
-      "name": "Czech Ministry of Trade and Industry / ČEZ (implied Dukovany operator)",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Dukovany New Nuclear Unit",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "pre_sanction",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
     "key_people": []
   },
   {

@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-07-10T18:33:48.941Z"
+    "last_updated_at": "2026-07-11T00:35:54.421Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -8047,6 +8047,66 @@
         "email": null,
         "phone": null,
         "location": "Buenos Aires, Argentina"
+      }
+    ]
+  },
+  "guardian metal": {
+    "discovered_at": "2026-07-11T00:35:54.421Z",
+    "contacts": [
+      {
+        "name": "Marc Leduc",
+        "title": "Operations Manager",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/marc-leduc-31b4644",
+        "source_url": "https://www.mining.com/guardian-bets-on-nevada-tungsten-revival/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Denver, CO, USA"
+      },
+      {
+        "name": "Oliver Friesen",
+        "title": "Chief Executive Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/oliver-friesen-9056aa49",
+        "source_url": "https://guardianmetalresources.com/company/management-advisors/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "London, UK"
+      },
+      {
+        "name": "J.T. Starzecki",
+        "title": "Executive Chairman",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/j-t-starzecki-35474b1ab",
+        "source_url": "https://www.guardianmetalresources.com/company/board-of-directors/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Minneapolis, MN, USA"
+      },
+      {
+        "name": "Jake Mather",
+        "title": "Chief Financial Officer",
+        "persona": "other",
+        "linkedin_url": "https://www.linkedin.com/in/jake-mather",
+        "source_url": "https://guardianmetalresources.com/company/management-advisors/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Salt Lake City, UT, USA"
+      },
+      {
+        "name": "Michael Jones",
+        "title": "Technical Advisor (Geological Engineer)",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://guardianmetalresources.com/company/management-advisors/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
       }
     ]
   }
