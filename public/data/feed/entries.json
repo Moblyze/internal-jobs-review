@@ -2,6 +2,212 @@
   {
     "sources": [
       {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/first-blast-americas-iron-ore-comeback-heard-on-the-iron-range-302823987.html"
+      }
+    ],
+    "headline": "Mesabi Metallics Fires First Blast at Iron Range DR-Grade Iron Ore Mine, Minnesota",
+    "body": "Mesabi Metallics fires first blast toward \"Patriot Pellet,\" ending U.S. dependence on scarce foreign DR-grade ore NASHWAUK, Minn., July 13, 2026 /PRNewswire/ -- American iron ore mining is growing. Mesabi Metallics Company LLC (Mesabi Metallics) today announced the successful completion...",
+    "url": "https://www.prnewswire.com/news-releases/first-blast-americas-iron-ore-comeback-heard-on-the-iron-range-302823987.html",
+    "published_at": "2026-07-13T16:38:00.000Z",
+    "hash": "de134dfb0c1a5878",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "us-midwest",
+    "country": "united_states",
+    "tldr": "Mesabi Metallics has completed its first blast at the Nashwauk, Minnesota iron ore project ('Patriot Pellet'), signaling active mining operations underway and immediate labor demand for mining and processing trades.",
+    "operator": {
+      "name": "Mesabi Metallics Company LLC",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Mesabi Metallics Company LLC",
+      "matched_company_slug": null
+    },
+    "project_name": "Patriot Pellet / Mesabi Metallics Iron Range Project",
+    "scope": [
+      "open_pit_mining",
+      "ore_processing",
+      "pelletizing"
+    ],
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mine Superintendent",
+        "Blast Crew Supervisor",
+        "Drill & Blast Engineer",
+        "Mining Engineer",
+        "Processing Plant Operator",
+        "Maintenance Technician",
+        "HSE Manager",
+        "Heavy Equipment Operator",
+        "Metallurgist",
+        "Site Manager"
+      ],
+      "skills": [
+        "open pit mining",
+        "drill and blast",
+        "iron ore processing",
+        "pelletizing",
+        "heavy equipment operation",
+        "mine planning",
+        "mineral processing",
+        "site HSE"
+      ],
+      "certs_freetext": [
+        "MSHA Part 48 Surface Mine Training",
+        "Blaster's License (Minnesota)",
+        "First Aid/CPR"
+      ],
+      "geo_rtw": "US work authorization required; Minnesota Iron Range preferred",
+      "project_experience": [
+        "Hibbing Taconite",
+        "United Taconite",
+        "Minntac",
+        "Keetac",
+        "Cleveland-Cliffs Iron Range operations"
+      ],
+      "yoe_band": "5-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"mine superintendent\" OR \"mining engineer\" OR \"drill and blast\" OR \"blasting engineer\" OR \"processing plant operator\" OR \"pelletizing\" OR \"iron ore\" OR \"taconite\" OR \"heavy equipment operator\" OR \"mineral processing\") AND (\"open pit\" OR \"surface mine\" OR \"iron range\" OR \"MSHA\") AND (Minnesota OR \"Iron Range\" OR \"Upper Midwest\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Mesabi Metallics just fired its first blast at the Patriot Pellet iron ore project on Minnesota's Iron Range — active operations mean immediate hiring. Your background in [iron ore/mining ops] looks like a strong fit. Worth a quick chat?",
+      "email_subject": "Mesabi Metallics – Iron Range Mining Ops Now Active | Roles Available",
+      "email_body": "Hi [Name],\n\nMesabi Metallics Company LLC has just announced the successful completion of its first blast at the Patriot Pellet DR-grade iron ore project in Nashwauk, Minnesota — marking the start of active mining operations on the Iron Range.\n\nWith operations now underway, the project will be ramping up headcount across mining, processing, maintenance, and HSE disciplines. Based on your experience in [relevant field], I believe you could be a strong candidate for opportunities here.\n\nWould you be open to a 15-minute call this week to discuss what's available?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Mesabi Metallics) announces first blast at a named mining project (Patriot Pellet, Nashwauk MN), signaling active ramp-up of operations and discrete workforce demand in the mining sector.",
+    "phase": "construction",
+    "phase_evidence": "Article states 'successful completion of first blast,' indicating active mining operations have commenced — construction/ramp-up phase underway.",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "e0b65288-0f22-4754-a803-a6c2db387413",
+    "ingested_at": "2026-07-13T18:35:46.213Z",
+    "source_published_at": "2026-07-13T16:38:00.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/american-uranium-reports-completed-drilling-strengthens-lo-herma-uranium-resource-upgrade-for-upcoming-scoping-study-302823387.html"
+      }
+    ],
+    "headline": "American Uranium Completes Resource Drilling at Lo Herma ISR Uranium Project, Wyoming — Scoping Study Imminent",
+    "body": "CASPER, Wyo., July 13, 2026 /PRNewswire/ -- American Uranium Limited (ASX: AMU, OTCQB: AMUIF) announced that resource drilling at its Lo Herma ISR uranium project in Wyoming, is now completed with the final 32 mud rotary drill holes for approximately 12,757 meters (41,855 feet) across a...",
+    "url": "https://www.prnewswire.com/news-releases/american-uranium-reports-completed-drilling-strengthens-lo-herma-uranium-resource-upgrade-for-upcoming-scoping-study-302823387.html",
+    "published_at": "2026-07-13T14:00:00.000Z",
+    "hash": "4b001344a53c04eb",
+    "subsector": "mining",
+    "discipline_tags": [
+      "drilling_operations",
+      "survey_geophysical"
+    ],
+    "signal_type": "tender",
+    "region": "wyoming-usa",
+    "country": "united_states",
+    "tldr": "American Uranium has completed 32 mud rotary drill holes at its Lo Herma ISR uranium project in Wyoming ahead of a scoping study. Pre-sanction phase signals early-stage resource definition with no immediate large-scale hiring window yet.",
+    "operator": {
+      "name": "American Uranium Limited",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Lo Herma ISR Uranium Project",
+    "scope": [
+      "resource_drilling",
+      "scoping_study"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Uranium Resource Geologist",
+        "ISR Project Geologist",
+        "Drilling Coordinator",
+        "Resource Estimation Geologist",
+        "Mining Engineer – Scoping Study"
+      ],
+      "skills": [
+        "ISR uranium",
+        "mud rotary drilling",
+        "resource estimation",
+        "JORC/NI 43-101",
+        "Wyoming uranium deposits"
+      ],
+      "certs_freetext": [
+        "RPG (Registered Professional Geologist)",
+        "AIPG certification"
+      ],
+      "geo_rtw": "USA — Wyoming; US work authorization required",
+      "project_experience": [
+        "Lance Uranium Project",
+        "Nichols Ranch ISR",
+        "Smith Ranch-Highland",
+        "Reno Creek ISR"
+      ],
+      "yoe_band": "7-15",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"ISR uranium\" OR \"in-situ recovery\" OR \"uranium resource\") AND (\"resource geologist\" OR \"mining geologist\" OR \"drilling coordinator\") AND (\"Wyoming\" OR \"Powder River Basin\") AND (\"scoping study\" OR \"resource estimation\" OR \"JORC\" OR \"NI 43-101\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], American Uranium's Lo Herma ISR uranium project in Wyoming has just completed resource drilling ahead of a scoping study — early-stage geo/engineering roles may open soon. Worth a conversation?",
+      "email_subject": "Lo Herma ISR Uranium – Pre-Scoping Study Opportunity | Wyoming",
+      "email_body": "Hi [Name],\n\nAmerican Uranium Limited has just completed its resource drilling campaign (32 drill holes, ~12,757m) at the Lo Herma ISR uranium project in Wyoming, with a scoping study now on the horizon.\n\nAs the project moves into the scoping/pre-feasibility phase, demand for ISR-experienced geologists, resource estimators, and mining engineers typically accelerates.\n\nIf you have ISR uranium or Powder River Basin project experience, I'd love to explore whether you'd be open to hearing about early opportunities on this program.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (American Uranium Limited) announces completion of a discrete drilling campaign at the named Lo Herma ISR uranium project in Wyoming, with a scoping study upcoming — qualifying as a pre-sanction resource/exploration milestone in mining.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states drilling is 'now completed' and references an 'upcoming scoping study,' placing the project firmly in pre-FID resource definition phase.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "b4f6c88a-655c-424f-8d59-c654a55b5119",
+    "ingested_at": "2026-07-13T18:35:46.213Z",
+    "source_published_at": "2026-07-13T14:00:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "mining_com",
         "name": "MINING.com",
         "url": "https://www.mining.com/guardian-metal-montana-mining-association-forge-us-tungsten-processing-alliance/"

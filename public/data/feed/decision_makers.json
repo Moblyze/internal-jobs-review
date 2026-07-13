@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-07-11T00:35:54.421Z"
+    "last_updated_at": "2026-07-13T18:37:46.560Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -8104,6 +8104,104 @@
         "linkedin_url": null,
         "source_url": "https://guardianmetalresources.com/company/management-advisors/",
         "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "mesabi metallics company llc": {
+    "discovered_at": "2026-07-13T18:37:46.560Z",
+    "contacts": [
+      {
+        "name": "Lindsy Skrbec",
+        "title": "Human Resources Manager",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/lindsy-skrbec-8a8839257",
+        "source_url": "https://rocketreach.co/mesabi-metallics-company-llc-management_b40941fcff97ccb4",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Grand Rapids, MN, USA"
+      },
+      {
+        "name": "Larry Sutherland",
+        "title": "President & Chief Operating Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/larry-sutherland-460b4089",
+        "source_url": "https://www.mesabimetallics.com/company/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Grand Rapids, MN, USA"
+      },
+      {
+        "name": "Shane Holman",
+        "title": "General Manager - Mine",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/shane-holman-b4576179",
+        "source_url": "https://www.mesabimetallics.com/mesabi-metallics-once-again-supports-hibbing-chisholm-high-school-girls-hockey-team-as-lead-sponsor/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Pengilly, MN, USA"
+      },
+      {
+        "name": "Joey Nielsen",
+        "title": "General Manager - Process",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.zoominfo.com/p/Joey-Nielsen/2088757006",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Nashwauk, MN, USA"
+      },
+      {
+        "name": "William Everett",
+        "title": "Manager, Mining & Mineral Resources",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/william-everett-a299a227",
+        "source_url": "https://people.equilar.com/bio/org/mesabi-metallics-co-llc/16917174",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Nashwauk, MN, USA"
+      }
+    ]
+  },
+  "american uranium limited": {
+    "discovered_at": "2026-07-13T18:37:46.560Z",
+    "contacts": [
+      {
+        "name": "Bruce Lane",
+        "title": "Chief Executive Officer & Executive Director",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/bruce-lane-0333ab1",
+        "source_url": "https://www.linkedin.com/in/bruce-lane-0333ab1/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Perth, WA, Australia"
+      },
+      {
+        "name": "James Baughman",
+        "title": "Executive Director",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://gtienergy.au/about/our-people/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Wyoming, USA"
+      },
+      {
+        "name": "Petar Tomasevic",
+        "title": "Non-Executive Director",
+        "persona": "other",
+        "linkedin_url": "https://www.linkedin.com/in/bruce-lane-0333ab1",
+        "source_url": "https://www.linkedin.com/in/bruce-lane-0333ab1/",
+        "in_target_persona": false,
         "email": null,
         "phone": null,
         "location": null
