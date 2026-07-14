@@ -4,6 +4,103 @@
       {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/american-uranium-reports-completed-drilling-strengthens-lo-herma-uranium-resource-upgrade-for-upcoming-scoping-study-302823387.html"
+      }
+    ],
+    "headline": "American Uranium Completes Resource Drilling at Lo Herma ISR Uranium Project, Wyoming — Scoping Study Imminent",
+    "body": "CASPER, Wyo., July 13, 2026 /PRNewswire/ -- American Uranium Limited (ASX: AMU, OTCQB: AMUIF) announced that resource drilling at its Lo Herma ISR uranium project in Wyoming, is now completed with the final 32 mud rotary drill holes for approximately 12,757 meters (41,855 feet) across a...",
+    "url": "https://www.prnewswire.com/news-releases/american-uranium-reports-completed-drilling-strengthens-lo-herma-uranium-resource-upgrade-for-upcoming-scoping-study-302823387.html",
+    "published_at": "2026-07-13T14:00:00.000Z",
+    "hash": "4b001344a53c04eb",
+    "subsector": "mining",
+    "discipline_tags": [
+      "drilling_operations",
+      "survey_geophysical"
+    ],
+    "signal_type": "tender",
+    "region": "wyoming-usa",
+    "country": "united_states",
+    "tldr": "American Uranium has completed 32 mud rotary drill holes at its Lo Herma ISR uranium project in Wyoming ahead of a scoping study. Pre-sanction phase signals early-stage resource definition with no immediate large-scale hiring window yet.",
+    "operator": {
+      "name": "American Uranium Limited",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Lo Herma ISR Uranium Project",
+    "scope": [
+      "resource_drilling",
+      "scoping_study"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Uranium Resource Geologist",
+        "ISR Project Geologist",
+        "Drilling Coordinator",
+        "Resource Estimation Geologist",
+        "Mining Engineer – Scoping Study"
+      ],
+      "skills": [
+        "ISR uranium",
+        "mud rotary drilling",
+        "resource estimation",
+        "JORC/NI 43-101",
+        "Wyoming uranium deposits"
+      ],
+      "certs_freetext": [
+        "RPG (Registered Professional Geologist)",
+        "AIPG certification"
+      ],
+      "geo_rtw": "USA — Wyoming; US work authorization required",
+      "project_experience": [
+        "Lance Uranium Project",
+        "Nichols Ranch ISR",
+        "Smith Ranch-Highland",
+        "Reno Creek ISR"
+      ],
+      "yoe_band": "7-15",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"ISR uranium\" OR \"in-situ recovery\" OR \"uranium resource\") AND (\"resource geologist\" OR \"mining geologist\" OR \"drilling coordinator\") AND (\"Wyoming\" OR \"Powder River Basin\") AND (\"scoping study\" OR \"resource estimation\" OR \"JORC\" OR \"NI 43-101\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], American Uranium's Lo Herma ISR uranium project in Wyoming has just completed resource drilling ahead of a scoping study — early-stage geo/engineering roles may open soon. Worth a conversation?",
+      "email_subject": "Lo Herma ISR Uranium – Pre-Scoping Study Opportunity | Wyoming",
+      "email_body": "Hi [Name],\n\nAmerican Uranium Limited has just completed its resource drilling campaign (32 drill holes, ~12,757m) at the Lo Herma ISR uranium project in Wyoming, with a scoping study now on the horizon.\n\nAs the project moves into the scoping/pre-feasibility phase, demand for ISR-experienced geologists, resource estimators, and mining engineers typically accelerates.\n\nIf you have ISR uranium or Powder River Basin project experience, I'd love to explore whether you'd be open to hearing about early opportunities on this program.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (American Uranium Limited) announces completion of a discrete drilling campaign at the named Lo Herma ISR uranium project in Wyoming, with a scoping study upcoming — qualifying as a pre-sanction resource/exploration milestone in mining.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states drilling is 'now completed' and references an 'upcoming scoping study,' placing the project firmly in pre-FID resource definition phase.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "b4f6c88a-655c-424f-8d59-c654a55b5119",
+    "ingested_at": "2026-07-13T18:35:46.213Z",
+    "source_published_at": "2026-07-13T14:00:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/first-blast-americas-iron-ore-comeback-heard-on-the-iron-range-302823987.html"
       }
     ],
@@ -105,103 +202,6 @@
       "site_manager",
       "hiring_manager",
       "project_manager"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "pr_newswire_energy",
-        "name": "PR Newswire (Energy)",
-        "url": "https://www.prnewswire.com/news-releases/american-uranium-reports-completed-drilling-strengthens-lo-herma-uranium-resource-upgrade-for-upcoming-scoping-study-302823387.html"
-      }
-    ],
-    "headline": "American Uranium Completes Resource Drilling at Lo Herma ISR Uranium Project, Wyoming — Scoping Study Imminent",
-    "body": "CASPER, Wyo., July 13, 2026 /PRNewswire/ -- American Uranium Limited (ASX: AMU, OTCQB: AMUIF) announced that resource drilling at its Lo Herma ISR uranium project in Wyoming, is now completed with the final 32 mud rotary drill holes for approximately 12,757 meters (41,855 feet) across a...",
-    "url": "https://www.prnewswire.com/news-releases/american-uranium-reports-completed-drilling-strengthens-lo-herma-uranium-resource-upgrade-for-upcoming-scoping-study-302823387.html",
-    "published_at": "2026-07-13T14:00:00.000Z",
-    "hash": "4b001344a53c04eb",
-    "subsector": "mining",
-    "discipline_tags": [
-      "drilling_operations",
-      "survey_geophysical"
-    ],
-    "signal_type": "tender",
-    "region": "wyoming-usa",
-    "country": "united_states",
-    "tldr": "American Uranium has completed 32 mud rotary drill holes at its Lo Herma ISR uranium project in Wyoming ahead of a scoping study. Pre-sanction phase signals early-stage resource definition with no immediate large-scale hiring window yet.",
-    "operator": {
-      "name": "American Uranium Limited",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Lo Herma ISR Uranium Project",
-    "scope": [
-      "resource_drilling",
-      "scoping_study"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Uranium Resource Geologist",
-        "ISR Project Geologist",
-        "Drilling Coordinator",
-        "Resource Estimation Geologist",
-        "Mining Engineer – Scoping Study"
-      ],
-      "skills": [
-        "ISR uranium",
-        "mud rotary drilling",
-        "resource estimation",
-        "JORC/NI 43-101",
-        "Wyoming uranium deposits"
-      ],
-      "certs_freetext": [
-        "RPG (Registered Professional Geologist)",
-        "AIPG certification"
-      ],
-      "geo_rtw": "USA — Wyoming; US work authorization required",
-      "project_experience": [
-        "Lance Uranium Project",
-        "Nichols Ranch ISR",
-        "Smith Ranch-Highland",
-        "Reno Creek ISR"
-      ],
-      "yoe_band": "7-15",
-      "seniority": "mid-to-senior",
-      "boolean_search": "(\"ISR uranium\" OR \"in-situ recovery\" OR \"uranium resource\") AND (\"resource geologist\" OR \"mining geologist\" OR \"drilling coordinator\") AND (\"Wyoming\" OR \"Powder River Basin\") AND (\"scoping study\" OR \"resource estimation\" OR \"JORC\" OR \"NI 43-101\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], American Uranium's Lo Herma ISR uranium project in Wyoming has just completed resource drilling ahead of a scoping study — early-stage geo/engineering roles may open soon. Worth a conversation?",
-      "email_subject": "Lo Herma ISR Uranium – Pre-Scoping Study Opportunity | Wyoming",
-      "email_body": "Hi [Name],\n\nAmerican Uranium Limited has just completed its resource drilling campaign (32 drill holes, ~12,757m) at the Lo Herma ISR uranium project in Wyoming, with a scoping study now on the horizon.\n\nAs the project moves into the scoping/pre-feasibility phase, demand for ISR-experienced geologists, resource estimators, and mining engineers typically accelerates.\n\nIf you have ISR uranium or Powder River Basin project experience, I'd love to explore whether you'd be open to hearing about early opportunities on this program.\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named operator (American Uranium Limited) announces completion of a discrete drilling campaign at the named Lo Herma ISR uranium project in Wyoming, with a scoping study upcoming — qualifying as a pre-sanction resource/exploration milestone in mining.",
-    "phase": "pre_sanction",
-    "phase_evidence": "Article states drilling is 'now completed' and references an 'upcoming scoping study,' placing the project firmly in pre-FID resource definition phase.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "b4f6c88a-655c-424f-8d59-c654a55b5119",
-    "ingested_at": "2026-07-13T18:35:46.213Z",
-    "source_published_at": "2026-07-13T14:00:00.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "business_unit_director"
     ],
     "prompt_version": "phase-targeting-v1.2"
   },

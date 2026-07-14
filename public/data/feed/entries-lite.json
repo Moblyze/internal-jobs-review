@@ -1,47 +1,5 @@
 [
   {
-    "id": "e0b65288-0f22-4754-a803-a6c2db387413",
-    "ingested_at": "2026-07-13T18:35:46.213Z",
-    "sources": [
-      {
-        "id": "pr_newswire_energy",
-        "name": "PR Newswire (Energy)",
-        "url": "https://www.prnewswire.com/news-releases/first-blast-americas-iron-ore-comeback-heard-on-the-iron-range-302823987.html"
-      }
-    ],
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades"
-    ],
-    "signal_type": "fid",
-    "region": "us-midwest",
-    "country": "united_states",
-    "headline": "Mesabi Metallics Fires First Blast at Iron Range DR-Grade Iron Ore Mine, Minnesota",
-    "operator": {
-      "name": "Mesabi Metallics Company LLC",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Mesabi Metallics Company LLC",
-      "matched_company_slug": null
-    },
-    "project_name": "Patriot Pellet / Mesabi Metallics Iron Range Project",
-    "mob_window": {
-      "start": "2026-Q3",
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "construction",
-    "construction_subphase": "rampup",
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "1-3mo",
-    "key_people": []
-  },
-  {
     "id": "b4f6c88a-655c-424f-8d59-c654a55b5119",
     "ingested_at": "2026-07-13T18:35:46.213Z",
     "sources": [
@@ -81,6 +39,48 @@
     "decom_stage": null,
     "outreach_readiness": "cold",
     "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
+    "id": "e0b65288-0f22-4754-a803-a6c2db387413",
+    "ingested_at": "2026-07-13T18:35:46.213Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/first-blast-americas-iron-ore-comeback-heard-on-the-iron-range-302823987.html"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "us-midwest",
+    "country": "united_states",
+    "headline": "Mesabi Metallics Fires First Blast at Iron Range DR-Grade Iron Ore Mine, Minnesota",
+    "operator": {
+      "name": "Mesabi Metallics Company LLC",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Mesabi Metallics Company LLC",
+      "matched_company_slug": null
+    },
+    "project_name": "Patriot Pellet / Mesabi Metallics Iron Range Project",
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
     "key_people": []
   },
   {
