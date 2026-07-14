@@ -1,5 +1,47 @@
 [
   {
+    "id": "b717f22a-ec3f-4373-8e1b-8c6a6861432b",
+    "ingested_at": "2026-07-14T18:26:38.311Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/hyundai-ec-fanco-to-collaborate-on-smr-project"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "north-america",
+    "country": null,
+    "headline": "Hyundai E&C & FANCO Sign Framework Agreement for EAGL-1 SMR Project",
+    "operator": {
+      "name": "First American Nuclear Company (FANCO)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Hyundai Engineering & Construction",
+      "matched_company_slug": null
+    },
+    "project_name": "EAGL-1",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "b4f6c88a-655c-424f-8d59-c654a55b5119",
     "ingested_at": "2026-07-13T18:35:46.213Z",
     "sources": [

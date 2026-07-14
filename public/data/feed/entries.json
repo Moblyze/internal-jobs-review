@@ -2,6 +2,107 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/hyundai-ec-fanco-to-collaborate-on-smr-project"
+      }
+    ],
+    "headline": "Hyundai E&C & FANCO Sign Framework Agreement for EAGL-1 SMR Project",
+    "body": "South Korea's Hyundai Engineering & Construction has signed a framework agreement with First American Nuclear Company of the USA for cooperation on the EAGL-1 small modular reactor project.",
+    "url": "https://www.world-nuclear-news.org//articles/hyundai-ec-fanco-to-collaborate-on-smr-project",
+    "published_at": "2026-07-14T13:03:53.000Z",
+    "hash": "1d08fc03184c865b",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "north-america",
+    "country": null,
+    "tldr": "Hyundai Engineering & Construction and First American Nuclear Company have signed a framework agreement for the EAGL-1 SMR project. This is a pre-FID collaboration signal; active construction hiring is likely 12+ months out.",
+    "operator": {
+      "name": "First American Nuclear Company (FANCO)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Hyundai Engineering & Construction",
+      "matched_company_slug": null
+    },
+    "project_name": "EAGL-1",
+    "scope": [
+      "smr_development",
+      "framework_agreement",
+      "pre_feed"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Project Engineer",
+        "SMR Project Manager",
+        "Nuclear FEED Manager",
+        "Reactor Systems Engineer",
+        "Nuclear Construction Manager",
+        "Licensing Engineer"
+      ],
+      "skills": [
+        "small modular reactor",
+        "SMR",
+        "nuclear project development",
+        "FEED",
+        "nuclear licensing",
+        "reactor design"
+      ],
+      "certs_freetext": [
+        "NRC licensing experience",
+        "10 CFR Part 52",
+        "nuclear quality assurance"
+      ],
+      "geo_rtw": "USA or South Korea; US right-to-work preferred for domestic site roles",
+      "project_experience": [
+        "NuScale VOYGR",
+        "GE-Hitachi BWRX-300",
+        "Holtec SMR-160",
+        "Kairos Power Hermes"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"small modular reactor\" OR SMR OR \"nuclear power\" OR \"advanced reactor\") AND (\"project manager\" OR \"project engineer\" OR \"FEED manager\" OR \"nuclear engineer\" OR \"licensing engineer\" OR \"construction manager\") AND (\"NRC\" OR \"nuclear licensing\" OR \"reactor design\" OR \"nuclear quality\") NOT (research NOT construction)"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Hyundai E&C and FANCO have just announced a framework agreement on the EAGL-1 SMR project. Given your nuclear project background, I'd love to connect ahead of engineering ramp-up. Open to a quick call?",
+      "email_subject": "EAGL-1 SMR – Early Engineering Talent Pipeline | Hyundai E&C / FANCO",
+      "email_body": "Hi [Name],\n\nHyundai Engineering & Construction and First American Nuclear Company (FANCO) have signed a framework agreement to advance the EAGL-1 small modular reactor project. While still at the pre-sanction stage, projects of this nature ramp engineering headcount quickly once FEED kicks off.\n\nGiven your background in [nuclear project engineering / SMR licensing], I'd like to explore whether you'd be open to learning more as this project develops.\n\nWould you be available for a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Framework agreement naming Hyundai E&C (contractor) and FANCO (operator) for the EAGL-1 SMR nuclear project signals an early pre-sanction collaboration with future engineering and construction workforce demand.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article describes a 'framework agreement for cooperation' — indicating pre-FID alignment with no EPC or FEED contract yet awarded.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "b717f22a-ec3f-4373-8e1b-8c6a6861432b",
+    "ingested_at": "2026-07-14T18:26:38.311Z",
+    "source_published_at": "2026-07-14T13:03:53.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/american-uranium-reports-completed-drilling-strengthens-lo-herma-uranium-resource-upgrade-for-upcoming-scoping-study-302823387.html"

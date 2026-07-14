@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-07-13T18:37:46.560Z"
+    "last_updated_at": "2026-07-14T18:28:21.222Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -8202,6 +8202,126 @@
         "linkedin_url": "https://www.linkedin.com/in/bruce-lane-0333ab1",
         "source_url": "https://www.linkedin.com/in/bruce-lane-0333ab1/",
         "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "hyundai engineering & construction": {
+    "discovered_at": "2026-07-14T18:28:21.222Z",
+    "contacts": [
+      {
+        "name": "Hussin Mohammed",
+        "title": "Human Resource Manager",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/hussinmohammed",
+        "source_url": "https://rocketreach.co/hyundai-engineering-construction-coltd-management_b5cb3c7cf42e1471",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Yoo So-Yeon",
+        "title": "HR Improvement Team Manager",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://en.hdec.kr/en/career/inter_list.aspx",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Seoul, South Korea"
+      },
+      {
+        "name": "Michael Coon",
+        "title": "Senior Vice President, New Energy Division",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/michael-coon-14a540b",
+        "source_url": "https://www.hdec.kr/en/newsroom/news_view.aspx?NewsSeq=1385&NewsType=LAT&NewsListType=news_list",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Windsor, CT, USA"
+      },
+      {
+        "name": "Daniel Goo Hyuk Chung",
+        "title": "Managing Director & Head of North America",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/daniel-goo-hyuk-chung-070800146",
+        "source_url": "https://www.linkedin.com/in/daniel-goo-hyuk-chung-070800146/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Fort Lee, NJ, USA"
+      },
+      {
+        "name": "Ping Zhou",
+        "title": "Project Manager",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/ping-zhou-31180881",
+        "source_url": "https://www.linkedin.com/in/ping-zhou-31180881/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Singapore"
+      }
+    ]
+  },
+  "first american nuclear company (fanco)": {
+    "discovered_at": "2026-07-14T18:28:21.222Z",
+    "contacts": [
+      {
+        "name": "Nick Burnett",
+        "title": "Chief Operations Officer",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.prnewswire.com/news-releases/first-american-nuclear-announces-key-executive-appointments-as-company-expands-leadership-team-302743108.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Indianapolis, IN, USA"
+      },
+      {
+        "name": "George Malone",
+        "title": "Chief Nuclear Program Officer",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://www.prnewswire.com/news-releases/first-american-nuclear-announces-key-executive-appointments-as-company-expands-leadership-team-302743108.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Indianapolis, IN, USA"
+      },
+      {
+        "name": "Bill Stokes",
+        "title": "Founder & President",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://fanuclear.com/our-team/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Richland, WA, USA"
+      },
+      {
+        "name": "Mike Reinboth",
+        "title": "Chief Executive Officer",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://fanuclear.com/our-team/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Indianapolis, IN, USA"
+      },
+      {
+        "name": "Patrick Schweiger",
+        "title": "Chief Technology Officer",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.prnewswire.com/news-releases/first-american-nuclear-announces-key-executive-appointments-as-company-expands-leadership-team-302743108.html",
+        "in_target_persona": true,
         "email": null,
         "phone": null,
         "location": null
