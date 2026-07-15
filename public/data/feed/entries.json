@@ -2,6 +2,109 @@
   {
     "sources": [
       {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/british-columbia-issues-environmental-assessment-for-vitreos-300m-silica-sand-mine/"
+      }
+    ],
+    "headline": "BC EAO Clears Vitreo's $300M Angus Silica Sand Mine — Environmental Certificate Issued",
+    "body": "The EAO concluded that the Angus project would not cause significant adverse effects once mitigation measures and proposed conditions are applied.",
+    "url": "https://www.mining.com/british-columbia-issues-environmental-assessment-for-vitreos-300m-silica-sand-mine/",
+    "published_at": "2026-07-14T23:39:29.000Z",
+    "hash": "1523d410dd575e2f",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "regulatory",
+    "region": "canada-bc",
+    "country": "canada",
+    "tldr": "British Columbia's Environmental Assessment Office has approved Vitreo's Angus silica sand mine project, clearing a key regulatory hurdle for the $300M development and opening the path toward construction-phase hiring.",
+    "operator": {
+      "name": "Vitreo",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Vitreo",
+      "matched_company_slug": null
+    },
+    "project_name": "Angus Silica Sand Mine",
+    "scope": [
+      "mine_development",
+      "environmental_permitting",
+      "site_construction"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 300000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mine Construction Manager",
+        "HSE Manager",
+        "Project Manager – Mining",
+        "Environmental Compliance Manager",
+        "Site Manager",
+        "Civil Construction Supervisor",
+        "Process Plant Superintendent",
+        "Mining Engineer"
+      ],
+      "skills": [
+        "mine development",
+        "silica processing",
+        "environmental compliance",
+        "site civil works",
+        "project controls",
+        "BC mining regulations"
+      ],
+      "certs_freetext": [
+        "BC Mine Manager Certificate of Competency",
+        "NCSO",
+        "First Aid Level 3"
+      ],
+      "geo_rtw": "Canada – BC right-to-work preferred",
+      "project_experience": [
+        "silica mining",
+        "industrial minerals",
+        "open-pit mining",
+        "BC surface mining"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"Mine Manager\" OR \"Construction Manager\" OR \"Project Manager\" OR \"Site Manager\" OR \"HSE Manager\") AND (\"mining\" OR \"open pit\" OR \"silica\" OR \"industrial minerals\") AND (\"British Columbia\" OR \"BC\" OR \"Canada\") NOT (\"underground mining\" OR \"coal\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], BC's EAO just approved Vitreo's $300M Angus silica sand mine. Pre-construction hiring is likely next — are you open to hearing about senior site roles in BC?",
+      "email_subject": "Vitreo Angus Mine – BC Approval Clears Path to Construction | Senior Roles Incoming",
+      "email_body": "Hi [Name],\n\nBritish Columbia's Environmental Assessment Office has just issued approval for Vitreo's Angus silica sand mine — a $300M project now cleared for development.\n\nWith the key regulatory hurdle behind them, Vitreo will be moving toward contractor selection and construction mobilization. Senior site, HSE, and project management professionals with BC or Western Canada mining experience will be in demand.\n\nIf you're open to a conversation about what roles are likely to emerge — or know someone well-suited — I'd love to connect.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Environmental assessment approval for Vitreo's named Angus silica sand mine project is a regulatory permit grant that directly precedes construction-phase workforce demand.",
+    "phase": "pre_sanction",
+    "phase_evidence": "The article describes an environmental assessment approval (a pre-construction regulatory milestone), with no FID or EPC award mentioned, indicating the project has not yet been sanctioned.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "fbedf2a7-c8b0-4030-8784-b91915c2eeaf",
+    "ingested_at": "2026-07-15T06:48:36.894Z",
+    "source_published_at": "2026-07-14T23:39:29.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org//articles/hyundai-ec-fanco-to-collaborate-on-smr-project"

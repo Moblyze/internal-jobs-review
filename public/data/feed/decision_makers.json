@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-07-14T18:28:21.222Z"
+    "last_updated_at": "2026-07-15T06:49:44.168Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -8325,6 +8325,55 @@
         "email": null,
         "phone": null,
         "location": null
+      }
+    ]
+  },
+  "vitreo": {
+    "discovered_at": "2026-07-15T06:49:44.168Z",
+    "contacts": [
+      {
+        "name": "Scott Broughton",
+        "title": "President & CEO",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/scott-broughton-71a52226",
+        "source_url": "https://blog.allnorth.com/vitreo-minerals-awards-allnorth-feasibility-study-for-its-angus-property",
+        "in_target_persona": true,
+        "email": "SBroughton@vitreominerals.com",
+        "phone": null,
+        "location": "Vancouver, BC, Canada"
+      },
+      {
+        "name": "Cullen McCormick",
+        "title": "Vice President, Operations",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/cullen-mccormick-61074917",
+        "source_url": "https://blog.allnorth.com/vitreo-minerals-awards-allnorth-feasibility-study-for-its-angus-property",
+        "in_target_persona": true,
+        "email": "CMcCormick@vitreominerals.com",
+        "phone": null,
+        "location": "Golden, BC, Canada"
+      },
+      {
+        "name": "Jerrad Blanchard",
+        "title": "Chief Financial Officer",
+        "persona": "other",
+        "linkedin_url": "https://www.linkedin.com/in/jerrad-blanchard-06114060",
+        "source_url": "https://petroleumconnection.com/canadas-new-proximity-frac-sand-entrant-coming-online-coinciding-with-lng-ports-dramatically-increasing-frac-sand-demand/",
+        "in_target_persona": false,
+        "email": "JBlanchard@vitreominerals.com",
+        "phone": null,
+        "location": "Calgary, AB, Canada"
+      },
+      {
+        "name": "Douglas Fleming",
+        "title": "Senior Project Engineer (E.I.T.)",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/dwjfleming",
+        "source_url": "https://www.zoominfo.com/pic/vitreo-minerals-ltd/1334257251",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Prince George, BC, Canada"
       }
     ]
   }
