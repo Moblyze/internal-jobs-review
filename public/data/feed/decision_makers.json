@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-07-15T06:49:44.168Z"
+    "last_updated_at": "2026-07-15T18:29:05.287Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -8374,6 +8374,66 @@
         "email": null,
         "phone": null,
         "location": "Prince George, BC, Canada"
+      }
+    ]
+  },
+  "anushakti vidhyut nigam limited (npcil-ntpc jv)": {
+    "discovered_at": "2026-07-15T18:29:05.287Z",
+    "contacts": [
+      {
+        "name": "Anil Kumar Jadli",
+        "title": "Director (HR), NTPC Ltd; Nominee Director, Anushakti Vidhyut Nigam Limited",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/anil-jadli-0ab10173",
+        "source_url": "https://ntpc.co.in/board-directors/shri-anil-kumar-jadli",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "New Delhi, India"
+      },
+      {
+        "name": "Rajesh Veeraraghavan",
+        "title": "Director (Technical), NPCIL; Nominee Director, Anushakti Vidhyut Nigam Limited",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://www.npcil.nic.in/content/2045_1_RajeshVeeraraghavan.aspx",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Mumbai, India"
+      },
+      {
+        "name": "Shanmugha Sundaram Kothandapani",
+        "title": "Director (Projects), NTPC Ltd; Nominee Director, Anushakti Vidhyut Nigam Limited",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://ntpc.co.in/board-directors/shri-k-shanmugha-sundaram",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "New Delhi, India"
+      },
+      {
+        "name": "Narendra Kumar Mitharwal",
+        "title": "Director, NPCIL & Nominee Director, Anushakti Vidhyut Nigam Limited",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.falconebiz.com/company/ANUSHAKTI-VIDHYUT-NIGAM-LIMITED-U40300MH2011GOI212727",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Mumbai, India"
+      },
+      {
+        "name": "Parakkal Ayyappan Suresh Babu",
+        "title": "Director, NPCIL & Nominee Director, Anushakti Vidhyut Nigam Limited",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.falconebiz.com/company/ANUSHAKTI-VIDHYUT-NIGAM-LIMITED-U40300MH2011GOI212727",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Mumbai, India"
       }
     ]
   }

@@ -2,6 +2,117 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/tender-set-to-be-launched-for-mahi-banswara-plant"
+      }
+    ],
+    "headline": "Tender Imminent for Nuclear Island EPC Package, Mahi Banswara Rajasthan Atomic Nuclear Power Project (Units 1-4)",
+    "body": "Anushakti Vidhyut Nigam Limited - the joint venture between Nuclear Power Corporation of India Ltd and National Thermal Power Corporation - will soon launch a tender for the nuclear island EPC package for units 1 to 4 of the Mahi Banswara Rajasthan Atomic Nuclear Power Project.",
+    "url": "https://www.world-nuclear-news.org//articles/tender-set-to-be-launched-for-mahi-banswara-plant",
+    "published_at": "2026-07-15T12:21:58.000Z",
+    "hash": "d2d2a3000a614400",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "tender",
+    "region": "india-rajasthan",
+    "country": "india",
+    "tldr": "Anushakti Vidhyut Nigam Limited (NPCIL-NTPC JV) is about to launch the EPC tender for the nuclear island of Mahi Banswara Units 1-4. Contract award will follow, opening a significant engineering and construction hiring window for the successful contractor.",
+    "operator": {
+      "name": "Anushakti Vidhyut Nigam Limited (NPCIL-NTPC JV)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Mahi Banswara Rajasthan Atomic Nuclear Power Project",
+    "scope": [
+      "nuclear_island_epc",
+      "units_1_to_4"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear EPC Project Manager",
+        "Nuclear Island Construction Manager",
+        "Mechanical Engineer - Nuclear",
+        "Civil/Structural Engineer - Nuclear",
+        "Electrical Engineer - Nuclear",
+        "I&C Engineer - Nuclear",
+        "HSE Manager - Nuclear Construction",
+        "Quality Assurance Manager - Nuclear",
+        "Commissioning Engineer - Nuclear",
+        "Procurement Manager - Nuclear EPC"
+      ],
+      "skills": [
+        "nuclear island EPC",
+        "pressurised heavy water reactor",
+        "nuclear construction",
+        "ASME N-stamp",
+        "nuclear quality assurance",
+        "IAEA standards",
+        "civil nuclear construction",
+        "reactor building construction",
+        "nuclear mechanical systems",
+        "nuclear I&C"
+      ],
+      "certs_freetext": [
+        "ASME N-stamp",
+        "ISO 19443",
+        "IAEA nuclear safety certification",
+        "AERB qualification"
+      ],
+      "geo_rtw": "India or willing to relocate to Rajasthan, India",
+      "project_experience": [
+        "Kudankulam Nuclear Power Plant",
+        "Rajasthan Atomic Power Station",
+        "Kakrapar Atomic Power Station",
+        "Gorakhpur Haryana Anu Vidyut Pariyojana",
+        "Jaitapur Nuclear Power Project"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior to Principal",
+      "boolean_search": "(\"nuclear island\" OR \"nuclear EPC\" OR \"nuclear construction\" OR \"PHWR\" OR \"pressurised heavy water reactor\") AND (\"project manager\" OR \"construction manager\" OR \"commissioning engineer\" OR \"mechanical engineer\" OR \"civil engineer\" OR \"electrical engineer\" OR \"I&C engineer\" OR \"QA manager\") AND (\"nuclear power\" OR \"atomic power\" OR \"NPCIL\" OR \"AERB\" OR \"IAEA\") AND (India OR Rajasthan OR \"nuclear plant\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], a major nuclear island EPC tender is about to launch for the Mahi Banswara Rajasthan Atomic Nuclear Power Project (Units 1-4) in India. Are you open to exploring senior roles on this programme?",
+      "email_subject": "Nuclear Island EPC Opportunity – Mahi Banswara, Rajasthan (Units 1-4)",
+      "email_body": "Hi [Name],\n\nAnushakti Vidhyut Nigam Limited (the NPCIL-NTPC joint venture) is about to launch the EPC tender for the nuclear island at the Mahi Banswara Rajasthan Atomic Nuclear Power Project, covering Units 1 to 4.\n\nOnce the contract is awarded, the successful EPC contractor will need experienced nuclear construction and engineering professionals across disciplines including civil/structural, mechanical, electrical, I&C, QA, and HSE.\n\nGiven your background in [nuclear construction / nuclear EPC], I'd love to discuss how your experience aligns with the roles likely to come to market.\n\nWould you be open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Imminent EPC tender for the nuclear island of a named nuclear power project (Mahi Banswara) by a named JV operator (Anushakti Vidhyut Nigam Limited), creating a clear downstream contractor hiring signal.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states the tender will 'soon be launched', indicating the project is pre-award and has not yet reached FID/EPC contract award stage.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "b2fd6ae2-e68d-466e-b39d-a0015874a2fb",
+    "ingested_at": "2026-07-15T18:26:59.963Z",
+    "source_published_at": "2026-07-15T12:21:58.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "mining_com",
         "name": "MINING.com",
         "url": "https://www.mining.com/british-columbia-issues-environmental-assessment-for-vitreos-300m-silica-sand-mine/"

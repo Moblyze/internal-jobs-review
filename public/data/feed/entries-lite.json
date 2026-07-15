@@ -1,5 +1,48 @@
 [
   {
+    "id": "b2fd6ae2-e68d-466e-b39d-a0015874a2fb",
+    "ingested_at": "2026-07-15T18:26:59.963Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/tender-set-to-be-launched-for-mahi-banswara-plant"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "tender",
+    "region": "india-rajasthan",
+    "country": "india",
+    "headline": "Tender Imminent for Nuclear Island EPC Package, Mahi Banswara Rajasthan Atomic Nuclear Power Project (Units 1-4)",
+    "operator": {
+      "name": "Anushakti Vidhyut Nigam Limited (NPCIL-NTPC JV)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Mahi Banswara Rajasthan Atomic Nuclear Power Project",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
     "id": "fbedf2a7-c8b0-4030-8784-b91915c2eeaf",
     "ingested_at": "2026-07-15T06:48:36.894Z",
     "sources": [
