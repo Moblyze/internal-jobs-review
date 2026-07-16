@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-07-15T18:29:05.287Z"
+    "last_updated_at": "2026-07-16T06:53:49.677Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -8434,6 +8434,70 @@
         "email": null,
         "phone": null,
         "location": "Mumbai, India"
+      }
+    ]
+  },
+  "cb&i asset solutions": {
+    "discovered_at": "2026-07-16T06:53:49.677Z",
+    "contacts": []
+  },
+  "enquest": {
+    "discovered_at": "2026-07-16T06:53:49.677Z",
+    "contacts": [
+      {
+        "name": "Claire Scrimgeour",
+        "title": "Human Resources Director, North Sea",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/claire-scrimgeour-36087315",
+        "source_url": "https://www.enquest.com/about-us/our-senior-managers",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Aberdeen, UK"
+      },
+      {
+        "name": "Ian McKimmie",
+        "title": "General Manager, North Sea (Interim)",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://people.equilar.com/bio/person/ian-mckimmie-enquest-plc/72694733",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Aberdeen, UK"
+      },
+      {
+        "name": "Steve Bowyer",
+        "title": "General Manager, North Sea",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.enquest.com/fileadmin/content/Annual_Reports/Annual_Report_files_2024/EnQuest_ARA24_Corporate_Governance.pdf",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Aberdeen, UK"
+      },
+      {
+        "name": "Ali Talpur",
+        "title": "Director of Global Corporate Services",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://www.enquest.com/about-us/our-senior-managers",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Radzif Ahmed",
+        "title": "General Manager, South East Asia",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://people.equilar.com/bio/person/jonathan-copus-enquest-plc/31390925",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Malaysia"
       }
     ]
   }

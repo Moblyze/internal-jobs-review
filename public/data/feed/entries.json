@@ -2,6 +2,116 @@
   {
     "sources": [
       {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/cbi-to-complete-kittiwake-journey-with-life-of-field-contract-award-302826976.html"
+      }
+    ],
+    "headline": "CB&I Asset Solutions Wins EnQuest Kittiwake Life-of-Field Duty Holder Contract Through COP",
+    "body": "ABERDEEN, Scotland, July 16, 2026 /PRNewswire/ -- CB&I's Asset Solutions business (formerly part of Petrofac) has secured a further contract with EnQuest to continue managing the Kittiwake asset in the UK North Sea as Duty Holder through to cessation of production (COP) and...",
+    "url": "https://www.prnewswire.com/news-releases/cbi-to-complete-kittiwake-journey-with-life-of-field-contract-award-302826976.html",
+    "published_at": "2026-07-16T04:30:00.000Z",
+    "hash": "5d3539b063fc8f2d",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "process_plant_operations",
+      "marine_offshore_ops",
+      "ndt_inspection",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "uk-north-sea",
+    "country": "united_kingdom",
+    "tldr": "CB&I's Asset Solutions (ex-Petrofac) has secured a life-of-field Duty Holder contract with EnQuest for the Kittiwake asset in the UK North Sea, covering operations through to cessation of production. This signals ongoing staffing demand for offshore ops, maintenance, and eventual decommissioning readiness roles.",
+    "operator": {
+      "name": "EnQuest",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "CB&I Asset Solutions",
+      "matched_company_slug": null
+    },
+    "project_name": "Kittiwake",
+    "scope": [
+      "duty_holder",
+      "life_of_field_ops",
+      "cop_planning"
+    ],
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Offshore Installation Manager",
+        "Operations Supervisor",
+        "Production Technician",
+        "Maintenance Technician",
+        "HSE Advisor",
+        "Duty Holder Representative",
+        "Permit to Work Coordinator",
+        "Decommissioning Planner"
+      ],
+      "skills": [
+        "duty holder operations",
+        "cessation of production planning",
+        "UKCS offshore operations",
+        "permit to work",
+        "asset integrity",
+        "production operations",
+        "preventive maintenance",
+        "OPEX management"
+      ],
+      "certs_freetext": [
+        "BOSIET/FOET",
+        "OPITO",
+        "IWCF",
+        "NEBOSH Oil & Gas",
+        "UK MIST"
+      ],
+      "geo_rtw": "UK (UKCS offshore right to work)",
+      "project_experience": [
+        "Kittiwake",
+        "Petrofac Asset Solutions",
+        "EnQuest Heather",
+        "EnQuest Thistle",
+        "UKCS late-life asset operations"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"Offshore Installation Manager\" OR \"OIM\" OR \"Duty Holder\" OR \"Operations Supervisor\" OR \"Production Technician\" OR \"Maintenance Technician\" OR \"HSE Advisor\" OR \"Decommissioning Planner\") AND (\"UKCS\" OR \"UK North Sea\" OR \"North Sea\") AND (\"cessation of production\" OR \"late-life\" OR \"duty holder\" OR \"asset integrity\" OR \"Kittiwake\" OR \"EnQuest\" OR \"Petrofac Asset Solutions\" OR \"CB&I\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], CB&I Asset Solutions just secured the life-of-field Duty Holder contract for EnQuest's Kittiwake platform in the UK North Sea through COP. They'll be staffing ops and maintenance roles imminently — your UKCS background looks like a strong fit. Worth a conversation?",
+      "email_subject": "Kittiwake (EnQuest/CB&I) — Offshore Ops & Late-Life Roles Opening Now",
+      "email_body": "Hi [Name],\n\nCB&I Asset Solutions (formerly Petrofac Asset Solutions) has just been awarded the life-of-field Duty Holder contract for EnQuest's Kittiwake platform in the UK North Sea, running through to cessation of production.\n\nThis type of late-life, long-duration contract typically drives immediate demand for:\n• Offshore Installation Managers / Duty Holder Representatives\n• Production & Maintenance Technicians\n• HSE Advisors\n• COP/Decommissioning Planners\n\nGiven your background in UKCS offshore operations, I thought this could be a timely opportunity. Are you open to a brief call this week to explore fit?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named EPC/operations contract award between CB&I Asset Solutions and EnQuest for the Kittiwake platform in the UK North Sea, covering life-of-field Duty Holder responsibilities through cessation of production — a clear workforce-demand signal.",
+    "phase": "operating",
+    "phase_evidence": "Article states CB&I will 'continue managing the Kittiwake asset … as Duty Holder through to cessation of production (COP)', indicating the asset is in active production/late-life operating phase.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "dbc53d9f-5edb-45bf-b71b-8339758c84ff",
+    "ingested_at": "2026-07-16T06:52:30.005Z",
+    "source_published_at": "2026-07-16T04:30:00.000Z",
+    "contact_archetypes": [
+      "ops_director",
+      "hiring_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org//articles/tender-set-to-be-launched-for-mahi-banswara-plant"

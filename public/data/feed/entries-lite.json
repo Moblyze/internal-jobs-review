@@ -1,5 +1,49 @@
 [
   {
+    "id": "dbc53d9f-5edb-45bf-b71b-8339758c84ff",
+    "ingested_at": "2026-07-16T06:52:30.005Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/cbi-to-complete-kittiwake-journey-with-life-of-field-contract-award-302826976.html"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "process_plant_operations",
+      "marine_offshore_ops",
+      "ndt_inspection",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "uk-north-sea",
+    "country": "united_kingdom",
+    "headline": "CB&I Asset Solutions Wins EnQuest Kittiwake Life-of-Field Duty Holder Contract Through COP",
+    "operator": {
+      "name": "EnQuest",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "CB&I Asset Solutions",
+      "matched_company_slug": null
+    },
+    "project_name": "Kittiwake",
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "operating",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": []
+  },
+  {
     "id": "b2fd6ae2-e68d-466e-b39d-a0015874a2fb",
     "ingested_at": "2026-07-15T18:26:59.963Z",
     "sources": [
