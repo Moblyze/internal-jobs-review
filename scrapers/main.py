@@ -139,6 +139,12 @@ try:
 except ImportError:
     pass
 
+try:
+    from src.scrapers.crewbase import CrewBaseScraper
+    SCRAPER_REGISTRY['crewbase'] = CrewBaseScraper
+except ImportError:
+    pass
+
 
 def load_companies_config(config_path: str = 'config/companies.yaml') -> dict:
     """
