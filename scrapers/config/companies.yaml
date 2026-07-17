@@ -748,3 +748,20 @@ companies:
       posted_date: '[data-automation-id="postedOn"]'
       description: '[data-automation-id="jobPostingDescription"]'
     sheet_name: "Fugro"
+
+  # === Full-site sitemap crawl (plain HTTP, no browser needed) ===
+
+  crewbase:
+    name: "CrewBase"
+    platform: crewbase
+    base_url: "https://crewbase.pro"
+    # Not a Playwright rate limit -- this is the per-request delay used by the
+    # threaded requests-based crawl (see crewbase_config.max_workers below).
+    rate_limit_delay: 0.15
+    # ~10,955 job pages as of 2026-07-17; budget generously above the default
+    # 45-min company timeout since this is a full-site crawl, not a paginated API.
+    timeout_seconds: 3000
+    crewbase_config:
+      sitemap_index_url: "https://crewbase.pro/sitemap.xml"
+      max_workers: 8
+    sheet_name: "CrewBase"
