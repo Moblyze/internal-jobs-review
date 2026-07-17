@@ -1,0 +1,78 @@
+name: Dedupe CrewBase Tab
+
+# Manual one-shot: cleans up the "CrewBase" tab in "Job Scraping Results",
+# which accumulated ~2x duplicate rows per URL after an early pre-fix export
+# run partially wrote rows, hit a Sheets 429 quota error, aborted without
+# recording them in the dedup tracker, and a later fixed run re-wrote the
+# same jobs. Dedupes by the URL column only (no relevance filtering -- this
+# is a direct tab, not an `Aggregator - *` tab). Always writes a local CSV
+# backup of the tab's full current contents before any destructive write.
+#
+# ONLY ever targets the CrewBase tab -- the --tab value below is hardcoded,
+# not an input, so this workflow cannot be accidentally pointed at another
+# tab.
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (report only; do not modify the sheet)'
+        required: false
+        type: boolean
+        default: true
+
+jobs:
+  dedupe-crewbase:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: scrapers/requirements.txt
+
+      - name: Install Python dependencies
+        working-directory: scrapers
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Create service account credentials file
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          mkdir -p config
+          echo "$GOOGLE_SERVICE_ACCOUNT_JSON" > config/service_account.json
+          chmod 600 config/service_account.json
+
+      - name: Run CrewBase tab dedupe
+        working-directory: scrapers
+        env:
+          GOOGLE_SERVICE_ACCOUNT_PATH: ${{ github.workspace }}/config/service_account.json
+          GOOGLE_SHEETS_SPREADSHEET_NAME: ${{ secrets.GOOGLE_SHEETS_SPREADSHEET_NAME }}
+        run: |
+          CMD="python scripts/dedupe_direct_tab.py --tab CrewBase --backup-path data/CrewBase-backup-${{ github.run_id }}.csv"
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            CMD="$CMD --dry-run"
+          fi
+          echo "Running: $CMD"
+          $CMD
+
+      - name: Upload local backup as workflow artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: crewbase-backup-${{ github.run_id }}
+          path: scrapers/data/CrewBase-backup-${{ github.run_id }}.csv
+          retention-days: 90
+          if-no-files-found: warn
+
+      - name: Clean up credentials
+        if: always()
+        run: rm -f config/service_account.json
