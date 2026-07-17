@@ -9,6 +9,8 @@ IMPORTANT: The Google Sheet must be shared with the service account email addres
 
 import logging
 import os
+import random
+import time
 from datetime import datetime
 from typing import Optional
 
@@ -22,16 +24,79 @@ from src.models.job import JobPosting
 logger = logging.getLogger(__name__)
 
 
+def _is_rate_limit(err: Exception) -> bool:
+    """True if a gspread APIError is a 429 rate-limit / quota error.
+
+    Mirrors the same check in scrapers/scripts/update_source_matrix.py and
+    scripts/export-jobs.js (commit e1928f3) -- keep these in sync.
+    """
+    status = getattr(getattr(err, 'response', None), 'status_code', None)
+    if status == 429:
+        return True
+    text = str(err)
+    return 'Quota exceeded' in text or 'RATE_LIMIT_EXCEEDED' in text
+
+
+def _retry_after_seconds(err: Exception) -> Optional[float]:
+    """Read the Retry-After header off a gspread APIError's response, if present."""
+    response = getattr(err, 'response', None)
+    headers = getattr(response, 'headers', None) if response is not None else None
+    value = headers.get('Retry-After') if headers else None
+    if value is None:
+        return None
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return None
+
+
+def _retry_429(fn, *args, max_retries: int = 5, initial_delay: float = 15.0, **kwargs):
+    """Call fn with exponential backoff on Sheets 429 rate-limit errors.
+
+    The write quota is per-minute per service account and self-heals once the
+    window resets -- a large export (e.g. ~10k+ rows) can burst past it even
+    though each individual batch is small, so retries need to wait out the
+    window rather than failing the whole export. Respects the Retry-After
+    header when the API provides one. Mirrors the _retry_429 helper in
+    scrapers/scripts/update_source_matrix.py (commit e1928f3).
+    """
+    for attempt in range(max_retries + 1):
+        try:
+            return fn(*args, **kwargs)
+        except APIError as e:
+            if not _is_rate_limit(e) or attempt == max_retries:
+                raise
+            retry_after = _retry_after_seconds(e)
+            delay = retry_after if retry_after is not None else min(initial_delay * (2 ** attempt), 120.0)
+            delay += random.uniform(0, 5)
+            logger.warning(
+                f'Sheets write rate limit (429), attempt {attempt + 1}/{max_retries + 1}; '
+                f'retrying in {delay:.0f}s'
+            )
+            time.sleep(delay)
+
+
 class SheetsExporter:
     """
     Export job postings to Google Sheets with batch operations.
 
     Authenticates via service account and writes jobs to company-specific
-    worksheets in batches of 100 to avoid API rate limits.
+    worksheets in batches of BATCH_SIZE rows, paced INTER_BATCH_PAUSE_SECONDS
+    apart, to avoid API rate limits.
     """
 
-    # Batch size for writing rows (SHEETS-02)
-    BATCH_SIZE = 100
+    # Batch size for writing rows (SHEETS-02). Kept at 500 rather than 100 so a
+    # large export (e.g. CrewBase's ~10k+ rows) needs ~1/5 as many write calls;
+    # combined with the inter-batch pause below this keeps sustained large
+    # writes under the Sheets "Write requests per minute per user" quota,
+    # which a rapid-fire run of 100+ small batches could burst past even
+    # though each individual batch succeeds. A capped run under BATCH_SIZE
+    # still writes in a single batch, so this is transparent for small writes.
+    BATCH_SIZE = 500
+
+    # Pause between successive batch writes within one export_jobs() call, to
+    # stay comfortably under the per-minute write quota on very large exports.
+    INTER_BATCH_PAUSE_SECONDS = 2.0
 
     # Header row matching JobPosting.to_sheet_row() order (SHEETS-03)
     HEADER_ROW = [
@@ -123,16 +188,13 @@ class SheetsExporter:
         current_header = worksheet.row_values(1) if worksheet.row_count > 0 else []
         if not current_header or current_header != self.HEADER_ROW:
             logger.info(f"Updating header row to match schema: {sheet_name}")
-            worksheet.update(values=[self.HEADER_ROW], range_name='A1:N1', value_input_option='RAW')
+            _retry_429(
+                worksheet.update,
+                values=[self.HEADER_ROW], range_name='A1:N1', value_input_option='RAW'
+            )
 
         return worksheet
 
-    @retry(
-        retry=retry_if_exception_type(APIError),
-        stop=stop_after_attempt(3),
-        wait=wait_exponential(multiplier=2, min=4, max=60),
-        reraise=True
-    )
     def _batch_append(self, worksheet, rows: list[list], start_row: int):
         """
         Append rows to worksheet using explicit range notation to prevent column misalignment.
@@ -143,7 +205,7 @@ class SheetsExporter:
             start_row: Starting row number (1-indexed)
 
         Raises:
-            APIError: If API error persists after retries
+            APIError: If API error persists after retries (see _retry_429 at call site)
         """
         # Use explicit range notation to ensure data goes to columns A-N
         # This prevents the gspread append_rows() bug that shifts data to the right
@@ -186,19 +248,26 @@ class SheetsExporter:
                 f"Resizing worksheet {sheet_name}: "
                 f"{worksheet.row_count} → {new_size} rows"
             )
-            worksheet.resize(rows=new_size)
+            _retry_429(worksheet.resize, rows=new_size)
 
-        # Write in batches using explicit range notation (SHEETS-02)
+        # Write in batches using explicit range notation (SHEETS-02). Each
+        # batch write is retried with exponential backoff on 429s (_retry_429),
+        # and successive batches are paced apart (INTER_BATCH_PAUSE_SECONDS)
+        # so a large export doesn't burst past the per-minute write quota in
+        # the first place -- see module-level _retry_429 for details.
         total_written = 0
-        for i in range(0, len(rows), self.BATCH_SIZE):
+        num_batches = (len(rows) + self.BATCH_SIZE - 1) // self.BATCH_SIZE
+        for batch_num, i in enumerate(range(0, len(rows), self.BATCH_SIZE), start=1):
             batch = rows[i:i + self.BATCH_SIZE]
             start_row = next_row + total_written
-            self._batch_append(worksheet, batch, start_row)
+            _retry_429(self._batch_append, worksheet, batch, start_row)
             total_written += len(batch)
             logger.info(
                 f"Wrote batch to {sheet_name}: {len(batch)} jobs "
                 f"({total_written}/{len(rows)} total)"
             )
+            if batch_num < num_batches:
+                time.sleep(self.INTER_BATCH_PAUSE_SECONDS)
 
         logger.info(f"Successfully exported {total_written} jobs to {sheet_name}")
         return total_written
