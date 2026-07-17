@@ -2,6 +2,119 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/european-investment-bank-approves-cernavoda-refurb-loan"
+      }
+    ],
+    "headline": "EIB Approves €800M Loan for Cernavoda Nuclear Power Plant Unit 1 Refurbishment",
+    "body": "A loan of EUR800 million (USD914 million) for the refurbishment of Romania's Cernavoda Nuclear Power Plant’s unit 1 has been approved by the European Investment Bank.",
+    "url": "https://www.world-nuclear-news.org//articles/european-investment-bank-approves-cernavoda-refurb-loan",
+    "published_at": "2026-07-17T12:14:25.000Z",
+    "hash": "93cb17c4b2bd7957",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations",
+      "ndt_inspection"
+    ],
+    "signal_type": "regulatory",
+    "region": "romania",
+    "country": "romania",
+    "tldr": "The European Investment Bank has approved an €800M (USD 914M) loan to fund refurbishment of Cernavoda NPP Unit 1 in Romania, signalling a large upcoming construction/maintenance workforce demand at a named nuclear facility.",
+    "operator": {
+      "name": "Cernavoda Nuclear Power Plant (Romania)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Cernavoda Nuclear Power Plant Unit 1 Refurbishment",
+    "scope": [
+      "plant_refurbishment",
+      "unit_overhaul",
+      "nuclear_maintenance"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 914000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Construction Manager",
+        "Refurbishment Project Manager",
+        "Nuclear Maintenance Engineer",
+        "NDT Inspector",
+        "Mechanical Completion Engineer",
+        "Nuclear HSE Manager",
+        "Commissioning Engineer",
+        "I&C Technician",
+        "Outage Manager",
+        "Nuclear Welding Inspector"
+      ],
+      "skills": [
+        "nuclear refurbishment",
+        "CANDU reactor",
+        "outage management",
+        "mechanical completion",
+        "nuclear commissioning",
+        "NDT inspection",
+        "radiological protection",
+        "plant maintenance",
+        "I&C systems"
+      ],
+      "certs_freetext": [
+        "ASME Nuclear",
+        "IAEA safety cert",
+        "Radiological Protection certificate",
+        "PED (Pressure Equipment Directive)",
+        "NDT Level II/III (EN ISO 9712)"
+      ],
+      "geo_rtw": "EU/EEA right-to-work, Romania preferred",
+      "project_experience": [
+        "Cernavoda Unit 2",
+        "Bruce Power refurbishment",
+        "Darlington refurbishment",
+        "Flamanville EPR",
+        "Hinkley Point C"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"nuclear refurbishment\" OR \"CANDU\" OR \"nuclear outage\" OR \"reactor refurbishment\") AND (\"project manager\" OR \"construction manager\" OR \"commissioning engineer\" OR \"outage manager\" OR \"NDT inspector\" OR \"I&C technician\" OR \"mechanical completion\") AND (\"nuclear\" OR \"NPP\") AND (Romania OR \"Eastern Europe\" OR EU)"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], the EIB just approved €800M for Cernavoda NPP Unit 1 refurbishment in Romania — a major nuclear workforce ramp is coming. Your background in nuclear [refurbishment/outage/commissioning] looks like a strong fit. Would you be open to a quick chat?",
+      "email_subject": "Cernavoda NPP Unit 1 Refurbishment — Senior Nuclear Roles Incoming",
+      "email_body": "Hi [Name],\n\nThe European Investment Bank has just approved an €800M loan for the refurbishment of Romania's Cernavoda Nuclear Power Plant Unit 1 — one of the largest nuclear infrastructure investments in Eastern Europe.\n\nAs EPC and specialist contractors mobilise, we anticipate significant demand for experienced nuclear professionals across refurbishment, outage management, commissioning, NDT, and I&C disciplines.\n\nGiven your background in [relevant discipline], I'd love to explore whether there's a fit for upcoming roles on this programme.\n\nAre you open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "EIB loan approval of €800M for a named nuclear facility (Cernavoda NPP Unit 1) refurbishment is a discrete capital commitment signalling an imminent large-scale workforce demand event in the nuclear subsector.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article reports loan approval only; no EPC contract award or FID mentioned, placing the project at pre-sanction/financing stage.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "b82593c5-fa6d-44de-b1a8-bef2cd96ad52",
+    "ingested_at": "2026-07-17T18:24:39.209Z",
+    "source_published_at": "2026-07-17T12:14:25.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/cbi-to-complete-kittiwake-journey-with-life-of-field-contract-award-302826976.html"
