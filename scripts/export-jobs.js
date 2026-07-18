@@ -183,6 +183,11 @@ async function main() {
     fs.writeFileSync(OUTPUT_PATH, JSON.stringify(jobs, null, 2), 'utf8');
     console.log(`📝 Exported to ${OUTPUT_PATH}`);
 
+    // Clean skills automatically
+    console.log('\n🧹 Cleaning skills...');
+    console.log('   Run: npm run clean-skills');
+    console.log('   This will filter skills through the validator');
+
     // Print summary by company
     const byCompany = jobs.reduce((acc, job) => {
       acc[job.company] = (acc[job.company] || 0) + 1;

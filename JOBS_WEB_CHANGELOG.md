@@ -4,6 +4,130 @@ Continuous log of all development work across sessions.
 
 ---
 
+## 2026-02-10 (Session 2) - Employment Type Filter, Classifier Iterations, and Filter UX Improvements
+
+**Duration:** ~4 hours
+**Status:** Complete - Production deployment successful
+**Performance Impact:** New employment type filter dimension, improved classifier precision (eliminated 67% false positives), all companies now visible in filters
+
+### Overview
+
+Added employment type as a full filter dimension across the website with color-coded badges, iterated the employment type classifier three times to fix a 67% false positive rate in contractor detection, fixed the company filter to show all 13 companies, and updated all filter placeholders to use dynamic counts with "Filter" wording. Also resolved a deployment pipeline mismatch and git merge conflicts.
+
+### Key Features Added
+
+#### 1. Employment Type Filter — Full Feature (Commit: `5a6a71c`)
+
+**Added employment type as a new filter dimension across the entire site:**
+- QuickSelectPills for employment types (same pattern as companies/skills)
+- React Select dropdown when >5 types exist
+- Color-coded badges on JobCard and JobDetailPage:
+  - Green = Full-Time
+  - Orange = Contractor
+  - Teal = Internship
+  - Purple = Part-Time
+  - Yellow = Temporary
+- URL parameter support: `?employmentTypes=Full-Time,Contractor`
+
+**Files modified:**
+- `src/hooks/useFilterParams.js` - Added `employmentTypes` URL parameter parsing and serialization
+- `src/pages/JobListPage.jsx` - Employment type filter logic integrated into filter pipeline
+- `src/components/FiltersSearchable.jsx` - Employment type pills and dropdown rendering
+- `src/components/JobCard.jsx` - Color-coded employment type badge display
+- `src/pages/JobDetailPage.jsx` - Employment type shown in job detail header
+
+#### 2. Employment Type Classifier — 3 Iterations of Precision Improvement
+
+**Iterated the classifier three times to fix critical false positive issues:**
+
+**Iteration 1 — Naive keyword matching:**
+- Simple keyword search in `backfill_employment_type.py`
+- Result: 93% Full-Time, only 18 Contractor jobs
+- Problem: Too conservative, missing legitimate contractors
+
+**Iteration 2 — Expanded keywords:**
+- Added "contingent position", "contingency", duration-based contracts
+- Removed 2,000-character description truncation
+- Result: 108 Contractor jobs (6x increase)
+- Problem: Too aggressive, many false positives
+
+**Iteration 3 — Precision fix after manual audit:**
+- User flagged a Baker Hughes Director role incorrectly classified as Contractor (description mentioned "contingent workers" in context of managing vendors)
+- Deep audit revealed **72 of 108 (67%) contractor classifications were FALSE POSITIVES:**
+  - 59 KBR jobs: "contingent position based upon contract award" = government bid dependency, NOT contractor employment
+  - 13 roles that MANAGE contracts (Contract Manager, Contract Specialist, Vendor Portfolio Director, etc.)
+  - "Subcontractor" containing "contractor" as substring match
+
+**Final classifier design:**
+- Title matching: Only trust "contract" in parentheses `(Contract)`, with duration `6-month contract`, or standalone "contractor" (excluding "subcontractor")
+- Exclude "Contract Manager", "Contract Specialist" etc. from contractor classification
+- KBR "contingent upon contract award" explicitly excluded
+- "Employment Type: Full-time, Contract" → Full-Time (ATS metadata indicating gov contract context)
+- Context-aware description matching: checks 60-char prefix for duty verbs before matching "contingent worker"
+- Fixed Python `re.PatternError: look-behind requires fixed-width pattern` — switched from variable-width lookbehind to prefix-checking approach
+
+**Final distribution:** Full-Time 92.9%, Internship 6.0%, Contractor 0.8% (30 jobs), Temporary 0.3%, Part-Time 0.1%
+
+**Files modified (Job Scraping repo):**
+- `backfill_employment_type.py` - All three iterations of classifier improvement
+
+#### 3. Data Export & Deployment Pipeline Fix
+
+**Re-exported and resolved deployment issues:**
+- Re-exported 3,975 jobs across 13 companies from Google Sheets with `employmentType` column
+- Discovered deployment mismatch: site uses `deploy-fast.yml` with `actions/deploy-pages@v4` triggered on push to `main`, NOT `gh-pages` branch
+- Previous `npx gh-pages -d dist` deployments were being silently overwritten by the next GitHub Actions run
+- Committed all changes to `main` and pushed correctly
+- Resolved git merge conflicts during rebase (remote had newer commits from GitHub Actions bot)
+
+**Files modified:**
+- `scripts/export-jobs.js` - Column mapping for employmentType (column K, index 10)
+- `public/jobs.json` - Re-exported with 3,975 jobs, 13 companies, employmentType field
+
+#### 4. Company Filter — Show All Companies (Commit: `fdf0ea8`)
+
+**Fixed company filter to display all 13 companies:**
+- Changed `getTopCompanies(jobs, 10)` → `getTopCompanies(jobs, 50)` in FiltersSearchable
+- Previously only showing 10 companies, hiding Subsea7, ConocoPhillips, Occidental Petroleum (the 3 smallest by job count)
+
+**Files modified:**
+- `src/components/FiltersSearchable.jsx` - Company limit increased from 10 to 50
+
+#### 5. Filter Placeholder Text — Dynamic Counts & "Filter" Wording (Commit: `60a1cb1`)
+
+**Updated all 6 filter dropdowns to show dynamic item counts:**
+- Company: `Filter 13 companies...`
+- Employment Type: `Filter 5 employment types...`
+- Location: `Filter {N} locations...` (dynamically counted from grouped options)
+- Skills: `Filter {N} skills...`
+- Roles: `Filter by {N} roles...`
+- Certifications: `Filter {N} certifications...`
+- Changed all instances of "Search" to "Filter" per user request
+
+**Files modified:**
+- `src/components/FiltersSearchable.jsx` - All placeholder text updates with dynamic counting
+
+### Summary of All Files Modified
+
+**Jobs Web repo:**
+- `src/components/FiltersSearchable.jsx` - Employment type filter, company limit fix, placeholder text updates
+- `src/hooks/useFilterParams.js` - Added employmentTypes URL param
+- `src/pages/JobListPage.jsx` - Employment type filter logic
+- `src/components/JobCard.jsx` - Color-coded employment type badge
+- `src/pages/JobDetailPage.jsx` - Employment type in job header
+- `scripts/export-jobs.js` - Column mapping for employmentType (column K, index 10)
+- `public/jobs.json` - Re-exported with 3,975 jobs, 13 companies, employmentType field
+
+**Job Scraping repo:**
+- `backfill_employment_type.py` - 3 iterations of classifier improvement
+
+### Key Commits
+- `5a6a71c` - feat: add employment type filter and expand to 13 companies
+- `fdf0ea8` - fix: show all companies in filter pills instead of top 10
+- `60a1cb1` - ui: update filter placeholders with dynamic counts and "Filter" wording
+
+---
+
 ## 2026-02-10 - AI Skill Extraction and Skills Filter Overhaul
 
 **Status:** Complete - Production deployment successful
