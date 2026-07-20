@@ -2,6 +2,115 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/mochovce-4-reactor-assembly-completed"
+      }
+    ],
+    "headline": "Mochovce Unit 4 Reactor Assembly Complete — Physical Start-Up Tests to Begin",
+    "body": "Slovenské elektrárne has said the assembly and hermetic sealing of the reactor has been completed and Slovakia's Mochovce unit 4 is ready to move on to the physical tests leading to the first controlled fission reaction.",
+    "url": "https://www.world-nuclear-news.org//articles/mochovce-4-reactor-assembly-completed",
+    "published_at": "2026-07-20T11:21:08.000Z",
+    "hash": "845d7acdabb27641",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "regulatory",
+    "region": "central-europe",
+    "country": "slovakia",
+    "tldr": "Slovenské elektrárne has completed reactor assembly and hermetic sealing at Mochovce Unit 4, with physical start-up tests now imminent ahead of first controlled fission. This commissioning milestone signals active demand for nuclear commissioning engineers, startup specialists, and operations technicians.",
+    "operator": {
+      "name": "Slovenské elektrárne",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Slovenské elektrárne",
+      "matched_company_slug": null
+    },
+    "project_name": "Mochovce Unit 4",
+    "scope": [
+      "reactor_commissioning",
+      "physical_startup_testing",
+      "first_fission"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Commissioning Engineer",
+        "Reactor Startup Specialist",
+        "I&C Commissioning Technician",
+        "Nuclear Operations Engineer",
+        "Shift Supervisor",
+        "Systems Commissioning Engineer",
+        "Nuclear Safety Engineer",
+        "Reactor Physics Engineer"
+      ],
+      "skills": [
+        "nuclear startup testing",
+        "reactor commissioning",
+        "physical startup",
+        "PWR operations",
+        "VVER reactor systems",
+        "instrumentation and control",
+        "nuclear safety analysis",
+        "systems walkdown",
+        "pre-operational testing"
+      ],
+      "certs_freetext": [
+        "Nuclear Operator Licence",
+        "IAEA nuclear safety certification",
+        "Reactor Operator Certification",
+        "Senior Reactor Operator (SRO)"
+      ],
+      "geo_rtw": "EU/EEA right-to-work or Slovak work permit eligible",
+      "project_experience": [
+        "Mochovce Unit 3",
+        "Bohunice NPP",
+        "Flamanville EPR commissioning",
+        "Olkiluoto 3 commissioning",
+        "Hinkley Point C"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"nuclear commissioning\" OR \"reactor startup\" OR \"physical startup test\" OR \"nuclear startup engineer\" OR \"PWR commissioning\" OR \"VVER commissioning\") AND (\"commissioning engineer\" OR \"startup specialist\" OR \"reactor operator\" OR \"shift supervisor\" OR \"I&C technician\") AND (\"nuclear power plant\" OR \"NPP\" OR \"reactor\" OR \"fission\") NOT (\"oil\" OR \"gas\" OR \"wind\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], with Mochovce Unit 4 now moving into physical startup testing, Slovenské elektrárne will need experienced nuclear commissioning professionals on the ground in Slovakia. Are you open to discussing this milestone project?",
+      "email_subject": "Mochovce Unit 4 – Nuclear Commissioning Roles Now Active",
+      "email_body": "Hi [Name],\n\nSlovenské elektrárne has just announced that Mochovce Unit 4's reactor assembly and hermetic sealing are complete, with physical start-up tests set to begin imminently — the final commissioning phase before first controlled fission.\n\nThis is a critical hiring window for experienced nuclear commissioning engineers, reactor startup specialists, and I&C technicians with VVER or PWR background.\n\nWe are actively placing candidates for this phase and would welcome the chance to discuss your availability or referrals.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Slovenské elektrárne) and project (Mochovce Unit 4) with a discrete commissioning milestone — reactor assembly complete and physical startup tests imminent — creating an active nuclear commissioning hiring signal.",
+    "phase": "construction",
+    "phase_evidence": "Article states reactor assembly and hermetic sealing completed; physical start-up tests about to begin, indicating hookup/commissioning sub-phase.",
+    "construction_subphase": "commissioning",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "f3652414-f42a-401b-8e2e-22be7f133519",
+    "ingested_at": "2026-07-20T18:40:16.620Z",
+    "source_published_at": "2026-07-20T11:21:08.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/triton-uranium-commences-atlas-project-drill-program-at-the-historic-cinch-mine-302829259.html"

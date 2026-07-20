@@ -1,5 +1,47 @@
 [
   {
+    "id": "f3652414-f42a-401b-8e2e-22be7f133519",
+    "ingested_at": "2026-07-20T18:40:16.620Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/mochovce-4-reactor-assembly-completed"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "regulatory",
+    "region": "central-europe",
+    "country": "slovakia",
+    "headline": "Mochovce Unit 4 Reactor Assembly Complete — Physical Start-Up Tests to Begin",
+    "operator": {
+      "name": "Slovenské elektrárne",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Slovenské elektrárne",
+      "matched_company_slug": null
+    },
+    "project_name": "Mochovce Unit 4",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "commissioning",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": []
+  },
+  {
     "id": "0078f0ff-79c4-4e51-9839-ad37ddc33220",
     "ingested_at": "2026-07-20T12:45:55.711Z",
     "sources": [
