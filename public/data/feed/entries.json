@@ -2,6 +2,108 @@
   {
     "sources": [
       {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/triton-uranium-commences-atlas-project-drill-program-at-the-historic-cinch-mine-302829259.html"
+      }
+    ],
+    "headline": "Triton Uranium Commences 2026 Drill Program at Atlas Project, Cinch Mine, Saskatchewan",
+    "body": "SASKATOON, SK, July 20, 2026 /PRNewswire/ -- Triton Uranium Corp. (\"Triton\" or the \"Company\") has commenced the 2026 drill program at its flagship Atlas Project near Uranium City, Saskatchewan. The program has begun at the historic Cinch underground mine, where two 350-meter diamond drill...",
+    "url": "https://www.prnewswire.com/news-releases/triton-uranium-commences-atlas-project-drill-program-at-the-historic-cinch-mine-302829259.html",
+    "published_at": "2026-07-20T12:03:00.000Z",
+    "hash": "d40c2df814cb2f1b",
+    "subsector": "mining",
+    "discipline_tags": [
+      "drilling_operations",
+      "survey_geophysical"
+    ],
+    "signal_type": "tender",
+    "region": "canada-saskatchewan",
+    "country": "canada",
+    "tldr": "Triton Uranium has mobilized a diamond drill program at its Atlas Project near Uranium City, SK. Active drilling underway signals immediate demand for drill crews, geologists, and field support personnel.",
+    "operator": {
+      "name": "Triton Uranium Corp.",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Atlas Project (Cinch Mine)",
+    "scope": [
+      "diamond_drilling",
+      "exploration_drilling"
+    ],
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Diamond Driller",
+        "Drill Helper",
+        "Exploration Geologist",
+        "Field Geologist",
+        "Core Technician",
+        "Drill Site Supervisor",
+        "Camp Manager"
+      ],
+      "skills": [
+        "diamond drilling",
+        "HQ/NQ core drilling",
+        "drill core logging",
+        "uranium exploration",
+        "remote camp operations",
+        "geological sampling"
+      ],
+      "certs_freetext": [
+        "WHMIS",
+        "Standard First Aid",
+        "H2S Alive"
+      ],
+      "geo_rtw": "Canada — must be eligible to work in Canada; Saskatchewan experience preferred",
+      "project_experience": [
+        "Athabasca Basin uranium exploration",
+        "Cameco McArthur River",
+        "Denison Mines Wheeler River",
+        "NexGen Arrow Project"
+      ],
+      "yoe_band": "3-10",
+      "seniority": "mid-level field / trades",
+      "boolean_search": "(\"diamond driller\" OR \"drill helper\" OR \"exploration geologist\" OR \"field geologist\" OR \"core technician\" OR \"drill site supervisor\") AND (\"uranium\" OR \"Athabasca\" OR \"Saskatchewan\" OR \"diamond drilling\" OR \"HQ core\" OR \"NQ core\") AND (Canada OR Saskatchewan OR \"Uranium City\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Triton Uranium just kicked off their 2026 diamond drill program at the Atlas Project (Cinch Mine) in Saskatchewan. Active mobilization now — looking to connect experienced drill crews and exploration geologists. Worth a quick chat?",
+      "email_subject": "Active Drill Program — Triton Uranium Atlas Project, Saskatchewan",
+      "email_body": "Hi [Name],\n\nTriton Uranium Corp. has just commenced their 2026 diamond drill program at the Atlas Project near Uranium City, Saskatchewan — drilling is live as of July 2026.\n\nWith two 350-metre drill holes underway at the historic Cinch underground mine, there is immediate demand for experienced diamond drillers, drill helpers, exploration geologists, and field support personnel comfortable with remote camp operations in the Athabasca Basin.\n\nIf you have availability or know someone with relevant uranium exploration or diamond drilling experience in Canada, I'd love to connect.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Triton Uranium Corp.) has commenced an active drill program at a named project (Atlas Project, Cinch Mine), representing a discrete, actionable labor-demand event in the mining subsector.",
+    "phase": "construction",
+    "phase_evidence": "Article states 'has commenced the 2026 drill program' confirming active field execution underway.",
+    "construction_subphase": "peak",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "0078f0ff-79c4-4e51-9839-ad37ddc33220",
+    "ingested_at": "2026-07-20T12:45:55.711Z",
+    "source_published_at": "2026-07-20T12:03:00.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org//articles/european-investment-bank-approves-cernavoda-refurb-loan"
