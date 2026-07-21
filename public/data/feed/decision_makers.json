@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-07-20T12:47:34.358Z"
+    "last_updated_at": "2026-07-21T12:36:34.878Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -8618,6 +8618,126 @@
         "email": null,
         "phone": null,
         "location": "Saskatchewan, Canada"
+      }
+    ]
+  },
+  "jacobs": {
+    "discovered_at": "2026-07-21T12:36:34.878Z",
+    "contacts": [
+      {
+        "name": "Nicole Lovell",
+        "title": "Vice President, Global Talent Acquisition",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/nicolelovell1",
+        "source_url": "https://www.linkedin.com/in/nicolelovell1/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Austin, TX, USA"
+      },
+      {
+        "name": "Jarvis Williams Jr.",
+        "title": "Talent Acquisition Professional / Senior Corporate Recruiter",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/jarvis-williams-jr-951a723a",
+        "source_url": "https://www.linkedin.com/in/jarvis-williams-jr-951a723a/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Jacksonville, FL, USA"
+      },
+      {
+        "name": "Theresa Czolgosz",
+        "title": "Talent Acquisition Recruiter",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/czolgosztrecruiter",
+        "source_url": "https://www.linkedin.com/in/czolgosztrecruiter/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "St. Louis, MO, USA"
+      },
+      {
+        "name": "Lauren Moeser",
+        "title": "Talent Acquisition",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/lauren-moeser-44774255",
+        "source_url": "https://www.linkedin.com/in/lauren-moeser-44774255/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Patrick Hill",
+        "title": "Executive Vice President & President, Global Operations",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/patrickxhill",
+        "source_url": "https://www.jacobs.com/newsroom/news/patrick-hill-global-growth-leadership-and-power-infrastructure",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Melbourne, Australia"
+      }
+    ]
+  },
+  "great british energy – nuclear": {
+    "discovered_at": "2026-07-21T12:36:34.878Z",
+    "contacts": [
+      {
+        "name": "Rachel Welch",
+        "title": "Chief People Officer",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/rachel-welch-fcipd-a064a114",
+        "source_url": "https://www.gov.uk/government/news/great-british-nuclear-announces-key-leaders-to-power-next-phase",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "London, UK"
+      },
+      {
+        "name": "Nick Smallwood",
+        "title": "Programme Development and Assurance Director",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://www.gov.uk/government/news/great-british-nuclear-announces-key-leaders-to-power-next-phase",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "London, UK"
+      },
+      {
+        "name": "Simon Roddy",
+        "title": "Chief Executive Officer",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.gov.uk/government/news/gbe-n-appoints-chief-executive-officer",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "London, UK"
+      },
+      {
+        "name": "Neil Cooper",
+        "title": "Chief Financial Officer (interim Accounting Officer)",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.gov.uk/government/news/leadership-transition-at-great-british-energy-nuclear",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "London, UK"
+      },
+      {
+        "name": "Kenny Douglas",
+        "title": "Managing Director, GBN Development Companies",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://www.gov.uk/government/news/great-british-nuclear-announces-key-leaders-to-power-next-phase",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "London, UK"
       }
     ]
   }

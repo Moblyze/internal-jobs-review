@@ -1,5 +1,47 @@
 [
   {
+    "id": "b26b3fce-1ec8-46d7-95be-a8b597205649",
+    "ingested_at": "2026-07-21T12:35:01.906Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/jacobs-to-assist-in-planning-of-uk-smr-projects"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "uk",
+    "country": "united_kingdom",
+    "headline": "Jacobs Selected by Great British Energy – Nuclear for UK SMR Planning & Consenting Services",
+    "operator": {
+      "name": "Great British Energy – Nuclear",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Jacobs",
+      "matched_company_slug": null
+    },
+    "project_name": "UK Small Modular Reactor (SMR) Programme",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
     "id": "f3652414-f42a-401b-8e2e-22be7f133519",
     "ingested_at": "2026-07-20T18:40:16.620Z",
     "sources": [

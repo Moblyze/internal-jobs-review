@@ -4,6 +4,115 @@
       {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org//articles/jacobs-to-assist-in-planning-of-uk-smr-projects"
+      }
+    ],
+    "headline": "Jacobs Selected by Great British Energy – Nuclear for UK SMR Planning & Consenting Services",
+    "body": "USA-based engineering group Jacobs has been selected by Great British Energy – Nuclear to provide planning and consenting services for the planned small modular reactor projects in the UK.",
+    "url": "https://www.world-nuclear-news.org//articles/jacobs-to-assist-in-planning-of-uk-smr-projects",
+    "published_at": "2026-07-21T14:43:03.000Z",
+    "hash": "19c64d42db5fb709",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "uk",
+    "country": "united_kingdom",
+    "tldr": "Jacobs has been awarded planning and consenting services for UK small modular reactor projects under Great British Energy – Nuclear, signalling early-stage pre-sanction hiring for nuclear planners, permitting specialists, and engineers.",
+    "operator": {
+      "name": "Great British Energy – Nuclear",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Jacobs",
+      "matched_company_slug": null
+    },
+    "project_name": "UK Small Modular Reactor (SMR) Programme",
+    "scope": [
+      "planning_consenting",
+      "regulatory_permitting",
+      "feed"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Planning Consultant",
+        "Consenting Manager",
+        "Environmental Impact Assessment Lead",
+        "Nuclear Regulatory Affairs Specialist",
+        "Development Consent Order (DCO) Manager",
+        "Nuclear Project Manager",
+        "FEED Engineer – Nuclear",
+        "Stakeholder Engagement Manager"
+      ],
+      "skills": [
+        "small modular reactors",
+        "nuclear consenting",
+        "development consent order",
+        "environmental impact assessment",
+        "nuclear regulatory compliance",
+        "planning applications",
+        "stakeholder engagement",
+        "UK nuclear licensing"
+      ],
+      "certs_freetext": [
+        "NVQ Nuclear",
+        "IEMA",
+        "Chartered Planner (MRTPI)",
+        "Nuclear Security Clearance (UK)",
+        "CMIOSH"
+      ],
+      "geo_rtw": "UK right-to-work required",
+      "project_experience": [
+        "Hinkley Point C",
+        "Sizewell C",
+        "Rolls-Royce SMR",
+        "NuScale SMR",
+        "Wylfa Newydd",
+        "Bradwell B"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "senior-to-principal",
+      "boolean_search": "(\"small modular reactor\" OR \"SMR\" OR \"nuclear consenting\" OR \"Development Consent Order\" OR \"DCO\" OR \"nuclear planning\") AND (\"planning\" OR \"consenting\" OR \"regulatory\" OR \"EIA\" OR \"environmental impact assessment\") AND (\"nuclear\" OR \"NNB\" OR \"GDA\" OR \"ONR\") AND (\"UK\" OR \"United Kingdom\" OR \"England\" OR \"Wales\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Jacobs has just been selected to deliver planning & consenting services for UK SMR projects under Great British Energy – Nuclear. We're identifying senior nuclear planning and consenting specialists — would you be open to a brief conversation?",
+      "email_subject": "UK SMR Programme – Jacobs Planning & Consenting Roles",
+      "email_body": "Hi [Name],\n\nJacobs has been appointed by Great British Energy – Nuclear to provide planning and consenting services for the UK's SMR programme — one of the most significant nuclear development pipelines in the country.\n\nGiven your background in [nuclear consenting / DCO / nuclear regulatory affairs], I wanted to reach out early as roles are expected to ramp over the coming months.\n\nWould you be available for a quick call to discuss?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "FEED/planning contract award naming Jacobs as service provider and Great British Energy – Nuclear as client for UK SMR projects, creating identifiable early-stage nuclear workforce demand.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states Jacobs will 'provide planning and consenting services for the planned small modular reactor projects', indicating pre-FID / pre-consent stage.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "b26b3fce-1ec8-46d7-95be-a8b597205649",
+    "ingested_at": "2026-07-21T12:35:01.906Z",
+    "source_published_at": "2026-07-21T14:43:03.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org//articles/mochovce-4-reactor-assembly-completed"
       }
     ],
