@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-07-21T12:36:34.878Z"
+    "last_updated_at": "2026-07-21T18:32:33.768Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -8738,6 +8738,66 @@
         "email": null,
         "phone": null,
         "location": "London, UK"
+      }
+    ]
+  },
+  "omv petrom sa": {
+    "discovered_at": "2026-07-21T18:32:33.768Z",
+    "contacts": [
+      {
+        "name": "Iolanda Miulescu",
+        "title": "Talent Acquisition Manager",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/iolanda-miulescu-0b0aa319",
+        "source_url": "https://rocketreach.co/omv-petrom-management_b5c633caf42e0c5d",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Romania"
+      },
+      {
+        "name": "Radu Mavrodin",
+        "title": "Vice President People & Culture",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/radu-mavrodin-180ba0203",
+        "source_url": "https://rocketreach.co/omv-petrom-hr-department_b5c633caf42e0c5d",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Bucharest, Romania"
+      },
+      {
+        "name": "Andreea Iosif",
+        "title": "Department Manager HR Business Partner",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/andreea-iosif-b158137",
+        "source_url": "https://rocketreach.co/andreea-iosif-email_10655428",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Bucharest, Romania"
+      },
+      {
+        "name": "Cristian Hubati",
+        "title": "Executive Board Member – Exploration & Production",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/cristian-hubati-8366b3",
+        "source_url": "https://www.omvpetrom.com/en/about-us/corporate-governance/executive-board",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Bucharest, Romania"
+      },
+      {
+        "name": "Eliza Aldea",
+        "title": "Recruiter",
+        "persona": "ta",
+        "linkedin_url": null,
+        "source_url": "https://rocketreach.co/omv-petrom-hr-department_b5c633caf42e0c5d",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
       }
     ]
   }

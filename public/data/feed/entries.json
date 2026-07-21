@@ -2,6 +2,120 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/neptun_deep_production_unit_installed-21-jul-2026-184180-article/?rss=true"
+      }
+    ],
+    "headline": "OMV Petrom Installs Offshore Production Platform for Neptun Deep, Black Sea",
+    "body": "OMV Petrom SA has completed the installation of the offshore production platform for Neptun Deep, a Black Sea project that the company says will position Rom...",
+    "url": "https://www.rigzone.com/news/neptun_deep_production_unit_installed-21-jul-2026-184180-article/?rss=true",
+    "published_at": "2026-07-21T14:57:16.000Z",
+    "hash": "7dfab7c06d0bd1c3",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "marine_offshore_ops",
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "vessel_mob",
+    "region": "black-sea",
+    "country": "romania",
+    "tldr": "OMV Petrom has completed installation of the Neptun Deep production platform in the Black Sea, signalling the project is entering commissioning/hookup phase — a prime window for commissioning engineers, startup specialists, and offshore operations crew.",
+    "operator": {
+      "name": "OMV Petrom SA",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "OMV Petrom SA",
+      "matched_company_slug": null
+    },
+    "project_name": "Neptun Deep",
+    "scope": [
+      "topsides_install",
+      "platform_installation",
+      "hookup_commissioning"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Commissioning Engineer",
+        "Startup Specialist",
+        "Offshore Operations Technician",
+        "Mechanical Completion Engineer",
+        "Process Commissioning Lead",
+        "Hookup & Commissioning Supervisor",
+        "Offshore Installation Manager",
+        "Control Systems Engineer",
+        "Instrument & Control Technician",
+        "Operations Readiness Lead"
+      ],
+      "skills": [
+        "offshore platform commissioning",
+        "hookup and commissioning",
+        "mechanical completion",
+        "systems handover",
+        "pre-startup safety review",
+        "process startup",
+        "offshore operations",
+        "Black Sea offshore",
+        "topsides installation"
+      ],
+      "certs_freetext": [
+        "BOSIET",
+        "HUET",
+        "OPITO Offshore Safety",
+        "GWO (if wind crossover)",
+        "CompEx (Ex-rated equipment)",
+        "IWCF/IWCF Well Control (if applicable)"
+      ],
+      "geo_rtw": "Romania / EU right-to-work or Black Sea offshore eligible",
+      "project_experience": [
+        "Neptun Deep",
+        "Black Sea offshore",
+        "OMV Petrom offshore",
+        "BSOG Block EX30 Neptun"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"commissioning engineer\" OR \"hookup commissioning\" OR \"mechanical completion\" OR \"startup engineer\" OR \"operations readiness\" OR \"offshore commissioning\") AND (\"offshore\" OR \"platform\" OR \"Black Sea\" OR \"topsides\") AND (\"process\" OR \"instrument\" OR \"control systems\" OR \"I&C\" OR \"electrical\") NOT (\"onshore\" OR \"wind turbine\" OR \"solar\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], OMV Petrom has just completed platform installation at Neptun Deep in the Black Sea — commissioning ramp is imminent. Your offshore commissioning background looks highly relevant. Are you open to a conversation about upcoming opportunities on this project?",
+      "email_subject": "Neptun Deep – Offshore Commissioning Roles | Black Sea | OMV Petrom",
+      "email_body": "Hi [Name],\n\nOMV Petrom has completed installation of the offshore production platform for the Neptun Deep project in the Black Sea, meaning the project is now moving into hookup and commissioning phase — one of the busiest hiring windows for offshore specialists.\n\nWe are actively mapping talent for commissioning engineers, mechanical completion leads, I&C technicians, and startup specialists with offshore platform experience.\n\nGiven your background in [relevant experience], I'd love to explore whether Neptun Deep could be a strong fit for your next role.\n\nAre you available for a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Platform installation completion at the named Neptun Deep project by named operator OMV Petrom signals imminent commissioning phase — a discrete, actionable workforce-demand event in offshore O&G.",
+    "phase": "construction",
+    "phase_evidence": "Article states OMV Petrom 'has completed the installation of the offshore production platform' — indicating installation is done and commissioning is the next phase.",
+    "construction_subphase": "commissioning",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "ceb98bac-10ce-4d5f-b82b-e2ecd2b4af98",
+    "ingested_at": "2026-07-21T18:30:56.926Z",
+    "source_published_at": "2026-07-21T14:57:16.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org//articles/jacobs-to-assist-in-planning-of-uk-smr-projects"

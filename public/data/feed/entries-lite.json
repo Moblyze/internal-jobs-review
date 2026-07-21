@@ -1,5 +1,49 @@
 [
   {
+    "id": "ceb98bac-10ce-4d5f-b82b-e2ecd2b4af98",
+    "ingested_at": "2026-07-21T18:30:56.926Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/neptun_deep_production_unit_installed-21-jul-2026-184180-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "marine_offshore_ops",
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "vessel_mob",
+    "region": "black-sea",
+    "country": "romania",
+    "headline": "OMV Petrom Installs Offshore Production Platform for Neptun Deep, Black Sea",
+    "operator": {
+      "name": "OMV Petrom SA",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "OMV Petrom SA",
+      "matched_company_slug": null
+    },
+    "project_name": "Neptun Deep",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "commissioning",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": []
+  },
+  {
     "id": "b26b3fce-1ec8-46d7-95be-a8b597205649",
     "ingested_at": "2026-07-21T12:35:01.906Z",
     "sources": [
