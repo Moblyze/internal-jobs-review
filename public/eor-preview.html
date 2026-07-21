@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Prototype visual only. Keep out of search engines. -->
+  <meta name="robots" content="noindex, nofollow" />
+  <title>EOR Handoff Sheet — Prototype Preview</title>
+  <style>
+    :root {
+      --page: #12151b;
+      --modal: #1a202c;
+      --line: rgba(255, 255, 255, 0.16);
+      --line-soft: rgba(255, 255, 255, 0.10);
+      --muted: rgba(255, 255, 255, 0.60);
+      --muted-2: rgba(255, 255, 255, 0.50);
+      --field: rgba(255, 255, 255, 0.06);
+      --field-border: rgba(255, 255, 255, 0.22);
+      --green: #009966;
+      --green-hover: #007a52;
+      --teal: #2effba;
+      --radius: 4px;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0; padding: 0;
+      background: var(--page);
+      color: #fff;
+      font-family: 'Hubot Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      padding: 28px 16px 48px;
+    }
+    .banner { color: var(--muted); font-size: 13px; text-align: center; }
+    .reopen {
+      background: transparent; color: rgba(255,255,255,0.85);
+      border: 1px solid var(--field-border); border-radius: var(--radius);
+      padding: 6px 12px; font-size: 13px; cursor: pointer;
+    }
+    .reopen:hover { background: rgba(255,255,255,0.08); }
+
+    .modal {
+      width: 100%; max-width: 640px;
+      background: var(--modal);
+      border-radius: var(--radius);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.55);
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      max-height: calc(100vh - 48px);
+    }
+    .m-head { padding: 20px 24px 12px; }
+    .m-title { font-size: 18px; font-weight: 700; }
+    .m-sub { font-size: 14px; color: var(--muted); margin-top: 4px; line-height: 1.4; }
+    .m-body { padding: 4px 24px 8px; overflow-y: auto; }
+    .m-foot {
+      padding: 16px 24px 20px; border-top: 1px solid var(--line);
+      display: flex; flex-direction: column; gap: 12px;
+    }
+
+    .section { padding-top: 16px; }
+    .section + .section { border-top: 1px solid var(--line-soft); margin-top: 16px; }
+    .section-label {
+      font-size: 11px; font-weight: 700; color: var(--muted-2);
+      text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 10px;
+    }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px; }
+    @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
+    .field { display: flex; flex-direction: column; }
+    .field label {
+      font-size: 11px; color: var(--muted); font-weight: 500; margin-bottom: 4px;
+    }
+    .field input {
+      background: var(--field); border: 1px solid var(--field-border);
+      color: #fff; border-radius: var(--radius);
+      padding: 7px 10px; font-size: 14px; font-family: inherit; width: 100%;
+    }
+    .field input:hover { border-color: rgba(255,255,255,0.30); }
+    .field input:focus { outline: none; border-color: var(--teal); }
+    .field input[readonly] { opacity: 0.6; cursor: not-allowed; }
+    input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(0.85); cursor: pointer; }
+
+    .row-with-remove { display: flex; gap: 6px; align-items: center; }
+    .row-with-remove input { flex: 1; }
+    .remove-btn {
+      background: transparent; border: none; color: var(--muted);
+      cursor: pointer; font-size: 14px; padding: 4px 6px; border-radius: var(--radius);
+    }
+    .remove-btn:hover { background: rgba(255,255,255,0.10); color: #fff; }
+
+    .add-wrap { position: relative; margin-top: 14px; }
+    .add-btn {
+      background: transparent; color: rgba(255,255,255,0.9);
+      border: 1px solid var(--field-border); border-radius: var(--radius);
+      padding: 5px 10px; font-size: 12px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
+    }
+    .add-btn:hover { background: rgba(255,255,255,0.08); }
+    .add-menu {
+      display: none; position: absolute; top: 36px; left: 0; z-index: 20;
+      width: 280px; max-width: 90vw; max-height: 280px; overflow-y: auto;
+      background: #232a35; border: 1px solid var(--field-border);
+      border-radius: var(--radius); padding: 8px;
+    }
+    .add-menu.open { display: block; }
+    .add-menu input.search {
+      width: 100%; background: var(--field); border: 1px solid var(--field-border);
+      color: #fff; border-radius: var(--radius); padding: 6px 8px; font-size: 13px; margin-bottom: 8px; font-family: inherit;
+    }
+    .add-item {
+      display: block; width: 100%; text-align: left; background: transparent; border: none;
+      color: #fff; padding: 6px 8px; border-radius: var(--radius); cursor: pointer;
+    }
+    .add-item:hover { background: rgba(255,255,255,0.14); }
+    .add-item .ai-label { font-size: 14px; font-weight: 600; }
+    .add-item .ai-value { font-size: 12px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    .docs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; }
+    @media (max-width: 560px) { .docs { grid-template-columns: 1fr; } }
+    .doc { display: flex; align-items: center; gap: 8px; }
+    .doc label { display: flex; align-items: center; gap: 8px; font-size: 14px; cursor: pointer; }
+    .doc input[type="checkbox"] { width: 16px; height: 16px; accent-color: #0d9488; }
+    .tag {
+      font-size: 11px; padding: 1px 8px; border-radius: 9999px;
+      background: rgba(0,153,102,0.20); color: #6ff2c0;
+    }
+    .tag.gray { background: rgba(255,255,255,0.12); color: var(--muted); }
+
+    .travel-head { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+    .travel-head .q { font-size: 14px; color: rgba(255,255,255,0.8); }
+    .radios { display: flex; gap: 20px; }
+    .radios label { display: flex; align-items: center; gap: 6px; font-size: 14px; cursor: pointer; }
+    .radios input { accent-color: #0d9488; }
+    #travelFields { display: none; margin-top: 14px; }
+    #travelFields.open { display: grid; }
+
+    .sends-to {
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+      background: rgba(255,255,255,0.05); border-radius: var(--radius); padding: 8px 12px;
+    }
+    .sends-to .st-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+    .sends-to .st-email { font-size: 14px; color: rgba(255,255,255,0.9); font-weight: 500; }
+    .foot-actions { display: flex; justify-content: space-between; align-items: center; }
+    .btn-cancel {
+      background: transparent; border: none; color: rgba(255,255,255,0.8);
+      font-size: 15px; padding: 8px 14px; cursor: pointer; border-radius: var(--radius); font-family: inherit;
+    }
+    .btn-cancel:hover { background: rgba(255,255,255,0.08); }
+    .btn-confirm {
+      background: var(--green); color: #fff; border: none; border-radius: var(--radius);
+      font-size: 15px; font-weight: 600; padding: 9px 18px; cursor: pointer; font-family: inherit;
+    }
+    .btn-confirm:hover { background: var(--green-hover); }
+    .note { font-size: 12px; color: var(--muted); text-align: center; max-width: 640px; }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="banner">EOR Handoff Confirmation Sheet — prototype preview (sample data, nothing is saved or sent)</div>
+    <button class="reopen" onclick="document.getElementById('modal').style.display='flex'">Reopen sheet</button>
+
+    <div class="modal" id="modal">
+      <div class="m-head">
+        <div class="m-title">Confirm Hire &amp; EOR Handoff</div>
+        <div class="m-sub">Confirming marks Jordan Rivers as hired and emails the onboarding team the assignment details below.</div>
+      </div>
+
+      <div class="m-body">
+        <div class="section">
+          <p class="section-label">Contractor &amp; Assignment</p>
+          <div class="grid">
+            <div class="field"><label>Contractor Name</label><input value="Jordan Rivers" /></div>
+            <div class="field"><label>Position</label><input value="Maintenance Manager" /></div>
+            <div class="field"><label>Phone Number</label><input value="+1 (555) 010-4477" /></div>
+            <div class="field"><label>Email</label><input value="jordan.rivers@example.com" /></div>
+            <div class="field"><label>Scope of Work / Assignment</label><input value="Quayside Rig Overhaul" /></div>
+            <div class="field"><label>Assignment Location</label><input value="Houston / Lafayette" /></div>
+            <div class="field"><label>Assignment Start Date</label><input type="date" value="2026-07-15" /></div>
+            <div class="field"><label>Assignment End Date</label><input type="date" value="2026-07-25" /></div>
+            <div class="field"><label>Day Rate to Man</label><input value="$850" /></div>
+            <div class="field"><label>Day Rate Markup for EOR</label><input value="9%" /></div>
+            <div class="field"><label>Travel Days</label><input value="N/A" /></div>
+            <div class="field"><label>Moblyze Reference Number</label><input value="a1b2c3d4-0000-4f00-8000-abcdef123456" readonly /></div>
+          </div>
+
+          <div id="extraFields" class="grid" style="margin-top:12px;"></div>
+
+          <div class="add-wrap">
+            <button class="add-btn" id="addBtn">+ Add detail</button>
+            <div class="add-menu" id="addMenu">
+              <input class="search" id="addSearch" placeholder="Search details..." />
+              <div id="addList"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <p class="section-label">Required Documentation</p>
+          <div class="docs">
+            <div class="doc"><label><input type="checkbox" checked /> Resume</label><span class="tag">attached</span></div>
+            <div class="doc"><label><input type="checkbox" /> Passport</label></div>
+            <div class="doc"><label><input type="checkbox" /> Visa(s)</label></div>
+            <div class="doc"><label><input type="checkbox" /> Police Clearance (if applicable)</label></div>
+            <div class="doc"><label><input type="checkbox" /> BOSIET</label></div>
+            <div class="doc"><label><input type="checkbox" /> OGUK</label></div>
+            <div class="doc"><label><input type="checkbox" /> Client-Specified Certifications</label></div>
+            <div class="doc"><label><input type="checkbox" id="otherDoc" /> Other</label></div>
+          </div>
+          <div class="field" id="otherWrap" style="display:none; margin-top:10px;">
+            <input placeholder="Specify other document(s)" />
+          </div>
+        </div>
+
+        <div class="section">
+          <p class="section-label">Travel</p>
+          <div class="travel-head">
+            <span class="q">Will JAB Recruitment book travel?</span>
+            <div class="radios">
+              <label><input type="radio" name="travel" value="no" checked /> No</label>
+              <label><input type="radio" name="travel" value="yes" /> Yes</label>
+            </div>
+          </div>
+          <div class="grid" id="travelFields">
+            <div class="field"><label>Home Airport</label><input /></div>
+            <div class="field"><label>Destination Airport</label><input /></div>
+            <div class="field"><label>Approved Class of Travel</label><input placeholder="e.g. Economy" /></div>
+            <div></div>
+            <div class="field"><label>Ground Transport / Transfers Required</label>
+              <div class="radios" style="padding-top:6px;">
+                <label><input type="radio" name="ground" checked /> No</label>
+                <label><input type="radio" name="ground" /> Yes</label>
+              </div>
+            </div>
+            <div class="field"><label>Hotel Required</label>
+              <div class="radios" style="padding-top:6px;">
+                <label><input type="radio" name="hotel" checked /> No</label>
+                <label><input type="radio" name="hotel" /> Yes</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="m-foot">
+        <div class="sends-to">
+          <span class="st-label">Sends to</span>
+          <span class="st-email">onboarding@jab-recruitment.com</span>
+        </div>
+        <div class="foot-actions">
+          <button class="btn-cancel" onclick="document.getElementById('modal').style.display='none'">Cancel</button>
+          <button class="btn-confirm" onclick="alert('Prototype preview — nothing is saved or sent. In the real build this would mark the candidate hired and email the onboarding team.')">Confirm &amp; Send Handoff</button>
+        </div>
+      </div>
+    </div>
+
+    <p class="note">This is a design prototype with sample data. Real fields auto-fill from the candidate and job; every value stays editable before sending.</p>
+  </div>
+
+  <script>
+    // "+ Add detail" — a searchable picker of extra details we hold.
+    var CATALOG = [
+      { key: 'linkedin', label: 'LinkedIn', value: 'https://www.linkedin.com/in/jordan-rivers' },
+      { key: 'vessel', label: 'Vessel', value: 'Q-Rig Alpha' },
+      { key: 'employer', label: 'Employer / Client', value: 'Finnco' },
+      { key: 'employer_contact', label: 'Employer Contact', value: 'Paul (Finnco)' },
+      { key: 'agency_contact', label: 'Agency Contact', value: 'Kelsey (Moblyze)' },
+      { key: 'duration', label: 'Duration', value: '10 days' },
+      { key: 'employment_type', label: 'Employment Type', value: 'Contract' },
+      { key: 'roles', label: 'Role(s)', value: 'Maintenance Manager' },
+      { key: 'work_locations', label: 'Work Location(s)', value: 'Offshore' },
+      { key: 'certifications', label: 'Certifications', value: 'BOSIET, OGUK Medical' }
+    ];
+    var used = {};
+    var addBtn = document.getElementById('addBtn');
+    var addMenu = document.getElementById('addMenu');
+    var addSearch = document.getElementById('addSearch');
+    var addList = document.getElementById('addList');
+    var extra = document.getElementById('extraFields');
+
+    function renderList() {
+      var q = (addSearch.value || '').toLowerCase();
+      addList.innerHTML = '';
+      var any = false;
+      CATALOG.forEach(function (c) {
+        if (used[c.key]) return;
+        if (q && c.label.toLowerCase().indexOf(q) === -1 && String(c.value).toLowerCase().indexOf(q) === -1) return;
+        any = true;
+        var b = document.createElement('button');
+        b.className = 'add-item';
+        b.innerHTML = '<div class="ai-label">' + c.label + '</div><div class="ai-value">' + c.value + '</div>';
+        b.onclick = function () { addRow(c); };
+        addList.appendChild(b);
+      });
+      if (!any) {
+        var d = document.createElement('div');
+        d.style.cssText = 'font-size:14px;color:rgba(255,255,255,0.6);padding:4px 8px;';
+        d.textContent = 'No matching details';
+        addList.appendChild(d);
+      }
+    }
+    function addRow(c) {
+      used[c.key] = true;
+      var wrap = document.createElement('div');
+      wrap.className = 'field';
+      wrap.dataset.key = c.key;
+      wrap.innerHTML = '<label>' + c.label + '</label>' +
+        '<div class="row-with-remove"><input value="' + c.value.replace(/"/g, '&quot;') + '" />' +
+        '<button class="remove-btn" title="Remove">&#10005;</button></div>';
+      wrap.querySelector('.remove-btn').onclick = function () {
+        delete used[c.key]; wrap.remove(); renderList();
+      };
+      extra.appendChild(wrap);
+      addSearch.value = '';
+      renderList();
+    }
+    addBtn.onclick = function (e) {
+      e.stopPropagation();
+      addMenu.classList.toggle('open');
+      if (addMenu.classList.contains('open')) { renderList(); addSearch.focus(); }
+    };
+    addSearch.oninput = renderList;
+    document.addEventListener('click', function (e) {
+      if (!addMenu.contains(e.target) && e.target !== addBtn) addMenu.classList.remove('open');
+    });
+
+    // Travel toggle
+    Array.prototype.forEach.call(document.getElementsByName('travel'), function (r) {
+      r.addEventListener('change', function () {
+        document.getElementById('travelFields').classList.toggle('open', this.value === 'yes' && this.checked);
+      });
+    });
+    // Other-doc free text
+    document.getElementById('otherDoc').addEventListener('change', function () {
+      document.getElementById('otherWrap').style.display = this.checked ? 'flex' : 'none';
+    });
+  </script>
+</body>
+</html>
