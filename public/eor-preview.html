@@ -8,114 +8,123 @@
   <title>EOR Handoff Sheet — Prototype Preview</title>
   <style>
     :root {
-      --page: #12151b;
+      --bg: #000000;
+      --panel: #0c0c0d;
+      --panel-2: #141416;
       --modal: #1a202c;
       --line: rgba(255, 255, 255, 0.16);
-      --line-soft: rgba(255, 255, 255, 0.10);
-      --muted: rgba(255, 255, 255, 0.60);
-      --muted-2: rgba(255, 255, 255, 0.50);
+      --line-soft: rgba(255, 255, 255, 0.08);
+      --muted: rgba(255, 255, 255, 0.55);
+      --muted-2: rgba(255, 255, 255, 0.45);
       --field: rgba(255, 255, 255, 0.06);
       --field-border: rgba(255, 255, 255, 0.22);
       --green: #009966;
       --green-hover: #007a52;
-      --teal: #2effba;
+      --mint: #00e59b;
+      --chip: #2f9e68;
+      --amber: #e6a72e;
+      --jab-red: #e4002b;
       --radius: 4px;
     }
     * { box-sizing: border-box; }
     html, body {
-      margin: 0; padding: 0;
-      background: var(--page);
-      color: #fff;
+      margin: 0; padding: 0; background: var(--bg); color: #fff;
       font-family: 'Hubot Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Prototype banner */
     .proto-banner {
       position: fixed; top: 0; left: 0; right: 0; z-index: 40;
       background: #0b3d2e; color: #b8ffe7; font-size: 12.5px;
       text-align: center; padding: 7px 12px; display: flex; justify-content: center; align-items: center; gap: 14px;
     }
-    .proto-banner button {
-      background: transparent; border: 1px solid rgba(184,255,231,0.4); color: #b8ffe7;
-      border-radius: var(--radius); padding: 2px 10px; font-size: 12px; cursor: pointer;
-    }
+    .proto-banner button { background: transparent; border: 1px solid rgba(184,255,231,0.4); color: #b8ffe7; border-radius: var(--radius); padding: 2px 10px; font-size: 12px; cursor: pointer; }
     .proto-banner button:hover { background: rgba(184,255,231,0.12); }
 
-    /* ---- Mock admin page (behind the modal) ---- */
-    .admin { position: fixed; inset: 0; display: flex; padding-top: 34px; background: var(--page); z-index: 0; }
-    .admin.blurred { filter: blur(2px); }
-    .a-side {
-      width: 220px; background: #0e1218; border-right: 1px solid var(--line-soft);
-      padding: 20px 14px; flex-shrink: 0;
-    }
-    .a-logo { font-weight: 800; font-size: 18px; letter-spacing: -0.5px; margin-bottom: 24px; }
-    .a-logo span { color: var(--teal); }
-    .a-nav { display: flex; flex-direction: column; gap: 4px; }
-    .a-nav div { padding: 8px 10px; border-radius: var(--radius); font-size: 14px; color: var(--muted); }
-    .a-nav div.active { background: rgba(255,255,255,0.08); color: #fff; }
-    .a-main { flex: 1; padding: 22px 28px; overflow: hidden; }
-    .a-crumb { font-size: 13px; color: var(--muted); margin-bottom: 4px; }
-    .a-title { font-size: 22px; font-weight: 700; margin-bottom: 18px; }
-    .a-tabs { display: flex; gap: 22px; border-bottom: 1px solid var(--line-soft); margin-bottom: 20px; }
-    .a-tabs div { padding-bottom: 10px; font-size: 14px; color: var(--muted); }
-    .a-tabs div.active { color: #fff; border-bottom: 2px solid var(--teal); font-weight: 600; }
-    .a-card { background: #0e1218; border: 1px solid var(--line-soft); border-radius: 8px; padding: 18px; max-width: 640px; }
-    .a-cand { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
-    .a-avatar { width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg,#2c5, #099); display:flex; align-items:center; justify-content:center; font-weight:700; }
-    .a-name { font-size: 17px; font-weight: 700; }
-    .a-chip { display:inline-block; margin-top:5px; font-size:10.5px; text-transform:uppercase; background:#68D391; color:#0e1218; font-weight:700; border-radius: 3px; padding: 2px 7px; }
-    .a-actions { display: flex; gap: 12px; flex-wrap: wrap; }
-    .a-btn { border-radius: var(--radius); font-size: 14px; padding: 7px 14px; cursor: pointer; background: transparent; font-family: inherit; }
-    .a-btn.ghost { border: 1px solid rgba(255,255,255,0.4); color: #fff; }
-    .a-btn.green { border: 1px solid var(--green); color: #6ff2c0; }
-    .a-btn.green:hover { background: rgba(0,153,102,0.15); }
+    /* ---------- Mock JAB admin page behind the modal ---------- */
+    .admin { position: fixed; inset: 0; top: 32px; display: flex; background: var(--bg); z-index: 0; overflow: hidden; }
+    .admin.blurred { filter: blur(2.5px) brightness(0.85); }
 
-    /* ---- Overlay + scrim holding the modal ---- */
-    .overlay {
-      position: fixed; inset: 0; z-index: 30;
-      background: rgba(5,7,10,0.66);
-      display: flex; align-items: center; justify-content: center;
-      padding: 44px 16px 16px;
-    }
+    .a-side { width: 190px; flex-shrink: 0; border-right: 1px solid var(--line-soft); padding: 16px 0; overflow-y: auto; }
+    .a-side-top { display: flex; align-items: center; justify-content: space-between; padding: 0 18px 18px; }
+    .a-logo { font-family: Georgia, 'Times New Roman', serif; font-weight: 700; font-size: 30px; color: var(--jab-red); line-height: 1; }
+    .a-bell { color: var(--muted); font-size: 15px; }
+    .a-nav { display: flex; flex-direction: column; }
+    .a-nav a { padding: 7px 18px; font-size: 14px; color: #e6e6e6; text-decoration: none; display: flex; align-items: center; justify-content: space-between; }
+    .a-nav a.top { font-weight: 700; }
+    .a-nav .sec { padding: 14px 18px 4px; font-size: 13.5px; font-weight: 700; color: #fff; }
+    .a-nav a.sub { color: var(--muted); font-size: 13.5px; padding: 6px 18px; }
+    .a-nav a.sub.active { color: #fff; }
+    .a-nav .dot { width: 6px; height: 6px; border-radius: 50%; background: #3b82f6; }
+    .a-nav .plus { color: var(--muted); }
+
+    .a-main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+    .a-top { display: flex; align-items: center; gap: 14px; padding: 14px 20px; border-bottom: 1px solid var(--line-soft); }
+    .a-back { color: var(--muted); font-size: 14px; }
+    .a-thumb { width: 34px; height: 26px; border-radius: 3px; background: linear-gradient(135deg,#2b4a6b,#0e1a26); flex-shrink: 0; }
+    .a-jobtitle { font-size: 18px; font-weight: 700; }
+    .a-top-actions { margin-left: auto; display: flex; gap: 10px; }
+    .a-top-actions .tb { border: 1px solid var(--line); background: transparent; color: #fff; border-radius: var(--radius); font-size: 13px; padding: 7px 12px; white-space: nowrap; }
+
+    .a-content { flex: 1; padding: 16px 20px; overflow: hidden; }
+    .a-stages { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 6px; }
+    .a-stage { display: flex; align-items: center; gap: 7px; font-size: 14px; color: var(--muted); }
+    .a-stage.active { color: #fff; font-weight: 700; border: 1px solid var(--line); border-radius: 6px; padding: 4px 10px; }
+    .a-stage .cnt { background: #fff; color: #000; border-radius: 9999px; font-size: 11px; font-weight: 700; padding: 1px 7px; }
+    .a-stage.muted .cnt { background: rgba(255,255,255,0.18); color: #fff; }
+    .a-arrow { color: var(--muted-2); }
+    .a-sub { font-size: 13px; color: var(--muted); margin: 8px 0 18px; }
+
+    .a-cols { display: flex; gap: 18px; }
+    .a-list { width: 380px; flex-shrink: 0; }
+    .a-list-head { display: flex; justify-content: space-between; align-items: center; font-size: 15px; font-weight: 600; margin-bottom: 12px; }
+    .a-list-head .filters { font-size: 13px; color: var(--muted); font-weight: 400; }
+    .a-row { display: flex; align-items: center; gap: 12px; padding: 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
+    .a-row .rdot { margin-left: auto; width: 7px; height: 7px; border-radius: 50%; background: #3b82f6; }
+    .a-avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg,#c0392b,#7d2018); display:flex; align-items:center; justify-content:center; font-weight:700; font-size: 15px; flex-shrink: 0; }
+    .a-avatar.lg { width: 58px; height: 58px; font-size: 19px; }
+
+    .a-detail { flex: 1; border: 1px solid var(--line-soft); border-radius: 10px; background: var(--panel); padding: 20px; min-width: 0; }
+    .a-cand { display: flex; align-items: center; gap: 16px; margin-bottom: 14px; }
+    .a-name { font-size: 20px; font-weight: 700; }
+    .a-ofw { display:inline-block; margin-top:6px; font-size:10.5px; text-transform:uppercase; letter-spacing: 0.04em; background:#00e59b; color:#062a1e; font-weight:700; border-radius: 4px; padding: 3px 9px; }
+    .a-actions { display: flex; gap: 12px; margin-bottom: 18px; }
+    .a-btn { border-radius: var(--radius); font-size: 14px; padding: 9px 16px; background: transparent; font-family: inherit; }
+    .a-btn.ghost { border: 1px solid rgba(255,255,255,0.55); color: #fff; }
+    .a-btn.green { border: 1px solid var(--mint); color: var(--mint); font-weight: 600; }
+    .a-dtabs { display: flex; gap: 10px; margin-bottom: 18px; }
+    .a-dtab { font-size: 14px; color: var(--muted); padding: 6px 12px; border-radius: 6px; }
+    .a-dtab.active { background: rgba(255,255,255,0.14); color: #fff; font-weight: 600; }
+    .a-sectitle { font-size: 16px; font-weight: 700; margin: 16px 0 8px; }
+    .a-sectitle .ok { color: #3ddc97; font-weight: 400; font-size: 14px; }
+    .a-sectitle .part { color: var(--amber); font-weight: 400; font-size: 14px; }
+    .a-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .a-mchip { background: var(--chip); color: #eafff4; font-size: 13px; border-radius: 5px; padding: 5px 9px; }
+    .a-mchip.miss { background: rgba(255,255,255,0.09); color: var(--muted); }
+    .a-contact { font-size: 14px; color: #dcdcdc; line-height: 1.9; margin-top: 6px; }
+    .a-foot { display: flex; align-items: center; gap: 6px; margin-top: 20px; color: var(--muted); font-size: 13px; }
+    .a-foot .j { color: var(--jab-red); font-family: Georgia, serif; font-weight: 700; }
+
+    /* ---------- Overlay + modal ---------- */
+    .overlay { position: fixed; inset: 0; z-index: 30; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; padding: 44px 16px 16px; }
     .overlay.hidden { display: none; }
-
-    .modal {
-      width: 100%; max-width: 640px;
-      background: var(--modal);
-      border-radius: 8px;
-      box-shadow: 0 24px 70px rgba(0,0,0,0.6);
-      border: 1px solid var(--line-soft);
-      overflow: hidden;
-      display: flex; flex-direction: column;
-      max-height: calc(100vh - 72px);
-    }
+    .modal { width: 100%; max-width: 640px; background: var(--modal); border-radius: 8px; box-shadow: 0 24px 70px rgba(0,0,0,0.65); border: 1px solid var(--line-soft); overflow: hidden; display: flex; flex-direction: column; max-height: calc(100vh - 72px); }
     .m-head { padding: 20px 24px 12px; }
     .m-title { font-size: 18px; font-weight: 700; }
     .m-sub { font-size: 14px; color: var(--muted); margin-top: 4px; line-height: 1.4; }
     .m-body { padding: 4px 24px 8px; overflow-y: auto; }
-    .m-foot {
-      padding: 16px 24px 20px; border-top: 1px solid var(--line);
-      display: flex; flex-direction: column; gap: 12px;
-    }
+    .m-foot { padding: 16px 24px 20px; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 12px; }
 
     .section { padding-top: 16px; }
     .section + .section { border-top: 1px solid var(--line-soft); margin-top: 16px; }
-    .section-label {
-      font-size: 11px; font-weight: 700; color: var(--muted-2);
-      text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 10px;
-    }
+    .section-label { font-size: 11px; font-weight: 700; color: var(--muted-2); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 10px; }
     .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px; }
     @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
     .field { display: flex; flex-direction: column; }
     .field label { font-size: 11px; color: var(--muted); font-weight: 500; margin-bottom: 4px; }
-    .field input {
-      background: var(--field); border: 1px solid var(--field-border);
-      color: #fff; border-radius: var(--radius);
-      padding: 7px 10px; font-size: 14px; font-family: inherit; width: 100%;
-    }
+    .field input { background: var(--field); border: 1px solid var(--field-border); color: #fff; border-radius: var(--radius); padding: 7px 10px; font-size: 14px; font-family: inherit; width: 100%; }
     .field input:hover { border-color: rgba(255,255,255,0.30); }
-    .field input:focus { outline: none; border-color: var(--teal); }
+    .field input:focus { outline: none; border-color: var(--mint); }
     .field input[readonly] { opacity: 0.6; cursor: not-allowed; }
     input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(0.85); cursor: pointer; }
 
@@ -125,22 +134,11 @@
     .remove-btn:hover { background: rgba(255,255,255,0.10); color: #fff; }
 
     .add-wrap { position: relative; margin-top: 14px; }
-    .add-btn {
-      background: transparent; color: rgba(255,255,255,0.9);
-      border: 1px solid var(--field-border); border-radius: var(--radius);
-      padding: 5px 10px; font-size: 12px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
-    }
+    .add-btn { background: transparent; color: rgba(255,255,255,0.9); border: 1px solid var(--field-border); border-radius: var(--radius); padding: 5px 10px; font-size: 12px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
     .add-btn:hover { background: rgba(255,255,255,0.08); }
-    .add-menu {
-      display: none; position: absolute; top: 36px; left: 0; z-index: 20;
-      width: 280px; max-width: 90vw; max-height: 280px; overflow-y: auto;
-      background: #232a35; border: 1px solid var(--field-border); border-radius: var(--radius); padding: 8px;
-    }
+    .add-menu { display: none; position: absolute; top: 36px; left: 0; z-index: 20; width: 280px; max-width: 90vw; max-height: 280px; overflow-y: auto; background: #232a35; border: 1px solid var(--field-border); border-radius: var(--radius); padding: 8px; }
     .add-menu.open { display: block; }
-    .add-menu input.search {
-      width: 100%; background: var(--field); border: 1px solid var(--field-border);
-      color: #fff; border-radius: var(--radius); padding: 6px 8px; font-size: 13px; margin-bottom: 8px; font-family: inherit;
-    }
+    .add-menu input.search { width: 100%; background: var(--field); border: 1px solid var(--field-border); color: #fff; border-radius: var(--radius); padding: 6px 8px; font-size: 13px; margin-bottom: 8px; font-family: inherit; }
     .add-item { display: block; width: 100%; text-align: left; background: transparent; border: none; color: #fff; padding: 6px 8px; border-radius: var(--radius); cursor: pointer; }
     .add-item:hover { background: rgba(255,255,255,0.14); }
     .add-item .ai-label { font-size: 14px; font-weight: 600; }
@@ -177,39 +175,113 @@
     <button onclick="openSheet()">Reopen sheet</button>
   </div>
 
-  <!-- Mock admin page behind the modal -->
+  <!-- Mock JAB admin page behind the modal -->
   <div class="admin blurred" id="admin">
     <div class="a-side">
-      <div class="a-logo">Mob<span>lyze</span></div>
+      <div class="a-side-top">
+        <div class="a-logo">J</div>
+        <div class="a-bell">&#128276;</div>
+      </div>
       <div class="a-nav">
-        <div>Dashboard</div>
-        <div class="active">Jobs</div>
-        <div>Clients</div>
-        <div>Candidates</div>
-        <div>Recruiters</div>
+        <a class="top" href="#">Companies</a>
+        <a href="#">Roles</a>
+        <a href="#">Chat <span>&#128172;</span></a>
+        <div class="sec">Jobs</div>
+        <a class="sub" href="#">Uncurated</a>
+        <a class="sub active" href="#">Active <span class="dot"></span></a>
+        <a class="sub" href="#">Archived</a>
+        <a class="sub" href="#">Pending</a>
+        <a class="sub" href="#">Add New Job <span class="plus">+</span></a>
+        <a class="sub" href="#">Import Jobs <span class="plus">+</span></a>
+        <div class="sec">Clients</div>
+        <a class="sub" href="#">All</a>
+        <a class="sub" href="#">Add New Client <span class="plus">+</span></a>
+        <div class="sec">Admins</div>
+        <a class="sub" href="#">All</a>
+        <a class="sub" href="#">Invite <span class="plus">+</span></a>
+        <div class="sec">Workers</div>
+        <a class="sub" href="#">All</a>
+        <a class="sub" href="#">Invite <span class="plus">+</span></a>
       </div>
     </div>
+
     <div class="a-main">
-      <div class="a-crumb">Jobs / Quayside Rig Overhaul — Finnco</div>
-      <div class="a-title">Maintenance Manager</div>
-      <div class="a-tabs">
-        <div>Suggested</div>
-        <div>Shortlisted</div>
-        <div class="active">Approved</div>
-        <div>Hired</div>
-        <div>Rejected</div>
-      </div>
-      <div class="a-card">
-        <div class="a-cand">
-          <div class="a-avatar">JR</div>
-          <div>
-            <div class="a-name">Jordan Rivers</div>
-            <span class="a-chip">Open for Work</span>
-          </div>
+      <div class="a-top">
+        <span class="a-back">&#8249; Back</span>
+        <div class="a-thumb"></div>
+        <span class="a-jobtitle">Offshore Client Representative (OCR)</span>
+        <div class="a-top-actions">
+          <span class="tb">Notify me: Daily summary &#9662;</span>
+          <span class="tb">View details</span>
+          <span class="tb">Share shortlist &#8599;</span>
+          <span class="tb">&#8943;</span>
         </div>
-        <div class="a-actions">
-          <button class="a-btn ghost">Message</button>
-          <button class="a-btn green" id="adminHireBtn" onclick="openSheet()">Mark as Hired</button>
+      </div>
+
+      <div class="a-content">
+        <div class="a-stages">
+          <span class="a-stage muted">Suggested <span class="cnt">99+</span></span>
+          <span class="a-arrow">&#8594;</span>
+          <span class="a-stage muted">Interested <span class="cnt">23</span></span>
+          <span class="a-arrow">&#8594;</span>
+          <span class="a-stage muted">Shortlisted <span class="cnt">10</span></span>
+          <span class="a-arrow">&#8594;</span>
+          <span class="a-stage active">Approved <span class="cnt">1</span></span>
+          <span class="a-arrow">&#8594;</span>
+          <span class="a-stage muted">Hired <span class="cnt">0</span></span>
+          <span class="a-stage muted" style="margin-left:10px;">Rejected <span class="cnt">20</span></span>
+        </div>
+        <div class="a-sub">Top matches for this role based on skills and experience. Reach out and invite the best-fit candidates to apply today.</div>
+
+        <div class="a-cols">
+          <div class="a-list">
+            <div class="a-list-head"><span>Candidates (Showing 1/1)</span><span class="filters">&#9776; Filters &#9662;</span></div>
+            <div class="a-row">
+              <div class="a-avatar">JR</div>
+              <span>Jordan Rivers</span>
+              <span class="rdot"></span>
+            </div>
+          </div>
+
+          <div class="a-detail">
+            <div class="a-cand">
+              <div class="a-avatar lg">JR</div>
+              <div>
+                <div class="a-name">Jordan Rivers</div>
+                <span class="a-ofw">Open for Work</span>
+              </div>
+            </div>
+            <div class="a-actions">
+              <button class="a-btn green" id="adminHireBtn" onclick="openSheet()">Mark as Hired</button>
+              <button class="a-btn ghost">&#128172; Message</button>
+            </div>
+            <div class="a-dtabs">
+              <span class="a-dtab active">Details</span>
+              <span class="a-dtab">CV/Resume</span>
+              <span class="a-dtab">MYA</span>
+            </div>
+
+            <div class="a-sectitle">Location <span class="ok">(1 of 1 matched)</span></div>
+            <div class="a-chips"><span class="a-mchip">&#10003; North Sea offshore work</span></div>
+
+            <div class="a-sectitle">Certification <span class="ok">(2 of 2 matched)</span></div>
+            <div class="a-chips"><span class="a-mchip">&#10003; ENG1 or equivalent</span><span class="a-mchip">&#10003; GWO or BOSIET</span></div>
+
+            <div class="a-sectitle">Experience <span class="part">(1 of 2 matched)</span></div>
+            <div class="a-chips"><span class="a-mchip">&#10003; Offshore Client Rep experience</span><span class="a-mchip miss">&#8211; Offshore environmental survey experience &nbsp;MISSING</span></div>
+
+            <div class="a-sectitle">Contact</div>
+            <div class="a-contact">
+              &#9993; jordan.rivers@example.com<br/>
+              &#9743; +1 (555) 010-4477<br/>
+              &#128279; linkedin.com/in/jordan-rivers
+            </div>
+
+            <div class="a-sectitle">Referrals: None yet</div>
+            <div class="a-contact">Code: 7KD2QX9M</div>
+
+            <div class="a-foot"><span class="j">J</span> JAB</div>
+          </div>
         </div>
       </div>
     </div>
@@ -228,11 +300,11 @@
           <p class="section-label">Contractor &amp; Assignment</p>
           <div class="grid">
             <div class="field"><label>Contractor Name</label><input value="Jordan Rivers" /></div>
-            <div class="field"><label>Position</label><input value="Maintenance Manager" /></div>
+            <div class="field"><label>Position</label><input value="Offshore Client Representative" /></div>
             <div class="field"><label>Phone Number</label><input value="+1 (555) 010-4477" /></div>
             <div class="field"><label>Email</label><input value="jordan.rivers@example.com" /></div>
-            <div class="field"><label>Scope of Work / Assignment</label><input value="Quayside Rig Overhaul" /></div>
-            <div class="field"><label>Assignment Location</label><input value="Houston / Lafayette" /></div>
+            <div class="field"><label>Scope of Work / Assignment</label><input value="North Sea Offshore Campaign" /></div>
+            <div class="field"><label>Assignment Location</label><input value="Aberdeen / North Sea" /></div>
             <div class="field"><label>Assignment Start Date</label><input type="date" value="2026-07-15" /></div>
             <div class="field"><label>Assignment End Date</label><input type="date" value="2026-07-25" /></div>
             <div class="field"><label>Day Rate to Man</label><input value="$850" /></div>
@@ -313,7 +385,6 @@
   </div>
 
   <script>
-    // Open/close the modal overlay (closing reveals the admin page behind it).
     function openSheet() {
       document.getElementById('overlay').classList.remove('hidden');
       document.getElementById('admin').classList.add('blurred');
@@ -323,7 +394,6 @@
       document.getElementById('admin').classList.remove('blurred');
     }
 
-    // "+ Add detail" — a searchable picker of extra details we hold.
     var CATALOG = [
       { key: 'linkedin', label: 'LinkedIn', value: 'https://www.linkedin.com/in/jordan-rivers' },
       { key: 'vessel', label: 'Vessel', value: 'Q-Rig Alpha' },
@@ -332,9 +402,9 @@
       { key: 'agency_contact', label: 'Agency Contact', value: 'Kelsey (Moblyze)' },
       { key: 'duration', label: 'Duration', value: '10 days' },
       { key: 'employment_type', label: 'Employment Type', value: 'Contract' },
-      { key: 'roles', label: 'Role(s)', value: 'Maintenance Manager' },
-      { key: 'work_locations', label: 'Work Location(s)', value: 'Offshore' },
-      { key: 'certifications', label: 'Certifications', value: 'BOSIET, OGUK Medical' }
+      { key: 'roles', label: 'Role(s)', value: 'Offshore Client Representative' },
+      { key: 'work_locations', label: 'Work Location(s)', value: 'North Sea (Offshore)' },
+      { key: 'certifications', label: 'Certifications', value: 'ENG1, GWO / BOSIET' }
     ];
     var used = {};
     var addBtn = document.getElementById('addBtn');
@@ -389,13 +459,11 @@
       if (!addMenu.contains(e.target) && e.target !== addBtn) addMenu.classList.remove('open');
     });
 
-    // Travel toggle
     Array.prototype.forEach.call(document.getElementsByName('travel'), function (r) {
       r.addEventListener('change', function () {
         document.getElementById('travelFields').classList.toggle('open', this.value === 'yes' && this.checked);
       });
     });
-    // Other-doc free text
     document.getElementById('otherDoc').addEventListener('change', function () {
       document.getElementById('otherWrap').style.display = this.checked ? 'flex' : 'none';
     });
