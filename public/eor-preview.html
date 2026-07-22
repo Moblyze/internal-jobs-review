@@ -29,30 +29,66 @@
       font-family: 'Hubot Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
       -webkit-font-smoothing: antialiased;
     }
-    .page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 14px;
-      padding: 28px 16px 48px;
+
+    /* Prototype banner */
+    .proto-banner {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 40;
+      background: #0b3d2e; color: #b8ffe7; font-size: 12.5px;
+      text-align: center; padding: 7px 12px; display: flex; justify-content: center; align-items: center; gap: 14px;
     }
-    .banner { color: var(--muted); font-size: 13px; text-align: center; }
-    .reopen {
-      background: transparent; color: rgba(255,255,255,0.85);
-      border: 1px solid var(--field-border); border-radius: var(--radius);
-      padding: 6px 12px; font-size: 13px; cursor: pointer;
+    .proto-banner button {
+      background: transparent; border: 1px solid rgba(184,255,231,0.4); color: #b8ffe7;
+      border-radius: var(--radius); padding: 2px 10px; font-size: 12px; cursor: pointer;
     }
-    .reopen:hover { background: rgba(255,255,255,0.08); }
+    .proto-banner button:hover { background: rgba(184,255,231,0.12); }
+
+    /* ---- Mock admin page (behind the modal) ---- */
+    .admin { position: fixed; inset: 0; display: flex; padding-top: 34px; background: var(--page); z-index: 0; }
+    .admin.blurred { filter: blur(2px); }
+    .a-side {
+      width: 220px; background: #0e1218; border-right: 1px solid var(--line-soft);
+      padding: 20px 14px; flex-shrink: 0;
+    }
+    .a-logo { font-weight: 800; font-size: 18px; letter-spacing: -0.5px; margin-bottom: 24px; }
+    .a-logo span { color: var(--teal); }
+    .a-nav { display: flex; flex-direction: column; gap: 4px; }
+    .a-nav div { padding: 8px 10px; border-radius: var(--radius); font-size: 14px; color: var(--muted); }
+    .a-nav div.active { background: rgba(255,255,255,0.08); color: #fff; }
+    .a-main { flex: 1; padding: 22px 28px; overflow: hidden; }
+    .a-crumb { font-size: 13px; color: var(--muted); margin-bottom: 4px; }
+    .a-title { font-size: 22px; font-weight: 700; margin-bottom: 18px; }
+    .a-tabs { display: flex; gap: 22px; border-bottom: 1px solid var(--line-soft); margin-bottom: 20px; }
+    .a-tabs div { padding-bottom: 10px; font-size: 14px; color: var(--muted); }
+    .a-tabs div.active { color: #fff; border-bottom: 2px solid var(--teal); font-weight: 600; }
+    .a-card { background: #0e1218; border: 1px solid var(--line-soft); border-radius: 8px; padding: 18px; max-width: 640px; }
+    .a-cand { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+    .a-avatar { width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg,#2c5, #099); display:flex; align-items:center; justify-content:center; font-weight:700; }
+    .a-name { font-size: 17px; font-weight: 700; }
+    .a-chip { display:inline-block; margin-top:5px; font-size:10.5px; text-transform:uppercase; background:#68D391; color:#0e1218; font-weight:700; border-radius: 3px; padding: 2px 7px; }
+    .a-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .a-btn { border-radius: var(--radius); font-size: 14px; padding: 7px 14px; cursor: pointer; background: transparent; font-family: inherit; }
+    .a-btn.ghost { border: 1px solid rgba(255,255,255,0.4); color: #fff; }
+    .a-btn.green { border: 1px solid var(--green); color: #6ff2c0; }
+    .a-btn.green:hover { background: rgba(0,153,102,0.15); }
+
+    /* ---- Overlay + scrim holding the modal ---- */
+    .overlay {
+      position: fixed; inset: 0; z-index: 30;
+      background: rgba(5,7,10,0.66);
+      display: flex; align-items: center; justify-content: center;
+      padding: 44px 16px 16px;
+    }
+    .overlay.hidden { display: none; }
 
     .modal {
       width: 100%; max-width: 640px;
       background: var(--modal);
-      border-radius: var(--radius);
-      box-shadow: 0 24px 60px rgba(0,0,0,0.55);
+      border-radius: 8px;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.6);
+      border: 1px solid var(--line-soft);
       overflow: hidden;
       display: flex; flex-direction: column;
-      max-height: calc(100vh - 48px);
+      max-height: calc(100vh - 72px);
     }
     .m-head { padding: 20px 24px 12px; }
     .m-title { font-size: 18px; font-weight: 700; }
@@ -72,9 +108,7 @@
     .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px; }
     @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
     .field { display: flex; flex-direction: column; }
-    .field label {
-      font-size: 11px; color: var(--muted); font-weight: 500; margin-bottom: 4px;
-    }
+    .field label { font-size: 11px; color: var(--muted); font-weight: 500; margin-bottom: 4px; }
     .field input {
       background: var(--field); border: 1px solid var(--field-border);
       color: #fff; border-radius: var(--radius);
@@ -87,10 +121,7 @@
 
     .row-with-remove { display: flex; gap: 6px; align-items: center; }
     .row-with-remove input { flex: 1; }
-    .remove-btn {
-      background: transparent; border: none; color: var(--muted);
-      cursor: pointer; font-size: 14px; padding: 4px 6px; border-radius: var(--radius);
-    }
+    .remove-btn { background: transparent; border: none; color: var(--muted); cursor: pointer; font-size: 14px; padding: 4px 6px; border-radius: var(--radius); }
     .remove-btn:hover { background: rgba(255,255,255,0.10); color: #fff; }
 
     .add-wrap { position: relative; margin-top: 14px; }
@@ -103,18 +134,14 @@
     .add-menu {
       display: none; position: absolute; top: 36px; left: 0; z-index: 20;
       width: 280px; max-width: 90vw; max-height: 280px; overflow-y: auto;
-      background: #232a35; border: 1px solid var(--field-border);
-      border-radius: var(--radius); padding: 8px;
+      background: #232a35; border: 1px solid var(--field-border); border-radius: var(--radius); padding: 8px;
     }
     .add-menu.open { display: block; }
     .add-menu input.search {
       width: 100%; background: var(--field); border: 1px solid var(--field-border);
       color: #fff; border-radius: var(--radius); padding: 6px 8px; font-size: 13px; margin-bottom: 8px; font-family: inherit;
     }
-    .add-item {
-      display: block; width: 100%; text-align: left; background: transparent; border: none;
-      color: #fff; padding: 6px 8px; border-radius: var(--radius); cursor: pointer;
-    }
+    .add-item { display: block; width: 100%; text-align: left; background: transparent; border: none; color: #fff; padding: 6px 8px; border-radius: var(--radius); cursor: pointer; }
     .add-item:hover { background: rgba(255,255,255,0.14); }
     .add-item .ai-label { font-size: 14px; font-weight: 600; }
     .add-item .ai-value { font-size: 12px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -124,11 +151,7 @@
     .doc { display: flex; align-items: center; gap: 8px; }
     .doc label { display: flex; align-items: center; gap: 8px; font-size: 14px; cursor: pointer; }
     .doc input[type="checkbox"] { width: 16px; height: 16px; accent-color: #0d9488; }
-    .tag {
-      font-size: 11px; padding: 1px 8px; border-radius: 9999px;
-      background: rgba(0,153,102,0.20); color: #6ff2c0;
-    }
-    .tag.gray { background: rgba(255,255,255,0.12); color: var(--muted); }
+    .tag { font-size: 11px; padding: 1px 8px; border-radius: 9999px; background: rgba(0,153,102,0.20); color: #6ff2c0; }
 
     .travel-head { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
     .travel-head .q { font-size: 14px; color: rgba(255,255,255,0.8); }
@@ -138,31 +161,62 @@
     #travelFields { display: none; margin-top: 14px; }
     #travelFields.open { display: grid; }
 
-    .sends-to {
-      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
-      background: rgba(255,255,255,0.05); border-radius: var(--radius); padding: 8px 12px;
-    }
+    .sends-to { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; background: rgba(255,255,255,0.05); border-radius: var(--radius); padding: 8px 12px; }
     .sends-to .st-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
     .sends-to .st-email { font-size: 14px; color: rgba(255,255,255,0.9); font-weight: 500; }
     .foot-actions { display: flex; justify-content: space-between; align-items: center; }
-    .btn-cancel {
-      background: transparent; border: none; color: rgba(255,255,255,0.8);
-      font-size: 15px; padding: 8px 14px; cursor: pointer; border-radius: var(--radius); font-family: inherit;
-    }
+    .btn-cancel { background: transparent; border: none; color: rgba(255,255,255,0.8); font-size: 15px; padding: 8px 14px; cursor: pointer; border-radius: var(--radius); font-family: inherit; }
     .btn-cancel:hover { background: rgba(255,255,255,0.08); }
-    .btn-confirm {
-      background: var(--green); color: #fff; border: none; border-radius: var(--radius);
-      font-size: 15px; font-weight: 600; padding: 9px 18px; cursor: pointer; font-family: inherit;
-    }
+    .btn-confirm { background: var(--green); color: #fff; border: none; border-radius: var(--radius); font-size: 15px; font-weight: 600; padding: 9px 18px; cursor: pointer; font-family: inherit; }
     .btn-confirm:hover { background: var(--green-hover); }
-    .note { font-size: 12px; color: var(--muted); text-align: center; max-width: 640px; }
   </style>
 </head>
 <body>
-  <div class="page">
-    <div class="banner">EOR Handoff Confirmation Sheet — prototype preview (sample data, nothing is saved or sent)</div>
-    <button class="reopen" onclick="document.getElementById('modal').style.display='flex'">Reopen sheet</button>
+  <div class="proto-banner">
+    <span>Prototype preview — the EOR Handoff sheet as a modal over the admin portal. Sample data; nothing is saved or sent.</span>
+    <button onclick="openSheet()">Reopen sheet</button>
+  </div>
 
+  <!-- Mock admin page behind the modal -->
+  <div class="admin blurred" id="admin">
+    <div class="a-side">
+      <div class="a-logo">Mob<span>lyze</span></div>
+      <div class="a-nav">
+        <div>Dashboard</div>
+        <div class="active">Jobs</div>
+        <div>Clients</div>
+        <div>Candidates</div>
+        <div>Recruiters</div>
+      </div>
+    </div>
+    <div class="a-main">
+      <div class="a-crumb">Jobs / Quayside Rig Overhaul — Finnco</div>
+      <div class="a-title">Maintenance Manager</div>
+      <div class="a-tabs">
+        <div>Suggested</div>
+        <div>Shortlisted</div>
+        <div class="active">Approved</div>
+        <div>Hired</div>
+        <div>Rejected</div>
+      </div>
+      <div class="a-card">
+        <div class="a-cand">
+          <div class="a-avatar">JR</div>
+          <div>
+            <div class="a-name">Jordan Rivers</div>
+            <span class="a-chip">Open for Work</span>
+          </div>
+        </div>
+        <div class="a-actions">
+          <button class="a-btn ghost">Message</button>
+          <button class="a-btn green" id="adminHireBtn" onclick="openSheet()">Mark as Hired</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal overlay -->
+  <div class="overlay" id="overlay">
     <div class="modal" id="modal">
       <div class="m-head">
         <div class="m-title">Confirm Hire &amp; EOR Handoff</div>
@@ -251,16 +305,24 @@
           <span class="st-email">onboarding@jab-recruitment.com</span>
         </div>
         <div class="foot-actions">
-          <button class="btn-cancel" onclick="document.getElementById('modal').style.display='none'">Cancel</button>
+          <button class="btn-cancel" onclick="closeSheet()">Cancel</button>
           <button class="btn-confirm" onclick="alert('Prototype preview — nothing is saved or sent. In the real build this would mark the candidate hired and email the onboarding team.')">Confirm &amp; Send Handoff</button>
         </div>
       </div>
     </div>
-
-    <p class="note">This is a design prototype with sample data. Real fields auto-fill from the candidate and job; every value stays editable before sending.</p>
   </div>
 
   <script>
+    // Open/close the modal overlay (closing reveals the admin page behind it).
+    function openSheet() {
+      document.getElementById('overlay').classList.remove('hidden');
+      document.getElementById('admin').classList.add('blurred');
+    }
+    function closeSheet() {
+      document.getElementById('overlay').classList.add('hidden');
+      document.getElementById('admin').classList.remove('blurred');
+    }
+
     // "+ Add detail" — a searchable picker of extra details we hold.
     var CATALOG = [
       { key: 'linkedin', label: 'LinkedIn', value: 'https://www.linkedin.com/in/jordan-rivers' },
