@@ -2,6 +2,117 @@
   {
     "sources": [
       {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/envision-energy-to-deliver-australias-largest-wind-turbines-for-neoens-179mw-narrogin-wind-farm-302831813.html"
+      }
+    ],
+    "headline": "Envision Energy Receives NTP from Neoen for 179MW Narrogin Wind Farm Turbine Supply & Install",
+    "body": "SYDNEY, July 22, 2026 /PRNewswire/ -- Envision Energy, a global leader in green technology, has received the Notice to Proceed (NTP) from Neoen, one of the world's leading renewable energy companies, for the turbine supply and installation package of the latter's 179MW Narrogin Wind Farm...",
+    "url": "https://www.prnewswire.com/news-releases/envision-energy-to-deliver-australias-largest-wind-turbines-for-neoens-179mw-narrogin-wind-farm-302831813.html",
+    "published_at": "2026-07-22T06:31:00.000Z",
+    "hash": "498403c46b51fb51",
+    "subsector": "onshore-renewables",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction"
+    ],
+    "signal_type": "epc_award",
+    "region": "western-australia",
+    "country": "australia",
+    "tldr": "Neoen has issued a Notice to Proceed to Envision Energy for turbine supply and installation at the 179MW Narrogin Wind Farm in Western Australia. This contract award signals an active construction ramp-up and near-term demand for wind turbine erection and civil/electrical trades.",
+    "operator": {
+      "name": "Neoen",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Envision Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Narrogin Wind Farm",
+    "scope": [
+      "turbine_supply",
+      "turbine_installation"
+    ],
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Wind Turbine Erection Supervisor",
+        "Site Construction Manager",
+        "HSE Manager",
+        "Crane Supervisor",
+        "Civil Works Supervisor",
+        "Electrical Installation Technician",
+        "Wind Turbine Technician",
+        "Commissioning Engineer",
+        "Logistics Coordinator",
+        "Site Manager"
+      ],
+      "skills": [
+        "wind turbine erection",
+        "heavy lift crane operations",
+        "onshore wind construction",
+        "turbine commissioning",
+        "civil works",
+        "HV electrical installation",
+        "WTG installation",
+        "site HSE management"
+      ],
+      "certs_freetext": [
+        "Working at Heights",
+        "Construction Induction (White Card)",
+        "Dogman/Rigger Licence",
+        "Crane Operator Licence",
+        "Electrical Licence",
+        "First Aid"
+      ],
+      "geo_rtw": "Australia (full working rights)",
+      "project_experience": [
+        "Neoen Goyder Wind Farm",
+        "Neoen Hornsdale Wind Farm",
+        "Envision Energy wind projects",
+        "Goldwind Stockyard Hill",
+        "Vestas Australian wind projects"
+      ],
+      "yoe_band": "5-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"wind turbine\" OR \"WTG\" OR \"onshore wind\") AND (\"erection\" OR \"installation\" OR \"commissioning\" OR \"construction\") AND (\"site manager\" OR \"construction manager\" OR \"HSE\" OR \"turbine technician\" OR \"commissioning engineer\" OR \"crane supervisor\" OR \"rigger\") AND (\"Australia\" OR \"Western Australia\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Envision Energy has just received NTP from Neoen for turbine supply & install at the 179MW Narrogin Wind Farm in WA. Construction is ramping now — are you open to a conversation about site roles?",
+      "email_subject": "Narrogin Wind Farm (179MW) – Construction Roles Now Mobilising | Envision Energy / Neoen",
+      "email_body": "Hi [Name],\n\nEnvision Energy has received a Notice to Proceed from Neoen for the turbine supply and installation package at the 179MW Narrogin Wind Farm in Western Australia — one of Australia's largest wind projects.\n\nWith construction mobilising imminently, there is likely to be strong demand for experienced wind construction professionals including erection supervisors, commissioning engineers, civil and electrical trades, HSE leads, and site managers.\n\nGiven your background in onshore wind construction, I wanted to reach out to see whether you'd be open to exploring opportunities on this project or similar campaigns we're currently supporting.\n\nWould you have 15 minutes for a quick call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Notice to Proceed issued by named operator Neoen to named contractor Envision Energy for turbine supply and installation at the named 179MW Narrogin Wind Farm, constituting a discrete contract award with clear workforce demand implications.",
+    "phase": "construction",
+    "phase_evidence": "Article states Envision Energy 'has received the Notice to Proceed (NTP)' for the turbine supply and installation package, indicating construction is commencing.",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "07aaebe7-7072-48d9-bf13-1a2665ad1b41",
+    "ingested_at": "2026-07-22T06:55:33.522Z",
+    "source_published_at": "2026-07-22T06:31:00.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/neptun_deep_production_unit_installed-21-jul-2026-184180-article/?rss=true"

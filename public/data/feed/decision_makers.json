@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-07-21T18:32:33.768Z"
+    "last_updated_at": "2026-07-22T06:57:14.049Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -8798,6 +8798,66 @@
         "email": null,
         "phone": null,
         "location": null
+      }
+    ]
+  },
+  "neoen": {
+    "discovered_at": "2026-07-22T06:57:14.049Z",
+    "contacts": [
+      {
+        "name": "Julie Duchesne",
+        "title": "Group HR Director",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/julie-duchesne",
+        "source_url": "https://neoen.com/en/careers/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Paris, France"
+      },
+      {
+        "name": "Norbert Thouvenot",
+        "title": "Chief Operating Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/norbert-thouvenot-224618133",
+        "source_url": "https://neoen.com/en/news/2021/neoen-appoints-norbert-thouvenot-chief-operating-officer/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Paris, France"
+      },
+      {
+        "name": "Laszlo Csanyi",
+        "title": "Head of Construction – Australia",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/laszlo-csanyi-22698a16",
+        "source_url": "https://au.linkedin.com/in/laszlo-csanyi-22698a16",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Sydney, Australia"
+      },
+      {
+        "name": "George Schinckel",
+        "title": "Senior Construction Project Manager",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/george-schinckel-216806134",
+        "source_url": "https://au.linkedin.com/company/neoen-australia",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Australia"
+      },
+      {
+        "name": "Matthieu Richard",
+        "title": "Construction Director - France",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://theorg.com/org/neoen-sa/teams/construction-management",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "France"
       }
     ]
   }

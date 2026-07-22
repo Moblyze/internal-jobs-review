@@ -1,5 +1,47 @@
 [
   {
+    "id": "07aaebe7-7072-48d9-bf13-1a2665ad1b41",
+    "ingested_at": "2026-07-22T06:55:33.522Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/envision-energy-to-deliver-australias-largest-wind-turbines-for-neoens-179mw-narrogin-wind-farm-302831813.html"
+      }
+    ],
+    "subsector": "onshore-renewables",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction"
+    ],
+    "signal_type": "epc_award",
+    "region": "western-australia",
+    "country": "australia",
+    "headline": "Envision Energy Receives NTP from Neoen for 179MW Narrogin Wind Farm Turbine Supply & Install",
+    "operator": {
+      "name": "Neoen",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Envision Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Narrogin Wind Farm",
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": []
+  },
+  {
     "id": "ceb98bac-10ce-4d5f-b82b-e2ecd2b4af98",
     "ingested_at": "2026-07-21T18:30:56.926Z",
     "sources": [
