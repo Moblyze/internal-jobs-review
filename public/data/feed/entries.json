@@ -2,6 +2,226 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/beetaloo_pilot_project_to_start_gas_sales_in_q3_tamboran_says-22-jul-2026-184191-article/?rss=true"
+      }
+    ],
+    "headline": "Tamboran Resources Completes Beetaloo Well Stimulation; Shenandoah South Pilot Gas Sales Targeted Q3",
+    "body": "Tamboran Resources Corp said it had completed the biggest well stimulation campaign in the Beetaloo basin onshore Australia, putting the Shenandoah South (SS...",
+    "url": "https://www.rigzone.com/news/beetaloo_pilot_project_to_start_gas_sales_in_q3_tamboran_says-22-jul-2026-184191-article/?rss=true",
+    "published_at": "2026-07-22T14:43:59.000Z",
+    "hash": "1420dc95b986f3d2",
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "process_plant_operations",
+      "pipeline_mechanical",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "australia-onshore",
+    "country": "australia",
+    "tldr": "Tamboran Resources has completed the largest well stimulation campaign in the Beetaloo basin and is targeting first gas sales from the Shenandoah South pilot project in Q3, signalling imminent operational ramp-up and near-term hiring demand for production and field operations personnel.",
+    "operator": {
+      "name": "Tamboran Resources Corp",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Tamboran Resources Corp",
+      "matched_company_slug": null
+    },
+    "project_name": "Shenandoah South (Beetaloo Pilot Project)",
+    "scope": [
+      "well_stimulation",
+      "pilot_production",
+      "gas_sales_startup"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Production Operator",
+        "Well Site Supervisor",
+        "Completions Engineer",
+        "Petroleum Engineer",
+        "Field Operations Superintendent",
+        "Facilities Engineer",
+        "Gas Plant Operator",
+        "HSE Advisor",
+        "Operations Manager"
+      ],
+      "skills": [
+        "well stimulation",
+        "hydraulic fracturing",
+        "unconventional gas",
+        "shale/tight gas",
+        "production operations",
+        "gas sales metering",
+        "pilot plant operations",
+        "completions"
+      ],
+      "certs_freetext": [
+        "IWCF Well Control",
+        "OPITO BOSIET",
+        "Australian Gas Networks certification",
+        "First Aid/Senior First Aid"
+      ],
+      "geo_rtw": "Australia (Northern Territory); must hold AU work rights",
+      "project_experience": [
+        "Beetaloo Basin",
+        "Shenandoah South",
+        "Origin Kyalla",
+        "Santos Tanumbirini"
+      ],
+      "yoe_band": "5-15",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"production operator\" OR \"well site supervisor\" OR \"completions engineer\" OR \"petroleum engineer\" OR \"field operations superintendent\" OR \"gas plant operator\") AND (\"unconventional gas\" OR \"tight gas\" OR \"shale gas\" OR \"hydraulic fracturing\" OR \"well stimulation\") AND (\"Northern Territory\" OR \"Beetaloo\" OR \"onshore gas\" OR \"Australia\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Tamboran Resources is ramping up gas sales at the Shenandoah South pilot in the Beetaloo Basin (Q3 target) following the basin's largest-ever well stimulation campaign. Are you open to onshore NT operations roles?",
+      "email_subject": "Beetaloo Basin – Shenandoah South Pilot Gas Sales Ramp-Up | Operations Roles",
+      "email_body": "Hi [Name],\n\nTamboran Resources has just completed the largest well stimulation campaign in the Beetaloo Basin and is targeting gas sales from the Shenandoah South pilot project in Q3 of this year.\n\nThis represents an active operational ramp-up and we are sourcing experienced onshore gas operations professionals — Production Operators, Completions Engineers, Field Supervisors, and HSE Advisors — with unconventional/tight gas backgrounds.\n\nIf you have Beetaloo, Northern Territory, or comparable unconventional gas experience and hold Australian work rights, I'd welcome a brief conversation.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Tamboran Resources) announces completion of well stimulation campaign and imminent gas sales startup at the named Shenandoah South pilot project in the Beetaloo Basin, signalling a near-term workforce ramp-up in onshore O&G operations.",
+    "phase": "construction",
+    "phase_evidence": "Article states well stimulation campaign is complete and gas sales are targeted for Q3, indicating hookup/commissioning and imminent production startup.",
+    "construction_subphase": "commissioning",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "d9fb5068-d0c0-4864-a367-aa33c9acd122",
+    "ingested_at": "2026-07-23T18:29:43.019Z",
+    "source_published_at": "2026-07-22T14:43:59.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/panamint-capital-breaks-ground-on-historic-1-2-gw-solar-project-at-texas-energy-site-302833535.html"
+      }
+    ],
+    "headline": "Panamint Capital Breaks Ground on 1.2 GW Big Rooter Solar Project at Twin Oaks, Texas",
+    "body": "BREMOND, Texas, July 23, 2026 /PRNewswire/ -- Panamint Capital has broken ground on Big Rooter Power, a 1.2 GWdc solar PV project located at the company's Twin Oaks power station in Robertson County, Texas. The $1.7 billion project located halfway between Dallas and Houston will be the...",
+    "url": "https://www.prnewswire.com/news-releases/panamint-capital-breaks-ground-on-historic-1-2-gw-solar-project-at-texas-energy-site-302833535.html",
+    "published_at": "2026-07-23T17:16:00.000Z",
+    "hash": "65afd9b660072a2b",
+    "subsector": "onshore-renewables",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "survey_geophysical"
+    ],
+    "signal_type": "fid",
+    "region": "us-texas",
+    "country": "united_states",
+    "tldr": "Panamint Capital has broken ground on the $1.7B Big Rooter Power 1.2 GWdc solar PV project at Twin Oaks, Robertson County, Texas — construction is now underway and trades hiring demand is active.",
+    "operator": {
+      "name": "Panamint Capital",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Panamint Capital",
+      "matched_company_slug": null
+    },
+    "project_name": "Big Rooter Power",
+    "scope": [
+      "solar_pv_installation",
+      "civil_works",
+      "electrical_balance_of_plant"
+    ],
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 1700000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Solar Construction Manager",
+        "Site Manager",
+        "HSE Manager",
+        "Civil Works Supervisor",
+        "Electrical Superintendent",
+        "Balance of Plant Engineer",
+        "Solar PV Installer",
+        "Electrical Foreman",
+        "Commissioning Engineer",
+        "Project Controls Manager"
+      ],
+      "skills": [
+        "solar PV installation",
+        "balance of plant",
+        "civil works",
+        "HV electrical",
+        "construction management",
+        "utility-scale solar",
+        "substation works",
+        "project controls"
+      ],
+      "certs_freetext": [
+        "OSHA 30",
+        "NFPA 70E",
+        "Texas Electrical License",
+        "First Aid/CPR"
+      ],
+      "geo_rtw": "US work-authorized, Texas-based or willing to relocate to Robertson County TX",
+      "project_experience": [
+        "utility-scale solar",
+        "large-scale PV",
+        "onshore renewables construction",
+        "Texas renewable energy projects"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"solar\" OR \"solar PV\" OR \"utility-scale solar\") AND (\"construction manager\" OR \"site manager\" OR \"electrical superintendent\" OR \"balance of plant\" OR \"commissioning engineer\" OR \"HSE manager\" OR \"solar installer\") AND (\"Texas\" OR \"Robertson County\" OR \"utility scale\") AND (\"1 GW\" OR \"large scale\" OR \"greenfield\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Panamint Capital just broke ground on Big Rooter Power — a $1.7B, 1.2 GW solar project in Robertson County, TX. Construction is live and crews are ramping. Open to a quick chat about your availability?",
+      "email_subject": "Big Rooter Power (1.2 GW Solar, TX) — Construction Roles Live Now",
+      "email_body": "Hi [Name],\n\nPanamint Capital has officially broken ground on Big Rooter Power, a $1.7 billion, 1.2 GWdc utility-scale solar PV project at the Twin Oaks site in Robertson County, Texas — midway between Dallas and Houston.\n\nWith construction now underway, there is immediate demand for experienced solar construction professionals including Construction Managers, Electrical Superintendents, Balance of Plant Engineers, HSE leads, and commissioning specialists.\n\nGiven your background in utility-scale solar construction, I'd love to connect you with this opportunity. Are you available for a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Panamint Capital) has broken ground on a discrete $1.7B 1.2 GW solar construction project (Big Rooter Power) in Texas, constituting a clear large workforce ramp-up event in onshore renewables.",
+    "phase": "construction",
+    "phase_evidence": "Article states 'Panamint Capital has broken ground on Big Rooter Power,' confirming active construction has commenced.",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "6aba7121-aed5-4cde-bd8b-c8b985189857",
+    "ingested_at": "2026-07-23T18:29:43.019Z",
+    "source_published_at": "2026-07-23T17:16:00.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/envision-energy-to-deliver-australias-largest-wind-turbines-for-neoens-179mw-narrogin-wind-farm-302831813.html"

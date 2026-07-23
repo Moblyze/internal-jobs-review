@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-07-22T06:57:14.049Z"
+    "last_updated_at": "2026-07-23T18:32:06.134Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -8858,6 +8858,126 @@
         "email": null,
         "phone": null,
         "location": "France"
+      }
+    ]
+  },
+  "tamboran resources corp": {
+    "discovered_at": "2026-07-23T18:32:06.134Z",
+    "contacts": [
+      {
+        "name": "Ms. Vassallo",
+        "title": "Vice President, Human Resources",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://www.tamboran.com/team/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Faron Thibodeaux",
+        "title": "Chief Operating Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/faron-thibodeaux",
+        "source_url": "https://www.tamboran.com/team/mr-faron-thibodeaux/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Todd Abbott",
+        "title": "Chief Executive Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/todd-abbott-7bba313",
+        "source_url": "https://ir.tamboran.com/company-information/executive-team",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Eric Dyer",
+        "title": "Chief Financial Officer & General Manager",
+        "persona": "other",
+        "linkedin_url": "https://www.linkedin.com/in/ericdyer",
+        "source_url": "https://www.tamboran.com/team/mr-eric-dyer/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Manly, NSW, Australia"
+      },
+      {
+        "name": "Edward Wong",
+        "title": "Vice President, Drilling and Completions",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/faron-thibodeaux",
+        "source_url": "https://www.linkedin.com/in/faron-thibodeaux/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "panamint capital": {
+    "discovered_at": "2026-07-23T18:32:06.134Z",
+    "contacts": [
+      {
+        "name": "Robb Owen",
+        "title": "Director of EPC",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/robb-owen-33a1381b",
+        "source_url": "https://theorg.com/org/panamint-capital/offices/hq",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Incline Village, NV, USA"
+      },
+      {
+        "name": "Ehren Ochsenrider",
+        "title": "Director, Asset Management",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/ehrenochsenrider",
+        "source_url": "https://theorg.com/org/panamint-capital/teams/leadership-team",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Greater Reno Area, NV, USA"
+      },
+      {
+        "name": "Apolka Totth",
+        "title": "Founder & Chief Executive Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/apolka-totth-8701557",
+        "source_url": "https://naema.com/new-market-member-panamint-capital/",
+        "in_target_persona": true,
+        "email": "atotth@panamintcapital.com",
+        "phone": "415-515-0023",
+        "location": "Incline Village, NV, USA"
+      },
+      {
+        "name": "Michael Miller",
+        "title": "Managing Director",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/michael-miller-72342826",
+        "source_url": "https://www.signalhire.com/companies/panamint-capital",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Incline Village, NV, USA"
+      },
+      {
+        "name": "Daniel Englander",
+        "title": "Chief Investment Officer",
+        "persona": "other",
+        "linkedin_url": "https://www.linkedin.com/in/danielenglander",
+        "source_url": "https://naema.com/new-market-member-panamint-capital/",
+        "in_target_persona": false,
+        "email": "denglander@panamintcapital.com",
+        "phone": "415-515-3844",
+        "location": "Incline Village, NV, USA"
       }
     ]
   }
