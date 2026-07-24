@@ -2,116 +2,6 @@
   {
     "sources": [
       {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/beetaloo_pilot_project_to_start_gas_sales_in_q3_tamboran_says-22-jul-2026-184191-article/?rss=true"
-      }
-    ],
-    "headline": "Tamboran Resources Completes Beetaloo Well Stimulation; Shenandoah South Pilot Gas Sales Targeted Q3",
-    "body": "Tamboran Resources Corp said it had completed the biggest well stimulation campaign in the Beetaloo basin onshore Australia, putting the Shenandoah South (SS...",
-    "url": "https://www.rigzone.com/news/beetaloo_pilot_project_to_start_gas_sales_in_q3_tamboran_says-22-jul-2026-184191-article/?rss=true",
-    "published_at": "2026-07-22T14:43:59.000Z",
-    "hash": "1420dc95b986f3d2",
-    "subsector": "onshore-og",
-    "discipline_tags": [
-      "drilling_operations",
-      "process_plant_operations",
-      "pipeline_mechanical",
-      "energy_trades"
-    ],
-    "signal_type": "fid",
-    "region": "australia-onshore",
-    "country": "australia",
-    "tldr": "Tamboran Resources has completed the largest well stimulation campaign in the Beetaloo basin and is targeting first gas sales from the Shenandoah South pilot project in Q3, signalling imminent operational ramp-up and near-term hiring demand for production and field operations personnel.",
-    "operator": {
-      "name": "Tamboran Resources Corp",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Tamboran Resources Corp",
-      "matched_company_slug": null
-    },
-    "project_name": "Shenandoah South (Beetaloo Pilot Project)",
-    "scope": [
-      "well_stimulation",
-      "pilot_production",
-      "gas_sales_startup"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Production Operator",
-        "Well Site Supervisor",
-        "Completions Engineer",
-        "Petroleum Engineer",
-        "Field Operations Superintendent",
-        "Facilities Engineer",
-        "Gas Plant Operator",
-        "HSE Advisor",
-        "Operations Manager"
-      ],
-      "skills": [
-        "well stimulation",
-        "hydraulic fracturing",
-        "unconventional gas",
-        "shale/tight gas",
-        "production operations",
-        "gas sales metering",
-        "pilot plant operations",
-        "completions"
-      ],
-      "certs_freetext": [
-        "IWCF Well Control",
-        "OPITO BOSIET",
-        "Australian Gas Networks certification",
-        "First Aid/Senior First Aid"
-      ],
-      "geo_rtw": "Australia (Northern Territory); must hold AU work rights",
-      "project_experience": [
-        "Beetaloo Basin",
-        "Shenandoah South",
-        "Origin Kyalla",
-        "Santos Tanumbirini"
-      ],
-      "yoe_band": "5-15",
-      "seniority": "mid-to-senior",
-      "boolean_search": "(\"production operator\" OR \"well site supervisor\" OR \"completions engineer\" OR \"petroleum engineer\" OR \"field operations superintendent\" OR \"gas plant operator\") AND (\"unconventional gas\" OR \"tight gas\" OR \"shale gas\" OR \"hydraulic fracturing\" OR \"well stimulation\") AND (\"Northern Territory\" OR \"Beetaloo\" OR \"onshore gas\" OR \"Australia\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Tamboran Resources is ramping up gas sales at the Shenandoah South pilot in the Beetaloo Basin (Q3 target) following the basin's largest-ever well stimulation campaign. Are you open to onshore NT operations roles?",
-      "email_subject": "Beetaloo Basin – Shenandoah South Pilot Gas Sales Ramp-Up | Operations Roles",
-      "email_body": "Hi [Name],\n\nTamboran Resources has just completed the largest well stimulation campaign in the Beetaloo Basin and is targeting gas sales from the Shenandoah South pilot project in Q3 of this year.\n\nThis represents an active operational ramp-up and we are sourcing experienced onshore gas operations professionals — Production Operators, Completions Engineers, Field Supervisors, and HSE Advisors — with unconventional/tight gas backgrounds.\n\nIf you have Beetaloo, Northern Territory, or comparable unconventional gas experience and hold Australian work rights, I'd welcome a brief conversation.\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named operator (Tamboran Resources) announces completion of well stimulation campaign and imminent gas sales startup at the named Shenandoah South pilot project in the Beetaloo Basin, signalling a near-term workforce ramp-up in onshore O&G operations.",
-    "phase": "construction",
-    "phase_evidence": "Article states well stimulation campaign is complete and gas sales are targeted for Q3, indicating hookup/commissioning and imminent production startup.",
-    "construction_subphase": "commissioning",
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "1-3mo",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "d9fb5068-d0c0-4864-a367-aa33c9acd122",
-    "ingested_at": "2026-07-23T18:29:43.019Z",
-    "source_published_at": "2026-07-22T14:43:59.000Z",
-    "contact_archetypes": [
-      "site_manager",
-      "hiring_manager",
-      "project_manager"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/panamint-capital-breaks-ground-on-historic-1-2-gw-solar-project-at-texas-energy-site-302833535.html"
@@ -212,6 +102,116 @@
     "id": "6aba7121-aed5-4cde-bd8b-c8b985189857",
     "ingested_at": "2026-07-23T18:29:43.019Z",
     "source_published_at": "2026-07-23T17:16:00.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/beetaloo_pilot_project_to_start_gas_sales_in_q3_tamboran_says-22-jul-2026-184191-article/?rss=true"
+      }
+    ],
+    "headline": "Tamboran Resources Completes Beetaloo Well Stimulation; Shenandoah South Pilot Gas Sales Targeted Q3",
+    "body": "Tamboran Resources Corp said it had completed the biggest well stimulation campaign in the Beetaloo basin onshore Australia, putting the Shenandoah South (SS...",
+    "url": "https://www.rigzone.com/news/beetaloo_pilot_project_to_start_gas_sales_in_q3_tamboran_says-22-jul-2026-184191-article/?rss=true",
+    "published_at": "2026-07-22T14:43:59.000Z",
+    "hash": "1420dc95b986f3d2",
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "process_plant_operations",
+      "pipeline_mechanical",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "australia-onshore",
+    "country": "australia",
+    "tldr": "Tamboran Resources has completed the largest well stimulation campaign in the Beetaloo basin and is targeting first gas sales from the Shenandoah South pilot project in Q3, signalling imminent operational ramp-up and near-term hiring demand for production and field operations personnel.",
+    "operator": {
+      "name": "Tamboran Resources Corp",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Tamboran Resources Corp",
+      "matched_company_slug": null
+    },
+    "project_name": "Shenandoah South (Beetaloo Pilot Project)",
+    "scope": [
+      "well_stimulation",
+      "pilot_production",
+      "gas_sales_startup"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Production Operator",
+        "Well Site Supervisor",
+        "Completions Engineer",
+        "Petroleum Engineer",
+        "Field Operations Superintendent",
+        "Facilities Engineer",
+        "Gas Plant Operator",
+        "HSE Advisor",
+        "Operations Manager"
+      ],
+      "skills": [
+        "well stimulation",
+        "hydraulic fracturing",
+        "unconventional gas",
+        "shale/tight gas",
+        "production operations",
+        "gas sales metering",
+        "pilot plant operations",
+        "completions"
+      ],
+      "certs_freetext": [
+        "IWCF Well Control",
+        "OPITO BOSIET",
+        "Australian Gas Networks certification",
+        "First Aid/Senior First Aid"
+      ],
+      "geo_rtw": "Australia (Northern Territory); must hold AU work rights",
+      "project_experience": [
+        "Beetaloo Basin",
+        "Shenandoah South",
+        "Origin Kyalla",
+        "Santos Tanumbirini"
+      ],
+      "yoe_band": "5-15",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"production operator\" OR \"well site supervisor\" OR \"completions engineer\" OR \"petroleum engineer\" OR \"field operations superintendent\" OR \"gas plant operator\") AND (\"unconventional gas\" OR \"tight gas\" OR \"shale gas\" OR \"hydraulic fracturing\" OR \"well stimulation\") AND (\"Northern Territory\" OR \"Beetaloo\" OR \"onshore gas\" OR \"Australia\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Tamboran Resources is ramping up gas sales at the Shenandoah South pilot in the Beetaloo Basin (Q3 target) following the basin's largest-ever well stimulation campaign. Are you open to onshore NT operations roles?",
+      "email_subject": "Beetaloo Basin – Shenandoah South Pilot Gas Sales Ramp-Up | Operations Roles",
+      "email_body": "Hi [Name],\n\nTamboran Resources has just completed the largest well stimulation campaign in the Beetaloo Basin and is targeting gas sales from the Shenandoah South pilot project in Q3 of this year.\n\nThis represents an active operational ramp-up and we are sourcing experienced onshore gas operations professionals — Production Operators, Completions Engineers, Field Supervisors, and HSE Advisors — with unconventional/tight gas backgrounds.\n\nIf you have Beetaloo, Northern Territory, or comparable unconventional gas experience and hold Australian work rights, I'd welcome a brief conversation.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Tamboran Resources) announces completion of well stimulation campaign and imminent gas sales startup at the named Shenandoah South pilot project in the Beetaloo Basin, signalling a near-term workforce ramp-up in onshore O&G operations.",
+    "phase": "construction",
+    "phase_evidence": "Article states well stimulation campaign is complete and gas sales are targeted for Q3, indicating hookup/commissioning and imminent production startup.",
+    "construction_subphase": "commissioning",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "d9fb5068-d0c0-4864-a367-aa33c9acd122",
+    "ingested_at": "2026-07-23T18:29:43.019Z",
+    "source_published_at": "2026-07-22T14:43:59.000Z",
     "contact_archetypes": [
       "site_manager",
       "hiring_manager",
