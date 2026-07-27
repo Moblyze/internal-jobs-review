@@ -2,6 +2,111 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/woodsides_browse_gas_project_declared_state_priority-27-jul-2026-184219-article/?rss=true"
+      }
+    ],
+    "headline": "Woodside's Browse to NW Shelf Project Granted State Significant Status by WA Government",
+    "body": "The Western Australian government has granted the Browse to North West Shelf Project a State Significant Project status, operator Woodside Energy Group Ltd s...",
+    "url": "https://www.rigzone.com/news/woodsides_browse_gas_project_declared_state_priority-27-jul-2026-184219-article/?rss=true",
+    "published_at": "2026-07-27T11:20:37.000Z",
+    "hash": "eca56cc9a4e4e7d8",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations",
+      "pipeline_mechanical",
+      "marine_offshore_ops"
+    ],
+    "signal_type": "regulatory",
+    "region": "australia-west",
+    "country": "australia",
+    "tldr": "Western Australia has granted Woodside's Browse to North West Shelf Project State Significant Project status, accelerating the regulatory pathway toward FID and unlocking future large-scale offshore gas development and construction hiring.",
+    "operator": {
+      "name": "Woodside Energy Group",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Browse to North West Shelf Project",
+    "scope": [
+      "offshore_gas_development",
+      "pipeline",
+      "lng_processing"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "FEED Manager",
+        "Project Development Manager",
+        "Offshore Project Engineer",
+        "Regulatory Affairs Manager",
+        "Front End Engineering Manager",
+        "Development Planning Engineer"
+      ],
+      "skills": [
+        "FEED",
+        "offshore gas development",
+        "LNG",
+        "project development",
+        "regulatory approvals",
+        "subsea pipeline"
+      ],
+      "certs_freetext": [
+        "OPITO",
+        "BOSIET",
+        "Australian NOGEPA equivalent"
+      ],
+      "geo_rtw": "Australia (WA) – must hold AU work rights",
+      "project_experience": [
+        "Ichthys LNG",
+        "Gorgon",
+        "Pluto LNG",
+        "Scarborough",
+        "North West Shelf"
+      ],
+      "yoe_band": "12-20",
+      "seniority": "senior-to-principal",
+      "boolean_search": "(\"Browse\" OR \"North West Shelf\" OR \"Woodside\") AND (\"FEED\" OR \"project development\" OR \"offshore gas\" OR \"LNG\" OR \"subsea pipeline\") AND (\"Project Manager\" OR \"Development Manager\" OR \"FEED Manager\" OR \"Project Engineer\" OR \"Regulatory Manager\") AND (\"Western Australia\" OR \"Perth\" OR \"Australia\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Woodside's Browse to NW Shelf Project just received WA State Significant Project status — a key milestone toward FID. As FEED and pre-sanction activity ramps, senior project development roles will be in demand. Would you be open to a brief chat?",
+      "email_subject": "Browse Project – State Significant Status Granted | Senior Pre-Sanction Roles Ahead",
+      "email_body": "Hi [Name],\n\nWoodside's Browse to North West Shelf Project has just been granted State Significant Project status by the Western Australian government — a meaningful regulatory milestone that accelerates the path toward FID and FEED execution.\n\nWith that comes growing demand for experienced pre-sanction and FEED professionals with offshore gas and LNG development backgrounds.\n\nGiven your experience on [relevant project], I'd love to connect and explore whether any upcoming opportunities on Browse or similar campaigns could be a fit.\n\nWould you be available for a 15-minute call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Field development plan / regulatory approval milestone naming operator Woodside and the Browse to North West Shelf Project, signalling pre-FID acceleration with future staffing implications.",
+    "phase": "pre_sanction",
+    "phase_evidence": "The article describes a State Significant Project status grant — a regulatory/planning milestone prior to FID, placing the project firmly in the pre-sanction phase.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "fd0c0cb2-9790-4f5d-9631-7669fa0f2926",
+    "ingested_at": "2026-07-27T13:06:22.862Z",
+    "source_published_at": "2026-07-27T11:20:37.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/panamint-capital-breaks-ground-on-historic-1-2-gw-solar-project-at-texas-energy-site-302833535.html"

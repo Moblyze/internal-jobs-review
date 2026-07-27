@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-07-23T18:32:06.134Z"
+    "last_updated_at": "2026-07-27T13:08:13.541Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -8978,6 +8978,66 @@
         "email": "denglander@panamintcapital.com",
         "phone": "415-515-3844",
         "location": "Incline Village, NV, USA"
+      }
+    ]
+  },
+  "woodside energy group": {
+    "discovered_at": "2026-07-27T13:08:13.541Z",
+    "contacts": [
+      {
+        "name": "Julie Attwood",
+        "title": "Talent Acquisition / Early Careers (Woodside Energy)",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/julieattwood",
+        "source_url": "https://au.linkedin.com/in/julieattwood",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Karratha (Burrup), Australia"
+      },
+      {
+        "name": "Daniel Kalms",
+        "title": "Executive Vice President & Chief Operating Officer, International",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/daniel-kalms-59a00489",
+        "source_url": "https://www.bicmagazine.com/departments/operations/woodside-energy-surpasses-1b-in-louisiana-investment/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Sarah Bairstow",
+        "title": "President, Louisiana LNG",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/slmcdermott",
+        "source_url": "https://www.businesswire.com/news/home/20250915769336/en",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Julie Fallon",
+        "title": "Executive Vice President, Technical & Energy Development",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/julie-fallon-5586a17a",
+        "source_url": "https://www.areea.com.au/news-media/media-center/media-release-woodsides-julie-fallon-new-areea-president/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Perth, Australia"
+      },
+      {
+        "name": "Liz Westcott",
+        "title": "Chief Executive Officer",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.woodside.com/who-we-are/leadership",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Perth, Australia"
       }
     ]
   }

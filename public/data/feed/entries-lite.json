@@ -1,5 +1,50 @@
 [
   {
+    "id": "fd0c0cb2-9790-4f5d-9631-7669fa0f2926",
+    "ingested_at": "2026-07-27T13:06:22.862Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/woodsides_browse_gas_project_declared_state_priority-27-jul-2026-184219-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations",
+      "pipeline_mechanical",
+      "marine_offshore_ops"
+    ],
+    "signal_type": "regulatory",
+    "region": "australia-west",
+    "country": "australia",
+    "headline": "Woodside's Browse to NW Shelf Project Granted State Significant Status by WA Government",
+    "operator": {
+      "name": "Woodside Energy Group",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Browse to North West Shelf Project",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "6aba7121-aed5-4cde-bd8b-c8b985189857",
     "ingested_at": "2026-07-23T18:29:43.019Z",
     "sources": [
