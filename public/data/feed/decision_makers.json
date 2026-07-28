@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-07-27T13:08:13.541Z"
+    "last_updated_at": "2026-07-28T00:37:28.634Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -9038,6 +9038,126 @@
         "email": null,
         "phone": null,
         "location": "Perth, Australia"
+      }
+    ]
+  },
+  "talos energy": {
+    "discovered_at": "2026-07-28T00:37:28.634Z",
+    "contacts": [
+      {
+        "name": "Megan Dick",
+        "title": "Executive Vice President & Chief Human Resources Officer",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/megan-dick-454122a",
+        "source_url": "https://www.talosenergy.com/investor-relations/news/news-details/2025/Talos-Energy-Supports-Corporate-Strategy-With-Key-Additions-to-Executive-Leadership-Team/default.aspx",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Betty Walsh",
+        "title": "Recruiter",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/betty-walsh-946473107",
+        "source_url": "https://www.linkedin.com/in/betty-walsh-946473107/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "San Francisco, CA, USA"
+      },
+      {
+        "name": "Mirella Fernandez",
+        "title": "HR Professional",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/mirella-fernandez-b436985",
+        "source_url": "https://www.linkedin.com/in/mirella-fernandez-b436985/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Brad Lewis",
+        "title": "HR Professional (Oil & Gas / Maritime)",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/brad-lewis-msol-4462386a",
+        "source_url": "https://www.linkedin.com/in/brad-lewis-msol-4462386a/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "John Spath",
+        "title": "Executive Vice President & Head of Operations",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/john-spath-85074943",
+        "source_url": "https://www.prnewswire.com/news-releases/talos-energy-appoints-john-spath-as-executive-vice-president-and-head-of-operations-302003521.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      }
+    ]
+  },
+  "repsol": {
+    "discovered_at": "2026-07-28T00:37:28.634Z",
+    "contacts": [
+      {
+        "name": "April Callihan",
+        "title": "Senior E&P HR Business Partner",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/april-callihan-shrm-cp-insights-discovery-practitioner-2a0b4211",
+        "source_url": "https://www.linkedin.com/in/april-callihan-shrm-cp-insights-discovery-practitioner-2a0b4211/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Jennifer Wong",
+        "title": "HR Manager / HR Business Partner – Repsol Renewables North America",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/jennifer-wong-hr-professional",
+        "source_url": "https://www.linkedin.com/in/jennifer-wong-hr-professional/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Laura Vélez Zegarra",
+        "title": "Talent Acquisition",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/laura-v%C3%A9lez-zegarra-b261b7354",
+        "source_url": "https://es.linkedin.com/in/laura-v%C3%A9lez-zegarra-b261b7354",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Guanya Colwell-Fleming",
+        "title": "Senior HR Business Partner",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://www.zoominfo.com/p/Guanya-Colwell-fleming/9894710078",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Kevin Richardson",
+        "title": "Assistant Construction Manager",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/kevinrichardson201",
+        "source_url": "https://www.linkedin.com/in/kevinrichardson201/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Zolfo Springs, FL, USA"
       }
     ]
   }

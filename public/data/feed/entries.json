@@ -2,6 +2,223 @@
   {
     "sources": [
       {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/sempra-infrastructure-advances-key-priorities-302835662.html"
+      }
+    ],
+    "headline": "Sempra Infrastructure Advances ECA LNG Phase 1 Project Completion",
+    "body": "HOUSTON, July 27, 2026 /PRNewswire/ -- Sempra Infrastructure, a subsidiary of Sempra (NYSE: SRE), continues to advance a series of key priorities in support of its corporate strategy. One of Sempra Infrastructure's key priorities is the completion of the ECA LNG Phase 1 project, a...",
+    "url": "https://www.prnewswire.com/news-releases/sempra-infrastructure-advances-key-priorities-302835662.html",
+    "published_at": "2026-07-27T21:30:00.000Z",
+    "hash": "6a276f3fc5b6a5e0",
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "mexico-baja-california",
+    "country": "mexico",
+    "tldr": "Sempra Infrastructure is actively advancing completion of the ECA LNG Phase 1 project, signaling ongoing construction-phase labor demand at the Baja California facility. Recruiters should target commissioning and process plant specialists for near-term placement.",
+    "operator": {
+      "name": "Sempra Infrastructure",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Sempra Infrastructure",
+      "matched_company_slug": null
+    },
+    "project_name": "ECA LNG Phase 1",
+    "scope": [
+      "lng_construction",
+      "commissioning",
+      "process_plant"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "LNG Commissioning Engineer",
+        "Process Plant Commissioning Specialist",
+        "Construction Manager",
+        "Mechanical Completion Engineer",
+        "Startup Engineer",
+        "HSE Manager",
+        "Pre-commissioning Supervisor",
+        "Instrumentation & Controls Technician",
+        "Operations Readiness Engineer"
+      ],
+      "skills": [
+        "LNG commissioning",
+        "process plant startup",
+        "mechanical completion",
+        "HAZOP",
+        "pre-commissioning",
+        "systems handover",
+        "operations readiness"
+      ],
+      "certs_freetext": [
+        "CompEx",
+        "BOSIET",
+        "PEC",
+        "OSHA 30",
+        "TWIC"
+      ],
+      "geo_rtw": "Mexico/Baja California; US-Mexico border region; willingness to work in Mexico",
+      "project_experience": [
+        "Sabine Pass LNG",
+        "Cameron LNG",
+        "Corpus Christi LNG",
+        "Freeport LNG",
+        "Costa Azul LNG",
+        "Sempra Port Arthur LNG"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"LNG\" OR \"liquefied natural gas\") AND (\"commissioning\" OR \"pre-commissioning\" OR \"startup\" OR \"mechanical completion\") AND (\"Phase 1\" OR \"ECA LNG\" OR \"Sempra\" OR \"process plant\") AND (\"commissioning engineer\" OR \"startup engineer\" OR \"construction manager\" OR \"operations readiness\" OR \"I&C technician\" OR \"instrumentation\") AND (\"Mexico\" OR \"Baja California\" OR \"US Gulf Coast\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Sempra Infrastructure is advancing completion of ECA LNG Phase 1 in Baja California — a major commissioning push is underway. Your LNG commissioning background looks like a strong fit. Open to a quick chat about the opportunity?",
+      "email_subject": "ECA LNG Phase 1 – Commissioning Roles | Sempra Infrastructure",
+      "email_body": "Hi [Name],\n\nSempra Infrastructure has confirmed it is actively advancing completion of the ECA LNG Phase 1 project in Baja California, Mexico — placing this project firmly in the commissioning/pre-startup phase.\n\nGiven your background in LNG commissioning and process plant startup, I wanted to reach out directly. There are likely near-term openings for experienced commissioning engineers, mechanical completion leads, and operations readiness specialists supporting this campaign.\n\nWould you be open to a brief call this week to discuss? Happy to share more details on scope, duration, and compensation.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator Sempra Infrastructure explicitly cited ECA LNG Phase 1 as a key priority being actively advanced, indicating an ongoing construction/commissioning-phase workforce demand event at a named project.",
+    "phase": "construction",
+    "phase_evidence": "Article states Sempra Infrastructure is focused on 'completion of the ECA LNG Phase 1 project', indicating the project is in active construction/commissioning heading toward completion.",
+    "construction_subphase": "commissioning",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "e55f8960-1d97-4dee-9790-d03634175b10",
+    "ingested_at": "2026-07-28T00:35:36.117Z",
+    "source_published_at": "2026-07-27T21:30:00.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/talos-energy-announces-strategic-offshore-mexico-development-farm-in-302835634.html"
+      }
+    ],
+    "headline": "Talos Energy Farms Into Repsol-Operated Block 29 Offshore Mexico, 50% WI",
+    "body": "HOUSTON, July 27, 2026 /PRNewswire/ -- Talos Energy Inc. (\"Talos\" or the \"Company\") (NYSE: TALO) today announced the execution of a definitive agreement to farm into the Block 29 development offshore Mexico, operated by Repsol, S.A. (\"Repsol\"). Talos will acquire a 50% working interest...",
+    "url": "https://www.prnewswire.com/news-releases/talos-energy-announces-strategic-offshore-mexico-development-farm-in-302835634.html",
+    "published_at": "2026-07-27T20:15:00.000Z",
+    "hash": "199faabfa27c9291",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "marine_offshore_ops",
+      "rov_subsea",
+      "survey_geophysical"
+    ],
+    "signal_type": "lease_round",
+    "region": "mexico-offshore",
+    "country": "mexico",
+    "tldr": "Talos Energy acquires a 50% working interest in Repsol-operated Block 29 offshore Mexico. Farm-in signals upcoming development activity and labor demand across drilling, subsea, and offshore operations disciplines.",
+    "operator": {
+      "name": "Repsol",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Talos Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Block 29 Offshore Mexico",
+    "scope": [
+      "farm_in",
+      "block_development",
+      "offshore_og"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Offshore Project Manager",
+        "Drilling Engineer",
+        "Subsea Engineer",
+        "Development Geologist",
+        "Reservoir Engineer",
+        "Operations Geologist",
+        "Well Engineer",
+        "Offshore Installation Manager"
+      ],
+      "skills": [
+        "offshore development",
+        "deepwater drilling",
+        "block development planning",
+        "reservoir characterization",
+        "well planning",
+        "subsea systems",
+        "Mexico offshore operations"
+      ],
+      "certs_freetext": [
+        "Well Control (IWCF/IADC)",
+        "BOSIET/HUET",
+        "OPITO offshore safety"
+      ],
+      "geo_rtw": "Mexico or willing to mobilize to Mexico offshore; Latin America experience preferred",
+      "project_experience": [
+        "Zama Field",
+        "Talos Energy Gulf of Mexico",
+        "Repsol Mexico offshore",
+        "CNH block development Mexico"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "senior",
+      "boolean_search": "(\"offshore Mexico\" OR \"deepwater Mexico\" OR \"Block 29\" OR \"CNH\") AND (\"drilling engineer\" OR \"reservoir engineer\" OR \"subsea engineer\" OR \"offshore project manager\" OR \"well engineer\" OR \"development geology\") AND (\"Talos\" OR \"Repsol\" OR \"offshore development\" OR \"farm-in\" OR \"working interest\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Talos Energy just farmed into Repsol's Block 29 offshore Mexico (50% WI). Development activity is set to ramp — are you open to discussing offshore roles tied to this campaign?",
+      "email_subject": "Block 29 Mexico – Talos/Repsol Farm-In: Offshore Roles Coming",
+      "email_body": "Hi [Name],\n\nTalos Energy has announced a 50% farm-in to Repsol-operated Block 29 offshore Mexico, signaling an upcoming development campaign that will drive hiring across drilling, subsea, and offshore operations disciplines.\n\nGiven your background in [relevant discipline], I wanted to reach out early — these roles tend to move quickly once development planning kicks off.\n\nWould you be open to a brief call to explore potential fit?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Farm-in agreement directly assigns a 50% working interest in named offshore block (Block 29) to Talos Energy, with Repsol as named operator, signaling imminent development workforce demand offshore Mexico.",
+    "phase": "pre_sanction",
+    "phase_evidence": "The article describes execution of a farm-in agreement — a precursor to development sanctioning — with no mention of FID, EPC award, or construction commencement.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "6f755d23-a28e-4e37-abdd-ecf0f5bda692",
+    "ingested_at": "2026-07-28T00:35:36.117Z",
+    "source_published_at": "2026-07-27T20:15:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/woodsides_browse_gas_project_declared_state_priority-27-jul-2026-184219-article/?rss=true"
