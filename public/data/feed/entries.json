@@ -2,6 +2,118 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/edf-teams-up-with-technip-energies-for-epr2-delivery"
+      }
+    ],
+    "headline": "Technip Energies Signs Strategic Framework Agreement with EDF for EPR2 Nuclear Reactor Construction Programme",
+    "body": "French engineering and technology company Technip Energies announced it has signed a strategic framework agreement with EDF to support execution, construction management, and delivery of EDF's EPR2 reactor construction programme.",
+    "url": "https://www.world-nuclear-news.org/articles/edf-teams-up-with-technip-energies-for-epr2-delivery",
+    "published_at": "2026-07-28T14:23:30.000Z",
+    "hash": "5c9560e337cd2ef6",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "france",
+    "country": "france",
+    "tldr": "Technip Energies has signed a strategic framework agreement with EDF to support construction management and delivery of the EPR2 reactor programme, signalling a major upcoming labour demand for nuclear construction disciplines in France.",
+    "operator": {
+      "name": "EDF",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Technip Energies",
+      "matched_company_slug": null
+    },
+    "project_name": "EPR2",
+    "scope": [
+      "construction_management",
+      "execution_support",
+      "project_delivery"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Construction Manager",
+        "Project Manager – Nuclear",
+        "Site Manager",
+        "HSE Manager",
+        "Nuclear Project Engineer",
+        "Commissioning Manager",
+        "Quality Manager – Nuclear",
+        "Planning Engineer",
+        "Cost Engineer",
+        "Mechanical Completion Engineer"
+      ],
+      "skills": [
+        "nuclear construction",
+        "EPR",
+        "EPR2",
+        "construction management",
+        "project controls",
+        "nuclear QA/QC",
+        "commissioning",
+        "civil works",
+        "reactor construction",
+        "EDF"
+      ],
+      "certs_freetext": [
+        "ASN nuclear qualification",
+        "CEFRI radiation protection",
+        "ISO 19443 nuclear quality",
+        "CSP (Construction Site Professional)"
+      ],
+      "geo_rtw": "France – EU work authorisation required",
+      "project_experience": [
+        "Flamanville EPR",
+        "Hinkley Point C",
+        "Olkiluoto EPR",
+        "Sizewell C"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"EPR2\" OR \"EPR\" OR \"nuclear construction\" OR \"reactor construction\") AND (\"construction manager\" OR \"site manager\" OR \"project manager\" OR \"commissioning manager\" OR \"planning engineer\" OR \"HSE manager\" OR \"quality manager\") AND (\"EDF\" OR \"Technip Energies\" OR \"Framatome\" OR \"Bouygues\" OR \"Hinkley\" OR \"Flamanville\" OR \"nuclear\") AND (France OR \"French nuclear\" OR \"ASN\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Technip Energies just signed a strategic framework with EDF to deliver the EPR2 programme. With your nuclear construction background, this could be a strong fit. Happy to share details — are you open to a quick chat?",
+      "email_subject": "EPR2 Programme – Nuclear Construction Roles via Technip Energies / EDF",
+      "email_body": "Hi [Name],\n\nTechnip Energies has just announced a strategic framework agreement with EDF to support execution, construction management, and delivery of the EPR2 nuclear reactor construction programme in France.\n\nGiven your background in nuclear construction and project delivery, I wanted to reach out — there will be significant demand for experienced professionals across construction management, commissioning, HSE, and project controls as this programme ramps up.\n\nWould you be open to a brief call to explore how your experience aligns with opportunities coming to market?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Strategic framework agreement award naming EDF as operator and Technip Energies as execution/construction management contractor for the EPR2 nuclear reactor construction programme — a discrete workforce-demand event in the nuclear sector.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "The article describes a signed framework agreement to 'support execution, construction management, and delivery' of the EPR2 construction programme, indicating post-FID engineering and construction management ramp-up.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "5a482ae4-ea62-4148-942c-504005b73bdd",
+    "ingested_at": "2026-07-28T18:31:59.452Z",
+    "source_published_at": "2026-07-28T14:23:30.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/eni_greenlights_cyprus_first_hydrocarbon_project-28-jul-2026-184228-article/?rss=true"

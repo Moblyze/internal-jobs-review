@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-07-28T00:37:28.634Z"
+    "last_updated_at": "2026-07-28T18:33:29.145Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -9158,6 +9158,66 @@
         "email": null,
         "phone": null,
         "location": "Zolfo Springs, FL, USA"
+      }
+    ]
+  },
+  "technip energies": {
+    "discovered_at": "2026-07-28T18:33:29.145Z",
+    "contacts": [
+      {
+        "name": "Magali Castano",
+        "title": "Chief People Officer",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/magali-castano-054a5218",
+        "source_url": "https://www.ten.com/en/about/executive-team",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Paris, France"
+      },
+      {
+        "name": "Mukesh Dubey",
+        "title": "Head of Talent Acquisition & Recruitment – T.EN Group Operations & Transformation",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/mukesh-dubey-70139816",
+        "source_url": "https://theorg.com/org/technip-energies/org-chart/mukesh-dubey",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Abu Dhabi, UAE"
+      },
+      {
+        "name": "Loïc Chapuis",
+        "title": "President, Project Delivery & Services",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/lo%C3%AFc-chapuis-8b59b4",
+        "source_url": "https://www.ten.com/en/about/executive-team",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Courbevoie, France"
+      },
+      {
+        "name": "Anne du Quellennec",
+        "title": "Head of HRBP & QVCT",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/anne-du-quellennec-64b465255",
+        "source_url": "https://www.linkedin.com/in/anne-du-quellennec-64b465255/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "France"
+      },
+      {
+        "name": "Priyanka Bhatnagar",
+        "title": "Chief Manager, People & Culture (DE&I / HRBP)",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/priyanka-bhatnagar-14843a4",
+        "source_url": "https://theorg.com/org/technip-energies/org-chart/priyanka-bhatnagar",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Gurugram, India"
       }
     ]
   }

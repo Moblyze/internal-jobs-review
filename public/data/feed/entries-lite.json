@@ -1,5 +1,48 @@
 [
   {
+    "id": "5a482ae4-ea62-4148-942c-504005b73bdd",
+    "ingested_at": "2026-07-28T18:31:59.452Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/edf-teams-up-with-technip-energies-for-epr2-delivery"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "france",
+    "country": "france",
+    "headline": "Technip Energies Signs Strategic Framework Agreement with EDF for EPR2 Nuclear Reactor Construction Programme",
+    "operator": {
+      "name": "EDF",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Technip Energies",
+      "matched_company_slug": null
+    },
+    "project_name": "EPR2",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
     "id": "96569155-21bd-4b16-9a43-f75dc4d87e74",
     "ingested_at": "2026-07-28T12:39:41.888Z",
     "sources": [
