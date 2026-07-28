@@ -2,6 +2,124 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/eni_greenlights_cyprus_first_hydrocarbon_project-28-jul-2026-184228-article/?rss=true"
+      }
+    ],
+    "headline": "Eni Greenlights Cronos Deepwater Gas Field — Cyprus' First Hydrocarbon FID",
+    "body": "Eni SpA has made a final investment decision to develop the Cronos deepwater gas field, which it said is the Mediterranean island country's \"inaugural hydroc...",
+    "url": "https://www.rigzone.com/news/eni_greenlights_cyprus_first_hydrocarbon_project-28-jul-2026-184228-article/?rss=true",
+    "published_at": "2026-07-28T09:05:26.000Z",
+    "hash": "4207cde01095f029",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "rov_subsea",
+      "marine_offshore_ops",
+      "industrial_construction",
+      "process_plant_operations",
+      "drilling_operations"
+    ],
+    "signal_type": "fid",
+    "region": "eastern-mediterranean",
+    "country": "cyprus",
+    "tldr": "Eni has taken FID on the Cronos deepwater gas development offshore Cyprus, triggering EPC tenders and engineering ramp-up. Active contractor and trade hiring is expected within 3–12 months as awards are made.",
+    "operator": {
+      "name": "Eni SpA",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Cronos",
+    "scope": [
+      "deepwater_gas_development",
+      "subsea_install",
+      "fpso_or_platform_tbd",
+      "drilling"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Subsea Project Engineer",
+        "Deepwater Development Manager",
+        "SURF Project Manager",
+        "Offshore Construction Manager",
+        "Subsea Installation Engineer",
+        "ROV Supervisor",
+        "Drilling Engineering Lead",
+        "Topsides EPC Manager",
+        "FEED Engineer",
+        "Project Controls Manager"
+      ],
+      "skills": [
+        "deepwater gas development",
+        "SURF engineering",
+        "subsea installation",
+        "FEED",
+        "EPC tendering",
+        "ROV operations",
+        "offshore project management",
+        "Mediterranean offshore",
+        "drilling engineering",
+        "FID project execution"
+      ],
+      "certs_freetext": [
+        "BOSIET/HUET",
+        "GWO",
+        "OPITO Offshore",
+        "CSWIP 3.4U (Underwater Inspection)"
+      ],
+      "geo_rtw": "EU/EEA eligible or Cyprus work-authorised; Mediterranean offshore experience preferred",
+      "project_experience": [
+        "Zohr",
+        "Leviathan",
+        "Aphrodite",
+        "Tortue FLNG",
+        "ENI Coral Sul FLNG",
+        "Calypso"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Lead / Manager",
+      "boolean_search": "(\"deepwater\" OR \"subsea\" OR \"SURF\") AND (\"gas development\" OR \"offshore construction\" OR \"EPC\" OR \"FEED\") AND (\"project manager\" OR \"project engineer\" OR \"construction manager\" OR \"installation engineer\" OR \"drilling engineer\") AND (\"Mediterranean\" OR \"Cyprus\" OR \"Eni\" OR \"East Med\") NOT (\"onshore\" OR \"solar\" OR \"wind\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Eni has just taken FID on Cronos — Cyprus' first deepwater gas project. EPC and SURF contracts will follow shortly. Given your background in [deepwater/SURF/offshore construction], I'd love to explore fit. Worth a quick call?",
+      "email_subject": "Cronos Deepwater FID — Senior Offshore Roles Coming Online (Eni / Cyprus)",
+      "email_body": "Hi [Name],\n\nEni SpA has just sanctioned the Cronos deepwater gas field offshore Cyprus — the country's first hydrocarbon development — marking a significant new project in the Eastern Mediterranean.\n\nWith FID now confirmed, EPC and SURF contract awards are expected to follow in the coming months, opening up a wave of senior offshore and subsea roles across engineering, installation, and project management.\n\nGiven your experience in [deepwater development / SURF / offshore project delivery], I wanted to reach out early before the market gets competitive.\n\nWould you be open to a brief call to discuss how your background aligns with the upcoming opportunities?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Eni has taken a final investment decision (FID) on the Cronos deepwater gas field offshore Cyprus, a discrete project sanction event naming the operator and project that will drive EPC tenders and significant offshore workforce demand.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Article states Eni has made a 'final investment decision' on Cronos, confirming FID and the transition into detailed engineering and EPC tendering.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "96569155-21bd-4b16-9a43-f75dc4d87e74",
+    "ingested_at": "2026-07-28T12:39:41.888Z",
+    "source_published_at": "2026-07-28T09:05:26.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/sempra-infrastructure-advances-key-priorities-302835662.html"

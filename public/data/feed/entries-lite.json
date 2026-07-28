@@ -1,5 +1,51 @@
 [
   {
+    "id": "96569155-21bd-4b16-9a43-f75dc4d87e74",
+    "ingested_at": "2026-07-28T12:39:41.888Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/eni_greenlights_cyprus_first_hydrocarbon_project-28-jul-2026-184228-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "rov_subsea",
+      "marine_offshore_ops",
+      "industrial_construction",
+      "process_plant_operations",
+      "drilling_operations"
+    ],
+    "signal_type": "fid",
+    "region": "eastern-mediterranean",
+    "country": "cyprus",
+    "headline": "Eni Greenlights Cronos Deepwater Gas Field — Cyprus' First Hydrocarbon FID",
+    "operator": {
+      "name": "Eni SpA",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Cronos",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
     "id": "e55f8960-1d97-4dee-9790-d03634175b10",
     "ingested_at": "2026-07-28T00:35:36.117Z",
     "sources": [
