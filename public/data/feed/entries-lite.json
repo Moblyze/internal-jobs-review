@@ -1,5 +1,48 @@
 [
   {
+    "id": "716893ea-d5e2-4059-9da7-e4cc69bb8f0c",
+    "ingested_at": "2026-07-29T18:23:08.838Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/construction-work-under-way-at-canadian-uranium-project"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "canada-saskatchewan",
+    "country": "canada",
+    "headline": "Denison Mines Begins Full-Scale Construction at Phoenix ISR Uranium Mine, Saskatchewan",
+    "operator": {
+      "name": "Denison Mines",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Denison Mines",
+      "matched_company_slug": null
+    },
+    "project_name": "Phoenix In-Situ Recovery Uranium Mine",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": []
+  },
+  {
     "id": "6a723f98-09a7-4d5a-9dd7-fe182c2c5809",
     "ingested_at": "2026-07-29T12:43:58.008Z",
     "sources": [

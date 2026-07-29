@@ -2,6 +2,122 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/construction-work-under-way-at-canadian-uranium-project"
+      }
+    ],
+    "headline": "Denison Mines Begins Full-Scale Construction at Phoenix ISR Uranium Mine, Saskatchewan",
+    "body": "Denison Mines announced that site preparation activities have been completed at the Phoenix In-Situ Recovery uranium mine in Saskatchewan and full-scale construction has begun.",
+    "url": "https://www.world-nuclear-news.org/articles/construction-work-under-way-at-canadian-uranium-project",
+    "published_at": "2026-07-29T13:07:33.000Z",
+    "hash": "77e97ca5327460c0",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "canada-saskatchewan",
+    "country": "canada",
+    "tldr": "Denison Mines has commenced full-scale construction at the Phoenix In-Situ Recovery uranium project in Saskatchewan following completed site prep. Prime hiring window for construction trades and ISR process specialists is now open.",
+    "operator": {
+      "name": "Denison Mines",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Denison Mines",
+      "matched_company_slug": null
+    },
+    "project_name": "Phoenix In-Situ Recovery Uranium Mine",
+    "scope": [
+      "site_preparation",
+      "isr_facility_construction",
+      "process_plant_build"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Construction Manager",
+        "Site Manager",
+        "HSE Manager",
+        "Civil Superintendent",
+        "Mechanical Supervisor",
+        "Process Plant Construction Supervisor",
+        "ISR Process Engineer",
+        "Instrumentation & Controls Technician",
+        "Heavy Equipment Operator",
+        "Industrial Pipefitter",
+        "Structural Steelwork Supervisor",
+        "Commissioning Engineer"
+      ],
+      "skills": [
+        "in-situ recovery",
+        "uranium mining",
+        "process plant construction",
+        "civil works",
+        "Saskatchewan mining",
+        "ISR wellfield",
+        "industrial construction management",
+        "HSE leadership",
+        "mechanical completion"
+      ],
+      "certs_freetext": [
+        "Saskatchewan Occupational Health & Safety Certificate",
+        "CSTS (Construction Safety Training System)",
+        "Red Seal Pipefitter",
+        "Red Seal Electrician",
+        "WHMIS",
+        "First Aid Level 1"
+      ],
+      "geo_rtw": "Canada — Saskatchewan work authorization required",
+      "project_experience": [
+        "Cigar Lake Mine",
+        "McArthur River Mine",
+        "Wheeler River",
+        "McClean Lake",
+        "Athabasca Basin uranium projects"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"construction manager\" OR \"site manager\" OR \"mechanical supervisor\" OR \"civil superintendent\" OR \"commissioning engineer\" OR \"ISR engineer\" OR \"process plant supervisor\") AND (\"uranium\" OR \"in-situ recovery\" OR \"ISR\" OR \"mining construction\" OR \"Saskatchewan\") AND (\"Athabasca\" OR \"Denison\" OR \"Cigar Lake\" OR \"McArthur River\" OR \"Wheeler River\" OR \"nuclear\" OR \"mineral processing\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], full-scale construction has just kicked off at Denison Mines' Phoenix ISR uranium project in Saskatchewan — a live hiring window for experienced mining/construction professionals. Would your availability align with a Q3/Q4 start? Happy to share details.",
+      "email_subject": "Live Construction Roles — Phoenix ISR Uranium Mine, Saskatchewan (Denison Mines)",
+      "email_body": "Hi [Name],\n\nDenison Mines has officially commenced full-scale construction at the Phoenix In-Situ Recovery uranium mine in Saskatchewan — meaning the hiring window for trades, construction supervisors, and ISR process specialists is open right now.\n\nGiven your background in [mining/ISR/process plant construction], I wanted to reach out directly before roles are filled.\n\nKey details:\n• Project: Phoenix ISR Uranium Mine, Saskatchewan\n• Operator: Denison Mines\n• Phase: Full-scale construction underway\n• Likely roles: Construction Managers, Mechanical Supervisors, Civil Superintendents, ISR Process Engineers, Trades\n\nAre you open to a conversation about fit and timing? I can share more on scope and package.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Denison Mines) announces full-scale construction commencement at a named project (Phoenix ISR Uranium Mine) in Saskatchewan — a discrete workforce-demand event in the mining subsector.",
+    "phase": "construction",
+    "phase_evidence": "Article states 'site preparation activities have been completed' and 'full-scale construction has begun', confirming active construction phase.",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "716893ea-d5e2-4059-9da7-e4cc69bb8f0c",
+    "ingested_at": "2026-07-29T18:23:08.838Z",
+    "source_published_at": "2026-07-29T13:07:33.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/new_zealand_grants_1st_exploration_permit_since_ardernera_ban-29-jul-2026-184240-article/?rss=true"
