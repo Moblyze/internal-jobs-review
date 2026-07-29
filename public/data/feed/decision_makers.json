@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-07-29T06:58:51.844Z"
+    "last_updated_at": "2026-07-29T12:45:40.241Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -9256,6 +9256,44 @@
         "email": null,
         "phone": null,
         "location": "Çankaya, Turkey"
+      }
+    ]
+  },
+  "enzed energy pty ltd": {
+    "discovered_at": "2026-07-29T12:45:40.241Z",
+    "contacts": [
+      {
+        "name": "Neil Young",
+        "title": "Director / Co-founder",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/neil-young-1b85b517",
+        "source_url": "https://www.enzedenergy.com/thecompany",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Adelaide, South Australia, Australia"
+      },
+      {
+        "name": "Greg Channon",
+        "title": "Director / Chief Geologist",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/gregory-channon-8a44301a",
+        "source_url": "https://newsroom.co.nz/2025/10/21/first-offshore-oil-and-gas-permit-sought-after-repeal-of-ban/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Perth, Western Australia, Australia"
+      },
+      {
+        "name": "Shaun C.R. Ramsden",
+        "title": "Director / Earth Scientist & Corporate Affairs",
+        "persona": "other",
+        "linkedin_url": "https://www.linkedin.com/in/shaun-ramsden-7aa82245",
+        "source_url": "https://newsroom.co.nz/2025/10/21/first-offshore-oil-and-gas-permit-sought-after-repeal-of-ban/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Adelaide, South Australia, Australia"
       }
     ]
   }

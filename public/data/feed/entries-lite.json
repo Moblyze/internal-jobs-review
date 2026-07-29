@@ -1,5 +1,48 @@
 [
   {
+    "id": "6a723f98-09a7-4d5a-9dd7-fe182c2c5809",
+    "ingested_at": "2026-07-29T12:43:58.008Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/new_zealand_grants_1st_exploration_permit_since_ardernera_ban-29-jul-2026-184240-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "survey_geophysical",
+      "marine_offshore_ops"
+    ],
+    "signal_type": "lease_round",
+    "region": "new-zealand",
+    "country": "new_zealand",
+    "headline": "EnZed Energy Wins NZ's First O&G Exploration Permit Since Ardern-Era Ban Lifted",
+    "operator": {
+      "name": "EnZed Energy Pty Ltd",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "EnZed Energy Pty Ltd",
+      "matched_company_slug": null
+    },
+    "project_name": null,
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "1588c1ae-38a7-43c1-bdb1-bb6fac96c867",
     "ingested_at": "2026-07-29T06:57:50.781Z",
     "sources": [

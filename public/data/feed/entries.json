@@ -2,6 +2,111 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/new_zealand_grants_1st_exploration_permit_since_ardernera_ban-29-jul-2026-184240-article/?rss=true"
+      }
+    ],
+    "headline": "EnZed Energy Wins NZ's First O&G Exploration Permit Since Ardern-Era Ban Lifted",
+    "body": "Australia's EnZed Energy Pty Ltd has won the first oil and gas exploration license issued in New Zealand after the government last year reversed a 2018 ban.<...",
+    "url": "https://www.rigzone.com/news/new_zealand_grants_1st_exploration_permit_since_ardernera_ban-29-jul-2026-184240-article/?rss=true",
+    "published_at": "2026-07-29T10:18:52.000Z",
+    "hash": "d46abf6e08484f38",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "survey_geophysical",
+      "marine_offshore_ops"
+    ],
+    "signal_type": "lease_round",
+    "region": "new-zealand",
+    "country": "new_zealand",
+    "tldr": "Australia's EnZed Energy has been granted New Zealand's first oil and gas exploration license since the government reversed its 2018 ban, signalling an early-stage exploration campaign that will require drilling, survey, and offshore ops personnel in the near-to-medium term.",
+    "operator": {
+      "name": "EnZed Energy Pty Ltd",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "EnZed Energy Pty Ltd",
+      "matched_company_slug": null
+    },
+    "project_name": null,
+    "scope": [
+      "exploration_license",
+      "seismic_survey",
+      "exploration_drilling"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Exploration Geologist",
+        "Exploration Geophysicist",
+        "Drilling Engineer",
+        "Well Engineer",
+        "Country Manager",
+        "Subsurface Manager",
+        "Offshore Installation Manager",
+        "HSE Advisor",
+        "Regulatory Affairs Advisor"
+      ],
+      "skills": [
+        "exploration drilling",
+        "seismic interpretation",
+        "well planning",
+        "petroleum geology",
+        "basin analysis",
+        "regulatory compliance",
+        "offshore operations"
+      ],
+      "certs_freetext": [
+        "BOSIET",
+        "IWCF Well Control",
+        "OPITO Offshore Safety"
+      ],
+      "geo_rtw": "Australia or New Zealand right-to-work preferred",
+      "project_experience": [
+        "Taranaki Basin",
+        "Great South Basin",
+        "Canterbury Basin"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "senior-to-principal",
+      "boolean_search": "(\"exploration geologist\" OR \"exploration geophysicist\" OR \"drilling engineer\" OR \"well engineer\" OR \"subsurface manager\") AND (\"offshore\" OR \"oil and gas\" OR \"exploration\") AND (\"New Zealand\" OR \"Taranaki\" OR \"Great South Basin\" OR \"Australia\") AND (\"seismic\" OR \"well planning\" OR \"basin analysis\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], EnZed Energy just secured NZ's first exploration permit since the 2018 ban was lifted — an early-stage campaign that will need experienced exploration and drilling professionals. Would you be open to a quick chat about opportunities on this programme?",
+      "email_subject": "New Zealand Exploration Revival — EnZed Energy Permit Award",
+      "email_body": "Hi [Name],\n\nAustralia's EnZed Energy has just been awarded New Zealand's first oil and gas exploration license since the government reversed the Ardern-era ban — marking a genuine re-opening of the New Zealand upstream market.\n\nAs the operator moves from license award into work-programme planning, they will need experienced exploration geologists, geophysicists, drilling engineers, and offshore ops professionals familiar with the Australasian regulatory environment.\n\nWe are already positioning candidates for early engagement on this programme and would welcome the chance to discuss how your background aligns with what EnZed will need.\n\nAre you available for a 15-minute call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Specific exploration license awarded to named operator EnZed Energy Pty Ltd in New Zealand, representing a discrete lease/block award event with downstream drilling and survey workforce demand.",
+    "phase": "pre_sanction",
+    "phase_evidence": "The article describes the granting of an exploration permit — the earliest upstream lifecycle stage, preceding any FID or work-programme commitment.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "6a723f98-09a7-4d5a-9dd7-fe182c2c5809",
+    "ingested_at": "2026-07-29T12:43:58.008Z",
+    "source_published_at": "2026-07-29T10:18:52.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/cbi-continues-growth-in-middle-east-with-new-abu-dhabi-wells-contract-302837248.html"
