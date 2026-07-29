@@ -1,5 +1,46 @@
 [
   {
+    "id": "1588c1ae-38a7-43c1-bdb1-bb6fac96c867",
+    "ingested_at": "2026-07-29T06:57:50.781Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/cbi-continues-growth-in-middle-east-with-new-abu-dhabi-wells-contract-302837248.html"
+      }
+    ],
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "drilling_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "uae-abu-dhabi",
+    "country": "united_arab_emirates",
+    "headline": "CB&I Asset Solutions Wins Well Engineering Services Contract with Cosmo E&P in Abu Dhabi",
+    "operator": {
+      "name": "Cosmo E&P Albahriya Limited",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "CB&I Asset Solutions",
+      "matched_company_slug": null
+    },
+    "project_name": null,
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "operating",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": []
+  },
+  {
     "id": "5a482ae4-ea62-4148-942c-504005b73bdd",
     "ingested_at": "2026-07-28T18:31:59.452Z",
     "sources": [

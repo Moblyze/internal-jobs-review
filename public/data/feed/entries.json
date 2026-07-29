@@ -2,6 +2,111 @@
   {
     "sources": [
       {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/cbi-continues-growth-in-middle-east-with-new-abu-dhabi-wells-contract-302837248.html"
+      }
+    ],
+    "headline": "CB&I Asset Solutions Wins Well Engineering Services Contract with Cosmo E&P in Abu Dhabi",
+    "body": "ABERDEEN, United Kingdom, July 29, 2026 /PRNewswire/ -- CB&I's Asset Solutions business (formerly part of Petrofac) has secured a new contract with Cosmo E&P Albahriya Limited (\"Cosmo\") in the United Arab Emirates (UAE). The well engineering services contract will support drilling,...",
+    "url": "https://www.prnewswire.com/news-releases/cbi-continues-growth-in-middle-east-with-new-abu-dhabi-wells-contract-302837248.html",
+    "published_at": "2026-07-29T04:00:00.000Z",
+    "hash": "84894a0186124174",
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "drilling_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "uae-abu-dhabi",
+    "country": "united_arab_emirates",
+    "tldr": "CB&I's Asset Solutions business has secured a well engineering services contract with Cosmo E&P Albahriya Limited in the UAE, signalling near-term demand for drilling and well engineering professionals in Abu Dhabi.",
+    "operator": {
+      "name": "Cosmo E&P Albahriya Limited",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "CB&I Asset Solutions",
+      "matched_company_slug": null
+    },
+    "project_name": null,
+    "scope": [
+      "well_engineering_services",
+      "drilling_support"
+    ],
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Well Engineer",
+        "Drilling Engineer",
+        "Senior Well Engineer",
+        "Wellsite Supervisor",
+        "Drilling Supervisor",
+        "Well Integrity Engineer",
+        "Completions Engineer",
+        "Drilling Superintendent"
+      ],
+      "skills": [
+        "well engineering",
+        "drilling operations",
+        "well planning",
+        "well integrity",
+        "completions",
+        "UAE operations",
+        "well intervention",
+        "WITSML",
+        "WellPlan",
+        "DrillPlan"
+      ],
+      "certs_freetext": [
+        "IWCF Well Control",
+        "IADC WellSharp",
+        "BOSIET/HUET"
+      ],
+      "geo_rtw": "UAE / Middle East — EEA or Western passport holders eligible",
+      "project_experience": [
+        "ADNOC drilling campaigns",
+        "Cosmo E&P",
+        "Petrofac UAE",
+        "CB&I Asset Solutions Middle East"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"Well Engineer\" OR \"Drilling Engineer\" OR \"Wellsite Supervisor\" OR \"Drilling Supervisor\" OR \"Completions Engineer\" OR \"Well Integrity Engineer\") AND (\"UAE\" OR \"Abu Dhabi\" OR \"Middle East\") AND (\"IWCF\" OR \"IADC\" OR \"WellSharp\") AND (\"CB&I\" OR \"Petrofac\" OR \"ADNOC\" OR \"SLB\" OR \"Halliburton\" OR \"Baker Hughes\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], CB&I Asset Solutions just secured a well engineering services contract with Cosmo E&P in Abu Dhabi. We're identifying experienced Well/Drilling Engineers for UAE mobilisation. Would you be open to a brief chat about the opportunity?",
+      "email_subject": "Abu Dhabi Well Engineering Contract — CB&I Asset Solutions — New Roles",
+      "email_body": "Hi [Name],\n\nCB&I Asset Solutions (formerly Petrofac Asset Solutions) has just been awarded a well engineering services contract with Cosmo E&P Albahriya Limited in the UAE, with work commencing in Q3 2026.\n\nWe are actively building a shortlist of experienced Well Engineers, Drilling Engineers, and Wellsite Supervisors with Middle East / UAE experience for deployment on this programme.\n\nIf you hold IWCF or IADC WellSharp certification and have prior UAE or GCC drilling operations experience, I'd welcome a conversation about fit and availability.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named contract award between CB&I Asset Solutions (contractor/hiring entity) and Cosmo E&P Albahriya Limited (operator) for well engineering services in Abu Dhabi, UAE — a discrete drilling-services contract with clear labor-demand signal.",
+    "phase": "operating",
+    "phase_evidence": "Article describes a well engineering services contract supporting drilling on what appears to be an existing production asset operated by Cosmo E&P, with no FID or new-build language present.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "1588c1ae-38a7-43c1-bdb1-bb6fac96c867",
+    "ingested_at": "2026-07-29T06:57:50.781Z",
+    "source_published_at": "2026-07-29T04:00:00.000Z",
+    "contact_archetypes": [
+      "ops_director",
+      "hiring_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org/articles/edf-teams-up-with-technip-energies-for-epr2-delivery"

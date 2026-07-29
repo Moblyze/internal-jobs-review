@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-07-28T18:33:29.145Z"
+    "last_updated_at": "2026-07-29T06:58:51.844Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -9218,6 +9218,44 @@
         "email": null,
         "phone": null,
         "location": "Gurugram, India"
+      }
+    ]
+  },
+  "cosmo e&p albahriya limited": {
+    "discovered_at": "2026-07-29T06:58:51.844Z",
+    "contacts": [
+      {
+        "name": "Hisato Ishii",
+        "title": "General Manager",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/hisato-ishii-3a949031",
+        "source_url": "https://www.prnewswire.com/news-releases/cbi-continues-growth-in-middle-east-with-new-abu-dhabi-wells-contract-302837248.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Abu Dhabi, UAE"
+      },
+      {
+        "name": "Atsushi Kitamura",
+        "title": "Admin & Finance Manager",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/atsushi-kitamura-003913163",
+        "source_url": "https://www.linkedin.com/in/atsushi-kitamura-003913163/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Abu Dhabi, UAE"
+      },
+      {
+        "name": "Tolga Coskun Cobanoglu",
+        "title": "Sr. Operation Geologist",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/tolga-coskun-cobanoglu-769a1597",
+        "source_url": "https://www.linkedin.com/in/tolga-coskun-cobanoglu-769a1597/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Çankaya, Turkey"
       }
     ]
   }
