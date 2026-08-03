@@ -2,6 +2,109 @@
   {
     "sources": [
       {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/rwe-and-google-sign-power-purchase-agreement-for-oklahoma-solar-project-302841226.html"
+      }
+    ],
+    "headline": "RWE's 155 MW Crooked Creek Solar (Oklahoma) PPA Signed with Google — 250 Peak Construction Jobs",
+    "body": "Google to purchase total output from RWE's 155 MW Crooked Creek Solar project under a 15-year agreement Project expected to create up to 250 jobs at peak construction and deliver long-term economic benefits to McCurtain County over its operating lifetime Crooked Creek Solar will support...",
+    "url": "https://www.prnewswire.com/news-releases/rwe-and-google-sign-power-purchase-agreement-for-oklahoma-solar-project-302841226.html",
+    "published_at": "2026-08-03T14:03:00.000Z",
+    "hash": "b8bbee1025fcdcd3",
+    "subsector": "onshore-renewables",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "us-south-central",
+    "country": "united_states",
+    "tldr": "RWE has signed a 15-year PPA with Google for its 155 MW Crooked Creek Solar project in McCurtain County, Oklahoma, with up to 250 jobs expected at peak construction. This signals an imminent construction ramp-up and active labor-demand window for solar trades.",
+    "operator": {
+      "name": "RWE",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "RWE",
+      "matched_company_slug": null
+    },
+    "project_name": "Crooked Creek Solar",
+    "scope": [
+      "solar_pv_construction",
+      "civil_works",
+      "electrical_installation"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Solar Construction Manager",
+        "Site Manager",
+        "Electrical Superintendent",
+        "Civil Superintendent",
+        "HSE Manager",
+        "Solar PV Installer",
+        "Commissioning Engineer",
+        "Project Engineer"
+      ],
+      "skills": [
+        "solar PV installation",
+        "utility-scale solar",
+        "civil construction",
+        "HV electrical",
+        "commissioning",
+        "site supervision"
+      ],
+      "certs_freetext": [
+        "OSHA 30",
+        "NABCEP PV Installation Professional",
+        "First Aid/CPR"
+      ],
+      "geo_rtw": "US work authorization required; Oklahoma-based or willing to relocate",
+      "project_experience": [
+        "utility-scale solar",
+        "onshore wind construction",
+        "solar farm EPC"
+      ],
+      "yoe_band": "5-15",
+      "seniority": "mid to senior",
+      "boolean_search": "(\"solar\" OR \"photovoltaic\" OR \"PV\") AND (\"construction manager\" OR \"site manager\" OR \"electrical superintendent\" OR \"civil superintendent\" OR \"commissioning engineer\" OR \"solar installer\") AND (\"utility scale\" OR \"utility-scale\" OR \"large scale\") AND (Oklahoma OR Texas OR Arkansas OR \"US\" OR \"United States\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], RWE's 155 MW Crooked Creek Solar project in Oklahoma is moving toward construction after a PPA with Google — up to 250 peak jobs expected. Are you open to hearing about site roles?",
+      "email_subject": "Crooked Creek Solar (Oklahoma) — Construction Roles Coming Up | RWE 155 MW Project",
+      "email_body": "Hi [Name],\n\nRWE has just signed a 15-year power purchase agreement with Google for its 155 MW Crooked Creek Solar project in McCurtain County, Oklahoma — signalling an imminent construction phase with up to 250 peak jobs anticipated.\n\nWe're proactively building a talent pipeline for site construction, electrical, civil, and commissioning roles ahead of mobilisation.\n\nGiven your background in utility-scale solar construction, I'd love to connect and explore whether this could be a fit for you.\n\nWould you be open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (RWE) and named project (Crooked Creek Solar, 155 MW Oklahoma) with explicit peak construction workforce signal of up to 250 jobs following PPA signing with Google.",
+    "phase": "construction",
+    "phase_evidence": "Article states the project is 'expected to create up to 250 jobs at peak construction', indicating construction is imminent or underway.",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "7c7f5a18-efd8-41f7-8889-dd5b327522e5",
+    "ingested_at": "2026-08-03T18:37:11.492Z",
+    "source_published_at": "2026-08-03T14:03:00.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org/articles/construction-work-under-way-at-canadian-uranium-project"

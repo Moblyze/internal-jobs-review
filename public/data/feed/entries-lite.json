@@ -1,5 +1,47 @@
 [
   {
+    "id": "7c7f5a18-efd8-41f7-8889-dd5b327522e5",
+    "ingested_at": "2026-08-03T18:37:11.492Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/rwe-and-google-sign-power-purchase-agreement-for-oklahoma-solar-project-302841226.html"
+      }
+    ],
+    "subsector": "onshore-renewables",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "us-south-central",
+    "country": "united_states",
+    "headline": "RWE's 155 MW Crooked Creek Solar (Oklahoma) PPA Signed with Google — 250 Peak Construction Jobs",
+    "operator": {
+      "name": "RWE",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "RWE",
+      "matched_company_slug": null
+    },
+    "project_name": "Crooked Creek Solar",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": []
+  },
+  {
     "id": "716893ea-d5e2-4059-9da7-e4cc69bb8f0c",
     "ingested_at": "2026-07-29T18:23:08.838Z",
     "sources": [
