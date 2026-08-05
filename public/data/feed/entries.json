@@ -2,6 +2,223 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/econnect_energy_to_deliver_shellbacked_lng_project_in_bahamas-05-aug-2026-184299-article/?rss=true"
+      }
+    ],
+    "headline": "ECOnnect Energy Wins Contract to Deliver Floating LNG Import Terminal for Shell JV in Bahamas",
+    "body": "ECOnnect Energy AS said Wednesday it had won a contract to deliver a floating liquefied natural gas (LNG) import terminal for a Shell PLC joint venture in th...",
+    "url": "https://www.rigzone.com/news/econnect_energy_to_deliver_shellbacked_lng_project_in_bahamas-05-aug-2026-184299-article/?rss=true",
+    "published_at": "2026-08-05T10:42:32.000Z",
+    "hash": "0225f78e0d86cc58",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "marine_offshore_ops",
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "epc_award",
+    "region": "caribbean",
+    "country": "bahamas",
+    "tldr": "ECOnnect Energy AS has been awarded a contract to deliver a floating LNG import terminal for a Shell PLC joint venture in the Bahamas, signalling an engineering and construction ramp-up for the offshore facility.",
+    "operator": {
+      "name": "Shell PLC (joint venture)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "ECOnnect Energy AS",
+      "matched_company_slug": null
+    },
+    "project_name": "Bahamas Floating LNG Import Terminal",
+    "scope": [
+      "floating_lng_terminal",
+      "lng_import",
+      "offshore_installation"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "FLNG Project Manager",
+        "Marine Terminal Engineer",
+        "LNG Process Engineer",
+        "Offshore Construction Manager",
+        "Commissioning Manager",
+        "HSSEQ Manager",
+        "Mooring Systems Engineer",
+        "Marine Superintendent",
+        "Floating Terminal Project Director"
+      ],
+      "skills": [
+        "floating LNG terminal",
+        "LNG import",
+        "FSRU",
+        "offshore mooring",
+        "gas processing",
+        "marine operations",
+        "HAZOP",
+        "commissioning",
+        "topsides engineering"
+      ],
+      "certs_freetext": [
+        "BOSIET",
+        "GWO",
+        "STCW",
+        "CompEx",
+        "NEBOSH"
+      ],
+      "geo_rtw": "Bahamas / Caribbean; international mobility required",
+      "project_experience": [
+        "FSRU projects",
+        "LNG import terminals",
+        "floating storage units",
+        "offshore gas terminals"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal",
+      "boolean_search": "(\"LNG\" OR \"floating LNG\" OR \"FSRU\" OR \"LNG import terminal\") AND (\"offshore\" OR \"floating terminal\" OR \"marine terminal\") AND (\"project manager\" OR \"construction manager\" OR \"commissioning manager\" OR \"process engineer\" OR \"marine superintendent\" OR \"terminal engineer\") AND (\"mooring\" OR \"gas processing\" OR \"topsides\" OR \"HAZOP\" OR \"commissioning\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], ECOnnect Energy has just been awarded a contract to deliver a floating LNG import terminal for a Shell JV in the Bahamas. We're identifying senior offshore/LNG specialists for this ramp. Would you be open to a quick call?",
+      "email_subject": "Senior LNG/Offshore Roles – ECOnnect Energy / Shell Bahamas Floating Terminal",
+      "email_body": "Hi [Name],\n\nECOnnect Energy AS has recently been awarded a contract to deliver a floating LNG import terminal for a Shell PLC joint venture in the Bahamas — a significant offshore gas infrastructure project now moving into engineering and construction.\n\nWe are proactively mapping senior talent for roles including Project/Construction Managers, LNG Process Engineers, Commissioning Managers, and Marine Superintendents.\n\nGiven your background in [LNG terminals / offshore construction / FSRU projects], I'd love to explore whether your availability aligns with this opportunity.\n\nAre you open to a brief conversation this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "EPC/delivery contract award naming ECOnnect Energy AS as contractor and Shell PLC JV as operator for a named floating LNG import terminal project in the Bahamas.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "ECOnnect Energy has 'won a contract to deliver' the terminal, indicating the contract has been awarded and engineering/delivery work is commencing.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "d091d5ec-53ac-40a1-860f-a489db46776f",
+    "ingested_at": "2026-08-05T12:38:52.218Z",
+    "source_published_at": "2026-08-05T10:42:32.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/fresh-10-year-decommissioning-licence-issued-for-kozloduy-3-and-4"
+      }
+    ],
+    "headline": "Bulgaria Issues 10-Year Decom Licence for Kozloduy Units 3 & 4 to State Enterprise Radioactive Waste",
+    "body": "Bulgaria's Nuclear Regulatory Agency has granted a 10-year licence to the State Enterprise Radioactive Waste for decommissioning work on the shutdown units 3 and 4 at the Kozloduy Nuclear Power Plant.",
+    "url": "https://www.world-nuclear-news.org/articles/fresh-10-year-decommissioning-licence-issued-for-kozloduy-3-and-4",
+    "published_at": "2026-08-05T08:45:42.000Z",
+    "hash": "eedb16a391810062",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "ndt_inspection",
+      "process_plant_operations"
+    ],
+    "signal_type": "decom",
+    "region": "eastern-europe",
+    "country": "bulgaria",
+    "tldr": "Bulgaria's Nuclear Regulatory Agency has granted a 10-year decommissioning licence for Kozloduy NPP Units 3 and 4 to State Enterprise Radioactive Waste, opening a long-duration nuclear decom programme. Hiring demand will build as planning transitions to execution phases over the licence period.",
+    "operator": {
+      "name": "Kozloduy Nuclear Power Plant",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "State Enterprise Radioactive Waste",
+      "matched_company_slug": null
+    },
+    "project_name": "Kozloduy Units 3 & 4 Decommissioning",
+    "scope": [
+      "nuclear_decommissioning",
+      "radioactive_waste_management",
+      "plant_dismantling"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": 120
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Decommissioning Engineer",
+        "Radiation Protection Officer",
+        "Decommissioning Project Manager",
+        "Health Physics Technician",
+        "Nuclear Safety Engineer",
+        "Waste Management Specialist",
+        "Decommissioning Planner",
+        "Nuclear Site Manager"
+      ],
+      "skills": [
+        "nuclear decommissioning",
+        "radioactive waste management",
+        "radiation protection",
+        "VVER reactor systems",
+        "nuclear safety",
+        "plant dismantling",
+        "decommissioning planning",
+        "health physics"
+      ],
+      "certs_freetext": [
+        "Radiation Protection Supervisor",
+        "IAEA nuclear safety certification",
+        "Nuclear Decommissioning Authority accreditation"
+      ],
+      "geo_rtw": "Bulgaria / EU eligible",
+      "project_experience": [
+        "Ignalina NPP Decommissioning",
+        "Bohunice NPP Decommissioning",
+        "Kozloduy Units 1-2 Decommissioning",
+        "Sellafield Decommissioning"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal",
+      "boolean_search": "(\"nuclear decommissioning\" OR \"decommissioning engineer\" OR \"radioactive waste\" OR \"radiation protection\" OR \"health physics\") AND (\"VVER\" OR \"nuclear power plant\" OR \"NPP\" OR \"decommissioning project\") AND (\"project manager\" OR \"safety engineer\" OR \"waste management\" OR \"site manager\" OR \"decommissioning planner\") AND (Bulgaria OR \"Eastern Europe\" OR EU)"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Bulgaria's Nuclear Regulatory Agency just issued a 10-year decom licence for Kozloduy Units 3 & 4. State Enterprise Radioactive Waste will be ramping up — are you open to exploring roles on this programme?",
+      "email_subject": "Kozloduy Units 3 & 4 Decom Licence Granted — Opportunities Ahead",
+      "email_body": "Hi [Name],\n\nBulgaria's Nuclear Regulatory Agency has just granted a 10-year decommissioning licence for Kozloduy NPP Units 3 and 4 to State Enterprise Radioactive Waste. This marks the formal start of a long-duration nuclear decom programme, and we expect hiring to build across radiation protection, waste management, engineering, and project management disciplines.\n\nGiven your background in nuclear decommissioning, I wanted to reach out early. Would you be open to a brief call to discuss how your experience aligns with what's coming?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Regulatory decommissioning licence issued to a named operator (Kozloduy NPP) and named executing entity (State Enterprise Radioactive Waste) for a specific nuclear project, directly triggering a long-duration workforce demand event.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states a 10-year licence has just been issued, indicating the programme is entering planning/regulatory approval phase with no EPC or execution contract yet awarded.",
+    "construction_subphase": null,
+    "lifecycle_track": "decommissioning",
+    "decom_stage": "permits",
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "40edf2b0-0a57-4c98-9963-1e820760ab71",
+    "ingested_at": "2026-08-05T12:38:52.218Z",
+    "source_published_at": "2026-08-05T08:45:42.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/rwe-and-google-sign-power-purchase-agreement-for-oklahoma-solar-project-302841226.html"
