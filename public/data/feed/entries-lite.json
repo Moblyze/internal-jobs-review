@@ -1,5 +1,48 @@
 [
   {
+    "id": "1f53a48d-956d-4e96-ba74-9a2bc4587f89",
+    "ingested_at": "2026-08-05T18:34:29.719Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/coastal_bend_lng_enters_permitting_phase-05-aug-2026-184302-article/?rss=true"
+      }
+    ],
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-gulf-coast",
+    "country": "united_states",
+    "headline": "Coastal Bend LNG LLC Files FERC Pre-Application for Texas LNG Project",
+    "operator": {
+      "name": "Coastal Bend LNG LLC",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Coastal Bend LNG",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "d091d5ec-53ac-40a1-860f-a489db46776f",
     "ingested_at": "2026-08-05T12:38:52.218Z",
     "sources": [

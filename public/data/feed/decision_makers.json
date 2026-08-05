@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-08-05T12:41:45.339Z"
+    "last_updated_at": "2026-08-05T18:35:55.006Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -9523,6 +9523,66 @@
         "email": null,
         "phone": null,
         "location": "Bulgaria"
+      }
+    ]
+  },
+  "coastal bend lng llc": {
+    "discovered_at": "2026-08-05T18:35:55.006Z",
+    "contacts": [
+      {
+        "name": "Carlos R. Guzman",
+        "title": "Chief Operating Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/carlos-r-guzman",
+        "source_url": "https://www.linkedin.com/in/carlos-r-guzman/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Keith Chapman",
+        "title": "Executive Vice President",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/kchapman1984",
+        "source_url": "https://prospeo.io/c/coastal-bend-lng",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Nick Flores",
+        "title": "Chief Executive Officer",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://secure.businesswire.com/news/home/20250626536399/en/Coastal-Bend-LNG-Initiates-Development-of-22.5-Mtpa-LNG-Export-Facility",
+        "in_target_persona": true,
+        "email": "contact@coastalbendlng.com",
+        "phone": "281-318-9676",
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Glenn Wilson",
+        "title": "Chief Financial Officer",
+        "persona": "other",
+        "linkedin_url": "https://www.linkedin.com/in/glenn-wilson",
+        "source_url": "https://www.bicmagazine.com/resources/people-going-places/coastal-bend-lng-names-shoemaker-wilson-to-executive-roles/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Keith Shoemaker",
+        "title": "Chief Commercial Officer",
+        "persona": "other",
+        "linkedin_url": "https://www.linkedin.com/in/keithcshoemaker",
+        "source_url": "https://coastalbendlng.com/keith-shoemaker-to-join-coastal-bend-lng-as-chief-commercial-officer/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
       }
     ]
   }

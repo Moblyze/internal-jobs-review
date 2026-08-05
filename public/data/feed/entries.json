@@ -4,6 +4,102 @@
       {
         "id": "rigzone",
         "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/coastal_bend_lng_enters_permitting_phase-05-aug-2026-184302-article/?rss=true"
+      }
+    ],
+    "headline": "Coastal Bend LNG LLC Files FERC Pre-Application for Texas LNG Project",
+    "body": "Coastal Bend LNG LLC has requested the United States Federal Energy Regulatory Commission (FERC) to begin a pre-filing review of the Texas project, thereby i...",
+    "url": "https://www.rigzone.com/news/coastal_bend_lng_enters_permitting_phase-05-aug-2026-184302-article/?rss=true",
+    "published_at": "2026-08-05T13:22:17.000Z",
+    "hash": "fbbf0ac4de166aaa",
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-gulf-coast",
+    "country": "united_states",
+    "tldr": "Coastal Bend LNG LLC has initiated FERC pre-filing review for its Texas LNG project, signaling early permitting phase with construction and hiring still 12+ months away.",
+    "operator": {
+      "name": "Coastal Bend LNG LLC",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Coastal Bend LNG",
+    "scope": [
+      "lng_terminal",
+      "permitting",
+      "pre_filing_review"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "FERC Permitting Manager",
+        "Regulatory Affairs Manager",
+        "LNG Project Development Manager",
+        "Environmental Permitting Specialist",
+        "Project Controls Engineer"
+      ],
+      "skills": [
+        "FERC pre-filing",
+        "LNG terminal development",
+        "regulatory permitting",
+        "environmental impact assessment",
+        "project development"
+      ],
+      "certs_freetext": [],
+      "geo_rtw": "US work authorization required",
+      "project_experience": [
+        "Sabine Pass LNG",
+        "Corpus Christi LNG",
+        "Freeport LNG",
+        "Port Arthur LNG"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "senior",
+      "boolean_search": "(\"LNG\" OR \"liquefied natural gas\") AND (\"FERC\" OR \"permitting\" OR \"regulatory\") AND (\"project development\" OR \"permitting manager\" OR \"regulatory affairs\") AND (\"Texas\" OR \"Gulf Coast\") AND (\"pre-filing\" OR \"environmental review\" OR \"NEPA\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Coastal Bend LNG has just initiated FERC pre-filing in Texas — early permitting talent will be in demand soon. Would love to connect on how we support LNG development teams at this stage.",
+      "email_subject": "Coastal Bend LNG – Early Permitting Talent Pipeline",
+      "email_body": "Hi [Name],\n\nCoastal Bend LNG LLC has filed for FERC pre-filing review on its Texas LNG project, marking the start of a multi-year permitting and development cycle.\n\nAt this stage, operators typically begin building out regulatory, environmental, and project development teams. We work with specialists who have direct FERC/NEPA and LNG terminal permitting experience from comparable Gulf Coast projects.\n\nWould it be worth a brief call to discuss how we can support your early-stage team build?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Coastal Bend LNG LLC) has filed for FERC pre-filing review on a named Texas LNG project, constituting a regulatory/permitting event with downstream workforce implications.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states Coastal Bend LNG LLC has requested FERC to begin a pre-filing review, indicating the project is in early regulatory/permitting stage, pre-FID.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "1f53a48d-956d-4e96-ba74-9a2bc4587f89",
+    "ingested_at": "2026-08-05T18:34:29.719Z",
+    "source_published_at": "2026-08-05T13:22:17.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
         "url": "https://www.rigzone.com/news/econnect_energy_to_deliver_shellbacked_lng_project_in_bahamas-05-aug-2026-184299-article/?rss=true"
       }
     ],
