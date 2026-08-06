@@ -1,5 +1,48 @@
 [
   {
+    "id": "85c01abb-18ce-4dcf-bd99-275628963908",
+    "ingested_at": "2026-08-06T12:40:27.072Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/bechtel-assumes-responsibility-for-polish-plant-site"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "poland",
+    "country": "poland",
+    "headline": "Bechtel Takes Over Polish Nuclear Plant Site as Earthworks Begin for Poland's First NPP",
+    "operator": {
+      "name": "Polskie Elektrownie Jądrowe",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Bechtel",
+      "matched_company_slug": null
+    },
+    "project_name": "Poland First Nuclear Power Plant",
+    "mob_window": {
+      "start": "2025-Q2",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": []
+  },
+  {
     "id": "1f53a48d-956d-4e96-ba74-9a2bc4587f89",
     "ingested_at": "2026-08-05T18:34:29.719Z",
     "sources": [
@@ -6257,84 +6300,6 @@
     "contract_value_usd": null,
     "phase": "construction",
     "construction_subphase": "rampup",
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "1-3mo",
-    "key_people": []
-  },
-  {
-    "id": "4fd73482-ed3b-4b35-93f3-38ac3107e8f0",
-    "ingested_at": "2026-05-08T12:41:38.205Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/us-plant-cleared-for-extended-operation-in-record-time"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "process_plant_operations"
-    ],
-    "signal_type": "regulatory",
-    "region": "us-southeast",
-    "country": "united_states",
-    "headline": "Duke Energy Robinson Nuclear Plant Cleared for 80-Year Operation After Record NRC Licence Renewal",
-    "operator": {
-      "name": "Duke Energy"
-    },
-    "hiring_entity": {
-      "name": "Duke Energy"
-    },
-    "project_name": "Robinson Nuclear Plant",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "operating",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "ongoing",
-    "key_people": []
-  },
-  {
-    "id": "762e40a5-4391-4479-add3-3cce75be0250",
-    "ingested_at": "2026-05-08T08:41:40.384Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/operating-licence-issued-for-first-bangladesh-nuclear-power-unit"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "process_plant_operations"
-    ],
-    "signal_type": "regulatory",
-    "region": "south-asia",
-    "country": "bangladesh",
-    "headline": "Rooppur NPP Unit 1 Issued Operating Licence — Ready for First Criticality",
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": "Rooppur Nuclear Power Plant Unit 1",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "construction",
-    "construction_subphase": "commissioning",
     "lifecycle_track": "greenfield",
     "decom_stage": null,
     "outreach_readiness": "hot",

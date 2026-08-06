@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-08-05T18:35:55.006Z"
+    "last_updated_at": "2026-08-06T12:42:19.523Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -9583,6 +9583,126 @@
         "email": null,
         "phone": null,
         "location": "Houston, TX, USA"
+      }
+    ]
+  },
+  "bechtel": {
+    "discovered_at": "2026-08-06T12:42:19.523Z",
+    "contacts": [
+      {
+        "name": "Justin Zaccaria",
+        "title": "Chief Human Resources Officer (Senior Vice President)",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/justin-zaccaria-7222628",
+        "source_url": "https://www.bechtel.com/people/leadership/justin-zaccaria/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Reston, VA, USA"
+      },
+      {
+        "name": "Meghan Jerome",
+        "title": "Talent Acquisition Manager",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/meghan-jerome-79807924",
+        "source_url": "https://www.linkedin.com/in/meghan-jerome-79807924/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Washington DC-Baltimore Area, USA"
+      },
+      {
+        "name": "Ellen Shaker",
+        "title": "Manager, Center of Excellence – Talent Acquisition",
+        "persona": "ta",
+        "linkedin_url": null,
+        "source_url": "https://peoplepath.com/blog/case-study-bechtel-alumni-network-powered-by-peoplepath/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Vinod Nair",
+        "title": "Project Head of Human Resources (Global HR Executive)",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/vinod-nair-839871a",
+        "source_url": "https://www.linkedin.com/in/vinod-nair-839871a/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Westerville, OH, USA"
+      },
+      {
+        "name": "Nancy Pena",
+        "title": "Talent Acquisition Specialist – Mining & Metals",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/nancy-pena-25b8bb10",
+        "source_url": "https://www.linkedin.com/in/nancy-pena-25b8bb10/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      }
+    ]
+  },
+  "polskie elektrownie jądrowe": {
+    "discovered_at": "2026-08-06T12:42:19.523Z",
+    "contacts": [
+      {
+        "name": "Joanna Wójcik",
+        "title": "Recruiter",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/joanna-w%C3%B3jcik-aa78b0a3",
+        "source_url": "https://www.linkedin.com/in/joanna-w%C3%B3jcik-aa78b0a3/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Warsaw, Poland"
+      },
+      {
+        "name": "Mateusz Buczak",
+        "title": "Recruiter",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/mateuszbuczak",
+        "source_url": "https://www.linkedin.com/in/mateuszbuczak/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Warsaw, Poland"
+      },
+      {
+        "name": "Joanna Karwowska",
+        "title": "HR Expert",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/joanna-karwowska-864309133",
+        "source_url": "https://www.linkedin.com/in/joanna-karwowska-864309133/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Warsaw, Poland"
+      },
+      {
+        "name": "Tomasz Szubiela",
+        "title": "Vice President of the Management Board (formerly Executive Director & Director of Nuclear Power Plant Construction Program)",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/tomasz-szubiela",
+        "source_url": "https://pej.pl/en/about-us/management/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Warsaw, Poland"
+      },
+      {
+        "name": "Bogumiła Ożarska-Karbowiak",
+        "title": "Vice President of the Management Board",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://pej.pl/en/press-center/news/change-in-the-management-board-of-polskie-elektrownie-jadrowe-3/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Warsaw, Poland"
       }
     ]
   }

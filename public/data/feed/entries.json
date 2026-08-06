@@ -2,6 +2,121 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/bechtel-assumes-responsibility-for-polish-plant-site"
+      }
+    ],
+    "headline": "Bechtel Takes Over Polish Nuclear Plant Site as Earthworks Begin for Poland's First NPP",
+    "body": "Polskie Elektrownie Jądrowe, which plans to build Poland's first nuclear power plant, announced it has handed over management of the project site to general contractor Bechtel as earthworks start on the construction site.",
+    "url": "https://www.world-nuclear-news.org/articles/bechtel-assumes-responsibility-for-polish-plant-site",
+    "published_at": "2026-08-06T14:54:25.000Z",
+    "hash": "dc5c2a97bcf2573e",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "poland",
+    "country": "poland",
+    "tldr": "Polskie Elektrownie Jądrowe has handed site management to general contractor Bechtel as earthworks commence on Poland's first nuclear power plant. Construction ramp-up is underway, signaling imminent demand for nuclear construction trades, civil engineers, and HSE professionals.",
+    "operator": {
+      "name": "Polskie Elektrownie Jądrowe",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Bechtel",
+      "matched_company_slug": null
+    },
+    "project_name": "Poland First Nuclear Power Plant",
+    "scope": [
+      "site_preparation",
+      "earthworks",
+      "civil_construction",
+      "general_contractor"
+    ],
+    "mob_window": {
+      "start": "2025-Q2",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Construction Manager",
+        "Site Manager",
+        "Civil Construction Superintendent",
+        "HSE Manager",
+        "Nuclear Construction Engineer",
+        "Earthworks Supervisor",
+        "Project Controls Manager",
+        "QA/QC Manager",
+        "Structural Engineer",
+        "Planning Engineer"
+      ],
+      "skills": [
+        "nuclear construction",
+        "earthworks",
+        "civil works",
+        "large-scale EPC",
+        "project controls",
+        "nuclear QA",
+        "site management",
+        "construction planning",
+        "HSE management"
+      ],
+      "certs_freetext": [
+        "CSCS",
+        "IOSH Managing Safely",
+        "NEBOSH",
+        "Nuclear Safety Passport",
+        "PMP",
+        "NVQ Civil Engineering"
+      ],
+      "geo_rtw": "EU/EEA work authorization or Polish work permit eligible",
+      "project_experience": [
+        "Hinkley Point C",
+        "Vogtle Units 3 & 4",
+        "Flamanville 3",
+        "Olkiluoto 3",
+        "Akkuyu NPP"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior to Principal",
+      "boolean_search": "(\"nuclear power plant\" OR \"nuclear construction\" OR \"NPP\") AND (\"construction manager\" OR \"site manager\" OR \"civil construction\" OR \"earthworks\" OR \"EPC\") AND (\"Bechtel\" OR \"nuclear\" OR \"NPC\" OR \"NSSS\") AND (\"Poland\" OR \"EU\" OR \"Europe\") NOT (\"decommissioning\" OR \"operations only\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Bechtel has just assumed site management for Poland's first nuclear power plant, with earthworks now underway. This is a major ramp-up opportunity — are you open to discussing senior construction roles on this landmark project?",
+      "email_subject": "Senior Construction Roles – Bechtel / Poland First Nuclear Power Plant",
+      "email_body": "Hi [Name],\n\nBechtel has formally taken over site management of Poland's first nuclear power plant (Polskie Elektrownie Jądrowe) and earthworks have begun — marking the start of a significant construction ramp-up.\n\nGiven your background in nuclear or large-scale EPC construction, I wanted to reach out about senior opportunities likely coming to market in the near term — roles such as Construction Manager, Site Superintendent, HSE Lead, and Planning Engineer.\n\nWould you be open to a brief call this week to discuss?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "EPC general contractor (Bechtel) has assumed site management from named operator (Polskie Elektrownie Jądrowe) with earthworks commencing on Poland's first nuclear power plant, signaling an active construction ramp-up and imminent labor demand.",
+    "phase": "construction",
+    "phase_evidence": "Article states 'earthworks start on the construction site' and site management has been handed over to Bechtel as general contractor, confirming active construction phase has begun.",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "85c01abb-18ce-4dcf-bd99-275628963908",
+    "ingested_at": "2026-08-06T12:40:27.072Z",
+    "source_published_at": "2026-08-06T14:54:25.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/coastal_bend_lng_enters_permitting_phase-05-aug-2026-184302-article/?rss=true"
@@ -17775,340 +17890,6 @@
     ],
     "prompt_version": "phase-targeting-v1.2",
     "construction_subphase": "rampup",
-    "lifecycle_track": "greenfield",
-    "decom_stage": null
-  },
-  {
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/us-air-force-announces-selections-for-microreactor-deployments"
-      }
-    ],
-    "headline": "US Air Force Selects Radiant, Westinghouse & Antares for Microreactor Deployments at Military Installations",
-    "body": "The US Department of the Air Force has selected Radiant Industries, Inc, Westinghouse Government Services and Antares Inc as potential microreactor developers and operators under its Advanced Nuclear Power for Installations initiative, as well as announcing a third potential location for a reactor.",
-    "url": "https://www.world-nuclear-news.org//articles/us-air-force-announces-selections-for-microreactor-deployments",
-    "published_at": "2026-04-24T14:40:12.000Z",
-    "hash": "e86e8561352e3ad0",
-    "subsector": "nuclear",
-    "discipline_tags": [],
-    "signal_type": "regulatory",
-    "region": "us-domestic",
-    "country": "united_states",
-    "tldr": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": "Advanced Nuclear Power for Installations",
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "bd_relevant": false,
-    "bd_relevance_reason": "This is a vendor selection/programme announcement without a discrete contract award, FID, or named project with a confirmed hiring ramp; no actionable workforce-demand event is described.",
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "31ccf60c-1c8f-4b64-85f6-c0dfdc6bd10d",
-    "ingested_at": "2026-05-08T12:41:38.205Z",
-    "source_published_at": "2026-04-24T14:40:12.000Z",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/us-plant-cleared-for-extended-operation-in-record-time"
-      }
-    ],
-    "headline": "Duke Energy Robinson Nuclear Plant Cleared for 80-Year Operation After Record NRC Licence Renewal",
-    "body": "Duke Energy's Robinson nuclear power plant in South Carolina has been cleared for an 80-year operating lifetime after the US Nuclear Regulatory Commission completed the fastest licence renewal review in the agency's history.",
-    "url": "https://www.world-nuclear-news.org//articles/us-plant-cleared-for-extended-operation-in-record-time",
-    "published_at": "2026-04-24T14:43:34.000Z",
-    "hash": "d67f82c587b42a7b",
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "process_plant_operations"
-    ],
-    "signal_type": "regulatory",
-    "region": "us-southeast",
-    "country": "united_states",
-    "tldr": "The NRC has renewed Duke Energy's Robinson nuclear plant licence in South Carolina for an 80-year operating lifetime. This regulatory milestone supports ongoing operational staffing demand at the site.",
-    "operator": {
-      "name": "Duke Energy"
-    },
-    "hiring_entity": {
-      "name": "Duke Energy"
-    },
-    "project_name": "Robinson Nuclear Plant",
-    "scope": [
-      "licence_renewal",
-      "long_term_operations"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Nuclear Plant Operator",
-        "Reactor Operator",
-        "Senior Reactor Operator",
-        "Nuclear Maintenance Technician",
-        "I&C Technician",
-        "Health Physics Technician",
-        "Nuclear Engineer",
-        "Outage Manager",
-        "Operations Supervisor"
-      ],
-      "skills": [
-        "nuclear plant operations",
-        "reactor operations",
-        "NRC licensed operator",
-        "preventive maintenance",
-        "instrumentation and controls",
-        "radiation protection",
-        "outage management",
-        "PWR operations"
-      ],
-      "certs_freetext": [
-        "NRC Reactor Operator Licence",
-        "NRC Senior Reactor Operator Licence",
-        "ANSI/ANS radiation worker qualification",
-        "10CFR50 compliance"
-      ],
-      "geo_rtw": "US work authorization required; South Carolina, USA",
-      "project_experience": [
-        "Catawba Nuclear Station",
-        "McGuire Nuclear Station",
-        "Brunswick Nuclear Plant",
-        "Oconee Nuclear Station",
-        "Harris Nuclear Plant"
-      ],
-      "yoe_band": "5-20",
-      "seniority": "mid-to-senior",
-      "boolean_search": "(\"nuclear plant operator\" OR \"reactor operator\" OR \"senior reactor operator\" OR \"nuclear maintenance technician\" OR \"I&C technician\" OR \"health physics technician\" OR \"outage manager\") AND (\"PWR\" OR \"pressurized water reactor\" OR \"nuclear operations\" OR \"NRC licensed\") AND (\"Duke Energy\" OR \"Robinson\" OR \"Catawba\" OR \"McGuire\" OR \"Brunswick\" OR \"Oconee\") AND (\"South Carolina\" OR \"North Carolina\" OR \"southeastern US\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Duke Energy's Robinson Nuclear Plant just received its 80-year NRC licence renewal — a strong signal of long-term operational commitment in South Carolina. Are you open to exploring roles there?",
-      "email_subject": "Robinson Nuclear Plant – 80-Year Licence Secured | Long-Term Ops Roles",
-      "email_body": "Hi [Name],\n\nDuke Energy's Robinson Nuclear Plant in South Carolina has just been granted an 80-year operating licence following a record-fast NRC renewal review. This confirms a long-term operational horizon at the site and typically supports sustained staffing across operations, maintenance, I&C, and health physics disciplines.\n\nGiven your background in [relevant discipline], I wanted to reach out to see if you'd be open to a conversation about opportunities at Robinson or across Duke Energy's broader nuclear fleet.\n\nHappy to share more detail — would a quick call this week work?\n\nBest regards,\n[Your name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "NRC licence renewal granted to named operator (Duke Energy) at named facility (Robinson Nuclear Plant), confirming long-term operational status and sustained workforce demand at the site.",
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "4fd73482-ed3b-4b35-93f3-38ac3107e8f0",
-    "ingested_at": "2026-05-08T12:41:38.205Z",
-    "source_published_at": "2026-04-24T14:43:34.000Z",
-    "phase": "operating",
-    "phase_evidence": "Article states the plant 'has been cleared for an 80-year operating lifetime' following licence renewal completion — plant is currently operational.",
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "ongoing",
-    "key_people": [],
-    "contact_archetypes": [
-      "ops_director",
-      "hiring_manager",
-      "hr_business_partner",
-      "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1.2",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null
-  },
-  {
-    "sources": [
-      {
-        "id": "pr_newswire_energy",
-        "name": "PR Newswire (Energy)",
-        "url": "https://www.prnewswire.com/news-releases/pan-global-meldet-hochgradige-goldmineralisierung-an-der-oberflache-mit-20-2-gt-uber-5-0-meter-beim-projekt-carmenes-in-spanien-302766859.html"
-      }
-    ],
-    "headline": null,
-    "body": "TSXV: PGZ | OTCQB: PGZFF | FRA: 2EU Die Sägeschnittbeprobung ergab an der Oberfläche 20,2 g/t Gold auf 5,0 Metern, was höhere Gehalte weit über den historischen Providencia-Minenbetrieb hinaus bestätigt Die Entdeckung umfangreicher Sulfid- und Hämatitbrekzien, die auf der neu zugänglichen...",
-    "url": "https://www.prnewswire.com/news-releases/pan-global-meldet-hochgradige-goldmineralisierung-an-der-oberflache-mit-20-2-gt-uber-5-0-meter-beim-projekt-carmenes-in-spanien-302766859.html",
-    "published_at": "2026-05-08T11:12:00.000Z",
-    "hash": "b4f96c43c0c8d6e8",
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "tldr": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "bd_relevant": false,
-    "bd_relevance_reason": "Article reports exploration geochemical sampling results at the Cármenes Project with no contract award, FID, workforce ramp-up, or other qualifying labor-demand event.",
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "37cfe36d-b61a-4e89-a24f-05d325e13f7e",
-    "ingested_at": "2026-05-08T12:41:38.205Z",
-    "source_published_at": "2026-05-08T11:12:00.000Z",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/operating-licence-issued-for-first-bangladesh-nuclear-power-unit"
-      }
-    ],
-    "headline": "Rooppur NPP Unit 1 Issued Operating Licence — Ready for First Criticality",
-    "body": "The inspection of primary equipment at Rooppur Nuclear Power Plant unit 1 has been completed, showing the unit in Bangladesh is now ready for first criticality, and an operating licence issued.",
-    "url": "https://www.world-nuclear-news.org//articles/operating-licence-issued-for-first-bangladesh-nuclear-power-unit",
-    "published_at": "2026-04-24T12:37:58.000Z",
-    "hash": "1ce0c06cfcbaec1e",
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "process_plant_operations"
-    ],
-    "signal_type": "regulatory",
-    "region": "south-asia",
-    "country": "bangladesh",
-    "tldr": "Rooppur Nuclear Power Plant Unit 1 in Bangladesh has received its operating licence following completion of primary equipment inspection, signalling imminent first criticality and startup staffing demand.",
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": "Rooppur Nuclear Power Plant Unit 1",
-    "scope": [
-      "commissioning",
-      "first_criticality",
-      "startup_operations"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Nuclear Commissioning Engineer",
-        "Reactor Startup Specialist",
-        "Control Room Operator",
-        "Nuclear Shift Supervisor",
-        "I&C Commissioning Technician",
-        "Health Physics Technician",
-        "Nuclear Operations Manager"
-      ],
-      "skills": [
-        "first criticality",
-        "nuclear startup",
-        "reactor commissioning",
-        "PWR operations",
-        "control room operations",
-        "nuclear safety",
-        "VVER"
-      ],
-      "certs_freetext": [
-        "Nuclear Operator Licence",
-        "Radiation Protection Certification",
-        "IAEA training certifications"
-      ],
-      "geo_rtw": "Bangladesh or internationally mobile with relevant nuclear clearances",
-      "project_experience": [
-        "VVER reactor commissioning",
-        "Kudankulam NPP",
-        "Bushehr NPP",
-        "Ostrovets NPP",
-        "Akkuyu NPP"
-      ],
-      "yoe_band": "10-20",
-      "seniority": "senior",
-      "boolean_search": "(\"nuclear commissioning\" OR \"reactor startup\" OR \"first criticality\" OR \"control room operator\" OR \"shift supervisor\") AND (\"PWR\" OR \"VVER\" OR \"nuclear power plant\") AND (\"commissioning\" OR \"startup\" OR \"operations\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Rooppur NPP Unit 1 in Bangladesh has just received its operating licence ahead of first criticality — startup & commissioning specialists are in demand now. Would you be open to a conversation?",
-      "email_subject": "Rooppur NPP Unit 1 — Operating Licence Issued, Startup Roles Activating",
-      "email_body": "Hi [Name],\n\nRooppur Nuclear Power Plant Unit 1 in Bangladesh has just been issued its operating licence following completion of primary equipment inspection, placing the plant on the cusp of first criticality.\n\nThis milestone typically triggers an urgent ramp-up of commissioning engineers, reactor startup specialists, control room operators, and I&C technicians.\n\nGiven your background in [relevant nuclear commissioning/ops experience], I wanted to reach out to explore whether you'd be open to hearing more about opportunities on this project.\n\nHappy to share more detail — would a brief call work this week?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Operating licence grant for a named nuclear project (Rooppur NPP Unit 1) is a field development plan approval equivalent, signalling imminent first criticality and active commissioning/startup staffing demand.",
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "762e40a5-4391-4479-add3-3cce75be0250",
-    "ingested_at": "2026-05-08T08:41:40.384Z",
-    "source_published_at": "2026-04-24T12:37:58.000Z",
-    "phase": "construction",
-    "phase_evidence": "Operating licence issued following primary equipment inspection with unit declared 'ready for first criticality' — plant is in final commissioning stage pre-startup.",
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "1-3mo",
-    "key_people": [],
-    "contact_archetypes": [
-      "site_manager",
-      "hiring_manager",
-      "project_manager"
-    ],
-    "prompt_version": "phase-targeting-v1.2",
-    "construction_subphase": "commissioning",
     "lifecycle_track": "greenfield",
     "decom_stage": null
   }
