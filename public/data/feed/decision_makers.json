@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-08-06T12:42:19.523Z"
+    "last_updated_at": "2026-08-07T01:17:53.634Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -9703,6 +9703,66 @@
         "email": null,
         "phone": null,
         "location": "Warsaw, Poland"
+      }
+    ]
+  },
+  "mcdermott energy solutions (uk) limited / smdc jv": {
+    "discovered_at": "2026-08-07T01:17:53.634Z",
+    "contacts": [
+      {
+        "name": "Neil Paul Bowman",
+        "title": "Director of Operations, UK",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/manager4design2construction",
+        "source_url": "https://www.northdata.com/Mcdermott%20Energy%20Solutions%20(UK)%20Ltd%C2%B7,%20London/Companies%20House%2004438080",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "London, UK"
+      },
+      {
+        "name": "Barry R. van Elven",
+        "title": "Director",
+        "persona": "other",
+        "linkedin_url": null,
+        "source_url": "https://pomanda.com/director/930978454/barry-van-elven",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Ashok Joshi",
+        "title": "Director / Vice President Legal",
+        "persona": "other",
+        "linkedin_url": "https://www.linkedin.com/in/ashok-joshi-17217118b",
+        "source_url": "https://www.northdata.com/Mcdermott%20Energy%20Solutions%20(UK)%20Ltd%C2%B7,%20London/Companies%20House%2004438080",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Amsterdam, Netherlands"
+      },
+      {
+        "name": "Sara Farshneshani",
+        "title": "Director",
+        "persona": "other",
+        "linkedin_url": null,
+        "source_url": "https://open.endole.co.uk/insight/company/04438080-mcdermott-energy-solutions-uk-limited",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Mikael Ghazavi",
+        "title": "Director (appointed)",
+        "persona": "other",
+        "linkedin_url": null,
+        "source_url": "https://open.endole.co.uk/insight/company/04438080-mcdermott-energy-solutions-uk-limited",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": null
       }
     ]
   }

@@ -2,6 +2,128 @@
   {
     "sources": [
       {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/exxonmobil-in-mozambique-awards-mcdermott-letter-of-intent-for-rovuma-lng-project-302845439.html"
+      }
+    ],
+    "headline": "ExxonMobil Awards McDermott LOI for Rovuma LNG EPC – Mozambique",
+    "body": "HOUSTON, Aug. 6, 2026 /PRNewswire/ -- McDermott Energy Solutions (UK) Limited, a subsidiary of McDermott and a majority shareholder in the SMDC joint venture with Saipem S.p.A., Daewoo Engineering & Construction Co. Ltd. and China Petroleum Engineering & Construction Corporation (CPECC),...",
+    "url": "https://www.prnewswire.com/news-releases/exxonmobil-in-mozambique-awards-mcdermott-letter-of-intent-for-rovuma-lng-project-302845439.html",
+    "published_at": "2026-08-06T20:37:00.000Z",
+    "hash": "90c8909320d87188",
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations",
+      "pipeline_mechanical",
+      "ndt_inspection"
+    ],
+    "signal_type": "epc_award",
+    "region": "east-africa",
+    "country": "mozambique",
+    "tldr": "ExxonMobil has issued a Letter of Intent to McDermott (via SMDC JV with Saipem, Daewoo, and CPECC) for the Rovuma LNG project in Mozambique, signaling imminent EPC award and a major construction workforce ramp in East Africa.",
+    "operator": {
+      "name": "ExxonMobil",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "McDermott Energy Solutions (UK) Limited / SMDC JV",
+      "matched_company_slug": null
+    },
+    "project_name": "Rovuma LNG",
+    "scope": [
+      "onshore_lng_epc",
+      "process_plant_construction",
+      "civil_mechanical_electrical"
+    ],
+    "mob_window": {
+      "start": "2026-Q4",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "LNG Construction Manager",
+        "Project Manager – LNG",
+        "Site Manager",
+        "HSE Manager",
+        "Mechanical Superintendent",
+        "Piping Superintendent",
+        "Electrical Superintendent",
+        "Commissioning Manager",
+        "Planning Engineer",
+        "QA/QC Manager",
+        "Welding Inspector",
+        "NDT Technician",
+        "Instrument & Controls Technician",
+        "Civil Works Supervisor"
+      ],
+      "skills": [
+        "LNG plant construction",
+        "EPC execution",
+        "onshore gas processing",
+        "cryogenic piping",
+        "commissioning & startup",
+        "construction management",
+        "HSSE leadership",
+        "schedule/cost control",
+        "modular fabrication"
+      ],
+      "certs_freetext": [
+        "BOSIET",
+        "NEBOSH International",
+        "CSWIP 3.1",
+        "PCN Level II NDT",
+        "CompEx",
+        "IOSH Managing Safely"
+      ],
+      "geo_rtw": "Mozambique-eligible; EEA/UK/Commonwealth passport holders typical for McDermott international rotator roles",
+      "project_experience": [
+        "Mozambique LNG (TotalEnergies)",
+        "Papua LNG",
+        "Ichthys LNG",
+        "Wheatstone LNG",
+        "Coral South FLNG",
+        "Qatar NFE LNG",
+        "Sabine Pass LNG"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal / Superintendent",
+      "boolean_search": "(\"LNG\" OR \"liquefied natural gas\") AND (\"construction manager\" OR \"site manager\" OR \"commissioning manager\" OR \"piping superintendent\" OR \"mechanical superintendent\" OR \"EPC manager\" OR \"project manager\") AND (\"onshore LNG\" OR \"gas processing\" OR \"cryogenic\" OR \"process plant\") AND (McDermott OR Saipem OR Daewoo OR \"Bechtel\" OR \"Technip\" OR \"KBR\" OR \"CB&I\") NOT (\"business development\" OR \"sales\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], McDermott has just received an LOI from ExxonMobil for the Rovuma LNG EPC in Mozambique. With your LNG construction background, you could be a strong fit for senior site/commissioning roles. Worth a quick call?",
+      "email_subject": "Rovuma LNG EPC – Senior Construction Roles | McDermott / SMDC JV",
+      "email_body": "Hi [Name],\n\nExxonMobil has just awarded McDermott (via the SMDC JV with Saipem, Daewoo, and CPECC) a Letter of Intent for the Rovuma LNG project in Mozambique — one of the largest onshore LNG builds coming to market in 2026.\n\nAs the project moves toward full EPC award, the SMDC JV will be mobilising senior construction, commissioning, and project controls talent. Given your background in [relevant LNG/EPC project], I wanted to reach out before these roles are formally posted.\n\nI'd welcome a 20-minute call to share what we're hearing on scope, timeline, and rotator arrangements. Are you open to a conversation this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "EPC Letter of Intent award naming ExxonMobil as operator and McDermott/SMDC JV as contractor for the named Rovuma LNG project in Mozambique — a discrete workforce-demand event in onshore O&G.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "LOI issued by ExxonMobil to McDermott for Rovuma LNG EPC, indicating FID is either complete or imminent and detailed engineering/procurement is about to ramp.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "9a00e80f-2377-4bc4-8da8-56b243e545a2",
+    "ingested_at": "2026-08-07T01:15:52.444Z",
+    "source_published_at": "2026-08-06T20:37:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org/articles/bechtel-assumes-responsibility-for-polish-plant-site"
@@ -17665,232 +17787,5 @@
     "key_people": [],
     "contact_archetypes": [],
     "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/kimmeridge_mubadala_raise_jv_production_to_over_1bcfd-01-may-2026-183591-article/?rss=true"
-      }
-    ],
-    "headline": null,
-    "body": "Caturus HoldCo LLC completed the acquisition of Galvan Ranch in Texas from SM Energy Co for $950 million, the companies said Thursday.\n\r\n\r\nThe purchase...",
-    "url": "https://www.rigzone.com/news/kimmeridge_mubadala_raise_jv_production_to_over_1bcfd-01-may-2026-183591-article/?rss=true",
-    "published_at": "2026-05-01T13:21:05.000Z",
-    "hash": "83c6d9ef6d669f49",
-    "subsector": null,
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": null,
-    "country": null,
-    "tldr": null,
-    "operator": {
-      "name": null
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "bd_relevant": false,
-    "bd_relevance_reason": "M&A asset acquisition with no named project FID, contract award, or workforce ramp-up event that signals discrete labor demand.",
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "34023057-d68c-4922-8f45-e7e39b0bfe13",
-    "ingested_at": "2026-05-08T20:29:30.363Z",
-    "source_published_at": "2026-05-01T13:21:05.000Z",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/lge-kentucky-utilities-x-energy-to-plan-small-modular-reactor-deployment/"
-      }
-    ],
-    "headline": "LG&E, Kentucky Utilities & X-energy Begin SMR Feasibility Study for Kentucky Deployment",
-    "body": "The companies say have begun early project feasibility activities.",
-    "url": "https://www.mining.com/lge-kentucky-utilities-x-energy-to-plan-small-modular-reactor-deployment/",
-    "published_at": "2026-05-04T22:53:57.000Z",
-    "hash": "450d162ab4988814",
-    "subsector": "nuclear",
-    "discipline_tags": [],
-    "signal_type": null,
-    "region": "us-southeast",
-    "country": "united_states",
-    "tldr": null,
-    "operator": {
-      "name": "LG&E / Kentucky Utilities"
-    },
-    "hiring_entity": {
-      "name": null
-    },
-    "project_name": null,
-    "scope": [],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [],
-      "skills": [],
-      "certs_freetext": [],
-      "geo_rtw": null,
-      "project_experience": [],
-      "yoe_band": null,
-      "seniority": null,
-      "boolean_search": null
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": null,
-      "email_subject": null,
-      "email_body": null
-    },
-    "bd_relevant": false,
-    "bd_relevance_reason": "Only a feasibility study commencement with no FID, contract award, or discrete workforce-demand event; project is pre-sanction with no hiring signal yet.",
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "4f2578c4-0962-4f88-bc81-3efeae03c08d",
-    "ingested_at": "2026-05-08T16:38:59.827Z",
-    "source_published_at": "2026-05-04T22:53:57.000Z",
-    "phase": null,
-    "phase_evidence": null,
-    "outreach_readiness": null,
-    "estimated_hiring_window": null,
-    "key_people": [],
-    "contact_archetypes": [],
-    "prompt_version": "phase-targeting-v1"
-  },
-  {
-    "sources": [
-      {
-        "id": "pr_newswire_energy",
-        "name": "PR Newswire (Energy)",
-        "url": "https://www.prnewswire.com/news-releases/seg-solar-anuncia-la-construccion-de-una-nueva-fabrica-de-modulos-solares-de-4-gw-en-estados-unidos-302766947.html"
-      }
-    ],
-    "headline": "SEG Solar to Build 4 GW Solar Module Manufacturing Plant in Houston, TX",
-    "body": "HOUSTON, 8 de mayo de 2026 /PRNewswire/ -- SEG Solar («SEG»), fabricante líder de módulos solares en Estados Unidos, anunció hoy la construcción de una nueva planta de fabricación de paneles solares de 4 gigavatios (GW) en Houston, Texas. Tras el éxito de su primera fábrica de módulos...",
-    "url": "https://www.prnewswire.com/news-releases/seg-solar-anuncia-la-construccion-de-una-nueva-fabrica-de-modulos-solares-de-4-gw-en-estados-unidos-302766947.html",
-    "published_at": "2026-05-08T13:10:00.000Z",
-    "hash": "297beab976eae484",
-    "subsector": "onshore-renewables",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades"
-    ],
-    "signal_type": "epc_award",
-    "region": "us-gulf-coast",
-    "country": "united_states",
-    "tldr": "SEG Solar has announced construction of a new 4 GW solar module manufacturing facility in Houston, TX — a discrete industrial construction event signaling near-term trades and construction management hiring.",
-    "operator": {
-      "name": "SEG Solar"
-    },
-    "hiring_entity": {
-      "name": "SEG Solar"
-    },
-    "project_name": "SEG Solar Houston 4 GW Manufacturing Plant",
-    "scope": [
-      "manufacturing_facility_construction",
-      "solar_module_plant"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Construction Manager",
-        "Site Manager",
-        "Project Manager",
-        "HSE Manager",
-        "Civil Construction Supervisor",
-        "Electrical Superintendent",
-        "Mechanical Superintendent",
-        "Commissioning Manager",
-        "Planning Engineer"
-      ],
-      "skills": [
-        "industrial facility construction",
-        "manufacturing plant build-out",
-        "construction management",
-        "EPC execution",
-        "site supervision",
-        "solar manufacturing"
-      ],
-      "certs_freetext": [
-        "OSHA 30",
-        "PMP",
-        "NCCER"
-      ],
-      "geo_rtw": "US work-authorized, Houston TX",
-      "project_experience": [
-        "solar module manufacturing",
-        "industrial greenfield construction",
-        "US gigafactory build"
-      ],
-      "yoe_band": "8-15",
-      "seniority": "mid-to-senior",
-      "boolean_search": "(\"Construction Manager\" OR \"Site Manager\" OR \"Project Manager\" OR \"Commissioning Manager\" OR \"Electrical Superintendent\" OR \"Mechanical Superintendent\") AND (\"solar\" OR \"manufacturing plant\" OR \"industrial construction\" OR \"greenfield\") AND (\"Houston\" OR \"Texas\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], SEG Solar just announced a 4 GW solar module manufacturing plant build in Houston, TX — a major industrial construction ramp-up. Given your background in [relevant discipline], I'd love to explore fit. Open to a quick chat?",
-      "email_subject": "Construction Opportunity – SEG Solar 4 GW Plant, Houston TX",
-      "email_body": "Hi [Name],\n\nSEG Solar has announced construction of a new 4 GW solar module manufacturing facility in Houston, TX — one of the largest of its kind in the US.\n\nThis greenfield industrial build will require experienced construction professionals across disciplines including construction management, site supervision, HSE, electrical, and mechanical.\n\nGiven your background in industrial or energy-sector construction, I wanted to reach out to discuss potential opportunities on this project.\n\nWould you be open to a brief call this week?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named operator (SEG Solar) announces construction of a discrete 4 GW manufacturing facility in Houston — a greenfield industrial construction event with clear workforce-demand implications.",
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "6fa1a58f-1f38-411f-9371-82a6ca68781f",
-    "ingested_at": "2026-05-08T14:43:44.605Z",
-    "source_published_at": "2026-05-08T13:10:00.000Z",
-    "phase": "construction",
-    "phase_evidence": "Article states SEG Solar 'anunció hoy la construcción' (announced today the construction) of the new plant, indicating build has been greenlit and is commencing.",
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "1-3mo",
-    "key_people": [],
-    "contact_archetypes": [
-      "site_manager",
-      "hiring_manager",
-      "project_manager"
-    ],
-    "prompt_version": "phase-targeting-v1.2",
-    "construction_subphase": "rampup",
-    "lifecycle_track": "greenfield",
-    "decom_stage": null
   }
 ]

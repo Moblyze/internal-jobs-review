@@ -1,5 +1,50 @@
 [
   {
+    "id": "9a00e80f-2377-4bc4-8da8-56b243e545a2",
+    "ingested_at": "2026-08-07T01:15:52.444Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/exxonmobil-in-mozambique-awards-mcdermott-letter-of-intent-for-rovuma-lng-project-302845439.html"
+      }
+    ],
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations",
+      "pipeline_mechanical",
+      "ndt_inspection"
+    ],
+    "signal_type": "epc_award",
+    "region": "east-africa",
+    "country": "mozambique",
+    "headline": "ExxonMobil Awards McDermott LOI for Rovuma LNG EPC – Mozambique",
+    "operator": {
+      "name": "ExxonMobil",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "McDermott Energy Solutions (UK) Limited / SMDC JV",
+      "matched_company_slug": null
+    },
+    "project_name": "Rovuma LNG",
+    "mob_window": {
+      "start": "2026-Q4",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": []
+  },
+  {
     "id": "85c01abb-18ce-4dcf-bd99-275628963908",
     "ingested_at": "2026-08-06T12:40:27.072Z",
     "sources": [
@@ -6264,46 +6309,6 @@
     "decom_stage": null,
     "outreach_readiness": "cold",
     "estimated_hiring_window": "12mo+",
-    "key_people": []
-  },
-  {
-    "id": "6fa1a58f-1f38-411f-9371-82a6ca68781f",
-    "ingested_at": "2026-05-08T14:43:44.605Z",
-    "sources": [
-      {
-        "id": "pr_newswire_energy",
-        "name": "PR Newswire (Energy)",
-        "url": "https://www.prnewswire.com/news-releases/seg-solar-anuncia-la-construccion-de-una-nueva-fabrica-de-modulos-solares-de-4-gw-en-estados-unidos-302766947.html"
-      }
-    ],
-    "subsector": "onshore-renewables",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades"
-    ],
-    "signal_type": "epc_award",
-    "region": "us-gulf-coast",
-    "country": "united_states",
-    "headline": "SEG Solar to Build 4 GW Solar Module Manufacturing Plant in Houston, TX",
-    "operator": {
-      "name": "SEG Solar"
-    },
-    "hiring_entity": {
-      "name": "SEG Solar"
-    },
-    "project_name": "SEG Solar Houston 4 GW Manufacturing Plant",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "construction",
-    "construction_subphase": "rampup",
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "1-3mo",
     "key_people": []
   }
 ]
