@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-08-07T01:17:53.634Z"
+    "last_updated_at": "2026-08-07T18:20:16.252Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -9763,6 +9763,186 @@
         "email": null,
         "phone": null,
         "location": null
+      }
+    ]
+  },
+  "bp": {
+    "discovered_at": "2026-08-07T18:20:16.252Z",
+    "contacts": [
+      {
+        "name": "Sonya Adams",
+        "title": "EVP People & Culture",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/sonyaadams",
+        "source_url": "https://www.bp.com/press-and-publications/press-releases/bp-announces-leadership-appointments",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "London, UK"
+      },
+      {
+        "name": "Gordon Birrell",
+        "title": "EVP Upstream",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/gordon-birrell-b807a931",
+        "source_url": "https://www.cspdailynews.com/company-news/bp-reorganize-upstream-downstream-segments-names-new-leadership",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "London, UK"
+      },
+      {
+        "name": "Richard Saenz",
+        "title": "VP of HR, Developments and Technology",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://www.comparably.com/companies/bp/executive-team",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Shawn Holzhauser",
+        "title": "VP MidCon Operations",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.comparably.com/companies/bp/executive-team",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Amy Patton",
+        "title": "Director, University Relations",
+        "persona": "ta",
+        "linkedin_url": null,
+        "source_url": "https://www.comparably.com/companies/bp/executive-team",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "major drilling america inc. / redpath usa corporation": {
+    "discovered_at": "2026-08-07T18:20:16.252Z",
+    "contacts": [
+      {
+        "name": "Kellan Osborne",
+        "title": "Vice President / General Manager, Redpath USA Corporation",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://redpathmining.com/en/profile/management",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Cory Cole",
+        "title": "Area Manager, Redpath USA Corporation",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/cory-cole-pmp-595b809b",
+        "source_url": "https://www.linkedin.com/in/cory-cole-pmp-595b809b/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "South Jordan, UT, USA"
+      },
+      {
+        "name": "Cody Holland",
+        "title": "Manager, Project Services, Redpath USA Corporation",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/cody-holland-626b1517",
+        "source_url": "https://rocketreach.co/redpath-usa-corporation-management_b7ae3417c53b610b",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Greater Reno Area, NV, USA"
+      },
+      {
+        "name": "Jeremy Berg",
+        "title": "Project Manager, Redpath USA Corporation",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/jeremy-berg-p-eng-mba-82999324",
+        "source_url": "https://www.linkedin.com/in/jeremy-berg-p-eng-mba-82999324/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Tucson, AZ, USA"
+      },
+      {
+        "name": "Dugald Best",
+        "title": "HSET Manager, Redpath USA Corporation",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/jubalgoodner",
+        "source_url": "https://www.linkedin.com/in/jubalgoodner/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "resolution copper": {
+    "discovered_at": "2026-08-07T18:20:16.252Z",
+    "contacts": [
+      {
+        "name": "Vicky Peacey",
+        "title": "President and General Manager",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/vicky-peacey",
+        "source_url": "https://resolutioncopper.com/resolution-copper-names-victoria-peacey-as-president-and-general-manager/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Greater Phoenix Area, AZ, USA"
+      },
+      {
+        "name": "Rob Tobin",
+        "title": "Manager, Underground Operations & Maintenance",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://projects.gbreports.com/western-usa-mining-2025/resolution-copper-company-profile",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Superior, AZ, USA"
+      },
+      {
+        "name": "Ryan Ewing",
+        "title": "Manager, Surface Operations & Maintenance",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://projects.gbreports.com/western-usa-mining-2025/resolution-copper-company-profile",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Superior, AZ, USA"
+      },
+      {
+        "name": "Randy Seppala",
+        "title": "Project Manager - Shaft Development",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://rocketreach.co/resolution-copper-management_b5c7bbf5f42e0d45",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Superior, AZ, USA"
+      },
+      {
+        "name": "Brad Lingard",
+        "title": "Business Partner, Health, Safety, Environment & Security",
+        "persona": "other",
+        "linkedin_url": null,
+        "source_url": "https://projects.gbreports.com/western-usa-mining-2025/resolution-copper-company-profile",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Superior, AZ, USA"
       }
     ]
   }

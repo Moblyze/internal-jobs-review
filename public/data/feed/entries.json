@@ -2,6 +2,230 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/bp_buys_woodside_out_of_trinidad_and_tobago_gas_project-07-aug-2026-184328-article/?rss=true"
+      }
+    ],
+    "headline": "BP Acquires Woodside's 70% Operating Stake in Calypso Gas Field Offshore Trinidad & Tobago",
+    "body": "BP PLC said Thursday it has agreed to acquire Woodside Energy Group Ltd's 70 percent operating stake in the Calypso gas field offshore Trinidad and Tobago, w...",
+    "url": "https://www.rigzone.com/news/bp_buys_woodside_out_of_trinidad_and_tobago_gas_project-07-aug-2026-184328-article/?rss=true",
+    "published_at": "2026-08-07T15:15:42.000Z",
+    "hash": "a621cf8463fe94d9",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "marine_offshore_ops",
+      "drilling_operations",
+      "process_plant_operations"
+    ],
+    "signal_type": "lease_round",
+    "region": "trinidad-and-tobago",
+    "country": "trinidad_and_tobago",
+    "tldr": "BP has agreed to buy Woodside Energy's 70% operating stake in the Calypso deepwater gas field offshore Trinidad and Tobago, making BP the new operator. This operator change-of-control on a named project signals upcoming workforce and contractor alignment activity.",
+    "operator": {
+      "name": "BP",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "BP",
+      "matched_company_slug": null
+    },
+    "project_name": "Calypso Gas Field",
+    "scope": [
+      "operator_change",
+      "deepwater_gas",
+      "field_development"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Offshore Project Manager",
+        "Deepwater Development Manager",
+        "Subsea Engineer",
+        "Well Engineer",
+        "Reservoir Engineer",
+        "Operations Geologist",
+        "FPSO Operations Superintendent",
+        "Contracts & Procurement Manager"
+      ],
+      "skills": [
+        "deepwater gas development",
+        "subsea systems",
+        "FPSO operations",
+        "well engineering",
+        "reservoir management",
+        "offshore project management",
+        "Trinidad and Tobago regulatory compliance"
+      ],
+      "certs_freetext": [
+        "BOSIET",
+        "OPITO Offshore Safety",
+        "Well Control (IWCF/IADC)"
+      ],
+      "geo_rtw": "Trinidad and Tobago / Caribbean; UK or Australian nationals eligible",
+      "project_experience": [
+        "Calypso",
+        "Matapal",
+        "Cassra",
+        "Angelin",
+        "Trinidad deepwater",
+        "Woodside Deepwater"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"Calypso\" OR \"Trinidad\" OR \"deepwater gas\") AND (\"BP\" OR \"Woodside\" OR \"offshore Trinidad\") AND (\"Project Manager\" OR \"Subsea Engineer\" OR \"Well Engineer\" OR \"Reservoir Engineer\" OR \"FPSO\" OR \"Offshore Operations\" OR \"Contracts Manager\") AND (\"deepwater\" OR \"subsea\" OR \"gas field development\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], BP has just taken over operatorship of the Calypso deepwater gas field in Trinidad & Tobago from Woodside. We're mapping senior offshore talent ahead of expected team build-out. Your background looks highly relevant — open to a quick call?",
+      "email_subject": "BP's Calypso Field Operatorship — Senior Offshore Roles Emerging",
+      "email_body": "Hi [Name],\n\nBP has agreed to acquire Woodside Energy's 70% operating stake in the Calypso deepwater gas field offshore Trinidad and Tobago, making BP the new operator of this significant asset.\n\nOperator transitions of this kind typically trigger rapid team restructuring, contractor retendering, and new project hires as BP aligns the project to its own operating model.\n\nGiven your experience in [deepwater gas / subsea / FPSO operations], I wanted to reach out early — before roles are formally posted — to understand your availability and interest.\n\nWould you have 15 minutes this week for a brief call?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Operator change-of-control on a named deepwater gas project (Calypso) with BP acquiring Woodside's 70% operating stake offshore Trinidad and Tobago, signalling contractor realignment and workforce hiring activity.",
+    "phase": "pre_sanction",
+    "phase_evidence": "The article describes an acquisition of an operating stake but does not reference FID, EPC award, or active construction, suggesting the field remains in pre-sanction or early development under the new operator.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "748552f4-5ed7-489a-a66b-5e871ff4e742",
+    "ingested_at": "2026-08-07T18:18:20.175Z",
+    "source_published_at": "2026-08-07T15:15:42.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director",
+      "hr_business_partner"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/resolution-copper-awards-110-million-in-us-contracts-to-advance-underground-mine-302846225.html"
+      }
+    ],
+    "headline": "Resolution Copper Awards $110M Underground Mine Contracts to Major Drilling & Redpath USA in Arizona",
+    "body": "SUPERIOR, Ariz., Aug. 7, 2026 /PRNewswire/ -- Resolution Copper has awarded approximately $110 million in contracts to Major Drilling America Inc. and Redpath USA Corporation to advance exploration and underground development at the proposed Resolution Copper mine in Arizona. The...",
+    "url": "https://www.prnewswire.com/news-releases/resolution-copper-awards-110-million-in-us-contracts-to-advance-underground-mine-302846225.html",
+    "published_at": "2026-08-07T16:43:00.000Z",
+    "hash": "a62d11405cdc1849",
+    "subsector": "mining",
+    "discipline_tags": [
+      "drilling_operations",
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "us-southwest",
+    "country": "united_states",
+    "tldr": "Resolution Copper has awarded ~$110M in contracts to Major Drilling America and Redpath USA for exploration and underground development at the Resolution Copper mine in Arizona, signaling an active hiring ramp for underground mining trades and drilling crews.",
+    "operator": {
+      "name": "Resolution Copper",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Major Drilling America Inc. / Redpath USA Corporation",
+      "matched_company_slug": null
+    },
+    "project_name": "Resolution Copper Mine",
+    "scope": [
+      "underground_development",
+      "exploration_drilling",
+      "mine_development"
+    ],
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 110000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Underground Mine Development Supervisor",
+        "Raise Bore Operator",
+        "Diamond Drill Operator",
+        "Underground Construction Manager",
+        "Shaft Sinking Supervisor",
+        "Mine Development Engineer",
+        "Underground HSE Advisor",
+        "Shotcrete Operator",
+        "Underground Electrician",
+        "Ventilation Technician",
+        "Underground Blaster",
+        "Planning Engineer – Underground Mining"
+      ],
+      "skills": [
+        "underground mine development",
+        "raise boring",
+        "diamond drilling",
+        "shaft sinking",
+        "tunnel boring",
+        "drill and blast",
+        "shotcrete",
+        "underground ventilation",
+        "mine electrical installation",
+        "ground support"
+      ],
+      "certs_freetext": [
+        "MSHA Part 48 Underground",
+        "Blasting License (Arizona)",
+        "First Aid / CPR",
+        "Confined Space Entry"
+      ],
+      "geo_rtw": "US work-authorized (USCIS EAD or USC); project site Superior, Arizona",
+      "project_experience": [
+        "Copper World Complex",
+        "Bagdad Mine",
+        "Morenci Mine",
+        "Bingham Canyon Mine",
+        "Rosemont Copper",
+        "Cadia East Underground"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid-to-senior trades and supervisory",
+      "boolean_search": "(\"underground mining\" OR \"mine development\" OR \"shaft sinking\" OR \"raise boring\" OR \"diamond drilling\" OR \"drill and blast\") AND (\"Major Drilling\" OR \"Redpath\" OR \"underground construction\" OR \"mine supervisor\" OR \"underground foreman\" OR \"development miner\") AND (Arizona OR Nevada OR Utah OR \"New Mexico\" OR Colorado OR \"Western US\") NOT (\"surface mining\" OR \"open pit\" OR \"coal\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name] – Resolution Copper just awarded $110M in underground development contracts to Major Drilling America & Redpath USA at the Resolution Mine in Arizona. Active ramp-up underway — would your experience align with roles on this project?",
+      "email_subject": "Underground Mining Opportunity – Resolution Copper Mine, Arizona ($110M Contract Award)",
+      "email_body": "Hi [Name],\n\nResolution Copper has just awarded approximately $110 million in contracts to Major Drilling America and Redpath USA for underground exploration and mine development at the Resolution Copper Mine in Superior, Arizona.\n\nWith active contract execution now underway, both contractors will be ramping up crews across underground development, raise boring, drilling, and construction supervision disciplines in the near term.\n\nGiven your background in [relevant discipline], I wanted to reach out directly — we're currently supporting workforce placement for this ramp-up and have roles that may suit your profile.\n\nWould you be open to a brief call this week to explore fit?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named contract award ($110M) from Resolution Copper to Major Drilling America and Redpath USA for underground mine development and exploration, qualifying as an EPC/services contract award with clear labor-demand signal in the mining subsector.",
+    "phase": "construction",
+    "phase_evidence": "Article states contracts awarded to advance 'exploration and underground development' — active underground construction work contracted and commencing.",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "8d18713d-e934-48e3-bcd5-0e23614febe6",
+    "ingested_at": "2026-08-07T18:18:20.175Z",
+    "source_published_at": "2026-08-07T16:43:00.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/exxonmobil-in-mozambique-awards-mcdermott-letter-of-intent-for-rovuma-lng-project-302845439.html"
