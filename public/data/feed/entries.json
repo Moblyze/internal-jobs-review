@@ -2,114 +2,6 @@
   {
     "sources": [
       {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/bp_buys_woodside_out_of_trinidad_and_tobago_gas_project-07-aug-2026-184328-article/?rss=true"
-      }
-    ],
-    "headline": "BP Acquires Woodside's 70% Operating Stake in Calypso Gas Field Offshore Trinidad & Tobago",
-    "body": "BP PLC said Thursday it has agreed to acquire Woodside Energy Group Ltd's 70 percent operating stake in the Calypso gas field offshore Trinidad and Tobago, w...",
-    "url": "https://www.rigzone.com/news/bp_buys_woodside_out_of_trinidad_and_tobago_gas_project-07-aug-2026-184328-article/?rss=true",
-    "published_at": "2026-08-07T15:15:42.000Z",
-    "hash": "a621cf8463fe94d9",
-    "subsector": "offshore-og",
-    "discipline_tags": [
-      "marine_offshore_ops",
-      "drilling_operations",
-      "process_plant_operations"
-    ],
-    "signal_type": "lease_round",
-    "region": "trinidad-and-tobago",
-    "country": "trinidad_and_tobago",
-    "tldr": "BP has agreed to buy Woodside Energy's 70% operating stake in the Calypso deepwater gas field offshore Trinidad and Tobago, making BP the new operator. This operator change-of-control on a named project signals upcoming workforce and contractor alignment activity.",
-    "operator": {
-      "name": "BP",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "BP",
-      "matched_company_slug": null
-    },
-    "project_name": "Calypso Gas Field",
-    "scope": [
-      "operator_change",
-      "deepwater_gas",
-      "field_development"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Offshore Project Manager",
-        "Deepwater Development Manager",
-        "Subsea Engineer",
-        "Well Engineer",
-        "Reservoir Engineer",
-        "Operations Geologist",
-        "FPSO Operations Superintendent",
-        "Contracts & Procurement Manager"
-      ],
-      "skills": [
-        "deepwater gas development",
-        "subsea systems",
-        "FPSO operations",
-        "well engineering",
-        "reservoir management",
-        "offshore project management",
-        "Trinidad and Tobago regulatory compliance"
-      ],
-      "certs_freetext": [
-        "BOSIET",
-        "OPITO Offshore Safety",
-        "Well Control (IWCF/IADC)"
-      ],
-      "geo_rtw": "Trinidad and Tobago / Caribbean; UK or Australian nationals eligible",
-      "project_experience": [
-        "Calypso",
-        "Matapal",
-        "Cassra",
-        "Angelin",
-        "Trinidad deepwater",
-        "Woodside Deepwater"
-      ],
-      "yoe_band": "10-20",
-      "seniority": "Senior / Lead",
-      "boolean_search": "(\"Calypso\" OR \"Trinidad\" OR \"deepwater gas\") AND (\"BP\" OR \"Woodside\" OR \"offshore Trinidad\") AND (\"Project Manager\" OR \"Subsea Engineer\" OR \"Well Engineer\" OR \"Reservoir Engineer\" OR \"FPSO\" OR \"Offshore Operations\" OR \"Contracts Manager\") AND (\"deepwater\" OR \"subsea\" OR \"gas field development\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], BP has just taken over operatorship of the Calypso deepwater gas field in Trinidad & Tobago from Woodside. We're mapping senior offshore talent ahead of expected team build-out. Your background looks highly relevant — open to a quick call?",
-      "email_subject": "BP's Calypso Field Operatorship — Senior Offshore Roles Emerging",
-      "email_body": "Hi [Name],\n\nBP has agreed to acquire Woodside Energy's 70% operating stake in the Calypso deepwater gas field offshore Trinidad and Tobago, making BP the new operator of this significant asset.\n\nOperator transitions of this kind typically trigger rapid team restructuring, contractor retendering, and new project hires as BP aligns the project to its own operating model.\n\nGiven your experience in [deepwater gas / subsea / FPSO operations], I wanted to reach out early — before roles are formally posted — to understand your availability and interest.\n\nWould you have 15 minutes this week for a brief call?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Operator change-of-control on a named deepwater gas project (Calypso) with BP acquiring Woodside's 70% operating stake offshore Trinidad and Tobago, signalling contractor realignment and workforce hiring activity.",
-    "phase": "pre_sanction",
-    "phase_evidence": "The article describes an acquisition of an operating stake but does not reference FID, EPC award, or active construction, suggesting the field remains in pre-sanction or early development under the new operator.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "748552f4-5ed7-489a-a66b-5e871ff4e742",
-    "ingested_at": "2026-08-07T18:18:20.175Z",
-    "source_published_at": "2026-08-07T15:15:42.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "business_unit_director",
-      "hr_business_partner"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/resolution-copper-awards-110-million-in-us-contracts-to-advance-underground-mine-302846225.html"
@@ -220,6 +112,114 @@
       "site_manager",
       "hiring_manager",
       "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/bp_buys_woodside_out_of_trinidad_and_tobago_gas_project-07-aug-2026-184328-article/?rss=true"
+      }
+    ],
+    "headline": "BP Acquires Woodside's 70% Operating Stake in Calypso Gas Field Offshore Trinidad & Tobago",
+    "body": "BP PLC said Thursday it has agreed to acquire Woodside Energy Group Ltd's 70 percent operating stake in the Calypso gas field offshore Trinidad and Tobago, w...",
+    "url": "https://www.rigzone.com/news/bp_buys_woodside_out_of_trinidad_and_tobago_gas_project-07-aug-2026-184328-article/?rss=true",
+    "published_at": "2026-08-07T15:15:42.000Z",
+    "hash": "a621cf8463fe94d9",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "marine_offshore_ops",
+      "drilling_operations",
+      "process_plant_operations"
+    ],
+    "signal_type": "lease_round",
+    "region": "trinidad-and-tobago",
+    "country": "trinidad_and_tobago",
+    "tldr": "BP has agreed to buy Woodside Energy's 70% operating stake in the Calypso deepwater gas field offshore Trinidad and Tobago, making BP the new operator. This operator change-of-control on a named project signals upcoming workforce and contractor alignment activity.",
+    "operator": {
+      "name": "BP",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "BP",
+      "matched_company_slug": null
+    },
+    "project_name": "Calypso Gas Field",
+    "scope": [
+      "operator_change",
+      "deepwater_gas",
+      "field_development"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Offshore Project Manager",
+        "Deepwater Development Manager",
+        "Subsea Engineer",
+        "Well Engineer",
+        "Reservoir Engineer",
+        "Operations Geologist",
+        "FPSO Operations Superintendent",
+        "Contracts & Procurement Manager"
+      ],
+      "skills": [
+        "deepwater gas development",
+        "subsea systems",
+        "FPSO operations",
+        "well engineering",
+        "reservoir management",
+        "offshore project management",
+        "Trinidad and Tobago regulatory compliance"
+      ],
+      "certs_freetext": [
+        "BOSIET",
+        "OPITO Offshore Safety",
+        "Well Control (IWCF/IADC)"
+      ],
+      "geo_rtw": "Trinidad and Tobago / Caribbean; UK or Australian nationals eligible",
+      "project_experience": [
+        "Calypso",
+        "Matapal",
+        "Cassra",
+        "Angelin",
+        "Trinidad deepwater",
+        "Woodside Deepwater"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"Calypso\" OR \"Trinidad\" OR \"deepwater gas\") AND (\"BP\" OR \"Woodside\" OR \"offshore Trinidad\") AND (\"Project Manager\" OR \"Subsea Engineer\" OR \"Well Engineer\" OR \"Reservoir Engineer\" OR \"FPSO\" OR \"Offshore Operations\" OR \"Contracts Manager\") AND (\"deepwater\" OR \"subsea\" OR \"gas field development\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], BP has just taken over operatorship of the Calypso deepwater gas field in Trinidad & Tobago from Woodside. We're mapping senior offshore talent ahead of expected team build-out. Your background looks highly relevant — open to a quick call?",
+      "email_subject": "BP's Calypso Field Operatorship — Senior Offshore Roles Emerging",
+      "email_body": "Hi [Name],\n\nBP has agreed to acquire Woodside Energy's 70% operating stake in the Calypso deepwater gas field offshore Trinidad and Tobago, making BP the new operator of this significant asset.\n\nOperator transitions of this kind typically trigger rapid team restructuring, contractor retendering, and new project hires as BP aligns the project to its own operating model.\n\nGiven your experience in [deepwater gas / subsea / FPSO operations], I wanted to reach out early — before roles are formally posted — to understand your availability and interest.\n\nWould you have 15 minutes this week for a brief call?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Operator change-of-control on a named deepwater gas project (Calypso) with BP acquiring Woodside's 70% operating stake offshore Trinidad and Tobago, signalling contractor realignment and workforce hiring activity.",
+    "phase": "pre_sanction",
+    "phase_evidence": "The article describes an acquisition of an operating stake but does not reference FID, EPC award, or active construction, suggesting the field remains in pre-sanction or early development under the new operator.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "748552f4-5ed7-489a-a66b-5e871ff4e742",
+    "ingested_at": "2026-08-07T18:18:20.175Z",
+    "source_published_at": "2026-08-07T15:15:42.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director",
+      "hr_business_partner"
     ],
     "prompt_version": "phase-targeting-v1.2"
   },

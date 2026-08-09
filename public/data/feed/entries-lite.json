@@ -1,48 +1,5 @@
 [
   {
-    "id": "748552f4-5ed7-489a-a66b-5e871ff4e742",
-    "ingested_at": "2026-08-07T18:18:20.175Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/bp_buys_woodside_out_of_trinidad_and_tobago_gas_project-07-aug-2026-184328-article/?rss=true"
-      }
-    ],
-    "subsector": "offshore-og",
-    "discipline_tags": [
-      "marine_offshore_ops",
-      "drilling_operations",
-      "process_plant_operations"
-    ],
-    "signal_type": "lease_round",
-    "region": "trinidad-and-tobago",
-    "country": "trinidad_and_tobago",
-    "headline": "BP Acquires Woodside's 70% Operating Stake in Calypso Gas Field Offshore Trinidad & Tobago",
-    "operator": {
-      "name": "BP",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "BP",
-      "matched_company_slug": null
-    },
-    "project_name": "Calypso Gas Field",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "pre_sanction",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": []
-  },
-  {
     "id": "8d18713d-e934-48e3-bcd5-0e23614febe6",
     "ingested_at": "2026-08-07T18:18:20.175Z",
     "sources": [
@@ -83,6 +40,49 @@
     "decom_stage": null,
     "outreach_readiness": "hot",
     "estimated_hiring_window": "1-3mo",
+    "key_people": []
+  },
+  {
+    "id": "748552f4-5ed7-489a-a66b-5e871ff4e742",
+    "ingested_at": "2026-08-07T18:18:20.175Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/bp_buys_woodside_out_of_trinidad_and_tobago_gas_project-07-aug-2026-184328-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "marine_offshore_ops",
+      "drilling_operations",
+      "process_plant_operations"
+    ],
+    "signal_type": "lease_round",
+    "region": "trinidad-and-tobago",
+    "country": "trinidad_and_tobago",
+    "headline": "BP Acquires Woodside's 70% Operating Stake in Calypso Gas Field Offshore Trinidad & Tobago",
+    "operator": {
+      "name": "BP",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "BP",
+      "matched_company_slug": null
+    },
+    "project_name": "Calypso Gas Field",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
     "key_people": []
   },
   {
