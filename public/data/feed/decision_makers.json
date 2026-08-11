@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-08-07T18:20:16.252Z"
+    "last_updated_at": "2026-08-11T18:20:52.940Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -9943,6 +9943,66 @@
         "email": null,
         "phone": null,
         "location": "Superior, AZ, USA"
+      }
+    ]
+  },
+  "fortum": {
+    "discovered_at": "2026-08-11T18:20:52.940Z",
+    "contacts": [
+      {
+        "name": "Karin Svenske Nyberg",
+        "title": "Executive Vice President, People",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/karin-svenske-nyberg-5109a631",
+        "source_url": "https://www.fortum.com/investors/corporate-governance/leadership-team/karin-svenske-nyberg",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Stockholm, Sweden"
+      },
+      {
+        "name": "Fabian Åhlin",
+        "title": "Senior Manager, Global Talent Acquisition",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/fabianahlin",
+        "source_url": "https://theorg.com/org/fortum/org-chart/fabian-ahlin",
+        "in_target_persona": true,
+        "email": "Fabian.ahlin@fortum.com",
+        "phone": null,
+        "location": "Solna, Sweden"
+      },
+      {
+        "name": "Jens Hultqvist",
+        "title": "Talent Acquisition Partner",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/jens-hultqvist",
+        "source_url": "https://theorg.com/org/fortum/org-chart/jens-hultqvist",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Solna, Sweden"
+      },
+      {
+        "name": "Petra Lundström",
+        "title": "Executive Vice President, Nuclear Generation",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/petra-lundstrom",
+        "source_url": "https://www.fortum.com/investors/corporate-governance/leadership-team/petra-lundstrom",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Espoo, Finland"
+      },
+      {
+        "name": "Tatiana Terekhova",
+        "title": "Recruiting Manager",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/tatiana-terekhova-2515b939",
+        "source_url": "https://rocketreach.co/fortum-hr-department_b5c499f7f42e0dc0",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Chelyabinsk, Russia"
       }
     ]
   }

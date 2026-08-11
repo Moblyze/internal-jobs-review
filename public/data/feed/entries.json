@@ -2,6 +2,221 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/santos_starts_delivering_oil_from_alaska_project-11-aug-2026-184347-article/?rss=true"
+      }
+    ],
+    "headline": "Santos First Oil Achieved at Pikka Development, Alaska North Slope",
+    "body": "Santos Ltd said Tuesday it had loaded the first crude oil cargo from the Pikka development on Alaska's North Slope, headed to the West Coast for refining.</p...",
+    "url": "https://www.rigzone.com/news/santos_starts_delivering_oil_from_alaska_project-11-aug-2026-184347-article/?rss=true",
+    "published_at": "2026-08-11T13:52:26.000Z",
+    "hash": "b9549cbb571eafd6",
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "process_plant_operations",
+      "drilling_operations",
+      "pipeline_mechanical"
+    ],
+    "signal_type": "epc_award",
+    "region": "alaska-north-slope",
+    "country": "united_states",
+    "tldr": "Santos has loaded first crude cargo from the Pikka development on Alaska's North Slope, marking operational start. Hiring focus shifts to steady-state operations and maintenance roles.",
+    "operator": {
+      "name": "Santos Ltd",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Santos Ltd",
+      "matched_company_slug": null
+    },
+    "project_name": "Pikka Development",
+    "scope": [
+      "first_oil",
+      "production_operations"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Production Operator",
+        "Process Technician",
+        "Maintenance Technician",
+        "Operations Supervisor",
+        "Facilities Engineer",
+        "Integrity Engineer",
+        "HSE Advisor"
+      ],
+      "skills": [
+        "oil production operations",
+        "arctic operations",
+        "process plant operations",
+        "facilities maintenance",
+        "North Slope experience"
+      ],
+      "certs_freetext": [
+        "BOSIET",
+        "OSHA 30",
+        "H2S Alive",
+        "First Aid/CPR"
+      ],
+      "geo_rtw": "US work authorization required; Alaska North Slope rotational",
+      "project_experience": [
+        "Prudhoe Bay",
+        "Alpine Field",
+        "Kuparuk",
+        "Point Thomson",
+        "Willow Project"
+      ],
+      "yoe_band": "5-15",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"Production Operator\" OR \"Process Technician\" OR \"Operations Supervisor\" OR \"Facilities Engineer\" OR \"Integrity Engineer\") AND (\"North Slope\" OR \"Alaska\" OR \"arctic operations\" OR \"Prudhoe Bay\" OR \"Kuparuk\") AND (\"oil production\" OR \"process plant\" OR \"facilities maintenance\") AND (\"rotational\" OR \"FIFO\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Santos has just achieved first oil at the Pikka Development on Alaska's North Slope — steady-state ops roles are opening up. Your North Slope background looks like a strong fit. Worth a quick chat?",
+      "email_subject": "Pikka Development (Alaska) — Operations & Maintenance Roles | Santos First Oil",
+      "email_body": "Hi [Name],\n\nSantos has officially achieved first oil at its Pikka Development on Alaska's North Slope, with the first crude cargo now en route to the West Coast for refining.\n\nWith the project transitioning into steady-state operations, we anticipate demand for experienced Production Operators, Process Technicians, Maintenance Technicians, and Facilities/Integrity Engineers familiar with arctic or North Slope environments.\n\nGiven your background in [relevant experience], I'd love to connect and discuss whether any of these opportunities align with your next move.\n\nAre you open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "First oil milestone at the named Pikka Development operated by Santos signals transition to operational phase with ongoing O&M staffing demand on Alaska's North Slope.",
+    "phase": "operating",
+    "phase_evidence": "Article states Santos loaded the first crude oil cargo from the Pikka development, confirming production has commenced.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "ongoing",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "d3018c6f-1067-45bc-a264-567f34ea8ad0",
+    "ingested_at": "2026-08-11T18:19:12.860Z",
+    "source_published_at": "2026-08-11T13:52:26.000Z",
+    "contact_archetypes": [
+      "ops_director",
+      "hiring_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/upgrading-of-loviisa-turbine-island-begins"
+      }
+    ],
+    "headline": "Fortum Begins Major Turbine Island Modernisation at Loviisa Nuclear Plant, Finland",
+    "body": "Finnish utility Fortum has begun a major modernisation of the turbine island at its Loviisa nuclear power plant, a project that will increase the electricity output of the plant and ensure its continued operation until 2050.",
+    "url": "https://www.world-nuclear-news.org/articles/upgrading-of-loviisa-turbine-island-begins",
+    "published_at": "2026-08-11T15:05:48.000Z",
+    "hash": "e6be5a60fc86816e",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "finland",
+    "country": "finland",
+    "tldr": "Finnish utility Fortum has commenced a major turbine island upgrade at Loviisa NPP targeting output increase and plant life extension to 2050. Construction-phase work is underway now, signalling active demand for nuclear-qualified trades and mechanical specialists.",
+    "operator": {
+      "name": "Fortum",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Loviisa Turbine Island Modernisation",
+    "scope": [
+      "turbine_island_upgrade",
+      "plant_life_extension",
+      "output_uprate"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Turbine Overhaul Engineer",
+        "Mechanical Completion Engineer",
+        "Nuclear Construction Manager",
+        "Commissioning Engineer",
+        "Outage Manager",
+        "HSE Lead",
+        "Site Manager",
+        "Electrical Engineer",
+        "I&C Technician",
+        "Scaffold Supervisor"
+      ],
+      "skills": [
+        "turbine island",
+        "steam turbine overhaul",
+        "nuclear plant modernisation",
+        "plant life extension",
+        "mechanical completion",
+        "commissioning",
+        "nuclear outage management",
+        "electrical installation",
+        "instrumentation and control"
+      ],
+      "certs_freetext": [
+        "Nuclear safety awareness",
+        "STUK regulatory compliance",
+        "Radiation protection qualification",
+        "Finnish nuclear work permit"
+      ],
+      "geo_rtw": "Finland / EU right to work",
+      "project_experience": [
+        "Olkiluoto 3",
+        "Forsmark",
+        "Ringhals",
+        "Loviisa",
+        "Hinkley Point C"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"nuclear\" OR \"NPP\") AND (\"turbine island\" OR \"steam turbine\" OR \"turbine overhaul\" OR \"plant modernisation\" OR \"life extension\") AND (\"construction manager\" OR \"commissioning engineer\" OR \"outage manager\" OR \"mechanical engineer\" OR \"I&C\" OR \"HSE lead\") AND (\"Finland\" OR \"Loviisa\" OR \"Olkiluoto\" OR \"Fortum\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Fortum has just kicked off a major turbine island upgrade at the Loviisa nuclear plant in Finland — construction is live now through to 2050 plant life extension. We're sourcing nuclear-qualified engineers and trades. Would you be open to a quick call?",
+      "email_subject": "Live Now: Fortum Loviisa NPP Turbine Island Upgrade — Nuclear Engineers & Trades Needed",
+      "email_body": "Hi [Name],\n\nFortum has commenced the turbine island modernisation at its Loviisa nuclear power plant in Finland — an upgrade aimed at boosting output and extending plant life to 2050. Work is actively underway, meaning hiring is live now.\n\nWe are placing nuclear-experienced professionals across construction management, commissioning, outage management, mechanical, and I&C disciplines for this programme.\n\nGiven your background in [relevant discipline], I'd love to explore whether this could be a strong fit for your next role.\n\nAre you available for a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Fortum) has begun a large-scale modernisation project at a named nuclear facility (Loviisa NPP), constituting a discrete workforce-demand event in the nuclear subsector.",
+    "phase": "construction",
+    "phase_evidence": "Article states Fortum 'has begun' the modernisation, indicating active construction-phase work is underway.",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "28b3de07-ef17-4c8e-95a7-ba0581d5b667",
+    "ingested_at": "2026-08-11T18:19:12.860Z",
+    "source_published_at": "2026-08-11T15:05:48.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/resolution-copper-awards-110-million-in-us-contracts-to-advance-underground-mine-302846225.html"

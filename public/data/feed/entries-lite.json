@@ -1,5 +1,91 @@
 [
   {
+    "id": "d3018c6f-1067-45bc-a264-567f34ea8ad0",
+    "ingested_at": "2026-08-11T18:19:12.860Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/santos_starts_delivering_oil_from_alaska_project-11-aug-2026-184347-article/?rss=true"
+      }
+    ],
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "process_plant_operations",
+      "drilling_operations",
+      "pipeline_mechanical"
+    ],
+    "signal_type": "epc_award",
+    "region": "alaska-north-slope",
+    "country": "united_states",
+    "headline": "Santos First Oil Achieved at Pikka Development, Alaska North Slope",
+    "operator": {
+      "name": "Santos Ltd",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Santos Ltd",
+      "matched_company_slug": null
+    },
+    "project_name": "Pikka Development",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "operating",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "ongoing",
+    "key_people": []
+  },
+  {
+    "id": "28b3de07-ef17-4c8e-95a7-ba0581d5b667",
+    "ingested_at": "2026-08-11T18:19:12.860Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/upgrading-of-loviisa-turbine-island-begins"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "finland",
+    "country": "finland",
+    "headline": "Fortum Begins Major Turbine Island Modernisation at Loviisa Nuclear Plant, Finland",
+    "operator": {
+      "name": "Fortum",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Loviisa Turbine Island Modernisation",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": []
+  },
+  {
     "id": "8d18713d-e934-48e3-bcd5-0e23614febe6",
     "ingested_at": "2026-08-07T18:18:20.175Z",
     "sources": [
