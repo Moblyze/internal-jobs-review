@@ -1,5 +1,48 @@
 [
   {
+    "id": "e24735ae-d9b7-43a7-b1a8-ced0b7bb592b",
+    "ingested_at": "2026-08-13T06:32:55.702Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/vale-base-metals-wird-die-flotation-grober-partikel-in-salobo-vorantreiben-und-damit-die-geplante-kupferproduktion-steigern-und-beschleunigen-302850556.html"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "brazil",
+    "country": "brazil",
+    "headline": "Vale Base Metals to Advance Coarse Particle Flotation at Salobo Copper Mine, Start H1 2028",
+    "operator": {
+      "name": "Vale Base Metals",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Vale Base Metals",
+      "matched_company_slug": null
+    },
+    "project_name": "Salobo Coarse Particle Flotation (CPF) Expansion",
+    "mob_window": {
+      "start": "2025-Q3",
+      "end": "2028-Q2",
+      "duration_months": 33
+    },
+    "contract_value_usd": null,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
     "id": "9c02c7ce-8448-4b40-a7f8-a4ab3a8a22fc",
     "ingested_at": "2026-08-13T00:25:17.711Z",
     "sources": [

@@ -4,6 +4,118 @@
       {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/vale-base-metals-wird-die-flotation-grober-partikel-in-salobo-vorantreiben-und-damit-die-geplante-kupferproduktion-steigern-und-beschleunigen-302850556.html"
+      }
+    ],
+    "headline": "Vale Base Metals to Advance Coarse Particle Flotation at Salobo Copper Mine, Start H1 2028",
+    "body": "Durch die Grobpartikel-Flotation (CPF) sollen in Salobo die jährliche Kupferproduktion um bis zu ~30.000 Tonnen und die jährliche Erzaufbereitungskapazität um 6 Millionen Tonnen gesteigert werden. Projektstart auf das erste Halbjahr 2028 vorverlegt; Baugenehmigung erteilt Die Schätzung...",
+    "url": "https://www.prnewswire.com/news-releases/vale-base-metals-wird-die-flotation-grober-partikel-in-salobo-vorantreiben-und-damit-die-geplante-kupferproduktion-steigern-und-beschleunigen-302850556.html",
+    "published_at": "2026-08-13T06:02:00.000Z",
+    "hash": "75df2859add314ad",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "brazil",
+    "country": "brazil",
+    "tldr": "Vale Base Metals has received a construction permit and brought forward the project start to H1 2028 for a coarse particle flotation (CPF) expansion at Salobo, targeting +30,000 t/yr copper and +6 Mt/yr ore processing capacity. This signals an imminent engineering and construction hiring ramp.",
+    "operator": {
+      "name": "Vale Base Metals",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Vale Base Metals",
+      "matched_company_slug": null
+    },
+    "project_name": "Salobo Coarse Particle Flotation (CPF) Expansion",
+    "scope": [
+      "process_plant_expansion",
+      "flotation_circuit_install",
+      "capacity_upgrade"
+    ],
+    "mob_window": {
+      "start": "2025-Q3",
+      "end": "2028-Q2",
+      "duration_months": 33
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mineral Processing Engineer",
+        "Flotation Plant Engineer",
+        "Construction Manager",
+        "Project Manager – Mining",
+        "Process Plant Superintendent",
+        "HSE Manager",
+        "Mechanical Engineer – Minerals",
+        "Commissioning Engineer",
+        "Project Controls Engineer",
+        "Site Manager"
+      ],
+      "skills": [
+        "coarse particle flotation",
+        "mineral processing",
+        "copper processing",
+        "plant expansion",
+        "EPC project management",
+        "process engineering",
+        "commissioning",
+        "CAPEX project delivery"
+      ],
+      "certs_freetext": [
+        "CREA (Brazil)",
+        "NR-10",
+        "NR-35",
+        "NEBOSH",
+        "PMP"
+      ],
+      "geo_rtw": "Brazil (Pará state) – local or willing to relocate",
+      "project_experience": [
+        "Salobo Mine",
+        "Carajás",
+        "Cristalino",
+        "Salomão",
+        "S11D"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"coarse particle flotation\" OR \"flotation plant\" OR \"mineral processing\" OR \"copper processing\") AND (\"construction manager\" OR \"project manager\" OR \"process engineer\" OR \"commissioning engineer\" OR \"plant superintendent\") AND (\"mining\" OR \"minerals\") AND (\"EPC\" OR \"CAPEX\" OR \"plant expansion\") NOT (\"gold processing\" OR \"coal\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Vale Base Metals just greenlit a coarse particle flotation expansion at Salobo (H1 2028 start, +30kt Cu/yr). We're sourcing senior process and construction professionals for this ramp-up. Would you be open to a quick chat?",
+      "email_subject": "Salobo CPF Expansion – Senior Mining / Process Roles | Vale Base Metals",
+      "email_body": "Hi [Name],\n\nVale Base Metals has received its construction permit and brought forward the project start to H1 2028 for the Coarse Particle Flotation expansion at Salobo, Brazil. The scope targets an additional 30,000 t/yr of copper production and 6 Mt/yr of incremental ore processing capacity.\n\nWe are actively building a shortlist of senior process engineers, construction managers, and commissioning professionals with copper/mineral processing plant experience for this project.\n\nGiven your background in [mineral processing / mining construction], I'd love to explore whether this aligns with your next move.\n\nAre you available for a 15-minute call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Vale Base Metals) and named project (Salobo CPF expansion) with a construction permit granted and project start brought forward to H1 2028, constituting a discrete workforce-demand event in mining.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Article states 'Baugenehmigung erteilt' (construction permit granted) and project start brought forward to H1 2028, indicating regulatory approval has been secured and engineering/procurement is advancing pre-construction.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "e24735ae-d9b7-43a7-b1a8-ced0b7bb592b",
+    "ingested_at": "2026-08-13T06:32:55.702Z",
+    "source_published_at": "2026-08-13T06:02:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/vale-base-metals-to-proceed-with-coarse-particle-flotation-at-salobo-increasing-and-accelerating-projected-copper-production-302850235.html"
       }
     ],
