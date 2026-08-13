@@ -2,6 +2,119 @@
   {
     "sources": [
       {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/vale-base-metals-to-proceed-with-coarse-particle-flotation-at-salobo-increasing-and-accelerating-projected-copper-production-302850235.html"
+      }
+    ],
+    "headline": "Vale Base Metals Greenlights Coarse Particle Flotation at Salobo Copper Project, Start-Up H1 2028",
+    "body": "Coarse Particle Flotation (CPF) expected to add up to ~30,000 tonnes of annual copper production and 6 million tonnes of annual ore processing capacity at Salobo Project start-up accelerated to first half of 2028; Construction license received CPF capex estimate optimized; Wheaton...",
+    "url": "https://www.prnewswire.com/news-releases/vale-base-metals-to-proceed-with-coarse-particle-flotation-at-salobo-increasing-and-accelerating-projected-copper-production-302850235.html",
+    "published_at": "2026-08-12T23:26:00.000Z",
+    "hash": "bded184a31449f3d",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "brazil-para",
+    "country": "brazil",
+    "tldr": "Vale Base Metals has sanctioned the CPF expansion at Salobo, with construction license in hand and first production targeted H1 2028, opening a near-term construction hiring window for process plant and industrial trades.",
+    "operator": {
+      "name": "Vale Base Metals",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Vale Base Metals",
+      "matched_company_slug": null
+    },
+    "project_name": "Salobo CPF Expansion",
+    "scope": [
+      "process_plant_construction",
+      "flotation_circuit_install",
+      "ore_processing_capacity_expansion"
+    ],
+    "mob_window": {
+      "start": "2025-Q3",
+      "end": "2028-Q2",
+      "duration_months": 33
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Construction Manager",
+        "Process Plant Superintendent",
+        "Mechanical Superintendent",
+        "HSE Manager",
+        "Commissioning Manager",
+        "Electrical Superintendent",
+        "Instrumentation & Controls Superintendent",
+        "Project Controls Engineer",
+        "Piping Supervisor",
+        "Structural Fabrication Supervisor"
+      ],
+      "skills": [
+        "coarse particle flotation",
+        "copper processing",
+        "mineral processing plant construction",
+        "process plant commissioning",
+        "brownfield expansion",
+        "ore processing",
+        "EPC construction management",
+        "shutdown & turnaround",
+        "EPCM delivery"
+      ],
+      "certs_freetext": [
+        "NR-10 (Brazil electrical safety)",
+        "NR-35 (Brazil working at height)",
+        "CREA (Brazilian engineering registration)",
+        "First Aid / HUET"
+      ],
+      "geo_rtw": "Brazil (Pará state); willingness to relocate or FIFO to Salobo site",
+      "project_experience": [
+        "Salobo III Expansion",
+        "Carajas Mining Complex",
+        "Bingham Canyon Concentrator",
+        "Quellaveco Copper Plant",
+        "Oyu Tolgoi Concentrator",
+        "Cobre Panama Process Plant"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal / Superintendent",
+      "boolean_search": "(\"construction manager\" OR \"process plant superintendent\" OR \"commissioning manager\" OR \"mechanical superintendent\" OR \"electrical superintendent\" OR \"HSE manager\" OR \"project controls\") AND (\"copper\" OR \"flotation\" OR \"mineral processing\" OR \"concentrator\" OR \"ore processing\") AND (\"mining\" OR \"EPCM\" OR \"brownfield\") AND (\"Brazil\" OR \"Pará\" OR \"Salobo\" OR \"Carajas\" OR \"Latin America\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Vale Base Metals has just sanctioned the Coarse Particle Flotation expansion at Salobo (H1 2028 start-up) — a major copper plant build-out in Pará, Brazil. With your background in [mineral processing / plant construction], you could be a strong fit. Worth a quick call?",
+      "email_subject": "Salobo CPF Expansion – Senior Construction & Process Roles | Vale Base Metals, Brazil",
+      "email_body": "Hi [Name],\n\nVale Base Metals has formally sanctioned the Coarse Particle Flotation (CPF) project at Salobo, targeting first production in H1 2028. The scope adds ~30,000 tonnes of annual copper output and 6 million tonnes of processing capacity — a significant greenfield plant build in Pará, Brazil, with a construction license already in hand.\n\nWe are supporting resourcing for senior construction, process, and commissioning professionals for this campaign. Based on your experience in [copper / mineral processing / EPCM construction], I believe you could be well placed for roles such as:\n\n• Construction Manager\n• Process / Mechanical Superintendent\n• Commissioning Manager\n• HSE Manager (site-level)\n\nWould you be open to a 15-minute call this week to explore fit and timeline?\n\nBest regards,\n[Your Name]\n[Agency | Contact Details]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Vale Base Metals) has sanctioned a copper processing plant expansion at a named project (Salobo CPF), with construction license received and a defined start-up target of H1 2028, constituting a clear FID/project sanction workforce-demand event in mining.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Article states 'Construction license received' and start-up 'accelerated to first half of 2028', indicating FID has been taken and detailed engineering/construction is ramping.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "9c02c7ce-8448-4b40-a7f8-a4ab3a8a22fc",
+    "ingested_at": "2026-08-13T00:25:17.711Z",
+    "source_published_at": "2026-08-12T23:26:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/santos_starts_delivering_oil_from_alaska_project-11-aug-2026-184347-article/?rss=true"

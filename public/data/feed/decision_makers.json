@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-08-11T18:20:52.940Z"
+    "last_updated_at": "2026-08-13T00:26:58.454Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -10003,6 +10003,55 @@
         "email": null,
         "phone": null,
         "location": "Chelyabinsk, Russia"
+      }
+    ]
+  },
+  "vale base metals": {
+    "discovered_at": "2026-08-13T00:26:58.454Z",
+    "contacts": [
+      {
+        "name": "Aaron McCarthy",
+        "title": "Chief Human Resources Officer",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/aaron-mccarthy-a029b526",
+        "source_url": "https://valebasemetals.com/about-us/leadership/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Toronto, ON, Canada"
+      },
+      {
+        "name": "Sebastian Garside",
+        "title": "Executive Vice President, Human Resources",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/sebastian-garside-998407a",
+        "source_url": "https://lobbycanada.gc.ca/app/secure/ocl/lrs/do/vwRg?cno=224822&regId=931004",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Toronto, ON, Canada"
+      },
+      {
+        "name": "Alfredo Santana",
+        "title": "Chief Operating Officer, North Atlantic Operations",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://valebasemetals.com/about-us/leadership/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Toronto, ON, Canada"
+      },
+      {
+        "name": "Gustavo Bastos",
+        "title": "Chief Project Management Officer",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://lobbycanada.gc.ca/app/secure/ocl/lrs/do/vwRg?cno=224822&regId=951284",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
       }
     ]
   }
