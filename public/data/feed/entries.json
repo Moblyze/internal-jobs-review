@@ -2,6 +2,124 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/construction-starts-at-saskatchewan-uranium-mine"
+      }
+    ],
+    "headline": "NexGen Energy Starts Construction at Rook I Uranium Mine, Saskatchewan — 4-Year Build",
+    "body": "NexGen Energy Ltd has marked the official start of construction at the Rook I Project in northern Saskatchewan, kicking off a four-year construction pathway for the mine which is expected to produce some 30 million pounds of uranium every year.",
+    "url": "https://www.world-nuclear-news.org/articles/construction-starts-at-saskatchewan-uranium-mine",
+    "published_at": "2026-08-14T16:52:23.000Z",
+    "hash": "f4b07b3cdcb3a9c6",
+    "subsector": "mining",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "ndt_inspection",
+      "process_plant_operations"
+    ],
+    "signal_type": "fid",
+    "region": "saskatchewan-canada",
+    "country": "canada",
+    "tldr": "NexGen Energy has officially broken ground on the Rook I uranium mine in northern Saskatchewan, launching a four-year construction program targeting 30Mlb/yr uranium output. Peak trade and construction labor demand is imminent.",
+    "operator": {
+      "name": "NexGen Energy Ltd",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "NexGen Energy Ltd",
+      "matched_company_slug": null
+    },
+    "project_name": "Rook I Project",
+    "scope": [
+      "mine_construction",
+      "process_plant_build",
+      "civil_works",
+      "infrastructure"
+    ],
+    "mob_window": {
+      "start": "2025-Q2",
+      "end": "2029-Q2",
+      "duration_months": 48
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Construction Manager",
+        "Mine Construction Superintendent",
+        "Project Manager – Mining",
+        "Civil Construction Supervisor",
+        "Process Plant Construction Manager",
+        "HSE Manager – Mining Construction",
+        "Mechanical Superintendent",
+        "Electrical Superintendent",
+        "Commissioning Manager",
+        "Structural Fabrication Supervisor",
+        "Piping Supervisor",
+        "QA/QC Inspector – Mining"
+      ],
+      "skills": [
+        "uranium mine construction",
+        "greenfield mine build",
+        "process plant construction",
+        "civil earthworks",
+        "structural mechanical piping",
+        "commissioning",
+        "radiation safety",
+        "remote site construction",
+        "Saskatchewan mining regulations"
+      ],
+      "certs_freetext": [
+        "Saskatchewan Journeyman Tradesperson",
+        "CSTS-09 (Construction Safety Training System)",
+        "WHMIS 2015",
+        "Radiation Protection Training",
+        "First Aid – Remote/Industrial",
+        "Red Seal Trades Certification"
+      ],
+      "geo_rtw": "Canada — must have right to work in Canada; Saskatchewan site",
+      "project_experience": [
+        "Cigar Lake Mine",
+        "McArthur River Mine",
+        "Key Lake Mill",
+        "Athabasca Basin mining projects",
+        "Cameco operations"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Superintendent / Manager",
+      "boolean_search": "(\"construction manager\" OR \"mine construction\" OR \"project manager\" OR \"construction superintendent\" OR \"mechanical superintendent\" OR \"electrical superintendent\" OR \"commissioning manager\" OR \"HSE manager\") AND (\"uranium\" OR \"mining\" OR \"mine construction\" OR \"process plant\") AND (\"Saskatchewan\" OR \"Athabasca\" OR \"Canada\") AND (\"greenfield\" OR \"remote site\" OR \"camp-based\" OR \"fly-in fly-out\" OR \"FIFO\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], NexGen Energy just broke ground on the Rook I uranium mine in Saskatchewan — a 4-year greenfield build targeting 30Mlb/yr. Senior construction & commissioning roles are opening now. Worth a conversation?",
+      "email_subject": "Rook I Uranium Mine — Senior Construction Roles Now Active | NexGen Energy Saskatchewan",
+      "email_body": "Hi [Name],\n\nNexGen Energy has officially started construction on the Rook I Project in northern Saskatchewan — a four-year greenfield uranium mine build targeting 30 million pounds per year of production.\n\nThis is one of the largest uranium mining construction programs in Canada in recent years, and we're actively connecting senior construction, commissioning, and trades supervision professionals with opportunities on this project.\n\nGiven your background in [mine/plant construction / remote site projects], I'd value a quick conversation to explore fit.\n\nAre you open to a 15-minute call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Official construction start at named greenfield uranium mine (Rook I Project) by named operator NexGen Energy, with a defined 4-year build program — clear workforce ramp-up signal in the mining subsector.",
+    "phase": "construction",
+    "phase_evidence": "Article states 'NexGen Energy Ltd has marked the official start of construction at the Rook I Project... kicking off a four-year construction pathway.'",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "920f819a-ef87-4dd7-a99a-e1458e21e98d",
+    "ingested_at": "2026-08-14T18:19:44.487Z",
+    "source_published_at": "2026-08-14T16:52:23.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/vale-base-metals-wird-die-flotation-grober-partikel-in-salobo-vorantreiben-und-damit-die-geplante-kupferproduktion-steigern-und-beschleunigen-302850556.html"

@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-08-13T00:26:58.454Z"
+    "last_updated_at": "2026-08-14T18:21:31.893Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -10048,6 +10048,66 @@
         "persona": "project",
         "linkedin_url": null,
         "source_url": "https://lobbycanada.gc.ca/app/secure/ocl/lrs/do/vwRg?cno=224822&regId=951284",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "nexgen energy ltd": {
+    "discovered_at": "2026-08-14T18:21:31.893Z",
+    "contacts": [
+      {
+        "name": "Dawn Bains",
+        "title": "Director, Human Resources",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/dawn-bains-b82a4549",
+        "source_url": "https://rocketreach.co/nexgen-energy-ltd-management_b5f0960df67f5468",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Saskatchewan, Canada"
+      },
+      {
+        "name": "Jason Craven",
+        "title": "Vice President, Exploration",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/jason-craven-5017ba92",
+        "source_url": "https://www.nexgenenergy.ca/company/board-of-directors/person-details/default.aspx?ItemId=96bb4689-a580-4668-8e1a-81645fc61c5a",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Saskatchewan, Canada"
+      },
+      {
+        "name": "Terrance Martin",
+        "title": "HSRE Manager",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.signalhire.com/companies/nexgen-energy-ltd",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Luke Moger",
+        "title": "Vice President, Environment, Permitting & Licensing",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://ca.linkedin.com/company/nexgen-energy-ltd-",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Saskatchewan, Canada"
+      },
+      {
+        "name": "Robert Paine",
+        "title": "Director, Management System Integration",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.signalhire.com/companies/nexgen-energy-ltd",
         "in_target_persona": true,
         "email": null,
         "phone": null,

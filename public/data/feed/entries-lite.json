@@ -1,5 +1,49 @@
 [
   {
+    "id": "920f819a-ef87-4dd7-a99a-e1458e21e98d",
+    "ingested_at": "2026-08-14T18:19:44.487Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/construction-starts-at-saskatchewan-uranium-mine"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "ndt_inspection",
+      "process_plant_operations"
+    ],
+    "signal_type": "fid",
+    "region": "saskatchewan-canada",
+    "country": "canada",
+    "headline": "NexGen Energy Starts Construction at Rook I Uranium Mine, Saskatchewan — 4-Year Build",
+    "operator": {
+      "name": "NexGen Energy Ltd",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "NexGen Energy Ltd",
+      "matched_company_slug": null
+    },
+    "project_name": "Rook I Project",
+    "mob_window": {
+      "start": "2025-Q2",
+      "end": "2029-Q2",
+      "duration_months": 48
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": []
+  },
+  {
     "id": "e24735ae-d9b7-43a7-b1a8-ced0b7bb592b",
     "ingested_at": "2026-08-13T06:32:55.702Z",
     "sources": [
