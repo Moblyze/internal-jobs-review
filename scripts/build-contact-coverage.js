@@ -25,7 +25,7 @@ const DECISION_MAKERS_PATH = resolve(ROOT, 'public/data/feed/decision_makers.jso
 const ENTRIES_LITE_PATH = resolve(ROOT, 'public/data/feed/entries-lite.json')
 const OUT_PATH = resolve(ROOT, 'public/data/feed/contact_coverage.json')
 
-const WORKER_BASE = process.env.PDL_COMPANY_FEED_BASE || 'https://pdl-company-feed.jesse-82d.workers.dev'
+const WORKER_BASE = process.env.PDL_COMPANY_FEED_BASE || 'https://pdl-company-feed.moblyze-ops.workers.dev'
 const ORIGIN = process.env.PREWARM_ORIGIN || 'https://moblyze.github.io'
 const CONCURRENCY = 6
 const PER_REQUEST_TIMEOUT_MS = 20_000
