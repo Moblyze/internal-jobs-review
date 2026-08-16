@@ -6,7 +6,7 @@ import { logTelemetry, postContactFeedback, enrichPerson, lookupCachedPerson } f
 const FILTER_OPTIONS_URL = `${import.meta.env.BASE_URL || '/'}data/filter-options.json`
 const DECISION_MAKERS_URL = `${import.meta.env.BASE_URL || '/'}data/feed/decision_makers.json`
 const ENTRIES_LITE_URL = `${import.meta.env.BASE_URL || '/'}data/feed/entries-lite.json`
-const WORKER_BASE = import.meta.env.VITE_WORKER_BASE || 'https://pdl-company-feed.jesse-82d.workers.dev'
+const WORKER_BASE = import.meta.env.VITE_WORKER_BASE || 'https://pdl-company-feed.moblyze-ops.workers.dev'
 
 const PERSONA_LABELS = {
   ta: 'TA',
