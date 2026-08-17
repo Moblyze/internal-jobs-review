@@ -2,6 +2,237 @@
   {
     "sources": [
       {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/western-midstream-announces-participation-in-the-solitude-pipeline-system-302852469.html"
+      }
+    ],
+    "headline": "Solitude Pipeline System FID: Twin 48-inch Gas Pipelines, Permian Basin to Katy TX",
+    "body": "WES holds a 7.5% equity interest in the Solitude Pipeline System joint venture which has reached a positive Final Investment Decision to construct two 48-inch natural gas pipelines running from the Permian Basin to Katy, Texas. Solitude will deliver scalable, long-haul natural gas...",
+    "url": "https://www.prnewswire.com/news-releases/western-midstream-announces-participation-in-the-solitude-pipeline-system-302852469.html",
+    "published_at": "2026-08-17T11:06:00.000Z",
+    "hash": "7546dfaa6224171d",
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "pipeline_mechanical",
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "us-permian",
+    "country": "united_states",
+    "tldr": "The Solitude Pipeline System JV has reached FID to construct two 48-inch natural gas pipelines from the Permian Basin to Katy, Texas. Western Midstream holds a 7.5% equity interest; EPC/construction contracting and associated hiring ramp expected imminently.",
+    "operator": {
+      "name": "Solitude Pipeline System JV (Western Midstream Partners participating)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Solitude Pipeline System",
+    "scope": [
+      "pipeline_construction",
+      "long_haul_gas_pipeline",
+      "twin_48inch_pipelines"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Pipeline Construction Manager",
+        "Right-of-Way Manager",
+        "Pipeline Project Manager",
+        "Pipeline Superintendent",
+        "Pipeline Engineer",
+        "HSE Manager",
+        "Spread Superintendent",
+        "Pipeline Inspector",
+        "Welding Inspector",
+        "Commissioning Engineer",
+        "Pipeline Scheduler/Planner"
+      ],
+      "skills": [
+        "large-diameter pipeline construction",
+        "48-inch pipeline",
+        "natural gas transmission",
+        "long-haul pipeline",
+        "right-of-way management",
+        "pipeline welding",
+        "hydrostatic testing",
+        "PHMSA compliance",
+        "DOT Part 192",
+        "spread management"
+      ],
+      "certs_freetext": [
+        "API 1104",
+        "OSHA 30 Construction",
+        "NACE CP",
+        "CWI (Certified Welding Inspector)",
+        "PMP"
+      ],
+      "geo_rtw": "US work authorization required; project corridor Texas/New Mexico",
+      "project_experience": [
+        "Permian Highway Pipeline",
+        "Whistler Pipeline",
+        "Matterhorn Express Pipeline",
+        "Gulf Coast Express Pipeline",
+        "Pecos Trail Pipeline"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid-senior to principal",
+      "boolean_search": "(\"pipeline construction\" OR \"large diameter pipeline\" OR \"gas transmission pipeline\") AND (\"48 inch\" OR \"48-inch\" OR \"long haul\" OR \"Permian Basin\" OR \"natural gas pipeline\") AND (\"construction manager\" OR \"project manager\" OR \"superintendent\" OR \"spread superintendent\" OR \"pipeline engineer\" OR \"right of way\" OR \"HSE manager\" OR \"pipeline inspector\" OR \"welding inspector\") AND (Texas OR \"New Mexico\" OR Permian OR Katy)"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], the Solitude Pipeline System (twin 48\" gas lines, Permian to Katy TX) just hit FID. Construction contracting is next — are you open to hearing about senior pipeline roles on this build?",
+      "email_subject": "Solitude Pipeline – FID Reached | Senior Pipeline Roles Coming Online",
+      "email_body": "Hi [Name],\n\nThe Solitude Pipeline System JV has just reached a positive Final Investment Decision to construct two 48-inch natural gas pipelines running from the Permian Basin to Katy, Texas — one of the largest long-haul gas pipeline builds in the current US market.\n\nWith FID confirmed, EPC contracting and construction hiring are expected to ramp in the coming months. We're proactively identifying senior pipeline construction professionals — Project Managers, Spread Superintendents, Pipeline Engineers, HSE Managers, and Welding/Pipeline Inspectors — ahead of that wave.\n\nGiven your background in large-diameter pipeline construction, I'd welcome a quick conversation about where you'd want to be positioned as this project moves into execution.\n\nWould you have 15 minutes this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "FID announced for a named project (Solitude Pipeline System) to construct twin 48-inch natural gas pipelines, naming Western Midstream as an equity participant — a discrete greenfield construction workforce-demand event in onshore O&G.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Article states the JV 'has reached a positive Final Investment Decision to construct' the pipelines, confirming FID just taken and EPC/construction phase commencing.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "1c7713e6-4006-4127-bcbf-993dcfe8623a",
+    "ingested_at": "2026-08-17T12:08:05.985Z",
+    "source_published_at": "2026-08-17T11:06:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/solitude-pipeline-system-reaches-final-investment-decision-to-transport-gas-from-the-permian-basin-to-the-gulf-coast-302852521.html"
+      }
+    ],
+    "headline": "Solitude Pipeline System Reaches FID to Transport Permian Gas to Gulf Coast",
+    "body": "AUSTIN, Texas, Aug. 17, 2026 /PRNewswire/ -- WhiteWater today announced that it, together with Devon Energy Corporation (NYSE: DVN), MPLX LP (NYSE: MPLX), Diamondback Energy, Inc. (NASDAQ: FANG) and Western Midstream Partners, LP (NYSE: WES), through their Solitude Pipeline System joint...",
+    "url": "https://www.prnewswire.com/news-releases/solitude-pipeline-system-reaches-final-investment-decision-to-transport-gas-from-the-permian-basin-to-the-gulf-coast-302852521.html",
+    "published_at": "2026-08-17T11:00:00.000Z",
+    "hash": "650fe8e62cdd1fe0",
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "pipeline_mechanical",
+      "industrial_construction",
+      "energy_trades",
+      "survey_geophysical"
+    ],
+    "signal_type": "fid",
+    "region": "us-permian",
+    "country": "united_states",
+    "tldr": "WhiteWater and JV partners (Devon, MPLX, Diamondback, Western Midstream) have taken FID on the Solitude Pipeline System connecting the Permian Basin to the Gulf Coast. Engineering and construction hiring ramp expected imminently across pipeline mechanical, civil, and trades disciplines.",
+    "operator": {
+      "name": "WhiteWater (JV: Devon Energy, MPLX, Diamondback Energy, Western Midstream Partners)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Solitude Pipeline System",
+    "scope": [
+      "pipeline_construction",
+      "gas_transport",
+      "permian_to_gulf_coast"
+    ],
+    "mob_window": {
+      "start": "2026-Q4",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Pipeline Construction Manager",
+        "Right-of-Way Manager",
+        "Pipeline Project Manager",
+        "Pipeline Engineer",
+        "HSE Manager",
+        "Pipeline Welder",
+        "Pipeline Inspector",
+        "Mainline Welder",
+        "Spread Superintendent",
+        "Corrosion Engineer",
+        "Commissioning Engineer",
+        "Survey Lead"
+      ],
+      "skills": [
+        "pipeline construction",
+        "midstream gas",
+        "right-of-way",
+        "hydrostatic testing",
+        "pipeline integrity",
+        "SCADA",
+        "permitting",
+        "spread management",
+        "compressor station"
+      ],
+      "certs_freetext": [
+        "ASME B31.8",
+        "API 1104",
+        "OSHA 30",
+        "DOT Pipeline Safety",
+        "CWI (Certified Welding Inspector)"
+      ],
+      "geo_rtw": "US — Texas / Permian Basin to Gulf Coast corridor; must have US work authorization",
+      "project_experience": [
+        "Matterhorn Express Pipeline",
+        "Whistler Pipeline",
+        "Gulf Run Pipeline",
+        "Permian Highway Pipeline",
+        "Boardwalk Pipeline"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid to senior",
+      "boolean_search": "(\"pipeline construction\" OR \"midstream pipeline\" OR \"gas pipeline\") AND (\"project manager\" OR \"construction manager\" OR \"spread superintendent\" OR \"pipeline engineer\" OR \"commissioning engineer\" OR \"HSE manager\" OR \"mainline welder\" OR \"pipeline inspector\") AND (\"Permian\" OR \"Texas\" OR \"Gulf Coast\") AND (\"FID\" OR \"greenfield\" OR \"new build\" OR \"ASME B31.8\" OR \"API 1104\" OR \"DOT pipeline\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], WhiteWater's Solitude Pipeline just hit FID — Permian to Gulf Coast. We're sourcing pipeline construction, engineering, and HSE talent now. Would you be open to a quick conversation about opportunities on this project?",
+      "email_subject": "Solitude Pipeline FID — Pipeline Construction & Engineering Roles | Permian to Gulf Coast",
+      "email_body": "Hi [Name],\n\nWhiteWater, along with Devon Energy, MPLX, Diamondback, and Western Midstream, has taken Final Investment Decision on the Solitude Pipeline System, a new gas transmission line from the Permian Basin to the Gulf Coast.\n\nWith FID just announced, EPC contracts and construction hiring are expected to ramp over the coming months. We are currently mapping talent across pipeline construction management, engineering, HSE, right-of-way, and trades disciplines for this corridor.\n\nGiven your background in [relevant area], I'd love to connect and share more detail on the scope and timeline. Are you open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "FID announced on a named pipeline project (Solitude Pipeline System) with named operators/JV partners (WhiteWater, Devon Energy, MPLX, Diamondback Energy, Western Midstream), creating a discrete onshore O&G construction labor-demand signal.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Article states WhiteWater and JV partners have reached Final Investment Decision (FID) on the Solitude Pipeline System, confirming project sanction and triggering EPC/engineering ramp.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "389ee382-fcb3-4ee6-a3cd-9b5657ae8539",
+    "ingested_at": "2026-08-17T12:08:05.985Z",
+    "source_published_at": "2026-08-17T11:00:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org/articles/construction-starts-at-saskatchewan-uranium-mine"

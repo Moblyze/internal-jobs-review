@@ -1,5 +1,92 @@
 [
   {
+    "id": "1c7713e6-4006-4127-bcbf-993dcfe8623a",
+    "ingested_at": "2026-08-17T12:08:05.985Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/western-midstream-announces-participation-in-the-solitude-pipeline-system-302852469.html"
+      }
+    ],
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "pipeline_mechanical",
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "us-permian",
+    "country": "united_states",
+    "headline": "Solitude Pipeline System FID: Twin 48-inch Gas Pipelines, Permian Basin to Katy TX",
+    "operator": {
+      "name": "Solitude Pipeline System JV (Western Midstream Partners participating)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Solitude Pipeline System",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": []
+  },
+  {
+    "id": "389ee382-fcb3-4ee6-a3cd-9b5657ae8539",
+    "ingested_at": "2026-08-17T12:08:05.985Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/solitude-pipeline-system-reaches-final-investment-decision-to-transport-gas-from-the-permian-basin-to-the-gulf-coast-302852521.html"
+      }
+    ],
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "pipeline_mechanical",
+      "industrial_construction",
+      "energy_trades",
+      "survey_geophysical"
+    ],
+    "signal_type": "fid",
+    "region": "us-permian",
+    "country": "united_states",
+    "headline": "Solitude Pipeline System Reaches FID to Transport Permian Gas to Gulf Coast",
+    "operator": {
+      "name": "WhiteWater (JV: Devon Energy, MPLX, Diamondback Energy, Western Midstream Partners)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Solitude Pipeline System",
+    "mob_window": {
+      "start": "2026-Q4",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": []
+  },
+  {
     "id": "920f819a-ef87-4dd7-a99a-e1458e21e98d",
     "ingested_at": "2026-08-14T18:19:44.487Z",
     "sources": [

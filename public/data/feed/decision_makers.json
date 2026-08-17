@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-08-14T18:21:31.893Z"
+    "last_updated_at": "2026-08-17T12:10:06.268Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -10112,6 +10112,126 @@
         "email": null,
         "phone": null,
         "location": null
+      }
+    ]
+  },
+  "solitude pipeline system jv (western midstream partners participating)": {
+    "discovered_at": "2026-08-17T12:10:06.268Z",
+    "contacts": [
+      {
+        "name": "Caleb Ryan, P.E.",
+        "title": "Chief Operating Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/caleb-ryan-p-e-39570229",
+        "source_url": "https://puc.sd.gov/commission/dockets/HydrocarbonPipeline/2022/HP22-001/testimony/intervenors/GPLDCAttach2.pdf",
+        "in_target_persona": true,
+        "email": "cryan@whitewatermidstream.com",
+        "phone": null,
+        "location": "Austin, TX, USA"
+      },
+      {
+        "name": "Glenn Kellison",
+        "title": "Sr. Vice President of Engineering",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/glenn-kellison-36aba4135",
+        "source_url": "https://puc.sd.gov/commission/dockets/HydrocarbonPipeline/2022/HP22-001/testimony/intervenors/GPLDCAttach2.pdf",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Austin, TX, USA"
+      },
+      {
+        "name": "Zoee Gogonas, PHR",
+        "title": "Human Resources Director",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/zoee-gogonas-phr-89537121",
+        "source_url": "https://rocketreach.co/whitewater-midstream-llc-management_b444b17afa8f82c2",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Austin, TX, USA"
+      },
+      {
+        "name": "Jerry Laurenti",
+        "title": "Senior Recruiter",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/jerry-laurenti-9566a2216",
+        "source_url": "https://www.linkedin.com/in/jerry-laurenti-9566a2216/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Lindsay Kilcrease",
+        "title": "Human Resources Business Partner Manager",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/lindsay-kilcrease",
+        "source_url": "https://www.linkedin.com/in/lindsay-kilcrease/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      }
+    ]
+  },
+  "whitewater (jv: devon energy, mplx, diamondback energy, western midstream partners)": {
+    "discovered_at": "2026-08-17T12:10:06.268Z",
+    "contacts": [
+      {
+        "name": "Zoee Gogonas",
+        "title": "Human Resources Director",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/zoee-gogonas-phr-89537121",
+        "source_url": "https://rocketreach.co/whitewater-midstream-llc-management_b444b17afa8f82c2",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Austin, TX, USA"
+      },
+      {
+        "name": "Caleb Ryan",
+        "title": "Chief Operating Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/caleb-ryan-p-e-39570229",
+        "source_url": "https://rocketreach.co/whitewater-midstream-llc-management_b444b17afa8f82c2",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Austin, TX, USA"
+      },
+      {
+        "name": "Travis Allison",
+        "title": "Director of Pipeline Operations, Permian Basin",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/travis-allison-5382abb2",
+        "source_url": "https://www.linkedin.com/posts/glenn-kellison-36aba4135_whitewater-is-hiring-a-sr-project-manager-activity-7039419472033550336--VC7",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Steven Nelson",
+        "title": "Vice President of Major Projects",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/steven-nelson-71243a3b",
+        "source_url": "https://salesgear.io/p/glenn-kellison-email-phone",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Denver, CO, USA"
+      },
+      {
+        "name": "Glenn Kellison",
+        "title": "Senior Vice President of Engineering",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/glenn-kellison-36aba4135",
+        "source_url": "https://rocketreach.co/whitewater-midstream-llc-management_b444b17afa8f82c2",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Austin, TX, USA"
       }
     ]
   }
