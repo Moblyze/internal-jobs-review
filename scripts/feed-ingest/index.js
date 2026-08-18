@@ -5,7 +5,13 @@ import { fetchAllSources } from './fetchSources.js'
 import { dedupeAgainstExisting } from './dedupe.js'
 import { enrichEntry, PROMPT_VERSION } from './enrich.js'
 import { matchCompanyToSlug } from '../../src/utils/feed/companyMatcher.js'
-import { findStaleSources, postHealthAlert } from './healthAlert.js'
+import {
+  buildSourceConditions,
+  decideAlerts,
+  renderAlertText,
+  postHealthAlert,
+  updateSourceRecords,
+} from './healthAlert.js'
 import { deriveArchetypes } from './archetypes.js'
 import { getSizeTier } from '../../src/utils/feed/sizeTier.js'
 import crypto from 'crypto'
@@ -72,12 +78,13 @@ async function main() {
   const totalItems = fetchResults.reduce((acc, r) => acc + r.items.length, 0)
   console.log(`[feed-ingest] fetched ${okCount}/${sources.length} sources, ${totalItems} raw items`)
 
-  // 2. Update last_seen_ok_at for sources that returned non-empty.
+  // 2. Update last_seen_ok_at (fetch health) and newest_item_published_at (content
+  //    freshness) for sources that returned items. The two are deliberately separate:
+  //    a feed can keep returning HTTP 200 with the same aging items forever, which
+  //    moves last_seen_ok_at but must not move newest_item_published_at.
   const now = new Date().toISOString()
-  const updatedSources = sources.map(src => {
-    const r = fetchResults.find(f => f.source.id === src.id)
-    return r && r.ok && r.items.length > 0 ? { ...src, last_seen_ok_at: now } : src
-  })
+  const nowMs = Date.parse(now)
+  const updatedSources = updateSourceRecords(sources, fetchResults, now)
 
   // 3. Flatten and dedupe.
   const allFresh = fetchResults.flatMap(r => r.items)
@@ -146,11 +153,30 @@ async function main() {
 
   console.log(`[feed-ingest] wrote ${trimmed.length} entries, ${enriched.length} new`)
 
-  // 8. Health alerts.
-  const stale = findStaleSources(updatedSources)
-  if (stale.length > 0) {
-    await postHealthAlert(stale, process.env.SLACK_WEBHOOK_URL)
-    console.log(`[feed-ingest] posted health alert: ${stale.length} stale source(s)`)
+  // 8. Health alerts. Fires on state change (ok -> problem, problem -> ok, new error
+  //    class) and then re-reminds at most every HEALTH_REMIND_INTERVAL_HOURS. Silence
+  //    is the normal outcome. See scripts/feed-ingest/healthAlert.js.
+  const previousState = await readJson(PATHS.ALERT_STATE).catch(() => null)
+  const conditions = buildSourceConditions({ sources: updatedSources, fetchResults, nowMs })
+  for (const c of conditions) {
+    const detail = c.kind === 'ok' || c.kind === 'content_unknown'
+      ? `content ${c.content_age_days ?? 'n/a'}d / ${c.content_stale_days}d`
+      : `${c.error_class || ''} ${c.error || ''} content ${c.content_age_days ?? 'n/a'}d / ${c.content_stale_days}d`
+    console.log(`[health] ${c.id}: ${c.kind} | ${detail.trim()}`)
+  }
+
+  const decision = decideAlerts(previousState, conditions, nowMs)
+  const text = renderAlertText(decision, { nowMs, conditions })
+  await writeFile(PATHS.ALERT_STATE, JSON.stringify(decision.nextState, null, 2))
+
+  if (text) {
+    const res = await postHealthAlert(text, process.env.SLACK_WEBHOOK_URL)
+    console.log(
+      `[health] alert: ${decision.problems.length} problem(s), ` +
+      `${decision.recoveries.length} recovery(ies), posted=${res.posted}`
+    )
+  } else {
+    console.log('[health] no change since last run; nothing posted')
   }
 }
 

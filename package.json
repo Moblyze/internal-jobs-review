@@ -27,10 +27,12 @@
     "deduplicate-sheet": "node scripts/deduplicate-sheet.js",
     "format-overview": "node scripts/format-overview-sheet.js",
     "ingest-feed": "node scripts/feed-ingest/index.js",
+    "health-report": "node scripts/feed-ingest/health-report.js",
     "discover-decision-makers": "node scripts/discover-decision-makers.js",
     "prewarm-company-overviews": "node scripts/prewarm-company-overviews.js",
     "prewarm-contacts": "node scripts/prewarm-contacts.js",
-    "build-contact-coverage": "node scripts/build-contact-coverage.js"
+    "build-contact-coverage": "node scripts/build-contact-coverage.js",
+    "test": "node --test scripts/feed-ingest/__tests__/"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.74.0",
