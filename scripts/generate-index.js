@@ -126,7 +126,8 @@ function deduplicateJobs(jobs) {
     const location = (job.location || '').toLowerCase().trim();
     const key = `${company}|${title}|${location}`;
 
-    if (job.sourceTab) {
+    const isDirect = job.sourceTab && !/^(Aggregator|Agency) - /.test(job.sourceTab);
+    if (isDirect) {
       directIndices.push(i);
       directKeys.add(key);
       return;

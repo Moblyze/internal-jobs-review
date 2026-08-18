@@ -437,7 +437,11 @@ async function main() {
       ].join('|');
 
       const group = jobsByKey.get(key) || { direct: [], agg: null };
-      if (job.sourceTab) {
+      // "Aggregator - <profile>" tabs come through the same fetch path as
+      // direct employer tabs but are job-board keyword searches: the same
+      // posting recurs under different URLs, so they stay in the collapse.
+      const isDirect = job.sourceTab && !/^(Aggregator|Agency) - /.test(job.sourceTab);
+      if (isDirect) {
         group.direct.push(job);
       } else if (!group.agg) {
         group.agg = job;
