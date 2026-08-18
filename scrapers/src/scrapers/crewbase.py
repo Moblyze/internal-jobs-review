@@ -87,6 +87,11 @@ _JSONLD_RE = re.compile(
 _ABOUT_PARAGRAPH_RE = re.compile(
     r'About This Opportunity.*?<p class="[^"]*">(.*?)</p>', re.S
 )
+# CrewBase closes that paragraph with its own marketing. It is their copy, not
+# the employer's, and it would otherwise be indexed as if it described the job.
+_CREWBASE_PROMO_RE = re.compile(
+    r'This vacancy is listed on CrewBase.*', re.S | re.I
+)
 
 
 class CrewBaseScraper(BaseScraper):
@@ -216,17 +221,28 @@ class CrewBaseScraper(BaseScraper):
     def _parse_description(self, jsonld: dict, page_html: str) -> str:
         description = html.unescape((jsonld.get('description') or '').strip())
 
-        # Short descriptions are common (many postings are terse). Enrich with
-        # the page's own "About This Opportunity" SEO paragraph, which spells
-        # out vessel type / location / employment type / boarding date in
-        # prose, so downstream review has more to go on.
-        if len(description) < 40:
-            m = _ABOUT_PARAGRAPH_RE.search(page_html)
-            if m:
-                about_text = BeautifulSoup(m.group(1), 'html.parser').get_text(' ', strip=True)
-                about_text = html.unescape(about_text)
-                if about_text:
-                    description = f"{description}\n\n{about_text}".strip() if description else about_text
+        # ALWAYS enrich, not only below 40 characters. Corrected 2026-08-17.
+        #
+        # The JSON-LD description on these pages is the Requirements line alone,
+        # typically 100-200 characters: "GWO WAH and SS are good to have, HUET
+        # CA-EBS OPITO required." The page's own "About This Opportunity"
+        # paragraph carries the facts that line does not - vessel type, sector,
+        # operating area, contract type, boarding date - and the 40-character
+        # threshold meant it was almost never captured. 7,511 CrewBase postings,
+        # a quarter of everything we track, were stored with a requirements line
+        # and nothing else, which is what made marine and the UK look like
+        # markets we could not describe.
+        #
+        # The promo tail is stripped: CrewBase ends that paragraph advertising
+        # its own app, which is their copy rather than anything about the job.
+        m = _ABOUT_PARAGRAPH_RE.search(page_html)
+        if m:
+            about_text = BeautifulSoup(m.group(1), 'html.parser').get_text(' ', strip=True)
+            about_text = _CREWBASE_PROMO_RE.sub('', html.unescape(about_text)).strip()
+            # Skip when the JSON-LD already contains it, so a re-scrape does not
+            # append the same paragraph twice.
+            if about_text and about_text not in description:
+                description = f"{description}\n\n{about_text}".strip() if description else about_text
 
         return description or "No description provided."
 
