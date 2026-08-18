@@ -5,13 +5,7 @@ import { fetchAllSources } from './fetchSources.js'
 import { dedupeAgainstExisting } from './dedupe.js'
 import { enrichEntry, PROMPT_VERSION } from './enrich.js'
 import { matchCompanyToSlug } from '../../src/utils/feed/companyMatcher.js'
-import {
-  buildSourceConditions,
-  decideAlerts,
-  renderAlertText,
-  postHealthAlert,
-  updateSourceRecords,
-} from './healthAlert.js'
+import { runHealthCheck, updateSourceRecords } from './healthAlert.js'
 import { deriveArchetypes } from './archetypes.js'
 import { getSizeTier } from '../../src/utils/feed/sizeTier.js'
 import crypto from 'crypto'
@@ -156,27 +150,12 @@ async function main() {
   // 8. Health alerts. Fires on state change (ok -> problem, problem -> ok, new error
   //    class) and then re-reminds at most every HEALTH_REMIND_INTERVAL_HOURS. Silence
   //    is the normal outcome. See scripts/feed-ingest/healthAlert.js.
-  const previousState = await readJson(PATHS.ALERT_STATE).catch(() => null)
-  const conditions = buildSourceConditions({ sources: updatedSources, fetchResults, nowMs })
-  for (const c of conditions) {
-    const detail = c.kind === 'ok' || c.kind === 'content_unknown'
-      ? `content ${c.content_age_days ?? 'n/a'}d / ${c.content_stale_days}d`
-      : `${c.error_class || ''} ${c.error || ''} content ${c.content_age_days ?? 'n/a'}d / ${c.content_stale_days}d`
-    console.log(`[health] ${c.id}: ${c.kind} | ${detail.trim()}`)
-  }
-
-  const decision = decideAlerts(previousState, conditions, nowMs)
-  const text = renderAlertText(decision, { nowMs, conditions })
-  await writeFile(PATHS.ALERT_STATE, JSON.stringify(decision.nextState, null, 2))
-
-  if (text) {
-    const res = await postHealthAlert(text, process.env.SLACK_WEBHOOK_URL)
-    console.log(
-      `[health] alert: ${decision.problems.length} problem(s), ` +
-      `${decision.recoveries.length} recovery(ies), posted=${res.posted}`
-    )
-  } else {
-    console.log('[health] no change since last run; nothing posted')
+  try {
+    await runHealthCheck({ sources: updatedSources, fetchResults, nowMs })
+  } catch (err) {
+    // Monitoring must never be able to break ingestion. The feed data is already
+    // written by this point; losing an alert is far cheaper than losing a run.
+    console.error('[health] alerting failed, continuing:', err && err.message)
   }
 }
 

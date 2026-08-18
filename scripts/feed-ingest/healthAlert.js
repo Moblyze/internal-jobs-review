@@ -24,7 +24,10 @@
 //
 // Message copy in here is read by humans in Slack: no em dashes (house style).
 
+import { writeFile } from 'fs/promises'
 import {
+  PATHS,
+  readJson,
   HEALTH_ALERT_THRESHOLD_HOURS,
   HEALTH_REMIND_INTERVAL_HOURS,
   CONTENT_STALE_DEFAULT_DAYS,
@@ -379,6 +382,50 @@ export async function postHealthAlert(text, slackWebhookUrl) {
     body: JSON.stringify({ text }),
   })
   return { posted: res.ok, status: res.status }
+}
+
+
+/**
+ * One full health pass: read the persisted state, evaluate this run, write the new
+ * state, and post only if there is something to say. Every dependency is injectable
+ * so the whole path can be executed in a test without touching Slack or the real
+ * state file.
+ *
+ * Returns { conditions, decision, text, posted }.
+ */
+export async function runHealthCheck({
+  sources,
+  fetchResults,
+  nowMs = Date.now(),
+  statePath = PATHS.ALERT_STATE,
+  webhookUrl = process.env.SLACK_WEBHOOK_URL,
+  post = postHealthAlert,
+  log = console.log,
+} = {}) {
+  const previousState = await readJson(statePath).catch(() => null)
+  const conditions = buildSourceConditions({ sources, fetchResults, nowMs })
+
+  for (const c of conditions) {
+    const detail = c.error
+      ? `${c.error_class} :: ${c.error}`
+      : `content ${c.content_age_days ?? 'n/a'}d of ${c.content_stale_days}d`
+    log(`[health] ${c.id}: ${c.kind} | ${detail}`)
+  }
+
+  const decision = decideAlerts(previousState, conditions, nowMs)
+  const text = renderAlertText(decision, { nowMs, conditions })
+  await writeFile(statePath, JSON.stringify(decision.nextState, null, 2))
+
+  let posted = false
+  if (text) {
+    const res = await post(text, webhookUrl)
+    posted = !!res?.posted
+    log(`[health] alert: ${decision.problems.length} problem(s), ${decision.recoveries.length} recovery(ies), posted=${posted}`)
+  } else {
+    log('[health] no change since last run; nothing posted')
+  }
+
+  return { conditions, decision, text, posted }
 }
 
 /**

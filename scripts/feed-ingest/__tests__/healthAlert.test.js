@@ -10,7 +10,11 @@ import {
   decideAlerts,
   renderAlertText,
   updateSourceRecords,
+  runHealthCheck,
 } from '../healthAlert.js'
+import { mkdtemp, readFile, rm } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
 
 const DAY = 86_400_000
 const HOUR = 3_600_000
@@ -310,4 +314,76 @@ test('updateSourceRecords leaves an empty-but-ok fetch untouched', () => {
   const s = { id: 'x', active: true, last_seen_ok_at: iso(NOW - DAY) }
   const out = updateSourceRecords([s], [{ source: s, ok: true, items: [] }], iso(NOW))
   assert.deepEqual(out[0], s)
+})
+
+// --- end to end: the exact path index.js step 8 runs ----------------------
+
+test('runHealthCheck: writes state, posts once on a new problem, stays silent on the next run, reminds after 24h', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'feed-health-'))
+  const statePath = join(dir, 'alert_state.json')
+  const sent = []
+  const post = async (text, url) => { sent.push({ text, url }); return { posted: true, status: 200 } }
+  const quiet = () => {}
+
+  const sources = [
+    { id: 'mining_com', name: 'MINING.com', active: true, last_seen_ok_at: iso(NOW - 35 * DAY) },
+    { id: 'rigzone', name: 'Rigzone', active: true, last_seen_ok_at: iso(NOW) },
+  ]
+  const failing = [
+    { source: sources[0], ok: false, items: [], error: 'Status code 403' },
+    { source: sources[1], ok: true, items: [{ published_at: iso(NOW) }] },
+  ]
+
+  // Run 1: brand new sustained failure. One message, carrying the real error.
+  const r1 = await runHealthCheck({ sources, fetchResults: failing, nowMs: NOW, statePath, webhookUrl: 'https://example.invalid/hook', post, log: quiet })
+  assert.equal(sent.length, 1)
+  assert.match(sent[0].text, /HTTP 403/)
+  assert.match(sent[0].text, /Status code 403/)
+  assert.equal(r1.posted, true)
+
+  // State really was written to disk.
+  const onDisk = JSON.parse(await readFile(statePath, 'utf-8'))
+  assert.equal(onDisk.sources.mining_com.error_class, 'http_403')
+  assert.equal(onDisk.sources.mining_com.last_alerted_at, iso(NOW))
+
+  // Runs 2 to 4: the next three 6h crons. Nothing new to say.
+  for (const offset of [6, 12, 18]) {
+    await runHealthCheck({ sources, fetchResults: failing, nowMs: NOW + offset * HOUR, statePath, webhookUrl: 'x', post, log: quiet })
+  }
+  assert.equal(sent.length, 1, 'the old alert would have posted 4 times by now')
+
+  // Run 5, 24h in: one reminder.
+  await runHealthCheck({ sources, fetchResults: failing, nowMs: NOW + 24 * HOUR, statePath, webhookUrl: 'x', post, log: quiet })
+  assert.equal(sent.length, 2)
+  assert.match(sent[1].text, /reminder/)
+
+  // Run 6: recovered. One message, then silence.
+  const healthy = [
+    { source: sources[0], ok: true, items: [{ published_at: iso(NOW + 25 * HOUR) }] },
+    { source: sources[1], ok: true, items: [{ published_at: iso(NOW + 25 * HOUR) }] },
+  ]
+  await runHealthCheck({ sources, fetchResults: healthy, nowMs: NOW + 30 * HOUR, statePath, webhookUrl: 'x', post, log: quiet })
+  assert.equal(sent.length, 3)
+  assert.match(sent[2].text, /Recovered \(1\)/)
+  await runHealthCheck({ sources, fetchResults: healthy, nowMs: NOW + 36 * HOUR, statePath, webhookUrl: 'x', post, log: quiet })
+  assert.equal(sent.length, 3, 'no message once everything is healthy')
+
+  await rm(dir, { recursive: true, force: true })
+})
+
+test('runHealthCheck posts nothing when there is no webhook and nothing to report', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'feed-health-'))
+  const statePath = join(dir, 'alert_state.json')
+  let calls = 0
+  const s = [{ id: 'rigzone', name: 'Rigzone', active: true, last_seen_ok_at: iso(NOW) }]
+  const r = await runHealthCheck({
+    sources: s,
+    fetchResults: [{ source: s[0], ok: true, items: [{ published_at: iso(NOW) }] }],
+    nowMs: NOW, statePath, webhookUrl: undefined,
+    post: async () => { calls++; return { posted: false } },
+    log: () => {},
+  })
+  assert.equal(r.text, null)
+  assert.equal(calls, 0)
+  await rm(dir, { recursive: true, force: true })
 })
