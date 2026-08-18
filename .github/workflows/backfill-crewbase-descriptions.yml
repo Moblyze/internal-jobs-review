@@ -1,0 +1,113 @@
+name: Backfill CrewBase Descriptions
+
+# One-off (resumable) backfill: rows scraped before the 27076f4 About-paragraph
+# fix hold a 100-200 char Requirements line as their whole description. This
+# re-fetches each pre-fix CrewBase row and patches ONLY its Description cell.
+# See scrapers/scripts/backfill_crewbase_descriptions.py for the full design.
+#
+# Resumable: outcomes persist per requisition id in
+# crewbase-backfill-state.json on the scraper-state-latest release. Re-running
+# retries only unresolved rows, so a rate-limited or timed-out run costs
+# nothing to finish.
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (fetch + report; no writes to the sheet, no state saved)'
+        required: false
+        type: boolean
+        default: true
+      max_jobs:
+        description: 'Cap rows processed this run (empty = all)'
+        required: false
+        type: string
+        default: ''
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    permissions:
+      contents: write   # to upload state to the scraper-state-latest release
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: scrapers/requirements.txt
+
+      - name: Install Python dependencies
+        working-directory: scrapers
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Download backfill state from release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p scrapers/data
+          gh release download scraper-state-latest -p crewbase-backfill-state.json -D scrapers/data/ 2>/dev/null \
+            && echo "Restored backfill state ($(wc -c < scrapers/data/crewbase-backfill-state.json) bytes)" \
+            || echo "No prior backfill state — starting fresh"
+
+      - name: Create service account credentials file
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          mkdir -p config
+          echo "$GOOGLE_SERVICE_ACCOUNT_JSON" > config/service_account.json
+          chmod 600 config/service_account.json
+
+      - name: Run backfill
+        working-directory: scrapers
+        env:
+          GOOGLE_SERVICE_ACCOUNT_PATH: ${{ github.workspace }}/config/service_account.json
+          GOOGLE_SHEETS_SPREADSHEET_NAME: ${{ secrets.GOOGLE_SHEETS_SPREADSHEET_NAME }}
+        run: |
+          CMD="python scripts/backfill_crewbase_descriptions.py --state-path data/crewbase-backfill-state.json"
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            CMD="$CMD --dry-run"
+          fi
+          if [ -n "${{ inputs.max_jobs }}" ]; then
+            CMD="$CMD --max-jobs ${{ inputs.max_jobs }}"
+          fi
+          echo "Running: $CMD"
+          $CMD
+
+      # always() also covers a timeout-killed job (conclusion: cancelled), so a
+      # run that dies mid-way still persists the waves it completed.
+      - name: Upload backfill state to release
+        if: always() && inputs.dry_run != true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -f scrapers/data/crewbase-backfill-state.json ]; then
+            gh release view scraper-state-latest >/dev/null 2>&1 || \
+              gh release create scraper-state-latest \
+                --title "Scraper Dedup State" \
+                --notes "Persistent state for scraping workflows. Updated automatically."
+            gh release upload scraper-state-latest scrapers/data/crewbase-backfill-state.json --clobber
+            echo "State uploaded"
+          else
+            echo "No state file produced — nothing to upload"
+          fi
+
+      - name: Upload tab backup as workflow artifact
+        if: always() && inputs.dry_run != true
+        uses: actions/upload-artifact@v4
+        with:
+          name: crewbase-backfill-backup-${{ github.run_id }}
+          path: scrapers/data/CrewBase-backfill-backup-*.csv
+          retention-days: 90
+          if-no-files-found: warn
+
+      - name: Clean up credentials
+        if: always()
+        run: rm -f config/service_account.json
