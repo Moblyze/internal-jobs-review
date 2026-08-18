@@ -333,7 +333,16 @@ def main():
 
             for i in range(0, len(updates), WRITE_CHUNK):
                 chunk = updates[i : i + WRITE_CHUNK]
-                _retry_429(ws.batch_update, chunk, value_input_option="RAW")
+                # Fresh dict copies on EVERY attempt: gspread's batch_update
+                # mutates the passed dicts (prefixes the sheet title onto each
+                # range), so a 429-retry re-sending the same dicts produces
+                # "'CrewBase'!'CrewBase'!D..." and a 400. Wave 12 of the first
+                # full run died exactly this way.
+                _retry_429(
+                    lambda c=chunk: ws.batch_update(
+                        [dict(u) for u in c], value_input_option="RAW"
+                    )
+                )
                 print(f"  wrote {min(i + WRITE_CHUNK, len(updates))}/{len(updates)} cells")
                 if i + WRITE_CHUNK < len(updates):
                     time.sleep(INTER_CHUNK_PAUSE)
