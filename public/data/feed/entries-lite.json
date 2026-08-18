@@ -1,5 +1,89 @@
 [
   {
+    "id": "2e2dec88-0e12-438d-9448-9e4266837dc3",
+    "ingested_at": "2026-08-18T18:19:25.348Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/nexgen-starts-1-6b-uranium-build-to-rival-top-mines/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "canada-saskatchewan",
+    "country": "canada",
+    "headline": "NexGen Starts $1.6B Uranium Mine Build in Saskatchewan",
+    "operator": {
+      "name": "NexGen Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "NexGen Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Rook I (Arrow Deposit)",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 1600000000,
+    "phase": "construction",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": []
+  },
+  {
+    "id": "3b597f1f-119c-4dd8-9664-a20ec2a6f524",
+    "ingested_at": "2026-08-18T18:19:25.348Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/steadright-critical-minerals-granted-mining-licence-for-morocco-titanium-project/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "survey_geophysical",
+      "industrial_construction"
+    ],
+    "signal_type": "lease_round",
+    "region": "morocco",
+    "country": "morocco",
+    "headline": "Steadright Critical Minerals Granted Mining Licence for TitanBeach Titanium Project, Morocco",
+    "operator": {
+      "name": "Steadright Critical Minerals",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Steadright Critical Minerals",
+      "matched_company_slug": null
+    },
+    "project_name": "TitanBeach",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "1c7713e6-4006-4127-bcbf-993dcfe8623a",
     "ingested_at": "2026-08-17T12:08:05.985Z",
     "sources": [

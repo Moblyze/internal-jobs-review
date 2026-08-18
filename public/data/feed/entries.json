@@ -2,6 +2,223 @@
   {
     "sources": [
       {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/nexgen-starts-1-6b-uranium-build-to-rival-top-mines/"
+      }
+    ],
+    "headline": "NexGen Starts $1.6B Uranium Mine Build in Saskatchewan",
+    "body": "The Saskatchewan project advances toward becoming a major new source of nuclear fuel as global uranium demand strengthens.",
+    "url": "https://www.mining.com/nexgen-starts-1-6b-uranium-build-to-rival-top-mines/",
+    "published_at": "2026-08-14T11:55:00.000Z",
+    "hash": "bbb6d8f3372abe28",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "canada-saskatchewan",
+    "country": "canada",
+    "tldr": "NexGen Energy has commenced construction on its $1.6B Saskatchewan uranium project, signaling a major workforce ramp-up for one of the largest new uranium mines in development. Hiring demand for mining construction trades and engineers is imminent.",
+    "operator": {
+      "name": "NexGen Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "NexGen Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Rook I (Arrow Deposit)",
+    "scope": [
+      "mine_construction",
+      "civil_works",
+      "surface_facilities"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 1600000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Construction Manager",
+        "Project Manager",
+        "Mining Engineer",
+        "HSE Manager",
+        "Civil Superintendent",
+        "Electrical Superintendent",
+        "Mechanical Superintendent",
+        "Planning Engineer",
+        "Cost Engineer",
+        "Camp Manager"
+      ],
+      "skills": [
+        "uranium mining",
+        "hard rock mining",
+        "underground mine construction",
+        "surface facilities construction",
+        "project controls",
+        "mine planning",
+        "HSE management",
+        "Saskatchewan mining"
+      ],
+      "certs_freetext": [
+        "Mine Manager Certificate (Saskatchewan)",
+        "NCSO",
+        "PEng (Canada)",
+        "First Aid Level 3"
+      ],
+      "geo_rtw": "Canada — must hold valid Canadian work authorization",
+      "project_experience": [
+        "Cigar Lake",
+        "McArthur River",
+        "Cameco",
+        "Athabasca Basin",
+        "Key Lake",
+        "Orano Canada"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Superintendent / Manager",
+      "boolean_search": "(\"uranium mining\" OR \"hard rock mining\" OR \"underground mine\" OR \"mine construction\") AND (\"Construction Manager\" OR \"Project Manager\" OR \"Mining Engineer\" OR \"HSE Manager\" OR \"Superintendent\") AND (Saskatchewan OR \"Athabasca Basin\" OR \"Cigar Lake\" OR \"McArthur River\" OR Cameco OR Orano) AND (Canada OR \"Canadian mining\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], NexGen Energy has kicked off its $1.6B uranium mine build in Saskatchewan — one of the biggest new nuclear fuel projects in Canada. We're placing senior construction and mining professionals for this ramp-up. Open to a quick chat?",
+      "email_subject": "NexGen $1.6B Saskatchewan Uranium Build — Senior Roles Opening Now",
+      "email_body": "Hi [Name],\n\nNexGen Energy has officially started construction on its $1.6B uranium mining project in Saskatchewan, positioning it to become one of the world's major new uranium producers.\n\nWith a build of this scale, demand for experienced mining construction professionals — Construction Managers, Superintendents, HSE Leads, Mining Engineers, and Project Controls specialists — will ramp quickly.\n\nGiven your background in [hard rock / underground / Saskatchewan mining], I'd love to connect and share what we're seeing on roles coming to market.\n\nAre you open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "NexGen Energy has commenced a $1.6B uranium mine construction build in Saskatchewan, constituting a named-operator project start with clear large-scale workforce demand implications in the mining subsector.",
+    "phase": "construction",
+    "phase_evidence": "Article states NexGen 'starts $1.6 billion uranium build,' indicating construction has commenced.",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "2e2dec88-0e12-438d-9448-9e4266837dc3",
+    "ingested_at": "2026-08-18T18:19:25.348Z",
+    "source_published_at": "2026-08-14T11:55:00.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/steadright-critical-minerals-granted-mining-licence-for-morocco-titanium-project/"
+      }
+    ],
+    "headline": "Steadright Critical Minerals Granted Mining Licence for TitanBeach Titanium Project, Morocco",
+    "body": "Exploration at the 192 sq/km TitanBeach project revealed the existence of potential ilmenite, titanomagnetite, magnetite, leucoxene and rutile bearing sand.",
+    "url": "https://www.mining.com/steadright-critical-minerals-granted-mining-licence-for-morocco-titanium-project/",
+    "published_at": "2026-08-13T23:02:01.000Z",
+    "hash": "7c129c27f7b6628f",
+    "subsector": "mining",
+    "discipline_tags": [
+      "survey_geophysical",
+      "industrial_construction"
+    ],
+    "signal_type": "lease_round",
+    "region": "morocco",
+    "country": "morocco",
+    "tldr": "Steadright Critical Minerals has received a mining licence for its 192 sq/km TitanBeach titanium project in Morocco, covering ilmenite, rutile and related minerals. Licence grant opens the door to development planning and early-stage workforce ramp-up.",
+    "operator": {
+      "name": "Steadright Critical Minerals",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Steadright Critical Minerals",
+      "matched_company_slug": null
+    },
+    "project_name": "TitanBeach",
+    "scope": [
+      "mining_licence",
+      "mineral_exploration",
+      "titanium_heavy_minerals"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mining Project Manager",
+        "Geologist",
+        "Mine Development Engineer",
+        "Exploration Geologist",
+        "Heavy Minerals Process Engineer",
+        "HSE Manager",
+        "Environmental Permitting Specialist",
+        "Metallurgist"
+      ],
+      "skills": [
+        "heavy mineral sands",
+        "ilmenite",
+        "rutile",
+        "titanium",
+        "mineral resource estimation",
+        "mine feasibility",
+        "JORC/NI 43-101",
+        "environmental baseline studies"
+      ],
+      "certs_freetext": [
+        "AUSIMM",
+        "SME Registered Member",
+        "Competent Person (JORC)"
+      ],
+      "geo_rtw": "Morocco or Africa-based / willing to relocate; EU/UK RTW an advantage",
+      "project_experience": [
+        "heavy mineral sands",
+        "titanium mining",
+        "ilmenite processing",
+        "rutile extraction",
+        "North Africa mining projects"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"heavy mineral sands\" OR \"titanium\" OR \"ilmenite\" OR \"rutile\" OR \"titanomagnetite\") AND (\"mining\" OR \"exploration\" OR \"mine development\") AND (\"Morocco\" OR \"North Africa\" OR \"Africa\") AND (\"project manager\" OR \"geologist\" OR \"mine engineer\" OR \"metallurgist\" OR \"process engineer\" OR \"HSE manager\") AND (\"JORC\" OR \"NI 43-101\" OR \"resource estimation\" OR \"feasibility study\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Steadright Critical Minerals just secured a mining licence for the TitanBeach titanium project in Morocco (192 sq/km heavy mineral sands). With licensing in place, development roles are likely coming. Are you open to a conversation?",
+      "email_subject": "TitanBeach Titanium Project, Morocco — Mining Licence Granted | Development Roles Ahead",
+      "email_body": "Hi [Name],\n\nSteadright Critical Minerals has been granted a mining licence for the TitanBeach project in Morocco — a 192 sq/km heavy mineral sands deposit with ilmenite, rutile, titanomagnetite and leucoxene potential.\n\nWith the licence now secured, the project is moving toward development planning, which typically triggers demand for geologists, mine development engineers, process metallurgists, and HSE specialists.\n\nGiven your background in [heavy mineral sands / titanium / African mining], I thought this might be worth a conversation. Would you be open to a brief call to explore potential opportunities as this project progresses?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Mining licence granted to named operator (Steadright Critical Minerals) for the named TitanBeach titanium project in Morocco, representing a discrete regulatory/lease event with clear workforce-demand implications.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states exploration has revealed mineral potential and a mining licence has been granted — indicating pre-FID; no EPC award, FID, or construction activity is mentioned.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "3b597f1f-119c-4dd8-9664-a20ec2a6f524",
+    "ingested_at": "2026-08-18T18:19:25.348Z",
+    "source_published_at": "2026-08-13T23:02:01.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/western-midstream-announces-participation-in-the-solitude-pipeline-system-302852469.html"

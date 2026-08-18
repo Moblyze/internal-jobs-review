@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-08-17T12:10:06.268Z"
+    "last_updated_at": "2026-08-18T18:21:30.921Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -10232,6 +10232,115 @@
         "email": null,
         "phone": null,
         "location": "Austin, TX, USA"
+      }
+    ]
+  },
+  "nexgen energy": {
+    "discovered_at": "2026-08-18T18:21:30.921Z",
+    "contacts": [
+      {
+        "name": "Graeme Johnson",
+        "title": "Chief Project Officer",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://www.nexgenenergy.ca/company/board-of-directors/person-details/default.aspx?ItemId=097cd23b-86c0-4ba6-b4fa-22b595a3f3dd",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Vancouver, BC, Canada"
+      },
+      {
+        "name": "Chris Copley",
+        "title": "Project Director",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://www.nexgenenergy.ca/company/default.aspx",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Kevin Small",
+        "title": "Senior Vice President, Engineering and Operations",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.marketscreener.com/quote/stock/NEXGEN-ENERGY-LTD-13057202/company-governance/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Vancouver, BC, Canada"
+      },
+      {
+        "name": "Don Merriman",
+        "title": "Vice President, Engineering",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.nexgenenergy.ca/company/default.aspx",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Monica Kras",
+        "title": "Vice President, Corporate Development",
+        "persona": "other",
+        "linkedin_url": "https://www.linkedin.com/in/monica-kras-26794045",
+        "source_url": "https://www.newsfilecorp.com/release/298160/NexGen-Announces-the-Appointment-of-Ryan-Podrasky-as-Chief-Financial-Officer",
+        "in_target_persona": false,
+        "email": "mkras@nxe-energy.ca",
+        "phone": "+44 7307 191933",
+        "location": "London, UK"
+      }
+    ]
+  },
+  "steadright critical minerals": {
+    "discovered_at": "2026-08-18T18:21:30.921Z",
+    "contacts": [
+      {
+        "name": "Matt Lewis",
+        "title": "CEO & Director",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/matt-lewis-aa914180",
+        "source_url": "https://www.financialcontent.com/article/thenewswire-2026-8-13-mining-license-titanbeach-titanium-project-approval",
+        "in_target_persona": true,
+        "email": "enquires@steadright.ca",
+        "phone": "1-905-410-0587",
+        "location": null
+      },
+      {
+        "name": "Robert Palkovits",
+        "title": "Vice President, Exploration",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/robert-palkovits-7bb28342",
+        "source_url": "https://www.juniorminingnetwork.com/junior-miner-news/press-releases/3207-cse/scm/130798-steadright-appoints-experienced-vice-president-of-exploration.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Sudbury, ON, Canada"
+      },
+      {
+        "name": "John Theobald",
+        "title": "Chair of the Board",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/johntheobald1",
+        "source_url": "https://www.juniorminingnetwork.com/junior-miner-news/press-releases/3207-cse/scm/166996-steadright-critical-minerals-announces-board-chair.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "London, UK"
+      },
+      {
+        "name": "Anne McNally",
+        "title": "Chief Financial Officer",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://www.tipranks.com/news/company-announcements/steadright-critical-minerals-announces-leadership-changes-and-exploration-plans",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
       }
     ]
   }
