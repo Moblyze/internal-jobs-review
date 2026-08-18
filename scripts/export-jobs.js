@@ -105,6 +105,10 @@ function parseRow(row, sheetName, columnMap) {
 
   const job = {
     id: `${sheetName}-${url}`.replace(/[^a-zA-Z0-9-]/g, '-').toLowerCase(),
+    // Which direct tab this row came from. Carried into the export so
+    // analyses can split by source, and used by the dedup pass below: rows
+    // from the same direct tab are never collapsed into each other.
+    sourceTab: sheetName,
     title: title,
     company: getCol('Company') || sheetName,
     location: getCol('Location') || '',
@@ -411,8 +415,20 @@ async function main() {
       }
     });
 
-    // Second pass: deduplicate by company+title+location for jobs with different URLs but same content
-    const jobsByKey = new Map();
+    // Second pass: collapse the same posting listed under different URLs --
+    // the aggregator-repost case this pass was built for (one job appearing
+    // on Adzuna and Jooble under two URLs).
+    //
+    // SCOPED 2026-08-18: two rows from the same DIRECT tab are never
+    // collapsed. Identity on a direct tab is the source URL: CrewBase held
+    // 21,035 distinct posting URLs sharing only 10,798 company+title+location
+    // keys, because a crewing agency posts the same rank for different
+    // vessels, operating areas and boarding dates ("2nd Engineer",
+    // "Worldwide") -- and this pass was silently discarding half that corpus.
+    // When a key group holds direct-tab rows, every direct-tab row survives
+    // and any aggregator row in the group is dropped as a repost of one of
+    // them; an all-aggregator group keeps its most recent row, as before.
+    const jobsByKey = new Map(); // key -> { direct: [], agg: newest aggregator row }
     for (const job of jobsByUrl.values()) {
       const key = [
         (job.company || '').toLowerCase().trim(),
@@ -420,19 +436,29 @@ async function main() {
         (job.location || '').toLowerCase().trim(),
       ].join('|');
 
-      const existing = jobsByKey.get(key);
-      if (!existing) {
-        jobsByKey.set(key, job);
+      const group = jobsByKey.get(key) || { direct: [], agg: null };
+      if (job.sourceTab) {
+        group.direct.push(job);
+      } else if (!group.agg) {
+        group.agg = job;
       } else {
-        const existingDate = new Date(existing.scrapedAt || existing.postedDate || '1970-01-01').getTime();
+        const existingDate = new Date(group.agg.scrapedAt || group.agg.postedDate || '1970-01-01').getTime();
         const newDate = new Date(job.scrapedAt || job.postedDate || '1970-01-01').getTime();
         if (newDate > existingDate) {
-          jobsByKey.set(key, job);
+          group.agg = job;
         }
       }
+      jobsByKey.set(key, group);
     }
 
-    const jobs = Array.from(jobsByKey.values());
+    const jobs = [];
+    for (const group of jobsByKey.values()) {
+      if (group.direct.length > 0) {
+        jobs.push(...group.direct);
+      } else if (group.agg) {
+        jobs.push(group.agg);
+      }
+    }
     const urlDupes = allJobs.length - jobsByUrl.size;
     const keyDupes = jobsByUrl.size - jobs.length;
     console.log(`\nDeduplication: ${allJobs.length} -> ${jobs.length} jobs (removed ${urlDupes} URL duplicates + ${keyDupes} content duplicates)`);

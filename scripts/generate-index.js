@@ -107,15 +107,30 @@ if (fs.existsSync(PDL_CACHE_PATH)) {
   console.log(`  Loaded PDL cache with ${Object.keys(pdlCacheData).length} entries`);
 }
 
-// ── Deduplication: keep only the most recent entry per company+title+location ─
+// ── Deduplication: collapse aggregator reposts per company+title+location ──
+// SCOPED 2026-08-18, mirroring export-jobs.js: rows from a DIRECT tab
+// (job.sourceTab set) are never collapsed -- identity there is the source
+// URL. CrewBase held 21,035 distinct posting URLs sharing 10,798 keys
+// because crewing agencies post the same rank for different vessels and
+// boarding dates; this pass was silently discarding half that corpus.
+// A key group with any direct-tab row keeps every direct-tab row and drops
+// aggregator rows as reposts; an all-aggregator group keeps its newest row.
 function deduplicateJobs(jobs) {
-  const seen = new Map(); // key -> { index, scrapedAt }
+  const seen = new Map(); // key -> { index, ts } for aggregator rows only
+  const directKeys = new Set(); // keys claimed by direct-tab rows
+  const directIndices = [];
 
   jobs.forEach((job, i) => {
     const company = (job.company || '').toLowerCase().trim();
     const title = (job.title || '').toLowerCase().trim();
     const location = (job.location || '').toLowerCase().trim();
     const key = `${company}|${title}|${location}`;
+
+    if (job.sourceTab) {
+      directIndices.push(i);
+      directKeys.add(key);
+      return;
+    }
 
     // Pick the most recent entry: prefer scrapedAt, fall back to postedDate
     const dateStr = job.scrapedAt || job.postedDate || '';
@@ -127,7 +142,10 @@ function deduplicateJobs(jobs) {
     }
   });
 
-  const keepIndices = new Set(Array.from(seen.values()).map(v => v.index));
+  const keepIndices = new Set(directIndices);
+  for (const [key, v] of seen) {
+    if (!directKeys.has(key)) keepIndices.add(v.index);
+  }
   const deduped = jobs.filter((_, i) => keepIndices.has(i));
   const removed = jobs.length - deduped.length;
 

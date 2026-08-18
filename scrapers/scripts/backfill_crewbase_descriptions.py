@@ -326,6 +326,11 @@ def main():
             if skipped_missing:
                 print(f"  {skipped_missing} updated URLs no longer in the tab; skipped")
 
+            # Captured before the write: gspread's batch_update mutates the
+            # passed dicts, prefixing each range with the sheet title.
+            probe_range = updates[0]["range"] if updates else None
+            probe_value = updates[0]["values"][0][0] if updates else None
+
             for i in range(0, len(updates), WRITE_CHUNK):
                 chunk = updates[i : i + WRITE_CHUNK]
                 _retry_429(ws.batch_update, chunk, value_input_option="RAW")
@@ -333,17 +338,16 @@ def main():
                 if i + WRITE_CHUNK < len(updates):
                     time.sleep(INTER_CHUNK_PAUSE)
 
-            if updates:
+            if probe_range:
                 # Independent read-back of the first written cell: proves the
                 # write landed where the re-map said it would.
-                probe = updates[0]
-                got = _retry_429(ws.acell, probe["range"]).value or ""
-                want = probe["values"][0][0]
+                got = _retry_429(ws.acell, probe_range).value or ""
+                want = probe_value
                 if got.strip() != want.strip():
-                    sys.exit(f"VERIFICATION FAILED at {probe['range']}: "
+                    sys.exit(f"VERIFICATION FAILED at {probe_range}: "
                              f"read back {len(got)} chars, expected {len(want)}. "
                              f"Stopping before further waves.")
-                print(f"  Verified read-back of {probe['range']} ({len(want)} chars)")
+                print(f"  Verified read-back of {probe_range} ({len(want)} chars)")
 
         for req_id, (outcome, url) in wave_outcomes.items():
             state[req_id] = outcome
