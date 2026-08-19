@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-08-18T18:21:30.921Z"
+    "last_updated_at": "2026-08-19T12:10:49.583Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -10337,6 +10337,126 @@
         "persona": "hr",
         "linkedin_url": null,
         "source_url": "https://www.tipranks.com/news/company-announcements/steadright-critical-minerals-announces-leadership-changes-and-exploration-plans",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "slb": {
+    "discovered_at": "2026-08-19T12:10:49.583Z",
+    "contacts": [
+      {
+        "name": "Agnieszka Kmieciak",
+        "title": "Chief People Officer",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/agnieszka-kmieciak-4052377",
+        "source_url": "https://www.slb.com/about/who-we-are/our-leadership/agnieszka-kmieciak",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "France"
+      },
+      {
+        "name": "Richard De Moucheron",
+        "title": "Vice President, Global Business Services (former Director, Total Talent Management)",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/richard-de-moucheron-a96541",
+        "source_url": "https://community.dataiku.com/discussion/16595/slb-hr-talent-acquisition-enablement-with-machine-learning",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Paris, France"
+      },
+      {
+        "name": "Sonia Badilla",
+        "title": "Talent Acquisition Manager, Western Hemisphere (now Global Business Development Manager)",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/sonia-badilla-98672616",
+        "source_url": "https://community.dataiku.com/discussion/16595/slb-hr-talent-acquisition-enablement-with-machine-learning",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Perth, Australia"
+      },
+      {
+        "name": "Beth Kremer",
+        "title": "North America Recruiting Manager",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/bethkremer",
+        "source_url": "https://careers.slb.com/newsroom/connecting-virtually-2020",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Modhar Khan",
+        "title": "Head of People Analytics",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://community.dataiku.com/discussion/16595/slb-hr-talent-acquisition-enablement-with-machine-learning",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "brunei shell petroleum co sdn bhd": {
+    "discovered_at": "2026-08-19T12:10:49.583Z",
+    "contacts": [
+      {
+        "name": "Johan Atema",
+        "title": "Managing Director",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://en.wikipedia.org/wiki/Brunei_Shell_Petroleum",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Seria, Brunei"
+      },
+      {
+        "name": "Elohor Juliana Aiboni",
+        "title": "Asset Director",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/elohor-aiboni-08607a62",
+        "source_url": "https://www.bsp.com.bn/main/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Brunei"
+      },
+      {
+        "name": "Karl Lenk",
+        "title": "HR / Talent Advisor (Brunei Shell Petroleum)",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/karl-lenk-9a7b231",
+        "source_url": "https://www.linkedin.com/in/karl-lenk-9a7b231/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Seria, Brunei"
+      },
+      {
+        "name": "Nashrul Ahmad",
+        "title": "HR Applications & System Lead, HR Policy Department",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/nashrulahmad",
+        "source_url": "https://www.linkedin.com/in/nashrulahmad/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Brunei"
+      },
+      {
+        "name": "Ivo Verstralen",
+        "title": "Director",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.theofficialboard.com/news/brunei-shell-petroleum",
         "in_target_persona": true,
         "email": null,
         "phone": null,

@@ -1,5 +1,49 @@
 [
   {
+    "id": "630ccae6-b31c-4526-8f29-58011d7b2317",
+    "ingested_at": "2026-08-19T12:09:24.093Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/shell_taps_slb_for_production_restarts_offshore_brunei-19-aug-2026-184408-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "process_plant_operations",
+      "marine_offshore_ops",
+      "rov_subsea"
+    ],
+    "signal_type": "epc_award",
+    "region": "southeast-asia",
+    "country": "brunei",
+    "headline": "SLB Contracted by Brunei Shell Petroleum to Reactivate Shut-In Wells Across Multiple Offshore Fields",
+    "operator": {
+      "name": "Brunei Shell Petroleum Co Sdn Bhd",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "SLB",
+      "matched_company_slug": null
+    },
+    "project_name": "BSP Offshore Well Reactivation Campaign",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "operating",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": []
+  },
+  {
     "id": "2e2dec88-0e12-438d-9448-9e4266837dc3",
     "ingested_at": "2026-08-18T18:19:25.348Z",
     "sources": [

@@ -2,6 +2,119 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/shell_taps_slb_for_production_restarts_offshore_brunei-19-aug-2026-184408-article/?rss=true"
+      }
+    ],
+    "headline": "SLB Contracted by Brunei Shell Petroleum to Reactivate Shut-In Wells Across Multiple Offshore Fields",
+    "body": "SLB Ltd said Tuesday it had received a contract from Brunei Shell Petroleum Co Sdn Bhd (BSP) to reactivate shut-in wells across multiple offshore fields.\n...",
+    "url": "https://www.rigzone.com/news/shell_taps_slb_for_production_restarts_offshore_brunei-19-aug-2026-184408-article/?rss=true",
+    "published_at": "2026-08-19T10:18:10.000Z",
+    "hash": "be45e05d5b408470",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "process_plant_operations",
+      "marine_offshore_ops",
+      "rov_subsea"
+    ],
+    "signal_type": "epc_award",
+    "region": "southeast-asia",
+    "country": "brunei",
+    "tldr": "SLB has been awarded a contract by Brunei Shell Petroleum to reactivate shut-in wells across multiple offshore fields, signalling near-term demand for well intervention, production operations, and subsea personnel.",
+    "operator": {
+      "name": "Brunei Shell Petroleum Co Sdn Bhd",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "SLB",
+      "matched_company_slug": null
+    },
+    "project_name": "BSP Offshore Well Reactivation Campaign",
+    "scope": [
+      "well_reactivation",
+      "production_restart",
+      "well_intervention",
+      "shut_in_well_workover"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Well Intervention Engineer",
+        "Production Operations Engineer",
+        "Workover Supervisor",
+        "Completions Engineer",
+        "Offshore Installation Manager",
+        "Well Services Supervisor",
+        "Coiled Tubing Operator",
+        "Production Technologist",
+        "Subsea Engineer",
+        "Field Operations Supervisor"
+      ],
+      "skills": [
+        "well reactivation",
+        "shut-in well workover",
+        "well intervention",
+        "coiled tubing",
+        "production restart",
+        "wireline operations",
+        "artificial lift",
+        "offshore operations",
+        "well integrity",
+        "production optimisation"
+      ],
+      "certs_freetext": [
+        "IWCF Well Intervention Pressure Control",
+        "BOSIET",
+        "OPITO Offshore Safety",
+        "HUET"
+      ],
+      "geo_rtw": "Brunei-eligible or Southeast Asia deployable",
+      "project_experience": [
+        "BSP offshore Brunei",
+        "Shell Brunei",
+        "SLB well services",
+        "Southeast Asia offshore workover"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"well intervention\" OR \"well reactivation\" OR \"workover\" OR \"production restart\" OR \"coiled tubing\" OR \"wireline\") AND (\"offshore\" OR \"offshore operations\") AND (\"SLB\" OR \"Schlumberger\" OR \"well services\" OR \"intervention supervisor\" OR \"completions engineer\") AND (\"Brunei\" OR \"Southeast Asia\" OR \"IWCF\" OR \"BOSIET\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], SLB has just been awarded a well reactivation contract with Brunei Shell Petroleum for multiple offshore fields. Your background in well intervention/production ops looks highly relevant — open to a quick chat about the campaign?",
+      "email_subject": "SLB | Well Reactivation Campaign – Brunei Shell Petroleum Offshore Fields",
+      "email_body": "Hi [Name],\n\nSLB has just secured a contract with Brunei Shell Petroleum (BSP) to reactivate shut-in wells across multiple offshore fields in Brunei. This signals near-term demand for experienced well intervention, workover, and production operations professionals deployable to Southeast Asia.\n\nGiven your experience in [relevant discipline], I wanted to reach out to explore whether you'd be open to discussing opportunities on this campaign.\n\nWould you have 15 minutes for a call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named contract award between SLB and Brunei Shell Petroleum for offshore well reactivation across multiple fields, constituting a discrete workforce-demand event in offshore O&G.",
+    "phase": "operating",
+    "phase_evidence": "The contract covers reactivation of shut-in wells on existing producing offshore fields, indicating an operating-asset intervention campaign rather than a new-build or greenfield project.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "630ccae6-b31c-4526-8f29-58011d7b2317",
+    "ingested_at": "2026-08-19T12:09:24.093Z",
+    "source_published_at": "2026-08-19T10:18:10.000Z",
+    "contact_archetypes": [
+      "ops_director",
+      "hiring_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "mining_com",
         "name": "MINING.com",
         "url": "https://www.mining.com/nexgen-starts-1-6b-uranium-build-to-rival-top-mines/"
