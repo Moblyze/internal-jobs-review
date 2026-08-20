@@ -117,6 +117,112 @@
       {
         "id": "mining_com",
         "name": "MINING.com",
+        "url": "https://www.mining.com/steadright-critical-minerals-granted-mining-licence-for-morocco-titanium-project/"
+      }
+    ],
+    "headline": "Steadright Critical Minerals Granted Mining Licence for TitanBeach Titanium Project, Morocco",
+    "body": "Exploration at the 192 sq/km TitanBeach project revealed the existence of potential ilmenite, titanomagnetite, magnetite, leucoxene and rutile bearing sand.",
+    "url": "https://www.mining.com/steadright-critical-minerals-granted-mining-licence-for-morocco-titanium-project/",
+    "published_at": "2026-08-13T23:02:01.000Z",
+    "hash": "7c129c27f7b6628f",
+    "subsector": "mining",
+    "discipline_tags": [
+      "survey_geophysical",
+      "industrial_construction"
+    ],
+    "signal_type": "lease_round",
+    "region": "morocco",
+    "country": "morocco",
+    "tldr": "Steadright Critical Minerals has received a mining licence for its 192 sq/km TitanBeach titanium project in Morocco, covering ilmenite, rutile and related minerals. Licence grant opens the door to development planning and early-stage workforce ramp-up.",
+    "operator": {
+      "name": "Steadright Critical Minerals",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Steadright Critical Minerals",
+      "matched_company_slug": null
+    },
+    "project_name": "TitanBeach",
+    "scope": [
+      "mining_licence",
+      "mineral_exploration",
+      "titanium_heavy_minerals"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mining Project Manager",
+        "Geologist",
+        "Mine Development Engineer",
+        "Exploration Geologist",
+        "Heavy Minerals Process Engineer",
+        "HSE Manager",
+        "Environmental Permitting Specialist",
+        "Metallurgist"
+      ],
+      "skills": [
+        "heavy mineral sands",
+        "ilmenite",
+        "rutile",
+        "titanium",
+        "mineral resource estimation",
+        "mine feasibility",
+        "JORC/NI 43-101",
+        "environmental baseline studies"
+      ],
+      "certs_freetext": [
+        "AUSIMM",
+        "SME Registered Member",
+        "Competent Person (JORC)"
+      ],
+      "geo_rtw": "Morocco or Africa-based / willing to relocate; EU/UK RTW an advantage",
+      "project_experience": [
+        "heavy mineral sands",
+        "titanium mining",
+        "ilmenite processing",
+        "rutile extraction",
+        "North Africa mining projects"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"heavy mineral sands\" OR \"titanium\" OR \"ilmenite\" OR \"rutile\" OR \"titanomagnetite\") AND (\"mining\" OR \"exploration\" OR \"mine development\") AND (\"Morocco\" OR \"North Africa\" OR \"Africa\") AND (\"project manager\" OR \"geologist\" OR \"mine engineer\" OR \"metallurgist\" OR \"process engineer\" OR \"HSE manager\") AND (\"JORC\" OR \"NI 43-101\" OR \"resource estimation\" OR \"feasibility study\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Steadright Critical Minerals just secured a mining licence for the TitanBeach titanium project in Morocco (192 sq/km heavy mineral sands). With licensing in place, development roles are likely coming. Are you open to a conversation?",
+      "email_subject": "TitanBeach Titanium Project, Morocco — Mining Licence Granted | Development Roles Ahead",
+      "email_body": "Hi [Name],\n\nSteadright Critical Minerals has been granted a mining licence for the TitanBeach project in Morocco — a 192 sq/km heavy mineral sands deposit with ilmenite, rutile, titanomagnetite and leucoxene potential.\n\nWith the licence now secured, the project is moving toward development planning, which typically triggers demand for geologists, mine development engineers, process metallurgists, and HSE specialists.\n\nGiven your background in [heavy mineral sands / titanium / African mining], I thought this might be worth a conversation. Would you be open to a brief call to explore potential opportunities as this project progresses?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Mining licence granted to named operator (Steadright Critical Minerals) for the named TitanBeach titanium project in Morocco, representing a discrete regulatory/lease event with clear workforce-demand implications.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states exploration has revealed mineral potential and a mining licence has been granted — indicating pre-FID; no EPC award, FID, or construction activity is mentioned.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "3b597f1f-119c-4dd8-9664-a20ec2a6f524",
+    "ingested_at": "2026-08-18T18:19:25.348Z",
+    "source_published_at": "2026-08-13T23:02:01.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
         "url": "https://www.mining.com/nexgen-starts-1-6b-uranium-build-to-rival-top-mines/"
       }
     ],
@@ -220,112 +326,6 @@
       "site_manager",
       "hiring_manager",
       "project_manager"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/steadright-critical-minerals-granted-mining-licence-for-morocco-titanium-project/"
-      }
-    ],
-    "headline": "Steadright Critical Minerals Granted Mining Licence for TitanBeach Titanium Project, Morocco",
-    "body": "Exploration at the 192 sq/km TitanBeach project revealed the existence of potential ilmenite, titanomagnetite, magnetite, leucoxene and rutile bearing sand.",
-    "url": "https://www.mining.com/steadright-critical-minerals-granted-mining-licence-for-morocco-titanium-project/",
-    "published_at": "2026-08-13T23:02:01.000Z",
-    "hash": "7c129c27f7b6628f",
-    "subsector": "mining",
-    "discipline_tags": [
-      "survey_geophysical",
-      "industrial_construction"
-    ],
-    "signal_type": "lease_round",
-    "region": "morocco",
-    "country": "morocco",
-    "tldr": "Steadright Critical Minerals has received a mining licence for its 192 sq/km TitanBeach titanium project in Morocco, covering ilmenite, rutile and related minerals. Licence grant opens the door to development planning and early-stage workforce ramp-up.",
-    "operator": {
-      "name": "Steadright Critical Minerals",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Steadright Critical Minerals",
-      "matched_company_slug": null
-    },
-    "project_name": "TitanBeach",
-    "scope": [
-      "mining_licence",
-      "mineral_exploration",
-      "titanium_heavy_minerals"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Mining Project Manager",
-        "Geologist",
-        "Mine Development Engineer",
-        "Exploration Geologist",
-        "Heavy Minerals Process Engineer",
-        "HSE Manager",
-        "Environmental Permitting Specialist",
-        "Metallurgist"
-      ],
-      "skills": [
-        "heavy mineral sands",
-        "ilmenite",
-        "rutile",
-        "titanium",
-        "mineral resource estimation",
-        "mine feasibility",
-        "JORC/NI 43-101",
-        "environmental baseline studies"
-      ],
-      "certs_freetext": [
-        "AUSIMM",
-        "SME Registered Member",
-        "Competent Person (JORC)"
-      ],
-      "geo_rtw": "Morocco or Africa-based / willing to relocate; EU/UK RTW an advantage",
-      "project_experience": [
-        "heavy mineral sands",
-        "titanium mining",
-        "ilmenite processing",
-        "rutile extraction",
-        "North Africa mining projects"
-      ],
-      "yoe_band": "8-15",
-      "seniority": "mid-to-senior",
-      "boolean_search": "(\"heavy mineral sands\" OR \"titanium\" OR \"ilmenite\" OR \"rutile\" OR \"titanomagnetite\") AND (\"mining\" OR \"exploration\" OR \"mine development\") AND (\"Morocco\" OR \"North Africa\" OR \"Africa\") AND (\"project manager\" OR \"geologist\" OR \"mine engineer\" OR \"metallurgist\" OR \"process engineer\" OR \"HSE manager\") AND (\"JORC\" OR \"NI 43-101\" OR \"resource estimation\" OR \"feasibility study\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Steadright Critical Minerals just secured a mining licence for the TitanBeach titanium project in Morocco (192 sq/km heavy mineral sands). With licensing in place, development roles are likely coming. Are you open to a conversation?",
-      "email_subject": "TitanBeach Titanium Project, Morocco — Mining Licence Granted | Development Roles Ahead",
-      "email_body": "Hi [Name],\n\nSteadright Critical Minerals has been granted a mining licence for the TitanBeach project in Morocco — a 192 sq/km heavy mineral sands deposit with ilmenite, rutile, titanomagnetite and leucoxene potential.\n\nWith the licence now secured, the project is moving toward development planning, which typically triggers demand for geologists, mine development engineers, process metallurgists, and HSE specialists.\n\nGiven your background in [heavy mineral sands / titanium / African mining], I thought this might be worth a conversation. Would you be open to a brief call to explore potential opportunities as this project progresses?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Mining licence granted to named operator (Steadright Critical Minerals) for the named TitanBeach titanium project in Morocco, representing a discrete regulatory/lease event with clear workforce-demand implications.",
-    "phase": "pre_sanction",
-    "phase_evidence": "Article states exploration has revealed mineral potential and a mining licence has been granted — indicating pre-FID; no EPC award, FID, or construction activity is mentioned.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "3b597f1f-119c-4dd8-9664-a20ec2a6f524",
-    "ingested_at": "2026-08-18T18:19:25.348Z",
-    "source_published_at": "2026-08-13T23:02:01.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "business_unit_director"
     ],
     "prompt_version": "phase-targeting-v1.2"
   },
