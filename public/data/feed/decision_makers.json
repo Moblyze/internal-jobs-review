@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-08-19T12:10:49.583Z"
+    "last_updated_at": "2026-08-20T18:11:46.016Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -10461,6 +10461,104 @@
         "email": null,
         "phone": null,
         "location": null
+      }
+    ]
+  },
+  "chevron": {
+    "discovered_at": "2026-08-20T18:11:46.016Z",
+    "contacts": [
+      {
+        "name": "Rashad Delph",
+        "title": "General Manager HR – Technology, Projects & Execution (former Head of Talent Acquisition)",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/rashad-delph-5367283",
+        "source_url": "https://www.bicmagazine.com/resources/people-going-places/delph-named-gm-of-hr-with-chevron/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Geanine Watty",
+        "title": "Talent Acquisition Process Optimization Lead",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/geaninewatty",
+        "source_url": "https://www.linkedin.com/in/geaninewatty/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Michelle Green",
+        "title": "Vice President & Chief Human Resources Officer",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/michelle-green-0644a428",
+        "source_url": "https://www.chevron.com/who-we-are/leadership/michelle-green",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Marissa Badenhorst",
+        "title": "Director, Pascagoula & Pasadena Refineries",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.businesswire.com/news/home/20260331060493/en/Chevron-Announces-Senior-Leadership-Changes",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Pascagoula, MS, USA"
+      },
+      {
+        "name": "Tony Gotti",
+        "title": "Vice President Operations",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/tony-gotti-1baa43171",
+        "source_url": "https://www.linkedin.com/in/tony-gotti-1baa43171/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      }
+    ]
+  },
+  "monumental energy corp": {
+    "discovered_at": "2026-08-20T18:11:46.016Z",
+    "contacts": [
+      {
+        "name": "Maximilian Sali",
+        "title": "Chief Executive Officer, Director & Founder",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/maximilian-sali-952457133",
+        "source_url": "https://www.businesswire.com/news/home/20260526302945/en/Monumental-Energy-Closes-Private-Placement-Financing",
+        "in_target_persona": true,
+        "email": "max@monumental.energy",
+        "phone": "1-604-367-8117",
+        "location": "Vancouver, BC, Canada"
+      },
+      {
+        "name": "Michelle DeCecco",
+        "title": "Chief Executive Officer & Director",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/michelle-dececco-mba-bb37048",
+        "source_url": "https://www.businesswire.com/news/home/20250417610390/en/Monumental-Energy-Corp.-Provides-Operational-Update-on-Its-Copper-Moki-1-2-Workover-Wells-in-the-Taranaki-Region-New-Zealand",
+        "in_target_persona": true,
+        "email": "michelle@monumental.energy",
+        "phone": null,
+        "location": "Calgary, AB, Canada"
+      },
+      {
+        "name": "Mariana Cervetto",
+        "title": "Vice President, Chile Operations",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/mariana-cervetto-02b62a75",
+        "source_url": "https://www.newswire.ca/news-releases/monumental-energy-provides-operational-update-and-outlook-for-h1-2024-888528927.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Chile"
       }
     ]
   }
