@@ -2,6 +2,117 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/doosan-enerbility-contracted-for-natrium-components"
+      }
+    ],
+    "headline": "Doosan Enerbility Contracted to Supply Key Equipment for TerraPower Natrium Reactor in Kemmerer, WY",
+    "body": "Doosan Enerbility of South Korea has signed a contract for the supply of key equipment for TerraPower's first Natrium sodium-cooled fast reactor power plant, in Kemmerer, Wyoming, USA.",
+    "url": "https://www.world-nuclear-news.org/articles/doosan-enerbility-contracted-for-natrium-components",
+    "published_at": "2026-08-21T10:35:20.000Z",
+    "hash": "97538365d6792b47",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "us-wyoming",
+    "country": "united_states",
+    "tldr": "Doosan Enerbility has been awarded a key equipment supply contract for TerraPower's first Natrium sodium-cooled fast reactor in Kemmerer, Wyoming, signalling active procurement and near-term construction labor demand at the site.",
+    "operator": {
+      "name": "TerraPower",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Doosan Enerbility",
+      "matched_company_slug": null
+    },
+    "project_name": "Natrium Sodium-Cooled Fast Reactor — Kemmerer, Wyoming",
+    "scope": [
+      "nuclear_equipment_supply",
+      "reactor_components"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Construction Manager",
+        "Mechanical Construction Supervisor",
+        "Nuclear QA/QC Inspector",
+        "NDT Inspector",
+        "Nuclear Equipment Installation Engineer",
+        "HSE Manager — Nuclear",
+        "Commissioning Engineer",
+        "Reactor Systems Engineer",
+        "Nuclear Project Controls Manager",
+        "Fabrication Supervisor"
+      ],
+      "skills": [
+        "sodium-cooled fast reactor",
+        "nuclear equipment installation",
+        "ASME nuclear codes",
+        "nuclear quality assurance",
+        "heavy equipment erection",
+        "mechanical completion",
+        "nuclear safety culture",
+        "advanced reactor construction"
+      ],
+      "certs_freetext": [
+        "ASME N-stamp",
+        "10 CFR 50 QA Program familiarity",
+        "OSHA 30 Construction",
+        "NRC-recognized training",
+        "AWS CWI (nuclear)"
+      ],
+      "geo_rtw": "US work authorization required (Wyoming site)",
+      "project_experience": [
+        "Vogtle Units 3 & 4",
+        "NuScale UAMPS",
+        "Hinkley Point C",
+        "Bruce Power refurbishment",
+        "Darlington refurbishment"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"nuclear construction\" OR \"nuclear project manager\" OR \"advanced reactor\" OR \"sodium fast reactor\" OR \"nuclear commissioning\" OR \"nuclear QA\" OR \"ASME nuclear\") AND (\"construction manager\" OR \"project engineer\" OR \"commissioning engineer\" OR \"QA inspector\" OR \"mechanical supervisor\" OR \"NDT inspector\") AND (\"Wyoming\" OR \"US\" OR \"United States\") NOT (\"analyst\" OR \"policy\" OR \"research scientist\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Doosan Enerbility has just been contracted for key equipment on TerraPower's Natrium reactor in Kemmerer, WY — the first advanced sodium-cooled fast reactor in the US. We're sourcing senior nuclear construction & commissioning talent ahead of site ramp-up. Worth a conversation?",
+      "email_subject": "Nuclear Construction Opportunity — TerraPower Natrium Project, Wyoming",
+      "email_body": "Hi [Name],\n\nDoosan Enerbility has signed a key equipment supply contract for TerraPower's first Natrium sodium-cooled fast reactor in Kemmerer, Wyoming — one of the most significant advanced nuclear builds in the US right now.\n\nAs the project moves into active construction, there will be strong demand for experienced nuclear construction, QA/QC, and commissioning professionals with ASME nuclear and advanced reactor backgrounds.\n\nWe're currently mapping talent for senior roles on this programme and would welcome a call to explore whether your background could be a fit.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "EPC/equipment supply contract award naming operator TerraPower and contractor Doosan Enerbility for the Natrium nuclear project in Kemmerer, Wyoming — a discrete workforce-demand signal in the nuclear subsector.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "A key equipment supply contract has been signed, indicating the project has passed FID and is in active procurement/engineering phase ahead of construction.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "b5449b99-a8d7-4571-8b61-36de117fd0a0",
+    "ingested_at": "2026-08-21T18:09:04.819Z",
+    "source_published_at": "2026-08-21T10:35:20.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/equinor_to_enter_namibia_by_joining_chevron_exploration_campaign-20-aug-2026-184421-article/?rss=true"

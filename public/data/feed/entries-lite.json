@@ -1,5 +1,48 @@
 [
   {
+    "id": "b5449b99-a8d7-4571-8b61-36de117fd0a0",
+    "ingested_at": "2026-08-21T18:09:04.819Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/doosan-enerbility-contracted-for-natrium-components"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "us-wyoming",
+    "country": "united_states",
+    "headline": "Doosan Enerbility Contracted to Supply Key Equipment for TerraPower Natrium Reactor in Kemmerer, WY",
+    "operator": {
+      "name": "TerraPower",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Doosan Enerbility",
+      "matched_company_slug": null
+    },
+    "project_name": "Natrium Sodium-Cooled Fast Reactor — Kemmerer, Wyoming",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
     "id": "0d782e1c-388d-4359-bafb-c78ee8e3b90a",
     "ingested_at": "2026-08-20T18:09:32.657Z",
     "sources": [

@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-08-20T18:11:46.016Z"
+    "last_updated_at": "2026-08-21T18:10:34.528Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -10559,6 +10559,126 @@
         "email": null,
         "phone": null,
         "location": "Chile"
+      }
+    ]
+  },
+  "doosan enerbility": {
+    "discovered_at": "2026-08-21T18:10:34.528Z",
+    "contacts": [
+      {
+        "name": "Sunhwa Lee",
+        "title": "Admin & HR Manager",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/sunhwa-lee-51883962",
+        "source_url": "https://ae.linkedin.com/in/sunhwa-lee-51883962",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "United Arab Emirates"
+      },
+      {
+        "name": "Amit Kumar",
+        "title": "Senior Executive Human Resources",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/amit-kumar-3b91bb208",
+        "source_url": "https://www.linkedin.com/in/amit-kumar-3b91bb208/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "India"
+      },
+      {
+        "name": "Hyoksang Kwon",
+        "title": "Manager, Project Controls & Schedule",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://www.zoominfo.com/p/Hyoksang-Kwon/8182470196",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Saudi Arabia"
+      },
+      {
+        "name": "Byungjin Lee",
+        "title": "General Manager",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/byungjin-lee-5b332344",
+        "source_url": "https://theorg.com/org/doosan-enerbility/org-chart/byungjin-lee",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "South Korea"
+      },
+      {
+        "name": "Dong Soo Suh",
+        "title": "Executive Vice President, Power Plant Business Group",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://businessabc.net/wiki/doosan",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "terrapower": {
+    "discovered_at": "2026-08-21T18:10:34.528Z",
+    "contacts": [
+      {
+        "name": "Jessica Harris",
+        "title": "Vice President, Human Resources (Chief Human Resources Officer)",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/jessica-harris-5160421",
+        "source_url": "https://rocketreach.co/terrapower-hr-department_b5a97eedf691cc22",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Kirkland, WA, USA"
+      },
+      {
+        "name": "Tara Neider",
+        "title": "Senior Vice President & Project Director, Natrium Demonstration Reactor",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/taraneider",
+        "source_url": "https://www.terrapower.com/terrapower-secures-major-support-services-at-the-natrium-site",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Woodinville, WA, USA"
+      },
+      {
+        "name": "Monica Tarqueno",
+        "title": "Vice President of Operations",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/monica-hundt-tarqueno-0a14a95",
+        "source_url": "https://www.terrapower.com/about/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Bellevue, WA, USA"
+      },
+      {
+        "name": "Mark Werner",
+        "title": "Vice President, Plant Delivery, Natrium",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/mark-werner-68bb3198",
+        "source_url": "https://www.terrapower.com/about/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Bellevue, WA, USA"
+      },
+      {
+        "name": "Patrick Young",
+        "title": "Senior Vice President and Project Director, Natrium",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://www.zoominfo.com/p/Patrick-Young/3571863688",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Bellevue, WA, USA"
       }
     ]
   }
