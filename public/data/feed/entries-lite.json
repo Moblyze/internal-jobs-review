@@ -5110,47 +5110,5 @@
     "outreach_readiness": "cold",
     "estimated_hiring_window": "12mo+",
     "key_people": []
-  },
-  {
-    "id": "d24d79f7-17c0-45ae-bca4-c37f2b20d361",
-    "ingested_at": "2026-05-22T18:39:57.491Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/us-enrichment-plant-begins-accelerated-review"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "process_plant_operations",
-      "industrial_construction"
-    ],
-    "signal_type": "regulatory",
-    "region": "us-domestic",
-    "country": "united_states",
-    "headline": "NRC Accelerates 12-Month Review of Orano's Project IKE Uranium Enrichment Licence Application",
-    "operator": {
-      "name": "Orano Enrichment USA",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Orano Enrichment USA",
-      "matched_company_slug": null
-    },
-    "project_name": "Project IKE",
-    "mob_window": {
-      "start": "2026-Q1",
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "pre_sanction",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "12mo+",
-    "key_people": []
   }
 ]
