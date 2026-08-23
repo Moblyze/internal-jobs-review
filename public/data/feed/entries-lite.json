@@ -43,6 +43,48 @@
     "key_people": []
   },
   {
+    "id": "eaea4f5d-1e8e-4c09-bcf3-41a936f0f255",
+    "ingested_at": "2026-08-20T18:09:32.657Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/monumental_closes_in_on_new_exploration_block_in_new_zealand-20-aug-2026-184424-article/?rss=true"
+      }
+    ],
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "survey_geophysical"
+    ],
+    "signal_type": "lease_round",
+    "region": "new-zealand",
+    "country": "new_zealand",
+    "headline": "Monumental Energy Corp Bid Accepted for Taranaki Basin Exploration Block, NZ",
+    "operator": {
+      "name": "Monumental Energy Corp",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Monumental Energy Corp",
+      "matched_company_slug": null
+    },
+    "project_name": "Taranaki Basin Exploration Block (New Zealand)",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "0d782e1c-388d-4359-bafb-c78ee8e3b90a",
     "ingested_at": "2026-08-20T18:09:32.657Z",
     "sources": [
@@ -72,48 +114,6 @@
       "matched_company_slug": null
     },
     "project_name": "PEL 90 – Orange Basin, Namibia",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "pre_sanction",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
-    "key_people": []
-  },
-  {
-    "id": "eaea4f5d-1e8e-4c09-bcf3-41a936f0f255",
-    "ingested_at": "2026-08-20T18:09:32.657Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/monumental_closes_in_on_new_exploration_block_in_new_zealand-20-aug-2026-184424-article/?rss=true"
-      }
-    ],
-    "subsector": "onshore-og",
-    "discipline_tags": [
-      "drilling_operations",
-      "survey_geophysical"
-    ],
-    "signal_type": "lease_round",
-    "region": "new-zealand",
-    "country": "new_zealand",
-    "headline": "Monumental Energy Corp Bid Accepted for Taranaki Basin Exploration Block, NZ",
-    "operator": {
-      "name": "Monumental Energy Corp",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Monumental Energy Corp",
-      "matched_company_slug": null
-    },
-    "project_name": "Taranaki Basin Exploration Block (New Zealand)",
     "mob_window": {
       "start": null,
       "end": null,

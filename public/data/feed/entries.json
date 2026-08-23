@@ -115,6 +115,104 @@
       {
         "id": "rigzone",
         "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/monumental_closes_in_on_new_exploration_block_in_new_zealand-20-aug-2026-184424-article/?rss=true"
+      }
+    ],
+    "headline": "Monumental Energy Corp Bid Accepted for Taranaki Basin Exploration Block, NZ",
+    "body": "Monumental Energy Corp said its bid for a new exploration area in New Zealand's Taranaki Basin had been accepted and will now undergo government review.\n\r...",
+    "url": "https://www.rigzone.com/news/monumental_closes_in_on_new_exploration_block_in_new_zealand-20-aug-2026-184424-article/?rss=true",
+    "published_at": "2026-08-20T14:23:52.000Z",
+    "hash": "3c2e83f0c2bd398f",
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "survey_geophysical"
+    ],
+    "signal_type": "lease_round",
+    "region": "new-zealand",
+    "country": "new_zealand",
+    "tldr": "Monumental Energy Corp's bid for a new exploration block in New Zealand's Taranaki Basin has been accepted and is pending government review. Exploration drilling activity and associated labor demand anticipated if license is confirmed.",
+    "operator": {
+      "name": "Monumental Energy Corp",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Monumental Energy Corp",
+      "matched_company_slug": null
+    },
+    "project_name": "Taranaki Basin Exploration Block (New Zealand)",
+    "scope": [
+      "exploration_license",
+      "block_award"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Exploration Geologist",
+        "Petroleum Geophysicist",
+        "Exploration Manager",
+        "Wellsite Geologist",
+        "Drilling Engineer",
+        "Exploration Drilling Supervisor"
+      ],
+      "skills": [
+        "exploration geology",
+        "seismic interpretation",
+        "basin analysis",
+        "Taranaki Basin",
+        "well planning",
+        "petroleum systems"
+      ],
+      "certs_freetext": [
+        "Well Control (IWCF or IADC)",
+        "NZ Right to Work"
+      ],
+      "geo_rtw": "New Zealand RTW required",
+      "project_experience": [
+        "Taranaki Basin",
+        "New Zealand exploration",
+        "onshore New Zealand O&G"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"exploration geologist\" OR \"petroleum geophysicist\" OR \"drilling engineer\" OR \"wellsite geologist\" OR \"exploration manager\") AND (\"Taranaki\" OR \"New Zealand\" OR \"onshore exploration\") AND (\"basin analysis\" OR \"seismic interpretation\" OR \"well planning\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Monumental Energy Corp has had its Taranaki Basin exploration block bid accepted in NZ. With licensing review underway, exploration roles are expected to follow. Are you open to a conversation?",
+      "email_subject": "New Zealand Taranaki Basin Exploration – Upcoming Opportunities with Monumental Energy",
+      "email_body": "Hi [Name],\n\nMonumental Energy Corp has received acceptance of its bid for a new exploration block in New Zealand's Taranaki Basin, with government licensing review now underway.\n\nIf confirmed, this will likely trigger demand for exploration geologists, geophysicists, and drilling engineers with onshore NZ or Taranaki Basin experience.\n\nI'd love to connect ahead of that ramp-up to understand your availability and interest. Would you be open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Exploration block bid accepted in New Zealand's Taranaki Basin, naming operator Monumental Energy Corp — qualifies as an exploration license assignment event with downstream labor demand implications.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Bid accepted but 'will now undergo government review' — license not yet formally granted, no FID or work program commitments stated.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "eaea4f5d-1e8e-4c09-bcf3-41a936f0f255",
+    "ingested_at": "2026-08-20T18:09:32.657Z",
+    "source_published_at": "2026-08-20T14:23:52.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
         "url": "https://www.rigzone.com/news/equinor_to_enter_namibia_by_joining_chevron_exploration_campaign-20-aug-2026-184421-article/?rss=true"
       }
     ],
@@ -213,104 +311,6 @@
     "id": "0d782e1c-388d-4359-bafb-c78ee8e3b90a",
     "ingested_at": "2026-08-20T18:09:32.657Z",
     "source_published_at": "2026-08-20T13:49:46.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/monumental_closes_in_on_new_exploration_block_in_new_zealand-20-aug-2026-184424-article/?rss=true"
-      }
-    ],
-    "headline": "Monumental Energy Corp Bid Accepted for Taranaki Basin Exploration Block, NZ",
-    "body": "Monumental Energy Corp said its bid for a new exploration area in New Zealand's Taranaki Basin had been accepted and will now undergo government review.\n\r...",
-    "url": "https://www.rigzone.com/news/monumental_closes_in_on_new_exploration_block_in_new_zealand-20-aug-2026-184424-article/?rss=true",
-    "published_at": "2026-08-20T14:23:52.000Z",
-    "hash": "3c2e83f0c2bd398f",
-    "subsector": "onshore-og",
-    "discipline_tags": [
-      "drilling_operations",
-      "survey_geophysical"
-    ],
-    "signal_type": "lease_round",
-    "region": "new-zealand",
-    "country": "new_zealand",
-    "tldr": "Monumental Energy Corp's bid for a new exploration block in New Zealand's Taranaki Basin has been accepted and is pending government review. Exploration drilling activity and associated labor demand anticipated if license is confirmed.",
-    "operator": {
-      "name": "Monumental Energy Corp",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Monumental Energy Corp",
-      "matched_company_slug": null
-    },
-    "project_name": "Taranaki Basin Exploration Block (New Zealand)",
-    "scope": [
-      "exploration_license",
-      "block_award"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Exploration Geologist",
-        "Petroleum Geophysicist",
-        "Exploration Manager",
-        "Wellsite Geologist",
-        "Drilling Engineer",
-        "Exploration Drilling Supervisor"
-      ],
-      "skills": [
-        "exploration geology",
-        "seismic interpretation",
-        "basin analysis",
-        "Taranaki Basin",
-        "well planning",
-        "petroleum systems"
-      ],
-      "certs_freetext": [
-        "Well Control (IWCF or IADC)",
-        "NZ Right to Work"
-      ],
-      "geo_rtw": "New Zealand RTW required",
-      "project_experience": [
-        "Taranaki Basin",
-        "New Zealand exploration",
-        "onshore New Zealand O&G"
-      ],
-      "yoe_band": "8-15",
-      "seniority": "Senior / Lead",
-      "boolean_search": "(\"exploration geologist\" OR \"petroleum geophysicist\" OR \"drilling engineer\" OR \"wellsite geologist\" OR \"exploration manager\") AND (\"Taranaki\" OR \"New Zealand\" OR \"onshore exploration\") AND (\"basin analysis\" OR \"seismic interpretation\" OR \"well planning\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Monumental Energy Corp has had its Taranaki Basin exploration block bid accepted in NZ. With licensing review underway, exploration roles are expected to follow. Are you open to a conversation?",
-      "email_subject": "New Zealand Taranaki Basin Exploration – Upcoming Opportunities with Monumental Energy",
-      "email_body": "Hi [Name],\n\nMonumental Energy Corp has received acceptance of its bid for a new exploration block in New Zealand's Taranaki Basin, with government licensing review now underway.\n\nIf confirmed, this will likely trigger demand for exploration geologists, geophysicists, and drilling engineers with onshore NZ or Taranaki Basin experience.\n\nI'd love to connect ahead of that ramp-up to understand your availability and interest. Would you be open to a brief call this week?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Exploration block bid accepted in New Zealand's Taranaki Basin, naming operator Monumental Energy Corp — qualifies as an exploration license assignment event with downstream labor demand implications.",
-    "phase": "pre_sanction",
-    "phase_evidence": "Bid accepted but 'will now undergo government review' — license not yet formally granted, no FID or work program commitments stated.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "eaea4f5d-1e8e-4c09-bcf3-41a936f0f255",
-    "ingested_at": "2026-08-20T18:09:32.657Z",
-    "source_published_at": "2026-08-20T14:23:52.000Z",
     "contact_archetypes": [
       "project_manager",
       "business_unit_director"
