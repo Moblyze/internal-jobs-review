@@ -1,5 +1,49 @@
 [
   {
+    "id": "a51e0bc7-f459-4236-9fc3-75a0b080a522",
+    "ingested_at": "2026-08-24T18:09:45.674Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/santos_gladstone_lng_partners_to_acquire_source_fields-24-aug-2026-184446-article/?rss=true"
+      }
+    ],
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "process_plant_operations",
+      "pipeline_mechanical",
+      "industrial_construction"
+    ],
+    "signal_type": "lease_round",
+    "region": "australia-queensland",
+    "country": "australia",
+    "headline": "Santos & GLNG Partners Acquire Greater Meridian CSG Project to Feed Queensland LNG Plant",
+    "operator": {
+      "name": "Santos",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Santos",
+      "matched_company_slug": null
+    },
+    "project_name": "Greater Meridian / Gladstone LNG (GLNG)",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "3e0585c4-aea0-4003-8faf-670274e53c2c",
     "ingested_at": "2026-08-24T12:10:12.539Z",
     "sources": [

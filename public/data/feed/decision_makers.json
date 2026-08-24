@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-08-24T12:11:34.431Z"
+    "last_updated_at": "2026-08-24T18:11:24.530Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -10739,6 +10739,44 @@
         "email": null,
         "phone": null,
         "location": "Houston, TX, USA"
+      }
+    ]
+  },
+  "santos": {
+    "discovered_at": "2026-08-24T18:11:24.530Z",
+    "contacts": [
+      {
+        "name": "Kim Lee",
+        "title": "Executive Vice President, People and Culture",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/kim-lee-b339123b",
+        "source_url": "https://www.santos.com/about-us/our-leadership/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "South Australia, Australia"
+      },
+      {
+        "name": "Steve Trench",
+        "title": "Executive Vice President, Operations and Technical Services",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/steve-trench-9598928a",
+        "source_url": "https://www.santos.com/about-us/our-leadership/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Australia"
+      },
+      {
+        "name": "Brett Darley",
+        "title": "Chief Operating Officer, Australia & PNG Upstream Oil and Gas",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/brett-darley-6a97b512",
+        "source_url": "https://www.santos.com/about-us/our-leadership/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Australia"
       }
     ]
   }

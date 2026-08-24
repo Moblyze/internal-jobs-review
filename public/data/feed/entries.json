@@ -2,6 +2,114 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/santos_gladstone_lng_partners_to_acquire_source_fields-24-aug-2026-184446-article/?rss=true"
+      }
+    ],
+    "headline": "Santos & GLNG Partners Acquire Greater Meridian CSG Project to Feed Queensland LNG Plant",
+    "body": "Santos Ltd and its partners in the Gladstone LNG (GLNG) project in Queensland have signed agreements to buy the Greater Meridian coal seam gas (CSG) project ...",
+    "url": "https://www.rigzone.com/news/santos_gladstone_lng_partners_to_acquire_source_fields-24-aug-2026-184446-article/?rss=true",
+    "published_at": "2026-08-24T15:06:11.000Z",
+    "hash": "a9fb431ebc0e46ef",
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "process_plant_operations",
+      "pipeline_mechanical",
+      "industrial_construction"
+    ],
+    "signal_type": "lease_round",
+    "region": "australia-queensland",
+    "country": "australia",
+    "tldr": "Santos and its Gladstone LNG partners have signed agreements to acquire the Greater Meridian coal seam gas project in Queensland, signalling upstream drilling and tie-in activity to feed the GLNG plant. Hiring demand for CSG drilling, pipeline, and plant operations roles likely to follow development ramp-up.",
+    "operator": {
+      "name": "Santos",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Santos",
+      "matched_company_slug": null
+    },
+    "project_name": "Greater Meridian / Gladstone LNG (GLNG)",
+    "scope": [
+      "csg_field_acquisition",
+      "upstream_development",
+      "lng_feed_gas"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "CSG Drilling Engineer",
+        "Upstream Project Manager",
+        "Field Development Engineer",
+        "Pipeline Engineer",
+        "Production Technician",
+        "Well Completion Engineer",
+        "Reservoir Engineer",
+        "HSE Advisor"
+      ],
+      "skills": [
+        "coal seam gas",
+        "CSG drilling",
+        "field development planning",
+        "upstream gas production",
+        "pipeline tie-in",
+        "Queensland LNG",
+        "well completion"
+      ],
+      "certs_freetext": [
+        "Australian Well Control (IWCF or equivalent)",
+        "Queensland petroleum licence",
+        "Confined Space Entry",
+        "H2S Alive"
+      ],
+      "geo_rtw": "Australia (Queensland work rights required)",
+      "project_experience": [
+        "GLNG Project",
+        "Surat Basin CSG",
+        "Arrow Energy CSG",
+        "QGC / Shell QCLNG",
+        "Australia Pacific LNG (APLNG)"
+      ],
+      "yoe_band": "7-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"coal seam gas\" OR \"CSG\" OR \"unconventional gas\") AND (\"drilling engineer\" OR \"reservoir engineer\" OR \"field development\" OR \"production technician\" OR \"pipeline engineer\" OR \"well completion\") AND (\"Queensland\" OR \"Surat Basin\" OR \"GLNG\" OR \"LNG\") AND (Australia)"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Santos and its GLNG partners just acquired the Greater Meridian CSG project in Queensland — upstream development activity is expected to ramp. Your CSG/LNG background looks highly relevant. Worth a quick chat?",
+      "email_subject": "Greater Meridian CSG Acquisition — Upstream Roles Likely to Follow for GLNG Feed Gas",
+      "email_body": "Hi [Name],\n\nSantos and its Gladstone LNG partners have signed agreements to acquire the Greater Meridian coal seam gas project in Queensland, expanding the upstream feed-gas base for the GLNG plant.\n\nThis type of acquisition typically triggers a wave of upstream hiring — CSG drilling, reservoir engineering, pipeline tie-in, and production operations — as the new acreage is appraised and brought into development.\n\nGiven your experience in [CSG / Queensland upstream / LNG operations], I'd love to connect and share what we're seeing in the market ahead of this ramp.\n\nAre you open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Santos) and project (Greater Meridian / GLNG) with a field acquisition event in onshore O&G (CSG), signalling upstream development and associated workforce demand.",
+    "phase": "pre_sanction",
+    "phase_evidence": "The article states agreements have been 'signed to buy' the project — acquisition stage, upstream development not yet sanctioned or in EPC.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "a51e0bc7-f459-4236-9fc3-75a0b080a522",
+    "ingested_at": "2026-08-24T18:09:45.674Z",
+    "source_published_at": "2026-08-24T15:06:11.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/adnoc-awards-mcdermott-mega-offshore-epci-contract-to-advance-umm-shaif-field-development-302857537.html"
