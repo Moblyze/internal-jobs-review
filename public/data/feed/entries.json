@@ -2,6 +2,138 @@
   {
     "sources": [
       {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/adnoc-awards-mcdermott-mega-offshore-epci-contract-to-advance-umm-shaif-field-development-302857537.html"
+      }
+    ],
+    "headline": "McDermott Awarded Mega EPCI Contract by ADNOC for Umm Shaif Integrated Gas Cap & SPB Project",
+    "body": "HOUSTON, Aug. 24, 2026 /PRNewswire/ -- McDermott has been awarded a mega* engineering, procurement, construction and installation (EPCI) contract by ADNOC for Package 4 of the Umm Shaif Integrated Gas Cap and Surface Pressure Boosting (SPB) Project. The project is a critical component of...",
+    "url": "https://www.prnewswire.com/news-releases/adnoc-awards-mcdermott-mega-offshore-epci-contract-to-advance-umm-shaif-field-development-302857537.html",
+    "published_at": "2026-08-24T11:00:00.000Z",
+    "hash": "b1d0db6f805a34f5",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "rov_subsea",
+      "marine_offshore_ops",
+      "process_plant_operations",
+      "ndt_inspection",
+      "rope_access"
+    ],
+    "signal_type": "epc_award",
+    "region": "uae-offshore",
+    "country": "united_arab_emirates",
+    "tldr": "ADNOC has awarded McDermott a mega EPCI contract for Package 4 of the Umm Shaif Integrated Gas Cap and Surface Pressure Boosting Project offshore UAE. This contract award signals an imminent ramp-up of offshore construction and engineering personnel within 3-6 months.",
+    "operator": {
+      "name": "ADNOC",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "McDermott",
+      "matched_company_slug": null
+    },
+    "project_name": "Umm Shaif Integrated Gas Cap and Surface Pressure Boosting (SPB) Project – Package 4",
+    "scope": [
+      "epci",
+      "offshore_engineering",
+      "procurement",
+      "construction",
+      "installation",
+      "gas_cap_development",
+      "surface_pressure_boosting"
+    ],
+    "mob_window": {
+      "start": "2026-Q4",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "EPCI Project Manager",
+        "Offshore Construction Manager",
+        "Lead Structural Engineer",
+        "Procurement Manager",
+        "Installation Engineer",
+        "Commissioning Engineer",
+        "HSE Manager",
+        "Planning Engineer",
+        "Subsea Engineer",
+        "Marine Superintendent",
+        "Welding Inspector",
+        "Offshore Lifting Supervisor",
+        "Fabrication Supervisor",
+        "NDT Technician",
+        "Hook-Up Superintendent"
+      ],
+      "skills": [
+        "EPCI offshore",
+        "offshore construction",
+        "topsides installation",
+        "hook-up and commissioning",
+        "structural engineering",
+        "offshore project management",
+        "pressure boosting systems",
+        "gas processing",
+        "marine spread management",
+        "lifting and rigging offshore"
+      ],
+      "certs_freetext": [
+        "BOSIET/HUET",
+        "OPITO Offshore Safety",
+        "CSWIP 3.1/3.2",
+        "API 570/510",
+        "PMI PMP",
+        "ISO 9712 NDT Level II/III",
+        "Confined Space Entry",
+        "Rigging & Slinging"
+      ],
+      "geo_rtw": "UAE / GCC – right to work or mobilisable expat",
+      "project_experience": [
+        "Umm Shaif",
+        "Upper Zakum",
+        "Nasr Full Field Development",
+        "Das Island",
+        "Sarb Field Development",
+        "Rumaitha",
+        "McDermott Middle East offshore campaigns"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"EPCI\" OR \"EPC offshore\" OR \"offshore construction\") AND (\"McDermott\" OR \"ADNOC\" OR \"offshore UAE\" OR \"Middle East offshore\") AND (\"project manager\" OR \"construction manager\" OR \"installation engineer\" OR \"commissioning engineer\" OR \"hook-up\" OR \"marine superintendent\" OR \"offshore superintendent\") AND (\"topsides\" OR \"offshore platform\" OR \"jacket installation\" OR \"subsea\" OR \"pressure boosting\" OR \"gas processing\") NOT (\"renewables only\" OR \"onshore pipeline only\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], McDermott just landed a mega EPCI award from ADNOC on the Umm Shaif SPB Project offshore UAE — a major offshore construction ramp-up is imminent. Your background in [offshore EPCI/construction/commissioning] looks like a strong fit. Worth a quick chat?",
+      "email_subject": "McDermott – Umm Shaif EPCI Award | Offshore UAE Roles Opening Now",
+      "email_body": "Hi [Name],\n\nMcDermott has just been awarded a mega EPCI contract by ADNOC for Package 4 of the Umm Shaif Integrated Gas Cap and Surface Pressure Boosting Project offshore UAE.\n\nThis signals a significant ramp-up of offshore construction, engineering, and commissioning personnel in the near term. Based on your experience in [offshore EPCI / construction management / commissioning], I believe you could be a strong candidate for roles opening on this campaign.\n\nI'd love to connect and share more detail on the scope and timeline. Are you available for a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Mega EPCI contract award naming ADNOC as operator and McDermott as contractor for the Umm Shaif offshore field development Package 4, directly signalling an offshore construction workforce ramp-up.",
+    "phase": "construction",
+    "phase_evidence": "The article states McDermott has been awarded an EPCI (engineering, procurement, construction and installation) contract, indicating active construction execution is about to commence.",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "3e0585c4-aea0-4003-8faf-670274e53c2c",
+    "ingested_at": "2026-08-24T12:10:12.539Z",
+    "source_published_at": "2026-08-24T11:00:00.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org/articles/doosan-enerbility-contracted-for-natrium-components"

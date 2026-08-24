@@ -1,5 +1,52 @@
 [
   {
+    "id": "3e0585c4-aea0-4003-8faf-670274e53c2c",
+    "ingested_at": "2026-08-24T12:10:12.539Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/adnoc-awards-mcdermott-mega-offshore-epci-contract-to-advance-umm-shaif-field-development-302857537.html"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "rov_subsea",
+      "marine_offshore_ops",
+      "process_plant_operations",
+      "ndt_inspection",
+      "rope_access"
+    ],
+    "signal_type": "epc_award",
+    "region": "uae-offshore",
+    "country": "united_arab_emirates",
+    "headline": "McDermott Awarded Mega EPCI Contract by ADNOC for Umm Shaif Integrated Gas Cap & SPB Project",
+    "operator": {
+      "name": "ADNOC",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "McDermott",
+      "matched_company_slug": null
+    },
+    "project_name": "Umm Shaif Integrated Gas Cap and Surface Pressure Boosting (SPB) Project – Package 4",
+    "mob_window": {
+      "start": "2026-Q4",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": []
+  },
+  {
     "id": "b5449b99-a8d7-4571-8b61-36de117fd0a0",
     "ingested_at": "2026-08-21T18:09:04.819Z",
     "sources": [

@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-08-21T18:10:34.528Z"
+    "last_updated_at": "2026-08-24T12:11:34.431Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -10679,6 +10679,66 @@
         "email": null,
         "phone": null,
         "location": "Bellevue, WA, USA"
+      }
+    ]
+  },
+  "mcdermott": {
+    "discovered_at": "2026-08-24T12:11:34.431Z",
+    "contacts": [
+      {
+        "name": "Linda Borne",
+        "title": "Senior Vice President, Chief Human Resources Officer",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/linda-borne-05896312",
+        "source_url": "https://www.mcdermott.com/company/our-team/linda-borne",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Bethany Mire",
+        "title": "Senior Manager, Talent Acquisition – Corporate, NCSA, Project Staffing & Lutech Resources NCSA",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/bethanymire",
+        "source_url": "https://www.linkedin.com/in/bethanymire/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Tosha Perkins",
+        "title": "Vice President, Talent & Organizational Development",
+        "persona": "ta",
+        "linkedin_url": null,
+        "source_url": "https://www.comparably.com/companies/346127/executive-team",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Richard Heo",
+        "title": "Senior Vice President, North Central & South America Operations",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.comparably.com/companies/346127/executive-team",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Vaseem Khan",
+        "title": "Senior Vice President, Chief Commercial Officer",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.mcdermott.com/company/our-team",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
       }
     ]
   }
