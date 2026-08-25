@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-08-24T18:11:24.530Z"
+    "last_updated_at": "2026-08-25T18:11:27.071Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -10777,6 +10777,66 @@
         "email": null,
         "phone": null,
         "location": "Australia"
+      }
+    ]
+  },
+  "navitas petroleum lp": {
+    "discovered_at": "2026-08-25T18:11:27.071Z",
+    "contacts": [
+      {
+        "name": "Erica Zhuravel",
+        "title": "Manager, Human Resources & Operations",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/erica-zhuravel",
+        "source_url": "https://www.navitaspet.com/about-us/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Milton Chaves",
+        "title": "Vice President, Offshore Operations & Projects",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/milton-chaves-78b05a15",
+        "source_url": "https://www.navitaspet.com/about-us/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Ian Ramsay",
+        "title": "Chief Executive Officer, Navitas Petroleum Development & Production Ltd",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/iaramsay",
+        "source_url": "https://uk.linkedin.com/in/iaramsay",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "London, UK"
+      },
+      {
+        "name": "Mike Beattie",
+        "title": "President, Offshore Developments",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/mike-beattie-htx",
+        "source_url": "https://www.navitaspet.com/about-us/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Spring, TX, USA"
+      },
+      {
+        "name": "Reut Shumi",
+        "title": "Office Administrator & HR Manager",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://www.navitaspet.com/about-us/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Herzliya, Israel"
       }
     ]
   }

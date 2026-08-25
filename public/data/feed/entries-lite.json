@@ -1,5 +1,49 @@
 [
   {
+    "id": "afb4b5e5-aadd-4b25-a1b7-5b9193eb5423",
+    "ingested_at": "2026-08-25T18:09:57.193Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/navitas_petroleum_to_acquire_2nd_production_vessel_for_sea_lion_project-25-aug-2026-184455-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "marine_offshore_ops",
+      "process_plant_operations",
+      "industrial_construction",
+      "rov_subsea"
+    ],
+    "signal_type": "vessel_mob",
+    "region": "falkland-islands",
+    "country": "falkland_islands",
+    "headline": "Navitas Petroleum Acquires 2nd FPSO Vessel for Sea Lion Project",
+    "operator": {
+      "name": "Navitas Petroleum LP",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Navitas Petroleum LP",
+      "matched_company_slug": null
+    },
+    "project_name": "Sea Lion",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
     "id": "a51e0bc7-f459-4236-9fc3-75a0b080a522",
     "ingested_at": "2026-08-24T18:09:45.674Z",
     "sources": [
@@ -5071,94 +5115,6 @@
     "decom_stage": null,
     "outreach_readiness": "live_now",
     "estimated_hiring_window": "now",
-    "key_people": []
-  },
-  {
-    "id": "32a7efe1-aabb-4f04-95d2-7050a0ba496a",
-    "ingested_at": "2026-05-27T13:15:18.142Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/eni_baleine_partners_approve_phase_3_of_ivorian_project-27-may-2026-183786-article/?rss=true"
-      }
-    ],
-    "subsector": "offshore-og",
-    "discipline_tags": [
-      "energy_trades",
-      "industrial_construction",
-      "marine_offshore_ops",
-      "rov_subsea",
-      "process_plant_operations",
-      "pipeline_mechanical"
-    ],
-    "signal_type": "fid",
-    "region": "west-africa",
-    "country": "cote_divoire",
-    "headline": "Eni & Partners Take FID on Baleine Phase 3 Offshore Côte d'Ivoire",
-    "operator": {
-      "name": "Eni SpA",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Baleine Phase 3",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "sanctioned_engineering",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "3-6mo",
-    "key_people": []
-  },
-  {
-    "id": "0d61c727-c068-403f-9d2c-1209cbecd919",
-    "ingested_at": "2026-05-27T13:15:18.142Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/assystem-atkinsrealis-contracted-to-support-edf-in-the-uk"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations"
-    ],
-    "signal_type": "epc_award",
-    "region": "uk",
-    "country": "united_kingdom",
-    "headline": "Assystem & AtkinsRéalis Appointed to EDF/Sizewell C 5-Year Professional Services Framework",
-    "operator": {
-      "name": "EDF / Sizewell C Limited",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Assystem / AtkinsRéalis",
-      "matched_company_slug": null
-    },
-    "project_name": "Sizewell C",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": 60
-    },
-    "contract_value_usd": null,
-    "phase": "pre_sanction",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
     "key_people": []
   }
 ]
