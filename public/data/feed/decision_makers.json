@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-08-26T00:15:56.408Z"
+    "last_updated_at": "2026-08-26T18:39:53.125Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -10897,6 +10897,126 @@
         "email": null,
         "phone": null,
         "location": null
+      }
+    ]
+  },
+  "edf / westinghouse": {
+    "discovered_at": "2026-08-26T18:39:53.125Z",
+    "contacts": [
+      {
+        "name": "Tina Chen",
+        "title": "Vice President, Human Resources (CHRO) – EDF power solutions North America",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/tinachensd",
+        "source_url": "https://www.edf-re.com/about-us/meet-our-team/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "San Diego, CA, USA"
+      },
+      {
+        "name": "Greg Gonzalez",
+        "title": "Director, Talent Acquisition – EDF Renewables North America",
+        "persona": "ta",
+        "linkedin_url": null,
+        "source_url": "https://theorg.com/org/edf-renewables/org-chart/greg-gonzalez",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "San Diego, CA, USA"
+      },
+      {
+        "name": "Angelina Edwards",
+        "title": "Offshore Talent Acquisition & HR Business Partner Lead – EDF Renewables North America",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/angelina-edwards-320aaaa8",
+        "source_url": "https://www.edf-re.com/careers/our-people/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Robert Bruns",
+        "title": "Talent Acquisition – Nuclear Services, Westinghouse Electric Company",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/robert-bruns-3a77441",
+        "source_url": "https://www.zoominfo.com/p/Robert-Bruns/88965993",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Cranberry Township, PA, USA"
+      },
+      {
+        "name": "Annie Livingston",
+        "title": "HR Leader – Westinghouse Electric Company",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/annie-livingston-884427",
+        "source_url": "https://www.linkedin.com/in/annie-livingston-884427/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "nuclear energy organisation of the netherlands (neon)": {
+    "discovered_at": "2026-08-26T18:39:53.125Z",
+    "contacts": [
+      {
+        "name": "Jan Willem van Hoogstraten",
+        "title": "Chief Executive Officer (CEO)",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/jahoo",
+        "source_url": "https://www.neonl.com/en/nieuws/start-nieuwe-ceo-en-cfo/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "The Hague, Netherlands"
+      },
+      {
+        "name": "Marieke Bolhaar",
+        "title": "Chief Financial Officer (CFO)",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/mariekebolhaar",
+        "source_url": "https://www.neonl.com/en/nieuws/start-nieuwe-ceo-en-cfo/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "The Hague, Netherlands"
+      },
+      {
+        "name": "Jessica van Son",
+        "title": "Recruiter (Interim)",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/jessicavanson",
+        "source_url": "https://www.linkedin.com/in/jessicavanson/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Nathalie van Daalen",
+        "title": "Executive Assistant",
+        "persona": "other",
+        "linkedin_url": "https://www.linkedin.com/in/nhf-van-daalen",
+        "source_url": "https://www.linkedin.com/in/nhf-van-daalen/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Miranda van Helvert",
+        "title": "Employee (NEO NL)",
+        "persona": "other",
+        "linkedin_url": "https://www.linkedin.com/in/mirandavanhelvert",
+        "source_url": "https://www.linkedin.com/in/mirandavanhelvert/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Gouda, Netherlands"
       }
     ]
   }

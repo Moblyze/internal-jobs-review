@@ -1,5 +1,90 @@
 [
   {
+    "id": "100216b8-dad4-4e04-ac18-34c4d3dc6de3",
+    "ingested_at": "2026-08-26T18:38:10.166Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/second-epr-site-authorised-for-site-preparations"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "regulatory",
+    "region": "france",
+    "country": "france",
+    "headline": "EDF Receives French Gov't Authorisation to Begin Site Prep for Second EPR2 Reactor Pair",
+    "operator": {
+      "name": "EDF",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "EPR2 Second Site",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
+    "id": "36e5b8e3-3eee-440b-a19a-7c0426a8c14c",
+    "ingested_at": "2026-08-26T18:38:10.166Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/reactor-technology-selection-process-progresses-in-netherlands"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "netherlands",
+    "country": "netherlands",
+    "headline": "EDF & Westinghouse Win Design Study Contracts for Two New Dutch Nuclear Plants (NEON)",
+    "operator": {
+      "name": "Nuclear Energy Organisation of the Netherlands (NEON)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "EDF / Westinghouse",
+      "matched_company_slug": null
+    },
+    "project_name": "Netherlands New Nuclear Power Plants (NEON)",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "633db7ca-1773-4014-aa67-e15a987f4fb8",
     "ingested_at": "2026-08-26T00:14:41.556Z",
     "sources": [
@@ -5071,48 +5156,6 @@
     "decom_stage": null,
     "outreach_readiness": "warming",
     "estimated_hiring_window": "6-12mo",
-    "key_people": []
-  },
-  {
-    "id": "27ba68be-ed8a-4621-bdfd-cbbe2fe8a305",
-    "ingested_at": "2026-05-28T13:19:32.543Z",
-    "sources": [
-      {
-        "id": "pr_newswire_energy",
-        "name": "PR Newswire (Energy)",
-        "url": "https://www.prnewswire.com/news-releases/matrix-renewables-and-solv-energy-break-ground-on-457mwdc-tormes-solar-project-in-navarro-county-texas-302784392.html"
-      }
-    ],
-    "subsector": "onshore-renewables",
-    "discipline_tags": [
-      "energy_trades",
-      "industrial_construction"
-    ],
-    "signal_type": "epc_award",
-    "region": "us-texas",
-    "country": "united_states",
-    "headline": "SOLV Energy Breaks Ground on 457MWdc Tormes Solar Project in Navarro County, Texas for Matrix Renewables",
-    "operator": {
-      "name": "Matrix Renewables",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "SOLV Energy",
-      "matched_company_slug": null
-    },
-    "project_name": "Tormes Solar Project",
-    "mob_window": {
-      "start": "2026-Q2",
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "construction",
-    "construction_subphase": "rampup",
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "live_now",
-    "estimated_hiring_window": "now",
     "key_people": []
   }
 ]

@@ -2,6 +2,217 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/second-epr-site-authorised-for-site-preparations"
+      }
+    ],
+    "headline": "EDF Receives French Gov't Authorisation to Begin Site Prep for Second EPR2 Reactor Pair",
+    "body": "The French government has given EDF the go-ahead to start site preparation work for the second pair of new EPR2 reactors proposed for construction.",
+    "url": "https://www.world-nuclear-news.org/articles/second-epr-site-authorised-for-site-preparations",
+    "published_at": "2026-08-26T09:32:12.000Z",
+    "hash": "77491c6f78ff3ee9",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "regulatory",
+    "region": "france",
+    "country": "france",
+    "tldr": "The French government has authorised EDF to begin site preparation work for a second pair of EPR2 reactors, signalling early-stage construction mobilisation and upcoming demand for civil/industrial construction labour.",
+    "operator": {
+      "name": "EDF",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "EPR2 Second Site",
+    "scope": [
+      "site_preparation",
+      "civil_works"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Site Preparation Manager",
+        "Civil Construction Manager",
+        "HSE Manager",
+        "Nuclear Construction Planner",
+        "Earthworks Supervisor",
+        "Site Engineer",
+        "Construction Director"
+      ],
+      "skills": [
+        "nuclear new build",
+        "site preparation",
+        "civil works",
+        "EPR",
+        "earthworks",
+        "construction planning",
+        "nuclear regulatory compliance"
+      ],
+      "certs_freetext": [
+        "CSCS",
+        "NEBOSH",
+        "Nuclear Safety Passport"
+      ],
+      "geo_rtw": "France / EU right-to-work",
+      "project_experience": [
+        "Hinkley Point C",
+        "Flamanville EPR",
+        "Olkiluoto 3",
+        "Sizewell C",
+        "EPR2 Penly"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal",
+      "boolean_search": "(\"EPR\" OR \"EPR2\" OR \"nuclear new build\" OR \"PWR\") AND (\"site preparation\" OR \"civil works\" OR \"earthworks\" OR \"nuclear construction\") AND (\"construction manager\" OR \"site manager\" OR \"HSE manager\" OR \"construction planner\" OR \"site engineer\") AND (\"EDF\" OR \"Hinkley\" OR \"Flamanville\" OR \"Sizewell\" OR \"Penly\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], EDF has just received authorisation to begin site prep for France's second EPR2 reactor pair — early civil/construction roles are coming. Your nuclear new-build background looks highly relevant. Open to a quick chat?",
+      "email_subject": "EDF EPR2 Second Site — Nuclear Construction Roles Emerging",
+      "email_body": "Hi [Name],\n\nThe French government has just authorised EDF to begin site preparation work for a second pair of EPR2 reactors. This marks the start of early-stage construction mobilisation, and we expect demand for experienced nuclear construction professionals to ramp over the coming months.\n\nGiven your background in [nuclear new build / civil works / EPR projects], I wanted to reach out ahead of the curve. We're already mapping talent for likely roles including Site Preparation Managers, Civil Construction Managers, HSE leads, and Planning Engineers.\n\nWould you be open to a brief call to discuss how this aligns with your plans?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "French government permit grant authorising EDF to begin site preparation for a named nuclear new-build project (EPR2 second site), constituting a regulatory approval with direct workforce-demand implications.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states 'go-ahead to start site preparation work' — site prep authorisation precedes full FID/construction sanction for the EPR2 pair.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "100216b8-dad4-4e04-ac18-34c4d3dc6de3",
+    "ingested_at": "2026-08-26T18:38:10.166Z",
+    "source_published_at": "2026-08-26T09:32:12.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/reactor-technology-selection-process-progresses-in-netherlands"
+      }
+    ],
+    "headline": "EDF & Westinghouse Win Design Study Contracts for Two New Dutch Nuclear Plants (NEON)",
+    "body": "EDF and Westinghouse have been awarded contracts by the Nuclear Energy Organisation of the Netherlands - the state-owned company established for the construction and operation of two new large nuclear power plants - to carry out design studies for the plants.",
+    "url": "https://www.world-nuclear-news.org/articles/reactor-technology-selection-process-progresses-in-netherlands",
+    "published_at": "2026-08-26T13:31:49.000Z",
+    "hash": "092dd60d0c50b44b",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "netherlands",
+    "country": "netherlands",
+    "tldr": "The Nuclear Energy Organisation of the Netherlands (NEON) has awarded design study contracts to both EDF and Westinghouse for two large nuclear power plants. This is a pre-sanction FEED-equivalent phase with a hiring ramp expected 12+ months out.",
+    "operator": {
+      "name": "Nuclear Energy Organisation of the Netherlands (NEON)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "EDF / Westinghouse",
+      "matched_company_slug": null
+    },
+    "project_name": "Netherlands New Nuclear Power Plants (NEON)",
+    "scope": [
+      "design_study",
+      "reactor_technology_selection",
+      "nuclear_newbuild_feed"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Design Engineer",
+        "Reactor Systems Engineer",
+        "Nuclear Project Manager",
+        "Licensing Engineer",
+        "Civil Nuclear FEED Engineer",
+        "Nuclear Safety Analyst",
+        "Project Controls Engineer"
+      ],
+      "skills": [
+        "nuclear reactor design",
+        "PWR",
+        "EPR",
+        "AP1000",
+        "nuclear licensing",
+        "FEED studies",
+        "safety case",
+        "nuclear project development"
+      ],
+      "certs_freetext": [
+        "Nuclear Safety Case accreditation",
+        "EUR (European Utility Requirements) familiarity",
+        "IAEA safety standards"
+      ],
+      "geo_rtw": "EU/EEA right-to-work preferred; Netherlands or willing to relocate",
+      "project_experience": [
+        "Hinkley Point C",
+        "Sizewell C",
+        "Vogtle Units 3 & 4",
+        "Olkiluoto 3",
+        "Flamanville 3",
+        "PolGEN",
+        "Czech Dukovany expansion"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"nuclear design\" OR \"reactor design\" OR \"nuclear FEED\" OR \"nuclear engineering\") AND (\"EDF\" OR \"Westinghouse\" OR \"EPR\" OR \"AP1000\" OR \"PWR\") AND (\"new nuclear\" OR \"nuclear newbuild\" OR \"nuclear power plant\" OR \"licensing\" OR \"safety case\") AND (Netherlands OR \"EU\" OR Europe)"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], EDF & Westinghouse have just been awarded design study contracts for two new large nuclear plants in the Netherlands. Early-phase nuclear design and licensing talent is in demand — worth a conversation?",
+      "email_subject": "New Nuclear Design Opportunity — Netherlands (EDF / Westinghouse)",
+      "email_body": "Hi [Name],\n\nEDF and Westinghouse have each been awarded design study contracts by the Nuclear Energy Organisation of the Netherlands (NEON) for two new large nuclear power plants — one of Europe's most significant nuclear newbuild programmes.\n\nWe're proactively building a pipeline of senior nuclear design, licensing, and safety-case professionals ahead of what will be a substantial engineering ramp. Given your background in [EPR/AP1000/nuclear FEED], I'd love to explore whether there could be a fit.\n\nWould you be open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "FEED-equivalent design study contracts awarded by named client (NEON) to named contractors (EDF and Westinghouse) for two new nuclear power plants in the Netherlands — qualifying pre-sanction contract award with clear future workforce demand.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states EDF and Westinghouse were awarded contracts 'to carry out design studies' — pre-FID feasibility/design phase, reactor technology not yet selected.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "36e5b8e3-3eee-440b-a19a-7c0426a8c14c",
+    "ingested_at": "2026-08-26T18:38:10.166Z",
+    "source_published_at": "2026-08-26T13:31:49.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "mining_com",
         "name": "MINING.com",
         "url": "https://www.mining.com/atomic-eagle-claws-back-niger-uranium-project/"
@@ -12842,112 +13053,6 @@
       "project_manager",
       "hiring_manager",
       "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "pr_newswire_energy",
-        "name": "PR Newswire (Energy)",
-        "url": "https://www.prnewswire.com/news-releases/matrix-renewables-and-solv-energy-break-ground-on-457mwdc-tormes-solar-project-in-navarro-county-texas-302784392.html"
-      }
-    ],
-    "headline": "SOLV Energy Breaks Ground on 457MWdc Tormes Solar Project in Navarro County, Texas for Matrix Renewables",
-    "body": "BARRY, Texas, May 28, 2026 /PRNewswire/ -- Matrix Renewables, the TPG Rise-backed global renewable platform, and EPC contractor SOLV Energy announced construction started on the Tormes Solar Project, marked by a groundbreaking ceremony on May 19. The groundbreaking ceremony brought...",
-    "url": "https://www.prnewswire.com/news-releases/matrix-renewables-and-solv-energy-break-ground-on-457mwdc-tormes-solar-project-in-navarro-county-texas-302784392.html",
-    "published_at": "2026-05-28T12:30:00.000Z",
-    "hash": "ffddad7f7b884832",
-    "subsector": "onshore-renewables",
-    "discipline_tags": [
-      "energy_trades",
-      "industrial_construction"
-    ],
-    "signal_type": "epc_award",
-    "region": "us-texas",
-    "country": "united_states",
-    "tldr": "Matrix Renewables and EPC contractor SOLV Energy have commenced construction on the 457MWdc Tormes Solar project in Navarro County, Texas. Groundbreaking occurred May 19, 2026, signalling active trade and construction labour demand now.",
-    "operator": {
-      "name": "Matrix Renewables",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "SOLV Energy",
-      "matched_company_slug": null
-    },
-    "project_name": "Tormes Solar Project",
-    "scope": [
-      "solar_epc",
-      "civil_works",
-      "electrical_install"
-    ],
-    "mob_window": {
-      "start": "2026-Q2",
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Solar Construction Manager",
-        "Site Superintendent",
-        "HSE Manager",
-        "Electrical Foreman",
-        "PV Installer",
-        "Civil Superintendent",
-        "Commissioning Engineer",
-        "Project Controls Engineer",
-        "Quality Inspector"
-      ],
-      "skills": [
-        "utility-scale solar construction",
-        "PV module installation",
-        "HV electrical installation",
-        "civil grading",
-        "construction scheduling",
-        "OSHA site safety",
-        "substation erection"
-      ],
-      "certs_freetext": [
-        "OSHA 30 Construction",
-        "NCCER Electrical",
-        "First Aid/CPR",
-        "NABCEP PV Installation Professional"
-      ],
-      "geo_rtw": "US work authorization required; Navarro County, Texas",
-      "project_experience": [
-        "utility-scale solar EPC",
-        "onshore wind construction",
-        "large-scale battery storage (BESS) install"
-      ],
-      "yoe_band": "5-15",
-      "seniority": "mid to senior trades and supervision",
-      "boolean_search": "(\"solar\" OR \"photovoltaic\" OR \"PV\") AND (\"construction manager\" OR \"site superintendent\" OR \"electrical foreman\" OR \"PV installer\" OR \"commissioning engineer\" OR \"HSE manager\") AND (\"utility-scale\" OR \"utility scale\") AND (\"Texas\" OR \"TX\" OR \"Navarro\") NOT (\"residential\" OR \"rooftop\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], SOLV Energy just broke ground on the 457MWdc Tormes Solar project in Navarro County, TX. Construction is live and crews are ramping. Are you open to hearing about opportunities on-site?",
-      "email_subject": "Tormes Solar – Live Construction Roles in Navarro County, TX (SOLV Energy / Matrix Renewables)",
-      "email_body": "Hi [Name],\n\nConstruction is officially underway on the Tormes Solar Project (457MWdc) in Navarro County, Texas — a Matrix Renewables development being built by SOLV Energy. The groundbreaking took place on May 19, 2026, meaning trades, supervision, and commissioning talent are needed now.\n\nGiven your background in utility-scale solar construction, I wanted to reach out directly. We are placing [role] professionals for this project and would welcome a quick call to discuss fit.\n\nAre you available this week?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Construction start confirmed with named EPC contractor (SOLV Energy) and operator/developer (Matrix Renewables) on a 457MWdc named solar project in Texas, signalling immediate trade and supervision labour demand.",
-    "phase": "construction",
-    "phase_evidence": "Article states 'construction started on the Tormes Solar Project, marked by a groundbreaking ceremony on May 19', confirming construction phase is active.",
-    "construction_subphase": "rampup",
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "live_now",
-    "estimated_hiring_window": "now",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "27ba68be-ed8a-4621-bdfd-cbbe2fe8a305",
-    "ingested_at": "2026-05-28T13:19:32.543Z",
-    "source_published_at": "2026-05-28T12:30:00.000Z",
-    "contact_archetypes": [
-      "site_manager",
-      "hiring_manager",
-      "project_manager"
     ],
     "prompt_version": "phase-targeting-v1.2"
   }
