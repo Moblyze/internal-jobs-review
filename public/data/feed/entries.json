@@ -2,6 +2,106 @@
   {
     "sources": [
       {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/atomic-eagle-claws-back-niger-uranium-project/"
+      }
+    ],
+    "headline": "Atomic Eagle Regains Control of Madaouela Uranium Project in Niger",
+    "body": "Company has regained control of its Madaouela project two years after the government revoked the mining permit of predecessor company GoviEx Uranium.",
+    "url": "https://www.mining.com/atomic-eagle-claws-back-niger-uranium-project/",
+    "published_at": "2026-08-25T22:38:00.000Z",
+    "hash": "e5279bf31a0f20fd",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "survey_geophysical"
+    ],
+    "signal_type": "lease_round",
+    "region": "west-africa",
+    "country": "niger",
+    "tldr": "Atomic Eagle has recovered the Madaouela uranium mining permit in Niger two years after the government revoked it from predecessor GoviEx Uranium. Permit reinstatement signals potential restart of development activity and near-term workforce demand.",
+    "operator": {
+      "name": "Atomic Eagle",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Atomic Eagle",
+      "matched_company_slug": null
+    },
+    "project_name": "Madaouela",
+    "scope": [
+      "permit_reinstatement",
+      "uranium_mining"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Exploration Geologist",
+        "Mining Project Manager",
+        "Uranium Project Development Manager",
+        "Permitting & Regulatory Manager",
+        "HSE Manager",
+        "Feasibility Study Manager"
+      ],
+      "skills": [
+        "uranium mining",
+        "mining permit",
+        "feasibility study",
+        "project restart",
+        "west africa operations",
+        "resource estimation"
+      ],
+      "certs_freetext": [
+        "AUSIMM",
+        "SME",
+        "MMSAQP"
+      ],
+      "geo_rtw": "Niger / West Africa — international hires, expatriate-eligible",
+      "project_experience": [
+        "Madaouela",
+        "GoviEx Uranium",
+        "Imouraren",
+        "Arlit uranium district"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "senior",
+      "boolean_search": "(\"uranium\" OR \"nuclear fuel\" OR \"uranium mining\") AND (\"project manager\" OR \"exploration manager\" OR \"development manager\" OR \"project director\") AND (\"Niger\" OR \"West Africa\" OR \"Sahel\") AND (\"mining permit\" OR \"feasibility\" OR \"resource development\" OR \"project restart\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Atomic Eagle has just recovered the Madaouela uranium permit in Niger after a 2-year hiatus. Project restart creates senior roles for experienced uranium/mining PMs with West Africa exposure. Worth a conversation?",
+      "email_subject": "Madaouela Uranium Project Restart — Senior Roles Opening, Niger",
+      "email_body": "Hi [Name],\n\nAtomic Eagle has regained control of the Madaouela uranium project in Niger, two years after the government revoked the permit from predecessor GoviEx Uranium. A permit reinstatement of this kind typically triggers an immediate phase of scoping, feasibility restart, and team rebuild.\n\nGiven your background in [uranium/mining project development / West Africa operations], I wanted to reach out early — these mandates tend to move quickly once control is confirmed.\n\nWould you be open to a brief call this week to discuss what's emerging?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Atomic Eagle) has regained a specific mining permit (Madaouela project, Niger), constituting an exploration/development permit reinstatement event with clear workforce-demand implications.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states the company has 'regained control' of the project, implying a restart from scratch with no FID or EPC activity yet described.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "633db7ca-1773-4014-aa67-e15a987f4fb8",
+    "ingested_at": "2026-08-26T00:14:41.556Z",
+    "source_published_at": "2026-08-25T22:38:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/navitas_petroleum_to_acquire_2nd_production_vessel_for_sea_lion_project-25-aug-2026-184455-article/?rss=true"
@@ -12844,139 +12944,6 @@
     "id": "27ba68be-ed8a-4621-bdfd-cbbe2fe8a305",
     "ingested_at": "2026-05-28T13:19:32.543Z",
     "source_published_at": "2026-05-28T12:30:00.000Z",
-    "contact_archetypes": [
-      "site_manager",
-      "hiring_manager",
-      "project_manager"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "pr_newswire_energy",
-        "name": "PR Newswire (Energy)",
-        "url": "https://www.prnewswire.com/news-releases/cbi-awarded-contract-for-five-lng-storage-tanks-at-caturus-commonwealth-lng-facility-302783430.html"
-      }
-    ],
-    "headline": "CB&I Awarded LNG Storage Tank EPC Contract at Caturus' Commonwealth LNG Facility",
-    "body": "THE WOODLANDS, Texas, May 27, 2026 /PRNewswire/ -- CB&I today announced it has received a significant* lump sum contract award and full notice to proceed from Technip Energies on behalf of Caturus for the engineering, procurement, fabrication, construction, and pre-commissioning of five...",
-    "url": "https://www.prnewswire.com/news-releases/cbi-awarded-contract-for-five-lng-storage-tanks-at-caturus-commonwealth-lng-facility-302783430.html",
-    "published_at": "2026-05-27T17:30:00.000Z",
-    "hash": "998436458d114913",
-    "subsector": "onshore-og",
-    "discipline_tags": [
-      "energy_trades",
-      "industrial_construction",
-      "process_plant_operations",
-      "ndt_inspection"
-    ],
-    "signal_type": "epc_award",
-    "region": "us-gulf-coast",
-    "country": "united_states",
-    "tldr": "CB&I has received a lump-sum EPC contract plus full notice to proceed from Technip Energies on behalf of Caturus for five LNG storage tanks at Commonwealth LNG. Full NTP signals imminent construction ramp-up and significant trades hiring.",
-    "operator": {
-      "name": "Caturus",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "CB&I",
-      "matched_company_slug": null
-    },
-    "project_name": "Commonwealth LNG",
-    "scope": [
-      "lng_storage_tanks_epc",
-      "engineering",
-      "procurement",
-      "fabrication",
-      "construction",
-      "pre_commissioning"
-    ],
-    "mob_window": {
-      "start": "2026-Q3",
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Construction Manager",
-        "Site Manager",
-        "LNG Tank Construction Superintendent",
-        "Civil/Structural Supervisor",
-        "Mechanical Supervisor",
-        "Welding Supervisor",
-        "HSE Manager",
-        "QA/QC Manager",
-        "NDT Inspector",
-        "Pre-commissioning Engineer",
-        "Procurement Engineer",
-        "Project Controls Engineer",
-        "Planning/Scheduling Engineer",
-        "Industrial Welder",
-        "Pipefitter",
-        "Structural Fitter",
-        "Rigger",
-        "Scaffolder",
-        "Electrician",
-        "Instrumentation Technician"
-      ],
-      "skills": [
-        "LNG storage tank construction",
-        "cryogenic tank fabrication",
-        "full containment LNG tanks",
-        "EPC lump sum",
-        "pre-commissioning",
-        "civil foundations",
-        "post-weld heat treatment",
-        "cryogenic piping",
-        "NDE/NDT",
-        "QA/QC",
-        "pressure vessel fabrication",
-        "industrial construction management"
-      ],
-      "certs_freetext": [
-        "ASME Section VIII",
-        "AWS CWI",
-        "API 620",
-        "NCCER",
-        "OSHA 30 Construction",
-        "TWIC Card"
-      ],
-      "geo_rtw": "US work-authorized, Louisiana/Texas Gulf Coast",
-      "project_experience": [
-        "Sabine Pass LNG",
-        "Corpus Christi LNG",
-        "Freeport LNG",
-        "Golden Pass LNG",
-        "Port Arthur LNG",
-        "Rio Grande LNG",
-        "Calcasieu Pass LNG"
-      ],
-      "yoe_band": "8-20",
-      "seniority": "mid to senior",
-      "boolean_search": "(\"LNG\" OR \"liquefied natural gas\") AND (\"storage tank\" OR \"full containment tank\" OR \"cryogenic tank\") AND (\"construction\" OR \"fabrication\" OR \"EPC\") AND (\"CB&I\" OR \"McDermott\" OR \"Technip\" OR \"Bechtel\" OR \"Zachry\" OR \"KBR\") AND (\"Construction Manager\" OR \"Superintendent\" OR \"Welding Supervisor\" OR \"Mechanical Supervisor\" OR \"Pre-commissioning Engineer\" OR \"QA/QC\" OR \"NDT Inspector\" OR \"Site Manager\") AND (\"Louisiana\" OR \"Texas\" OR \"Gulf Coast\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], CB&I just received full NTP on a 5-tank LNG EPC at Commonwealth LNG (Caturus). This is a live ramp-up — [title] roles are likely opening now. Worth a quick chat?",
-      "email_subject": "CB&I – Commonwealth LNG Tank EPC | [Your Title] Opportunity – Gulf Coast",
-      "email_body": "Hi [Name],\n\nCB&I has just been awarded a lump-sum EPC contract — with full notice to proceed — for five LNG storage tanks at Caturus' Commonwealth LNG facility on the Gulf Coast. With full NTP in hand, the construction ramp-up is underway and they'll be building out site leadership and trades teams now.\n\nGiven your background in [LNG/cryogenic tank construction / EPC site management], I wanted to reach out directly. We're working closely with contractors active on this programme and similar Gulf Coast LNG builds.\n\nAre you open to a brief conversation about what's coming up?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "EPC contract award with full NTP naming CB&I as contractor, Technip Energies as EPC manager, and Caturus/Commonwealth LNG as operator/project for five LNG storage tanks — clear discrete workforce-demand event.",
-    "phase": "construction",
-    "phase_evidence": "Article states CB&I received 'full notice to proceed' for engineering, procurement, fabrication, construction, and pre-commissioning — indicating active execution has commenced.",
-    "construction_subphase": "rampup",
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "live_now",
-    "estimated_hiring_window": "now",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "797e9545-06a0-4f56-b894-202bf8098a5c",
-    "ingested_at": "2026-05-27T18:51:06.084Z",
-    "source_published_at": "2026-05-27T17:30:00.000Z",
     "contact_archetypes": [
       "site_manager",
       "hiring_manager",

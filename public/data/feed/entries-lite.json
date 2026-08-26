@@ -1,5 +1,47 @@
 [
   {
+    "id": "633db7ca-1773-4014-aa67-e15a987f4fb8",
+    "ingested_at": "2026-08-26T00:14:41.556Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/atomic-eagle-claws-back-niger-uranium-project/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "survey_geophysical"
+    ],
+    "signal_type": "lease_round",
+    "region": "west-africa",
+    "country": "niger",
+    "headline": "Atomic Eagle Regains Control of Madaouela Uranium Project in Niger",
+    "operator": {
+      "name": "Atomic Eagle",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Atomic Eagle",
+      "matched_company_slug": null
+    },
+    "project_name": "Madaouela",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "afb4b5e5-aadd-4b25-a1b7-5b9193eb5423",
     "ingested_at": "2026-08-25T18:09:57.193Z",
     "sources": [
@@ -5061,50 +5103,6 @@
     "project_name": "Tormes Solar Project",
     "mob_window": {
       "start": "2026-Q2",
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "construction",
-    "construction_subphase": "rampup",
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "live_now",
-    "estimated_hiring_window": "now",
-    "key_people": []
-  },
-  {
-    "id": "797e9545-06a0-4f56-b894-202bf8098a5c",
-    "ingested_at": "2026-05-27T18:51:06.084Z",
-    "sources": [
-      {
-        "id": "pr_newswire_energy",
-        "name": "PR Newswire (Energy)",
-        "url": "https://www.prnewswire.com/news-releases/cbi-awarded-contract-for-five-lng-storage-tanks-at-caturus-commonwealth-lng-facility-302783430.html"
-      }
-    ],
-    "subsector": "onshore-og",
-    "discipline_tags": [
-      "energy_trades",
-      "industrial_construction",
-      "process_plant_operations",
-      "ndt_inspection"
-    ],
-    "signal_type": "epc_award",
-    "region": "us-gulf-coast",
-    "country": "united_states",
-    "headline": "CB&I Awarded LNG Storage Tank EPC Contract at Caturus' Commonwealth LNG Facility",
-    "operator": {
-      "name": "Caturus",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "CB&I",
-      "matched_company_slug": null
-    },
-    "project_name": "Commonwealth LNG",
-    "mob_window": {
-      "start": "2026-Q3",
       "end": null,
       "duration_months": null
     },

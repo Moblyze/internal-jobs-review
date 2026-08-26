@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-08-25T18:11:27.071Z"
+    "last_updated_at": "2026-08-26T00:15:56.408Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -10837,6 +10837,66 @@
         "email": null,
         "phone": null,
         "location": "Herzliya, Israel"
+      }
+    ]
+  },
+  "atomic eagle": {
+    "discovered_at": "2026-08-26T00:15:56.408Z",
+    "contacts": [
+      {
+        "name": "Phil Hoskins",
+        "title": "Chief Executive Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/phil-hoskins-93668330",
+        "source_url": "https://www.miningweekly.com/article/atomic-eagle-appoints-hoskins-ceo-2025-12-11",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Perth, WA, Australia"
+      },
+      {
+        "name": "Keith Bowes",
+        "title": "Non-Executive Director",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/keith-bowes-1285ab56",
+        "source_url": "https://stockhead.com.au/company/atomic-eagle-aeu/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Perth, WA, Australia"
+      },
+      {
+        "name": "Grant Davey",
+        "title": "Non-Executive Chairman",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/grant-davey-041658167",
+        "source_url": "https://www.miningweekly.com/article/atomic-eagle-appoints-grant-davey-chairperson-2026-04-20",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Perth, WA, Australia"
+      },
+      {
+        "name": "Jerome Randabel",
+        "title": "Chief Geologist",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/jeromerandabel",
+        "source_url": "https://simplywall.st/stocks/us/energy/otc-aeux.f/atomic-eagle/management",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Chris Bath",
+        "title": "Chief Financial Officer",
+        "persona": "other",
+        "linkedin_url": null,
+        "source_url": "https://www.theglobeandmail.com/investing/markets/markets-news/Tipranks/36918075/atomic-eagle-appoints-new-cfo-to-support-growth-of-zambian-uranium-project/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": null
       }
     ]
   }
