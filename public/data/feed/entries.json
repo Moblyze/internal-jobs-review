@@ -2,6 +2,110 @@
   {
     "sources": [
       {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/nexgen-expands-sask-program-after-high-grade-uranium-results/"
+      }
+    ],
+    "headline": "NexGen Adds Fifth Drill Rig at Patterson Corridor Uranium Program, Saskatchewan",
+    "body": "NexGen Energy (TSX: NXE; NYSE: NXE; ASX: NXG) says it will add a fifth drill rig to its program at Patterson Corridor […]",
+    "url": "https://www.mining.com/nexgen-expands-sask-program-after-high-grade-uranium-results/",
+    "published_at": "2026-08-26T14:48:23.000Z",
+    "hash": "f454b347ddea8bad",
+    "subsector": "mining",
+    "discipline_tags": [
+      "drilling_operations",
+      "survey_geophysical"
+    ],
+    "signal_type": "tender",
+    "region": "saskatchewan-canada",
+    "country": "canada",
+    "tldr": "NexGen Energy is expanding its drill program at Patterson Corridor by adding a fifth rig following high-grade uranium results, signaling near-term demand for drilling crews and geotechnical personnel in Saskatchewan.",
+    "operator": {
+      "name": "NexGen Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Patterson Corridor",
+    "scope": [
+      "drill_program_expansion",
+      "uranium_exploration_drilling"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Diamond Driller",
+        "Drill Rig Operator",
+        "Drill Helper / Offsider",
+        "Exploration Geologist",
+        "Senior Geologist",
+        "Core Technician",
+        "HSE Advisor – Drilling",
+        "Drill Program Supervisor"
+      ],
+      "skills": [
+        "diamond core drilling",
+        "HQ/NQ drilling",
+        "uranium exploration",
+        "core logging",
+        "drill site supervision",
+        "northern Canada remote operations"
+      ],
+      "certs_freetext": [
+        "Ground Disturbance Certificate",
+        "First Aid Level 2",
+        "WHMIS",
+        "Saskatchewan Workplace Safety Orientation"
+      ],
+      "geo_rtw": "Canada – Saskatchewan; must be eligible to work in Canada",
+      "project_experience": [
+        "Athabasca Basin",
+        "McArthur River",
+        "Cigar Lake",
+        "Arrow Deposit",
+        "Wheeler River"
+      ],
+      "yoe_band": "3-12",
+      "seniority": "mid to senior",
+      "boolean_search": "(\"diamond driller\" OR \"drill rig operator\" OR \"exploration geologist\" OR \"core technician\" OR \"drill supervisor\") AND (\"uranium\" OR \"Athabasca\" OR \"Saskatchewan\" OR \"exploration drilling\") AND (\"remote camp\" OR \"fly-in fly-out\" OR \"FIFO\") NOT (\"oil sands\" OR \"coal\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], NexGen Energy is adding a 5th drill rig at its Patterson Corridor uranium program in Saskatchewan — crews needed soon. Your exploration drilling background looks like a strong fit. Open to a quick chat?",
+      "email_subject": "Drill Crew Opportunity – NexGen Patterson Corridor Expansion, Saskatchewan",
+      "email_body": "Hi [Name],\n\nNexGen Energy has announced the addition of a fifth drill rig at its Patterson Corridor uranium program in Saskatchewan following high-grade results — meaning active crew ramp-up is underway.\n\nGiven your background in [diamond drilling / uranium exploration], I wanted to reach out directly. We're placing experienced drillers, geologists, and core technicians for this program.\n\nWould you be available for a brief call this week to discuss the opportunity?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "NexGen Energy is adding a fifth drill rig at the named Patterson Corridor project in Saskatchewan, constituting a discrete exploration drill program expansion with clear near-term labor demand.",
+    "phase": "pre_sanction",
+    "phase_evidence": "The program is an active exploration drill campaign at Patterson Corridor, with rig additions driven by high-grade results — pre-FID exploration phase.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "29288fd0-7eb0-45c0-80ef-838d45133a36",
+    "ingested_at": "2026-08-27T01:35:12.315Z",
+    "source_published_at": "2026-08-26T14:48:23.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org/articles/second-epr-site-authorised-for-site-preparations"
@@ -12942,117 +13046,6 @@
       "site_manager",
       "hiring_manager",
       "project_manager"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/minera-alamos-greenlights-copperstone-gold-mine-in-arizona/"
-      }
-    ],
-    "headline": "Minera Alamos Greenlights Copperstone Gold Mine in Arizona – FID Confirmed",
-    "body": "Copperstone could produce about 46,000 oz. of gold annually over a six-year mine life.",
-    "url": "https://www.mining.com/minera-alamos-greenlights-copperstone-gold-mine-in-arizona/",
-    "published_at": "2026-05-28T15:11:44.000Z",
-    "hash": "05c9a14e05327f5d",
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades",
-      "ndt_inspection"
-    ],
-    "signal_type": "fid",
-    "region": "us-southwest",
-    "country": "united_states",
-    "tldr": "Minera Alamos has sanctioned the Copperstone gold mine in Arizona, targeting ~46,000 oz/yr over a 6-year mine life. FID signals an upcoming construction and operational workforce ramp-up.",
-    "operator": {
-      "name": "Minera Alamos",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Minera Alamos",
-      "matched_company_slug": null
-    },
-    "project_name": "Copperstone Gold Mine",
-    "scope": [
-      "mine_construction",
-      "underground_mining",
-      "gold_processing"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Mine Construction Manager",
-        "Project Manager – Mining",
-        "Underground Mine Supervisor",
-        "HSE Manager",
-        "Process Plant Superintendent",
-        "Site Manager",
-        "Mining Engineer",
-        "Electrical Supervisor",
-        "Mechanical Supervisor",
-        "Commissioning Engineer"
-      ],
-      "skills": [
-        "underground mining",
-        "gold processing",
-        "mine development",
-        "drill and blast",
-        "site construction management",
-        "process plant commissioning",
-        "HSE management",
-        "shaft sinking"
-      ],
-      "certs_freetext": [
-        "MSHA Part 46/48",
-        "First Aid/CPR",
-        "Blasting Certification",
-        "PMP"
-      ],
-      "geo_rtw": "US work authorization required; Arizona-based or relocatable",
-      "project_experience": [
-        "Copperstone",
-        "Fortitude Gold",
-        "Hycroft Mine",
-        "Moss Mine",
-        "Goldstrike"
-      ],
-      "yoe_band": "8-15",
-      "seniority": "Senior / Lead",
-      "boolean_search": "(\"mine construction\" OR \"underground mining\" OR \"gold mine\" OR \"mine development\") AND (\"construction manager\" OR \"project manager\" OR \"mine superintendent\" OR \"site manager\" OR \"HSE manager\" OR \"commissioning engineer\") AND (\"Arizona\" OR \"Nevada\" OR \"Western US\") AND (\"MSHA\" OR \"drill and blast\" OR \"process plant\" OR \"shaft sinking\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Minera Alamos has just greenlighted the Copperstone Gold Mine in Arizona — FID confirmed, construction phase incoming. I'm placing senior mining construction & ops professionals for this project. Worth a quick chat?",
-      "email_subject": "Copperstone Gold Mine (AZ) – FID Confirmed | Senior Mining Roles",
-      "email_body": "Hi [Name],\n\nMinera Alamos has officially sanctioned the Copperstone Gold Mine in Arizona, with production targeted at ~46,000 oz/yr over a 6-year mine life. With FID now confirmed, construction hiring is set to ramp in the coming months.\n\nI'm currently placing experienced professionals across mine construction management, underground operations, HSE, and process plant commissioning for projects of this type.\n\nWould you be open to a brief call to explore how your background aligns with what's coming up at Copperstone?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "FID (greenlight) confirmed by named operator Minera Alamos for a named mining project (Copperstone Gold Mine) in Arizona, signaling imminent construction workforce demand.",
-    "phase": "sanctioned_engineering",
-    "phase_evidence": "Article states Minera Alamos 'greenlights' the Copperstone gold mine, indicating a go-ahead/FID decision with engineering and construction mobilization to follow.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "d0dfcf3c-e573-4715-aa15-45d7416374d6",
-    "ingested_at": "2026-05-28T18:56:09.544Z",
-    "source_published_at": "2026-05-28T15:11:44.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "hiring_manager",
-      "business_unit_director"
     ],
     "prompt_version": "phase-targeting-v1.2"
   }

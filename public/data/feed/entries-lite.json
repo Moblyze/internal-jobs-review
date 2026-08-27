@@ -1,5 +1,47 @@
 [
   {
+    "id": "29288fd0-7eb0-45c0-80ef-838d45133a36",
+    "ingested_at": "2026-08-27T01:35:12.315Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/nexgen-expands-sask-program-after-high-grade-uranium-results/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "drilling_operations",
+      "survey_geophysical"
+    ],
+    "signal_type": "tender",
+    "region": "saskatchewan-canada",
+    "country": "canada",
+    "headline": "NexGen Adds Fifth Drill Rig at Patterson Corridor Uranium Program, Saskatchewan",
+    "operator": {
+      "name": "NexGen Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Patterson Corridor",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": []
+  },
+  {
     "id": "100216b8-dad4-4e04-ac18-34c4d3dc6de3",
     "ingested_at": "2026-08-26T18:38:10.166Z",
     "sources": [
@@ -5113,49 +5155,6 @@
     "decom_stage": null,
     "outreach_readiness": "hot",
     "estimated_hiring_window": "1-3mo",
-    "key_people": []
-  },
-  {
-    "id": "d0dfcf3c-e573-4715-aa15-45d7416374d6",
-    "ingested_at": "2026-05-28T18:56:09.544Z",
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/minera-alamos-greenlights-copperstone-gold-mine-in-arizona/"
-      }
-    ],
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades",
-      "ndt_inspection"
-    ],
-    "signal_type": "fid",
-    "region": "us-southwest",
-    "country": "united_states",
-    "headline": "Minera Alamos Greenlights Copperstone Gold Mine in Arizona – FID Confirmed",
-    "operator": {
-      "name": "Minera Alamos",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Minera Alamos",
-      "matched_company_slug": null
-    },
-    "project_name": "Copperstone Gold Mine",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "sanctioned_engineering",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
     "key_people": []
   }
 ]
