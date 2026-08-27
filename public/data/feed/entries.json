@@ -2,6 +2,114 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/video_spirit_removes_200t_of_offshore_kit_in_decom_campaign-27-aug-2026-184469-article/?rss=true"
+      }
+    ],
+    "headline": "Spirit Energy Completes £40M UK North Sea Decom Campaign — 200T Offshore Kit Removed",
+    "body": "In a statement sent to Rigzone this week, Spirit Energy announced that it had completed a GBP 40 million ($54 million) UK North Sea decommissioning campaign,...",
+    "url": "https://www.rigzone.com/news/video_spirit_removes_200t_of_offshore_kit_in_decom_campaign-27-aug-2026-184469-article/?rss=true",
+    "published_at": "2026-08-27T08:36:05.000Z",
+    "hash": "2b6981be343185d4",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "marine_offshore_ops",
+      "rov_subsea",
+      "industrial_construction"
+    ],
+    "signal_type": "decom",
+    "region": "uk-north-sea",
+    "country": "united_kingdom",
+    "tldr": "Spirit Energy has completed a £40M ($54M) UK North Sea decommissioning campaign removing 200 tonnes of offshore infrastructure. Campaign is complete; signals Spirit's active decom programme and potential follow-on scopes.",
+    "operator": {
+      "name": "Spirit Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": null,
+    "scope": [
+      "topsides_removal",
+      "decommissioning",
+      "offshore_decom_campaign"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 54000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Decommissioning Project Manager",
+        "Offshore Decom Superintendent",
+        "Marine Superintendent",
+        "Decommissioning Engineer",
+        "Rigger / Lift Supervisor",
+        "ROV Supervisor",
+        "NDT Inspector",
+        "Scaffolder",
+        "Decom HSE Manager"
+      ],
+      "skills": [
+        "topsides removal",
+        "heavy lift",
+        "offshore decommissioning",
+        "P&A",
+        "marine operations",
+        "rigging",
+        "structural demolition",
+        "UKCS regulations"
+      ],
+      "certs_freetext": [
+        "BOSIET / FOET",
+        "OPITO Offshore Safety",
+        "IOSH Managing Safely",
+        "Lifting Operations (LOLER)",
+        "NSTA decom compliance"
+      ],
+      "geo_rtw": "UK / UK North Sea eligible",
+      "project_experience": [
+        "UKCS decommissioning",
+        "North Sea topsides removal",
+        "Allseas heavy lift",
+        "Heerema decom",
+        "Repsol Sinopec decom"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"decommissioning\" OR \"decom\" OR \"topsides removal\" OR \"heavy lift\" OR \"offshore removal\") AND (\"UK North Sea\" OR \"UKCS\" OR \"North Sea\") AND (\"project manager\" OR \"superintendent\" OR \"decommissioning engineer\" OR \"marine superintendent\" OR \"lift supervisor\" OR \"ROV supervisor\") AND (\"Spirit Energy\" OR \"UKCS decom\" OR \"offshore decom\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Spirit Energy has just completed a £40M UK North Sea decom campaign. With follow-on scopes likely, we're placing experienced decom professionals across UKCS projects. Would you be open to a quick chat?",
+      "email_subject": "UK North Sea Decom Roles — Spirit Energy Campaign Follow-On",
+      "email_body": "Hi [Name],\n\nSpirit Energy has completed a £40M ($54M) UK North Sea decommissioning campaign removing 200 tonnes of offshore infrastructure — a strong signal of an active and expanding decom programme on the UKCS.\n\nWe're proactively placing experienced decommissioning professionals (Project Managers, Decom Engineers, Marine Superintendents, Lift Supervisors) for follow-on scopes across the North Sea.\n\nIf you're open to discussing upcoming opportunities, I'd welcome a brief call at your convenience.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Spirit Energy) completing a discrete £40M UK North Sea decommissioning campaign — qualifying decom event with clear follow-on labor demand signal.",
+    "phase": null,
+    "phase_evidence": null,
+    "construction_subphase": null,
+    "lifecycle_track": "decommissioning",
+    "decom_stage": "site_clearance",
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "990a4fbe-143b-486c-80f6-71af37d145dd",
+    "ingested_at": "2026-08-27T09:08:30.497Z",
+    "source_published_at": "2026-08-27T08:36:05.000Z",
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "mining_com",
         "name": "MINING.com",
         "url": "https://www.mining.com/nexgen-expands-sask-program-after-high-grade-uranium-results/"

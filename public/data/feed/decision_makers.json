@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-08-26T18:39:53.125Z"
+    "last_updated_at": "2026-08-27T09:10:35.226Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -11017,6 +11017,55 @@
         "email": null,
         "phone": null,
         "location": "Gouda, Netherlands"
+      }
+    ]
+  },
+  "spirit energy": {
+    "discovered_at": "2026-08-27T09:10:35.226Z",
+    "contacts": [
+      {
+        "name": "Faye Fletcher",
+        "title": "HR & Facilities Director",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/fayefletcher",
+        "source_url": "https://www.spirit-energy.com/about-us/our-management/executive-committee/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Aberdeen, UK"
+      },
+      {
+        "name": "Peter Hepburn",
+        "title": "Operations Director",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/peter-hepburn-b5910a29",
+        "source_url": "https://www.spirit-energy.com/about-us/our-management/executive-committee/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Aberdeen, UK"
+      },
+      {
+        "name": "Matt Browell-Hook",
+        "title": "Director, Energy Transition, Decommissioning and Projects",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/matt-browell-hook",
+        "source_url": "https://www.spirit-energy.com/about-us/our-management/executive-committee/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Aberdeen, UK"
+      },
+      {
+        "name": "Morten Kelstrup",
+        "title": "Chief Executive Officer",
+        "persona": "other",
+        "linkedin_url": "https://www.linkedin.com/in/mortenkelstrup",
+        "source_url": "https://www.spirit-energy.com/about-us/our-management/executive-committee/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Denmark"
       }
     ]
   }

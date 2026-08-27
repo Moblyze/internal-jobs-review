@@ -1,5 +1,49 @@
 [
   {
+    "id": "990a4fbe-143b-486c-80f6-71af37d145dd",
+    "ingested_at": "2026-08-27T09:08:30.497Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/video_spirit_removes_200t_of_offshore_kit_in_decom_campaign-27-aug-2026-184469-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "marine_offshore_ops",
+      "rov_subsea",
+      "industrial_construction"
+    ],
+    "signal_type": "decom",
+    "region": "uk-north-sea",
+    "country": "united_kingdom",
+    "headline": "Spirit Energy Completes £40M UK North Sea Decom Campaign — 200T Offshore Kit Removed",
+    "operator": {
+      "name": "Spirit Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": null,
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 54000000,
+    "phase": null,
+    "construction_subphase": null,
+    "lifecycle_track": "decommissioning",
+    "decom_stage": "site_clearance",
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "29288fd0-7eb0-45c0-80ef-838d45133a36",
     "ingested_at": "2026-08-27T01:35:12.315Z",
     "sources": [
