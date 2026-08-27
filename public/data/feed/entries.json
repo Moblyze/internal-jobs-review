@@ -2,6 +2,111 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/drilling-of-deposition-holes-starts-at-onkalo"
+      }
+    ],
+    "headline": "Drilling of First Deposition Holes Begins at Onkalo Nuclear Waste Repository, Olkiluoto Finland",
+    "body": "Workers have begun drilling the first deposition hole for use at the Onkalo underground used nuclear fuel repository near Olkiluoto, Finland.",
+    "url": "https://www.world-nuclear-news.org/articles/drilling-of-deposition-holes-starts-at-onkalo",
+    "published_at": "2026-08-27T14:08:44.000Z",
+    "hash": "f20a2016deaf30ee",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "drilling_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "epc_award",
+    "region": "finland",
+    "country": "finland",
+    "tldr": "Active drilling of deposition holes has commenced at the Onkalo underground nuclear fuel repository in Finland, signalling a live construction/execution phase with immediate demand for drilling and underground construction personnel.",
+    "operator": {
+      "name": "Posiva",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Onkalo",
+    "scope": [
+      "deposition_hole_drilling",
+      "underground_repository_construction"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Underground Drilling Supervisor",
+        "Raise Bore Operator",
+        "Underground Construction Manager",
+        "Rock Mechanics Engineer",
+        "Shaft Drilling Engineer",
+        "HSE Advisor – Underground",
+        "Geotechnical Engineer",
+        "Nuclear Decommissioning & Repository Engineer"
+      ],
+      "skills": [
+        "deposition hole drilling",
+        "raise boring",
+        "underground rock excavation",
+        "nuclear waste repository",
+        "geotechnical monitoring",
+        "hard rock drilling",
+        "underground construction supervision"
+      ],
+      "certs_freetext": [
+        "STUK radiation safety qualification",
+        "Finnish working rights / EU RTW",
+        "Underground blasting licence",
+        "IAEA safety standards familiarity"
+      ],
+      "geo_rtw": "EU/EEA right-to-work, Finland preferred",
+      "project_experience": [
+        "WIPP (Waste Isolation Pilot Plant)",
+        "Forsmark SKB SFR",
+        "Cigéo (France)",
+        "Olkiluoto NPP"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"deposition hole\" OR \"underground repository\" OR \"raise boring\" OR \"nuclear waste repository\" OR \"spent fuel repository\" OR \"hard rock drilling\" OR \"underground excavation\") AND (\"drilling supervisor\" OR \"underground construction\" OR \"geotechnical\" OR \"rock mechanics\" OR \"shaft drilling\" OR \"repository engineer\") AND (Finland OR Onkalo OR Olkiluoto OR \"nuclear facility\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], drilling of deposition holes has just started at Onkalo — Finland's landmark deep geological nuclear repository. This live execution phase typically demands experienced underground drilling & geotechnical talent fast. Worth a quick call?",
+      "email_subject": "Onkalo Repository Now Drilling — Underground Specialist Roles Opening",
+      "email_body": "Hi [Name],\n\nActive deposition hole drilling has commenced at the Onkalo underground nuclear fuel repository near Olkiluoto, Finland — marking the start of the live execution phase for one of the world's most significant nuclear infrastructure projects.\n\nThis phase typically drives rapid demand for:\n• Underground Drilling Supervisors & Raise Bore Operators\n• Rock Mechanics / Geotechnical Engineers\n• HSE Advisors with underground nuclear experience\n• Construction Managers with deep geological repository exposure\n\nGiven your background in [relevant discipline], I'd welcome a brief conversation about how your experience aligns with emerging opportunities on this project.\n\nAre you open to a 15-minute call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named project (Onkalo) in nuclear sector has entered active drilling/construction execution, representing a discrete workforce-demand event with immediate hiring implications.",
+    "phase": "construction",
+    "phase_evidence": "Article states 'Workers have begun drilling the first deposition hole,' confirming active physical construction/execution has started.",
+    "construction_subphase": "peak",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "301c4485-9f72-4256-accb-49eebaee7631",
+    "ingested_at": "2026-08-27T15:44:11.125Z",
+    "source_published_at": "2026-08-27T14:08:44.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/video_spirit_removes_200t_of_offshore_kit_in_decom_campaign-27-aug-2026-184469-article/?rss=true"
@@ -12917,243 +13022,6 @@
     "contact_archetypes": [
       "project_manager",
       "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/bechtel_bags_epc_contract_for_sabine_pass_lng_expansion-29-may-2026-183808-article/?rss=true"
-      }
-    ],
-    "headline": "Bechtel Bags Lump-Sum Turnkey EPC Contract for Cheniere's Sabine Pass LNG Expansion",
-    "body": "Cheniere Energy Partners LP said Thursday it had executed a lump-sum turnkey engineering, procurement and construction (EPC) contract with Bechtel Energy Inc...",
-    "url": "https://www.rigzone.com/news/bechtel_bags_epc_contract_for_sabine_pass_lng_expansion-29-may-2026-183808-article/?rss=true",
-    "published_at": "2026-05-29T13:05:08.000Z",
-    "hash": "9abcd7b61629df4f",
-    "subsector": "onshore-og",
-    "discipline_tags": [
-      "energy_trades",
-      "industrial_construction",
-      "process_plant_operations",
-      "pipeline_mechanical",
-      "ndt_inspection"
-    ],
-    "signal_type": "epc_award",
-    "region": "us-gulf-coast",
-    "country": "united_states",
-    "tldr": "Cheniere Energy Partners has awarded Bechtel Energy a lump-sum turnkey EPC contract for the Sabine Pass LNG expansion, signalling a major construction workforce ramp-up. Recruiters should target LNG process, mechanical, and trades talent for near-term mobilization.",
-    "operator": {
-      "name": "Cheniere Energy Partners LP",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Bechtel Energy Inc.",
-      "matched_company_slug": null
-    },
-    "project_name": "Sabine Pass LNG Expansion",
-    "scope": [
-      "lump_sum_turnkey_epc",
-      "lng_liquefaction_train",
-      "process_plant_construction"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "LNG Construction Manager",
-        "EPC Project Manager",
-        "Process Engineer",
-        "Mechanical Superintendent",
-        "Piping Superintendent",
-        "Electrical Superintendent",
-        "I&C Superintendent",
-        "HSE Manager",
-        "QA/QC Manager",
-        "Commissioning Manager",
-        "Construction Planner",
-        "Cost Engineer",
-        "Welding Supervisor",
-        "NDT Inspector"
-      ],
-      "skills": [
-        "LNG liquefaction",
-        "EPC lump-sum turnkey",
-        "gas processing",
-        "cryogenic piping",
-        "HAZOP",
-        "mechanical completion",
-        "commissioning",
-        "project controls",
-        "cost engineering",
-        "schedule management"
-      ],
-      "certs_freetext": [
-        "TWIC",
-        "OSHA 30",
-        "API 570",
-        "API 510",
-        "CSWIP",
-        "AWS CWI",
-        "PMP",
-        "NEBOSH"
-      ],
-      "geo_rtw": "US work authorization required; TWIC card eligible",
-      "project_experience": [
-        "Sabine Pass LNG Train 1-6",
-        "Corpus Christi LNG",
-        "Cameron LNG",
-        "Freeport LNG",
-        "Calcasieu Pass LNG",
-        "Golden Pass LNG"
-      ],
-      "yoe_band": "10-20",
-      "seniority": "Senior / Superintendent / Manager",
-      "boolean_search": "(\"LNG\" OR \"liquefied natural gas\") AND (\"EPC\" OR \"construction manager\" OR \"commissioning manager\" OR \"superintendent\" OR \"project manager\") AND (\"Sabine Pass\" OR \"Corpus Christi\" OR \"Cameron LNG\" OR \"Freeport LNG\" OR \"Calcasieu Pass\") AND (\"Bechtel\" OR \"Cheniere\" OR \"CB&I\" OR \"McDermott\" OR \"KBR\" OR \"Fluor\") AND (\"cryogenic\" OR \"liquefaction\" OR \"gas processing\" OR \"LSTK\" OR \"lump sum turnkey\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Bechtel just landed the EPC contract for Cheniere's Sabine Pass LNG Expansion — a major workforce ramp is coming. Your LNG construction background looks like a strong fit. Worth a quick chat about opportunities on this project?",
-      "email_subject": "Bechtel | Sabine Pass LNG Expansion EPC — Senior Roles Mobilising Soon",
-      "email_body": "Hi [Name],\n\nCheniere Energy has just awarded Bechtel Energy the lump-sum turnkey EPC contract for the Sabine Pass LNG Expansion — one of the most significant LNG construction awards in the US Gulf Coast market right now.\n\nWith EPC contract execution confirmed, Bechtel will be ramping construction management, engineering, and trades supervision in the near term. Based on your experience in LNG EPC and liquefaction projects, I believe you could be well-positioned for key roles on this programme.\n\nI'd welcome a brief conversation to discuss how your background aligns with what Bechtel will need as mobilisation begins.\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Lump-sum turnkey EPC contract award naming Cheniere Energy Partners as operator and Bechtel Energy as EPC contractor for the Sabine Pass LNG Expansion — a clear workforce-demand signal.",
-    "phase": "sanctioned_engineering",
-    "phase_evidence": "EPC contract has just been executed (lump-sum turnkey), indicating FID has occurred and detailed engineering and construction mobilisation will follow.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "3-6mo",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "021e6014-031e-4e1d-82e1-46f05ac7e158",
-    "ingested_at": "2026-05-29T13:10:42.004Z",
-    "source_published_at": "2026-05-29T13:05:08.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "hiring_manager",
-      "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/construction-starts-for-shin-hanul-unit-4"
-      }
-    ],
-    "headline": "Construction Starts for Shin Hanul Unit 4 — First Concrete Poured for Reactor Building",
-    "body": "First concrete has been poured for the reactor building of South Korea's Shin Hanul nuclear power plant's unit 4, marking the official start of construction.",
-    "url": "https://www.world-nuclear-news.org//articles/construction-starts-for-shin-hanul-unit-4",
-    "published_at": "2026-05-29T11:11:17.000Z",
-    "hash": "b42405574f4ab411",
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades"
-    ],
-    "signal_type": "epc_award",
-    "region": "south-korea",
-    "country": "south_korea",
-    "tldr": "First concrete has been poured for the Shin Hanul Unit 4 reactor building in South Korea, marking official construction commencement and opening the prime window for trades, construction, and engineering labor demand.",
-    "operator": {
-      "name": "Korea Hydro & Nuclear Power (KHNP)",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Shin Hanul Unit 4",
-    "scope": [
-      "reactor_building_construction",
-      "civil_works",
-      "nuclear_new_build"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Nuclear Construction Manager",
-        "Civil Works Superintendent",
-        "Structural Engineer",
-        "HSE Lead",
-        "Quality Assurance Inspector",
-        "Concrete Works Supervisor",
-        "Nuclear Project Engineer",
-        "Construction Planner",
-        "Mechanical Supervisor",
-        "Commissioning Engineer"
-      ],
-      "skills": [
-        "nuclear new build",
-        "first concrete",
-        "reactor building construction",
-        "civil structural works",
-        "APR-1400",
-        "nuclear quality assurance",
-        "construction scheduling",
-        "ASME N-stamp",
-        "concrete placement"
-      ],
-      "certs_freetext": [
-        "Nuclear Quality Assurance (NQA-1)",
-        "ASME Section III",
-        "IAEA safety standards",
-        "PMP"
-      ],
-      "geo_rtw": "South Korea or international nuclear specialists eligible to work in South Korea",
-      "project_experience": [
-        "Shin Hanul Unit 1",
-        "Shin Hanul Unit 2",
-        "Shin Hanul Unit 3",
-        "Barakah Nuclear Power Plant",
-        "Hinkley Point C",
-        "APR-1400",
-        "Vogtle Units 3 & 4"
-      ],
-      "yoe_band": "10-20",
-      "seniority": "Senior / Lead",
-      "boolean_search": "(\"nuclear construction\" OR \"reactor building\" OR \"nuclear new build\" OR \"APR-1400\" OR \"nuclear civil works\") AND (\"construction manager\" OR \"site manager\" OR \"HSE lead\" OR \"QA inspector\" OR \"structural engineer\" OR \"commissioning engineer\" OR \"construction superintendent\") AND (\"nuclear power plant\" OR \"NPP\" OR \"KHNP\" OR \"Shin Hanul\" OR \"Barakah\" OR \"Hinkley Point C\" OR \"Vogtle\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], construction has officially started on Shin Hanul Unit 4 in South Korea — first concrete poured for the reactor building. We're sourcing nuclear construction specialists for this programme. Is your availability open for 2025/26?",
-      "email_subject": "Shin Hanul Unit 4 Construction Start — Nuclear Roles Now Active",
-      "email_body": "Hi [Name],\n\nFirst concrete has been poured for the Shin Hanul Unit 4 reactor building in South Korea, marking the official start of construction on this major nuclear new-build programme.\n\nWith civil and structural works now underway, we are actively sourcing experienced nuclear construction professionals — including Construction Managers, HSE Leads, QA Inspectors, Structural Engineers, and Commissioning Engineers — with APR-1400 or equivalent large-scale NPP experience.\n\nIf you have relevant nuclear new-build credentials and are open to exploring opportunities on this programme, I'd welcome a brief conversation.\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named nuclear project (Shin Hanul Unit 4) with confirmed construction commencement (first concrete poured), signalling active labor demand for nuclear construction trades and engineering disciplines.",
-    "phase": "construction",
-    "phase_evidence": "Article states 'First concrete has been poured for the reactor building... marking the official start of construction.'",
-    "construction_subphase": "rampup",
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "1-3mo",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "aedd3bab-8dd0-4110-8d23-517b0ca308fe",
-    "ingested_at": "2026-05-29T13:10:42.004Z",
-    "source_published_at": "2026-05-29T11:11:17.000Z",
-    "contact_archetypes": [
-      "site_manager",
-      "hiring_manager",
-      "project_manager"
     ],
     "prompt_version": "phase-targeting-v1.2"
   }

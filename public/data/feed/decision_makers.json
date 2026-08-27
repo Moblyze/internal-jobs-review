@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-08-27T09:10:35.226Z"
+    "last_updated_at": "2026-08-27T15:45:55.864Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -11066,6 +11066,66 @@
         "email": null,
         "phone": null,
         "location": "Denmark"
+      }
+    ]
+  },
+  "posiva": {
+    "discovered_at": "2026-08-27T15:45:55.864Z",
+    "contacts": [
+      {
+        "name": "Ilkka Poikolainen",
+        "title": "President and CEO",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/ilkka-poikolainen-3b3a2b58",
+        "source_url": "https://www.posiva.fi/en/index/news/pressreleasesstockexchangereleases/2023/ilkkapoikolainenappointedpresidentandceoofposiva.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Eurajoki, Finland"
+      },
+      {
+        "name": "Tiina Jalonen",
+        "title": "Senior Vice President, Development and Sustainability; Deputy CEO",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/tiina-jalonen-a54a1118",
+        "source_url": "https://www.oecd-events.org/international-conference-geological-repositories/speaker/246bd2d1-e70e-ef11-96f5-000d3a29980a/tiina-jalonen",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Eurajoki, Finland"
+      },
+      {
+        "name": "Kimmo Kemppainen",
+        "title": "Researcher / Expert (Posiva Oy)",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/kimmo-kemppainen-83282913",
+        "source_url": "https://www.linkedin.com/in/kimmo-kemppainen-83282913",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Finland"
+      },
+      {
+        "name": "Timo Äikäs",
+        "title": "Expert / Senior Specialist (Posiva Oy)",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/timo-%C3%A4ik%C3%A4s-61437b18",
+        "source_url": "https://www.linkedin.com/in/timo-%C3%A4ik%C3%A4s-61437b18",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Finland"
+      },
+      {
+        "name": "Jarno Säipä",
+        "title": "Project Manager",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://fi.linkedin.com/company/posiva-oy",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Eurajoki, Finland"
       }
     ]
   }
