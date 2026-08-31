@@ -2,6 +2,108 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/eni_takes_over_exploration_block_offshore_uruguay-31-aug-2026-184498-article/?rss=true"
+      }
+    ],
+    "headline": "Eni Enters OFF-5 Exploration License Offshore Uruguay via YPF/ANCAP Agreement",
+    "body": "Italy's Eni SpA has signed an agreement with a subsidiary of Argentina's YPF SA and Uruguay's ANCAP for Eni's entry into the OFF-5 exploration license.\n\r\n...",
+    "url": "https://www.rigzone.com/news/eni_takes_over_exploration_block_offshore_uruguay-31-aug-2026-184498-article/?rss=true",
+    "published_at": "2026-08-31T14:42:52.000Z",
+    "hash": "a6aae9ad91c63206",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "survey_geophysical",
+      "marine_offshore_ops"
+    ],
+    "signal_type": "lease_round",
+    "region": "uruguay-offshore",
+    "country": "uruguay",
+    "tldr": "Eni has taken a stake in the OFF-5 offshore Uruguay exploration license from YPF and ANCAP, signalling an upcoming exploration drilling campaign and associated workforce demand.",
+    "operator": {
+      "name": "Eni SpA",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Eni SpA",
+      "matched_company_slug": null
+    },
+    "project_name": "OFF-5 Exploration License",
+    "scope": [
+      "exploration_license",
+      "offshore_exploration"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Exploration Geologist",
+        "Geophysicist",
+        "Drilling Engineer",
+        "Well Site Geologist",
+        "Subsea Engineer",
+        "Offshore Drilling Superintendent",
+        "Exploration Manager"
+      ],
+      "skills": [
+        "offshore exploration",
+        "seismic interpretation",
+        "well planning",
+        "deepwater drilling",
+        "petroleum geology",
+        "South America basin experience"
+      ],
+      "certs_freetext": [
+        "BOSIET",
+        "HUET",
+        "IWCF",
+        "Well Control Certification"
+      ],
+      "geo_rtw": "Uruguay / South America; international mobility required",
+      "project_experience": [
+        "Offshore Uruguay",
+        "Offshore Argentina",
+        "South Atlantic exploration"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "senior-to-principal",
+      "boolean_search": "(\"exploration geologist\" OR \"geophysicist\" OR \"drilling engineer\" OR \"well site geologist\" OR \"drilling superintendent\") AND (\"offshore exploration\" OR \"deepwater\" OR \"wildcat\") AND (\"South America\" OR \"Uruguay\" OR \"Argentina\" OR \"South Atlantic\") AND (\"Eni\" OR \"YPF\" OR \"ANCAP\" OR \"exploration license\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Eni has just entered the OFF-5 offshore Uruguay exploration block. With your deepwater exploration background, you could be a strong fit for upcoming roles on this campaign. Open to a quick chat?",
+      "email_subject": "Eni OFF-5 Uruguay Exploration Block — Senior Roles Opening Up",
+      "email_body": "Hi [Name],\n\nEni SpA has just secured entry into the OFF-5 offshore Uruguay exploration license in partnership with YPF and ANCAP. With exploration activity expected to ramp up, we anticipate demand for experienced offshore exploration professionals — geologists, geophysicists, drilling engineers, and well site roles.\n\nGiven your background in [offshore exploration / deepwater drilling / South American basins], I wanted to reach out early before these roles go live.\n\nWould you be open to a brief call this week to discuss how your experience aligns?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Exploration license assignment to a named operator (Eni) in a specific offshore block (OFF-5, Uruguay), qualifying as a discrete labor-demand event in offshore O&G.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Eni has 'signed an agreement' for entry into an exploration license — no FID or drilling contract yet awarded; this is pre-exploration/pre-sanction.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "3c5830cf-01be-47ea-833a-fa3359b1b880",
+    "ingested_at": "2026-08-31T18:14:05.585Z",
+    "source_published_at": "2026-08-31T14:42:52.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org/articles/drilling-of-deposition-holes-starts-at-onkalo"
@@ -12477,106 +12579,6 @@
       "business_unit_director",
       "hr_business_partner"
     ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/fuel-transfer-work-begins-at-fukushima-daiichi-unit-2"
-      }
-    ],
-    "headline": "TEPCO Begins Fuel Assembly Removal from Fukushima Daiichi Unit 2 Used Fuel Pool",
-    "body": "Tokyo Electric Power Company has announced the start of the removal of fuel assemblies from the used fuel storage pool of unit 2 at the damaged Fukushima Daiichi nuclear power plant in Japan.",
-    "url": "https://www.world-nuclear-news.org//articles/fuel-transfer-work-begins-at-fukushima-daiichi-unit-2",
-    "published_at": "2026-06-02T11:44:23.000Z",
-    "hash": "bbd9308d9d33c994",
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "process_plant_operations",
-      "industrial_construction"
-    ],
-    "signal_type": "decom",
-    "region": "japan",
-    "country": "japan",
-    "tldr": "Tokyo Electric Power Company has commenced fuel assembly retrieval from Fukushima Daiichi Unit 2's used fuel storage pool, signalling active decommissioning execution and ongoing demand for nuclear decom specialists.",
-    "operator": {
-      "name": "Tokyo Electric Power Company (TEPCO)",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Tokyo Electric Power Company (TEPCO)",
-      "matched_company_slug": null
-    },
-    "project_name": "Fukushima Daiichi Unit 2 Decommissioning",
-    "scope": [
-      "fuel_removal",
-      "used_fuel_pool_decom",
-      "nuclear_decommissioning"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Nuclear Decommissioning Engineer",
-        "Fuel Handling Specialist",
-        "Radiation Protection Technician",
-        "Health Physics Supervisor",
-        "Nuclear Operations Supervisor",
-        "Spent Fuel Pool Operations Specialist",
-        "Decommissioning Project Manager"
-      ],
-      "skills": [
-        "fuel assembly handling",
-        "spent fuel pool operations",
-        "radiation protection",
-        "nuclear decommissioning",
-        "ALARA implementation",
-        "nuclear criticality safety",
-        "remote handling equipment"
-      ],
-      "certs_freetext": [
-        "Radiation Protection Supervisor (RPS)",
-        "Nuclear Safety certification",
-        "IAEA decommissioning training"
-      ],
-      "geo_rtw": "Japan (local nationals or Japan work-authorised; note GEO HINT does not restrict Japan)",
-      "project_experience": [
-        "Three Mile Island decommissioning",
-        "Sellafield fuel retrieval",
-        "Chernobyl New Safe Confinement",
-        "Bruce Power refurbishment"
-      ],
-      "yoe_band": "10-20",
-      "seniority": "Senior / Lead",
-      "boolean_search": "(\"nuclear decommissioning\" OR \"spent fuel\" OR \"used fuel pool\" OR \"fuel assembly\") AND (\"radiation protection\" OR \"health physics\" OR \"ALARA\") AND (\"decommissioning engineer\" OR \"fuel handling\" OR \"nuclear operations\") AND (\"Fukushima\" OR \"TEPCO\" OR \"BWR\" OR \"boiling water reactor\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], TEPCO has begun fuel assembly removal at Fukushima Daiichi Unit 2 — active decom execution phase. Sourcing nuclear decom & fuel handling specialists. Would you be open to a brief conversation?",
-      "email_subject": "Fukushima Daiichi Unit 2 – Nuclear Decom Roles Now Active",
-      "email_body": "Hi [Name],\n\nTEPCO has announced the start of fuel assembly removal from the used fuel storage pool at Fukushima Daiichi Unit 2, marking active decommissioning execution at one of the world's most significant nuclear decom programmes.\n\nWe are supporting the placement of experienced nuclear decommissioning professionals — including fuel handling specialists, radiation protection supervisors, and decom project managers — for this and related programmes.\n\nGiven your background in [relevant experience], I'd welcome a short call to explore whether there could be a fit.\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named operator TEPCO has commenced active fuel assembly removal at a specific named project (Fukushima Daiichi Unit 2), constituting active decommissioning execution with clear workforce demand.",
-    "phase": null,
-    "phase_evidence": null,
-    "construction_subphase": null,
-    "lifecycle_track": "decommissioning",
-    "decom_stage": "active_execution",
-    "outreach_readiness": "live_now",
-    "estimated_hiring_window": "now",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "97a70b5f-3e44-4f45-8612-736079647398",
-    "ingested_at": "2026-06-02T13:21:42.281Z",
-    "source_published_at": "2026-06-02T11:44:23.000Z",
-    "contact_archetypes": [],
     "prompt_version": "phase-targeting-v1.2"
   }
 ]

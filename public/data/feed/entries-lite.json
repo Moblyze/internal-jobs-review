@@ -1,5 +1,48 @@
 [
   {
+    "id": "3c5830cf-01be-47ea-833a-fa3359b1b880",
+    "ingested_at": "2026-08-31T18:14:05.585Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/eni_takes_over_exploration_block_offshore_uruguay-31-aug-2026-184498-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "survey_geophysical",
+      "marine_offshore_ops"
+    ],
+    "signal_type": "lease_round",
+    "region": "uruguay-offshore",
+    "country": "uruguay",
+    "headline": "Eni Enters OFF-5 Exploration License Offshore Uruguay via YPF/ANCAP Agreement",
+    "operator": {
+      "name": "Eni SpA",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Eni SpA",
+      "matched_company_slug": null
+    },
+    "project_name": "OFF-5 Exploration License",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "301c4485-9f72-4256-accb-49eebaee7631",
     "ingested_at": "2026-08-27T15:44:11.125Z",
     "sources": [
@@ -4939,48 +4982,6 @@
     "decom_stage": null,
     "outreach_readiness": "warming",
     "estimated_hiring_window": "6-12mo",
-    "key_people": []
-  },
-  {
-    "id": "97a70b5f-3e44-4f45-8612-736079647398",
-    "ingested_at": "2026-06-02T13:21:42.281Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/fuel-transfer-work-begins-at-fukushima-daiichi-unit-2"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "process_plant_operations",
-      "industrial_construction"
-    ],
-    "signal_type": "decom",
-    "region": "japan",
-    "country": "japan",
-    "headline": "TEPCO Begins Fuel Assembly Removal from Fukushima Daiichi Unit 2 Used Fuel Pool",
-    "operator": {
-      "name": "Tokyo Electric Power Company (TEPCO)",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Tokyo Electric Power Company (TEPCO)",
-      "matched_company_slug": null
-    },
-    "project_name": "Fukushima Daiichi Unit 2 Decommissioning",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": null,
-    "construction_subphase": null,
-    "lifecycle_track": "decommissioning",
-    "decom_stage": "active_execution",
-    "outreach_readiness": "live_now",
-    "estimated_hiring_window": "now",
     "key_people": []
   }
 ]
