@@ -1,5 +1,47 @@
 [
   {
+    "id": "1457961e-2e84-4521-8341-c28c940584a0",
+    "ingested_at": "2026-09-01T12:17:05.648Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/fuel-loading-under-way-for-palisades-restart-holtec-announces"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-midwest",
+    "country": "united_states",
+    "headline": "Holtec Begins Fuel Loading at Palisades Nuclear Plant — First US Reactor Restart",
+    "operator": {
+      "name": "Holtec International",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Holtec International",
+      "matched_company_slug": null
+    },
+    "project_name": "Palisades Nuclear Power Plant Restart",
+    "mob_window": {
+      "start": "2025-Q2",
+      "end": "2025-Q3",
+      "duration_months": 3
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "commissioning",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": []
+  },
+  {
     "id": "66b8bc1a-bea9-49d3-abe7-f4143cc3ba26",
     "ingested_at": "2026-09-01T00:36:10.367Z",
     "sources": [
