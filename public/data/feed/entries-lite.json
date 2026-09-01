@@ -1,5 +1,88 @@
 [
   {
+    "id": "66b8bc1a-bea9-49d3-abe7-f4143cc3ba26",
+    "ingested_at": "2026-09-01T00:36:10.367Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/court-ruling-backs-perpetuas-1-3b-stibnite-build/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-pacific-northwest",
+    "country": "united_states",
+    "headline": "Court Ruling Backs Perpetua Resources' $1.3B Stibnite Gold-Antimony Mine Build",
+    "operator": {
+      "name": "Perpetua Resources",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Perpetua Resources",
+      "matched_company_slug": null
+    },
+    "project_name": "Stibnite Gold Project",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 1300000000,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
+    "id": "e8dc04a0-412e-4aeb-b9e2-38925a7f899f",
+    "ingested_at": "2026-09-01T00:36:10.367Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/talamore-gets-key-road-permit-for-coffee-gold-project/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction"
+    ],
+    "signal_type": "regulatory",
+    "region": "yukon-canada",
+    "country": "canada",
+    "headline": "Talamore Wins Road Permit for Coffee Gold Project in Yukon — Construction Decision Expected Early Next Year",
+    "operator": {
+      "name": "Talamore",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Talamore",
+      "matched_company_slug": null
+    },
+    "project_name": "Coffee Gold Project",
+    "mob_window": {
+      "start": "2026-Q1",
+      "end": "2026-Q3",
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
     "id": "3c5830cf-01be-47ea-833a-fa3359b1b880",
     "ingested_at": "2026-08-31T18:14:05.585Z",
     "sources": [
@@ -4939,49 +5022,6 @@
     "decom_stage": null,
     "outreach_readiness": "warming",
     "estimated_hiring_window": "3-6mo",
-    "key_people": []
-  },
-  {
-    "id": "b4d3d026-b2d4-4aa9-a123-3ee1fdcc8ab5",
-    "ingested_at": "2026-06-02T19:18:55.824Z",
-    "sources": [
-      {
-        "id": "pr_newswire_energy",
-        "name": "PR Newswire (Energy)",
-        "url": "https://www.prnewswire.com/news-releases/day--zimmermann-deep-fission-partner-to-build-underground-small-modular-reactor-302788879.html"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades",
-      "process_plant_operations"
-    ],
-    "signal_type": "epc_award",
-    "region": "us",
-    "country": "united_states",
-    "headline": "Day & Zimmermann & Deep Fission Partner to Construct Underground Small Modular Reactor",
-    "operator": {
-      "name": "Deep Fission, Inc.",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Day & Zimmermann",
-      "matched_company_slug": null
-    },
-    "project_name": "Deep Fission Gravity Nuclear Reactor",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "sanctioned_engineering",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
     "key_people": []
   }
 ]

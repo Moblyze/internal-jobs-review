@@ -2,6 +2,217 @@
   {
     "sources": [
       {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/court-ruling-backs-perpetuas-1-3b-stibnite-build/"
+      }
+    ],
+    "headline": "Court Ruling Backs Perpetua Resources' $1.3B Stibnite Gold-Antimony Mine Build",
+    "body": "US federal court upheld key approvals against an environmental challenge.",
+    "url": "https://www.mining.com/court-ruling-backs-perpetuas-1-3b-stibnite-build/",
+    "published_at": "2026-08-31T23:31:00.000Z",
+    "hash": "dcbc611928b91973",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-pacific-northwest",
+    "country": "united_states",
+    "tldr": "A US federal court upheld key environmental approvals for Perpetua Resources' $1.3B Stibnite mine project in Idaho, clearing a major regulatory hurdle and advancing the project toward construction-phase hiring.",
+    "operator": {
+      "name": "Perpetua Resources",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Perpetua Resources",
+      "matched_company_slug": null
+    },
+    "project_name": "Stibnite Gold Project",
+    "scope": [
+      "mine_construction",
+      "site_development",
+      "civil_works"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 1300000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mine Construction Manager",
+        "Project Manager – Mining",
+        "HSE Manager",
+        "Civil Construction Superintendent",
+        "Mine Development Engineer",
+        "Environmental Compliance Manager",
+        "Earthworks Superintendent",
+        "Planning & Scheduling Engineer"
+      ],
+      "skills": [
+        "open-pit mining",
+        "mine construction",
+        "civil earthworks",
+        "environmental permitting",
+        "project controls",
+        "HSE management",
+        "construction planning"
+      ],
+      "certs_freetext": [
+        "MSHA Part 48",
+        "PMP",
+        "NEBOSH",
+        "First Aid/CPR"
+      ],
+      "geo_rtw": "US work authorization required; Idaho-based or willing to relocate",
+      "project_experience": [
+        "Donlin Gold",
+        "Pebble Project",
+        "Resolution Copper",
+        "Twin Metals Minnesota",
+        "Thacker Pass Lithium"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"Mine Construction Manager\" OR \"Mining Project Manager\" OR \"Civil Superintendent\" OR \"HSE Manager\" OR \"Mine Development Engineer\" OR \"Environmental Compliance Manager\") AND (\"open pit\" OR \"hard rock\" OR \"mine construction\" OR \"greenfield mine\") AND (\"Idaho\" OR \"Pacific Northwest\" OR \"western US\") AND (\"MSHA\" OR \"mine permitting\" OR \"earthworks\" OR \"civil construction\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Perpetua Resources just had key federal approvals upheld for their $1.3B Stibnite mine in Idaho. Construction ramp-up roles are coming. Your mine construction background looks highly relevant — open to a conversation?",
+      "email_subject": "Stibnite Mine ($1.3B) – Construction Roles Opening | Idaho",
+      "email_body": "Hi [Name],\n\nA US federal court just upheld environmental approvals for Perpetua Resources' $1.3B Stibnite Gold Project in Idaho, clearing a major hurdle toward construction mobilization.\n\nWith your background in [mine construction / civil works / HSE], you could be a strong fit for the senior roles that will be needed as the project advances toward breaking ground.\n\nI'd love to connect you with this opportunity early. Are you open to a quick call this week?\n\nBest,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Court ruling upholds key regulatory approvals for the named $1.3B Stibnite mining project operated by Perpetua Resources, representing a permit-grant event that directly advances the project toward construction-phase workforce demand.",
+    "phase": "pre_sanction",
+    "phase_evidence": "The article notes a court ruling upholding approvals against an environmental challenge, indicating the project is clearing pre-FID regulatory hurdles but has not yet announced FID or EPC award.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "66b8bc1a-bea9-49d3-abe7-f4143cc3ba26",
+    "ingested_at": "2026-09-01T00:36:10.367Z",
+    "source_published_at": "2026-08-31T23:31:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/talamore-gets-key-road-permit-for-coffee-gold-project/"
+      }
+    ],
+    "headline": "Talamore Wins Road Permit for Coffee Gold Project in Yukon — Construction Decision Expected Early Next Year",
+    "body": "Approval of the 214-km all-season road clears a key hurdle for a construction decision early next year.",
+    "url": "https://www.mining.com/talamore-gets-key-road-permit-for-coffee-gold-project/",
+    "published_at": "2026-08-31T15:34:09.000Z",
+    "hash": "fdbae10568fbc987",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction"
+    ],
+    "signal_type": "regulatory",
+    "region": "yukon-canada",
+    "country": "canada",
+    "tldr": "Talamore has received approval for a 214-km all-season road at its Coffee gold project in Yukon Territory, clearing a key pre-construction hurdle ahead of an expected construction decision early next year. Labor demand ramp-up is 6-12 months out.",
+    "operator": {
+      "name": "Talamore",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Talamore",
+      "matched_company_slug": null
+    },
+    "project_name": "Coffee Gold Project",
+    "scope": [
+      "road_construction",
+      "site_access_infrastructure",
+      "mine_development"
+    ],
+    "mob_window": {
+      "start": "2026-Q1",
+      "end": "2026-Q3",
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Construction Manager",
+        "Project Manager – Mining",
+        "Civil Construction Superintendent",
+        "Road Construction Supervisor",
+        "HSE Manager",
+        "Mine Development Manager",
+        "Site Manager",
+        "Project Controls Manager",
+        "Environmental Permitting Specialist"
+      ],
+      "skills": [
+        "mine site construction",
+        "remote site management",
+        "all-season road construction",
+        "project controls",
+        "environmental compliance",
+        "construction planning",
+        "stakeholder engagement"
+      ],
+      "certs_freetext": [
+        "NCSO (National Construction Safety Officer)",
+        "PMP",
+        "P.Eng"
+      ],
+      "geo_rtw": "Canada – eligible to work in Yukon Territory",
+      "project_experience": [
+        "Klondike Gold",
+        "Casino Mine",
+        "Eagle Gold Mine",
+        "Newmont Éléonore",
+        "Victoria Gold Eagle"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal",
+      "boolean_search": "(\"Construction Manager\" OR \"Site Manager\" OR \"Project Manager\" OR \"Mine Development Manager\" OR \"Civil Superintendent\") AND (\"mining\" OR \"mine construction\" OR \"open pit\" OR \"gold project\") AND (\"remote site\" OR \"Yukon\" OR \"northern Canada\" OR \"all-season road\") AND (\"pre-construction\" OR \"FID\" OR \"greenfield\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Talamore just secured the road permit for the Coffee Gold Project in Yukon, with a construction decision expected early next year. As hiring ramps up, I'd love to connect about senior site roles. Open to a brief chat?",
+      "email_subject": "Coffee Gold Project – Senior Construction Roles Coming Online (Yukon)",
+      "email_body": "Hi [Name],\n\nTalamore has just received regulatory approval for the 214-km all-season road at the Coffee Gold Project in Yukon Territory, clearing the final major hurdle before a construction decision expected in early 2026.\n\nAs the project moves toward sanction, demand for experienced mining construction professionals — Construction Managers, Civil Superintendents, HSE Leads, and Project Controls specialists — is expected to ramp quickly.\n\nGiven your background in [relevant experience], I wanted to reach out early. Would you be open to a 15-minute call to discuss how your profile aligns with what's coming?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Regulatory permit approval for a named project (Coffee Gold Project) operated by a named entity (Talamore) directly enables a construction decision, signalling imminent workforce demand in mining.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states the road permit 'clears a key hurdle for a construction decision early next year,' confirming the project is pre-FID.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "e8dc04a0-412e-4aeb-b9e2-38925a7f899f",
+    "ingested_at": "2026-09-01T00:36:10.367Z",
+    "source_published_at": "2026-08-31T15:34:09.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/eni_takes_over_exploration_block_offshore_uruguay-31-aug-2026-184498-article/?rss=true"
@@ -12466,118 +12677,6 @@
       "site_manager",
       "hiring_manager",
       "project_manager"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "pr_newswire_energy",
-        "name": "PR Newswire (Energy)",
-        "url": "https://www.prnewswire.com/news-releases/day--zimmermann-deep-fission-partner-to-build-underground-small-modular-reactor-302788879.html"
-      }
-    ],
-    "headline": "Day & Zimmermann & Deep Fission Partner to Construct Underground Small Modular Reactor",
-    "body": "PHILADELPHIA, June 2, 2026 /PRNewswire/ -- Day & Zimmermann (D&Z) and Deep Fission, Inc. (Deep Fission) announced today their partnership in the construction of Deep Fission's Gravity Nuclear Reactor, the company's proprietary underground nuclear reactor. Deep Fission is an advanced...",
-    "url": "https://www.prnewswire.com/news-releases/day--zimmermann-deep-fission-partner-to-build-underground-small-modular-reactor-302788879.html",
-    "published_at": "2026-06-02T15:48:00.000Z",
-    "hash": "de38bbc284a98aa8",
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades",
-      "process_plant_operations"
-    ],
-    "signal_type": "epc_award",
-    "region": "us",
-    "country": "united_states",
-    "tldr": "Day & Zimmermann has been named construction partner for Deep Fission's proprietary underground Gravity Nuclear Reactor SMR. This partnership signals an imminent engineering and construction ramp-up with labor demand for nuclear-qualified trades and construction management.",
-    "operator": {
-      "name": "Deep Fission, Inc.",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Day & Zimmermann",
-      "matched_company_slug": null
-    },
-    "project_name": "Deep Fission Gravity Nuclear Reactor",
-    "scope": [
-      "underground_reactor_construction",
-      "smr_build",
-      "nuclear_civil_works"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Nuclear Construction Manager",
-        "Site Manager",
-        "Nuclear Project Engineer",
-        "HSE Manager",
-        "Civil Works Supervisor",
-        "Mechanical Superintendent",
-        "Nuclear Quality Assurance Manager",
-        "Electrical Superintendent",
-        "I&C Technician",
-        "Commissioning Engineer"
-      ],
-      "skills": [
-        "SMR construction",
-        "underground nuclear facility",
-        "nuclear QA/QC",
-        "nuclear civil works",
-        "ASME nuclear codes",
-        "construction management",
-        "nuclear commissioning",
-        "radiation protection"
-      ],
-      "certs_freetext": [
-        "NRC Qualified",
-        "ASME NQA-1",
-        "40-Hour OSHA",
-        "NUPIC qualified supplier"
-      ],
-      "geo_rtw": "US work authorization required",
-      "project_experience": [
-        "Vogtle Units 3&4",
-        "NuScale UAMPS",
-        "TerraPower Natrium",
-        "Kairos Power Hermes",
-        "X-energy Xe-100"
-      ],
-      "yoe_band": "10-20",
-      "seniority": "senior",
-      "boolean_search": "(\"nuclear construction\" OR \"SMR\" OR \"small modular reactor\" OR \"nuclear project manager\" OR \"nuclear site manager\") AND (\"Day Zimmermann\" OR \"nuclear EPC\" OR \"nuclear civil\" OR \"underground reactor\" OR \"NQA-1\" OR \"ASME nuclear\") AND (\"construction manager\" OR \"site superintendent\" OR \"commissioning engineer\" OR \"nuclear QA\" OR \"mechanical superintendent\" OR \"I&C technician\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Day & Zimmermann just announced they're building Deep Fission's underground SMR — a rare nuclear greenfield in the US. With your nuclear construction background, this could be a strong fit. Worth a quick call?",
-      "email_subject": "Nuclear Construction Opportunity — Day & Zimmermann / Deep Fission SMR Build",
-      "email_body": "Hi [Name],\n\nDay & Zimmermann has just been named construction partner for Deep Fission's Gravity Nuclear Reactor — an underground SMR and one of the most novel nuclear greenfield projects in the US market right now.\n\nGiven your experience in nuclear construction and project delivery, I wanted to reach out directly. D&Z will be ramping engineering and construction resources as this project progresses, and roles across construction management, nuclear QA, civil/mechanical supervision, and commissioning are likely to come to market.\n\nWould you be open to a brief conversation about how your background aligns with what's coming?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named EPC/construction partnership between Day & Zimmermann and Deep Fission for a specific named nuclear SMR project, signalling a construction workforce ramp-up.",
-    "phase": "sanctioned_engineering",
-    "phase_evidence": "The article announces the partnership 'in the construction of Deep Fission's Gravity Nuclear Reactor', indicating a contract award and transition into engineering/pre-construction phase.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "b4d3d026-b2d4-4aa9-a123-3ee1fdcc8ab5",
-    "ingested_at": "2026-06-02T19:18:55.824Z",
-    "source_published_at": "2026-06-02T15:48:00.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "hiring_manager",
-      "business_unit_director",
-      "hr_business_partner"
     ],
     "prompt_version": "phase-targeting-v1.2"
   }

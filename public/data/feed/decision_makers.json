@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-08-27T15:45:55.864Z"
+    "last_updated_at": "2026-09-01T00:37:59.168Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -11126,6 +11126,66 @@
         "email": null,
         "phone": null,
         "location": "Eurajoki, Finland"
+      }
+    ]
+  },
+  "talamore": {
+    "discovered_at": "2026-09-01T00:37:59.168Z",
+    "contacts": [
+      {
+        "name": "Denis Flood",
+        "title": "Chief Operating Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/denisflood",
+        "source_url": "https://talamoremining.com/corporate/corporate-directory/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Canada"
+      },
+      {
+        "name": "Nelson Bodnarchuk",
+        "title": "VP People",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://www.zoominfo.com/p/Nelson-Bodnarchuk/13465171386",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Sébastien Tolgyesi",
+        "title": "VP Operations",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/s%C3%A9bastien-tolgyesi-75a88570",
+        "source_url": "https://talamoremining.com/corporate/management-directors/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Whitehorse, Canada"
+      },
+      {
+        "name": "Jasmin Dobson",
+        "title": "VP Permitting & Environment",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/jasmin-dobson-pag",
+        "source_url": "https://talamoremining.com/corporate/management-directors/jasmin-dobson/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Canada"
+      },
+      {
+        "name": "Jennie Gjertsen",
+        "title": "Vice-President, Sustainability and External Relations",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/jennie-gjertsen-38173547",
+        "source_url": "https://talamoremining.com/corporate/management-directors/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Whitehorse, Canada"
       }
     ]
   }
