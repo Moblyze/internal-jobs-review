@@ -2,6 +2,107 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/blykalla-seeks-state-aid-for-second-smr-plant"
+      }
+    ],
+    "headline": "Blykalla Applies for State Aid & Gov Approval for SMR Plant at Untra, Tierp",
+    "body": "Sweden's Blykalla has applied for state support for its proposed small modular reactor power plant at Untra in the Tierp municipality, for which the company applied for governmental approval last week.",
+    "url": "https://www.world-nuclear-news.org/articles/blykalla-seeks-state-aid-for-second-smr-plant",
+    "published_at": "2026-09-02T11:36:15.000Z",
+    "hash": "a0c3dae5dcc1d62b",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "sweden",
+    "country": "sweden",
+    "tldr": "Blykalla has filed for both governmental approval and state financial support for its SMR project at Untra, Sweden — a pre-sanction signal that construction workforce demand remains 12+ months away pending funding and regulatory green-lights.",
+    "operator": {
+      "name": "Blykalla",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Blykalla",
+      "matched_company_slug": null
+    },
+    "project_name": "Untra SMR Plant",
+    "scope": [
+      "smr_development",
+      "nuclear_newbuild",
+      "site_permitting"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Project Manager",
+        "SMR Development Manager",
+        "Nuclear Licensing Engineer",
+        "Nuclear Safety Engineer",
+        "FEED Manager",
+        "Nuclear Regulatory Affairs Manager"
+      ],
+      "skills": [
+        "small modular reactor",
+        "nuclear licensing",
+        "FEED",
+        "nuclear safety case",
+        "regulatory submissions",
+        "project development"
+      ],
+      "certs_freetext": [
+        "Nuclear Safety Qualification",
+        "EUR-ING (nuclear)",
+        "Swedish Radiation Safety Authority (SSM) familiarity"
+      ],
+      "geo_rtw": "Sweden / EU right-to-work",
+      "project_experience": [
+        "NuScale VOYGR",
+        "Rolls-Royce SMR",
+        "Hinkley Point C",
+        "Forsmark nuclear station"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal",
+      "boolean_search": "(\"small modular reactor\" OR SMR OR \"nuclear new build\" OR \"nuclear development\") AND (\"project manager\" OR \"licensing engineer\" OR \"nuclear safety\" OR \"regulatory affairs\" OR \"FEED manager\") AND (Sweden OR Scandinavia OR Nordic)"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Blykalla has just filed for state support and governmental approval for its Untra SMR plant in Sweden — a project that will need experienced nuclear development and licensing professionals. Would love to connect on how we're supporting that build-out.",
+      "email_subject": "Blykalla Untra SMR — Nuclear Development & Licensing Talent",
+      "email_body": "Hi [Name],\n\nBlykalla has formally applied for both Swedish governmental approval and state financial support for its small modular reactor plant at Untra, Tierp municipality. As the project moves through licensing and FEED, they will need specialist nuclear development, safety, and regulatory talent.\n\nWe work exclusively in energy and have placed SMR and nuclear newbuild professionals across Europe. I'd welcome a brief call to discuss how we can support Blykalla's team-building needs as the project progresses.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Blykalla) has filed for governmental approval and state aid for a specific named nuclear project (Untra SMR), constituting a regulatory/permit signal with emerging workforce demand.",
+    "phase": "pre_sanction",
+    "phase_evidence": "The article states Blykalla 'applied for governmental approval last week' and is seeking state financial support — both pre-FID, pre-sanction activities.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "96136dee-4830-43dd-b747-c4ba8f9fdd14",
+    "ingested_at": "2026-09-02T12:17:28.949Z",
+    "source_published_at": "2026-09-02T11:36:15.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/oci-energy-arava-power-and-project-partners-break-ground-on-347-mwdc-sunroper-solar-project-supporting-growing-energy-demand-near-houston-302866858.html"
