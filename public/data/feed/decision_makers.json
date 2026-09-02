@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-09-02T00:32:36.154Z"
+    "last_updated_at": "2026-09-02T18:16:11.963Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -11246,6 +11246,126 @@
         "email": "edan@aravapower.com",
         "phone": "+972-53-255-4667",
         "location": "Herzliya, Israel"
+      }
+    ]
+  },
+  "comstock resources": {
+    "discovered_at": "2026-09-02T18:16:11.963Z",
+    "contacts": [
+      {
+        "name": "Daniel S. Harrison",
+        "title": "Chief Operating Officer",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://investors.comstockresources.com/management/daniel-harrison",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Frisco, TX, USA"
+      },
+      {
+        "name": "Patrick H. McGough",
+        "title": "Vice President of Operations",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://investors.comstockresources.com/management/patrick-mcgough",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Frisco, TX, USA"
+      },
+      {
+        "name": "M. Jay Allison",
+        "title": "Chairman & Chief Executive Officer",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://investors.comstockresources.com/corporate-governance/board-of-directors",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Frisco, TX, USA"
+      },
+      {
+        "name": "Roland O. Burns",
+        "title": "President, Chief Financial Officer & Secretary",
+        "persona": "other",
+        "linkedin_url": null,
+        "source_url": "https://comstockresources.gcs-web.com/corporate-governance/management",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Frisco, TX, USA"
+      },
+      {
+        "name": "Clifford D. (Trey) Newell",
+        "title": "Vice President of Corporate Development & Chief Commercial Officer",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://comstockresources.gcs-web.com/corporate-governance/management",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Frisco, TX, USA"
+      }
+    ]
+  },
+  "bp exploration and production": {
+    "discovered_at": "2026-09-02T18:16:11.963Z",
+    "contacts": [
+      {
+        "name": "Sonya Adams",
+        "title": "Executive Vice President, People & Culture",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/sonyaadams",
+        "source_url": "https://www.bp.com/press-and-publications/press-releases/bp-announces-leadership-appointments",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "London, UK"
+      },
+      {
+        "name": "Kerry Dryburgh",
+        "title": "Executive Vice President, People, Culture & Communications (departing Q3 2026)",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/kerry-dryburgh-058966",
+        "source_url": "https://www.bp.com/about-us/our-organization/global-leadership-team/kerry-dryburgh",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "London, UK"
+      },
+      {
+        "name": "Gordon Birrell",
+        "title": "Executive Vice President, Upstream (formerly EVP Production & Operations)",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/gordon-birrell-b807a931",
+        "source_url": "https://www.bp.com/about-us/our-organization/global-leadership-team/gordon-birrell",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "London, UK"
+      },
+      {
+        "name": "Richard Saenz",
+        "title": "Vice President, HR – Developments and Technology",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://www.comparably.com/companies/bp/executive-team",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Holly Beer",
+        "title": "HR Director, Global Operations",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/holly-beer-aba9009",
+        "source_url": "https://www.comparably.com/companies/bp/human-resources",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
       }
     ]
   }

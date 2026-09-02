@@ -2,6 +2,225 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/socar_to_invest_in_haynesville_with_nearly_17b_comstock_partnership-02-sep-2026-184523-article/?rss=true"
+      }
+    ],
+    "headline": "SOCAR to Acquire Stake in Comstock-Operated Haynesville Gas Assets in ~$1.7B Deal",
+    "body": "The State Oil Company of the Republic of Azerbaijan (SOCAR) has signed a preliminary deal to acquire a stake in Haynesville gas assets operated by Comstock R...",
+    "url": "https://www.rigzone.com/news/socar_to_invest_in_haynesville_with_nearly_17b_comstock_partnership-02-sep-2026-184523-article/?rss=true",
+    "published_at": "2026-09-02T15:42:53.000Z",
+    "hash": "8b7647d4f2fa1e33",
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "pipeline_mechanical",
+      "process_plant_operations"
+    ],
+    "signal_type": "lease_round",
+    "region": "us-haynesville",
+    "country": "united_states",
+    "tldr": "SOCAR has signed a preliminary deal to take a stake in Comstock Resources' Haynesville shale gas operations for ~$1.7B, signaling a significant capital injection into onshore US gas development that will drive near-term drilling and field operations hiring.",
+    "operator": {
+      "name": "Comstock Resources",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Comstock Resources",
+      "matched_company_slug": null
+    },
+    "project_name": "Haynesville Shale Gas Assets",
+    "scope": [
+      "asset_acquisition",
+      "gas_development",
+      "drilling_program"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 1700000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Drilling Engineer",
+        "Completions Engineer",
+        "Production Engineer",
+        "Wellsite Supervisor",
+        "Drilling Superintendent",
+        "Field Operations Manager",
+        "Gas Plant Operator",
+        "HSE Manager",
+        "Reservoir Engineer",
+        "Land and Contracts Advisor"
+      ],
+      "skills": [
+        "Haynesville shale",
+        "unconventional gas development",
+        "horizontal drilling",
+        "hydraulic fracturing",
+        "gas compression",
+        "wellsite supervision",
+        "completion design",
+        "production optimization"
+      ],
+      "certs_freetext": [
+        "IADC WellSharp",
+        "BOSIET",
+        "H2S Alive",
+        "First Aid/CPR"
+      ],
+      "geo_rtw": "US work authorization required; Louisiana/East Texas based",
+      "project_experience": [
+        "Haynesville Shale",
+        "Marcellus Shale",
+        "Eagle Ford Shale",
+        "Barnett Shale",
+        "Cotton Valley"
+      ],
+      "yoe_band": "6-15",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"Haynesville\" OR \"unconventional gas\" OR \"shale gas\") AND (\"drilling engineer\" OR \"completions engineer\" OR \"wellsite supervisor\" OR \"production engineer\" OR \"drilling superintendent\" OR \"field operations manager\") AND (\"Comstock\" OR \"onshore gas\" OR \"horizontal drilling\" OR \"hydraulic fracturing\") AND (Louisiana OR Texas)"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], SOCAR's ~$1.7B investment into Comstock Resources' Haynesville gas assets signals a major drilling ramp-up. Your background in onshore gas development looks like a strong fit. Open to a quick chat about upcoming roles?",
+      "email_subject": "Haynesville Gas Ramp-Up — Drilling & Operations Roles (Comstock/SOCAR)",
+      "email_body": "Hi [Name],\n\nSOCAR has just signed a ~$1.7B preliminary deal to acquire a stake in Comstock Resources' Haynesville shale gas operations. This level of capital injection typically drives a meaningful ramp-up in drilling activity, completions, and field operations staffing.\n\nGiven your experience in onshore gas development, I wanted to reach out early — before roles are publicly posted. We're already mapping talent for Drilling Engineers, Completions Engineers, Wellsite Supervisors, and Field Operations Managers in the Louisiana/East Texas area.\n\nWould you be open to a 15-minute call this week to discuss how your background aligns?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Comstock Resources) and incoming investor (SOCAR) in a ~$1.7B stake acquisition of Haynesville onshore gas assets, directly implying a drilling and field operations workforce ramp-up.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "A preliminary deal has been signed for capital injection into operating Haynesville assets, implying accelerated development drilling program planning is underway.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "0615e64d-4dec-4539-98a3-03a471fc4668",
+    "ingested_at": "2026-09-02T18:14:18.383Z",
+    "source_published_at": "2026-09-02T15:42:53.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/shell-acquires-interest-in-gulf-of-america-prospect-302867934.html"
+      }
+    ],
+    "headline": "Shell Acquires 30% Interest in BP-Operated Conifer Exploration Prospect, US Gulf of America",
+    "body": "HOUSTON, Sept. 2, 2026 /PRNewswire/ -- Shell Offshore Inc., a subsidiary of Shell plc (Shell), today announced the acquisition of a 30% interest in Conifer, an exploration prospect operated by BP Exploration and Production (BP) in the US Gulf of America near BP's Kaskida host development....",
+    "url": "https://www.prnewswire.com/news-releases/shell-acquires-interest-in-gulf-of-america-prospect-302867934.html",
+    "published_at": "2026-09-02T18:00:00.000Z",
+    "hash": "c25864064ca59c1e",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "rov_subsea",
+      "survey_geophysical",
+      "marine_offshore_ops"
+    ],
+    "signal_type": "lease_round",
+    "region": "us-gulf",
+    "country": "united_states",
+    "tldr": "Shell Offshore Inc. has acquired a 30% stake in the Conifer exploration prospect operated by BP near the Kaskida host development in the US Gulf of America, signalling an upcoming exploration drilling campaign and early-phase subsea/survey hiring.",
+    "operator": {
+      "name": "BP Exploration and Production",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "BP Exploration and Production",
+      "matched_company_slug": null
+    },
+    "project_name": "Conifer",
+    "scope": [
+      "exploration_drilling",
+      "subsea_survey",
+      "well_operations"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Exploration Drilling Engineer",
+        "Subsea Engineer",
+        "Wellsite Geologist",
+        "Drilling Supervisor",
+        "ROV Supervisor",
+        "Geophysical Surveyor",
+        "Offshore Installation Manager",
+        "Marine Coordinator"
+      ],
+      "skills": [
+        "deepwater exploration drilling",
+        "Gulf of Mexico operations",
+        "subsea well engineering",
+        "ROV operations",
+        "geophysical survey",
+        "well planning",
+        "HPHT well operations"
+      ],
+      "certs_freetext": [
+        "BOSIET/HUET",
+        "OPITO Offshore Medical",
+        "Well Control (IWCF/IADC)",
+        "USCG Merchant Mariner Credential"
+      ],
+      "geo_rtw": "US Gulf of America — US work authorization required",
+      "project_experience": [
+        "Kaskida",
+        "Tiber",
+        "Mad Dog",
+        "Thunder Horse",
+        "Argos"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"exploration drilling\" OR \"deepwater drilling\" OR \"subsea engineer\" OR \"wellsite geologist\" OR \"drilling supervisor\" OR \"ROV supervisor\") AND (\"Gulf of Mexico\" OR \"Gulf of America\" OR \"deepwater\" OR \"ultra-deepwater\") AND (BP OR Shell OR \"offshore operations\") AND (IWCF OR IADC OR \"well control\" OR BOSIET)"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Shell has just taken a 30% stake in BP's Conifer deepwater prospect in the US Gulf — exploration drilling campaign likely incoming. Your deepwater Gulf background could be a strong fit. Open to a quick call?",
+      "email_subject": "Conifer Prospect (BP/Shell) — Deepwater Gulf Exploration Roles Incoming",
+      "email_body": "Hi [Name],\n\nShell Offshore has just acquired a 30% interest in Conifer, a deepwater exploration prospect operated by BP in the US Gulf of America, located near BP's Kaskida host development.\n\nThis signals an upcoming exploration drilling campaign, with early demand expected for deepwater drilling engineers, wellsite geologists, ROV supervisors, and subsea/survey specialists with Gulf of Mexico credentials.\n\nGiven your background in [relevant experience], I'd love to connect ahead of the hiring curve.\n\nAre you open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named block/prospect acquisition (Conifer) assigning operator (BP) and non-operating interest holder (Shell) in the US Gulf of America, directly implying an upcoming exploration drilling campaign.",
+    "phase": "pre_sanction",
+    "phase_evidence": "The article describes acquisition of an interest in an 'exploration prospect', indicating the project is pre-FID at exploration/appraisal stage.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "c452f15e-3938-4ea7-a891-e6be874219da",
+    "ingested_at": "2026-09-02T18:14:18.383Z",
+    "source_published_at": "2026-09-02T18:00:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org/articles/blykalla-seeks-state-aid-for-second-smr-plant"
@@ -12574,322 +12793,6 @@
     "contact_archetypes": [
       "project_manager",
       "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "pr_newswire_energy",
-        "name": "PR Newswire (Energy)",
-        "url": "https://www.prnewswire.com/news-releases/greenland-mines-completes-site-visit-to-sarfartoq-nd-pr-rare-earth-magnet-project-in-greenland-prepares-2026-field-program-302790745.html"
-      }
-    ],
-    "headline": "Greenland Mines Completes Site Visit to Sarfartoq Nd-Pr Rare Earth Project; 2026 Field Program Planned",
-    "body": "CHARLOTTE, N.C., June 4, 2026 /PRNewswire/ -- Greenland Mines Ltd (\"Greenland Mines\" or the \"Company\") (Nasdaq: GRML) today announced that its Greenland operations team has completed an inaugural site visit to the Sarfartoq neodymium‑praseodymium (\"Nd‑Pr\") rare earths project in southwest...",
-    "url": "https://www.prnewswire.com/news-releases/greenland-mines-completes-site-visit-to-sarfartoq-nd-pr-rare-earth-magnet-project-in-greenland-prepares-2026-field-program-302790745.html",
-    "published_at": "2026-06-04T12:30:00.000Z",
-    "hash": "e60a495744e005b7",
-    "subsector": "mining",
-    "discipline_tags": [
-      "survey_geophysical"
-    ],
-    "signal_type": "lease_round",
-    "region": "greenland",
-    "country": "greenland",
-    "tldr": "Greenland Mines Ltd has completed an inaugural site visit to the Sarfartoq Nd-Pr rare earths project in Greenland and is preparing a 2026 field program, signaling early-stage exploration hiring ahead.",
-    "operator": {
-      "name": "Greenland Mines Ltd",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Greenland Mines Ltd",
-      "matched_company_slug": null
-    },
-    "project_name": "Sarfartoq Nd-Pr Rare Earth Magnet Project",
-    "scope": [
-      "exploration",
-      "field_program",
-      "site_survey"
-    ],
-    "mob_window": {
-      "start": "2026-Q3",
-      "end": "2026-Q4",
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Exploration Geologist",
-        "Field Geologist",
-        "Geophysicist",
-        "Exploration Manager",
-        "Field Program Coordinator",
-        "Rare Earth Project Geologist",
-        "HSE Advisor – Remote Operations"
-      ],
-      "skills": [
-        "rare earth exploration",
-        "field mapping",
-        "geochemical sampling",
-        "remote area operations",
-        "Greenland logistics",
-        "REE project management"
-      ],
-      "certs_freetext": [
-        "BOSIET",
-        "Remote First Aid",
-        "Wilderness First Responder"
-      ],
-      "geo_rtw": "EU/EEA or North American RTW; remote Greenland field deployment",
-      "project_experience": [
-        "Greenland exploration programs",
-        "Arctic mining projects",
-        "rare earth element (REE) exploration",
-        "neodymium-praseodymium projects"
-      ],
-      "yoe_band": "5-15",
-      "seniority": "mid-to-senior",
-      "boolean_search": "(\"exploration geologist\" OR \"field geologist\" OR \"geophysicist\" OR \"exploration manager\") AND (\"rare earth\" OR \"REE\" OR \"neodymium\" OR \"praseodymium\" OR \"Nd-Pr\") AND (\"Greenland\" OR \"Arctic\" OR \"remote operations\" OR \"field program\") AND (\"geochemical sampling\" OR \"field mapping\" OR \"mineral exploration\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Greenland Mines is gearing up for its 2026 field program at the Sarfartoq Nd-Pr rare earths project in Greenland. With site visits complete, exploration roles are opening soon. Would you be open to a quick chat?",
-      "email_subject": "2026 Field Program – Sarfartoq Rare Earth Project, Greenland | Exploration Roles",
-      "email_body": "Hi [Name],\n\nGreenland Mines Ltd has just completed its inaugural site visit to the Sarfartoq Nd-Pr rare earths project in southwest Greenland and is now preparing its 2026 field program.\n\nAs they mobilise for exploration, they'll need experienced field geologists, geophysicists, and field program coordinators with Arctic or remote-area backgrounds.\n\nGiven your experience in [REE exploration / remote field programs / Arctic operations], I thought this could be a timely opportunity to explore.\n\nWould you be available for a brief call this week?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named operator (Greenland Mines Ltd) announces a 2026 field program at the named Sarfartoq Nd-Pr rare earth project, constituting a discrete exploration workforce-demand event in mining.",
-    "phase": "pre_sanction",
-    "phase_evidence": "Article describes an 'inaugural site visit' and preparation of a '2026 field program', indicating early-stage pre-FID exploration activity.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "e3f88628-e8c7-4cab-9db3-b2606a1960ae",
-    "ingested_at": "2026-06-04T13:10:01.002Z",
-    "source_published_at": "2026-06-04T12:30:00.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "pr_newswire_energy",
-        "name": "PR Newswire (Energy)",
-        "url": "https://www.prnewswire.com/news-releases/encore-energy-announces-the-successful-completion-of-construction-at-the-upper-spring-creek-isr-uranium-project-302791154.html"
-      }
-    ],
-    "headline": "enCore Energy Completes Phase 1 Construction at Upper Spring Creek ISR Uranium Project",
-    "body": "NASDAQ:EU TSXV:EU www.encoreuranium.com DALLAS, June 4, 2026 /PRNewswire/ - enCore Energy Corp. (NASDAQ: EU) (TSXV: EU) (the \"Company\" or \"enCore\"), America's Clean Energy Company™, today announced the completion of the first phase of construction on the Upper Spring Creek In-Situ...",
-    "url": "https://www.prnewswire.com/news-releases/encore-energy-announces-the-successful-completion-of-construction-at-the-upper-spring-creek-isr-uranium-project-302791154.html",
-    "published_at": "2026-06-04T11:10:00.000Z",
-    "hash": "866d685588bc15e5",
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations"
-    ],
-    "signal_type": "epc_award",
-    "region": "us-southwest",
-    "country": "united_states",
-    "tldr": "enCore Energy has completed the first phase of construction at its Upper Spring Creek ISR uranium project, signaling a shift toward commissioning and operational staffing. Hiring window for startup and operations roles is imminent.",
-    "operator": {
-      "name": "enCore Energy Corp.",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "enCore Energy Corp.",
-      "matched_company_slug": null
-    },
-    "project_name": "Upper Spring Creek ISR Uranium Project",
-    "scope": [
-      "isr_construction_completion",
-      "commissioning",
-      "plant_startup"
-    ],
-    "mob_window": {
-      "start": "2026-Q2",
-      "end": "2026-Q4",
-      "duration_months": 6
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Commissioning Engineer",
-        "ISR Plant Operator",
-        "Uranium Process Technician",
-        "Startup Specialist",
-        "Operations Supervisor",
-        "Wellfield Technician",
-        "HSE Advisor",
-        "Instrumentation & Control Technician"
-      ],
-      "skills": [
-        "in-situ recovery",
-        "uranium processing",
-        "wellfield operations",
-        "ion exchange",
-        "plant commissioning",
-        "process startup",
-        "radiation safety",
-        "SCADA operations"
-      ],
-      "certs_freetext": [
-        "NRC/Agreement State Radiation Worker",
-        "OSHA 30",
-        "MSHA Part 46/48",
-        "40-Hour HAZWOPER"
-      ],
-      "geo_rtw": "US work authorization required",
-      "project_experience": [
-        "Nichols Ranch ISR",
-        "Lost Creek ISR",
-        "Crow Butte ISR",
-        "Alta Mesa ISR",
-        "Rosita ISR"
-      ],
-      "yoe_band": "5-15",
-      "seniority": "mid-to-senior",
-      "boolean_search": "(\"ISR\" OR \"in-situ recovery\" OR \"in situ leach\" OR \"ISL\") AND (\"uranium\" OR \"U3O8\") AND (\"commissioning\" OR \"plant operator\" OR \"wellfield\" OR \"startup\" OR \"process technician\") AND (\"ion exchange\" OR \"SCADA\" OR \"radiation safety\" OR \"yellowcake\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], enCore Energy just completed Phase 1 construction at Upper Spring Creek ISR — commissioning and ops staffing is next. Your ISR background looks like a strong fit. Worth a quick chat?",
-      "email_subject": "Upper Spring Creek ISR — Commissioning & Ops Roles | enCore Energy",
-      "email_body": "Hi [Name],\n\nenCore Energy has announced the completion of Phase 1 construction at their Upper Spring Creek In-Situ Recovery uranium project in the US. With construction complete, the project is moving into commissioning and early operations — meaning staffing demand for ISR operators, commissioning engineers, wellfield technicians, and startup specialists is imminent.\n\nGiven your background in ISR uranium operations, I wanted to reach out to see if you'd be open to exploring opportunities tied to this project ramp-up.\n\nHappy to share more details — would you have 15 minutes this week?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named operator (enCore Energy) announces completion of Phase 1 construction at a named uranium ISR project, signaling an imminent commissioning and operations staffing ramp.",
-    "phase": "construction",
-    "phase_evidence": "Article states 'completion of the first phase of construction' at Upper Spring Creek ISR, indicating transition from construction to commissioning.",
-    "construction_subphase": "commissioning",
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "1-3mo",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "ece8f7f0-3723-4672-9dfc-4a1d4f3bce9f",
-    "ingested_at": "2026-06-04T13:10:01.002Z",
-    "source_published_at": "2026-06-04T11:10:00.000Z",
-    "contact_archetypes": [
-      "site_manager",
-      "hiring_manager",
-      "project_manager"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/us-smr-developers-announce-partnerships"
-      }
-    ],
-    "headline": "Day & Zimmermann to Lead Pre-Construction & Above-Ground Works for Deep Fission Gravity SMR",
-    "body": "Engineering firm Day & Zimmermann is to oversee pre-construction planning and perform above-ground construction for Deep Fission's Gravity reactor. Meanwhile, industrial-scale metal additive manufacturer Sciaky is to produce components for NX Atomics' small modular reactor platform.",
-    "url": "https://www.world-nuclear-news.org//articles/us-smr-developers-announce-partnerships",
-    "published_at": "2026-06-04T11:45:57.000Z",
-    "hash": "2277080c7306527e",
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations",
-      "energy_trades"
-    ],
-    "signal_type": "epc_award",
-    "region": "united-states",
-    "country": "united_states",
-    "tldr": "Day & Zimmermann has been engaged for pre-construction planning and above-ground construction on Deep Fission's Gravity reactor SMR, signalling early-stage workforce demand for nuclear construction. Separately, Sciaky will manufacture components for NX Atomics' SMR platform.",
-    "operator": {
-      "name": "Deep Fission",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Day & Zimmermann",
-      "matched_company_slug": null
-    },
-    "project_name": "Deep Fission Gravity Reactor",
-    "scope": [
-      "pre_construction_planning",
-      "above_ground_construction",
-      "smr_component_manufacture"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Nuclear Construction Manager",
-        "Pre-Construction Planner",
-        "Nuclear Project Manager",
-        "Civil Construction Superintendent",
-        "Nuclear HSE Manager",
-        "Construction Scheduler",
-        "Nuclear QA/QC Manager"
-      ],
-      "skills": [
-        "SMR construction",
-        "nuclear pre-construction planning",
-        "above-ground construction",
-        "nuclear project management",
-        "civil construction",
-        "NQA-1",
-        "10CFR50"
-      ],
-      "certs_freetext": [
-        "NQA-1",
-        "PMP",
-        "OSHA 30",
-        "10CFR50 Appendix B"
-      ],
-      "geo_rtw": "US work authorization required",
-      "project_experience": [
-        "Vogtle Units 3 & 4",
-        "NuScale UAMPS",
-        "TerraPower Natrium",
-        "X-energy Xe-100",
-        "Kairos Power Hermes"
-      ],
-      "yoe_band": "10-20",
-      "seniority": "Senior / Lead",
-      "boolean_search": "(\"nuclear construction\" OR \"SMR\" OR \"small modular reactor\") AND (\"construction manager\" OR \"pre-construction\" OR \"project manager\" OR \"site manager\") AND (\"NQA-1\" OR \"10CFR50\" OR \"nuclear QA\" OR \"nuclear project\") AND (\"Day Zimmermann\" OR \"nuclear EPC\" OR \"new nuclear build\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Day & Zimmermann has just been selected to lead pre-construction planning and above-ground construction for Deep Fission's Gravity SMR. With your nuclear construction background, this could be a strong fit. Open to a quick chat?",
-      "email_subject": "Nuclear Construction Opportunity – Day & Zimmermann / Deep Fission Gravity SMR",
-      "email_body": "Hi [Name],\n\nDay & Zimmermann has been engaged to oversee pre-construction planning and above-ground construction for Deep Fission's Gravity small modular reactor — one of the more active SMR programmes in the US right now.\n\nGiven your background in nuclear construction/project management, I wanted to reach out early as roles are expected to come online as planning advances.\n\nWould you be open to a brief call to discuss how your experience might align?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named contractor (Day & Zimmermann) engaged for pre-construction planning and above-ground construction on a named SMR project (Deep Fission Gravity reactor), constituting a discrete workforce-demand event in the nuclear sector.",
-    "phase": "pre_sanction",
-    "phase_evidence": "Article states Day & Zimmermann is to 'oversee pre-construction planning' indicating the project is in the pre-construction/pre-FID phase.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "c92d61bb-1107-4576-aa6c-4becb28a3d1e",
-    "ingested_at": "2026-06-04T13:10:01.002Z",
-    "source_published_at": "2026-06-04T11:45:57.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "business_unit_director",
-      "hr_business_partner"
     ],
     "prompt_version": "phase-targeting-v1.2"
   }
