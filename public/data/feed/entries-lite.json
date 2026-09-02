@@ -1,5 +1,47 @@
 [
   {
+    "id": "c4f5fa65-8036-44b3-b9cf-db79d0326f9c",
+    "ingested_at": "2026-09-02T00:30:54.757Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/oci-energy-arava-power-and-project-partners-break-ground-on-347-mwdc-sunroper-solar-project-supporting-growing-energy-demand-near-houston-302866858.html"
+      }
+    ],
+    "subsector": "onshore-renewables",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction"
+    ],
+    "signal_type": "epc_award",
+    "region": "us-texas",
+    "country": "united_states",
+    "headline": "OCI Energy & Arava Power Break Ground on 347 MWdc SunRoper Solar Project, Wharton County TX",
+    "operator": {
+      "name": "OCI Energy / Arava Power",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "SunRoper Solar",
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": []
+  },
+  {
     "id": "1457961e-2e84-4521-8341-c28c940584a0",
     "ingested_at": "2026-09-01T12:17:05.648Z",
     "sources": [
@@ -5022,48 +5064,6 @@
     "decom_stage": null,
     "outreach_readiness": "cold",
     "estimated_hiring_window": "12mo+",
-    "key_people": []
-  },
-  {
-    "id": "ed3b6e97-3dfd-4bf5-95b7-92efc0f803b5",
-    "ingested_at": "2026-06-03T19:23:42.007Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/final-steam-generators-delivered-for-akkuyu"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations"
-    ],
-    "signal_type": "vessel_mob",
-    "region": "turkey",
-    "country": "turkey",
-    "headline": "Final Steam Generators Delivered for Akkuyu NPP Unit 4 — Reactor Hall Equipment Complete",
-    "operator": {
-      "name": "Akkuyu Nuclear JSC",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Akkuyu Nuclear Power Plant Unit 4",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "construction",
-    "construction_subphase": "commissioning",
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "3-6mo",
     "key_people": []
   }
 ]

@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-09-01T00:37:59.168Z"
+    "last_updated_at": "2026-09-02T00:32:36.154Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -11186,6 +11186,66 @@
         "email": null,
         "phone": null,
         "location": "Whitehorse, Canada"
+      }
+    ]
+  },
+  "oci energy / arava power": {
+    "discovered_at": "2026-09-02T00:32:36.154Z",
+    "contacts": [
+      {
+        "name": "Adriana Alvarado",
+        "title": "Director, Human Resources & General Affairs",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/adriana-alvarado-phr-shrm-cp-66899913",
+        "source_url": "https://www.ocienergy.com/about/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "San Antonio, TX, USA"
+      },
+      {
+        "name": "Sabah Bayatli",
+        "title": "President",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/sabahbayatli",
+        "source_url": "https://www.ocienergy.com/about/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "San Antonio, TX, USA"
+      },
+      {
+        "name": "Timothy Heinle",
+        "title": "EVP, Business Development",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/timheinle",
+        "source_url": "https://www.ocienergy.com/about/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "San Antonio, TX, USA"
+      },
+      {
+        "name": "Ilan Zidkony",
+        "title": "CEO",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/ilan-zidkony-42aab5",
+        "source_url": "https://www.prnewswire.com/news-releases/oci-energy-and-arava-power-execute-mipa-for-670-mwdc-la-salle-solar-in-texas-302771462.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Israel"
+      },
+      {
+        "name": "Edan Kaplansky",
+        "title": "Director of Business Development",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://www.ocienergy.com/wp-content/uploads/2025/02/OCI-Energy_Arava_JV_SunRoper_FINAL.pdf",
+        "in_target_persona": true,
+        "email": "edan@aravapower.com",
+        "phone": "+972-53-255-4667",
+        "location": "Herzliya, Israel"
       }
     ]
   }

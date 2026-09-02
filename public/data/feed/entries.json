@@ -2,6 +2,112 @@
   {
     "sources": [
       {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/oci-energy-arava-power-and-project-partners-break-ground-on-347-mwdc-sunroper-solar-project-supporting-growing-energy-demand-near-houston-302866858.html"
+      }
+    ],
+    "headline": "OCI Energy & Arava Power Break Ground on 347 MWdc SunRoper Solar Project, Wharton County TX",
+    "body": "WHARTON COUNTY, Texas, Sept. 1, 2026 /PRNewswire/ -- OCI Energy, Arava Power and project partners today took part in the groundbreaking of the 347 MWdc SunRoper Solar project, celebrating the start of construction on a major new solar facility in Wharton County, Texas. Expected to begin...",
+    "url": "https://www.prnewswire.com/news-releases/oci-energy-arava-power-and-project-partners-break-ground-on-347-mwdc-sunroper-solar-project-supporting-growing-energy-demand-near-houston-302866858.html",
+    "published_at": "2026-09-01T21:10:00.000Z",
+    "hash": "ec8ed9a76e1bed31",
+    "subsector": "onshore-renewables",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction"
+    ],
+    "signal_type": "epc_award",
+    "region": "us-texas",
+    "country": "united_states",
+    "tldr": "OCI Energy and Arava Power have commenced construction on the 347 MWdc SunRoper Solar project in Wharton County, Texas. Groundbreaking signals active construction ramp-up, creating near-term demand for solar trades, civil works, and electrical crews.",
+    "operator": {
+      "name": "OCI Energy / Arava Power",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "SunRoper Solar",
+    "scope": [
+      "solar_pv_construction",
+      "civil_works",
+      "electrical_install"
+    ],
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Solar Construction Manager",
+        "Site Manager",
+        "Electrical Superintendent",
+        "Civil Superintendent",
+        "HSE Manager",
+        "Solar Commissioning Engineer",
+        "Substation Engineer",
+        "QA/QC Inspector",
+        "Planner / Scheduler"
+      ],
+      "skills": [
+        "utility-scale solar construction",
+        "PV installation",
+        "HV electrical",
+        "civil earthworks",
+        "SCADA",
+        "commissioning",
+        "project controls"
+      ],
+      "certs_freetext": [
+        "OSHA 30",
+        "NCCER",
+        "NFPA 70E"
+      ],
+      "geo_rtw": "US work authorization required; Texas-based or willing to relocate/camp",
+      "project_experience": [
+        "utility-scale solar",
+        "wind farm construction",
+        "transmission substation",
+        "BESS installation"
+      ],
+      "yoe_band": "7-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"solar construction\" OR \"utility-scale solar\" OR \"PV installation\" OR \"solar EPC\") AND (\"construction manager\" OR \"site manager\" OR \"electrical superintendent\" OR \"civil superintendent\" OR \"HSE manager\" OR \"commissioning engineer\" OR \"QA/QC\") AND (\"Texas\" OR \"Wharton County\" OR \"Houston\") NOT (\"residential solar\" OR \"rooftop solar\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], OCI Energy & Arava Power just broke ground on the 347 MWdc SunRoper Solar project in Wharton County, TX — construction is live now. Are you open to hearing about opportunities on-site?",
+      "email_subject": "SunRoper Solar (347 MWdc) – Construction Underway in Wharton County, TX",
+      "email_body": "Hi [Name],\n\nOCI Energy and Arava Power have officially broken ground on the SunRoper Solar project — a 347 MWdc utility-scale facility in Wharton County, Texas, near Houston.\n\nWith construction now underway, the project will be ramping up demand for experienced solar construction professionals across civil, electrical, HSE, and commissioning disciplines.\n\nGiven your background in utility-scale solar construction, I wanted to reach out to see if you'd be open to a conversation about a potential fit — whether for a direct role or a contract position on this project.\n\nWould you have 15 minutes this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Groundbreaking of named 347 MWdc solar project (SunRoper Solar) by named operators OCI Energy and Arava Power in Wharton County, TX signals active construction start and immediate labor demand.",
+    "phase": "construction",
+    "phase_evidence": "Article states 'celebrating the start of construction on a major new solar facility' with groundbreaking held September 1, 2026.",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "c4f5fa65-8036-44b3-b9cf-db79d0326f9c",
+    "ingested_at": "2026-09-02T00:30:54.757Z",
+    "source_published_at": "2026-09-01T21:10:00.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org/articles/fuel-loading-under-way-for-palisades-restart-holtec-announces"
@@ -12683,112 +12789,6 @@
       "project_manager",
       "business_unit_director",
       "hr_business_partner"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/final-steam-generators-delivered-for-akkuyu"
-      }
-    ],
-    "headline": "Final Steam Generators Delivered for Akkuyu NPP Unit 4 — Reactor Hall Equipment Complete",
-    "body": "The arrival of the set of four steam generators for the fourth unit at Turkey’s Akkuyu Nuclear Power Plant completes the delivery of key reactor hall equipment.",
-    "url": "https://www.world-nuclear-news.org//articles/final-steam-generators-delivered-for-akkuyu",
-    "published_at": "2026-06-03T13:26:13.000Z",
-    "hash": "1a34dfc9cd3c699b",
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations"
-    ],
-    "signal_type": "vessel_mob",
-    "region": "turkey",
-    "country": "turkey",
-    "tldr": "Delivery of the fourth and final set of steam generators to Akkuyu Nuclear Power Plant Unit 4 signals reactor hall equipment completion, pointing toward imminent hookup and commissioning activity requiring specialist nuclear construction and commissioning trades.",
-    "operator": {
-      "name": "Akkuyu Nuclear JSC",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Akkuyu Nuclear Power Plant Unit 4",
-    "scope": [
-      "reactor_hall_equipment_install",
-      "steam_generator_delivery",
-      "huc"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Nuclear Commissioning Engineer",
-        "Mechanical Completion Engineer",
-        "Reactor Systems Superintendent",
-        "Nuclear Construction Manager",
-        "Steam Generator Installation Supervisor",
-        "HSE Lead – Nuclear",
-        "Hookup & Commissioning Coordinator"
-      ],
-      "skills": [
-        "nuclear power plant construction",
-        "steam generator installation",
-        "reactor hall equipment",
-        "mechanical completion",
-        "VVER commissioning",
-        "hookup and commissioning",
-        "nuclear quality assurance"
-      ],
-      "certs_freetext": [
-        "Nuclear Safety Training",
-        "VVER systems qualification",
-        "ISO 19443 QMS",
-        "Radiation Protection Certification"
-      ],
-      "geo_rtw": "Turkey or internationally mobile; note Rosatom project — Western recruiter applicability limited",
-      "project_experience": [
-        "Hinkley Point C",
-        "Barakah NPP",
-        "Olkiluoto 3",
-        "Vogtle Units 3&4",
-        "Flamanville 3"
-      ],
-      "yoe_band": "10-20",
-      "seniority": "Senior / Lead",
-      "boolean_search": "(\"nuclear power plant\" OR \"NPP\" OR \"VVER\") AND (\"commissioning engineer\" OR \"mechanical completion\" OR \"hookup\" OR \"steam generator\" OR \"reactor hall\") AND (\"nuclear construction\" OR \"nuclear commissioning\" OR \"startup engineer\") AND (Turkey OR Akkuyu OR \"international nuclear\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], with all four steam generators now delivered to Akkuyu NPP Unit 4, commissioning activity is ramping fast. Your nuclear HUC background looks highly relevant — open to a quick conversation about roles on-site?",
-      "email_subject": "Akkuyu NPP Unit 4 – Nuclear Commissioning Roles | Equipment Delivery Complete",
-      "email_body": "Hi [Name],\n\nThe final set of steam generators has just been delivered to Akkuyu Nuclear Power Plant Unit 4 in Turkey, completing reactor hall equipment installation and signalling an accelerating move toward hookup and commissioning.\n\nGiven your experience in nuclear construction and commissioning, I wanted to reach out directly — there are likely to be specialist requirements for commissioning engineers, mechanical completion leads, and startup specialists in the near term.\n\nWould you be open to a brief call to discuss how your background aligns with what's coming up on this project?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named project (Akkuyu NPP Unit 4) milestone — final steam generator delivery completing reactor hall equipment — signals imminent hookup and commissioning phase with discrete labor demand in nuclear construction.",
-    "phase": "construction",
-    "phase_evidence": "Article states delivery of steam generators 'completes the delivery of key reactor hall equipment' for Unit 4, indicating late-stage construction ahead of commissioning.",
-    "construction_subphase": "commissioning",
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "3-6mo",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "ed3b6e97-3dfd-4bf5-95b7-92efc0f803b5",
-    "ingested_at": "2026-06-03T19:23:42.007Z",
-    "source_published_at": "2026-06-03T13:26:13.000Z",
-    "contact_archetypes": [
-      "site_manager",
-      "hiring_manager",
-      "project_manager"
     ],
     "prompt_version": "phase-targeting-v1.2"
   }
