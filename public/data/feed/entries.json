@@ -2,6 +2,115 @@
   {
     "sources": [
       {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/studsvik-ge-vernova-hitachi-and-samsung-ct-commit-to-advancing-1-2-gw-nuclear-power-project-in-sweden-302868672.html"
+      }
+    ],
+    "headline": "Studsvik Selects GE Vernova Hitachi & Samsung C&T for 1.2 GW Nuclear Project in Sweden",
+    "body": "NYKÖPING, Sweden, Sept. 3, 2026 Following a competitive evaluation process, Studsvik has selected GE Vernova Hitachi Nuclear Energy and Samsung C&T as its strategic partners for the first project to build new nuclear power, either at its existing licensed nuclear site in or at the Målma...",
+    "url": "https://www.prnewswire.com/news-releases/studsvik-ge-vernova-hitachi-and-samsung-ct-commit-to-advancing-1-2-gw-nuclear-power-project-in-sweden-302868672.html",
+    "published_at": "2026-09-03T05:58:00.000Z",
+    "hash": "5ffed794e74eb86b",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "sweden",
+    "country": "sweden",
+    "tldr": "Studsvik has named GE Vernova Hitachi Nuclear Energy and Samsung C&T as strategic partners for a 1.2 GW new-build nuclear project at its licensed site in Sweden. Partner selection signals advancing pre-FID/FEED stage with EPC contractor engagement, pointing to engineering and eventual construction workforce demand.",
+    "operator": {
+      "name": "Studsvik",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Samsung C&T / GE Vernova Hitachi Nuclear Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Studsvik 1.2 GW Nuclear Power Project (Målma site)",
+    "scope": [
+      "new_build_nuclear",
+      "epc_partner_selection",
+      "site_development"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Project Manager",
+        "Nuclear Construction Manager",
+        "FEED Engineer",
+        "Nuclear Civil Engineer",
+        "Nuclear Safety Engineer",
+        "Reactor Systems Engineer",
+        "Nuclear QA/QC Manager",
+        "HSE Manager – Nuclear",
+        "Nuclear Commissioning Engineer"
+      ],
+      "skills": [
+        "nuclear new-build",
+        "ABWR or SMR construction",
+        "nuclear licensing",
+        "FEED execution",
+        "nuclear QA/QC",
+        "civil works nuclear",
+        "nuclear safety case",
+        "project controls"
+      ],
+      "certs_freetext": [
+        "SSM (Swedish Radiation Safety Authority) regulatory familiarity",
+        "IAEA nuclear safety standards",
+        "ISO 19443 nuclear supply chain",
+        "ASME nuclear codes"
+      ],
+      "geo_rtw": "Sweden / EU work-authorised",
+      "project_experience": [
+        "Hinkley Point C",
+        "Vogtle Units 3&4",
+        "Olkiluoto 3",
+        "NuScale FEED",
+        "Sizewell C FEED"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal",
+      "boolean_search": "(\"nuclear\" AND (\"new build\" OR \"new-build\" OR \"ABWR\" OR \"FEED\")) AND (\"project manager\" OR \"construction manager\" OR \"commissioning engineer\" OR \"nuclear safety engineer\" OR \"civil engineer\" OR \"QA manager\") AND (\"Sweden\" OR \"Scandinavia\" OR \"EU\" OR \"Europe\") NOT (\"decommissioning\" OR \"waste management\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Studsvik has selected GE Vernova Hitachi & Samsung C&T for a 1.2 GW nuclear new-build in Sweden — FEED/engineering ramp expected soon. Your nuclear new-build background looks well-aligned. Would you be open to a brief conversation?",
+      "email_subject": "Nuclear New-Build Opportunity – Studsvik 1.2 GW Project, Sweden",
+      "email_body": "Hi [Name],\n\nStudsvik has just announced GE Vernova Hitachi Nuclear Energy and Samsung C&T as strategic partners for a 1.2 GW nuclear new-build project at its licensed Swedish site — one of the most significant nuclear developments in Scandinavia in decades.\n\nWith FEED and detailed engineering expected to ramp in the coming months, there will be strong demand for experienced nuclear professionals across engineering, safety, QA/QC, and project management disciplines.\n\nGiven your background in [nuclear new-build / FEED / nuclear construction], I'd love to connect and share more about the roles likely to come to market.\n\nAre you open to a call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Studsvik) has selected named EPC/strategic partners (GE Vernova Hitachi Nuclear Energy and Samsung C&T) for a 1.2 GW nuclear new-build project at a named site in Sweden, constituting a discrete partner/contractor selection event with clear workforce demand implications.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article describes partner selection following a 'competitive evaluation process' for a project 'to build new nuclear power' — language consistent with pre-FID/FEED engagement rather than a confirmed FID or EPC contract award.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "b8c737a9-8296-4598-bef5-6ef090d06a0a",
+    "ingested_at": "2026-09-03T06:19:19.711Z",
+    "source_published_at": "2026-09-03T05:58:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "mining_com",
         "name": "MINING.com",
         "url": "https://www.mining.com/us-forest-service-signs-off-on-south32-hermosas-mine-plan-in-arizona/"
@@ -12902,109 +13011,6 @@
       "site_manager",
       "hiring_manager",
       "project_manager"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/gold-fields-cree-first-nation-sign-iba-for-windfall-project-in-quebec/"
-      }
-    ],
-    "headline": "Gold Fields & Cree First Nation Sign IBA for Windfall Mine Project in Quebec",
-    "body": "Gold Fields plans to bring the mine into production by the end of 2026 or early 2027.",
-    "url": "https://www.mining.com/gold-fields-cree-first-nation-sign-iba-for-windfall-project-in-quebec/",
-    "published_at": "2026-06-03T00:08:42.000Z",
-    "hash": "9a141e27282e10bb",
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades"
-    ],
-    "signal_type": "regulatory",
-    "region": "quebec-canada",
-    "country": "canada",
-    "tldr": "Gold Fields has signed an Impact and Benefit Agreement with the Cree First Nation for the Windfall mine in Quebec, targeting production by end-2026 or early 2027. This milestone clears a key pre-construction hurdle and signals an approaching ramp-up hiring window.",
-    "operator": {
-      "name": "Gold Fields",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Gold Fields",
-      "matched_company_slug": null
-    },
-    "project_name": "Windfall",
-    "scope": [
-      "mine_development",
-      "civil_works",
-      "underground_construction"
-    ],
-    "mob_window": {
-      "start": "2025-Q3",
-      "end": "2026-Q4",
-      "duration_months": 18
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Mine Construction Manager",
-        "Underground Mining Superintendent",
-        "HSE Manager",
-        "Construction Planner",
-        "Mining Project Manager",
-        "Site Manager",
-        "Electrical Supervisor",
-        "Mechanical Supervisor"
-      ],
-      "skills": [
-        "underground mining",
-        "mine development",
-        "construction management",
-        "HSE",
-        "project planning",
-        "Quebec mining"
-      ],
-      "certs_freetext": [
-        "Quebec Mining Certificate",
-        "WHMIS",
-        "First Aid"
-      ],
-      "geo_rtw": "Canada — Quebec right-to-work preferred; bilingual (French/English) an asset",
-      "project_experience": [
-        "Eleonore Mine",
-        "Canadian Malartic",
-        "Detour Lake",
-        "Lac des Iles"
-      ],
-      "yoe_band": "10-20",
-      "seniority": "Senior / Superintendent / Manager",
-      "boolean_search": "(\"mine construction\" OR \"underground mining\" OR \"mine development\") AND (\"construction manager\" OR \"site manager\" OR \"superintendent\" OR \"project manager\") AND (\"Quebec\" OR \"Abitibi\") AND (\"Gold Fields\" OR \"Windfall\" OR \"Osisko\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Gold Fields just signed the IBA for the Windfall mine in Quebec — targeting production by end-2026. Ramp-up hiring is approaching. Would your availability align with a senior construction role on this project?",
-      "email_subject": "Windfall Mine (Gold Fields) — Senior Construction Roles Approaching",
-      "email_body": "Hi [Name],\n\nGold Fields has just signed an Impact and Benefit Agreement with the Cree First Nation for the Windfall gold mine in Quebec, clearing a significant pre-construction milestone. The project is targeting first production by end-2026 or early 2027, which puts active construction ramp-up within the next 6–12 months.\n\nGiven your background in [underground mining / mine construction / HSE], I wanted to reach out early — these roles tend to close quickly once mobilization kicks in.\n\nWould you be open to a brief call to discuss how your experience aligns with what Gold Fields will be looking for?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "IBA signing is a discrete regulatory/permitting milestone for the named Windfall mining project under operator Gold Fields, with a stated production target of end-2026/early 2027 implying near-term construction ramp-up.",
-    "phase": "pre_sanction",
-    "phase_evidence": "The article describes an IBA signing — a pre-construction community/regulatory agreement — with production not expected until end-2026 or early 2027, indicating the project has not yet reached FID or full construction sanction.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "1b9190fb-e6a7-47ff-b15b-ef42b4a2169a",
-    "ingested_at": "2026-06-05T00:53:25.400Z",
-    "source_published_at": "2026-06-03T00:08:42.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "business_unit_director"
     ],
     "prompt_version": "phase-targeting-v1.2"
   }

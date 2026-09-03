@@ -1,5 +1,48 @@
 [
   {
+    "id": "b8c737a9-8296-4598-bef5-6ef090d06a0a",
+    "ingested_at": "2026-09-03T06:19:19.711Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/studsvik-ge-vernova-hitachi-and-samsung-ct-commit-to-advancing-1-2-gw-nuclear-power-project-in-sweden-302868672.html"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "sweden",
+    "country": "sweden",
+    "headline": "Studsvik Selects GE Vernova Hitachi & Samsung C&T for 1.2 GW Nuclear Project in Sweden",
+    "operator": {
+      "name": "Studsvik",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Samsung C&T / GE Vernova Hitachi Nuclear Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Studsvik 1.2 GW Nuclear Power Project (Målma site)",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
     "id": "98efe900-b0a3-43e1-8d52-04ffc67c9f5b",
     "ingested_at": "2026-09-03T00:31:37.392Z",
     "sources": [
@@ -5109,48 +5152,6 @@
     "decom_stage": null,
     "outreach_readiness": "hot",
     "estimated_hiring_window": "3-6mo",
-    "key_people": []
-  },
-  {
-    "id": "1b9190fb-e6a7-47ff-b15b-ef42b4a2169a",
-    "ingested_at": "2026-06-05T00:53:25.400Z",
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/gold-fields-cree-first-nation-sign-iba-for-windfall-project-in-quebec/"
-      }
-    ],
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades"
-    ],
-    "signal_type": "regulatory",
-    "region": "quebec-canada",
-    "country": "canada",
-    "headline": "Gold Fields & Cree First Nation Sign IBA for Windfall Mine Project in Quebec",
-    "operator": {
-      "name": "Gold Fields",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Gold Fields",
-      "matched_company_slug": null
-    },
-    "project_name": "Windfall",
-    "mob_window": {
-      "start": "2025-Q3",
-      "end": "2026-Q4",
-      "duration_months": 18
-    },
-    "contract_value_usd": null,
-    "phase": "pre_sanction",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
     "key_people": []
   }
 ]
