@@ -1,45 +1,86 @@
 [
   {
-    "id": "0615e64d-4dec-4539-98a3-03a471fc4668",
-    "ingested_at": "2026-09-02T18:14:18.383Z",
+    "id": "98efe900-b0a3-43e1-8d52-04ffc67c9f5b",
+    "ingested_at": "2026-09-03T00:31:37.392Z",
     "sources": [
       {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/socar_to_invest_in_haynesville_with_nearly_17b_comstock_partnership-02-sep-2026-184523-article/?rss=true"
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/us-forest-service-signs-off-on-south32-hermosas-mine-plan-in-arizona/"
       }
     ],
-    "subsector": "onshore-og",
+    "subsector": "mining",
     "discipline_tags": [
-      "drilling_operations",
-      "pipeline_mechanical",
-      "process_plant_operations"
+      "industrial_construction",
+      "survey_geophysical"
     ],
-    "signal_type": "lease_round",
-    "region": "us-haynesville",
+    "signal_type": "regulatory",
+    "region": "us-southwest",
     "country": "united_states",
-    "headline": "SOCAR to Acquire Stake in Comstock-Operated Haynesville Gas Assets in ~$1.7B Deal",
+    "headline": "US Forest Service Approves South32 Hermosa Mine Plan in Arizona",
     "operator": {
-      "name": "Comstock Resources",
+      "name": "South32",
       "matched_company_slug": null
     },
     "hiring_entity": {
-      "name": "Comstock Resources",
+      "name": "South32",
       "matched_company_slug": null
     },
-    "project_name": "Haynesville Shale Gas Assets",
+    "project_name": "Hermosa",
     "mob_window": {
       "start": null,
       "end": null,
       "duration_months": null
     },
-    "contract_value_usd": 1700000000,
-    "phase": "sanctioned_engineering",
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
     "construction_subphase": null,
     "lifecycle_track": "greenfield",
     "decom_stage": null,
     "outreach_readiness": "warming",
     "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
+    "id": "37c660b9-609b-4980-b120-8dc7947d3d77",
+    "ingested_at": "2026-09-03T00:31:37.392Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/eldorado-eyes-bigger-mcilvenna-bay-copper-mill/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "fid",
+    "region": "canada-saskatchewan",
+    "country": "canada",
+    "headline": "Eldorado Eyes Larger Copper Mill at McIlvenna Bay — Production Ramp Signals Engineering Demand",
+    "operator": {
+      "name": "Eldorado",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Eldorado",
+      "matched_company_slug": null
+    },
+    "project_name": "McIlvenna Bay",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
     "key_people": []
   },
   {
@@ -84,6 +125,49 @@
     "decom_stage": null,
     "outreach_readiness": "cold",
     "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
+    "id": "0615e64d-4dec-4539-98a3-03a471fc4668",
+    "ingested_at": "2026-09-02T18:14:18.383Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/socar_to_invest_in_haynesville_with_nearly_17b_comstock_partnership-02-sep-2026-184523-article/?rss=true"
+      }
+    ],
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "pipeline_mechanical",
+      "process_plant_operations"
+    ],
+    "signal_type": "lease_round",
+    "region": "us-haynesville",
+    "country": "united_states",
+    "headline": "SOCAR to Acquire Stake in Comstock-Operated Haynesville Gas Assets in ~$1.7B Deal",
+    "operator": {
+      "name": "Comstock Resources",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Comstock Resources",
+      "matched_company_slug": null
+    },
+    "project_name": "Haynesville Shale Gas Assets",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 1700000000,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
     "key_people": []
   },
   {

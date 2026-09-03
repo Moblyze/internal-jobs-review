@@ -2,96 +2,96 @@
   {
     "sources": [
       {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/socar_to_invest_in_haynesville_with_nearly_17b_comstock_partnership-02-sep-2026-184523-article/?rss=true"
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/us-forest-service-signs-off-on-south32-hermosas-mine-plan-in-arizona/"
       }
     ],
-    "headline": "SOCAR to Acquire Stake in Comstock-Operated Haynesville Gas Assets in ~$1.7B Deal",
-    "body": "The State Oil Company of the Republic of Azerbaijan (SOCAR) has signed a preliminary deal to acquire a stake in Haynesville gas assets operated by Comstock R...",
-    "url": "https://www.rigzone.com/news/socar_to_invest_in_haynesville_with_nearly_17b_comstock_partnership-02-sep-2026-184523-article/?rss=true",
-    "published_at": "2026-09-02T15:42:53.000Z",
-    "hash": "8b7647d4f2fa1e33",
-    "subsector": "onshore-og",
+    "headline": "US Forest Service Approves South32 Hermosa Mine Plan in Arizona",
+    "body": "Hermosa hosts one of the world’s largest undeveloped zinc deposits, a battery-grade manganese deposit and the emerging Peak copper discovery.",
+    "url": "https://www.mining.com/us-forest-service-signs-off-on-south32-hermosas-mine-plan-in-arizona/",
+    "published_at": "2026-09-02T20:02:58.000Z",
+    "hash": "000ec78d677c5880",
+    "subsector": "mining",
     "discipline_tags": [
-      "drilling_operations",
-      "pipeline_mechanical",
-      "process_plant_operations"
+      "industrial_construction",
+      "survey_geophysical"
     ],
-    "signal_type": "lease_round",
-    "region": "us-haynesville",
+    "signal_type": "regulatory",
+    "region": "us-southwest",
     "country": "united_states",
-    "tldr": "SOCAR has signed a preliminary deal to take a stake in Comstock Resources' Haynesville shale gas operations for ~$1.7B, signaling a significant capital injection into onshore US gas development that will drive near-term drilling and field operations hiring.",
+    "tldr": "US Forest Service sign-off on South32's Hermosa mine plan in Arizona is a key regulatory milestone for one of the world's largest undeveloped zinc/manganese/copper deposits, signaling a potential near-term development ramp-up and hiring window.",
     "operator": {
-      "name": "Comstock Resources",
+      "name": "South32",
       "matched_company_slug": null
     },
     "hiring_entity": {
-      "name": "Comstock Resources",
+      "name": "South32",
       "matched_company_slug": null
     },
-    "project_name": "Haynesville Shale Gas Assets",
+    "project_name": "Hermosa",
     "scope": [
-      "asset_acquisition",
-      "gas_development",
-      "drilling_program"
+      "mine_plan_approval",
+      "zinc_mining",
+      "manganese_mining",
+      "copper_exploration"
     ],
     "mob_window": {
       "start": null,
       "end": null,
       "duration_months": null
     },
-    "contract_value_usd": 1700000000,
+    "contract_value_usd": null,
     "targeting": {
       "job_titles_freetext": [
-        "Drilling Engineer",
-        "Completions Engineer",
-        "Production Engineer",
-        "Wellsite Supervisor",
-        "Drilling Superintendent",
-        "Field Operations Manager",
-        "Gas Plant Operator",
+        "Mine Development Manager",
+        "Project Manager – Mining",
+        "Underground Mine Superintendent",
+        "Geotechnical Engineer",
+        "Mining Engineer",
+        "Environmental & Permitting Manager",
         "HSE Manager",
-        "Reservoir Engineer",
-        "Land and Contracts Advisor"
+        "Construction Manager",
+        "Shaft Sinker",
+        "Mine Planner"
       ],
       "skills": [
-        "Haynesville shale",
-        "unconventional gas development",
-        "horizontal drilling",
-        "hydraulic fracturing",
-        "gas compression",
-        "wellsite supervision",
-        "completion design",
-        "production optimization"
+        "underground mining",
+        "zinc mining",
+        "manganese processing",
+        "mine permitting",
+        "mine planning",
+        "shaft sinking",
+        "geotechnical engineering",
+        "environmental compliance",
+        "US Forest Service permitting"
       ],
       "certs_freetext": [
-        "IADC WellSharp",
-        "BOSIET",
-        "H2S Alive",
-        "First Aid/CPR"
+        "MSHA Part 48",
+        "Professional Engineer (PE) – Mining",
+        "Certified Mine Safety Professional (CMSP)"
       ],
-      "geo_rtw": "US work authorization required; Louisiana/East Texas based",
+      "geo_rtw": "US work authorization required; Arizona-based or willing to relocate",
       "project_experience": [
-        "Haynesville Shale",
-        "Marcellus Shale",
-        "Eagle Ford Shale",
-        "Barnett Shale",
-        "Cotton Valley"
+        "Resolution Copper",
+        "Rosemont Copper",
+        "Hudbay Copper World",
+        "Arizona Mining Hermosa (predecessor)",
+        "Pinal Creek"
       ],
-      "yoe_band": "6-15",
-      "seniority": "mid-to-senior",
-      "boolean_search": "(\"Haynesville\" OR \"unconventional gas\" OR \"shale gas\") AND (\"drilling engineer\" OR \"completions engineer\" OR \"wellsite supervisor\" OR \"production engineer\" OR \"drilling superintendent\" OR \"field operations manager\") AND (\"Comstock\" OR \"onshore gas\" OR \"horizontal drilling\" OR \"hydraulic fracturing\") AND (Louisiana OR Texas)"
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal",
+      "boolean_search": "(\"Mine Development Manager\" OR \"Underground Mine Superintendent\" OR \"Mining Engineer\" OR \"Mine Planner\" OR \"Shaft Sinker\" OR \"Construction Manager\") AND (\"zinc\" OR \"manganese\" OR \"copper\" OR \"underground mining\") AND (\"MSHA\" OR \"mine permitting\" OR \"US Forest Service\" OR \"geotechnical\") AND (Arizona OR \"Southwest US\")"
     },
     "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], SOCAR's ~$1.7B investment into Comstock Resources' Haynesville gas assets signals a major drilling ramp-up. Your background in onshore gas development looks like a strong fit. Open to a quick chat about upcoming roles?",
-      "email_subject": "Haynesville Gas Ramp-Up — Drilling & Operations Roles (Comstock/SOCAR)",
-      "email_body": "Hi [Name],\n\nSOCAR has just signed a ~$1.7B preliminary deal to acquire a stake in Comstock Resources' Haynesville shale gas operations. This level of capital injection typically drives a meaningful ramp-up in drilling activity, completions, and field operations staffing.\n\nGiven your experience in onshore gas development, I wanted to reach out early — before roles are publicly posted. We're already mapping talent for Drilling Engineers, Completions Engineers, Wellsite Supervisors, and Field Operations Managers in the Louisiana/East Texas area.\n\nWould you be open to a 15-minute call this week to discuss how your background aligns?\n\nBest regards,\n[Your Name]"
+      "linkedin_inmail": "Hi [Name], the US Forest Service just approved South32's Hermosa mine plan in Arizona — a major milestone for one of the world's largest undeveloped zinc/manganese deposits. As they move toward development, senior mining professionals will be in demand. Worth a conversation?",
+      "email_subject": "South32 Hermosa Mine Plan Approved — Senior Mining Roles Incoming?",
+      "email_body": "Hi [Name],\n\nThe US Forest Service has signed off on South32's mine plan for the Hermosa project in Arizona — a significant regulatory milestone for a deposit hosting world-class zinc, battery-grade manganese, and copper resources.\n\nWith this approval in hand, South32 is positioned to advance toward development, which typically triggers a ramp-up in engineering, environmental, and construction hiring.\n\nGiven your background in [underground mining / mine development / relevant discipline], I wanted to reach out early. We're tracking this project closely and are already in conversation with stakeholders.\n\nWould you be open to a brief call to discuss how your experience aligns with where Hermosa is headed?\n\nBest regards,\n[Your Name]"
     },
     "bd_relevant": true,
-    "bd_relevance_reason": "Named operator (Comstock Resources) and incoming investor (SOCAR) in a ~$1.7B stake acquisition of Haynesville onshore gas assets, directly implying a drilling and field operations workforce ramp-up.",
-    "phase": "sanctioned_engineering",
-    "phase_evidence": "A preliminary deal has been signed for capital injection into operating Haynesville assets, implying accelerated development drilling program planning is underway.",
+    "bd_relevance_reason": "US Forest Service approval of South32's Hermosa mine plan is a named regulatory permit grant for a named operator and project in the mining sector, signaling imminent development progression and workforce demand.",
+    "phase": "pre_sanction",
+    "phase_evidence": "The article describes a mine plan regulatory approval — a pre-FID permitting milestone — with no mention of FID, EPC award, or construction start.",
     "construction_subphase": null,
     "lifecycle_track": "greenfield",
     "decom_stage": null,
@@ -100,12 +100,113 @@
     "key_people": [],
     "enrichment_status": "ok",
     "enrichment_model": "claude-sonnet-4-6",
-    "id": "0615e64d-4dec-4539-98a3-03a471fc4668",
-    "ingested_at": "2026-09-02T18:14:18.383Z",
-    "source_published_at": "2026-09-02T15:42:53.000Z",
+    "id": "98efe900-b0a3-43e1-8d52-04ffc67c9f5b",
+    "ingested_at": "2026-09-03T00:31:37.392Z",
+    "source_published_at": "2026-09-02T20:02:58.000Z",
     "contact_archetypes": [
       "project_manager",
-      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/eldorado-eyes-bigger-mcilvenna-bay-copper-mill/"
+      }
+    ],
+    "headline": "Eldorado Eyes Larger Copper Mill at McIlvenna Bay — Production Ramp Signals Engineering Demand",
+    "body": "The operation is expected to average 41 million lb. of copper, 20,000 oz. of gold and 444,000 oz. of silver annually.",
+    "url": "https://www.mining.com/eldorado-eyes-bigger-mcilvenna-bay-copper-mill/",
+    "published_at": "2026-09-02T19:00:00.000Z",
+    "hash": "89337102d0bdcea9",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "fid",
+    "region": "canada-saskatchewan",
+    "country": "canada",
+    "tldr": "Eldorado is evaluating a larger mill at its McIlvenna Bay copper-gold-silver project in Canada, targeting 41Mlb Cu annually. Expansion planning signals upcoming FEED/EPC engineering and construction hiring.",
+    "operator": {
+      "name": "Eldorado",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Eldorado",
+      "matched_company_slug": null
+    },
+    "project_name": "McIlvenna Bay",
+    "scope": [
+      "mill_expansion",
+      "process_plant"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Process Plant Engineer",
+        "Mineral Processing Engineer",
+        "Project Manager – Mining",
+        "FEED Manager",
+        "Concentrator Superintendent",
+        "Construction Manager",
+        "HSE Manager – Mining"
+      ],
+      "skills": [
+        "copper processing",
+        "SAG mill",
+        "ball mill",
+        "flotation",
+        "mineral processing",
+        "FEED",
+        "project controls",
+        "mine site construction"
+      ],
+      "certs_freetext": [
+        "P.Eng (Canada)",
+        "PMP"
+      ],
+      "geo_rtw": "Canada – eligible to work in Saskatchewan",
+      "project_experience": [
+        "Flin Flon",
+        "Copper Mountain",
+        "Constancia",
+        "Salobo"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"McIlvenna Bay\" OR \"copper mill\" OR \"concentrator\" OR \"mineral processing\") AND (\"process plant\" OR \"SAG mill\" OR \"flotation\" OR \"FEED\") AND (\"mining\" OR \"copper\" OR \"gold\") AND (\"Project Manager\" OR \"Process Engineer\" OR \"Construction Manager\" OR \"Concentrator Superintendent\") AND (Canada OR Saskatchewan)"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Eldorado's planned mill expansion at McIlvenna Bay (41Mlb Cu/yr target) will need experienced process plant and construction professionals. Would you be open to a conversation about upcoming roles?",
+      "email_subject": "McIlvenna Bay Mill Expansion – Senior Roles Coming",
+      "email_body": "Hi [Name],\n\nEldorado is eyeing a larger mill at its McIlvenna Bay copper-gold-silver project in Saskatchewan, targeting 41 million lb of copper annually. As planning progresses toward FEED and EPC, demand for experienced process plant engineers, construction managers, and concentrator specialists will rise.\n\nGiven your background in [relevant experience], I'd love to connect you with this opportunity early.\n\nWould you have 15 minutes this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Eldorado) and project (McIlvenna Bay) with a mill expansion signal implying upcoming engineering and construction workforce demand in the mining sector.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article uses 'eyes bigger mill,' indicating evaluation/study phase ahead of any FID or EPC award.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "37c660b9-609b-4980-b120-8dc7947d3d77",
+    "ingested_at": "2026-09-03T00:31:37.392Z",
+    "source_published_at": "2026-09-02T19:00:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
       "business_unit_director"
     ],
     "prompt_version": "phase-targeting-v1.2"
@@ -214,6 +315,117 @@
     "source_published_at": "2026-09-02T18:00:00.000Z",
     "contact_archetypes": [
       "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/socar_to_invest_in_haynesville_with_nearly_17b_comstock_partnership-02-sep-2026-184523-article/?rss=true"
+      }
+    ],
+    "headline": "SOCAR to Acquire Stake in Comstock-Operated Haynesville Gas Assets in ~$1.7B Deal",
+    "body": "The State Oil Company of the Republic of Azerbaijan (SOCAR) has signed a preliminary deal to acquire a stake in Haynesville gas assets operated by Comstock R...",
+    "url": "https://www.rigzone.com/news/socar_to_invest_in_haynesville_with_nearly_17b_comstock_partnership-02-sep-2026-184523-article/?rss=true",
+    "published_at": "2026-09-02T15:42:53.000Z",
+    "hash": "8b7647d4f2fa1e33",
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "pipeline_mechanical",
+      "process_plant_operations"
+    ],
+    "signal_type": "lease_round",
+    "region": "us-haynesville",
+    "country": "united_states",
+    "tldr": "SOCAR has signed a preliminary deal to take a stake in Comstock Resources' Haynesville shale gas operations for ~$1.7B, signaling a significant capital injection into onshore US gas development that will drive near-term drilling and field operations hiring.",
+    "operator": {
+      "name": "Comstock Resources",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Comstock Resources",
+      "matched_company_slug": null
+    },
+    "project_name": "Haynesville Shale Gas Assets",
+    "scope": [
+      "asset_acquisition",
+      "gas_development",
+      "drilling_program"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 1700000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Drilling Engineer",
+        "Completions Engineer",
+        "Production Engineer",
+        "Wellsite Supervisor",
+        "Drilling Superintendent",
+        "Field Operations Manager",
+        "Gas Plant Operator",
+        "HSE Manager",
+        "Reservoir Engineer",
+        "Land and Contracts Advisor"
+      ],
+      "skills": [
+        "Haynesville shale",
+        "unconventional gas development",
+        "horizontal drilling",
+        "hydraulic fracturing",
+        "gas compression",
+        "wellsite supervision",
+        "completion design",
+        "production optimization"
+      ],
+      "certs_freetext": [
+        "IADC WellSharp",
+        "BOSIET",
+        "H2S Alive",
+        "First Aid/CPR"
+      ],
+      "geo_rtw": "US work authorization required; Louisiana/East Texas based",
+      "project_experience": [
+        "Haynesville Shale",
+        "Marcellus Shale",
+        "Eagle Ford Shale",
+        "Barnett Shale",
+        "Cotton Valley"
+      ],
+      "yoe_band": "6-15",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"Haynesville\" OR \"unconventional gas\" OR \"shale gas\") AND (\"drilling engineer\" OR \"completions engineer\" OR \"wellsite supervisor\" OR \"production engineer\" OR \"drilling superintendent\" OR \"field operations manager\") AND (\"Comstock\" OR \"onshore gas\" OR \"horizontal drilling\" OR \"hydraulic fracturing\") AND (Louisiana OR Texas)"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], SOCAR's ~$1.7B investment into Comstock Resources' Haynesville gas assets signals a major drilling ramp-up. Your background in onshore gas development looks like a strong fit. Open to a quick chat about upcoming roles?",
+      "email_subject": "Haynesville Gas Ramp-Up — Drilling & Operations Roles (Comstock/SOCAR)",
+      "email_body": "Hi [Name],\n\nSOCAR has just signed a ~$1.7B preliminary deal to acquire a stake in Comstock Resources' Haynesville shale gas operations. This level of capital injection typically drives a meaningful ramp-up in drilling activity, completions, and field operations staffing.\n\nGiven your experience in onshore gas development, I wanted to reach out early — before roles are publicly posted. We're already mapping talent for Drilling Engineers, Completions Engineers, Wellsite Supervisors, and Field Operations Managers in the Louisiana/East Texas area.\n\nWould you be open to a 15-minute call this week to discuss how your background aligns?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Comstock Resources) and incoming investor (SOCAR) in a ~$1.7B stake acquisition of Haynesville onshore gas assets, directly implying a drilling and field operations workforce ramp-up.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "A preliminary deal has been signed for capital injection into operating Haynesville assets, implying accelerated development drilling program planning is underway.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "0615e64d-4dec-4539-98a3-03a471fc4668",
+    "ingested_at": "2026-09-02T18:14:18.383Z",
+    "source_published_at": "2026-09-02T15:42:53.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
       "business_unit_director"
     ],
     "prompt_version": "phase-targeting-v1.2"

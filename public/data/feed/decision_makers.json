@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-09-02T18:16:11.963Z"
+    "last_updated_at": "2026-09-03T00:33:49.145Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -11366,6 +11366,66 @@
         "email": null,
         "phone": null,
         "location": null
+      }
+    ]
+  },
+  "eldorado": {
+    "discovered_at": "2026-09-03T00:33:49.145Z",
+    "contacts": [
+      {
+        "name": "Stephanie Shaw",
+        "title": "Vice President, Human Resources",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/stephanieapshaw",
+        "source_url": "https://www.eldoradogold.com/our-company/officers-and-senior-management",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Vancouver, BC, Canada"
+      },
+      {
+        "name": "Pam Garden",
+        "title": "Senior Director, Human Resources & Global Talent Management",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/pam-garden-79b33048",
+        "source_url": "https://theorg.com/org/eldorado-gold/teams/global-talent-management",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Canada"
+      },
+      {
+        "name": "Mandy McEleney",
+        "title": "Senior Manager, Global Talent",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/mandy-mceleney-35b0962",
+        "source_url": "https://theorg.com/org/eldorado-gold/teams/global-talent-management",
+        "in_target_persona": true,
+        "email": "mandy.mceleney@eldoradogold.com",
+        "phone": null,
+        "location": "Vancouver, BC, Canada"
+      },
+      {
+        "name": "Simon Hille",
+        "title": "Executive Vice President & Chief Operating Officer",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.eldoradogold.com/investors/news-releases/eldorado-gold-announces-leadership-updates-strengthening-operational",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Vancouver, BC, Canada"
+      },
+      {
+        "name": "Gordana Vicentijevic",
+        "title": "Senior Vice President, Projects",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://www.eldoradogold.com/investors/news-releases/eldorado-gold-announces-leadership-updates-strengthening-operational",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Vancouver, BC, Canada"
       }
     ]
   }
