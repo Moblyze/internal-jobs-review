@@ -1,5 +1,48 @@
 [
   {
+    "id": "d2b7ba57-04c2-4fba-ab91-5887525e8276",
+    "ingested_at": "2026-09-03T12:18:07.339Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/consortium-formed-for-swedish-smr-project"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "scandinavia",
+    "country": "sweden",
+    "headline": "Studsvik Selects GE Vernova Hitachi & Samsung C&T for 4-Unit BWRX-300 SMR Project in Sweden",
+    "operator": {
+      "name": "Studsvik",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Samsung C&T",
+      "matched_company_slug": null
+    },
+    "project_name": "Studsvik BWRX-300 SMR Project",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "b8c737a9-8296-4598-bef5-6ef090d06a0a",
     "ingested_at": "2026-09-03T06:19:19.711Z",
     "sources": [

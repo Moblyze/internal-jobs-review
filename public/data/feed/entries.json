@@ -2,6 +2,117 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/consortium-formed-for-swedish-smr-project"
+      }
+    ],
+    "headline": "Studsvik Selects GE Vernova Hitachi & Samsung C&T for 4-Unit BWRX-300 SMR Project in Sweden",
+    "body": "Studsvik has selected GE Vernova Hitachi Nuclear Energy and Samsung C&T as its strategic partners for an initial four-unit BWRX-300 small modular reactor project, either at its existing licensed nuclear site in Nyköping or at the Målma site in Valdemarsvik.",
+    "url": "https://www.world-nuclear-news.org/articles/consortium-formed-for-swedish-smr-project",
+    "published_at": "2026-09-03T15:43:40.000Z",
+    "hash": "f311cd6608c9818d",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "scandinavia",
+    "country": "sweden",
+    "tldr": "Studsvik has formed a consortium with GE Vernova Hitachi Nuclear Energy and Samsung C&T for a four-unit BWRX-300 SMR project at Nyköping or Valdemarsvik. Project is pre-FID but names operator and EPC partners, signalling future engineering and construction labor demand.",
+    "operator": {
+      "name": "Studsvik",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Samsung C&T",
+      "matched_company_slug": null
+    },
+    "project_name": "Studsvik BWRX-300 SMR Project",
+    "scope": [
+      "smr_epc",
+      "nuclear_new_build",
+      "four_unit_bwrx300"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Project Manager",
+        "Nuclear Construction Manager",
+        "SMR Project Engineer",
+        "Nuclear Safety Engineer",
+        "Reactor Systems Engineer",
+        "Nuclear FEED Engineer",
+        "Nuclear QA/QC Manager",
+        "Licensing & Regulatory Affairs Manager",
+        "Nuclear Civil/Structural Engineer",
+        "Site Development Manager"
+      ],
+      "skills": [
+        "BWRX-300",
+        "SMR",
+        "nuclear new build",
+        "boiling water reactor",
+        "nuclear licensing",
+        "FEED",
+        "EPC nuclear",
+        "nuclear safety case",
+        "site characterisation",
+        "regulatory affairs"
+      ],
+      "certs_freetext": [
+        "Nuclear Safety Passport",
+        "EUR-ACE (nuclear engineering)",
+        "Swedish Radiation Safety Authority (SSM) familiarity"
+      ],
+      "geo_rtw": "EU/EEA work authorisation preferred; Sweden-based or relocatable",
+      "project_experience": [
+        "Hinkley Point C",
+        "Olkiluoto 3",
+        "Vogtle Units 3&4",
+        "NuScale VOYGR",
+        "GE Vernova BWRX-300 Ontario Power Generation"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal / Manager",
+      "boolean_search": "(\"BWRX-300\" OR \"SMR\" OR \"small modular reactor\" OR \"nuclear new build\" OR \"boiling water reactor\") AND (\"nuclear engineering\" OR \"nuclear construction\" OR \"nuclear project manager\" OR \"reactor systems\" OR \"nuclear licensing\" OR \"nuclear safety\") AND (\"FEED\" OR \"EPC\" OR \"pre-FID\" OR \"site development\" OR \"nuclear regulatory\") AND (Sweden OR Scandinavia OR \"nuclear\" OR \"GE Vernova\" OR \"Hitachi\" OR \"Samsung C&T\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Studsvik has just partnered with GE Vernova Hitachi & Samsung C&T for a 4-unit BWRX-300 SMR project in Sweden. Pre-FID now, engineering ramp incoming. Your nuclear new-build background looks highly relevant — open to a conversation?",
+      "email_subject": "Nuclear SMR Opportunity – Studsvik BWRX-300 Project, Sweden",
+      "email_body": "Hi [Name],\n\nStudsvik has selected GE Vernova Hitachi Nuclear Energy and Samsung C&T as strategic partners for a four-unit BWRX-300 small modular reactor project in Sweden (Nyköping or Valdemarsvik). The project is currently pre-FID, but the consortium formation signals that FEED and engineering ramp-up roles will emerge in the near-to-medium term.\n\nGiven your background in [nuclear new build / SMR / nuclear engineering], I wanted to reach out early before roles are formally posted. I'd welcome a brief call to discuss how your experience aligns with what's coming.\n\nAre you open to a 15-minute conversation this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Studsvik) and EPC/strategic partners (GE Vernova Hitachi Nuclear Energy, Samsung C&T) selected for a discrete four-unit BWRX-300 SMR nuclear project at named candidate sites in Sweden.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article describes partner selection for an 'initial' project with site still under consideration (Nyköping or Målma), indicating pre-FID concept/FEED stage.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "d2b7ba57-04c2-4fba-ab91-5887525e8276",
+    "ingested_at": "2026-09-03T12:18:07.339Z",
+    "source_published_at": "2026-09-03T15:43:40.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/studsvik-ge-vernova-hitachi-and-samsung-ct-commit-to-advancing-1-2-gw-nuclear-power-project-in-sweden-302868672.html"

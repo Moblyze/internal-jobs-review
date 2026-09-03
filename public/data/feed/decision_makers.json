@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-09-03T06:20:27.754Z"
+    "last_updated_at": "2026-09-03T12:19:42.092Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -11486,6 +11486,66 @@
         "email": null,
         "phone": null,
         "location": "Wilmington, NC, USA"
+      }
+    ]
+  },
+  "samsung c&t": {
+    "discovered_at": "2026-09-03T12:19:42.092Z",
+    "contacts": [
+      {
+        "name": "Peggy Lim",
+        "title": "Head of Human Resources",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/peggy-lim-3003b513",
+        "source_url": "https://rocketreach.co/samsung-ct-corporation-hr-department_b5f09a38f77641e5",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Singapore"
+      },
+      {
+        "name": "Bhagavan Peddireddi",
+        "title": "Operations Manager – Commissioning",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/bhagavan-peddireddi-56b3993b",
+        "source_url": "https://www.signalhire.com/companies/samsung-c-t-corporation/management",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Fujairah Emirate, UAE"
+      },
+      {
+        "name": "Tommy Kim",
+        "title": "Director, Contract Management",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/tommy-kim-40247854",
+        "source_url": "https://rocketreach.co/samsung-ct-corporation-management_b5f09a38f77641e5",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "South Korea"
+      },
+      {
+        "name": "Aejaz Sayed",
+        "title": "Operations Manager",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.signalhire.com/companies/samsung-c-t-corporation/management",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Jubail, Eastern Province, Saudi Arabia"
+      },
+      {
+        "name": "Ben Mailer",
+        "title": "Operations Manager",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.signalhire.com/companies/samsung-c-t-corporation/management",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Sydney, NSW, Australia"
       }
     ]
   }
