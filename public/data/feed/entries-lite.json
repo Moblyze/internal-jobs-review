@@ -1,5 +1,91 @@
 [
   {
+    "id": "20015b7a-0168-4ea3-a90e-9e81c4a71980",
+    "ingested_at": "2026-09-03T18:14:11.118Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/shell_joins_bp_exploration_projects_offshore_brazil_us-03-sep-2026-184534-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "survey_geophysical",
+      "rov_subsea",
+      "marine_offshore_ops"
+    ],
+    "signal_type": "lease_round",
+    "region": "brazil-santos-basin",
+    "country": "brazil",
+    "headline": "Shell Acquires Partial Interest in BP's Tupinambá Exploration Block, Offshore Brazil Santos Basin",
+    "operator": {
+      "name": "BP / Shell (joint)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Shell",
+      "matched_company_slug": null
+    },
+    "project_name": "Tupinambá Exploration Block",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
+    "id": "e4be2130-4d9b-46b5-8107-27c2d01076e4",
+    "ingested_at": "2026-09-03T18:14:11.118Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/lake-victoria-gold-completes-initial-access-road-repairs-and-advances-site-earthworks-at-imwelo-gold-project-302869200.html"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "east-africa",
+    "country": "tanzania",
+    "headline": "Lake Victoria Gold Advances Imwelo Gold Project Site Works – Construction Camp Complete, Earthworks Underway",
+    "operator": {
+      "name": "Lake Victoria Gold Ltd.",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Lake Victoria Gold Ltd.",
+      "matched_company_slug": null
+    },
+    "project_name": "Imwelo Gold Project",
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": []
+  },
+  {
     "id": "d2b7ba57-04c2-4fba-ab91-5887525e8276",
     "ingested_at": "2026-09-03T12:18:07.339Z",
     "sources": [

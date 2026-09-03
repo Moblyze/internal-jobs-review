@@ -2,6 +2,217 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/shell_joins_bp_exploration_projects_offshore_brazil_us-03-sep-2026-184534-article/?rss=true"
+      }
+    ],
+    "headline": "Shell Acquires Partial Interest in BP's Tupinambá Exploration Block, Offshore Brazil Santos Basin",
+    "body": "BP PLC has signed an agreement with Shell PLC to sell part of its ownership in the Tupinambá exploration block in Brazil's offshore Santos Basin and five lea...",
+    "url": "https://www.rigzone.com/news/shell_joins_bp_exploration_projects_offshore_brazil_us-03-sep-2026-184534-article/?rss=true",
+    "published_at": "2026-09-03T15:26:46.000Z",
+    "hash": "e1934052af913ca8",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "survey_geophysical",
+      "rov_subsea",
+      "marine_offshore_ops"
+    ],
+    "signal_type": "lease_round",
+    "region": "brazil-santos-basin",
+    "country": "brazil",
+    "tldr": "BP has agreed to sell a partial stake in the Tupinambá exploration block (Santos Basin, Brazil) and five additional leases to Shell, signalling upcoming exploration campaign activity and potential early-phase staffing demand across both operators.",
+    "operator": {
+      "name": "BP / Shell (joint)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Shell",
+      "matched_company_slug": null
+    },
+    "project_name": "Tupinambá Exploration Block",
+    "scope": [
+      "exploration_block_acquisition",
+      "offshore_exploration"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Exploration Geologist",
+        "Geophysicist",
+        "Drilling Engineer",
+        "Subsea Engineer",
+        "Wells Planning Engineer",
+        "Exploration Project Manager",
+        "Petrophysicist"
+      ],
+      "skills": [
+        "deepwater exploration",
+        "seismic interpretation",
+        "well planning",
+        "Santos Basin",
+        "pre-salt geology",
+        "subsea systems",
+        "drilling operations"
+      ],
+      "certs_freetext": [
+        "IWCF",
+        "GWO",
+        "BOSIET",
+        "HUET"
+      ],
+      "geo_rtw": "Brazil (right to work or rotational offshore)",
+      "project_experience": [
+        "Buzios",
+        "Libra",
+        "Sapinhoa",
+        "Lula",
+        "Santos Basin pre-salt"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"Exploration Geologist\" OR \"Geophysicist\" OR \"Drilling Engineer\" OR \"Wells Engineer\" OR \"Petrophysicist\" OR \"Exploration Project Manager\") AND (\"Santos Basin\" OR \"pre-salt\" OR \"deepwater Brazil\" OR \"offshore Brazil\") AND (Shell OR BP OR \"deepwater exploration\") AND (\"well planning\" OR \"seismic interpretation\" OR \"subsea\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Shell is entering BP's Tupinambá block in Brazil's Santos Basin — early exploration & drilling roles are likely to follow. Your deepwater Brazil background makes you a strong fit. Open to a quick chat?",
+      "email_subject": "Shell–BP Tupinambá Block, Santos Basin — Exploration Roles Incoming",
+      "email_body": "Hi [Name],\n\nShell has just agreed to acquire a partial stake in BP's Tupinambá exploration block in Brazil's offshore Santos Basin, along with five additional leases. This kind of block entry typically triggers early staffing across exploration geology, geophysics, drilling engineering, and subsea disciplines.\n\nGiven your background in [relevant area], I wanted to reach out ahead of the curve. These roles tend to move quickly once campaigns are scoped.\n\nWould you be open to a 15-minute call this week to discuss how this aligns with your current situation?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator block/lease assignment: BP selling partial interest in the Tupinambá exploration block (Santos Basin, Brazil) and five additional leases to Shell — a direct exploration license assignment to named operators creating a discrete upstream labor-demand signal.",
+    "phase": "pre_sanction",
+    "phase_evidence": "The article describes an exploration block stake sale, indicating the asset is in early exploration phase with no FID or development plan referenced.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "20015b7a-0168-4ea3-a90e-9e81c4a71980",
+    "ingested_at": "2026-09-03T18:14:11.118Z",
+    "source_published_at": "2026-09-03T15:26:46.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/lake-victoria-gold-completes-initial-access-road-repairs-and-advances-site-earthworks-at-imwelo-gold-project-302869200.html"
+      }
+    ],
+    "headline": "Lake Victoria Gold Advances Imwelo Gold Project Site Works – Construction Camp Complete, Earthworks Underway",
+    "body": "Access-road repairs completed, site earthworks advancing and construction camp substantially complete at the fully permitted Imwelo Gold Project in Tanzania VANCOUVER, British Columbia, Sept. 3, 2026 /PRNewswire/ -- Lake Victoria Gold Ltd. (TSXV: LVG) (OTCQB: LVGLF) (FSE: E1K) (\"Lake...",
+    "url": "https://www.prnewswire.com/news-releases/lake-victoria-gold-completes-initial-access-road-repairs-and-advances-site-earthworks-at-imwelo-gold-project-302869200.html",
+    "published_at": "2026-09-03T15:58:00.000Z",
+    "hash": "d4b22269a7e067b8",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "east-africa",
+    "country": "tanzania",
+    "tldr": "Lake Victoria Gold has completed access-road repairs, substantially finished its construction camp, and is advancing site earthworks at the fully permitted Imwelo Gold Project in Tanzania, signalling active construction ramp-up and near-term labor demand.",
+    "operator": {
+      "name": "Lake Victoria Gold Ltd.",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Lake Victoria Gold Ltd.",
+      "matched_company_slug": null
+    },
+    "project_name": "Imwelo Gold Project",
+    "scope": [
+      "site_earthworks",
+      "access_road",
+      "construction_camp"
+    ],
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Construction Manager",
+        "Site Manager",
+        "Civil Works Supervisor",
+        "Earthworks Superintendent",
+        "HSE Manager",
+        "Camp Boss / Camp Manager",
+        "Project Controls Engineer",
+        "Surveyor"
+      ],
+      "skills": [
+        "site earthworks",
+        "access road construction",
+        "construction camp management",
+        "civil engineering",
+        "bulk earthmoving",
+        "mining construction"
+      ],
+      "certs_freetext": [
+        "IOSH Managing Safely",
+        "NEBOSH International General Certificate",
+        "First Aid"
+      ],
+      "geo_rtw": "Tanzania-eligible or East Africa-experienced; expatriate candidates with African mining construction background",
+      "project_experience": [
+        "Bulyanhulu Gold Mine",
+        "North Mara Gold Mine",
+        "Geita Gold Mine",
+        "Kakula Copper Mine",
+        "Kibali Gold Mine"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"Construction Manager\" OR \"Site Manager\" OR \"Earthworks Superintendent\" OR \"Civil Superintendent\" OR \"Camp Manager\") AND (\"gold mine\" OR \"mining construction\" OR \"open pit\" OR \"greenfield mine\") AND (Tanzania OR \"East Africa\" OR Kenya OR Uganda OR Zambia OR DRC) AND (earthworks OR \"civil works\" OR \"bulk earthmoving\" OR \"access road\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Lake Victoria Gold is ramping construction at the Imwelo Gold Project in Tanzania — access roads done, camp complete, earthworks live. Are you open to a senior site role on a greenfield gold project in East Africa?",
+      "email_subject": "Construction Opportunity – Imwelo Gold Project, Tanzania (Lake Victoria Gold)",
+      "email_body": "Hi [Name],\n\nI wanted to reach out regarding a live construction opportunity at the Imwelo Gold Project in Tanzania, operated by Lake Victoria Gold Ltd.\n\nThe project is fully permitted and actively advancing — access-road repairs are complete, the construction camp is substantially built, and site earthworks are underway as of Q3 2026. This points to an immediate need for experienced site construction professionals.\n\nGiven your background in [mining construction / civil works / site management], I believe you could be a strong fit for roles such as Construction Manager, Earthworks Superintendent, or HSE Lead on this greenfield gold project.\n\nWould you be open to a brief call this week to explore the opportunity?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Lake Victoria Gold) and project (Imwelo Gold Project) with active construction-phase earthworks and camp completion underway in Tanzania, indicating near-term labor demand.",
+    "phase": "construction",
+    "phase_evidence": "Article states access-road repairs are completed, construction camp is 'substantially complete,' and site earthworks are actively advancing — all hallmarks of early construction execution.",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "e4be2130-4d9b-46b5-8107-27c2d01076e4",
+    "ingested_at": "2026-09-03T18:14:11.118Z",
+    "source_published_at": "2026-09-03T15:58:00.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org/articles/consortium-formed-for-swedish-smr-project"

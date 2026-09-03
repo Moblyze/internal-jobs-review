@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-09-03T12:19:42.092Z"
+    "last_updated_at": "2026-09-03T18:16:19.147Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -11546,6 +11546,186 @@
         "email": null,
         "phone": null,
         "location": "Sydney, NSW, Australia"
+      }
+    ]
+  },
+  "shell": {
+    "discovered_at": "2026-09-03T18:16:19.147Z",
+    "contacts": [
+      {
+        "name": "Jay Allen",
+        "title": "Senior Talent Acquisition Specialist",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/jay-allen-83b99913",
+        "source_url": "https://www.linkedin.com/in/jay-allen-83b99913/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Greater Houston, TX, USA"
+      },
+      {
+        "name": "Ashley Brooking",
+        "title": "Senior Talent Acquisition Specialist",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/ashley-brooking",
+        "source_url": "https://www.linkedin.com/in/ashley-brooking/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Greater Houston, TX, USA"
+      },
+      {
+        "name": "Krishna Chander",
+        "title": "HR Business Partner – IG, New Energies, Ventures & Functions",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/krishna-chander-93586aa",
+        "source_url": "https://in.linkedin.com/in/krishna-chander-93586aa",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Bengaluru, India"
+      },
+      {
+        "name": "Ronald Adams",
+        "title": "Managing Director, Shell Nigeria Exploration and Production Company (SNEPCo)",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://kolaking.substack.com/p/shell-appoints-ronald-adams-as-new",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Lagos, Nigeria"
+      },
+      {
+        "name": "Elohor Aiboni",
+        "title": "Asset Director, Brunei Shell Petroleum (formerly MD, SNEPCo)",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://kolaking.substack.com/p/shell-appoints-ronald-adams-as-new",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Brunei"
+      }
+    ]
+  },
+  "bp / shell (joint)": {
+    "discovered_at": "2026-09-03T18:16:19.147Z",
+    "contacts": [
+      {
+        "name": "John Armstrong",
+        "title": "Director & General Manager (CEO)",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/johnmichaelarmstrong",
+        "source_url": "https://www.bpa.co.uk/about-bpa/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Bath, UK"
+      },
+      {
+        "name": "Clive Zanker",
+        "title": "Head of Operations",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.bpa.co.uk/about-bpa/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Hemel Hempstead, UK"
+      },
+      {
+        "name": "Sonya Adams",
+        "title": "EVP People & Culture",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://www.energyvoice.com/oilandgas/600025/bp-to-part-ways-with-deputy-ceo-and-hr-boss/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "London, UK"
+      },
+      {
+        "name": "Julian Coyne",
+        "title": "Financial Controller",
+        "persona": "other",
+        "linkedin_url": null,
+        "source_url": "https://rocketreach.co/bpa-british-pipeline-agency-limited-management_b5dfdcc6f42e4909",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Hemel Hempstead, UK"
+      },
+      {
+        "name": "Stuart Liddell",
+        "title": "Employee, British Pipeline Agency Limited",
+        "persona": "other",
+        "linkedin_url": "https://www.linkedin.com/in/stuart-liddell-1582655b",
+        "source_url": "https://uk.linkedin.com/in/stuart-liddell-1582655b",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "lake victoria gold ltd.": {
+    "discovered_at": "2026-09-03T18:16:19.147Z",
+    "contacts": [
+      {
+        "name": "Seth Dickinson",
+        "title": "Chief Operating Officer (COO)",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/seth-dickinson-03593281",
+        "source_url": "https://lakevictoriagold.com/corporate/management/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Brisbane, Australia"
+      },
+      {
+        "name": "David Scott",
+        "title": "Managing Director, Tanzania & Director",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/david-scott-29a15314",
+        "source_url": "https://lakevictoriagold.com/corporate/management/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Tanzania"
+      },
+      {
+        "name": "Charl Coetzee",
+        "title": "Senior Project Manager, Imwelo Gold Project (Sutton Consulting, embedded at LVG)",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://www.newsfilecorp.com/release/304339/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Imwelo, Tanzania (on-site)"
+      },
+      {
+        "name": "Marc Cernovitch",
+        "title": "President & Chief Executive Officer",
+        "persona": "other",
+        "linkedin_url": null,
+        "source_url": "https://lakevictoriagold.com/corporate/management/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Vancouver, BC, Canada"
+      },
+      {
+        "name": "Simon Benstead",
+        "title": "Executive Chairman & CFO",
+        "persona": "other",
+        "linkedin_url": null,
+        "source_url": "https://natlawreview.com/press-releases/lake-victoria-gold-mobilizes-senior-project-manager-imwelo-construction",
+        "in_target_persona": false,
+        "email": "sbenstead@lakevictoriagold.com",
+        "phone": "+1 604-685-9316",
+        "location": "Vancouver, BC, Canada"
       }
     ]
   }
