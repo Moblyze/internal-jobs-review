@@ -1,5 +1,47 @@
 [
   {
+    "id": "e4be2130-4d9b-46b5-8107-27c2d01076e4",
+    "ingested_at": "2026-09-03T18:14:11.118Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/lake-victoria-gold-completes-initial-access-road-repairs-and-advances-site-earthworks-at-imwelo-gold-project-302869200.html"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "east-africa",
+    "country": "tanzania",
+    "headline": "Lake Victoria Gold Advances Imwelo Gold Project Site Works – Construction Camp Complete, Earthworks Underway",
+    "operator": {
+      "name": "Lake Victoria Gold Ltd.",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Lake Victoria Gold Ltd.",
+      "matched_company_slug": null
+    },
+    "project_name": "Imwelo Gold Project",
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": []
+  },
+  {
     "id": "20015b7a-0168-4ea3-a90e-9e81c4a71980",
     "ingested_at": "2026-09-03T18:14:11.118Z",
     "sources": [
@@ -41,48 +83,6 @@
     "decom_stage": null,
     "outreach_readiness": "cold",
     "estimated_hiring_window": "12mo+",
-    "key_people": []
-  },
-  {
-    "id": "e4be2130-4d9b-46b5-8107-27c2d01076e4",
-    "ingested_at": "2026-09-03T18:14:11.118Z",
-    "sources": [
-      {
-        "id": "pr_newswire_energy",
-        "name": "PR Newswire (Energy)",
-        "url": "https://www.prnewswire.com/news-releases/lake-victoria-gold-completes-initial-access-road-repairs-and-advances-site-earthworks-at-imwelo-gold-project-302869200.html"
-      }
-    ],
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades"
-    ],
-    "signal_type": "epc_award",
-    "region": "east-africa",
-    "country": "tanzania",
-    "headline": "Lake Victoria Gold Advances Imwelo Gold Project Site Works – Construction Camp Complete, Earthworks Underway",
-    "operator": {
-      "name": "Lake Victoria Gold Ltd.",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Lake Victoria Gold Ltd.",
-      "matched_company_slug": null
-    },
-    "project_name": "Imwelo Gold Project",
-    "mob_window": {
-      "start": "2026-Q3",
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "construction",
-    "construction_subphase": "rampup",
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "1-3mo",
     "key_people": []
   },
   {
@@ -5196,91 +5196,6 @@
     "decom_stage": null,
     "outreach_readiness": "warming",
     "estimated_hiring_window": "6-12mo",
-    "key_people": []
-  },
-  {
-    "id": "aadc4d25-6a40-4ad7-add5-6fc41e404002",
-    "ingested_at": "2026-06-05T18:43:05.429Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/bilfinger_offshore_workers_striking_over_pay-05-jun-2026-183868-article/?rss=true"
-      }
-    ],
-    "subsector": "offshore-og",
-    "discipline_tags": [
-      "energy_trades",
-      "marine_offshore_ops",
-      "process_plant_operations"
-    ],
-    "signal_type": "replacement",
-    "region": "uk-north-sea",
-    "country": "united_kingdom",
-    "headline": "Bilfinger Offshore Workers Strike Over Pay on Ithaca Energy North Sea Assets",
-    "operator": {
-      "name": "Ithaca Energy",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Bilfinger",
-      "matched_company_slug": null
-    },
-    "project_name": null,
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "operating",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "live_now",
-    "estimated_hiring_window": "now",
-    "key_people": []
-  },
-  {
-    "id": "6f7b3773-eb50-4ade-8140-948d58b3a87b",
-    "ingested_at": "2026-06-05T18:43:05.429Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/ceremony-to-mark-first-concrete-for-uzbekistan-smr"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades"
-    ],
-    "signal_type": "epc_award",
-    "region": "central-asia",
-    "country": "uzbekistan",
-    "headline": "First Concrete Poured for Uzbekistan's First SMR – Construction Phase Begins",
-    "operator": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Uzbekistan SMR",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "construction",
-    "construction_subphase": "rampup",
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "3-6mo",
     "key_people": []
   }
 ]

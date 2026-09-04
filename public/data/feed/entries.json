@@ -2,6 +2,111 @@
   {
     "sources": [
       {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/lake-victoria-gold-completes-initial-access-road-repairs-and-advances-site-earthworks-at-imwelo-gold-project-302869200.html"
+      }
+    ],
+    "headline": "Lake Victoria Gold Advances Imwelo Gold Project Site Works – Construction Camp Complete, Earthworks Underway",
+    "body": "Access-road repairs completed, site earthworks advancing and construction camp substantially complete at the fully permitted Imwelo Gold Project in Tanzania VANCOUVER, British Columbia, Sept. 3, 2026 /PRNewswire/ -- Lake Victoria Gold Ltd. (TSXV: LVG) (OTCQB: LVGLF) (FSE: E1K) (\"Lake...",
+    "url": "https://www.prnewswire.com/news-releases/lake-victoria-gold-completes-initial-access-road-repairs-and-advances-site-earthworks-at-imwelo-gold-project-302869200.html",
+    "published_at": "2026-09-03T15:58:00.000Z",
+    "hash": "d4b22269a7e067b8",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "east-africa",
+    "country": "tanzania",
+    "tldr": "Lake Victoria Gold has completed access-road repairs, substantially finished its construction camp, and is advancing site earthworks at the fully permitted Imwelo Gold Project in Tanzania, signalling active construction ramp-up and near-term labor demand.",
+    "operator": {
+      "name": "Lake Victoria Gold Ltd.",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Lake Victoria Gold Ltd.",
+      "matched_company_slug": null
+    },
+    "project_name": "Imwelo Gold Project",
+    "scope": [
+      "site_earthworks",
+      "access_road",
+      "construction_camp"
+    ],
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Construction Manager",
+        "Site Manager",
+        "Civil Works Supervisor",
+        "Earthworks Superintendent",
+        "HSE Manager",
+        "Camp Boss / Camp Manager",
+        "Project Controls Engineer",
+        "Surveyor"
+      ],
+      "skills": [
+        "site earthworks",
+        "access road construction",
+        "construction camp management",
+        "civil engineering",
+        "bulk earthmoving",
+        "mining construction"
+      ],
+      "certs_freetext": [
+        "IOSH Managing Safely",
+        "NEBOSH International General Certificate",
+        "First Aid"
+      ],
+      "geo_rtw": "Tanzania-eligible or East Africa-experienced; expatriate candidates with African mining construction background",
+      "project_experience": [
+        "Bulyanhulu Gold Mine",
+        "North Mara Gold Mine",
+        "Geita Gold Mine",
+        "Kakula Copper Mine",
+        "Kibali Gold Mine"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"Construction Manager\" OR \"Site Manager\" OR \"Earthworks Superintendent\" OR \"Civil Superintendent\" OR \"Camp Manager\") AND (\"gold mine\" OR \"mining construction\" OR \"open pit\" OR \"greenfield mine\") AND (Tanzania OR \"East Africa\" OR Kenya OR Uganda OR Zambia OR DRC) AND (earthworks OR \"civil works\" OR \"bulk earthmoving\" OR \"access road\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Lake Victoria Gold is ramping construction at the Imwelo Gold Project in Tanzania — access roads done, camp complete, earthworks live. Are you open to a senior site role on a greenfield gold project in East Africa?",
+      "email_subject": "Construction Opportunity – Imwelo Gold Project, Tanzania (Lake Victoria Gold)",
+      "email_body": "Hi [Name],\n\nI wanted to reach out regarding a live construction opportunity at the Imwelo Gold Project in Tanzania, operated by Lake Victoria Gold Ltd.\n\nThe project is fully permitted and actively advancing — access-road repairs are complete, the construction camp is substantially built, and site earthworks are underway as of Q3 2026. This points to an immediate need for experienced site construction professionals.\n\nGiven your background in [mining construction / civil works / site management], I believe you could be a strong fit for roles such as Construction Manager, Earthworks Superintendent, or HSE Lead on this greenfield gold project.\n\nWould you be open to a brief call this week to explore the opportunity?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Lake Victoria Gold) and project (Imwelo Gold Project) with active construction-phase earthworks and camp completion underway in Tanzania, indicating near-term labor demand.",
+    "phase": "construction",
+    "phase_evidence": "Article states access-road repairs are completed, construction camp is 'substantially complete,' and site earthworks are actively advancing — all hallmarks of early construction execution.",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "e4be2130-4d9b-46b5-8107-27c2d01076e4",
+    "ingested_at": "2026-09-03T18:14:11.118Z",
+    "source_published_at": "2026-09-03T15:58:00.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/shell_joins_bp_exploration_projects_offshore_brazil_us-03-sep-2026-184534-article/?rss=true"
@@ -102,111 +207,6 @@
     "contact_archetypes": [
       "project_manager",
       "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "pr_newswire_energy",
-        "name": "PR Newswire (Energy)",
-        "url": "https://www.prnewswire.com/news-releases/lake-victoria-gold-completes-initial-access-road-repairs-and-advances-site-earthworks-at-imwelo-gold-project-302869200.html"
-      }
-    ],
-    "headline": "Lake Victoria Gold Advances Imwelo Gold Project Site Works – Construction Camp Complete, Earthworks Underway",
-    "body": "Access-road repairs completed, site earthworks advancing and construction camp substantially complete at the fully permitted Imwelo Gold Project in Tanzania VANCOUVER, British Columbia, Sept. 3, 2026 /PRNewswire/ -- Lake Victoria Gold Ltd. (TSXV: LVG) (OTCQB: LVGLF) (FSE: E1K) (\"Lake...",
-    "url": "https://www.prnewswire.com/news-releases/lake-victoria-gold-completes-initial-access-road-repairs-and-advances-site-earthworks-at-imwelo-gold-project-302869200.html",
-    "published_at": "2026-09-03T15:58:00.000Z",
-    "hash": "d4b22269a7e067b8",
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades"
-    ],
-    "signal_type": "epc_award",
-    "region": "east-africa",
-    "country": "tanzania",
-    "tldr": "Lake Victoria Gold has completed access-road repairs, substantially finished its construction camp, and is advancing site earthworks at the fully permitted Imwelo Gold Project in Tanzania, signalling active construction ramp-up and near-term labor demand.",
-    "operator": {
-      "name": "Lake Victoria Gold Ltd.",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Lake Victoria Gold Ltd.",
-      "matched_company_slug": null
-    },
-    "project_name": "Imwelo Gold Project",
-    "scope": [
-      "site_earthworks",
-      "access_road",
-      "construction_camp"
-    ],
-    "mob_window": {
-      "start": "2026-Q3",
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Construction Manager",
-        "Site Manager",
-        "Civil Works Supervisor",
-        "Earthworks Superintendent",
-        "HSE Manager",
-        "Camp Boss / Camp Manager",
-        "Project Controls Engineer",
-        "Surveyor"
-      ],
-      "skills": [
-        "site earthworks",
-        "access road construction",
-        "construction camp management",
-        "civil engineering",
-        "bulk earthmoving",
-        "mining construction"
-      ],
-      "certs_freetext": [
-        "IOSH Managing Safely",
-        "NEBOSH International General Certificate",
-        "First Aid"
-      ],
-      "geo_rtw": "Tanzania-eligible or East Africa-experienced; expatriate candidates with African mining construction background",
-      "project_experience": [
-        "Bulyanhulu Gold Mine",
-        "North Mara Gold Mine",
-        "Geita Gold Mine",
-        "Kakula Copper Mine",
-        "Kibali Gold Mine"
-      ],
-      "yoe_band": "8-15",
-      "seniority": "mid-senior",
-      "boolean_search": "(\"Construction Manager\" OR \"Site Manager\" OR \"Earthworks Superintendent\" OR \"Civil Superintendent\" OR \"Camp Manager\") AND (\"gold mine\" OR \"mining construction\" OR \"open pit\" OR \"greenfield mine\") AND (Tanzania OR \"East Africa\" OR Kenya OR Uganda OR Zambia OR DRC) AND (earthworks OR \"civil works\" OR \"bulk earthmoving\" OR \"access road\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Lake Victoria Gold is ramping construction at the Imwelo Gold Project in Tanzania — access roads done, camp complete, earthworks live. Are you open to a senior site role on a greenfield gold project in East Africa?",
-      "email_subject": "Construction Opportunity – Imwelo Gold Project, Tanzania (Lake Victoria Gold)",
-      "email_body": "Hi [Name],\n\nI wanted to reach out regarding a live construction opportunity at the Imwelo Gold Project in Tanzania, operated by Lake Victoria Gold Ltd.\n\nThe project is fully permitted and actively advancing — access-road repairs are complete, the construction camp is substantially built, and site earthworks are underway as of Q3 2026. This points to an immediate need for experienced site construction professionals.\n\nGiven your background in [mining construction / civil works / site management], I believe you could be a strong fit for roles such as Construction Manager, Earthworks Superintendent, or HSE Lead on this greenfield gold project.\n\nWould you be open to a brief call this week to explore the opportunity?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named operator (Lake Victoria Gold) and project (Imwelo Gold Project) with active construction-phase earthworks and camp completion underway in Tanzania, indicating near-term labor demand.",
-    "phase": "construction",
-    "phase_evidence": "Article states access-road repairs are completed, construction camp is 'substantially complete,' and site earthworks are actively advancing — all hallmarks of early construction execution.",
-    "construction_subphase": "rampup",
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "1-3mo",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "e4be2130-4d9b-46b5-8107-27c2d01076e4",
-    "ingested_at": "2026-09-03T18:14:11.118Z",
-    "source_published_at": "2026-09-03T15:58:00.000Z",
-    "contact_archetypes": [
-      "site_manager",
-      "hiring_manager",
-      "project_manager"
     ],
     "prompt_version": "phase-targeting-v1.2"
   },
@@ -13122,217 +13122,6 @@
       "hiring_manager",
       "business_unit_director",
       "hr_business_partner"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/bilfinger_offshore_workers_striking_over_pay-05-jun-2026-183868-article/?rss=true"
-      }
-    ],
-    "headline": "Bilfinger Offshore Workers Strike Over Pay on Ithaca Energy North Sea Assets",
-    "body": "Unite members employed by Bilfinger on North Sea assets operated by Ithaca Energy are striking in a dispute over pay, a statement sent to Rigzone by the unio...",
-    "url": "https://www.rigzone.com/news/bilfinger_offshore_workers_striking_over_pay-05-jun-2026-183868-article/?rss=true",
-    "published_at": "2026-06-05T14:41:03.000Z",
-    "hash": "9a90947324bf9ad9",
-    "subsector": "offshore-og",
-    "discipline_tags": [
-      "energy_trades",
-      "marine_offshore_ops",
-      "process_plant_operations"
-    ],
-    "signal_type": "replacement",
-    "region": "uk-north-sea",
-    "country": "united_kingdom",
-    "tldr": "Unite union members employed by Bilfinger on Ithaca Energy North Sea assets are striking over pay, creating a potential contractor replacement or contingent labor demand window. Recruiters should target offshore maintenance and operations workers available for immediate mob.",
-    "operator": {
-      "name": "Ithaca Energy",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Bilfinger",
-      "matched_company_slug": null
-    },
-    "project_name": null,
-    "scope": [
-      "offshore_maintenance",
-      "operations_support"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Offshore Maintenance Technician",
-        "Offshore Process Operator",
-        "Electrical Technician",
-        "Instrument Technician",
-        "Mechanical Technician",
-        "Offshore HSE Advisor",
-        "Scaffolder",
-        "Pipefitter"
-      ],
-      "skills": [
-        "offshore maintenance",
-        "process operations",
-        "North Sea",
-        "HVAC",
-        "electrical",
-        "instrumentation",
-        "mechanical maintenance",
-        "scaffolding"
-      ],
-      "certs_freetext": [
-        "BOSIET/FOET",
-        "OPITO Offshore Survival",
-        "CompEx",
-        "CSWIP",
-        "UKOOA medical",
-        "MIST"
-      ],
-      "geo_rtw": "UK right-to-work; North Sea rotational",
-      "project_experience": [
-        "Ithaca Energy North Sea",
-        "Bilfinger North Sea",
-        "Repsol Sinopec",
-        "EnQuest",
-        "Harbour Energy"
-      ],
-      "yoe_band": "5-15",
-      "seniority": "mid-to-senior trades and operations",
-      "boolean_search": "(\"offshore maintenance\" OR \"offshore technician\" OR \"process operator\" OR \"instrument technician\" OR \"electrical technician\" OR \"mechanical technician\") AND (\"North Sea\" OR \"UKCS\" OR \"Ithaca\" OR \"Bilfinger\") AND (BOSIET OR FOET OR OPITO OR MIST) AND (UK OR \"United Kingdom\" OR Aberdeen OR Aberdeenshire)"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], with the ongoing Bilfinger strike on Ithaca Energy's North Sea assets, operators are likely seeking cover. Are you available for a North Sea rotation? Happy to discuss live roles — mob could be imminent.",
-      "email_subject": "North Sea Cover Roles — Bilfinger Strike | Immediate Mob Potential",
-      "email_body": "Hi [Name],\n\nYou may have heard that Unite members employed by Bilfinger on Ithaca Energy's North Sea assets are currently striking over pay. This creates an immediate demand for experienced offshore maintenance and operations personnel who can mobilise at short notice.\n\nWe're proactively reaching out to technicians and operators with UKCS experience and current offshore certs (BOSIET/FOET, MIST, UKOOA medical).\n\nIf you're available or coming off rotation soon, I'd love to have a quick conversation. Roles could include Mechanical, Electrical, and Instrument Technicians as well as Process Operators.\n\nCan we connect this week?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Active industrial strike by named contractor (Bilfinger) on named operator's (Ithaca Energy) North Sea assets creates an immediate contractor replacement and contingent labor demand signal.",
-    "phase": "operating",
-    "phase_evidence": "Strike is on existing North Sea assets currently operated by Ithaca Energy, indicating producing/operational infrastructure.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "live_now",
-    "estimated_hiring_window": "now",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "aadc4d25-6a40-4ad7-add5-6fc41e404002",
-    "ingested_at": "2026-06-05T18:43:05.429Z",
-    "source_published_at": "2026-06-05T14:41:03.000Z",
-    "contact_archetypes": [
-      "ops_director",
-      "hiring_manager"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/ceremony-to-mark-first-concrete-for-uzbekistan-smr"
-      }
-    ],
-    "headline": "First Concrete Poured for Uzbekistan's First SMR – Construction Phase Begins",
-    "body": "A groundbreaking ceremony and the symbolic pouring of first concrete have taken place to mark the official start of construction of the first small modular reactor in Uzbekistan.",
-    "url": "https://www.world-nuclear-news.org//articles/ceremony-to-mark-first-concrete-for-uzbekistan-smr",
-    "published_at": "2026-06-05T16:35:50.000Z",
-    "hash": "63902d0b7847080d",
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades"
-    ],
-    "signal_type": "epc_award",
-    "region": "central-asia",
-    "country": "uzbekistan",
-    "tldr": "Construction has officially started on Uzbekistan's first small modular reactor following a first-concrete ceremony. This marks the transition into active build phase, signaling near-term demand for nuclear construction trades and specialists.",
-    "operator": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Uzbekistan SMR",
-    "scope": [
-      "civil_works",
-      "nuclear_construction",
-      "first_concrete"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Nuclear Construction Manager",
-        "Civil Works Superintendent",
-        "HSE Manager",
-        "Nuclear QA/QC Engineer",
-        "Mechanical Construction Supervisor",
-        "Commissioning Engineer"
-      ],
-      "skills": [
-        "nuclear construction",
-        "SMR",
-        "reinforced concrete",
-        "QA/QC",
-        "nuclear safety",
-        "civil works supervision"
-      ],
-      "certs_freetext": [
-        "IAEA safety standards",
-        "nuclear operator license",
-        "ASME N-stamp"
-      ],
-      "geo_rtw": "Uzbekistan / international nuclear construction experience",
-      "project_experience": [
-        "Hinkley Point C",
-        "Barakah Nuclear",
-        "Akkuyu Nuclear",
-        "Vogtle Units 3&4"
-      ],
-      "yoe_band": "10-20",
-      "seniority": "senior",
-      "boolean_search": "(\"nuclear construction\" OR \"SMR\" OR \"small modular reactor\") AND (\"construction manager\" OR \"civil superintendent\" OR \"HSE manager\" OR \"QA/QC\" OR \"commissioning engineer\") AND (\"nuclear\" OR \"IAEA\" OR \"ASME\") AND (\"Uzbekistan\" OR \"central asia\" OR \"international\" OR \"expatriate\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], construction has officially broken ground on Uzbekistan's first SMR. With first concrete poured, nuclear construction talent is now in demand. Would you be open to hearing about senior roles on this landmark project?",
-      "email_subject": "Uzbekistan SMR – Nuclear Construction Roles Now Active",
-      "email_body": "Hi [Name],\n\nConstruction has formally commenced on Uzbekistan's first small modular reactor following a first-concrete ceremony. This signals the start of a significant build programme requiring experienced nuclear construction professionals.\n\nWe are currently mapping talent for senior construction, HSE, QA/QC, and commissioning roles on this project.\n\nGiven your background in nuclear construction, I wanted to reach out to see if you'd be open to a conversation about opportunities on this landmark project.\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "First concrete poured marks the official start of construction of a named nuclear project (Uzbekistan SMR), signaling an active construction phase with near-term workforce demand.",
-    "phase": "construction",
-    "phase_evidence": "Article states 'the symbolic pouring of first concrete' marking 'the official start of construction.'",
-    "construction_subphase": "rampup",
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "3-6mo",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "6f7b3773-eb50-4ade-8140-948d58b3a87b",
-    "ingested_at": "2026-06-05T18:43:05.429Z",
-    "source_published_at": "2026-06-05T16:35:50.000Z",
-    "contact_archetypes": [
-      "site_manager",
-      "hiring_manager",
-      "project_manager"
     ],
     "prompt_version": "phase-targeting-v1.2"
   }
