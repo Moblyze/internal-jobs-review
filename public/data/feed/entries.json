@@ -2,6 +2,121 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/siemens-energy-to-produce-rolls-royce-smr-turbines-in-the-uk"
+      }
+    ],
+    "headline": "Siemens Energy to Manufacture SMR Turbine Components for Rolls-Royce SMR's Gwyndod Project, Anglesey",
+    "body": "Key steam turbine components - including high-pressure turbines and valve casings - for Rolls-Royce SMR's first three small modular reactors at the Gwyndod project on Anglesey in North Wales, will be manufactured at Germany-based Siemens Energy's facility in Newcastle, in northeast England.",
+    "url": "https://www.world-nuclear-news.org/articles/siemens-energy-to-produce-rolls-royce-smr-turbines-in-the-uk",
+    "published_at": "2026-09-04T16:25:54.000Z",
+    "hash": "09dc3d7880805cc0",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction"
+    ],
+    "signal_type": "epc_award",
+    "region": "uk-wales-northeast-england",
+    "country": "united_kingdom",
+    "tldr": "Siemens Energy's Newcastle facility will produce high-pressure turbines and valve casings for the first three Rolls-Royce SMRs at Gwyndod, Anglesey — signalling manufacturing ramp-up and near-term skilled trades demand in northeast England.",
+    "operator": {
+      "name": "Rolls-Royce SMR",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Siemens Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Gwyndod SMR Project",
+    "scope": [
+      "turbine_manufacturing",
+      "steam_turbine_components",
+      "valve_casings",
+      "high_pressure_turbines"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Turbine Manufacturing Engineer",
+        "Rotating Equipment Engineer",
+        "Nuclear Mechanical Engineer",
+        "Fabrication Supervisor",
+        "Quality Assurance Engineer",
+        "NDT Inspector",
+        "Precision Machinist",
+        "Valve Assembly Technician",
+        "Nuclear Quality Inspector",
+        "Manufacturing Manager"
+      ],
+      "skills": [
+        "steam turbine manufacturing",
+        "high-pressure turbine assembly",
+        "nuclear-grade fabrication",
+        "valve casing production",
+        "rotating equipment",
+        "precision machining",
+        "nuclear QA/QC",
+        "ASME nuclear standards",
+        "pressure vessel fabrication"
+      ],
+      "certs_freetext": [
+        "ASME Nuclear N-Stamp",
+        "PCN Level II/III NDT",
+        "Nuclear Safety Culture training",
+        "Welding Inspector (CSWIP/AWS)",
+        "ISO 9001 Quality Management"
+      ],
+      "geo_rtw": "UK right-to-work (Newcastle, NE England); project site Anglesey, North Wales",
+      "project_experience": [
+        "Hinkley Point C",
+        "Sizewell B",
+        "Wylfa Newydd",
+        "Horizon Nuclear Power",
+        "NuScale SMR",
+        "EDF nuclear turbine island"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"steam turbine\" OR \"rotating equipment\" OR \"turbine manufacturing\" OR \"valve casing\") AND (\"nuclear\" OR \"SMR\" OR \"small modular reactor\" OR \"nuclear-grade\") AND (\"manufacturing engineer\" OR \"fabrication\" OR \"quality engineer\" OR \"NDT\" OR \"machinist\" OR \"assembly technician\") AND (\"Newcastle\" OR \"North East England\" OR \"Anglesey\" OR \"UK\") AND (\"ASME\" OR \"N-Stamp\" OR \"nuclear QA\" OR \"pressure vessel\" OR \"CSWIP\" OR \"welding inspector\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Siemens Energy is ramping up SMR turbine component manufacturing in Newcastle for Rolls-Royce SMR's Gwyndod project. Your nuclear fabrication/rotating equipment background looks highly relevant — open to a quick chat?",
+      "email_subject": "Siemens Energy | Nuclear Turbine Manufacturing Roles – Gwyndod SMR / Newcastle",
+      "email_body": "Hi [Name],\n\nSiemens Energy has been selected to manufacture high-pressure turbines and valve casings for Rolls-Royce SMR's first three small modular reactors at the Gwyndod project on Anglesey — with production taking place at their Newcastle facility in northeast England.\n\nThis signals an imminent ramp-up in skilled nuclear manufacturing roles: turbine engineers, precision machinists, nuclear QA/QC, NDT inspectors, and fabrication supervisors.\n\nGiven your background in [rotating equipment / nuclear-grade fabrication / NDT], I'd love to connect you with this opportunity before roles go live publicly.\n\nAre you open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named contractor (Siemens Energy) awarded turbine component manufacturing scope for named operator (Rolls-Royce SMR) at a named nuclear project (Gwyndod, Anglesey), signalling a discrete manufacturing and workforce ramp-up event.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Article states Siemens Energy will produce components for the first three SMRs, implying a contract has been placed and manufacturing engineering is commencing ahead of construction.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "8aa452e6-beed-4de9-850a-b16146875788",
+    "ingested_at": "2026-09-04T18:13:16.016Z",
+    "source_published_at": "2026-09-04T16:25:54.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director",
+      "hr_business_partner"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/lake-victoria-gold-completes-initial-access-road-repairs-and-advances-site-earthworks-at-imwelo-gold-project-302869200.html"
@@ -1185,6 +1300,111 @@
       {
         "id": "mining_com",
         "name": "MINING.com",
+        "url": "https://www.mining.com/talamore-gets-key-road-permit-for-coffee-gold-project/"
+      }
+    ],
+    "headline": "Talamore Wins Road Permit for Coffee Gold Project in Yukon — Construction Decision Expected Early Next Year",
+    "body": "Approval of the 214-km all-season road clears a key hurdle for a construction decision early next year.",
+    "url": "https://www.mining.com/talamore-gets-key-road-permit-for-coffee-gold-project/",
+    "published_at": "2026-08-31T15:34:09.000Z",
+    "hash": "fdbae10568fbc987",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction"
+    ],
+    "signal_type": "regulatory",
+    "region": "yukon-canada",
+    "country": "canada",
+    "tldr": "Talamore has received approval for a 214-km all-season road at its Coffee gold project in Yukon Territory, clearing a key pre-construction hurdle ahead of an expected construction decision early next year. Labor demand ramp-up is 6-12 months out.",
+    "operator": {
+      "name": "Talamore",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Talamore",
+      "matched_company_slug": null
+    },
+    "project_name": "Coffee Gold Project",
+    "scope": [
+      "road_construction",
+      "site_access_infrastructure",
+      "mine_development"
+    ],
+    "mob_window": {
+      "start": "2026-Q1",
+      "end": "2026-Q3",
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Construction Manager",
+        "Project Manager – Mining",
+        "Civil Construction Superintendent",
+        "Road Construction Supervisor",
+        "HSE Manager",
+        "Mine Development Manager",
+        "Site Manager",
+        "Project Controls Manager",
+        "Environmental Permitting Specialist"
+      ],
+      "skills": [
+        "mine site construction",
+        "remote site management",
+        "all-season road construction",
+        "project controls",
+        "environmental compliance",
+        "construction planning",
+        "stakeholder engagement"
+      ],
+      "certs_freetext": [
+        "NCSO (National Construction Safety Officer)",
+        "PMP",
+        "P.Eng"
+      ],
+      "geo_rtw": "Canada – eligible to work in Yukon Territory",
+      "project_experience": [
+        "Klondike Gold",
+        "Casino Mine",
+        "Eagle Gold Mine",
+        "Newmont Éléonore",
+        "Victoria Gold Eagle"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal",
+      "boolean_search": "(\"Construction Manager\" OR \"Site Manager\" OR \"Project Manager\" OR \"Mine Development Manager\" OR \"Civil Superintendent\") AND (\"mining\" OR \"mine construction\" OR \"open pit\" OR \"gold project\") AND (\"remote site\" OR \"Yukon\" OR \"northern Canada\" OR \"all-season road\") AND (\"pre-construction\" OR \"FID\" OR \"greenfield\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Talamore just secured the road permit for the Coffee Gold Project in Yukon, with a construction decision expected early next year. As hiring ramps up, I'd love to connect about senior site roles. Open to a brief chat?",
+      "email_subject": "Coffee Gold Project – Senior Construction Roles Coming Online (Yukon)",
+      "email_body": "Hi [Name],\n\nTalamore has just received regulatory approval for the 214-km all-season road at the Coffee Gold Project in Yukon Territory, clearing the final major hurdle before a construction decision expected in early 2026.\n\nAs the project moves toward sanction, demand for experienced mining construction professionals — Construction Managers, Civil Superintendents, HSE Leads, and Project Controls specialists — is expected to ramp quickly.\n\nGiven your background in [relevant experience], I wanted to reach out early. Would you be open to a 15-minute call to discuss how your profile aligns with what's coming?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Regulatory permit approval for a named project (Coffee Gold Project) operated by a named entity (Talamore) directly enables a construction decision, signalling imminent workforce demand in mining.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states the road permit 'clears a key hurdle for a construction decision early next year,' confirming the project is pre-FID.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "e8dc04a0-412e-4aeb-b9e2-38925a7f899f",
+    "ingested_at": "2026-09-01T00:36:10.367Z",
+    "source_published_at": "2026-08-31T15:34:09.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
         "url": "https://www.mining.com/court-ruling-backs-perpetuas-1-3b-stibnite-build/"
       }
     ],
@@ -1280,111 +1500,6 @@
     "id": "66b8bc1a-bea9-49d3-abe7-f4143cc3ba26",
     "ingested_at": "2026-09-01T00:36:10.367Z",
     "source_published_at": "2026-08-31T23:31:00.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/talamore-gets-key-road-permit-for-coffee-gold-project/"
-      }
-    ],
-    "headline": "Talamore Wins Road Permit for Coffee Gold Project in Yukon — Construction Decision Expected Early Next Year",
-    "body": "Approval of the 214-km all-season road clears a key hurdle for a construction decision early next year.",
-    "url": "https://www.mining.com/talamore-gets-key-road-permit-for-coffee-gold-project/",
-    "published_at": "2026-08-31T15:34:09.000Z",
-    "hash": "fdbae10568fbc987",
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction"
-    ],
-    "signal_type": "regulatory",
-    "region": "yukon-canada",
-    "country": "canada",
-    "tldr": "Talamore has received approval for a 214-km all-season road at its Coffee gold project in Yukon Territory, clearing a key pre-construction hurdle ahead of an expected construction decision early next year. Labor demand ramp-up is 6-12 months out.",
-    "operator": {
-      "name": "Talamore",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Talamore",
-      "matched_company_slug": null
-    },
-    "project_name": "Coffee Gold Project",
-    "scope": [
-      "road_construction",
-      "site_access_infrastructure",
-      "mine_development"
-    ],
-    "mob_window": {
-      "start": "2026-Q1",
-      "end": "2026-Q3",
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Construction Manager",
-        "Project Manager – Mining",
-        "Civil Construction Superintendent",
-        "Road Construction Supervisor",
-        "HSE Manager",
-        "Mine Development Manager",
-        "Site Manager",
-        "Project Controls Manager",
-        "Environmental Permitting Specialist"
-      ],
-      "skills": [
-        "mine site construction",
-        "remote site management",
-        "all-season road construction",
-        "project controls",
-        "environmental compliance",
-        "construction planning",
-        "stakeholder engagement"
-      ],
-      "certs_freetext": [
-        "NCSO (National Construction Safety Officer)",
-        "PMP",
-        "P.Eng"
-      ],
-      "geo_rtw": "Canada – eligible to work in Yukon Territory",
-      "project_experience": [
-        "Klondike Gold",
-        "Casino Mine",
-        "Eagle Gold Mine",
-        "Newmont Éléonore",
-        "Victoria Gold Eagle"
-      ],
-      "yoe_band": "10-20",
-      "seniority": "Senior / Principal",
-      "boolean_search": "(\"Construction Manager\" OR \"Site Manager\" OR \"Project Manager\" OR \"Mine Development Manager\" OR \"Civil Superintendent\") AND (\"mining\" OR \"mine construction\" OR \"open pit\" OR \"gold project\") AND (\"remote site\" OR \"Yukon\" OR \"northern Canada\" OR \"all-season road\") AND (\"pre-construction\" OR \"FID\" OR \"greenfield\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Talamore just secured the road permit for the Coffee Gold Project in Yukon, with a construction decision expected early next year. As hiring ramps up, I'd love to connect about senior site roles. Open to a brief chat?",
-      "email_subject": "Coffee Gold Project – Senior Construction Roles Coming Online (Yukon)",
-      "email_body": "Hi [Name],\n\nTalamore has just received regulatory approval for the 214-km all-season road at the Coffee Gold Project in Yukon Territory, clearing the final major hurdle before a construction decision expected in early 2026.\n\nAs the project moves toward sanction, demand for experienced mining construction professionals — Construction Managers, Civil Superintendents, HSE Leads, and Project Controls specialists — is expected to ramp quickly.\n\nGiven your background in [relevant experience], I wanted to reach out early. Would you be open to a 15-minute call to discuss how your profile aligns with what's coming?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Regulatory permit approval for a named project (Coffee Gold Project) operated by a named entity (Talamore) directly enables a construction decision, signalling imminent workforce demand in mining.",
-    "phase": "pre_sanction",
-    "phase_evidence": "Article states the road permit 'clears a key hurdle for a construction decision early next year,' confirming the project is pre-FID.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "e8dc04a0-412e-4aeb-b9e2-38925a7f899f",
-    "ingested_at": "2026-09-01T00:36:10.367Z",
-    "source_published_at": "2026-08-31T15:34:09.000Z",
     "contact_archetypes": [
       "project_manager",
       "business_unit_director"

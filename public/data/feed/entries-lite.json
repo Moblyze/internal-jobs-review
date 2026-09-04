@@ -1,5 +1,47 @@
 [
   {
+    "id": "8aa452e6-beed-4de9-850a-b16146875788",
+    "ingested_at": "2026-09-04T18:13:16.016Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/siemens-energy-to-produce-rolls-royce-smr-turbines-in-the-uk"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction"
+    ],
+    "signal_type": "epc_award",
+    "region": "uk-wales-northeast-england",
+    "country": "united_kingdom",
+    "headline": "Siemens Energy to Manufacture SMR Turbine Components for Rolls-Royce SMR's Gwyndod Project, Anglesey",
+    "operator": {
+      "name": "Rolls-Royce SMR",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Siemens Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Gwyndod SMR Project",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
     "id": "e4be2130-4d9b-46b5-8107-27c2d01076e4",
     "ingested_at": "2026-09-03T18:14:11.118Z",
     "sources": [
@@ -469,6 +511,47 @@
     "key_people": []
   },
   {
+    "id": "e8dc04a0-412e-4aeb-b9e2-38925a7f899f",
+    "ingested_at": "2026-09-01T00:36:10.367Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/talamore-gets-key-road-permit-for-coffee-gold-project/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction"
+    ],
+    "signal_type": "regulatory",
+    "region": "yukon-canada",
+    "country": "canada",
+    "headline": "Talamore Wins Road Permit for Coffee Gold Project in Yukon — Construction Decision Expected Early Next Year",
+    "operator": {
+      "name": "Talamore",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Talamore",
+      "matched_company_slug": null
+    },
+    "project_name": "Coffee Gold Project",
+    "mob_window": {
+      "start": "2026-Q1",
+      "end": "2026-Q3",
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
     "id": "66b8bc1a-bea9-49d3-abe7-f4143cc3ba26",
     "ingested_at": "2026-09-01T00:36:10.367Z",
     "sources": [
@@ -502,47 +585,6 @@
       "duration_months": null
     },
     "contract_value_usd": 1300000000,
-    "phase": "pre_sanction",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": []
-  },
-  {
-    "id": "e8dc04a0-412e-4aeb-b9e2-38925a7f899f",
-    "ingested_at": "2026-09-01T00:36:10.367Z",
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/talamore-gets-key-road-permit-for-coffee-gold-project/"
-      }
-    ],
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction"
-    ],
-    "signal_type": "regulatory",
-    "region": "yukon-canada",
-    "country": "canada",
-    "headline": "Talamore Wins Road Permit for Coffee Gold Project in Yukon — Construction Decision Expected Early Next Year",
-    "operator": {
-      "name": "Talamore",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Talamore",
-      "matched_company_slug": null
-    },
-    "project_name": "Coffee Gold Project",
-    "mob_window": {
-      "start": "2026-Q1",
-      "end": "2026-Q3",
-      "duration_months": null
-    },
-    "contract_value_usd": null,
     "phase": "pre_sanction",
     "construction_subphase": null,
     "lifecycle_track": "greenfield",
