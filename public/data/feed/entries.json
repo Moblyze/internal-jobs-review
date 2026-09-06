@@ -2,6 +2,114 @@
   {
     "sources": [
       {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/as-resources-obtient-un-financement-ferroviaire-de-six-milliards-usd-pour-valoriser-un-gisement-de-minerai-de-fer-de-2-500-milliards-usd-302870719.html"
+      }
+    ],
+    "headline": "A&S Resources Secures $6B Rail Financing to Unlock CAR Iron Ore Mining Project via Cameroon",
+    "body": "LONDRES, 5 septembre 2026 /PRNewswire/ -- A&S Resources Limited a obtenu un financement pour son projet ferroviaire, qui reliera ses actifs miniers de la République centrafricaine (RCA) aux marchés d'exportation internationaux via le Cameroun. Il s'agit d'une avancée majeure vers...",
+    "url": "https://www.prnewswire.com/news-releases/as-resources-obtient-un-financement-ferroviaire-de-six-milliards-usd-pour-valoriser-un-gisement-de-minerai-de-fer-de-2-500-milliards-usd-302870719.html",
+    "published_at": "2026-09-05T18:43:00.000Z",
+    "hash": "802c514cfc3ffc50",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "pipeline_mechanical",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "central-africa",
+    "country": "central_african_republic",
+    "tldr": "A&S Resources has secured $6B in rail financing to connect its Central African Republic iron ore mining assets to export markets through Cameroon, signalling a major infrastructure ramp-up and workforce demand window for large-scale mining and rail construction.",
+    "operator": {
+      "name": "A&S Resources Limited",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "A&S Resources Limited",
+      "matched_company_slug": null
+    },
+    "project_name": "A&S Resources CAR Iron Ore Rail Project",
+    "scope": [
+      "rail_infrastructure",
+      "mining_development",
+      "export_corridor"
+    ],
+    "mob_window": {
+      "start": "2026-Q4",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 6000000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Rail Construction Manager",
+        "Mining Project Manager",
+        "Infrastructure Project Director",
+        "HSE Manager",
+        "Civil Works Superintendent",
+        "Logistics Manager",
+        "Commissioning Manager",
+        "Mine Development Manager"
+      ],
+      "skills": [
+        "rail infrastructure construction",
+        "bulk minerals mining",
+        "iron ore project development",
+        "remote site management",
+        "export logistics",
+        "civil engineering",
+        "project controls"
+      ],
+      "certs_freetext": [
+        "IOSH Managing Safely",
+        "NEBOSH",
+        "PMP",
+        "Mining Engineer certification"
+      ],
+      "geo_rtw": "international (Central Africa / Cameroon corridor); must hold relevant RTW or be internationally mobile",
+      "project_experience": [
+        "Simandou",
+        "Mbalam-Nabeba",
+        "Transaqua",
+        "Kribi Port",
+        "West African rail corridor projects"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "senior to principal",
+      "boolean_search": "(\"Rail Construction Manager\" OR \"Mining Project Manager\" OR \"Infrastructure Project Director\" OR \"Mine Development Manager\" OR \"Civil Works Superintendent\") AND (\"iron ore\" OR \"bulk minerals\" OR \"rail infrastructure\" OR \"mining development\") AND (\"Central Africa\" OR \"West Africa\" OR \"remote site\" OR \"Cameroon\" OR \"greenfield mining\") AND (\"project management\" OR \"HSE\" OR \"commissioning\" OR \"project controls\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], A&S Resources has just secured $6B rail financing for their CAR iron ore project via Cameroon — a major greenfield ramp-up. Given your background in [rail/mining infrastructure], would you be open to a conversation about senior roles on this programme?",
+      "email_subject": "Senior Roles | A&S Resources $6B CAR Iron Ore Rail Project",
+      "email_body": "Hi [Name],\n\nA&S Resources Limited has secured $6 billion in rail financing to connect its Central African Republic iron ore mining assets to international export markets via Cameroon — a significant greenfield infrastructure programme now moving into active development.\n\nGiven your experience in [rail construction / greenfield mining / remote site management], I wanted to reach out about senior opportunities likely to emerge on this project over the coming months.\n\nWould you be open to a brief call to discuss how your background aligns with this programme?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (A&S Resources Limited) has secured $6B project financing for a discrete greenfield iron ore mining and rail infrastructure project in the CAR/Cameroon corridor, signalling imminent workforce ramp-up.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Financing secured and described as 'une avancée majeure vers' (a major step toward) project execution, indicating post-FID/financing stage with engineering and construction ramp ahead.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "6f6ab351-987f-4f17-96ba-042e6f68c2da",
+    "ingested_at": "2026-09-06T00:33:44.741Z",
+    "source_published_at": "2026-09-05T18:43:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org/articles/siemens-energy-to-produce-rolls-royce-smr-turbines-in-the-uk"

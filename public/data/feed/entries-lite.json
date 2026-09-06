@@ -1,5 +1,48 @@
 [
   {
+    "id": "6f6ab351-987f-4f17-96ba-042e6f68c2da",
+    "ingested_at": "2026-09-06T00:33:44.741Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/as-resources-obtient-un-financement-ferroviaire-de-six-milliards-usd-pour-valoriser-un-gisement-de-minerai-de-fer-de-2-500-milliards-usd-302870719.html"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "pipeline_mechanical",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "central-africa",
+    "country": "central_african_republic",
+    "headline": "A&S Resources Secures $6B Rail Financing to Unlock CAR Iron Ore Mining Project via Cameroon",
+    "operator": {
+      "name": "A&S Resources Limited",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "A&S Resources Limited",
+      "matched_company_slug": null
+    },
+    "project_name": "A&S Resources CAR Iron Ore Rail Project",
+    "mob_window": {
+      "start": "2026-Q4",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 6000000000,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
     "id": "8aa452e6-beed-4de9-850a-b16146875788",
     "ingested_at": "2026-09-04T18:13:16.016Z",
     "sources": [
