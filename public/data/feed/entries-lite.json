@@ -5240,47 +5240,5 @@
     "outreach_readiness": "live_now",
     "estimated_hiring_window": "now",
     "key_people": []
-  },
-  {
-    "id": "d26a8e5c-90c6-4039-b475-85975f7d68fb",
-    "ingested_at": "2026-06-08T13:32:06.350Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/ferc-waiver-clears-way-for-crane-clean-nuclear-interconnection"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "process_plant_operations",
-      "industrial_construction"
-    ],
-    "signal_type": "regulatory",
-    "region": "us-mid-atlantic",
-    "country": "united_states",
-    "headline": "Constellation's Crane Clean Energy Center (TMI Unit 1) Clears FERC & NRC Hurdles for 2027 Restart",
-    "operator": {
-      "name": "Constellation Energy",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Constellation Energy",
-      "matched_company_slug": null
-    },
-    "project_name": "Crane Clean Energy Center (Three Mile Island Unit 1)",
-    "mob_window": {
-      "start": "2026-Q1",
-      "end": "2027-Q2",
-      "duration_months": 18
-    },
-    "contract_value_usd": null,
-    "phase": "sanctioned_engineering",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": []
   }
 ]
