@@ -2,6 +2,114 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/exxonmobil_to_acquire_papua_lng_operatorship_from_totalenergies-07-sep-2026-184550-article/?rss=true"
+      }
+    ],
+    "headline": "ExxonMobil to Assume Papua LNG Operatorship from TotalEnergies, Advancing Project Toward FID",
+    "body": "TotalEnergies SE has agreed to transfer operatorship of Papua LNG to co-venturer Exxon Mobil Corp, saying the move will help bring the project closer to a fi...",
+    "url": "https://www.rigzone.com/news/exxonmobil_to_acquire_papua_lng_operatorship_from_totalenergies-07-sep-2026-184550-article/?rss=true",
+    "published_at": "2026-09-07T10:22:29.000Z",
+    "hash": "8f082192b6eb8364",
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations",
+      "pipeline_mechanical"
+    ],
+    "signal_type": "epc_award",
+    "region": "papua-new-guinea",
+    "country": "papua_new_guinea",
+    "tldr": "TotalEnergies is transferring operatorship of Papua LNG to ExxonMobil, a move explicitly framed as bringing the project closer to FID. This operator change-of-control signals a pre-sanction workforce ramp is approaching as ExxonMobil takes the helm.",
+    "operator": {
+      "name": "ExxonMobil",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "ExxonMobil",
+      "matched_company_slug": null
+    },
+    "project_name": "Papua LNG",
+    "scope": [
+      "operator_transition",
+      "lng_development",
+      "pre_fid"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "LNG Project Manager",
+        "Project Development Manager",
+        "FEED Manager",
+        "LNG Process Engineer",
+        "Project Controls Manager",
+        "HSE Manager",
+        "Subsurface Manager",
+        "Commercial Development Manager"
+      ],
+      "skills": [
+        "LNG project development",
+        "FEED management",
+        "project sanctioning",
+        "operator transition",
+        "gas monetisation",
+        "project controls",
+        "stakeholder management PNG"
+      ],
+      "certs_freetext": [
+        "PMP",
+        "BOSIET",
+        "Tropical Medical First Aid"
+      ],
+      "geo_rtw": "Papua New Guinea or international rotator eligible",
+      "project_experience": [
+        "PNG LNG",
+        "Papua LNG",
+        "Ichthys LNG",
+        "Australia Pacific LNG",
+        "Mozambique LNG",
+        "Browse LNG"
+      ],
+      "yoe_band": "12-25",
+      "seniority": "Senior / Principal / Management",
+      "boolean_search": "(\"Papua LNG\" OR \"PNG LNG\" OR \"LNG project development\") AND (\"FEED\" OR \"pre-FID\" OR \"project sanctioning\" OR \"LNG development\") AND (\"ExxonMobil\" OR \"TotalEnergies\" OR \"Santos\" OR \"operator transition\") AND (\"Project Manager\" OR \"Development Manager\" OR \"FEED Manager\" OR \"Process Engineer\" OR \"Project Controls\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], ExxonMobil is assuming operatorship of Papua LNG, signalling a push toward FID. With your LNG development background, you could be well-placed for upcoming project roles. Worth a conversation?",
+      "email_subject": "Papua LNG – ExxonMobil Taking Operatorship | Pre-FID Roles Emerging",
+      "email_body": "Hi [Name],\n\nTotalEnergies has agreed to transfer operatorship of Papua LNG to ExxonMobil, with the move explicitly framed as accelerating the project toward a Final Investment Decision.\n\nAs ExxonMobil steps into the operator role, pre-FID and FEED-phase talent will be needed to drive the project forward — areas where your background in [LNG development / project controls / FEED management] would be directly relevant.\n\nI'd welcome a brief call to discuss how your experience maps to the emerging opportunity.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Operator change-of-control on a named project (Papua LNG) from TotalEnergies to ExxonMobil, explicitly linked to advancing toward FID — qualifying as a field development plan / operator change-of-control event with direct workforce-demand implications.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states the operatorship transfer 'will help bring the project closer to a fi[nal investment decision]', confirming the project is pre-FID.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "7610d3cb-d199-40e9-ad87-b053c103426e",
+    "ingested_at": "2026-09-07T12:17:01.780Z",
+    "source_published_at": "2026-09-07T10:22:29.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/as-resources-obtient-un-financement-ferroviaire-de-six-milliards-usd-pour-valoriser-un-gisement-de-minerai-de-fer-de-2-500-milliards-usd-302870719.html"

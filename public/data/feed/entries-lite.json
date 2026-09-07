@@ -1,5 +1,49 @@
 [
   {
+    "id": "7610d3cb-d199-40e9-ad87-b053c103426e",
+    "ingested_at": "2026-09-07T12:17:01.780Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/exxonmobil_to_acquire_papua_lng_operatorship_from_totalenergies-07-sep-2026-184550-article/?rss=true"
+      }
+    ],
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations",
+      "pipeline_mechanical"
+    ],
+    "signal_type": "epc_award",
+    "region": "papua-new-guinea",
+    "country": "papua_new_guinea",
+    "headline": "ExxonMobil to Assume Papua LNG Operatorship from TotalEnergies, Advancing Project Toward FID",
+    "operator": {
+      "name": "ExxonMobil",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "ExxonMobil",
+      "matched_company_slug": null
+    },
+    "project_name": "Papua LNG",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
     "id": "6f6ab351-987f-4f17-96ba-042e6f68c2da",
     "ingested_at": "2026-09-06T00:33:44.741Z",
     "sources": [
