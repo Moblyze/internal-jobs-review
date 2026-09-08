@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "updated_at": "2026-09-07T18:13:23.774Z",
+  "updated_at": "2026-09-08T00:30:57.349Z",
   "sources": {
     "rigzone": {
-      "kind": "ok",
-      "error": null,
-      "error_class": null,
+      "kind": "fetch_flapping",
+      "error": "Request timed out after 30000ms",
+      "error_class": "timeout",
       "http_status": null,
-      "first_seen_at": null,
+      "first_seen_at": "2026-09-08T00:30:57.349Z",
       "last_alerted_at": null,
       "alert_count": 0
     },
