@@ -2,6 +2,241 @@
   {
     "sources": [
       {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/us-department-of-energy-closes-up-to-1-9-billion-loan-to-restart-nextera-energys-duane-arnold-energy-center-302872175.html"
+      }
+    ],
+    "headline": "NextEra Energy Secures $1.9B DOE Loan to Restart Duane Arnold Nuclear Plant in Iowa",
+    "body": "Milestone helps bring Iowa's only nuclear energy center back online, strengthen grid reliability and meet growing electricity demand JUNO BEACH, Fla., Sept. 8, 2026 /PRNewswire/ -- NextEra Energy, Inc. (NYSE: NEE) today announced that it and the U.S. Department of Energy (DOE), through...",
+    "url": "https://www.prnewswire.com/news-releases/us-department-of-energy-closes-up-to-1-9-billion-loan-to-restart-nextera-energys-duane-arnold-energy-center-302872175.html",
+    "published_at": "2026-09-08T11:30:00.000Z",
+    "hash": "d92420ad2f96033a",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction",
+      "energy_trades",
+      "ndt_inspection"
+    ],
+    "signal_type": "fid",
+    "region": "us-midwest",
+    "country": "united_states",
+    "tldr": "NextEra Energy has closed a $1.9B DOE loan to restart the Duane Arnold Energy Center in Iowa, signaling an imminent construction and recommissioning ramp-up. This creates significant near-term demand for nuclear-qualified trades, commissioning engineers, and operations personnel.",
+    "operator": {
+      "name": "NextEra Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "NextEra Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Duane Arnold Energy Center",
+    "scope": [
+      "nuclear_restart",
+      "recommissioning",
+      "plant_refurbishment"
+    ],
+    "mob_window": {
+      "start": "2026-Q4",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 1900000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Commissioning Engineer",
+        "Reactor Operator",
+        "Nuclear Construction Manager",
+        "I&C Technician",
+        "Electrical Supervisor",
+        "Mechanical Supervisor",
+        "Health Physics Technician",
+        "Nuclear Quality Assurance Engineer",
+        "Startup Test Engineer",
+        "Plant Operations Manager"
+      ],
+      "skills": [
+        "nuclear plant restart",
+        "BWR operations",
+        "commissioning",
+        "reactor startup",
+        "instrumentation and control",
+        "nuclear quality assurance",
+        "ALARA",
+        "radiation protection",
+        "mechanical completion",
+        "systems walkdown"
+      ],
+      "certs_freetext": [
+        "NRC Reactor Operator License",
+        "Senior Reactor Operator (SRO) License",
+        "ANSI/ANS nuclear certifications",
+        "OSHA 30",
+        "Radiation Worker Training"
+      ],
+      "geo_rtw": "US work authorization required; Iowa, USA",
+      "project_experience": [
+        "Palisades Nuclear Plant restart",
+        "Browns Ferry Nuclear Plant",
+        "Nine Mile Point Nuclear Station",
+        "Point Beach Nuclear Plant",
+        "Duane Arnold Energy Center"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"nuclear restart\" OR \"reactor startup\" OR \"nuclear commissioning\" OR \"BWR\" OR \"boiling water reactor\") AND (\"reactor operator\" OR \"commissioning engineer\" OR \"health physics\" OR \"I&C technician\" OR \"nuclear construction\") AND (\"NRC license\" OR \"SRO\" OR \"radiation protection\" OR \"ALARA\") AND (Iowa OR \"Midwest\" OR \"nuclear plant\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], NextEra Energy has just secured a $1.9B DOE loan to restart the Duane Arnold Nuclear Plant in Iowa — a major recommissioning ramp is imminent. Given your nuclear [restart/commissioning] background, I'd love to connect about upcoming roles. Open to a quick call?",
+      "email_subject": "Nuclear Restart Opportunity — Duane Arnold Energy Center, Iowa (NextEra Energy)",
+      "email_body": "Hi [Name],\n\nNextEra Energy has just closed a $1.9 billion DOE loan to restart Iowa's Duane Arnold Energy Center — the state's only nuclear plant. This signals a significant ramp-up in nuclear-qualified hiring across commissioning, operations, trades, and health physics in the near term.\n\nGiven your background in [nuclear commissioning / reactor operations / nuclear construction], I wanted to reach out directly as these roles will move quickly.\n\nWould you be open to a brief call this week to discuss what's coming up?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "DOE loan closing to fund restart of a named nuclear facility (Duane Arnold Energy Center) by a named operator (NextEra Energy) constitutes a project financing/sanction event with direct workforce-ramp implications.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Loan closing is announced as a 'milestone' to bring the plant 'back online,' indicating financing is secured and restart/recommissioning work is being initiated — post-sanction, pre-construction peak.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "bf6eb88c-616b-444d-b427-c237f4ec3367",
+    "ingested_at": "2026-09-08T12:16:56.781Z",
+    "source_published_at": "2026-09-08T11:30:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/mcdermott-awarded-subsea-contract-for-cronos-development-in-cyprus-302871745.html"
+      }
+    ],
+    "headline": "McDermott Awarded Substantial Subsea Contract by Eni for Cronos Gas Field Offshore Cyprus",
+    "body": "HOUSTON, Sept. 8, 2026 /PRNewswire/ -- McDermott has been awarded a substantial* subsea contract by Eni Cyprus Limited (Eni) for the Cronos gas field development offshore Cyprus, marking McDermott's first subsea project award with Eni and expanding the company's presence in the Eastern...",
+    "url": "https://www.prnewswire.com/news-releases/mcdermott-awarded-subsea-contract-for-cronos-development-in-cyprus-302871745.html",
+    "published_at": "2026-09-08T11:00:00.000Z",
+    "hash": "6b5bbf159706d4ff",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "rov_subsea",
+      "marine_offshore_ops",
+      "energy_trades",
+      "ndt_inspection",
+      "rope_access"
+    ],
+    "signal_type": "epc_award",
+    "region": "eastern-mediterranean",
+    "country": "cyprus",
+    "tldr": "McDermott has secured a substantial subsea contract from Eni Cyprus Limited for the Cronos gas field development offshore Cyprus. This award signals imminent engineering and offshore execution ramp-up, creating near-term demand for subsea, marine, and offshore construction talent.",
+    "operator": {
+      "name": "Eni Cyprus Limited",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "McDermott",
+      "matched_company_slug": null
+    },
+    "project_name": "Cronos Gas Field Development",
+    "scope": [
+      "subsea_install",
+      "subsea_epc",
+      "offshore_construction"
+    ],
+    "mob_window": {
+      "start": "2026-Q4",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Subsea Project Manager",
+        "Offshore Construction Manager",
+        "Marine Superintendent",
+        "Subsea Engineer",
+        "ROV Supervisor",
+        "Diving Superintendent",
+        "Offshore Installation Manager",
+        "Pipeline Engineer",
+        "Subsea Installation Engineer",
+        "HSE Manager Offshore",
+        "Commissioning Engineer",
+        "Project Controls Manager"
+      ],
+      "skills": [
+        "subsea installation",
+        "offshore pipeline",
+        "SURF",
+        "ROV operations",
+        "marine spread management",
+        "offshore project execution",
+        "deepwater construction",
+        "Eastern Mediterranean operations",
+        "gas field development"
+      ],
+      "certs_freetext": [
+        "BOSIET/HUET",
+        "offshore medical (ENG1 or equivalent)",
+        "OPITO offshore survival",
+        "GWO (where applicable)",
+        "CSWIP (underwater inspection)",
+        "Nautical certification (OIM)"
+      ],
+      "geo_rtw": "EU/EEA, UK, or internationally mobile with Eastern Mediterranean clearance",
+      "project_experience": [
+        "Leviathan",
+        "Aphrodite",
+        "Zohr",
+        "ENI Coral FLNG",
+        "BP Shah Deniz",
+        "Tanin/Karish",
+        "Saipem 7000 campaigns"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "Senior / Lead / Superintendent",
+      "boolean_search": "(\"subsea installation\" OR \"offshore construction\" OR \"SURF\" OR \"subsea pipeline\") AND (\"McDermott\" OR \"offshore contractor\" OR \"marine spread\") AND (\"project manager\" OR \"construction manager\" OR \"installation engineer\" OR \"marine superintendent\" OR \"ROV supervisor\" OR \"diving superintendent\" OR \"OIM\") AND (\"Eastern Mediterranean\" OR \"Cyprus\" OR \"deepwater\" OR \"gas field development\") NOT (\"onshore\" OR \"renewables\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], McDermott just landed a substantial subsea contract with Eni for the Cronos gas field offshore Cyprus — their first subsea award with Eni. They'll be ramping a specialist offshore team shortly. Given your background in [subsea/marine ops], worth a conversation?",
+      "email_subject": "McDermott – Cronos Subsea Contract (Cyprus) | Offshore Roles Ramping Now",
+      "email_body": "Hi [Name],\n\nMcDermott has just been awarded a substantial subsea contract by Eni Cyprus for the Cronos gas field development in the Eastern Mediterranean — a landmark first subsea award between the two companies.\n\nWith engineering and offshore execution set to ramp, McDermott will be looking for experienced subsea, marine, and offshore construction professionals in the near term.\n\nGiven your experience in [subsea installation / offshore project management / ROV ops], I'd love to connect you with the right people on this.\n\nAre you open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named EPC/subsea contract award between McDermott (contractor/hiring entity) and Eni Cyprus Limited (operator) for the Cronos gas field development offshore Cyprus, constituting a clear discrete labor-demand event in offshore O&G.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Article states McDermott 'has been awarded' the subsea contract, indicating post-FID execution is beginning and detailed engineering/procurement will ramp next.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "9a898a08-6729-4ab1-929e-dae9db3e94ea",
+    "ingested_at": "2026-09-08T12:16:56.781Z",
+    "source_published_at": "2026-09-08T11:00:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/exxonmobil_to_acquire_papua_lng_operatorship_from_totalenergies-07-sep-2026-184550-article/?rss=true"

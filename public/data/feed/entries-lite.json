@@ -1,5 +1,94 @@
 [
   {
+    "id": "bf6eb88c-616b-444d-b427-c237f4ec3367",
+    "ingested_at": "2026-09-08T12:16:56.781Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/us-department-of-energy-closes-up-to-1-9-billion-loan-to-restart-nextera-energys-duane-arnold-energy-center-302872175.html"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction",
+      "energy_trades",
+      "ndt_inspection"
+    ],
+    "signal_type": "fid",
+    "region": "us-midwest",
+    "country": "united_states",
+    "headline": "NextEra Energy Secures $1.9B DOE Loan to Restart Duane Arnold Nuclear Plant in Iowa",
+    "operator": {
+      "name": "NextEra Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "NextEra Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Duane Arnold Energy Center",
+    "mob_window": {
+      "start": "2026-Q4",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 1900000000,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": []
+  },
+  {
+    "id": "9a898a08-6729-4ab1-929e-dae9db3e94ea",
+    "ingested_at": "2026-09-08T12:16:56.781Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/mcdermott-awarded-subsea-contract-for-cronos-development-in-cyprus-302871745.html"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "rov_subsea",
+      "marine_offshore_ops",
+      "energy_trades",
+      "ndt_inspection",
+      "rope_access"
+    ],
+    "signal_type": "epc_award",
+    "region": "eastern-mediterranean",
+    "country": "cyprus",
+    "headline": "McDermott Awarded Substantial Subsea Contract by Eni for Cronos Gas Field Offshore Cyprus",
+    "operator": {
+      "name": "Eni Cyprus Limited",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "McDermott",
+      "matched_company_slug": null
+    },
+    "project_name": "Cronos Gas Field Development",
+    "mob_window": {
+      "start": "2026-Q4",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": []
+  },
+  {
     "id": "7610d3cb-d199-40e9-ad87-b053c103426e",
     "ingested_at": "2026-09-07T12:17:01.780Z",
     "sources": [

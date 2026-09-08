@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-09-06T00:34:46.215Z"
+    "last_updated_at": "2026-09-08T12:19:03.294Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -11736,5 +11736,125 @@
   "a&s resources limited": {
     "discovered_at": "2026-09-06T00:34:46.215Z",
     "contacts": []
+  },
+  "nextera energy": {
+    "discovered_at": "2026-09-08T12:19:03.294Z",
+    "contacts": [
+      {
+        "name": "Nicole J. Daggs",
+        "title": "Executive Vice President, Human Resources and Corporate Services",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/nicole-daggs-1b137811",
+        "source_url": "https://www.nexteraenergy.com/about-us/leadership.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "North Palm Beach, FL, USA"
+      },
+      {
+        "name": "Julian Duncan",
+        "title": "Senior Manager, Talent Acquisition",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/julian-duncan",
+        "source_url": "https://www.linkedin.com/in/julian-duncan-085056b7/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Juno Beach, FL, USA"
+      },
+      {
+        "name": "Morgan Karija",
+        "title": "Recruiting Leader",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/morgankarija",
+        "source_url": "https://www.linkedin.com/in/morgankarija/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Ronald R. Reagan",
+        "title": "Executive Vice President, Engineering, Construction and Integrated Supply Chain",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://www.nexteraenergy.com/about-us/leadership.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Juno Beach, FL, USA"
+      },
+      {
+        "name": "Edina Bajrektarevic",
+        "title": "Project Director, NextEra Energy Transmission",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://www.comparably.com/companies/nextera-energy/executive-team",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "eni cyprus limited": {
+    "discovered_at": "2026-09-08T12:19:03.294Z",
+    "contacts": [
+      {
+        "name": "Alessandro Gelmetti",
+        "title": "Managing Director",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://egyptoil-gas.com/features/cronos-and-zohr-the-political-economics-of-eastern-mediterranean-gas/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Nicosia, Cyprus"
+      },
+      {
+        "name": "Luca Dragonetti",
+        "title": "Managing Director",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/luca-dragonetti-7247b033",
+        "source_url": "https://www.subseatechnologyconference.com/stem24/speaker/1148899/luca-dragonetti",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Cyprus"
+      },
+      {
+        "name": "Martina Opizzi",
+        "title": "Director / Head of North Africa & Eastern Mediterranean",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/martinaopizzi",
+        "source_url": "https://iogpeurope.org/board/martina-opizzi/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Milan, Italy"
+      },
+      {
+        "name": "Fabio Castiglioni",
+        "title": "Director (Eni Cyprus Limited) / Head of Americas & Eurasia Upstream Region",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/fabio-castiglioni-a9a5a067",
+        "source_url": "https://opencorporates.com/companies/cy/HE318720",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Milan, Italy"
+      },
+      {
+        "name": "Maurizio Grandi",
+        "title": "Operations Manager",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/maurizio-grandi-86258b47",
+        "source_url": "https://cy.linkedin.com/in/maurizio-grandi-86258b47",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Cyprus"
+      }
+    ]
   }
 }
