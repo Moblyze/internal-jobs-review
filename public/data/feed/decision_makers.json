@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-09-08T12:19:03.294Z"
+    "last_updated_at": "2026-09-08T18:16:08.551Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -11854,6 +11854,126 @@
         "email": null,
         "phone": null,
         "location": "Cyprus"
+      }
+    ]
+  },
+  "white fleet drilling": {
+    "discovered_at": "2026-09-08T18:16:08.551Z",
+    "contacts": [
+      {
+        "name": "Kalil Ackal",
+        "title": "Chief Executive Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/kalil-ackal-329292b",
+        "source_url": "https://whitefleet.com/about-us/leadership/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "The Woodlands, TX, USA"
+      },
+      {
+        "name": "Brett Blanchard",
+        "title": "Chief Operating Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/brett-blanchard-a85a3929",
+        "source_url": "https://whitefleet.com/about-us/leadership/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Spring, TX, USA"
+      },
+      {
+        "name": "Mike McCauley",
+        "title": "Senior Vice President – Operations",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/mike-mccauley-78507420",
+        "source_url": "https://whitefleet.com/about-us/leadership/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Spring, TX, USA"
+      },
+      {
+        "name": "Ryan Lamothe",
+        "title": "Senior Vice President, Business Development & Operations",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/ryan-lamothe-41a26714",
+        "source_url": "https://whitefleet.com/about-us/leadership/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Trent Determann",
+        "title": "Senior Vice President & Chief Financial Officer",
+        "persona": "other",
+        "linkedin_url": "https://www.linkedin.com/in/trent-determann-14563136",
+        "source_url": "https://whitefleet.com/about-us/leadership/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      }
+    ]
+  },
+  "arena energy, llc": {
+    "discovered_at": "2026-09-08T18:16:08.551Z",
+    "contacts": [
+      {
+        "name": "Bernice Norris",
+        "title": "Vice President, Human Resources",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/bernice-norris-aa431816",
+        "source_url": "https://www.arenaenergy.com/team/bernice-norris/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Spring, TX, USA"
+      },
+      {
+        "name": "Pamela Prince",
+        "title": "Senior Manager, Human Resources",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/pamela-prince",
+        "source_url": "https://www.arenaenergy.com/team/pam-prince/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Montgomery, TX, USA"
+      },
+      {
+        "name": "Brent Ozenne",
+        "title": "Chief Operating Officer, Arena Energy / Chief Executive Officer, Arena Offshore LP",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.arenaenergy.com/news/arena-energy-promotes-michael-vallejo-to-president-and-names-brent-ozenne-as-chief-operating-officer/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "The Woodlands, TX, USA"
+      },
+      {
+        "name": "Pat Hogelin",
+        "title": "Vice President, Integrated Operations",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://arenaoffshore.com/team/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Bruno Maldonado",
+        "title": "Vice President, Operations",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://arenaoffshore.com/team/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "The Woodlands, TX, USA"
       }
     ]
   }

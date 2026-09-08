@@ -1,5 +1,92 @@
 [
   {
+    "id": "454a231a-4fa8-4613-8a15-95e12d27fccd",
+    "ingested_at": "2026-09-08T18:13:54.499Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/us-department-of-energy-closes-loan-for-duane-arnold-restart"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction",
+      "energy_trades",
+      "ndt_inspection"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-midwest",
+    "country": "united_states",
+    "headline": "DOE Closes $1.9B Loan to NextEra for Duane Arnold Nuclear Restart in Iowa",
+    "operator": {
+      "name": "NextEra Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "NextEra Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Duane Arnold Energy Center",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 1900000000,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
+    "id": "5d95e054-d29c-40e0-a386-4dcdde230eea",
+    "ingested_at": "2026-09-08T18:13:54.499Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/white-fleet-drillings-wfd-450-the-largest-jack-up-rig-operating-in-the-gulf-of-america-launches-multi-well-drilling-program-on-arena-energys-shelf-assets-302872547.html"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "marine_offshore_ops",
+      "energy_trades"
+    ],
+    "signal_type": "rig_fixture",
+    "region": "us-gulf",
+    "country": "united_states",
+    "headline": "WFD 450 Jack-Up Fixed to Arena Energy for Multi-Well Gulf of America Shelf Drilling Program",
+    "operator": {
+      "name": "Arena Energy, LLC",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "White Fleet Drilling",
+      "matched_company_slug": null
+    },
+    "project_name": "Arena Energy Gulf of America Shelf Multi-Well Drilling Program",
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 65000000,
+    "phase": "construction",
+    "construction_subphase": "peak",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": []
+  },
+  {
     "id": "bf6eb88c-616b-444d-b427-c237f4ec3367",
     "ingested_at": "2026-09-08T12:16:56.781Z",
     "sources": [

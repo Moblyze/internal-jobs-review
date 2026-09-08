@@ -2,6 +2,233 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/us-department-of-energy-closes-loan-for-duane-arnold-restart"
+      }
+    ],
+    "headline": "DOE Closes $1.9B Loan to NextEra for Duane Arnold Nuclear Restart in Iowa",
+    "body": "The US Department of Energy's Office of Energy Dominance Financing has closed a loan of up to USD1.9 billion to NextEra Energy to help finance the restart of the Duane Arnold Energy Center, taking the company closer to bringing Iowa's only nuclear power plant back into operation.",
+    "url": "https://www.world-nuclear-news.org/articles/us-department-of-energy-closes-loan-for-duane-arnold-restart",
+    "published_at": "2026-09-08T13:12:20.000Z",
+    "hash": "55c5f071d2701b0e",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction",
+      "energy_trades",
+      "ndt_inspection"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-midwest",
+    "country": "united_states",
+    "tldr": "The US DOE has closed a $1.9B loan to NextEra Energy to finance the restart of the Duane Arnold Energy Center in Iowa, signaling a major workforce ramp-up for nuclear recommissioning work. Hiring demand for nuclear trades, engineers, and operations staff is expected to build as restart activities progress.",
+    "operator": {
+      "name": "NextEra Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "NextEra Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Duane Arnold Energy Center",
+    "scope": [
+      "plant_restart",
+      "recommissioning",
+      "nuclear_operations"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 1900000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Restart Engineer",
+        "Commissioning Engineer",
+        "Reactor Operator",
+        "Senior Reactor Operator",
+        "Nuclear Plant Superintendent",
+        "Outage Manager",
+        "Nuclear I&C Technician",
+        "Health Physics Technician",
+        "Nuclear Maintenance Supervisor",
+        "Construction Manager – Nuclear"
+      ],
+      "skills": [
+        "nuclear plant restart",
+        "reactor operations",
+        "nuclear commissioning",
+        "outage management",
+        "PWR/BWR operations",
+        "radiological protection",
+        "nuclear QA/QC",
+        "instrument and controls",
+        "work control",
+        "10CFR50"
+      ],
+      "certs_freetext": [
+        "NRC Senior Reactor Operator (SRO) License",
+        "NRC Reactor Operator (RO) License",
+        "INPO accreditation",
+        "Radiation Worker Qualification",
+        "OSHA 30"
+      ],
+      "geo_rtw": "US work authorization required; Iowa-based or relocatable",
+      "project_experience": [
+        "Palisades Nuclear Plant restart",
+        "Three Mile Island Unit 1 restart",
+        "Duane Arnold Energy Center",
+        "Clinton Power Station",
+        "Quad Cities Generating Station"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"nuclear restart\" OR \"reactor operator\" OR \"senior reactor operator\" OR \"nuclear commissioning\" OR \"outage manager\" OR \"nuclear plant superintendent\" OR \"health physics\" OR \"nuclear I&C\" OR \"nuclear maintenance\") AND (\"BWR\" OR \"boiling water reactor\" OR \"nuclear power plant\" OR \"NRC license\" OR \"10CFR50\" OR \"radiological protection\" OR \"INPO\") AND (Iowa OR \"Midwest\" OR \"relocation\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], NextEra Energy has secured a $1.9B DOE loan to restart the Duane Arnold nuclear plant in Iowa. With recommissioning ramp-up ahead, I'm sourcing experienced nuclear professionals — would you be open to a quick chat?",
+      "email_subject": "Duane Arnold Nuclear Restart – Senior Nuclear Roles, Iowa (NextEra Energy)",
+      "email_body": "Hi [Name],\n\nThe US Department of Energy has just closed a $1.9 billion loan to NextEra Energy to finance the restart of the Duane Arnold Energy Center in Iowa — the state's only nuclear facility.\n\nThis signals a significant workforce build-up for plant recommissioning, with demand expected for reactor operators, commissioning engineers, I&C technicians, health physics staff, and nuclear maintenance supervisors.\n\nGiven your background in [nuclear operations / commissioning / outage management], I thought you'd want to hear about this early. I'm currently mapping the candidate landscape ahead of anticipated hiring activity.\n\nWould you be open to a 15-minute call this week to discuss?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "DOE loan closure to named operator NextEra Energy for the named Duane Arnold Energy Center nuclear restart constitutes a project financing event that directly signals a workforce ramp-up in the nuclear subsector.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states the loan 'takes the company closer to bringing Iowa's only nuclear power plant back into operation,' indicating restart is financed but not yet in active construction or commissioning.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "454a231a-4fa8-4613-8a15-95e12d27fccd",
+    "ingested_at": "2026-09-08T18:13:54.499Z",
+    "source_published_at": "2026-09-08T13:12:20.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/white-fleet-drillings-wfd-450-the-largest-jack-up-rig-operating-in-the-gulf-of-america-launches-multi-well-drilling-program-on-arena-energys-shelf-assets-302872547.html"
+      }
+    ],
+    "headline": "WFD 450 Jack-Up Fixed to Arena Energy for Multi-Well Gulf of America Shelf Drilling Program",
+    "body": "$65 Million Acquisition and Refurbishment Investment Unlocks Previously Inaccessible Drilling Opportunities on the Gulf of America Shelf THE WOODLANDS, Texas, Sept. 8, 2026 /PRNewswire/ -- Arena Energy, LLC (\"Arena\"), a leading independent oil and gas exploration company focused on the...",
+    "url": "https://www.prnewswire.com/news-releases/white-fleet-drillings-wfd-450-the-largest-jack-up-rig-operating-in-the-gulf-of-america-launches-multi-well-drilling-program-on-arena-energys-shelf-assets-302872547.html",
+    "published_at": "2026-09-08T16:11:00.000Z",
+    "hash": "18861511c2b2f4a5",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "marine_offshore_ops",
+      "energy_trades"
+    ],
+    "signal_type": "rig_fixture",
+    "region": "us-gulf",
+    "country": "united_states",
+    "tldr": "White Fleet Drilling's WFD 450 jack-up — following a $65M acquisition and refurbishment — has commenced a multi-well drilling program on Arena Energy's Gulf of America shelf assets, signaling immediate offshore drilling labor demand.",
+    "operator": {
+      "name": "Arena Energy, LLC",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "White Fleet Drilling",
+      "matched_company_slug": null
+    },
+    "project_name": "Arena Energy Gulf of America Shelf Multi-Well Drilling Program",
+    "scope": [
+      "jack_up_drilling",
+      "multi_well_program",
+      "shelf_operations"
+    ],
+    "mob_window": {
+      "start": "2026-Q3",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 65000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Toolpusher",
+        "Company Man",
+        "Driller",
+        "Assistant Driller",
+        "Derrickman",
+        "Motorman",
+        "Floorhand",
+        "Rig Manager",
+        "Drilling Superintendent",
+        "HSE Supervisor",
+        "Drilling Engineer",
+        "Mud Engineer",
+        "Cementing Supervisor"
+      ],
+      "skills": [
+        "jack-up drilling",
+        "shelf drilling",
+        "well planning",
+        "BOP operations",
+        "mud systems",
+        "cementing",
+        "BSEE compliance",
+        "GoM shelf experience"
+      ],
+      "certs_freetext": [
+        "BOSIET",
+        "HUET",
+        "OPITO Offshore Safety",
+        "Well Control (IWCF or IADC)",
+        "BSEE SafeGulf"
+      ],
+      "geo_rtw": "US Gulf of Mexico; must hold right to work in USA",
+      "project_experience": [
+        "Gulf of Mexico shelf drilling",
+        "US Gulf jack-up programs",
+        "shallow water drilling"
+      ],
+      "yoe_band": "5-20",
+      "seniority": "mid to senior",
+      "boolean_search": "(\"Toolpusher\" OR \"Driller\" OR \"Company Man\" OR \"Rig Manager\" OR \"Drilling Superintendent\" OR \"Derrickman\" OR \"Motorman\" OR \"Floorhand\") AND (\"jack-up\" OR \"jackup\" OR \"shelf drilling\" OR \"Gulf of Mexico\" OR \"GoM\") AND (\"offshore\" OR \"BSEE\" OR \"well control\") NOT (\"land rig\" OR \"deepwater FPSO\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], White Fleet Drilling's WFD 450 jack-up just kicked off a multi-well program on Arena Energy's Gulf shelf assets. We're sourcing experienced offshore drilling personnel — would you be open to a quick chat?",
+      "email_subject": "WFD 450 / Arena Energy Gulf Shelf Program — Drilling Roles Available Now",
+      "email_body": "Hi [Name],\n\nWhite Fleet Drilling's WFD 450 — the largest jack-up operating in the Gulf of America — has launched a multi-well drilling campaign on Arena Energy's shelf assets following a $65M acquisition and refurbishment.\n\nWe are actively supporting crew placement for this program and are looking for experienced jack-up drilling personnel (Toolpushers, Drillers, Company Men, Derrickmen, and support roles) with Gulf of Mexico shelf exposure.\n\nIf you're available or know colleagues who might be, I'd love to connect. Can we set up a call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Rig fixture naming White Fleet Drilling (WFD 450 jack-up) and Arena Energy as operator for a live multi-well Gulf of America shelf drilling program, directly implying immediate offshore drilling crew demand.",
+    "phase": "construction",
+    "phase_evidence": "Article states the WFD 450 'launches multi-well drilling program' on Arena Energy's shelf assets, indicating active drilling operations have commenced.",
+    "construction_subphase": "peak",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "5d95e054-d29c-40e0-a386-4dcdde230eea",
+    "ingested_at": "2026-09-08T18:13:54.499Z",
+    "source_published_at": "2026-09-08T16:11:00.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/us-department-of-energy-closes-up-to-1-9-billion-loan-to-restart-nextera-energys-duane-arnold-energy-center-302872175.html"
