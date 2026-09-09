@@ -4,6 +4,103 @@
       {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/century-lithium-files-mine-plan-of-operations-for-angel-island-lithium-project-in-nevada-302873471.html"
+      }
+    ],
+    "headline": "Century Lithium Files Mine Plan of Operations for Angel Island Lithium Project, Nevada",
+    "body": "VANCOUVER, BC, Sept. 9, 2026 /PRNewswire/ -- Century Lithium Corp. (TSXV: LCE) (OTCQX: CYDVF) (Frankfurt: C1Z) (\"Century Lithium\" or \"the Company\") is pleased to announce that it has submitted the Mine Plan of Operations (\"PoO\" or \"Plan\") and Nevada Reclamation Permit Application for the...",
+    "url": "https://www.prnewswire.com/news-releases/century-lithium-files-mine-plan-of-operations-for-angel-island-lithium-project-in-nevada-302873471.html",
+    "published_at": "2026-09-09T12:00:00.000Z",
+    "hash": "1a3f0fd1cb204a18",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "survey_geophysical"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-nevada",
+    "country": "united_states",
+    "tldr": "Century Lithium has submitted its Mine Plan of Operations and Nevada Reclamation Permit Application for the Angel Island Lithium Project, signalling regulatory progress toward potential mine development and future workforce ramp-up.",
+    "operator": {
+      "name": "Century Lithium Corp.",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Angel Island Lithium Project",
+    "scope": [
+      "mine_plan_submission",
+      "reclamation_permit_application"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mine Planner",
+        "Mining Engineer",
+        "Permitting Manager",
+        "Environmental Manager",
+        "Reclamation Specialist",
+        "Geotechnical Engineer"
+      ],
+      "skills": [
+        "mine plan of operations",
+        "Nevada mining regulations",
+        "reclamation permitting",
+        "lithium extraction",
+        "open pit mining"
+      ],
+      "certs_freetext": [
+        "MSHA",
+        "Professional Engineer (PE) Nevada"
+      ],
+      "geo_rtw": "US work authorization required, Nevada-based preferred",
+      "project_experience": [
+        "lithium brine",
+        "hard rock lithium",
+        "Nevada open pit mine"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"Mine Planner\" OR \"Mining Engineer\" OR \"Permitting Manager\" OR \"Reclamation Specialist\" OR \"Environmental Manager\") AND (\"lithium\" OR \"Nevada\" OR \"mine plan of operations\" OR \"reclamation permit\") AND (\"open pit\" OR \"hard rock\" OR \"lithium extraction\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Century Lithium has just filed its Mine Plan of Operations for the Angel Island Lithium Project in Nevada — a key regulatory milestone ahead of potential mine development. Are you open to discussing opportunities tied to this project's next phase?",
+      "email_subject": "Angel Island Lithium Project – Mining & Permitting Talent Ahead of Regulatory Milestone",
+      "email_body": "Hi [Name],\n\nCentury Lithium Corp. has submitted its Mine Plan of Operations and Nevada Reclamation Permit Application for the Angel Island Lithium Project — a significant step toward potential mine development in Nevada.\n\nAs the project advances through the regulatory process, experienced mining engineers, permitting managers, and reclamation specialists will be in demand. I work with professionals who have directly relevant Nevada and lithium project experience.\n\nWould you be open to a brief conversation about how we might support Century Lithium's upcoming talent needs?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Regulatory permit filing by named operator (Century Lithium) for a named mining project (Angel Island Lithium Project) constitutes a qualifying regulatory/permit milestone signalling future workforce demand.",
+    "phase": "pre_sanction",
+    "phase_evidence": "The article describes submission of a Mine Plan of Operations and Reclamation Permit Application, indicating the project is in pre-FID regulatory approval stage.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "34b152ec-2ad0-4eef-9bb8-80a414352aa8",
+    "ingested_at": "2026-09-09T12:16:28.966Z",
+    "source_published_at": "2026-09-09T12:00:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/white-fleet-drillings-wfd-450-the-largest-jack-up-rig-operating-in-the-gulf-of-america-launches-multi-well-drilling-program-on-arena-energys-shelf-assets-302872547.html"
       }
     ],

@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-09-08T18:16:08.551Z"
+    "last_updated_at": "2026-09-09T12:17:53.754Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -11974,6 +11974,66 @@
         "email": null,
         "phone": null,
         "location": "The Woodlands, TX, USA"
+      }
+    ]
+  },
+  "century lithium corp.": {
+    "discovered_at": "2026-09-09T12:17:53.754Z",
+    "contacts": [
+      {
+        "name": "Adam Knight",
+        "title": "General Manager",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/adam-knight-08193018",
+        "source_url": "https://batteriesnews.com/century-lithium-announces-management-appointments-to-advance-angel-island-lithium-project-nevada/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "William Willoughby",
+        "title": "President & Chief Executive Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/bill-willoughby-56272918",
+        "source_url": "https://www.centurylithium.com/corporate/management/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Twin Falls, ID, USA"
+      },
+      {
+        "name": "Todd Fayram",
+        "title": "Chief Technology Officer",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.centurylithium.com/corporate/management/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Richard Alberthal",
+        "title": "Manager, Technical Services",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://www.prnewswire.com/news-releases/century-lithium-announces-management-appointments-to-advance-angel-island-lithium-project-nevada-302760521.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Matthew Tompkins",
+        "title": "Chief Financial Officer",
+        "persona": "other",
+        "linkedin_url": "https://www.linkedin.com/in/matt-tompkins12",
+        "source_url": "https://www.centurylithium.com/news/century-lithium-announces-cfo-transition",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Greater Vancouver Metropolitan Area, Canada"
       }
     ]
   }

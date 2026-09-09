@@ -1,5 +1,47 @@
 [
   {
+    "id": "34b152ec-2ad0-4eef-9bb8-80a414352aa8",
+    "ingested_at": "2026-09-09T12:16:28.966Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/century-lithium-files-mine-plan-of-operations-for-angel-island-lithium-project-in-nevada-302873471.html"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "survey_geophysical"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-nevada",
+    "country": "united_states",
+    "headline": "Century Lithium Files Mine Plan of Operations for Angel Island Lithium Project, Nevada",
+    "operator": {
+      "name": "Century Lithium Corp.",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Angel Island Lithium Project",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "5d95e054-d29c-40e0-a386-4dcdde230eea",
     "ingested_at": "2026-09-08T18:13:54.499Z",
     "sources": [
