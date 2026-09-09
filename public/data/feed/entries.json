@@ -4,6 +4,112 @@
       {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/arena-energy-secures-nine-gulf-of-america-blocks-in-boem-lease-sale-bbg3-302872549.html"
+      }
+    ],
+    "headline": "Arena Energy Wins 9 Gulf of America Shelf Blocks in BOEM Lease Sale BBG3",
+    "body": "Company Adds Shelf Acreage Across Four Gulf of America Areas as the Third Sale Under the One Big Beautiful Bill Act THE WOODLANDS, Texas, Sept. 9, 2026 /PRNewswire/ -- Arena Energy, LLC (\"Arena\"), a leading independent oil and gas exploration company focused on the Gulf of America Shelf,...",
+    "url": "https://www.prnewswire.com/news-releases/arena-energy-secures-nine-gulf-of-america-blocks-in-boem-lease-sale-bbg3-302872549.html",
+    "published_at": "2026-09-09T16:15:00.000Z",
+    "hash": "a0b3ab014c5ae793",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "marine_offshore_ops",
+      "survey_geophysical"
+    ],
+    "signal_type": "lease_round",
+    "region": "us-gulf",
+    "country": "united_states",
+    "tldr": "Arena Energy secured nine Gulf of America shelf blocks in BOEM Lease Sale BBG3, signaling an upcoming exploration and appraisal campaign. Drilling, survey, and subsea ops hiring likely within 6-12 months as Arena progresses work programs on new acreage.",
+    "operator": {
+      "name": "Arena Energy, LLC",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Arena Energy, LLC",
+      "matched_company_slug": null
+    },
+    "project_name": "BOEM Lease Sale BBG3 — Arena Energy Shelf Acreage",
+    "scope": [
+      "lease_acquisition",
+      "exploration_drilling",
+      "shelf_development"
+    ],
+    "mob_window": {
+      "start": "2027-Q1",
+      "end": "2027-Q4",
+      "duration_months": 12
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Exploration Geologist",
+        "Drilling Engineer",
+        "Subsurface Engineer",
+        "Offshore Drilling Supervisor",
+        "Wellsite Geologist",
+        "Reservoir Engineer",
+        "Marine Coordinator",
+        "HSE Advisor – Offshore Drilling",
+        "Geophysicist"
+      ],
+      "skills": [
+        "Gulf of Mexico shelf drilling",
+        "BOEM lease management",
+        "exploration well planning",
+        "seismic interpretation",
+        "shallow water drilling operations",
+        "well program management",
+        "G&G evaluation"
+      ],
+      "certs_freetext": [
+        "BOSIET / HUET",
+        "IADC Well Control (WellCAP)",
+        "TWIC Card"
+      ],
+      "geo_rtw": "US — Gulf Coast (Texas/Louisiana); must hold TWIC",
+      "project_experience": [
+        "Gulf of Mexico Shelf",
+        "GoM Shallow Water",
+        "BOEM OCS leases",
+        "Gulf of America exploration"
+      ],
+      "yoe_band": "8-18",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"Gulf of Mexico\" OR \"Gulf of America\" OR \"GoM shelf\" OR \"GOM shallow water\") AND (\"exploration drilling\" OR \"drilling engineer\" OR \"drilling supervisor\" OR \"geologist\" OR \"reservoir engineer\" OR \"geophysicist\") AND (\"BOEM\" OR \"OCS\" OR \"shelf\" OR \"offshore drilling\") AND (\"well planning\" OR \"seismic interpretation\" OR \"G&G\" OR \"wellsite\") NOT (deepwater OR \"ultra-deepwater\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Arena Energy just secured 9 new Gulf of America shelf blocks in BOEM Sale BBG3. As they ramp up exploration work programs, experienced shelf drilling and G&G professionals will be in demand. Open to a quick conversation?",
+      "email_subject": "Arena Energy – 9 New Gulf Shelf Blocks | Exploration Hiring Opportunity",
+      "email_body": "Hi [Name],\n\nArena Energy just announced the acquisition of nine Gulf of America shelf blocks across four areas in BOEM Lease Sale BBG3 — the third sale under the One Big Beautiful Bill Act. As a focused Gulf of America shelf operator, Arena will be ramping exploration and appraisal activity on this new acreage over the coming 6-12 months.\n\nWe're placing experienced offshore shelf professionals — drilling engineers, exploration geologists, geophysicists, and drilling supervisors — ahead of work program mobilization.\n\nIf you're open to hearing about opportunities tied to this campaign, I'd welcome a brief call.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Specific block/lease award naming operator Arena Energy and acreage across nine Gulf of America shelf blocks in a named BOEM lease sale, directly signaling upcoming exploration drilling and workforce demand.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article describes a lease acquisition event — blocks just awarded — with no FID, EPC award, or drilling contract announced yet.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "f0ff55d2-e6c9-4313-a629-fb7acf5192c1",
+    "ingested_at": "2026-09-09T18:13:59.473Z",
+    "source_published_at": "2026-09-09T16:15:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/century-lithium-files-mine-plan-of-operations-for-angel-island-lithium-project-in-nevada-302873471.html"
       }
     ],
@@ -13147,110 +13253,6 @@
     "contact_archetypes": [
       "project_manager",
       "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "pr_newswire_energy",
-        "name": "PR Newswire (Energy)",
-        "url": "https://www.prnewswire.com/news-releases/meta-expands-partnership-with-rwe-through-a-long-term-corporate-ppa-for-rabbits-foot-solar-in-north-texas-302798053.html"
-      }
-    ],
-    "headline": "RWE Rabbit's Foot Solar Breaks Ground in North Texas with Meta PPA — ~200 Construction Jobs",
-    "body": "RWE's Rabbit's Foot Solar project to create nearly 200 construction jobs, generate $50 million in tax revenues over 40 years It is the fourth power purchase agreement signed between RWE and Meta since 2024 AUSTIN, Texas, June 11, 2026 /PRNewswire/ -- RWE and Meta today announced a new...",
-    "url": "https://www.prnewswire.com/news-releases/meta-expands-partnership-with-rwe-through-a-long-term-corporate-ppa-for-rabbits-foot-solar-in-north-texas-302798053.html",
-    "published_at": "2026-06-11T13:02:00.000Z",
-    "hash": "87fd35b74998fde2",
-    "subsector": "onshore-renewables",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades"
-    ],
-    "signal_type": "epc_award",
-    "region": "us-south",
-    "country": "united_states",
-    "tldr": "RWE's Rabbit's Foot Solar project in North Texas is moving forward under a long-term PPA with Meta, creating nearly 200 construction jobs. Active construction hiring window is imminent.",
-    "operator": {
-      "name": "RWE",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "RWE",
-      "matched_company_slug": null
-    },
-    "project_name": "Rabbit's Foot Solar",
-    "scope": [
-      "solar_epc",
-      "civil_works",
-      "electrical_install"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Solar Construction Manager",
-        "Site Manager",
-        "Electrical Superintendent",
-        "Civil Superintendent",
-        "HSE Manager",
-        "Solar EPC Project Manager",
-        "Commissioning Engineer",
-        "Balance of Plant Supervisor"
-      ],
-      "skills": [
-        "solar PV construction",
-        "balance of plant",
-        "HV electrical installation",
-        "civil earthworks",
-        "utility-scale solar",
-        "construction supervision",
-        "HSE management"
-      ],
-      "certs_freetext": [
-        "OSHA 30",
-        "NABCEP",
-        "First Aid/CPR"
-      ],
-      "geo_rtw": "US work authorization required; North Texas based",
-      "project_experience": [
-        "utility-scale solar",
-        "onshore renewables EPC",
-        "solar PV installation Texas"
-      ],
-      "yoe_band": "5-15",
-      "seniority": "mid-senior",
-      "boolean_search": "(\"solar construction\" OR \"utility-scale solar\" OR \"solar EPC\" OR \"balance of plant\") AND (\"construction manager\" OR \"site manager\" OR \"electrical superintendent\" OR \"civil superintendent\" OR \"HSE manager\" OR \"commissioning engineer\") AND (\"Texas\" OR \"North Texas\" OR \"Southwest\") NOT (residential OR rooftop)"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], RWE is ramping construction on Rabbit's Foot Solar in North Texas (~200 jobs under a Meta PPA). Are you open to hearing about site leadership or trades roles on this project?",
-      "email_subject": "Construction Roles – RWE Rabbit's Foot Solar, North Texas",
-      "email_body": "Hi [Name],\n\nRWE has announced the Rabbit's Foot Solar project in North Texas, backed by a long-term PPA with Meta and expected to generate nearly 200 construction jobs.\n\nWe're sourcing site leadership, electrical and civil superintendents, HSE professionals, and commissioning engineers for this build.\n\nIf you're available or open to a conversation about the opportunity, I'd love to connect.\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named operator (RWE) and project (Rabbit's Foot Solar) with explicit construction workforce ramp (~200 jobs) triggered by a PPA with Meta in North Texas.",
-    "phase": "construction",
-    "phase_evidence": "Article states the project will 'create nearly 200 construction jobs', indicating active construction phase is underway or imminent.",
-    "construction_subphase": "rampup",
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "1-3mo",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "76b849b0-445c-48e9-871c-a546ad9530ff",
-    "ingested_at": "2026-06-11T13:23:32.769Z",
-    "source_published_at": "2026-06-11T13:02:00.000Z",
-    "contact_archetypes": [
-      "site_manager",
-      "hiring_manager",
-      "project_manager"
     ],
     "prompt_version": "phase-targeting-v1.2"
   }
