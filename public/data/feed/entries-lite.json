@@ -1,5 +1,179 @@
 [
   {
+    "id": "cf51b67c-8c7c-409f-9510-37492830cc56",
+    "ingested_at": "2026-09-10T18:13:09.599Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/mcdermott_wins_contract_for_enis_cronos_project_offshore_cyprus-10-sep-2026-184584-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "rov_subsea",
+      "marine_offshore_ops",
+      "pipeline_mechanical"
+    ],
+    "signal_type": "epc_award",
+    "region": "east-mediterranean",
+    "country": "cyprus",
+    "headline": "McDermott Wins Substantial EPC Contract from Eni for Cronos Gas Project Offshore Cyprus",
+    "operator": {
+      "name": "Eni SpA",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "McDermott International Ltd",
+      "matched_company_slug": null
+    },
+    "project_name": "Cronos",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": []
+  },
+  {
+    "id": "cde6890e-969a-4d99-bfd1-dc49f02299a4",
+    "ingested_at": "2026-09-10T18:13:09.599Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/nextera_energy_seals_19b_doe_loan_to_restart_iowa_nuclear_plant-10-sep-2026-184588-article/?rss=true"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction",
+      "energy_trades",
+      "ndt_inspection"
+    ],
+    "signal_type": "fid",
+    "region": "us-midwest",
+    "country": "united_states",
+    "headline": "NextEra Energy Secures $1.9B DOE Loan to Restart Duane Arnold Nuclear Plant, Iowa",
+    "operator": {
+      "name": "NextEra Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "NextEra Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Duane Arnold Energy Center Restart",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 1900000000,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
+    "id": "2e24570e-ec60-48b2-b854-9acc44204fac",
+    "ingested_at": "2026-09-10T18:13:09.599Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/bannerman-completes-Etango-funding"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "southern-africa",
+    "country": "namibia",
+    "headline": "Bannerman Energy Completes AUD124M Placement, Etango Uranium Project Moves Toward FID",
+    "operator": {
+      "name": "Bannerman Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Bannerman Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Etango",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 89000000,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
+    "id": "70ea9fa9-e71c-4765-ae9f-5e4e892bead2",
+    "ingested_at": "2026-09-10T18:13:09.599Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/rio-tinto-wins-aboriginal-consent-for-winu-copper-mine/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "western-australia",
+    "country": "australia",
+    "headline": "Rio Tinto Secures Aboriginal Consent for Winu Copper Mine, WA — First Production Targeted 2030",
+    "operator": {
+      "name": "Rio Tinto",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Rio Tinto",
+      "matched_company_slug": null
+    },
+    "project_name": "Winu Copper Mine",
+    "mob_window": {
+      "start": null,
+      "end": "2030-Q4",
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "f0ff55d2-e6c9-4313-a629-fb7acf5192c1",
     "ingested_at": "2026-09-09T18:13:59.473Z",
     "sources": [

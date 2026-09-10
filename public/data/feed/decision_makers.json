@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-09-09T12:17:53.754Z"
+    "last_updated_at": "2026-09-10T18:16:14.837Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -12034,6 +12034,186 @@
         "email": null,
         "phone": null,
         "location": "Greater Vancouver Metropolitan Area, Canada"
+      }
+    ]
+  },
+  "mcdermott international ltd": {
+    "discovered_at": "2026-09-10T18:16:14.837Z",
+    "contacts": [
+      {
+        "name": "Victoria Talbot",
+        "title": "Senior Director, Global Talent Acquisition",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/victoriatalbot",
+        "source_url": "https://theorg.com/org/mcdermott-international/org-chart/victoria-talbot",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Bethany Mire",
+        "title": "Recruitment Manager / Talent Acquisition",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/bethanymire",
+        "source_url": "https://www.linkedin.com/in/bethanymire/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Neil Gunnion",
+        "title": "Vice President, Operations & Country Head (Qatar)",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/neil-gunnion-7304b81",
+        "source_url": "https://www.mcdermott.com/sites/default/files/2026-02/Leading%20With%20Certainty%20-%20A%20Conversation%20with%20Neil%20Gunnion.pdf",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Doha, Qatar"
+      },
+      {
+        "name": "Maurizio Coratella",
+        "title": "Executive Vice President and Chief Operating Officer",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.prnewswire.com/news-releases/maurizio-coratella-named-mcdermott-executive-vice-president-and-chief-operating-officer-302105967.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Richard Heo",
+        "title": "Senior Vice President, North Central & South America Operations",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.comparably.com/companies/346127/executive-team",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "bannerman energy": {
+    "discovered_at": "2026-09-10T18:16:14.837Z",
+    "contacts": [
+      {
+        "name": "Gavin Chamberlain",
+        "title": "Managing Director and Chief Executive Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/gavin-chamberlain-71a58b6",
+        "source_url": "https://bannermanenergy.com/directors-management/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Johannesburg, South Africa"
+      },
+      {
+        "name": "Werner Ewald",
+        "title": "Managing Director, Bannerman Mining Resources (Namibia)",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/werner-ewald-39658230",
+        "source_url": "https://bannermanenergy.com/directors-management/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Namibia"
+      },
+      {
+        "name": "Danie van Aswegen",
+        "title": "Chief Operating Officer (COO), Bannerman Mining Resources Namibia",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/danie-van-aswegen-05897b53",
+        "source_url": "https://bannermanenergy.com/directors-management/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Swakopmund, Namibia"
+      },
+      {
+        "name": "Brandon Munro",
+        "title": "Executive Chairman",
+        "persona": "other",
+        "linkedin_url": "https://www.linkedin.com/in/brandonmunro",
+        "source_url": "https://bannermanenergy.com/directors-management/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Perth, WA, Australia"
+      },
+      {
+        "name": "Matthew Horgan",
+        "title": "Vice President, Corporate Development",
+        "persona": "other",
+        "linkedin_url": "https://www.linkedin.com/in/matthorgan",
+        "source_url": "https://bannermanenergy.com/further-board-and-management-appointments/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Perth, WA, Australia"
+      }
+    ]
+  },
+  "rio tinto": {
+    "discovered_at": "2026-09-10T18:16:14.837Z",
+    "contacts": [
+      {
+        "name": "Georgie Bezette",
+        "title": "Chief People Officer",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/georgie-bezette-185b041",
+        "source_url": "https://www.riotinto.com/en/about/executive-committee/georgie-bezette",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "London, UK"
+      },
+      {
+        "name": "Catherine Taplin",
+        "title": "Global Head of Talent",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/catherine-taplin-shrm-scp-82985918",
+        "source_url": "https://theorg.com/org/rio-tinto/teams/human-resources-and-talent-acquisition",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "London, UK"
+      },
+      {
+        "name": "Amra Basic",
+        "title": "Vice President, People, Aluminium & Lithium",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/amra-basic-9b07b63",
+        "source_url": "https://theorg.com/org/rio-tinto/teams/human-resources-and-talent-acquisition",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Montreal, QC, Canada"
+      },
+      {
+        "name": "Ron Plantz",
+        "title": "HR Director",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/ron-plantz-b768207",
+        "source_url": "https://www.comparably.com/companies/rio-tinto/human-resources",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Juneau, AK, USA"
+      },
+      {
+        "name": "Dixie Scott-Marshall",
+        "title": "HR Manager, Copper & Diamonds US and Canada – People Services",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/dixie-scott-marshall-3725705",
+        "source_url": "https://www.comparably.com/companies/rio-tinto/human-resources",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
       }
     ]
   }
