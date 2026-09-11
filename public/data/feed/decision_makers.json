@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-09-10T18:16:14.837Z"
+    "last_updated_at": "2026-09-11T12:18:38.790Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -12214,6 +12214,66 @@
         "email": null,
         "phone": null,
         "location": null
+      }
+    ]
+  },
+  "jan de nul / saipem consortium": {
+    "discovered_at": "2026-09-11T12:18:38.790Z",
+    "contacts": [
+      {
+        "name": "Alessandro Bruscia",
+        "title": "Human Resources and Organization Director",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/alessandro-bruscia-0a369713",
+        "source_url": "https://it.linkedin.com/in/alessandro-bruscia-0a369713",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Pesaro, Italy"
+      },
+      {
+        "name": "Julie De Nul",
+        "title": "Executive Officer, HR Staff Department",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/julie-de-nul-501910146",
+        "source_url": "https://be.linkedin.com/in/julie-de-nul-501910146",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Belgium"
+      },
+      {
+        "name": "Julie Liekens",
+        "title": "HR Officer (Talent Acquisition / Recruitment)",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/julie-liekens",
+        "source_url": "https://www.linkedin.com/in/julie-liekens/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Luxembourg"
+      },
+      {
+        "name": "Francesco Marasco",
+        "title": "HR Business Partner",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/francesco-marasco-977466101",
+        "source_url": "https://it.linkedin.com/in/francesco-marasco-977466101",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Italy"
+      },
+      {
+        "name": "Imam Santosa",
+        "title": "Project Manager & Head of Offshore Installation Method",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/imam-santosa-9a056434",
+        "source_url": "https://id.linkedin.com/in/imam-santosa-9a056434",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Jakarta, Indonesia"
       }
     ]
   }
