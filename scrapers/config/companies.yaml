@@ -45,14 +45,12 @@ companies:
     # job outside the newest 200 as removed.
     platform: workday_api
     base_url: "https://kbr.wd5.myworkdayjobs.com/KBR_Careers"
-    # ~1.2 JSON requests per second; the first full run is ~1,800 requests.
-    rate_limit_delay: 0.5
-    # First full run measured locally at 0.75s delay: see the commit message.
-    # Daily runs after that skip the detail request for jobs already on file
-    # and take a few minutes. Dispatch the first run on its own
-    # (workflow input company=kbr) so it does not share the runner with 40
-    # Chromium scrapers.
-    timeout_seconds: 5100
+    rate_limit_delay: 0.75
+    # A full first pass (1,700 details) measured 7,176s locally, so new detail
+    # fetches are capped per run: the listing is always complete (lifecycle is
+    # exact), while unseen jobs are picked up ~500 a day until caught up.
+    max_new_details_per_run: 500
+    timeout_seconds: 2700
     sheet_name: "KBR"
 
   subsea7:

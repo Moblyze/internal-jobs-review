@@ -112,3 +112,27 @@ class TestWorkdayApiScraper:
         assert [str(j.url).rsplit('/', 1)[-1] for j in jobs] == ['K_R1', 'N_R2']
         assert jobs[0].location == 'Houston, TX, US'
         assert 'listing only' in jobs[0].description
+
+
+    @pytest.mark.asyncio
+    async def test_max_new_details_per_run_defers_unseen_jobs_only(self):
+        s = _scraper(max_new_details_per_run=1)
+        cards = []
+        for name in ('K1', 'N1', 'N2'):
+            cards.append({'title': name, 'url': f'https://kbr.wd5.myworkdayjobs.com/en-US/KBR_Careers/job/x/{name}',
+                          'external_path': f'/job/x/{name}', 'company': 'KBR', 'requisition_id': name,
+                          'location_raw': 'US-TX-HOUSTON', 'posted_on': 'Posted Today'})
+
+        async def fake_listing(client, max_jobs=None):
+            return cards
+
+        async def fake_detail(client, external_path):
+            return {'description': 'A real description with enough words in it.', 'location': 'Houston, TX, US',
+                    'posted_date': None, 'employment_type': None, 'requisition_id': None, 'skills': [], 'salary': None}
+
+        s.fetch_listing = fake_listing
+        s.fetch_detail = fake_detail
+        s.set_known_url_checker(lambda url: url.endswith('K1'))
+        jobs = await s.extract_all_jobs()
+        # known job kept (listing only), one new job fetched, the other deferred
+        assert [str(j.url).rsplit('/', 1)[-1] for j in jobs] == ['K1', 'N1']
