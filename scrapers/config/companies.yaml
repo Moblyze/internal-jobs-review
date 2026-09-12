@@ -214,6 +214,14 @@ companies:
 
   bp:
     name: "BP"
+    # 2026-09-12: NOT repaired. This scraper has timed out daily since
+    # 2026-06-12 for the same reason Baker Hughes and KBR did (see workday_api),
+    # but https://bpinternational.wd3.myworkdayjobs.com/robots.txt has
+    # "Disallow: /bpCareers/" for every user agent, where the other Workday
+    # tenants we scrape explicitly Allow their sites. Switching to
+    # `platform: workday_api` would work technically (the CXS endpoint sits
+    # outside the disallowed prefix) but it goes against the site's stated
+    # policy, so that is a decision for Jesse, not a default.
     platform: workday
     base_url: "https://bpinternational.wd3.myworkdayjobs.com/bpCareers"
     rate_limit_delay: 2.5
