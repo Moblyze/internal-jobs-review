@@ -379,6 +379,43 @@ companies:
     selectors: {}
     sheet_name: "Oceaneering"
 
+  # === Oracle HCM additions (added 2026-09-12, docs/plans/2026-09-12-new-job-sources.csv rows 1 and 4) ===
+
+  team_industrial_services:
+    name: "Team Industrial Services"
+    # NDT / inspection / mechanical / rope access employer. The Oracle REST
+    # feed is the same JSON the careers site loads (1,196 requisitions on
+    # 2026-09-12). Requisitions drop out of the feed when closed, which is the
+    # lifecycle removal signal.
+    platform: oracle_hcm
+    base_url: "https://epyc.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CLH-US"
+    rate_limit_delay: 1.0
+    # ~1,200 requisitions and every detail is one extra request: cap new
+    # detail fetches per run so the first pass spreads over three days.
+    max_new_details_per_run: 400
+    oracle_hcm_config:
+      api_base: "https://epyc.fa.us2.oraclecloud.com/hcmRestApi/resources/latest"
+      site_number: "CLH-US"
+      job_url_template: "https://epyc.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CLH-US/job/{req_id}"
+    selectors: {}
+    sheet_name: "Team Industrial Services"
+
+  intertek:
+    name: "Intertek"
+    # TIC (testing, inspection, certification) employer and BD prospect.
+    # Two career sites on one tenant: CX_1 (main board, 296) and CX_1003
+    # (UK board, 29). Both are walked; a requisition on both is kept once.
+    platform: oracle_hcm
+    base_url: "https://hcog.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1"
+    rate_limit_delay: 1.0
+    max_new_details_per_run: 400
+    oracle_hcm_config:
+      api_base: "https://hcog.fa.em2.oraclecloud.com/hcmRestApi/resources/latest"
+      site_numbers: ["CX_1", "CX_1003"]
+      job_url_template: "https://hcog.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/{site}/job/{req_id}"
+    selectors: {}
+    sheet_name: "Intertek"
+
   # === Custom ASP.NET career portals ===
 
   rovop:

@@ -27,10 +27,12 @@ Each item in the response includes:
 - CategoryCode / CategoryName: Job category
 """
 
+import asyncio
+import concurrent.futures
 import time
 from datetime import datetime
 from html import unescape
-from typing import Optional
+from typing import Callable, Optional
 
 import requests
 import structlog
@@ -74,8 +76,21 @@ class OracleHCMScraper(BaseScraper):
         super().__init__(config)
         self.hcm_config = config.get('oracle_hcm_config', {})
         self.api_base = self.hcm_config.get('api_base', '')
-        self.site_number = self.hcm_config.get('site_number', 'jobs')
+        # One tenant can publish several career sites (Intertek: CX_1 for the
+        # main board, CX_1003 for the UK board). `site_numbers` lists them all;
+        # `site_number` remains the single-site form used by Oceaneering.
+        sites = self.hcm_config.get('site_numbers') or [self.hcm_config.get('site_number', 'jobs')]
+        self.site_numbers = [str(s) for s in sites if s]
+        self.site_number = self.site_numbers[0]
         self.job_url_template = self.hcm_config.get('job_url_template', '')
+        # Per-run budget for detail fetches of requisitions the tracker has
+        # never seen (same idea as workday_api.py). Known requisitions skip the
+        # detail call entirely: the lifecycle diff only needs their URL.
+        self.max_new_details = config.get('max_new_details_per_run')
+        self._known_url_checker: Optional[Callable[[str], bool]] = None
+        self._new_details = 0
+        self._deferred = 0
+        self._skipped_known = 0
 
         self.session = requests.Session()
         self.session.headers.update({
@@ -87,19 +102,32 @@ class OracleHCMScraper(BaseScraper):
             'Accept': 'application/json',
         })
 
-    def _build_search_url(self, offset: int = 0, limit: int = PAGE_SIZE) -> str:
+    def set_known_url_checker(self, checker: Callable[[str], bool]) -> None:
+        """Install a predicate that says whether a job URL is already exported.
+
+        main.py passes DeduplicationTracker.is_duplicate. Known requisitions
+        keep their listing data (title, location, posted date) and skip the
+        per-requisition detail call; the placeholder description never reaches
+        the sheet because the tracker filters the job out before export.
+        """
+        self._known_url_checker = checker
+
+    def _build_search_url(
+        self, offset: int = 0, limit: int = PAGE_SIZE, site: Optional[str] = None
+    ) -> str:
         """
         Construct the REST API search URL with pagination parameters.
 
         Args:
             offset: Number of results to skip (0-based)
             limit: Number of results per page (max 25)
+            site: Career site number (defaults to the first configured site)
 
         Returns:
             Full API URL for job search
         """
         finder = (
-            f"findReqs;siteNumber={self.site_number},"
+            f"findReqs;siteNumber={site or self.site_number},"
             f"facetsList=LOCATIONS;WORK_LOCATIONS;WORKPLACE_TYPES;TITLES;"
             f"CATEGORIES;ORGANIZATIONS;POSTING_DATES;FLEX_FIELDS,"
             f"limit={limit},offset={offset},sortBy=POSTING_DATES_DESC"
@@ -111,33 +139,39 @@ class OracleHCMScraper(BaseScraper):
             f"&finder={finder}"
         )
 
-    def _build_job_url(self, req_number: str) -> str:
+    def _build_job_url(self, req_number: str, site: Optional[str] = None) -> str:
         """
         Construct the job detail URL from a requisition number.
 
         Args:
             req_number: Oracle requisition number (e.g., "IRC123456")
+            site: Career site number, substituted for `{site}` in the template
 
         Returns:
             Full job detail URL
         """
         if self.job_url_template:
-            return self.job_url_template.replace('{req_id}', req_number)
+            return (
+                self.job_url_template
+                .replace('{req_id}', req_number)
+                .replace('{site}', site or self.site_number)
+            )
         # Fallback: construct from base_url
         return f"{self.config.get('base_url', '')}/job/{req_number}"
 
-    def _fetch_page(self, offset: int = 0) -> Optional[dict]:
+    def _fetch_page(self, offset: int = 0, site: Optional[str] = None) -> Optional[dict]:
         """
         Fetch a single page of job requisitions from the API.
 
         Args:
             offset: Number of results to skip
+            site: Career site number to query
 
         Returns:
             Parsed JSON response dict, or None on failure
         """
-        url = self._build_search_url(offset=offset)
-        self.logger.info("fetching_api_page", offset=offset, url=url)
+        url = self._build_search_url(offset=offset, site=site)
+        self.logger.info("fetching_api_page", offset=offset, site=site, url=url)
 
         try:
             response = self.session.get(url, timeout=30)
@@ -317,15 +351,17 @@ class OracleHCMScraper(BaseScraper):
         }
         return mapping.get(workplace_code.upper(), workplace_code)
 
-    def _parse_requisition(self, req: dict) -> Optional[dict]:
+    def _parse_requisition(self, req: dict, site: Optional[str] = None) -> Optional[dict]:
         """
         Parse a single requisition dict into normalized job data.
 
         Args:
             req: Raw requisition dict from Oracle HCM API
+            site: Career site the requisition was listed on
 
         Returns:
-            Normalized job data dict, or None if requisition is invalid
+            Normalized job data dict, or None if requisition is invalid or
+            its detail fetch was deferred to a later run (budget exhausted)
         """
         try:
             title = (req.get('Title') or '').strip()
@@ -341,7 +377,16 @@ class OracleHCMScraper(BaseScraper):
                 req.get('RequisitionNumber')
                 or str(req.get('Id') or '')
             )
-            job_url = self._build_job_url(req_number) if req_number else ''
+            job_url = self._build_job_url(req_number, site=site) if req_number else ''
+
+            known = bool(
+                job_url and self._known_url_checker and self._known_url_checker(job_url)
+            )
+            if known:
+                self._skipped_known += 1
+            elif self.max_new_details and self._new_details >= self.max_new_details:
+                self._deferred += 1
+                return None
 
             # Location: use PrimaryLocation, append secondary locations if present
             primary_location = (req.get('PrimaryLocation') or 'Location Not Specified').strip()
@@ -364,7 +409,14 @@ class OracleHCMScraper(BaseScraper):
             # description when needed.
             external_desc = req.get('ExternalDescriptionStr') or ''
             short_desc = req.get('ShortDescriptionStr') or ''
-            if len(external_desc.strip()) < 50:
+            if known and len(external_desc.strip()) < 50:
+                # Already on the sheet: no detail call, placeholder text only.
+                external_desc = ''
+                short_desc = f"{title} at {self.company_name} (listing only; detail already on file)"
+            elif len(external_desc.strip()) < 50:
+                self._new_details += 1
+                if self._new_details > 1:
+                    time.sleep(self.rate_limit_delay)
                 detail = self._fetch_requisition_detail(str(req.get('Id') or ''))
                 if detail:
                     external_desc = detail.get('ExternalDescriptionStr') or external_desc
@@ -422,7 +474,9 @@ class OracleHCMScraper(BaseScraper):
 
     def _fetch_all_requisitions(self, max_jobs: Optional[int] = None) -> list[dict]:
         """
-        Fetch all job requisitions from the API, handling pagination.
+        Fetch all job requisitions from every configured site, handling
+        pagination. A requisition published on more than one site is kept
+        once (first site wins).
 
         Args:
             max_jobs: Optional limit on total jobs to fetch
@@ -430,9 +484,27 @@ class OracleHCMScraper(BaseScraper):
         Returns:
             List of parsed job data dicts
         """
-        all_jobs = []
+        all_jobs: list[dict] = []
+        seen_ids: set[str] = set()
+
+        for site in self.site_numbers:
+            if max_jobs and len(all_jobs) >= max_jobs:
+                break
+            self._fetch_site_requisitions(site, all_jobs, seen_ids, max_jobs)
+
+        return all_jobs
+
+    def _fetch_site_requisitions(
+        self,
+        site: str,
+        all_jobs: list[dict],
+        seen_ids: set[str],
+        max_jobs: Optional[int] = None,
+    ) -> None:
+        """Page through one career site, appending parsed jobs to all_jobs."""
         offset = 0
         total_count = None
+        first_request = True
 
         while True:
             # Respect max_jobs limit
@@ -441,30 +513,32 @@ class OracleHCMScraper(BaseScraper):
                 break
 
             # Rate limit between API requests (skip first request)
-            if offset > 0:
+            if not first_request:
                 delay = self.rate_limit_delay
                 self.logger.debug("rate_limiting", delay_seconds=delay)
                 time.sleep(delay)
+            first_request = False
 
             # Fetch page
-            response_data = self._fetch_page(offset=offset)
+            response_data = self._fetch_page(offset=offset, site=site)
             if response_data is None:
-                self.logger.error("page_fetch_failed_stopping", offset=offset)
+                self.logger.error("page_fetch_failed_stopping", offset=offset, site=site)
                 break
 
             # Get total count on first request
             if total_count is None:
                 total_count = self._extract_total_count(response_data)
-                self.logger.info("total_jobs_available", total=total_count)
+                self.logger.info("total_jobs_available", site=site, total=total_count)
 
             # Extract requisitions from this page
             requisitions = self._extract_requisitions(response_data)
             if not requisitions:
-                self.logger.info("no_more_requisitions", offset=offset)
+                self.logger.info("no_more_requisitions", offset=offset, site=site)
                 break
 
             self.logger.info(
                 "page_fetched",
+                site=site,
                 offset=offset,
                 count=len(requisitions),
                 total_so_far=len(all_jobs) + len(requisitions),
@@ -475,8 +549,13 @@ class OracleHCMScraper(BaseScraper):
                 if max_jobs and len(all_jobs) >= max_jobs:
                     break
 
-                job_data = self._parse_requisition(req)
+                req_id = str(req.get('Id') or '')
+                if req_id and req_id in seen_ids:
+                    continue
+                job_data = self._parse_requisition(req, site=site)
                 if job_data:
+                    if req_id:
+                        seen_ids.add(req_id)
                     all_jobs.append(job_data)
 
             # Move to next page
@@ -484,15 +563,13 @@ class OracleHCMScraper(BaseScraper):
 
             # Stop if we've fetched all available jobs
             if total_count and offset >= total_count:
-                self.logger.info("all_pages_fetched", total_fetched=len(all_jobs))
+                self.logger.info("all_pages_fetched", site=site, total_fetched=len(all_jobs))
                 break
 
             # Safety limit: stop after 100 pages (2500 jobs)
             if offset >= PAGE_SIZE * 100:
-                self.logger.warning("pagination_safety_limit", offset=offset)
+                self.logger.warning("pagination_safety_limit", offset=offset, site=site)
                 break
-
-        return all_jobs
 
     # -- BaseScraper abstract method implementations --
 
@@ -534,9 +611,50 @@ class OracleHCMScraper(BaseScraper):
             site_number=self.site_number,
         )
 
-        # Fetch all requisitions via API
-        raw_jobs = self._fetch_all_requisitions(max_jobs=max_jobs)
-        self.logger.info("raw_jobs_fetched", count=len(raw_jobs))
+        # Fetch all requisitions via API. The requests session is synchronous,
+        # so run it on a worker thread: every employer scraper shares one
+        # event loop, and a 1,000-requisition board (Team Industrial Services)
+        # would otherwise stall the browser-based scrapers for minutes.
+        self._new_details = 0
+        self._deferred = 0
+        self._skipped_known = 0
+        # The known-URL predicate is the tracker's SQLite connection, which
+        # is bound to the loop thread. Marshal each check back onto the loop
+        # (idle while we wait on the worker) instead of touching it directly.
+        loop = asyncio.get_running_loop()
+        checker = self._known_url_checker
+        if checker is not None:
+            def threadsafe_checker(url: str) -> bool:
+                fut: concurrent.futures.Future = concurrent.futures.Future()
+
+                def run():
+                    try:
+                        fut.set_result(bool(checker(url)))
+                    except Exception as e:  # noqa: BLE001
+                        fut.set_exception(e)
+
+                loop.call_soon_threadsafe(run)
+                return fut.result(timeout=30)
+
+            self._known_url_checker = threadsafe_checker
+        try:
+            raw_jobs = await asyncio.to_thread(self._fetch_all_requisitions, max_jobs)
+        finally:
+            self._known_url_checker = checker
+        self.logger.info(
+            "raw_jobs_fetched",
+            count=len(raw_jobs),
+            listing_only=self._skipped_known,
+            new_details=self._new_details,
+            deferred=self._deferred,
+        )
+        if self._deferred:
+            self.logger.warning(
+                "new_details_deferred",
+                deferred=self._deferred,
+                max_new_details_per_run=self.max_new_details,
+                note="Unseen requisitions left for a later run; lifecycle is unaffected",
+            )
 
         # Validate and enrich each job
         jobs = []
