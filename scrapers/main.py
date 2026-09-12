@@ -145,6 +145,12 @@ try:
 except ImportError:
     pass
 
+try:
+    from src.scrapers.workday_api import WorkdayApiScraper
+    SCRAPER_REGISTRY['workday_api'] = WorkdayApiScraper
+except ImportError:
+    pass
+
 
 def load_companies_config(config_path: str = 'config/companies.yaml') -> dict:
     """
@@ -224,6 +230,10 @@ async def scrape_company(
 
         # Create scraper and extract jobs (with per-company timeout)
         scraper = scraper_class(config)
+        # API-based scrapers can skip the per-job detail request for URLs that
+        # are already exported (the lifecycle diff only needs the URL).
+        if hasattr(scraper, 'set_known_url_checker'):
+            scraper.set_known_url_checker(tracker.is_duplicate)
         try:
             jobs = await asyncio.wait_for(
                 scraper.extract_all_jobs(max_jobs=max_jobs),
@@ -402,16 +412,18 @@ async def main(
         logger.error("no_companies_available", note="No companies with available scrapers found")
         sys.exit(1)
 
-    # Apply company filter if specified
+    # Apply company filter if specified (single key, or comma-separated keys)
     if company_filter:
-        if company_filter not in all_companies:
+        requested = [k.strip() for k in company_filter.split(',') if k.strip()]
+        missing = [k for k in requested if k not in all_companies]
+        if missing:
             logger.error(
                 "company_not_found",
-                company_filter=company_filter,
+                company_filter=missing,
                 available=list(all_companies.keys())
             )
             sys.exit(1)
-        companies_to_scrape = {company_filter: all_companies[company_filter]}
+        companies_to_scrape = {k: all_companies[k] for k in requested}
 
     logger.info("companies_loaded", count=len(companies_to_scrape), companies=list(companies_to_scrape.keys()))
 
@@ -557,7 +569,7 @@ Examples:
     parser.add_argument(
         '--company',
         type=str,
-        help='Scrape only this company (e.g., baker_hughes, noble_corporation, kbr)'
+        help='Scrape only these companies: one key or a comma-separated list (e.g., kbr or kbr,baker_hughes)'
     )
 
     parser.add_argument(

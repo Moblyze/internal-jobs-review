@@ -11,17 +11,15 @@
 companies:
   baker_hughes:
     name: "Baker Hughes"
-    platform: workday
+    # 2026-09-12: switched from the Playwright scraper to the Workday CXS JSON
+    # API. ~570 jobs x 10-17s per rendered detail page blew the 45 min timeout
+    # every day (no successful scrape since 2026-04-16). One small JSON request
+    # per job now; URLs are identical to the historical rows.
+    platform: workday_api
     base_url: "https://bakerhughes.wd5.myworkdayjobs.com/BakerHughes"
-    rate_limit_delay: 2.5
-    selectors:
-      # Workday uses data-automation-id attributes for testing (most stable)
-      job_list: '[data-automation-id="jobResults"]'
-      job_card: 'a[data-automation-id="jobTitle"]'
-      job_title: '[data-automation-id="jobPostingHeader"]'
-      location: '[data-automation-id="locations"]'
-      posted_date: '[data-automation-id="postedOn"]'
-      description: '[data-automation-id="jobPostingDescription"]'
+    # Lightweight JSON requests, one at a time: ~1 req/s is well under what the
+    # site's own single-page app fires.
+    rate_limit_delay: 0.75
     sheet_name: "Baker Hughes"
 
   noble_corporation:
