@@ -94,7 +94,10 @@ class SourceProbe:
         self.delay = delay
         self.client = httpx.Client(headers={"User-Agent": PROBE_UA, "Accept-Language": "en-US,en;q=0.9"},
                                    timeout=30.0, follow_redirects=True)
-        if self.platform == "workday_api":
+        if self.platform in ("workday_api", "workday"):
+            # Every Workday tenant exposes the CXS detail endpoint, so rows from
+            # the browser-based scraper (BP) can be verified the same way.
+            self.platform = "workday_api"
             from urllib.parse import urlparse
             parsed = urlparse(cfg["base_url"])
             self.host = parsed.netloc
