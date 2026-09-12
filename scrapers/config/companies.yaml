@@ -202,8 +202,13 @@ companies:
       company_id: "P66prod"
       career_server: "career4"
       apply_url_template: "https://career4.successfactors.com/sfcareer/jobreqcareer?jobId={job_id}&company=P66prod"
-      pagination_type: "page"
-    records_per_page: 25
+      # 2026-09-12: careers.phillips66.com no longer honors ?p=N (every page
+      # returned page 1) and pages with ?startrow=N, 15 rows per page, like
+      # TechnipFMC. Pages past the end return a 10-job fallback set rather
+      # than an empty page, so the scraper also stops when a page adds no new
+      # URLs (see successfactors.py).
+      pagination_type: "startrow"
+    records_per_page: 15
     total_pages_estimate: 20
     sheet_name: "Phillips 66"
 

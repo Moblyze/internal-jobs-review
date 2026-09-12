@@ -78,6 +78,13 @@ class SuccessFactorsScraper(BaseScraper):
             page_num = 1
             consecutive_empty_pages = 0
             max_consecutive_empty = 3  # Stop after 3 consecutive empty pages
+            # URLs collected so far in this run. A page that adds nothing new
+            # means pagination has wrapped or the site is ignoring the page
+            # parameter (Phillips 66, 2026-09: ?p=N returned page 1 every time,
+            # and ?startrow=N past the end returns a fallback set, so the
+            # "empty page" stop above never fired and the scraper re-fetched
+            # the same detail pages until it hit the company timeout).
+            seen_urls: set[str] = set()
 
             # Get pagination configuration
             sf_config = self.config.get('sf_config', {})
@@ -129,6 +136,27 @@ class SuccessFactorsScraper(BaseScraper):
 
                 # Reset consecutive empty counter when we find jobs
                 consecutive_empty_pages = 0
+
+                # Drop jobs already collected on an earlier page; stop when a
+                # whole page is repeats.
+                fresh_jobs = []
+                for raw_job in page_jobs:
+                    apply_url = (raw_job.get('ApplyUrl') or '').strip()
+                    if apply_url and apply_url in seen_urls:
+                        continue
+                    if apply_url:
+                        seen_urls.add(apply_url)
+                    fresh_jobs.append(raw_job)
+
+                if not fresh_jobs:
+                    self.logger.info(
+                        "pagination_complete",
+                        reason="no_new_jobs_on_page",
+                        page_num=page_num,
+                        repeated=len(page_jobs),
+                    )
+                    break
+                page_jobs = fresh_jobs
 
                 self.logger.info("page_extracted", page_num=page_num, jobs_count=len(page_jobs))
 
