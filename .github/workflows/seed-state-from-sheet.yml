@@ -1,0 +1,116 @@
+name: Seed Scraper State From Sheet
+
+# One-shot maintenance: after a direct employer scraper has been dead long
+# enough that the state DB no longer knows the tab's rows, seed the DB from the
+# tab so the next scrape can retire gone rows through the normal lifecycle diff
+# and does not re-export live ones. Writes the state DB only, never the sheet.
+# See scrapers/scripts/seed_state_from_sheet.py.
+#
+# Do not run while daily-scrape.yml is in progress (09:00-10:30 UTC): both
+# upload scraper_state.db to the scraper-state-latest release.
+
+on:
+  workflow_dispatch:
+    inputs:
+      companies:
+        description: 'companies.yaml keys, comma-separated (e.g. kbr,baker_hughes,phillips_66)'
+        required: true
+        type: string
+      probe:
+        description: 'Probe each active orphaned URL at the source; rows verified gone are retired on the sheet (unless dry run)'
+        required: false
+        type: boolean
+        default: true
+      dry_run:
+        description: 'Dry run (report only; no sheet writes, no state DB upload)'
+        required: false
+        type: boolean
+        default: true
+
+jobs:
+  seed:
+    runs-on: ubuntu-latest
+    # ~0.75s per probed URL: ~2,100 orphaned rows across KBR, Baker Hughes and
+    # Phillips 66 is about 30 minutes.
+    timeout-minutes: 120
+    permissions:
+      contents: write
+    defaults:
+      run:
+        working-directory: scrapers
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: scrapers/requirements.txt
+
+      - name: Install Python dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Download state DB from release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p data
+          gh release download scraper-state-latest -p scraper_state.db -D data/
+          cp data/scraper_state.db data/scraper_state.pre-seed.db
+          echo "State DB: $(wc -c < data/scraper_state.db) bytes"
+
+      - name: Upload pre-seed backup of the state DB
+        uses: actions/upload-artifact@v4
+        with:
+          name: scraper-state-pre-seed-${{ github.run_id }}
+          path: scrapers/data/scraper_state.pre-seed.db
+          retention-days: 30
+
+      - name: Create service account credentials file
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          mkdir -p config
+          echo "$GOOGLE_SERVICE_ACCOUNT_JSON" > config/service_account.json
+          chmod 600 config/service_account.json
+
+      - name: Seed state DB from sheet
+        env:
+          GOOGLE_SERVICE_ACCOUNT_PATH: config/service_account.json
+          GOOGLE_SHEETS_SPREADSHEET_NAME: ${{ secrets.GOOGLE_SHEETS_SPREADSHEET_NAME }}
+        run: |
+          CMD="python scripts/seed_state_from_sheet.py --company ${{ inputs.companies }} --state-db data/scraper_state.db"
+          if [ "${{ inputs.probe }}" = "true" ]; then
+            CMD="$CMD --probe"
+          fi
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            CMD="$CMD --dry-run"
+          fi
+          echo "Running: $CMD"
+          $CMD
+
+      - name: Upload tab backups as workflow artifact
+        if: always() && inputs.dry_run != true
+        uses: actions/upload-artifact@v4
+        with:
+          name: seed-retire-backups-${{ github.run_id }}
+          path: scrapers/data/*-retire-backup-*.csv
+          retention-days: 90
+          if-no-files-found: ignore
+
+      - name: Upload seeded state DB to release
+        if: inputs.dry_run != true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release upload scraper-state-latest data/scraper_state.db --clobber
+          echo "Uploaded seeded state ($(wc -c < data/scraper_state.db) bytes)"
+
+      - name: Clean up credentials
+        if: always()
+        run: rm -f config/service_account.json

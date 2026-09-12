@@ -97,6 +97,9 @@ class SheetsExporter:
     # Pause between successive batch writes within one export_jobs() call, to
     # stay comfortably under the per-minute write quota on very large exports.
     INTER_BATCH_PAUSE_SECONDS = 2.0
+    # Max (row) status updates per values:batchUpdate call; each update is two
+    # single-cell ranges. Mirrors WRITE_CHUNK in scripts/retire_gone_crewbase.py.
+    STATUS_UPDATE_CHUNK = 400
 
     # Header row matching JobPosting.to_sheet_row() order (SHEETS-03)
     HEADER_ROW = [
@@ -386,24 +389,29 @@ class SheetsExporter:
         status_col_letter = col_to_letter(status_col_idx)
         status_date_col_letter = col_to_letter(status_date_col_idx)
 
-        # Build batch update request with A1 notation
-        batch_data = []
-        for row_number, new_status, status_changed_date in updates:
-            batch_data.extend([
-                {
-                    'range': f'{status_col_letter}{row_number}',
-                    'values': [[new_status]]
-                },
-                {
-                    'range': f'{status_date_col_letter}{row_number}',
-                    'values': [[status_changed_date]]
-                }
-            ])
-
-        # Execute batch update
-        if batch_data:
+        # Execute in chunks of STATUS_UPDATE_CHUNK rows. A company that comes
+        # back after months (KBR, 2026-09: ~1,400 retirements in one run) would
+        # otherwise send every range in a single request; chunking mirrors
+        # scripts/retire_gone_crewbase.py. Every range is a single cell, so a
+        # partial failure followed by the tenacity retry just rewrites the
+        # same values.
+        for i in range(0, len(updates), self.STATUS_UPDATE_CHUNK):
+            batch_data = []
+            for row_number, new_status, status_changed_date in updates[i:i + self.STATUS_UPDATE_CHUNK]:
+                batch_data.extend([
+                    {
+                        'range': f'{status_col_letter}{row_number}',
+                        'values': [[new_status]]
+                    },
+                    {
+                        'range': f'{status_date_col_letter}{row_number}',
+                        'values': [[status_changed_date]]
+                    }
+                ])
             worksheet.batch_update(batch_data)
-            logger.info(f"Batch updated {len(updates)} job statuses in {sheet_name}")
+            if i + self.STATUS_UPDATE_CHUNK < len(updates):
+                time.sleep(self.INTER_BATCH_PAUSE_SECONDS)
+        logger.info(f"Batch updated {len(updates)} job statuses in {sheet_name}")
 
     # Tabs that are reporting/reference artifacts, not data sources.
     OVERVIEW_ADMIN_TABS = {
