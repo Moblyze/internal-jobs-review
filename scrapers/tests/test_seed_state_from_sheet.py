@@ -42,7 +42,7 @@ class _FakeProbe:
         self.gone = set(gone_urls)
         self.asked = []
 
-    def verdict(self, url):
+    def verdict(self, url, title=None):
         self.asked.append(url)
         return "gone" if url in self.gone else "live"
 

@@ -5,7 +5,7 @@ tracking between the deduplication tracker and Google Sheets exporter.
 """
 
 import logging
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import Optional
 
 from src.exporters.sheets import SheetsExporter
@@ -86,6 +86,17 @@ class JobLifecycleManager:
         # Detect removed jobs
         removed_jobs = [] if skip_removal else self.tracker.detect_removed_jobs(company, current_urls)
 
+        # The listing diff has false positives (page caps, partial scrapes).
+        # A row the source page itself reported LIVE within PROBE_TRUST_DAYS
+        # is not retired on the diff's word; log the disagreement instead.
+        removed_jobs, probe_live = self._split_probe_live(removed_jobs)
+        if probe_live:
+            logger.warning(
+                f"diff_vs_probe {company}: {len(probe_live)} rows missing from the listing but LIVE at "
+                f"the source within {self.tracker.PROBE_TRUST_DAYS} days; kept active "
+                f"(first: {probe_live[0]['url']})"
+            )
+
         # Mark jobs as removed in database
         removed_count = 0
         if removed_jobs:
@@ -114,8 +125,21 @@ class JobLifecycleManager:
             'company': company,
             'current_jobs': len(current_jobs),
             'removed_jobs': removed_count,
+            'kept_live_by_probe': len(probe_live),
             'processed_at': datetime.utcnow().isoformat()
         }
+
+    def _split_probe_live(self, removed_jobs: list[dict]) -> tuple[list[dict], list[dict]]:
+        """(rows the diff may retire, rows a fresh LIVE probe verdict protects)."""
+        cutoff = (datetime.utcnow() - timedelta(days=self.tracker.PROBE_TRUST_DAYS)).isoformat()
+        protected = [
+            j for j in removed_jobs
+            if j.get('source_status') == 'LIVE' and (j.get('source_checked_at') or '') >= cutoff
+        ]
+        if not protected:
+            return removed_jobs, []
+        keep = {j['url_hash'] for j in protected}
+        return [j for j in removed_jobs if j['url_hash'] not in keep], protected
 
     def _update_sheets_for_removed_jobs(
         self,

@@ -27,12 +27,11 @@ that are still live.
 Rows already in the DB are left untouched (INSERT OR IGNORE on url_hash).
 
 --probe (2026-09-12): instead of trusting the next scrape's listing diff to
-retire the orphaned rows, ask the source about EACH active orphaned URL:
-  workday_api      GET {api_base}{externalPath}: 200 with posted=true -> live;
-                   403 errorCode S22 or 404 -> gone (verified on old KBR and
-                   Baker Hughes rows on 2026-09-12)
-  successfactors   GET the job page: "Sorry, this position has been filled." or
-                   404 -> gone; a validThrough meta in the future -> live
+retire the orphaned rows, ask the source about EACH active orphaned URL
+through src/utils/liveness.py (the same per-ATS rules the daily
+liveness-probe workflow uses; Workday CXS posted / S22, SuccessFactors
+"position has been filled" / validThrough, and the rest). DEAD -> gone,
+LIVE -> live, BLOCKED / UNKNOWN -> unknown.
 Gone rows are seeded as removed AND their Status / Status Changed Date cells
 are set on the sheet (chunked writes, local CSV backup of the tab first, like
 scripts/retire_gone_crewbase.py). Live rows are seeded active. Anything the
@@ -55,7 +54,6 @@ import argparse
 import csv
 import hashlib
 import os
-import re
 import sqlite3
 import sys
 import time
@@ -63,12 +61,12 @@ from datetime import datetime, timezone
 from typing import Optional
 
 import gspread
-import httpx
 import yaml
 from google.oauth2.service_account import Credentials
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from src.exporters.sheets import _retry_429  # noqa: E402
+from src.utils import liveness  # noqa: E402
 from src.utils.deduplication import DeduplicationTracker  # noqa: E402
 
 SCOPES = [
@@ -78,90 +76,26 @@ SCOPES = [
 DEAD_STATUSES = {"removed", "inactive", "expired", "closed"}
 WRITE_CHUNK = 400
 INTER_CHUNK_PAUSE = 2.0
-PROBE_UA = (
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
-    "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-)
-_VALID_THROUGH_RE = re.compile(r'validThrough"\s+content="([^"]+)"')
+
+_VERDICTS = {liveness.LIVE: "live", liveness.DEAD: "gone"}
 
 
 class SourceProbe:
-    """Per-URL liveness check against the employer's own site. Verdicts: live, gone, unknown."""
+    """Per-URL liveness check against the employer's own site. Verdicts: live, gone, unknown.
 
-    def __init__(self, cfg: dict, delay: float = 0.75):
+    Thin adapter over src/utils/liveness.LivenessProber so the seed tool and
+    the daily liveness-probe workflow share one set of per-ATS rules.
+    """
+
+    def __init__(self, cfg: dict, delay: float = 0.75, prober: Optional[liveness.LivenessProber] = None):
         self.cfg = cfg
         self.platform = cfg.get("platform", "workday")
-        self.delay = delay
-        self.client = httpx.Client(headers={"User-Agent": PROBE_UA, "Accept-Language": "en-US,en;q=0.9"},
-                                   timeout=30.0, follow_redirects=True)
-        if self.platform in ("workday_api", "workday"):
-            # Every Workday tenant exposes the CXS detail endpoint, so rows from
-            # the browser-based scraper (BP) can be verified the same way.
-            self.platform = "workday_api"
-            from urllib.parse import urlparse
-            parsed = urlparse(cfg["base_url"])
-            self.host = parsed.netloc
-            self.site = cfg.get("wd_site") or [p for p in parsed.path.split("/") if p][-1]
-            self.tenant = cfg.get("wd_tenant") or self.host.split(".")[0]
-            self.locale = cfg.get("url_locale", "en-US")
-        elif self.platform != "successfactors":
-            sys.exit(f"--probe supports workday_api and successfactors only, not '{self.platform}'")
+        self.prober = prober or liveness.LivenessProber(min_interval=delay)
+        self.last: Optional[liveness.Verdict] = None
 
-    def _get(self, url: str, accept: str) -> Optional[httpx.Response]:
-        for attempt in range(1, 4):
-            try:
-                resp = self.client.get(url, headers={"Accept": accept})
-            except httpx.HTTPError:
-                time.sleep(2 ** attempt)
-                continue
-            if resp.status_code == 429 or resp.status_code >= 500:
-                time.sleep(min(60, 3 * 2 ** attempt))
-                continue
-            return resp
-        return None
-
-    def verdict(self, url: str) -> str:
-        time.sleep(self.delay)
-        if self.platform == "workday_api":
-            prefix = f"https://{self.host}/{self.locale}/{self.site}"
-            if not url.startswith(prefix):
-                return "unknown"
-            api_url = f"https://{self.host}/wday/cxs/{self.tenant}/{self.site}{url[len(prefix):]}"
-            resp = self._get(api_url, "application/json")
-            if resp is None:
-                return "unknown"
-            if resp.status_code == 404:
-                return "gone"
-            if resp.status_code == 403 and '"S22"' in resp.text:
-                return "gone"
-            if resp.status_code == 200:
-                try:
-                    info = resp.json().get("jobPostingInfo") or {}
-                except ValueError:
-                    return "unknown"
-                return "live" if info.get("posted", True) else "gone"
-            return "unknown"
-
-        # successfactors (careers.<company>.com job pages)
-        resp = self._get(url, "text/html")
-        if resp is None:
-            return "unknown"
-        if resp.status_code == 404:
-            return "gone"
-        if resp.status_code != 200:
-            return "unknown"
-        text = resp.text
-        if "position has been filled" in text or "no longer available" in text:
-            return "gone"
-        m = _VALID_THROUGH_RE.search(text)
-        if m:
-            try:
-                # e.g. "Mon Sep 14 05:00:00 UTC 2026"
-                through = datetime.strptime(m.group(1), "%a %b %d %H:%M:%S %Z %Y")
-                return "live" if through >= datetime.utcnow() else "gone"
-            except ValueError:
-                return "live"
-        return "unknown"
+    def verdict(self, url: str, title: Optional[str] = None) -> str:
+        self.last = self.prober.probe(url, title=title, platform=self.platform)
+        return _VERDICTS.get(self.last.status, "unknown")
 
 
 def col_to_letter(col_idx: int) -> str:
@@ -306,7 +240,7 @@ def seed(conn: sqlite3.Connection, company_name: str, rows: list[dict], dry_run:
         status = sheet_status
         changed = g["status_changed_date"] or g["scraped_at"] or now
         if probe is not None and sheet_status == "active":
-            verdict = probe.verdict(g["url"])
+            verdict = probe.verdict(g["url"], g["title"])
             summary[f"probe_{verdict}"] += 1
             if verdict == "gone":
                 status, changed = "removed", now

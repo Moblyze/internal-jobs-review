@@ -8,7 +8,7 @@ import hashlib
 import logging
 import os
 import sqlite3
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import Optional
 
 from src.models.job import JobPosting
@@ -83,6 +83,22 @@ class DeduplicationTracker:
             logger.info("Migrating database: adding exported_to_sheets column")
             cursor.execute("ALTER TABLE scraped_jobs ADD COLUMN exported_to_sheets BOOLEAN DEFAULT 0")
             self.conn.commit()
+
+        # Source-page liveness (scripts/probe_liveness.py, 2026-09-12): the
+        # last verdict from asking the source itself whether the job is still
+        # open. removed_reason says which signal retired a row ('source_gone'
+        # for the probe, NULL for the listing diff).
+        for col, decl in (
+            ('source_status', 'TEXT'),
+            ('source_checked_at', 'TIMESTAMP'),
+            ('source_valid_through', 'TEXT'),
+            ('source_reason', 'TEXT'),
+            ('removed_reason', 'TEXT'),
+        ):
+            if col not in columns:
+                logger.info(f"Migrating database: adding {col} column")
+                cursor.execute(f"ALTER TABLE scraped_jobs ADD COLUMN {col} {decl}")
+        self.conn.commit()
 
         # Per-run snapshots of per-company counts, used by the health check to
         # detect silent regressions (e.g. an employer dropping from 200 jobs
@@ -331,30 +347,64 @@ class DeduplicationTracker:
         Returns:
             List of dicts with job data (url, url_hash, title, last_seen)
         """
-        cursor = self.conn.cursor()
-        cursor.execute("""
-            SELECT url_hash, url, title, last_seen, status
-            FROM scraped_jobs
-            WHERE company = ? AND status = 'active'
-        """, (company,))
+        return self.get_active_jobs(company)
 
+    def get_active_jobs(self, company: Optional[str] = None) -> list[dict]:
+        """Active rows (all companies unless one is given) with their last source-probe verdict."""
+        cursor = self.conn.cursor()
+        sql = """
+            SELECT url_hash, url, company, title, last_seen, status,
+                   source_status, source_checked_at, source_valid_through
+            FROM scraped_jobs
+            WHERE status = 'active'
+        """
+        params: tuple = ()
+        if company is not None:
+            sql += " AND company = ?"
+            params = (company,)
+        cursor.execute(sql, params)
         return [
             {
                 'url_hash': row['url_hash'],
                 'url': row['url'],
+                'company': row['company'],
                 'title': row['title'],
                 'last_seen': row['last_seen'],
-                'status': row['status']
+                'status': row['status'],
+                'source_status': row['source_status'],
+                'source_checked_at': row['source_checked_at'],
+                'source_valid_through': row['source_valid_through'],
             }
             for row in cursor.fetchall()
         ]
 
-    def mark_jobs_removed(self, url_hashes: list[str]) -> int:
+    def record_source_status(self, verdicts: list[tuple], checked_at: Optional[str] = None) -> int:
+        """Store probe verdicts: (url_hash, status, valid_through, reason) per row.
+
+        Only the source_* columns change; retiring a DEAD row is a separate,
+        threshold-guarded call to mark_jobs_removed(reason='source_gone').
+        """
+        if not verdicts:
+            return 0
+        checked_at = checked_at or datetime.utcnow().isoformat()
+        cursor = self.conn.cursor()
+        cursor.executemany("""
+            UPDATE scraped_jobs
+            SET source_status = ?, source_checked_at = ?, source_valid_through = ?, source_reason = ?
+            WHERE url_hash = ?
+        """, [(status, checked_at, valid_through, reason, url_hash)
+              for url_hash, status, valid_through, reason in verdicts])
+        self.conn.commit()
+        return len(verdicts)
+
+    def mark_jobs_removed(self, url_hashes: list[str], reason: Optional[str] = None) -> int:
         """
         Mark jobs as removed by URL hash.
 
         Args:
             url_hashes: List of URL hashes to mark as removed
+            reason: Which signal retired them ('source_gone' for the liveness
+                    probe; None for the listing diff)
 
         Returns:
             Number of jobs updated
@@ -370,22 +420,33 @@ class DeduplicationTracker:
         cursor.execute(f"""
             UPDATE scraped_jobs
             SET status = 'removed',
-                status_changed_date = ?
+                status_changed_date = ?,
+                removed_reason = ?
             WHERE url_hash IN ({placeholders})
                 AND status = 'active'
-        """, [now] + url_hashes)
+        """, [now, reason] + url_hashes)
 
         self.conn.commit()
         updated_count = cursor.rowcount
 
         if updated_count > 0:
-            logger.info(f"Marked {updated_count} jobs as removed")
+            logger.info(f"Marked {updated_count} jobs as removed" + (f" ({reason})" if reason else ""))
 
         return updated_count
+
+    # A source-page verdict younger than this outranks the listing diff.
+    PROBE_TRUST_DAYS = 3
+
+    def _probe_cutoff(self) -> str:
+        return (datetime.utcnow() - timedelta(days=self.PROBE_TRUST_DAYS)).isoformat()
 
     def reactivate_jobs(self, company: str, current_job_urls: set[str]) -> int:
         """
         Re-activate jobs that were marked removed but appear in current scrape.
+
+        A row the source itself reported DEAD within PROBE_TRUST_DAYS stays
+        removed even if the listing still shows it (listings lag the detail
+        page); the disagreement is logged instead.
 
         Args:
             company: Company name
@@ -403,15 +464,30 @@ class DeduplicationTracker:
         # Find removed jobs whose URLs are in the current scrape
         url_hashes = [self._hash_url(url) for url in current_job_urls]
         placeholders = ','.join('?' * len(url_hashes))
+        cutoff = self._probe_cutoff()
+        cursor.execute(f"""
+            SELECT url FROM scraped_jobs
+            WHERE company = ? AND status = 'removed'
+                AND source_status = 'DEAD' AND source_checked_at >= ?
+                AND url_hash IN ({placeholders})
+        """, [company, cutoff] + url_hashes)
+        held = [row['url'] for row in cursor.fetchall()]
+        if held:
+            logger.warning(
+                f"diff_vs_probe {company}: {len(held)} rows are back in the listing but the source "
+                f"page said DEAD within {self.PROBE_TRUST_DAYS} days; kept removed (first: {held[0]})"
+            )
         cursor.execute(f"""
             UPDATE scraped_jobs
             SET status = 'active',
                 status_changed_date = ?,
-                last_seen = ?
+                last_seen = ?,
+                removed_reason = NULL
             WHERE company = ?
                 AND status = 'removed'
+                AND NOT (COALESCE(source_status, '') = 'DEAD' AND COALESCE(source_checked_at, '') >= ?)
                 AND url_hash IN ({placeholders})
-        """, [now, now, company] + url_hashes)
+        """, [now, now, company, cutoff] + url_hashes)
 
         self.conn.commit()
         count = cursor.rowcount
