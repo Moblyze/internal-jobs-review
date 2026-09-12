@@ -45,6 +45,50 @@
     "key_people": []
   },
   {
+    "id": "cde6890e-969a-4d99-bfd1-dc49f02299a4",
+    "ingested_at": "2026-09-10T18:13:09.599Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/nextera_energy_seals_19b_doe_loan_to_restart_iowa_nuclear_plant-10-sep-2026-184588-article/?rss=true"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction",
+      "energy_trades",
+      "ndt_inspection"
+    ],
+    "signal_type": "fid",
+    "region": "us-midwest",
+    "country": "united_states",
+    "headline": "NextEra Energy Secures $1.9B DOE Loan to Restart Duane Arnold Nuclear Plant, Iowa",
+    "operator": {
+      "name": "NextEra Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "NextEra Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Duane Arnold Energy Center Restart",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 1900000000,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
     "id": "cf51b67c-8c7c-409f-9510-37492830cc56",
     "ingested_at": "2026-09-10T18:13:09.599Z",
     "sources": [
@@ -87,50 +131,6 @@
     "decom_stage": null,
     "outreach_readiness": "warming",
     "estimated_hiring_window": "3-6mo",
-    "key_people": []
-  },
-  {
-    "id": "cde6890e-969a-4d99-bfd1-dc49f02299a4",
-    "ingested_at": "2026-09-10T18:13:09.599Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/nextera_energy_seals_19b_doe_loan_to_restart_iowa_nuclear_plant-10-sep-2026-184588-article/?rss=true"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "process_plant_operations",
-      "industrial_construction",
-      "energy_trades",
-      "ndt_inspection"
-    ],
-    "signal_type": "fid",
-    "region": "us-midwest",
-    "country": "united_states",
-    "headline": "NextEra Energy Secures $1.9B DOE Loan to Restart Duane Arnold Nuclear Plant, Iowa",
-    "operator": {
-      "name": "NextEra Energy",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "NextEra Energy",
-      "matched_company_slug": null
-    },
-    "project_name": "Duane Arnold Energy Center Restart",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": 1900000000,
-    "phase": "sanctioned_engineering",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
     "key_people": []
   },
   {
