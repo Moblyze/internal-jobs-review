@@ -79,6 +79,13 @@ class HtmlGenericScraper(BaseScraper):
         self.base_url = config.get('base_url', '')
         self.selectors = config.get('selectors', {})
         self.html_config = config.get('html_config', {})
+        self._known_url_checker = None
+
+    def set_known_url_checker(self, checker) -> None:
+        """Predicate for 'this URL is already exported' (main.py passes the
+        dedup tracker). Used by the sitemap fallback to keep known jobs present
+        without exporting title-only rows for unknown ones."""
+        self._known_url_checker = checker
 
     def _build_absolute_url(self, url: str) -> str:
         """
@@ -831,9 +838,19 @@ class HtmlGenericScraper(BaseScraper):
         try:
             while page_num <= max_pages:
                 page_url = f"{api_url}?page={page_num}&per_page={per_page}"
+                # Look like the portal's own single-page app: the OSM Thome API
+                # answered 403 to the generic "JobScraper/1.0" agent from the
+                # GitHub Actions runner (2026-09-12 daily run) while the same
+                # request with browser headers succeeds.
                 req = Request(page_url, headers={
-                    'User-Agent': 'Mozilla/5.0 (compatible; JobScraper/1.0)',
-                    'Accept': 'application/json',
+                    'User-Agent': (
+                        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 '
+                        '(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+                    ),
+                    'Accept': 'application/json, text/plain, */*',
+                    'Accept-Language': 'en-US,en;q=0.9',
+                    'Origin': self.base_url.rstrip('/'),
+                    'Referer': self.base_url,
                     **headers,
                 })
                 resp = urlopen(req, timeout=30)
@@ -844,45 +861,9 @@ class HtmlGenericScraper(BaseScraper):
                     break
 
                 for job in jobs:
-                    # Skip inactive/expired jobs
-                    if not job.get('is_active', True) or job.get('is_expired', False):
-                        continue
-
-                    title = job.get('name', '').strip()
-                    if not title:
-                        continue
-
-                    slug = job.get('slug', '')
-                    job_id = job.get('id', '')
-                    job_url = f"{self.base_url}jobs/{job_id}/{slug}" if job_id else ''
-
-                    # Extract location from the locations array
-                    locations = job.get('locations', [])
-                    location = ', '.join(
-                        loc.get('label', '') for loc in locations if loc.get('label')
-                    ) if locations else ''
-
-                    # Extract employment type
-                    emp_types = job.get('employment_types', [])
-                    employment_type = None
-                    if emp_types:
-                        raw_type = emp_types[0].get('label', '')
-                        employment_type = self._normalize_employment_type(raw_type)
-
-                    # Extract description (HTML) and clean it
-                    raw_desc = job.get('description', '') or job.get('excerpt', '') or ''
-                    description = self._clean_html(raw_desc) if raw_desc else ''
-
-                    listing = {
-                        'title': title,
-                        'url': job_url,
-                        'company': self.company_name,
-                        'location': location or 'Location Not Specified',
-                        'description': description or f"{title} position at {self.company_name}.",
-                        'employment_type': employment_type,
-                    }
-
-                    listings.append(listing)
+                    listing = self._portal_job_to_listing(job)
+                    if listing:
+                        listings.append(listing)
 
                 # Check if there are more pages
                 meta = data.get('meta', {})
@@ -901,6 +882,99 @@ class HtmlGenericScraper(BaseScraper):
         except Exception as e:
             self.logger.error("portal_api_fetch_failed", error=str(e), page=page_num)
             return listings  # Return whatever we got so far
+
+    def _portal_job_to_listing(self, job: dict) -> Optional[dict]:
+        """Map one portal API job record onto a listing dict (or None to skip)."""
+        # Skip inactive/expired jobs
+        if not job.get('is_active', True) or job.get('is_expired', False):
+            return None
+
+        title = (job.get('name') or '').strip()
+        if not title:
+            return None
+
+        slug = job.get('slug', '')
+        job_id = job.get('id', '')
+        job_url = f"{self.base_url}jobs/{job_id}/{slug}" if job_id else ''
+
+        # Extract location from the locations array
+        locations = job.get('locations') or []
+        location = ', '.join(
+            loc.get('label', '') for loc in locations if isinstance(loc, dict) and loc.get('label')
+        ) if locations else ''
+
+        # Extract employment type
+        emp_types = job.get('employment_types') or []
+        employment_type = None
+        if emp_types and isinstance(emp_types[0], dict):
+            employment_type = self._normalize_employment_type(emp_types[0].get('label', ''))
+
+        # Extract description (HTML) and clean it
+        raw_desc = job.get('description', '') or job.get('excerpt', '') or ''
+        description = self._clean_html(raw_desc) if raw_desc else ''
+
+        return {
+            'title': title,
+            'url': job_url,
+            'company': self.company_name,
+            'location': location or 'Location Not Specified',
+            'description': description or f"{title} position at {self.company_name}.",
+            'employment_type': employment_type,
+        }
+
+    async def _extract_listings_from_portal_api_via_browser(self) -> list[dict]:
+        """
+        Same portal API, called from inside a headless browser page.
+
+        Fallback for hosts that reject the plain HTTP request (WAF, IP
+        reputation): open the career site itself, then run the site's own
+        fetch() against the API from the page context so the request carries
+        exactly the headers, cookies and origin the single-page app sends.
+        """
+        api_url = self.html_config.get('portal_api_url', '')
+        if not api_url:
+            return []
+        headers = dict(self.html_config.get('portal_api_headers', {}))
+        headers.setdefault('Accept', 'application/json')
+        per_page = self.html_config.get('portal_per_page', 100)
+        max_pages = 50
+
+        self.logger.info("fetching_portal_api_via_browser", url=api_url, per_page=per_page)
+        listings = []
+        page_num = 1
+        try:
+            context = await self._get_browser_context()
+            page = await context.new_page()
+            await page.goto(self.base_url, wait_until='domcontentloaded', timeout=60000)
+            while page_num <= max_pages:
+                page_url = f"{api_url}?page={page_num}&per_page={per_page}"
+                result = await page.evaluate(
+                    """async ([url, headers]) => {
+                        const r = await fetch(url, {headers});
+                        const text = await r.text();
+                        return {status: r.status, text};
+                    }""",
+                    [page_url, headers],
+                )
+                if result.get('status') != 200:
+                    self.logger.error("portal_api_browser_status", status=result.get('status'), page=page_num)
+                    break
+                data = json.loads(result.get('text') or '{}')
+                jobs = data.get('data', [])
+                if not jobs:
+                    break
+                for job in jobs:
+                    listing = self._portal_job_to_listing(job)
+                    if listing:
+                        listings.append(listing)
+                if page_num >= (data.get('meta') or {}).get('last_page', 1):
+                    break
+                page_num += 1
+                await self._rate_limit()
+            self.logger.info("portal_api_browser_listings_extracted", count=len(listings), pages_fetched=page_num)
+        except Exception as e:
+            self.logger.error("portal_api_browser_failed", error=str(e), page=page_num)
+        return listings
 
     def _extract_listings_from_sitemap(self) -> list[dict]:
         """
@@ -1090,6 +1164,10 @@ class HtmlGenericScraper(BaseScraper):
                 # Portal JSON API extraction (e.g., OSM Thome / osmaportal.com)
                 # Returns complete data (title, location, description, employment type)
                 all_listings = self._extract_listings_from_portal_api()
+                if not all_listings:
+                    # Plain HTTP was refused (403 from the CI runner): call the
+                    # same API from inside the career site's own page.
+                    all_listings = await self._extract_listings_from_portal_api_via_browser()
                 if all_listings:
                     skip_detail_pages = True  # API provides all data we need
 
@@ -1101,6 +1179,24 @@ class HtmlGenericScraper(BaseScraper):
             if not all_listings and self.html_config.get('sitemap_url'):
                 # Sitemap-based extraction (fallback for OSM Thome if API fails)
                 all_listings = self._extract_listings_from_sitemap()
+                if all_listings and skip_detail_pages and self.html_config.get('portal_api_url'):
+                    # The sitemap only carries URLs. With no detail pass, a
+                    # job that is not yet on the sheet would be exported as a
+                    # title-only row (OSM Thome, 2026-09: 50-149 char rows,
+                    # no location). Keep the sitemap as the presence signal for
+                    # jobs already on file and leave the rest for a run where
+                    # the API answers.
+                    before = len(all_listings)
+                    all_listings = [
+                        l for l in all_listings
+                        if self._known_url_checker and self._known_url_checker(l.get('url', ''))
+                    ]
+                    self.logger.warning(
+                        "sitemap_presence_only",
+                        sitemap_urls=before,
+                        kept_known=len(all_listings),
+                        note="API unavailable; sitemap keeps known jobs present, new jobs wait for the API",
+                    )
 
             page = None
 
