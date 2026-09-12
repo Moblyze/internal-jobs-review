@@ -31,6 +31,11 @@ on:
         required: false
         type: boolean
         default: false
+      skip_slack_digest:
+        description: 'Skip the Slack daily digest (for manual runs of a few companies; the sheet, state and matrix still update)'
+        required: false
+        type: boolean
+        default: false
 
 jobs:
   # ── Job 1: Employer Scrapers (Workday, Taleo, Workable, etc.) ──
@@ -469,7 +474,7 @@ jobs:
   # ── Slack Daily Digest (runs after scrape + matrix update) ──
   slack-digest:
     needs: [employer-scrapers, aggregator-searches, update-matrix]
-    if: always() && (needs.employer-scrapers.result == 'success' || needs.aggregator-searches.result == 'success')
+    if: always() && inputs.skip_slack_digest != true && (needs.employer-scrapers.result == 'success' || needs.aggregator-searches.result == 'success')
     runs-on: ubuntu-latest
     permissions:
       contents: write
