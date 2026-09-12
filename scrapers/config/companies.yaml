@@ -505,6 +505,90 @@ companies:
     max_new_details_per_run: 400
     sheet_name: "NextEra Energy"
 
+  # === Indeed-to-employer recovery, config-only Workday tenants (added 2026-09-12) ===
+  # docs/plans/2026-09-12-indeed-employers-to-direct-sources.md, section (b1).
+  # Every tenant's robots.txt allows its site path; counts are the CXS totals
+  # on 2026-09-12. All on workday_api (JSON, no browser), KBR-style budgets.
+
+  primoris:
+    name: "Primoris Services"
+    # Corporate Workday board, 720 postings. The craft board (~250 more) is on
+    # UKG and needs its own adapter.
+    platform: workday_api
+    base_url: "https://prim.wd108.myworkdayjobs.com/Primoris"
+    rate_limit_delay: 0.75
+    max_new_details_per_run: 400
+    sheet_name: "Primoris Services"
+
+  sunrun:
+    name: "Sunrun"
+    # Residential solar installers and electricians; 303 postings. The
+    # TalentBrew front (careers.sunrun.com) disallows /search-jobs/, so the
+    # Workday tenant behind it is used, which allows /Sunrun_Careers/.
+    platform: workday_api
+    base_url: "https://sunrun.wd5.myworkdayjobs.com/Sunrun_Careers"
+    rate_limit_delay: 0.75
+    max_new_details_per_run: 400
+    sheet_name: "Sunrun"
+
+  oneok:
+    name: "ONEOK"
+    # Midstream: plant operators, pipeline technicians; 77 postings.
+    platform: workday_api
+    base_url: "https://oneok.wd1.myworkdayjobs.com/ONEOK"
+    rate_limit_delay: 0.75
+    sheet_name: "ONEOK"
+
+  hmh:
+    name: "HMH"
+    # Drilling equipment OEM (HMH Holding); 57 postings.
+    platform: workday_api
+    base_url: "https://hmhw.wd12.myworkdayjobs.com/HMH_Careers"
+    rate_limit_delay: 0.75
+    sheet_name: "HMH"
+
+  american_electric_power:
+    name: "American Electric Power"
+    # Utility: station electricians, linemen; 244 postings.
+    platform: workday_api
+    base_url: "https://aep.wd1.myworkdayjobs.com/AEPCareerSite"
+    rate_limit_delay: 0.75
+    max_new_details_per_run: 400
+    sheet_name: "American Electric Power"
+
+  tc_energy:
+    name: "TC Energy"
+    # Pipeline technicians; 50 postings.
+    platform: workday_api
+    base_url: "https://tcenergy.wd3.myworkdayjobs.com/CAREER_SITE_TC"
+    rate_limit_delay: 0.75
+    sheet_name: "TC Energy"
+
+  invenergy:
+    name: "Invenergy"
+    # Wind and solar operator: site technicians; 192 postings.
+    platform: workday_api
+    base_url: "https://invenergyllc.wd1.myworkdayjobs.com/invenergycareers"
+    rate_limit_delay: 0.75
+    max_new_details_per_run: 400
+    sheet_name: "Invenergy"
+
+  berkshire_hathaway_energy:
+    name: "Berkshire Hathaway Energy"
+    # Shared Oracle tenant for the BHE companies (Northern Natural Gas,
+    # MidAmerican, PacifiCorp, NV Energy, BHE Pipeline). The REST finder
+    # returns the same 158 requisitions for every site number, so there is
+    # no NNG-only site; the tab carries the group and NNG rows arrive with it.
+    platform: oracle_hcm
+    base_url: "https://fa-essf-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1"
+    rate_limit_delay: 1.0
+    oracle_hcm_config:
+      api_base: "https://fa-essf-saasfaprod1.fa.ocs.oraclecloud.com/hcmRestApi/resources/latest"
+      site_number: "CX_1"
+      job_url_template: "https://fa-essf-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/{req_id}"
+    selectors: {}
+    sheet_name: "Berkshire Hathaway Energy"
+
   # === Custom ASP.NET career portals ===
 
   rovop:
