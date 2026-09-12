@@ -20,6 +20,38 @@ const CREDENTIALS_PATH = path.join(__dirname, '../../job-scraping/config/service
 const SPREADSHEET_NAME = 'Job Scraping Results'; // Must match .env in job-scraping
 const AGGREGATOR_SPREADSHEET_ID = '1xb3QBZG9Dtkyo_UmOGu3Oc3zMr2Cg1ohOyt-cd3WT7Y';
 const OUTPUT_PATH = path.join(__dirname, '../public/data/jobs.json');
+// Source-page liveness verdicts written by scrapers/scripts/probe_liveness.py
+// (release asset liveness-latest.json, downloaded by sync-data.yml). Keyed by
+// job URL: {s: LIVE|DEAD|BLOCKED|UNKNOWN, t: checked_at, v: valid_through, r: reason, removed?: true}
+const LIVENESS_PATH = process.env.LIVENESS_PATH || path.join(__dirname, '../data/liveness-latest.json');
+
+function loadLiveness() {
+  try {
+    if (!fs.existsSync(LIVENESS_PATH)) return { rows: {} };
+    const parsed = JSON.parse(fs.readFileSync(LIVENESS_PATH, 'utf8'));
+    const n = Object.keys(parsed.rows || {}).length;
+    console.log(`Liveness verdicts: ${n} urls from ${LIVENESS_PATH} (generated ${parsed.generated_at || '?'})`);
+    return parsed;
+  } catch (err) {
+    console.warn(`Liveness file unreadable (${err.message}); jobs export without source status`);
+    return { rows: {} };
+  }
+}
+const LIVENESS = loadLiveness();
+
+/**
+ * Attach the last source-page verdict to a job row. Rows the probe has not
+ * seen (aggregator tabs, excluded hosts) keep null fields.
+ */
+function attachLiveness(job) {
+  const v = LIVENESS.rows[job.url];
+  job.sourceStatus = v ? v.s : null;
+  job.sourceCheckedAt = v ? v.t : null;
+  job.sourceValidThrough = v ? (v.v || null) : null;
+  job.sourceReason = v ? v.r : null;
+  if (v && v.removed) job.removedReason = 'source_gone';
+  return job;
+}
 
 // Column mapping (matches JobPosting.to_sheet_row() order from scraper)
 // Updated: Employment Type added at column 10, shifting Status/StatusChanged/ScrapedAt
@@ -124,6 +156,7 @@ function parseRow(row, sheetName, columnMap) {
     statusChangedDate: getCol('Status Changed Date'),
     scrapedAt: getCol('Scraped At'),
   };
+  attachLiveness(job);
   job.appReady = isAppReady(job);
   return job;
 }
@@ -268,6 +301,7 @@ function parseAggregatorRow(row) {
     source: row[AGGREGATOR_COLUMNS.SOURCE] || null,
     profile: row[AGGREGATOR_COLUMNS.PROFILE] || null,
   };
+  attachLiveness(job);
   job.appReady = isAppReady(job);
   return job;
 }
@@ -305,12 +339,15 @@ const NON_TRADE_TITLE_PATTERNS = [
  * 6. Salary does not indicate annual/full-time pay (e.g. "/yr", "per year")
  * 7. Has a valid profile OR has recognized certifications
  * 8. Not a non-trade office role
- * 9. Not stale (> 120 days old)
+ * 9. Still open at the source: a DEAD source verdict fails; a LIVE verdict
+ *    replaces the 120-day staleness rule; rows with no verdict keep the
+ *    120-day rule as the fallback (Jesse, 2026-09-12)
  */
 function isAppReady(job) {
   // Exclude closed/deleted/archived jobs
   const status = (job.status || 'active').toLowerCase();
   if (['closed', 'deleted', 'archived', 'pending'].includes(status)) return false;
+  if (job.sourceStatus === 'DEAD') return false;
 
   // Required fields with trimmed whitespace check
   const title = (job.title || '').trim();
@@ -341,9 +378,9 @@ function isAppReady(job) {
   // Exclude non-trade office roles
   if (NON_TRADE_TITLE_PATTERNS.some(p => p.test(title))) return false;
 
-  // Stale job filter (> 120 days)
+  // Stale job filter (> 120 days), only for rows the source probe has not verified LIVE
   const dateStr = job.postedDate || job.scrapedAt;
-  if (dateStr) {
+  if (dateStr && job.sourceStatus !== 'LIVE') {
     const jobDate = new Date(dateStr);
     if (!isNaN(jobDate.getTime())) {
       const cutoff = new Date();

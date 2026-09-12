@@ -59,6 +59,15 @@ jobs:
           echo "$GOOGLE_SERVICE_ACCOUNT_JSON" > ../job-scraping/config/service_account.json
           chmod 600 ../job-scraping/config/service_account.json
 
+      - name: Download source-liveness verdicts (liveness-probe.yml)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p data
+          gh release download scraper-state-latest -p liveness-latest.json -D data/ 2>/dev/null \
+            && echo "Liveness verdicts: $(wc -c < data/liveness-latest.json) bytes" \
+            || echo "No liveness-latest.json on the release yet; export runs without source status"
+
       - name: Export jobs from Google Sheets
         run: |
           # Export fresh job data from Google Sheets (no AI processing)
