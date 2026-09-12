@@ -329,6 +329,16 @@ class WorkdayApiScraper(BaseScraper):
                 )
                 cards = cards[:max_detail_pages]
 
+            # Per-run budget for NEW detail fetches. Jobs the tracker has never
+            # seen can be left out of a run without side effects: the
+            # lifecycle diff only retires jobs that are active in the DB, and
+            # a job that is not returned is simply picked up on a later run.
+            # This lets a large tenant (KBR: 1,700 postings) catch up over a
+            # few days at ~1 request/s instead of one multi-hour run.
+            max_new_details = self.config.get('max_new_details_per_run')
+            new_details = 0
+            deferred = 0
+
             for card in cards:
                 if max_jobs and len(jobs) >= max_jobs:
                     self.logger.info("max_jobs_reached", limit=max_jobs)
@@ -350,6 +360,10 @@ class WorkdayApiScraper(BaseScraper):
                             'posted_date': self._parse_posted(card['posted_on'], None),
                         }
                     else:
+                        if max_new_details and new_details >= max_new_details:
+                            deferred += 1
+                            continue
+                        new_details += 1
                         await self._rate_limit()
                         detail = await self.fetch_detail(client, card['external_path'])
                         if not detail:
@@ -371,8 +385,13 @@ class WorkdayApiScraper(BaseScraper):
                 except Exception as e:  # noqa: BLE001 - one bad job must not sink the run
                     self.logger.error("extraction_failed", job_url=card.get('url'), error=str(e))
 
+        if deferred:
+            self.logger.warning(
+                "new_details_deferred", deferred=deferred, max_new_details_per_run=max_new_details,
+                note="Unseen jobs left for a later run; lifecycle is unaffected",
+            )
         self.logger.info(
             "extraction_complete", total_jobs=len(jobs), listing_only=skipped_known,
-            detail_failures=detail_failures,
+            new_details=new_details, deferred=deferred, detail_failures=detail_failures,
         )
         return jobs

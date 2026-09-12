@@ -38,20 +38,21 @@ companies:
 
   kbr:
     name: "KBR"
-    platform: workday
+    # 2026-09-12: switched from the Playwright scraper to the Workday CXS JSON
+    # API. KBR lists ~1,700 jobs; the browser scraper timed out before it even
+    # finished paginating (no successful scrape since 2026-03-12). The old
+    # max_detail_pages: 200 cap is gone too: it made the lifecycle treat every
+    # job outside the newest 200 as removed.
+    platform: workday_api
     base_url: "https://kbr.wd5.myworkdayjobs.com/KBR_Careers"
-    rate_limit_delay: 2.5
-    # KBR has 1300+ jobs; fetching all detail pages takes 2+ hours.
-    # Cap at 200 most recent to stay within the 15-min per-company timeout.
-    max_detail_pages: 200
-    timeout_seconds: 1200
-    selectors:
-      job_list: '[data-automation-id="jobResults"]'
-      job_card: 'a[data-automation-id="jobTitle"]'
-      job_title: '[data-automation-id="jobPostingHeader"]'
-      location: '[data-automation-id="locations"]'
-      posted_date: '[data-automation-id="postedOn"]'
-      description: '[data-automation-id="jobPostingDescription"]'
+    # ~1.2 JSON requests per second; the first full run is ~1,800 requests.
+    rate_limit_delay: 0.5
+    # First full run measured locally at 0.75s delay: see the commit message.
+    # Daily runs after that skip the detail request for jobs already on file
+    # and take a few minutes. Dispatch the first run on its own
+    # (workflow input company=kbr) so it does not share the runner with 40
+    # Chromium scrapers.
+    timeout_seconds: 5100
     sheet_name: "KBR"
 
   subsea7:
