@@ -5,16 +5,32 @@ import json
 import random
 import re
 from datetime import datetime
-from typing import Optional
+from typing import Callable, Optional
 
 import dateparser
+import httpx
 import structlog
+from bs4 import BeautifulSoup
 from playwright.async_api import Page, TimeoutError as PlaywrightTimeout
 
 from src.models.job import JobPosting
 from src.scrapers.base import BaseScraper
 
 logger = structlog.get_logger()
+
+# Detail-page description containers, in order of preference. TalentBrew job
+# pages (Halliburton) carry the full posting in a JSON-LD JobPosting block and
+# in div.ats-description; section.job-description wraps the whole card.
+_DESCRIPTION_SELECTORS = [
+    'div.ats-description',
+    '.ats-description',
+    'span[itemprop="description"]',
+    '.jobdescription',
+    'section.job-description',
+    '.job-description',
+    '[data-automation-id="jobPostingDescription"]',
+]
+_BLOCK_TAGS = ['p', 'div', 'li', 'ul', 'ol', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'tr', 'table', 'section']
 
 # SuccessFactors pages sometimes include cookie/privacy banners whose links
 # look enough like job cards that the CSS fallback extractor picks them up.
@@ -50,7 +66,102 @@ class SuccessFactorsScraper(BaseScraper):
     and job data retrieval.
 
     Pagination uses URL-based pattern: /search-jobs&p={page_number}
+
+    Detail pages are fetched with plain HTTP first (they are server-rendered,
+    and the 2026-09 Halliburton rows showed the browser path storing the
+    53-79 char listing summary instead of the ~3,000 char posting); the
+    browser is only used for a detail page the HTTP fetch cannot read.
     """
+
+    def __init__(self, config: dict):
+        super().__init__(config)
+        self._known_url_checker: Optional[Callable[[str], bool]] = None
+        self._http: Optional[httpx.AsyncClient] = None
+        self._detail_lengths: list[int] = []
+
+    def set_known_url_checker(self, checker: Callable[[str], bool]) -> None:
+        """Jobs already exported skip the detail fetch: the lifecycle diff only
+        needs their URL, and the tracker filters them out before export."""
+        self._known_url_checker = checker
+
+    def _http_headers(self) -> dict:
+        return {
+            'User-Agent': (
+                'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 '
+                '(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+            ),
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+            'Accept-Language': 'en-US,en;q=0.9',
+        }
+
+    @staticmethod
+    def _html_to_text(node) -> str:
+        if node is None:
+            return ''
+        for br in node.find_all('br'):
+            br.replace_with('\n')
+        for tag in node.find_all(_BLOCK_TAGS):
+            tag.insert_before('\n')
+            tag.insert_after('\n')
+        lines = [' '.join(ln.split()) for ln in node.get_text().split('\n')]
+        return '\n'.join(ln for ln in lines if ln)
+
+    @classmethod
+    def parse_detail_html(cls, html: str) -> dict:
+        """Pull the posting body out of a detail page's HTML.
+
+        Prefers the JSON-LD JobPosting description (complete, structured),
+        then the longest of the known description containers.
+        """
+        soup = BeautifulSoup(html, 'html.parser')
+        description = ''
+        source = None
+        for script in soup.select('script[type="application/ld+json"]'):
+            try:
+                data = json.loads(script.string or '')
+            except (ValueError, TypeError):
+                continue
+            items = data if isinstance(data, list) else [data]
+            for item in items:
+                if isinstance(item, dict) and item.get('@type') == 'JobPosting' and item.get('description'):
+                    text = cls._html_to_text(BeautifulSoup(item['description'], 'html.parser'))
+                    if len(text) > len(description):
+                        description, source = text, 'json-ld'
+        if len(description) < 200:
+            # First selector (most specific container) with a real body wins;
+            # only if none has one, fall back to the longest text seen.
+            longest, longest_source = description, source
+            for selector in _DESCRIPTION_SELECTORS:
+                best = ''
+                for node in soup.select(selector):
+                    text = cls._html_to_text(node)
+                    if len(text) > len(best):
+                        best = text
+                if len(best) >= 200:
+                    return {'description': best, 'source': selector}
+                if len(best) > len(longest):
+                    longest, longest_source = best, selector
+            description, source = longest, longest_source
+        return {'description': description, 'source': source}
+
+    async def _fetch_detail_http(self, job_url: str) -> dict:
+        """Plain GET of the detail page; {} when the page cannot be read."""
+        if self._http is None:
+            self._http = httpx.AsyncClient(headers=self._http_headers(), follow_redirects=True)
+        try:
+            resp = await self._http.get(job_url, timeout=30.0)
+        except httpx.HTTPError as e:
+            self.logger.warning("detail_http_failed", url=job_url, error=str(e))
+            return {}
+        if resp.status_code != 200:
+            self.logger.warning("detail_http_status", url=job_url, status=resp.status_code)
+            return {}
+        parsed = self.parse_detail_html(resp.text)
+        if not parsed['description']:
+            self.logger.warning("detail_http_no_description", url=job_url)
+            return {}
+        return {'description': parsed['description'], 'posted_date': None, 'skills': [],
+                'source': parsed['source']}
 
     async def extract_all_jobs(self, max_jobs: Optional[int] = None) -> list[JobPosting]:
         """
@@ -64,6 +175,8 @@ class SuccessFactorsScraper(BaseScraper):
         """
         jobs = []
         context = None
+        self._detail_lengths = []
+        skipped_known = 0
 
         try:
             context = await self._get_browser_context()
@@ -172,14 +285,30 @@ class SuccessFactorsScraper(BaseScraper):
                     try:
                         job_data = self._map_job_data(raw_job, page_url)
 
+                        known = bool(
+                            job_data.get('url') and self._known_url_checker
+                            and self._known_url_checker(job_data['url'])
+                        )
+                        if known:
+                            # Already on the sheet: URL is all the lifecycle
+                            # needs; the tracker drops this job before export.
+                            skipped_known += 1
                         # Fetch full job details if URL is available (TechnipFMC needs this)
-                        if job_data.get('url') and len(job_data.get('description', '')) < 100:
+                        elif job_data.get('url') and len(job_data.get('description', '')) < 100:
                             self.logger.debug("fetching_full_details", url=job_data['url'])
                             try:
                                 detail_data = await self.extract_job_detail(page, job_data['url'])
                                 # Update with full description if available
                                 if detail_data.get('description') and len(detail_data['description']) > len(job_data.get('description', '')):
                                     job_data['description'] = detail_data['description']
+                                    self._detail_lengths.append(len(detail_data['description']))
+                                else:
+                                    self.logger.warning(
+                                        "detail_description_not_longer",
+                                        url=job_data['url'],
+                                        summary_len=len(job_data.get('description', '')),
+                                        detail_len=len(detail_data.get('description') or ''),
+                                    )
                                 # Add skills if found
                                 if detail_data.get('skills'):
                                     job_data['skills'].extend(detail_data['skills'])
@@ -214,12 +343,28 @@ class SuccessFactorsScraper(BaseScraper):
 
                 page_num += 1
 
-            self.logger.info("extraction_complete", total_jobs=len(jobs), pages_processed=page_num)
+            self._log_extraction_complete(jobs, page_num, skipped_known)
             return jobs
 
         finally:
             if context:
                 await self._close_browser()
+            if self._http is not None:
+                await self._http.aclose()
+                self._http = None
+
+    def _log_extraction_complete(self, jobs: list, page_num: int, skipped_known: int) -> None:
+        lengths = sorted(self._detail_lengths)
+        self.logger.info(
+            "extraction_complete",
+            total_jobs=len(jobs),
+            pages_processed=page_num,
+            listing_only=skipped_known,
+            details_fetched=len(lengths),
+            detail_len_min=lengths[0] if lengths else None,
+            detail_len_median=lengths[len(lengths) // 2] if lengths else None,
+            detail_len_max=lengths[-1] if lengths else None,
+        )
 
     async def _extract_page_jobs(self, page: Page) -> list[dict]:
         """
@@ -633,28 +778,24 @@ class SuccessFactorsScraper(BaseScraper):
         Returns:
             Dict with job detail fields (description, skills, posted_date)
         """
+        # Server-rendered pages: one plain GET, no browser.
+        http_detail = await self._fetch_detail_http(job_url)
+        if http_detail.get('description'):
+            self.logger.debug("detail_via_http", url=job_url, source=http_detail.get('source'),
+                              length=len(http_detail['description']))
+            return {k: v for k, v in http_detail.items() if k != 'source'}
+
         try:
             await self._fetch_page(page, job_url)
 
-            # Extract description from detail page
+            # Extract description from the rendered DOM: parse the page HTML
+            # with the same rules as the HTTP path (JSON-LD first, then the
+            # longest known container) instead of `.first` of a selector list,
+            # which picked the wrapper section on Halliburton.
             description = ''
             try:
-                # Try TechnipFMC-specific selector first
-                desc_elem = page.locator('.jobdescription').first
-
-                if await desc_elem.count() > 0:
-                    description = await desc_elem.inner_text()
-                else:
-                    # Fallback to standard selectors
-                    desc_elem = page.locator(
-                        '.job-description, '
-                        '[data-automation-id="jobPostingDescription"], '
-                        '.ats-description, '
-                        'span[itemprop="description"]'
-                    ).first
-
-                    if await desc_elem.count() > 0:
-                        description = await desc_elem.inner_text()
+                parsed = self.parse_detail_html(await page.content())
+                description = parsed['description']
             except Exception as e:
                 self.logger.debug("description_extraction_failed", error=str(e))
 
