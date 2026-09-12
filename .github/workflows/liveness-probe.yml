@@ -1,0 +1,139 @@
+name: Liveness Probe
+
+# Daily source-page liveness for every active row in the state DB
+# (scrapers/scripts/probe_liveness.py). Each job's own page or ATS status
+# endpoint says whether it is still open; DEAD rows are retired in the DB and
+# on the sheet with removed_reason=source_gone, and data/liveness-latest.json
+# carries the verdict into jobs.json through sync-data.yml / export-jobs.js.
+#
+# Slot: 03:00 UTC. daily-scrape.yml starts 09:00 and runs ~75 min, so its
+# state-DB upload lands ~10:15 and Auto Data Sync (10:00) reads this file
+# with verdicts ~7 h old. Both this workflow and daily-scrape upload
+# scraper_state.db to release scraper-state-latest, so the guard step below
+# refuses to run while a scrape or seed run is in progress.
+
+on:
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Probe and report only (no DB / sheet / release writes)'
+        required: false
+        type: boolean
+        default: false
+      allow_mass_removal:
+        description: 'Retire DEAD rows even where a tab is above the 10% mass-removal threshold'
+        required: false
+        type: boolean
+        default: false
+      company:
+        description: 'Optional: comma-separated tab or company names (e.g. Worley,CrewBase)'
+        required: false
+        type: string
+      limit_per_host:
+        description: 'Optional: probe at most N rows per host (testing)'
+        required: false
+        type: string
+
+concurrency:
+  group: scraper-state-db
+  cancel-in-progress: false
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: write
+    defaults:
+      run:
+        working-directory: scrapers
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Refuse to run while another state-DB writer is in progress
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          BUSY=$(gh run list --repo "$GITHUB_REPOSITORY" --status in_progress --json workflowName,databaseId \
+            --jq '[.[] | select(.workflowName == "Daily Job Scraping" or .workflowName == "Seed Scraper State From Sheet") | .databaseId] | length')
+          if [ "$BUSY" != "0" ]; then
+            echo "::error::A Daily Job Scraping or Seed run is in progress; both upload scraper_state.db. Try again later."
+            exit 1
+          fi
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: scrapers/requirements.txt
+
+      - name: Install Python dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Download state DB from release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p data
+          gh release download scraper-state-latest -p scraper_state.db -D data/
+          cp data/scraper_state.db data/scraper_state.pre-probe.db
+          echo "State DB: $(wc -c < data/scraper_state.db) bytes"
+
+      - name: Upload pre-probe backup of the state DB
+        uses: actions/upload-artifact@v4
+        with:
+          name: scraper-state-pre-probe-${{ github.run_id }}
+          path: scrapers/data/scraper_state.pre-probe.db
+          retention-days: 14
+
+      - name: Create service account credentials file
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          mkdir -p config
+          echo "$GOOGLE_SERVICE_ACCOUNT_JSON" > config/service_account.json
+          chmod 600 config/service_account.json
+
+      - name: Probe every active row at its source
+        env:
+          GOOGLE_SERVICE_ACCOUNT_PATH: config/service_account.json
+          GOOGLE_SHEETS_SPREADSHEET_NAME: ${{ secrets.GOOGLE_SHEETS_SPREADSHEET_NAME }}
+        run: |
+          CMD="python scripts/probe_liveness.py --state-db data/scraper_state.db --out data/liveness-latest.json"
+          if [ "${{ inputs.dry_run }}" = "true" ]; then CMD="$CMD --dry-run"; fi
+          if [ "${{ inputs.allow_mass_removal }}" = "true" ]; then CMD="$CMD --allow-mass-removal"; fi
+          if [ -n "${{ inputs.company }}" ]; then CMD="$CMD --company \"${{ inputs.company }}\""; fi
+          if [ -n "${{ inputs.limit_per_host }}" ]; then CMD="$CMD --limit-per-host ${{ inputs.limit_per_host }}"; fi
+          echo "Running: $CMD"
+          eval "$CMD"
+
+      - name: Upload verdicts and sheet backup as workflow artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: liveness-${{ github.run_id }}
+          path: |
+            scrapers/data/liveness-latest.json
+            scrapers/data/liveness-retire-backup-*.csv
+          retention-days: 30
+          if-no-files-found: ignore
+
+      - name: Upload state DB and verdicts to release
+        if: inputs.dry_run != true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release upload scraper-state-latest data/scraper_state.db --clobber
+          gh release upload scraper-state-latest data/liveness-latest.json --clobber
+          echo "Uploaded state ($(wc -c < data/scraper_state.db) bytes) and liveness-latest.json ($(wc -c < data/liveness-latest.json) bytes)"
+
+      - name: Clean up credentials
+        if: always()
+        run: rm -f config/service_account.json

@@ -48,3 +48,7 @@ __pycache__/
 .venv/
 venv/
 *.db
+
+# Source-liveness verdicts (release asset, downloaded by sync-data.yml) and probe backups
+data/liveness-latest.json
+data/liveness-retire-backup-*.csv
