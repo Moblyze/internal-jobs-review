@@ -589,6 +589,93 @@ companies:
     selectors: {}
     sheet_name: "Berkshire Hathaway Energy"
 
+  # === iCIMS portals (added 2026-09-12, Indeed mapping section (b2)) ===
+  # platform icims, plain HTTP. Legacy *.icims.com hosts disallow only the
+  # referral/login/candidate paths (checked per tenant); MasTec and Kinder
+  # Morgan hosts are "Disallow: /" and are deliberately not configured.
+  # New "careers-home" portals answer /api/jobs JSON with full descriptions.
+
+  acuren_us:
+    name: "Acuren"
+    # NDT / rope access / inspection; US portal, 222 live on 2026-09-12
+    # (SEO plan sector 2, new-sources row 10). Detail page JSON-LD carries
+    # description, datePosted and validThrough.
+    platform: icims
+    base_url: "https://uscareers-acuren.icims.com/jobs/search?ss=1"
+    rate_limit_delay: 1.0
+    max_new_details_per_run: 300
+    sheet_name: "Acuren"
+
+  acuren_canada:
+    name: "Acuren Canada"
+    # Same employer, Canadian portal (60 live). Separate tenant so separate
+    # lifecycle; the tab name keeps the two apart.
+    platform: icims
+    base_url: "https://canadacareers-acuren.icims.com/jobs/search?ss=1"
+    rate_limit_delay: 1.0
+    max_new_details_per_run: 300
+    sheet_name: "Acuren Canada"
+
+  emcor:
+    name: "EMCOR"
+    # Mechanical / electrical contractor: industrial electricians, HVAC,
+    # pipefitters; ~1,250 live across 30 pages. First pass spread over days.
+    platform: icims
+    base_url: "https://careers-emcorgroup.icims.com/jobs/search?ss=1"
+    rate_limit_delay: 1.0
+    max_new_details_per_run: 400
+    timeout_seconds: 2700
+    sheet_name: "EMCOR"
+
+  e2_consulting:
+    name: "E2 Consulting Engineers"
+    # Welding and coating inspectors; 61 live.
+    platform: icims
+    base_url: "https://careers-e2.icims.com/jobs/search?ss=1"
+    rate_limit_delay: 1.0
+    sheet_name: "E2 Consulting Engineers"
+
+  danos:
+    name: "Danos"
+    # Gulf of Mexico oilfield services: roustabouts, I&E techs, deepwater
+    # operations; 177 live. New portal: /api/jobs JSON, no detail requests.
+    platform: icims
+    base_url: "https://jobs.danos.com/careers-home/jobs"
+    rate_limit_delay: 1.0
+    icims_config:
+      mode: portal
+    sheet_name: "Danos"
+
+  universal_engineering_sciences:
+    name: "Universal Engineering Sciences"
+    # CWI, field technicians, drillers; 246 live.
+    platform: icims
+    base_url: "https://careers.teamues.com/careers-home/jobs"
+    rate_limit_delay: 1.0
+    icims_config:
+      mode: portal
+    sheet_name: "Universal Engineering Sciences"
+
+  trc_companies:
+    name: "TRC Companies"
+    # Testing and commissioning, substation technicians; 606 live.
+    platform: icims
+    base_url: "https://careers.trccompanies.com/careers-home/jobs"
+    rate_limit_delay: 1.0
+    icims_config:
+      mode: portal
+    sheet_name: "TRC Companies"
+
+  diversified_energy:
+    name: "Diversified Energy"
+    # Lease and plant operators; 62 live.
+    platform: icims
+    base_url: "https://careers.div.energy/careers-home/jobs"
+    rate_limit_delay: 1.0
+    icims_config:
+      mode: portal
+    sheet_name: "Diversified Energy"
+
   # === Custom ASP.NET career portals ===
 
   rovop:

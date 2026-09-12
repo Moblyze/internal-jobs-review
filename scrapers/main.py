@@ -163,6 +163,12 @@ try:
 except ImportError:
     pass
 
+try:
+    from src.scrapers.icims import ICIMSScraper
+    SCRAPER_REGISTRY['icims'] = ICIMSScraper
+except ImportError:
+    pass
+
 
 def load_companies_config(config_path: str = 'config/companies.yaml') -> dict:
     """
