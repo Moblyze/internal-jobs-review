@@ -458,6 +458,53 @@ companies:
       company: "vattenfall"
     sheet_name: "Vattenfall"
 
+  # === Wind and power employers (added 2026-09-12, new-job-sources.csv rows 2, 3, 12) ===
+
+  ge_vernova:
+    name: "GE Vernova"
+    # Wind (onshore + offshore), gas power and grid. 2,137 postings on the
+    # Workday CXS JSON API (67 match 'wind technician', 83 'offshore'); the
+    # tenant's robots.txt allows /Vernova_ExternalSite/. Same shape as KBR:
+    # complete listing every run, new detail fetches capped per run.
+    platform: workday_api
+    base_url: "https://gevernova.wd5.myworkdayjobs.com/Vernova_ExternalSite"
+    rate_limit_delay: 0.75
+    max_new_details_per_run: 500
+    timeout_seconds: 2700
+    sheet_name: "GE Vernova"
+
+  vestas:
+    name: "Vestas"
+    # Wind turbine OEM and O&M (329 'technician' titles). SuccessFactors Career
+    # Site Builder: server-rendered search listing, 10 rows per page, plus
+    # sitemap.xml of live job URLs as the second presence signal.
+    platform: successfactors_csb
+    base_url: "https://careers.vestas.com"
+    rate_limit_delay: 1.0
+    max_new_details_per_run: 400
+    sheet_name: "Vestas"
+
+  rwe:
+    name: "RWE"
+    # Offshore wind and power generation. The listing renders in German by
+    # default (25 rows per page, job paths under /RWE/job/); posting bodies
+    # are in the language they were written in.
+    platform: successfactors_csb
+    base_url: "https://jobs.rwe.com"
+    rate_limit_delay: 1.0
+    max_new_details_per_run: 400
+    sheet_name: "RWE"
+
+  nextera_energy:
+    name: "NextEra Energy"
+    # Largest US wind and solar operator (86 'wind' titles); SEO plan register
+    # item 10. Same Career Site Builder layout as Vestas, 25 rows per page.
+    platform: successfactors_csb
+    base_url: "https://jobs.nexteraenergy.com"
+    rate_limit_delay: 1.0
+    max_new_details_per_run: 400
+    sheet_name: "NextEra Energy"
+
   # === Custom ASP.NET career portals ===
 
   rovop:

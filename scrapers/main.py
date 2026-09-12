@@ -157,6 +157,12 @@ try:
 except ImportError:
     pass
 
+try:
+    from src.scrapers.successfactors_csb import SuccessFactorsCsbScraper
+    SCRAPER_REGISTRY['successfactors_csb'] = SuccessFactorsCsbScraper
+except ImportError:
+    pass
+
 
 def load_companies_config(config_path: str = 'config/companies.yaml') -> dict:
     """
