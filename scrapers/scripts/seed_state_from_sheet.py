@@ -255,50 +255,81 @@ def read_tab(ws) -> tuple[list[dict], list, list]:
 
 def seed(conn: sqlite3.Connection, company_name: str, rows: list[dict], dry_run: bool,
          probe: Optional["SourceProbe"] = None) -> dict:
-    """Insert unknown rows into the DB. With a probe, active rows are checked at the source first;
-    gone ones are seeded as removed and listed under summary['retire_rows'] for the sheet write."""
+    """Bring the DB and (with a probe) the sheet in line with the source for one tab.
+
+    Rows are grouped by URL because direct tabs carry duplicate rows and the
+    lifecycle manager only ever updates the last row of a URL, so one URL can
+    be "removed" on one row and "active" on another. A URL counts as active on
+    the sheet if ANY of its rows is active.
+
+    Without a probe: URLs unknown to the DB are inserted with the sheet status.
+    With a probe: every URL that has an active row is asked at the source.
+      gone  -> DB row removed (inserted or updated), every active sheet row of
+               that URL listed in summary['retire_rows']
+      live  -> DB row active if it was unknown; nothing else
+      unknown -> treated like live (the daily diff keeps checking it)
+    """
     now = datetime.now(timezone.utc).replace(tzinfo=None).isoformat()
-    known = {r[0] for r in conn.execute(
-        "SELECT url_hash FROM scraped_jobs WHERE company = ?", (company_name,)
+    db_status = {r[0]: r[1] for r in conn.execute(
+        "SELECT url_hash, status FROM scraped_jobs WHERE company = ?", (company_name,)
     )}
     known_any = {r[0] for r in conn.execute("SELECT url_hash FROM scraped_jobs")}
 
-    to_insert = []
-    seen = set()
-    summary = {"rows": len(rows), "duplicate_urls_in_tab": 0, "already_in_db": 0,
-               "in_db_under_other_company": 0, "insert_active": 0, "insert_removed": 0,
-               "probe_live": 0, "probe_gone": 0, "probe_unknown": 0, "retire_rows": []}
+    groups: dict[str, dict] = {}
     for r in rows:
         h = hashlib.sha256(r["url"].encode("utf-8")).hexdigest()
-        if h in seen:
-            summary["duplicate_urls_in_tab"] += 1
-            continue
-        seen.add(h)
-        if h in known:
+        g = groups.setdefault(h, {"url": r["url"], "title": r["title"], "scraped_at": r["scraped_at"],
+                                  "status_changed_date": r["status_changed_date"], "active_rows": [], "rows": 0})
+        g["rows"] += 1
+        if r["status"] == "active" and r.get("row_number"):
+            g["active_rows"].append(r["row_number"])
+        if r["status_changed_date"] > g["status_changed_date"]:
+            g["status_changed_date"] = r["status_changed_date"]
+
+    summary = {"rows": len(rows), "unique_urls": len(groups), "duplicate_rows": len(rows) - len(groups),
+               "already_in_db": 0, "in_db_under_other_company": 0,
+               "insert_active": 0, "insert_removed": 0, "db_marked_removed": 0,
+               "probe_live": 0, "probe_gone": 0, "probe_unknown": 0, "retire_rows": []}
+    to_insert, to_mark_removed = [], []
+    for h, g in groups.items():
+        sheet_status = "active" if g["active_rows"] else "removed"
+        in_db = h in db_status
+        if in_db:
             summary["already_in_db"] += 1
-            continue
-        if h in known_any:
+        elif h in known_any:
             summary["in_db_under_other_company"] += 1
             continue
-        ts = r["scraped_at"] or now
-        status = r["status"]
-        changed = r["status_changed_date"] or ts
-        if probe is not None and status == "active":
-            verdict = probe.verdict(r["url"])
+
+        status = sheet_status
+        changed = g["status_changed_date"] or g["scraped_at"] or now
+        if probe is not None and sheet_status == "active":
+            verdict = probe.verdict(g["url"])
             summary[f"probe_{verdict}"] += 1
             if verdict == "gone":
                 status, changed = "removed", now
-                if r.get("row_number"):
-                    summary["retire_rows"].append(r["row_number"])
-        to_insert.append((h, r["url"], company_name, r["title"], ts, ts, status, changed, 1))
-        summary["insert_active" if status == "active" else "insert_removed"] += 1
+                summary["retire_rows"].extend(g["active_rows"])
+                if in_db and db_status[h] == "active":
+                    to_mark_removed.append(h)
 
-    if not dry_run and to_insert:
-        conn.executemany(
-            "INSERT OR IGNORE INTO scraped_jobs (url_hash, url, company, title, first_seen, "
-            "last_seen, status, status_changed_date, exported_to_sheets) VALUES (?,?,?,?,?,?,?,?,?)",
-            to_insert,
-        )
+        if not in_db:
+            ts = g["scraped_at"] or now
+            to_insert.append((h, g["url"], company_name, g["title"], ts, ts, status, changed, 1))
+            summary["insert_active" if status == "active" else "insert_removed"] += 1
+
+    summary["db_marked_removed"] = len(to_mark_removed)
+    if not dry_run:
+        if to_insert:
+            conn.executemany(
+                "INSERT OR IGNORE INTO scraped_jobs (url_hash, url, company, title, first_seen, "
+                "last_seen, status, status_changed_date, exported_to_sheets) VALUES (?,?,?,?,?,?,?,?,?)",
+                to_insert,
+            )
+        if to_mark_removed:
+            conn.executemany(
+                "UPDATE scraped_jobs SET status = 'removed', status_changed_date = ? "
+                "WHERE url_hash = ? AND status = 'active'",
+                [(now, h) for h in to_mark_removed],
+            )
         conn.commit()
     return summary
 
