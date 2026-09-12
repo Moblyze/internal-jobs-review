@@ -416,6 +416,48 @@ companies:
     selectors: {}
     sheet_name: "Intertek"
 
+  # === SmartRecruiters Posting API (added 2026-09-12, new-job-sources.csv rows 6 and 7) ===
+  # Public, documented, unauthenticated JSON API; one request per 100 postings
+  # plus one detail request per posting not yet on the sheet. A posting drops
+  # out of the listing when closed, which is the lifecycle removal signal.
+
+  sgs:
+    name: "SGS"
+    # TIC employer with ~4,500 postings worldwide, most outside our sectors.
+    # Pull the inspection / NDT / technician slices via the API's full-text
+    # search instead of the whole board (many LatAm titles are in Spanish).
+    platform: smartrecruiters
+    base_url: "https://jobs.smartrecruiters.com/SGS"
+    rate_limit_delay: 1.0
+    max_new_details_per_run: 400
+    sr_config:
+      company: "sgs"
+      queries: ["inspector", "inspection", "NDT", "technician", "rope access", "welding", "surveyor", "offshore"]
+    sheet_name: "SGS"
+
+  boskalis:
+    name: "Boskalis"
+    # Dredging, offshore energy and subsea contractor. Gardline (survey) has no
+    # SmartRecruiters board of its own; its careers page links into this one,
+    # so Gardline roles arrive here. Small board, take it whole.
+    platform: smartrecruiters
+    base_url: "https://jobs.smartrecruiters.com/Boskalis"
+    rate_limit_delay: 1.0
+    sr_config:
+      company: "boskalis"
+    sheet_name: "Boskalis"
+
+  vattenfall:
+    name: "Vattenfall"
+    # Nordic power and offshore wind operator; ~330 postings, many in Swedish.
+    platform: smartrecruiters
+    base_url: "https://jobs.smartrecruiters.com/Vattenfall"
+    rate_limit_delay: 1.0
+    max_new_details_per_run: 400
+    sr_config:
+      company: "vattenfall"
+    sheet_name: "Vattenfall"
+
   # === Custom ASP.NET career portals ===
 
   rovop:

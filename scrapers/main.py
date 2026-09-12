@@ -151,6 +151,12 @@ try:
 except ImportError:
     pass
 
+try:
+    from src.scrapers.smartrecruiters import SmartRecruitersScraper
+    SCRAPER_REGISTRY['smartrecruiters'] = SmartRecruitersScraper
+except ImportError:
+    pass
+
 
 def load_companies_config(config_path: str = 'config/companies.yaml') -> dict:
     """
