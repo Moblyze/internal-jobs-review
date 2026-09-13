@@ -4,9 +4,9 @@ Status: **design only, NOT applied to main.py / base.py on this branch.** Jesse
 asked to hold off restructuring scheduling until we see whether the failure
 reproduces on the 2026-09-14 scheduled run, so this branch has only the
 silent-failure-logging fix and the critical-regression failure signal
-applied. This doc (plus commit `<SCHEDULING_FIX_COMMIT>` and its immediate
-revert `<REVERT_COMMIT>` further down this branch's history) is the design to
-apply if the failure recurs.
+applied. This doc (plus commit `e23f3e8` and its immediate revert `020c882`
+on branch `fix/daily-scrape-runner-contention`) is the design to apply if the
+failure recurs.
 
 ## What happened (2026-09-13)
 
@@ -121,5 +121,5 @@ this is systemic and the fix below should be applied. If it does NOT
 reproduce, treat 09-13 as a one-off (e.g., a transient GH Actions
 infrastructure blip, or a temporary bump in a shared resource) and revisit.
 
-**To apply:** `git revert <REVERT_COMMIT>` on this branch re-lands the
-semaphore code from commit `<SCHEDULING_FIX_COMMIT>` cleanly.
+**To apply:** `git revert 020c882` on this branch re-lands the semaphore code
+from commit `e23f3e8` cleanly.
