@@ -1051,6 +1051,84 @@ companies:
       description: '[data-automation-id="jobPostingDescription"]'
     sheet_name: "Fugro"
 
+  # === Workable ATS additions (added 2026-09-13, CrewBase source-of-truth
+  # reassignment: Anglo-Eastern was the only genuinely new employer here --
+  # Fugro and DOF, the other two "pure config" candidates, already existed
+  # above and were re-verified live rather than re-added) ===
+
+  anglo_eastern:
+    name: "Anglo-Eastern"
+    platform: workable
+    base_url: "https://apply.workable.com/angloeastern/"
+    workable_slug: "angloeastern"
+    rate_limit_delay: 2.0
+    selectors: {}
+    sheet_name: "Anglo-Eastern"
+
+  # === Pinpoint ATS (new adapter: src/scrapers/pinpoint.py, added 2026-09-13) ===
+  # Single tenant covers both "V.Group" and "Vships" CrewBase employer rows
+  # (V.Ships is a V.Group division published through the same board).
+
+  v_group:
+    name: "V.Group"
+    platform: pinpoint
+    base_url: "https://vgroup.pinpointhq.com/"
+    pinpoint_tenant: "vgroup"
+    rate_limit_delay: 2.0
+    selectors: {}
+    sheet_name: "V.Group"
+
+  # === Lever ATS, EU data region (new adapter: src/scrapers/lever.py, added
+  # 2026-09-13) === Covers "Columbia Shipmanagement" and "Columbia
+  # Shipmanagement Romania" CrewBase rows (same tenant/board). The default
+  # api.lever.co host 404s for this tenant -- api.eu.lever.co is required.
+
+  columbia_shipmanagement:
+    name: "Columbia Shipmanagement"
+    platform: lever
+    base_url: "https://jobs.eu.lever.co/csmcy"
+    lever_slug: "csmcy"
+    lever_region: "eu"
+    rate_limit_delay: 2.0
+    selectors: {}
+    sheet_name: "Columbia Shipmanagement"
+
+  # === Zoho Recruit hosted career sites (new adapter:
+  # src/scrapers/zoho_recruit.py, added 2026-09-13) ===
+
+  madre:
+    name: "Madre Integrated Engineering"
+    platform: zoho_recruit
+    base_url: "https://madre-me.zohorecruit.com/jobs/Careers"
+    rate_limit_delay: 2.0
+    selectors: {}
+    sheet_name: "Madre Integrated Engineering"
+
+  black_grey_hr:
+    name: "Black & Grey HR"
+    platform: zoho_recruit
+    # Custom domain CNAME'd to Zoho Recruit -- same #jobs embed as the
+    # *.zohorecruit.com subdomain form.
+    base_url: "https://jobs.black-grey.com/jobs/Careers"
+    rate_limit_delay: 2.0
+    selectors: {}
+    sheet_name: "Black & Grey HR"
+
+  # === Oracle HCM Cloud, second tenant (added 2026-09-13; existing adapter
+  # src/scrapers/oracle_hcm.py, already used by Oceaneering) ===
+
+  milaha:
+    name: "Milaha"
+    platform: oracle_hcm
+    base_url: "https://ejqa.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_4"
+    oracle_hcm_config:
+      api_base: "https://ejqa.fa.em2.oraclecloud.com/hcmRestApi/resources/latest"
+      site_number: "CX_4"
+      job_url_template: "https://ejqa.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_4/job/{req_id}"
+    selectors: {}
+    rate_limit_delay: 2.5
+    sheet_name: "Milaha"
+
   # === Full-site sitemap crawl (plain HTTP, no browser needed) ===
 
   crewbase:

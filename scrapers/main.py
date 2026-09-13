@@ -169,6 +169,24 @@ try:
 except ImportError:
     pass
 
+try:
+    from src.scrapers.pinpoint import PinpointScraper
+    SCRAPER_REGISTRY['pinpoint'] = PinpointScraper
+except ImportError:
+    pass
+
+try:
+    from src.scrapers.lever import LeverScraper
+    SCRAPER_REGISTRY['lever'] = LeverScraper
+except ImportError:
+    pass
+
+try:
+    from src.scrapers.zoho_recruit import ZohoRecruitScraper
+    SCRAPER_REGISTRY['zoho_recruit'] = ZohoRecruitScraper
+except ImportError:
+    pass
+
 
 def load_companies_config(config_path: str = 'config/companies.yaml') -> dict:
     """
