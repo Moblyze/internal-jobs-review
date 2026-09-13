@@ -4,6 +4,114 @@
       {
         "id": "rigzone",
         "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/harvester_energy_bags_new_malaysian_psc-13-sep-2026-184598-article/?rss=true"
+      }
+    ],
+    "headline": "Petronas Awards Malay Basin Cluster PSC to Harvester Energy",
+    "body": "Petroliam Nasional Bhd (Petronas) on Friday announced it had awarded a production sharing contract (PSC) for a cluster of fields in the proven Malay Basin of...",
+    "url": "https://www.rigzone.com/news/harvester_energy_bags_new_malaysian_psc-13-sep-2026-184598-article/?rss=true",
+    "published_at": "2026-09-13T11:00:00.000Z",
+    "hash": "ddc5866a749a3763",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "marine_offshore_ops",
+      "rov_subsea",
+      "process_plant_operations"
+    ],
+    "signal_type": "lease_round",
+    "region": "southeast-asia",
+    "country": "malaysia",
+    "tldr": "Petronas has awarded a production sharing contract for a Malay Basin field cluster to Harvester Energy, signalling an upcoming exploration and development campaign that will drive near-term drilling and offshore staffing demand.",
+    "operator": {
+      "name": "Harvester Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Harvester Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Malay Basin Cluster PSC",
+    "scope": [
+      "psc_award",
+      "exploration",
+      "field_development"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Exploration Manager",
+        "Development Geologist",
+        "Petroleum Engineer",
+        "Drilling Engineer",
+        "Subsurface Manager",
+        "PSC Commercial Manager",
+        "Offshore Installation Manager",
+        "Project Manager – Upstream"
+      ],
+      "skills": [
+        "production sharing contract",
+        "Malay Basin",
+        "offshore exploration",
+        "field development planning",
+        "reservoir engineering",
+        "well planning",
+        "petroleum geology",
+        "Malaysia upstream"
+      ],
+      "certs_freetext": [
+        "BOSIET/HUET",
+        "Petronas competency framework",
+        "Well Control (IWCF/IADC)"
+      ],
+      "geo_rtw": "Malaysia or regionally mobile Southeast Asia",
+      "project_experience": [
+        "Malay Basin",
+        "Peninsular Malaysia Offshore",
+        "PM blocks",
+        "Sarawak offshore",
+        "Cuu Long Basin"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"Malay Basin\" OR \"Malaysia offshore\" OR \"PSC\" OR \"production sharing contract\") AND (\"exploration\" OR \"field development\" OR \"drilling engineer\" OR \"reservoir engineer\" OR \"petroleum engineer\" OR \"subsurface\") AND (\"Petronas\" OR \"Southeast Asia\" OR \"offshore Malaysia\") AND (\"project manager\" OR \"development manager\" OR \"OIM\" OR \"subsurface manager\" OR \"drilling manager\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Harvester Energy has just been awarded a new Malay Basin PSC by Petronas — exploration and development activity is set to ramp up. Given your background in Malaysian offshore upstream, I'd love to connect on upcoming opportunities. Worth a quick chat?",
+      "email_subject": "New Malay Basin PSC – Upstream Opportunities with Harvester Energy",
+      "email_body": "Hi [Name],\n\nPetronas has just awarded Harvester Energy a new production sharing contract for a cluster of fields in the Malay Basin, signalling an imminent ramp-up of exploration and field development activity in the region.\n\nGiven your experience in Malaysian/Southeast Asian offshore upstream, we're actively mapping talent for roles spanning subsurface, drilling, and development management that are likely to emerge from this award.\n\nWould you be open to a brief call to explore how your background aligns with the opportunities ahead?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Specific PSC block award naming Petronas as licensor and Harvester Energy as incoming operator in a named basin, qualifying as a lease/exploration license assignment with clear upstream workforce implications.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article describes a freshly awarded PSC for a field cluster — exploration and appraisal work is yet to commence, with FID and development planning still ahead.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "82950da1-bdf7-4fa6-b60b-ebfa07d2950b",
+    "ingested_at": "2026-09-13T12:14:41.592Z",
+    "source_published_at": "2026-09-13T11:00:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
         "url": "https://www.rigzone.com/news/saipem_signs_new_preliminary_contract_for_rovuma_lng-11-sep-2026-184592-article/?rss=true"
       }
     ],
