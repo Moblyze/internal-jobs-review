@@ -225,6 +225,47 @@ class TestDeduplicationTracker:
         assert 'by_status' in stats
         assert stats['by_status']['active'] == 2
         assert stats['by_status']['removed'] == 2
+
+    def test_get_source_gone_counts(self, tracker):
+        """2026-09-13: check_scrape_health.py's deliberate-retirement
+        carve-out needs a per-company count of rows the liveness probe
+        retired (removed_reason='source_gone'), distinct from ordinary
+        listing-diff removals (reason=None)."""
+        source_gone_jobs = [
+            JobPosting(title=f"Job {i}", company="AZS", location="Test",
+                       description="Test description", url=f"https://example.com/azs/{i}")
+            for i in range(3)
+        ]
+        listing_diff_job = JobPosting(title="Other", company="AZS", location="Test",
+                                       description="Test description", url="https://example.com/azs/other")
+        tracker.mark_batch(source_gone_jobs + [listing_diff_job])
+
+        source_gone_hashes = [tracker._hash_url(str(j.url)) for j in source_gone_jobs]
+        tracker.mark_jobs_removed(source_gone_hashes, reason='source_gone')
+        tracker.mark_jobs_removed([tracker._hash_url(str(listing_diff_job.url))], reason=None)
+
+        counts = tracker.get_source_gone_counts()
+        assert counts == {'AZS': 3}
+
+    def test_get_source_gone_counts_since_excludes_older_removals(self, tracker):
+        """A source_gone removal from before the baseline snapshot is
+        already reflected in that snapshot's (lower) active_count, so it
+        must not be double-counted when scoped with `since`."""
+        job = JobPosting(title="Old", company="AZS", location="Test",
+                          description="Test description", url="https://example.com/azs/old")
+        tracker.mark_batch([job])
+        tracker.mark_jobs_removed([tracker._hash_url(str(job.url))], reason='source_gone')
+
+        # Backdate the removal so it predates our `since` cutoff.
+        cursor = tracker.conn.cursor()
+        cursor.execute(
+            "UPDATE scraped_jobs SET status_changed_date = ? WHERE company = 'AZS'",
+            ('2020-01-01T00:00:00',),
+        )
+        tracker.conn.commit()
+
+        assert tracker.get_source_gone_counts(since='2026-01-01T00:00:00') == {}
+        assert tracker.get_source_gone_counts() == {'AZS': 1}
         assert 'by_company_active' in stats
         assert stats['by_company_active']['Test Corp'] == 2
 

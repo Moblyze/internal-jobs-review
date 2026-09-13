@@ -176,6 +176,36 @@ class DeduplicationTracker:
             for r in cursor.fetchall()
         }
 
+    def get_source_gone_counts(self, since: Optional[str] = None) -> dict[str, int]:
+        """Per-company count of rows retired by the liveness probe
+        (removed_reason='source_gone'), optionally only those retired at or
+        after `since` (an ISO timestamp -- typically the prior health
+        snapshot's ts).
+
+        Used by check_scrape_health.py (2026-09-13 fix) to tell a company's
+        active count falling to 0 because of a deliberate mass retirement
+        (CrewBase Liveness Probe run 34758491427: 19,279 rows legitimately
+        retired) apart from a silent scrape failure. Scoped to `since` the
+        baseline snapshot rather than all-time, because a source_gone
+        removal from BEFORE the baseline was taken is already reflected in
+        that baseline's (lower) active_count -- counting it again here would
+        double-subtract and could mask a real regression.
+        """
+        cursor = self.conn.cursor()
+        if since:
+            cursor.execute(
+                "SELECT company, COUNT(*) as count FROM scraped_jobs "
+                "WHERE removed_reason = 'source_gone' AND status_changed_date >= ? "
+                "GROUP BY company",
+                (since,),
+            )
+        else:
+            cursor.execute(
+                "SELECT company, COUNT(*) as count FROM scraped_jobs "
+                "WHERE removed_reason = 'source_gone' GROUP BY company"
+            )
+        return {row['company']: row['count'] for row in cursor.fetchall()}
+
     def _hash_url(self, url: str) -> str:
         """
         Generate SHA-256 hash of URL for efficient lookups.
