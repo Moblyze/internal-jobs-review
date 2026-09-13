@@ -86,7 +86,8 @@ class TestTrackerLiveness:
                 source_checked_at=stale, removed_reason='source_gone')
         _insert(tracker.conn, 'https://x/diff-removed', status='removed')
         n = tracker.reactivate_jobs('Acme', {'https://x/fresh-dead', 'https://x/stale-dead', 'https://x/diff-removed'})
-        assert n == 2
+        assert len(n) == 2
+        assert set(n) == {'https://x/stale-dead', 'https://x/diff-removed'}
         assert _row(tracker, 'https://x/fresh-dead')['status'] == 'removed'
         assert _row(tracker, 'https://x/stale-dead')['status'] == 'active'
         assert _row(tracker, 'https://x/stale-dead')['removed_reason'] is None
@@ -116,3 +117,38 @@ class TestLifecycleProbeGuard:
         assert _row(tracker, 'https://x/live-stale')['status'] == 'removed'
         assert _row(tracker, 'https://x/unprobed')['status'] == 'removed'
         assert _row(tracker, 'https://x/unprobed')['removed_reason'] is None
+
+
+class TestLifecyclePushesReactivationToSheets:
+    """2026-09-13: reactivate_jobs flipped the DB back to 'active' but nothing
+    told the sheet, so a row wrongly marked removed (e.g. by a transient
+    empty-scrape false positive, as happened to Allrig Group) stayed
+    'removed' in the sheet/feed forever even after the tracker recovered."""
+
+    def test_rediscovered_removed_job_is_pushed_back_to_sheet_as_active(self, tracker):
+        _insert(tracker.conn, 'https://x/came-back', status='removed', removed_reason=None)
+        exporter = MagicMock()
+        exporter.get_existing_job_urls.return_value = {'https://x/came-back': 5}
+        mgr = JobLifecycleManager(tracker=tracker, exporter=exporter)
+
+        jobs = [MagicMock(url='https://x/came-back')]
+        mgr.process_scrape_results('Acme', 'Acme', jobs)
+
+        assert _row(tracker, 'https://x/came-back')['status'] == 'active'
+        exporter.batch_update_statuses.assert_called_once()
+        sheet_name, updates = exporter.batch_update_statuses.call_args.args
+        assert sheet_name == 'Acme'
+        assert len(updates) == 1
+        row_number, status, _ = updates[0]
+        assert (row_number, status) == (5, 'active')
+
+    def test_no_sheet_call_when_nothing_was_reactivated(self, tracker):
+        _insert(tracker.conn, 'https://x/1')
+        exporter = MagicMock()
+        exporter.get_existing_job_urls.return_value = {}
+        mgr = JobLifecycleManager(tracker=tracker, exporter=exporter)
+
+        jobs = [MagicMock(url='https://x/1')]
+        mgr.process_scrape_results('Acme', 'Acme', jobs)
+
+        exporter.batch_update_statuses.assert_not_called()

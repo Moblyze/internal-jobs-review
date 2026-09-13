@@ -75,10 +75,24 @@ class JobLifecycleManager:
             )
             skip_removal = True
 
-        # Re-activate jobs that reappeared after being marked removed
-        reactivated = self.tracker.reactivate_jobs(company, current_urls)
-        if reactivated > 0:
-            logger.info(f"Re-activated {reactivated} previously removed jobs for {company}")
+        # Re-activate jobs that reappeared after being marked removed. This
+        # only flips the local dedup DB -- until 2026-09-13 nothing pushed
+        # the flip back to Google Sheets, so a row wrongly marked 'removed'
+        # (e.g. by a transient empty-scrape false positive) stayed removed
+        # in the sheet/feed forever even after the tracker itself recovered
+        # (found live at Allrig Group: 2 jobs marked removed 2026-09-09 were
+        # still on the careers page and kept getting rediscovered every run
+        # with no effect on the sheet).
+        reactivated_urls = self.tracker.reactivate_jobs(company, current_urls)
+        if reactivated_urls:
+            logger.info(f"Re-activated {len(reactivated_urls)} previously removed jobs for {company}")
+            if self.exporter:
+                now = datetime.utcnow().isoformat()
+                self._update_sheets_for_reactivated_jobs(
+                    sheet_name=sheet_name,
+                    reactivated_urls=reactivated_urls,
+                    status_changed_date=now,
+                )
 
         # Update last_seen for all scraped jobs (not just new ones)
         self.tracker.update_last_seen_batch(company, current_urls)
@@ -183,6 +197,52 @@ class JobLifecycleManager:
         except Exception as e:
             logger.error(
                 f"Failed to update Google Sheets for removed jobs: {e}",
+                exc_info=True
+            )
+            # Don't raise - lifecycle tracking in DB already succeeded
+
+    def _update_sheets_for_reactivated_jobs(
+        self,
+        sheet_name: str,
+        reactivated_urls: list[str],
+        status_changed_date: str
+    ):
+        """
+        Update Google Sheets to mark previously-removed jobs as active again.
+
+        Mirrors _update_sheets_for_removed_jobs, in the other direction: a
+        job that comes back into the current scrape after being marked
+        'removed' needs its sheet row flipped back to 'active', or the
+        sheet (and everything downstream of it -- the digest, the live
+        feed) stays permanently wrong about a job the tracker itself has
+        already reactivated.
+
+        Args:
+            sheet_name: Worksheet name
+            reactivated_urls: URLs re-activated in the database this run
+            status_changed_date: Timestamp to record for the status flip
+        """
+        try:
+            url_to_row = self.exporter.get_existing_job_urls(sheet_name)
+
+            updates = []
+            for url in reactivated_urls:
+                row_number = url_to_row.get(url)
+                if row_number:
+                    updates.append((row_number, 'active', status_changed_date))
+
+            if updates:
+                self.exporter.batch_update_statuses(sheet_name, updates)
+                logger.info(f"Updated {len(updates)} re-activated jobs in sheet: {sheet_name}")
+            else:
+                logger.warning(
+                    f"No matching URLs found in sheet {sheet_name} "
+                    f"for {len(reactivated_urls)} re-activated jobs"
+                )
+
+        except Exception as e:
+            logger.error(
+                f"Failed to update Google Sheets for re-activated jobs: {e}",
                 exc_info=True
             )
             # Don't raise - lifecycle tracking in DB already succeeded

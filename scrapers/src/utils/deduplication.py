@@ -440,7 +440,7 @@ class DeduplicationTracker:
     def _probe_cutoff(self) -> str:
         return (datetime.utcnow() - timedelta(days=self.PROBE_TRUST_DAYS)).isoformat()
 
-    def reactivate_jobs(self, company: str, current_job_urls: set[str]) -> int:
+    def reactivate_jobs(self, company: str, current_job_urls: set[str]) -> list[str]:
         """
         Re-activate jobs that were marked removed but appear in current scrape.
 
@@ -453,10 +453,13 @@ class DeduplicationTracker:
             current_job_urls: Set of URLs from current scraping run
 
         Returns:
-            Number of jobs re-activated
+            List of URLs that were re-activated (empty if none). Callers that
+            only need the count can use len() -- returning the URLs (not just
+            a count) is what lets the caller also push the flip back to
+            Google Sheets, which a bare count could not do.
         """
         if not current_job_urls:
-            return 0
+            return []
 
         now = datetime.utcnow().isoformat()
         cursor = self.conn.cursor()
@@ -477,6 +480,18 @@ class DeduplicationTracker:
                 f"diff_vs_probe {company}: {len(held)} rows are back in the listing but the source "
                 f"page said DEAD within {self.PROBE_TRUST_DAYS} days; kept removed (first: {held[0]})"
             )
+
+        # Capture which URLs will flip before running the UPDATE, so we can
+        # hand them back to the caller (e.g. to also update Google Sheets).
+        cursor.execute(f"""
+            SELECT url FROM scraped_jobs
+            WHERE company = ?
+                AND status = 'removed'
+                AND NOT (COALESCE(source_status, '') = 'DEAD' AND COALESCE(source_checked_at, '') >= ?)
+                AND url_hash IN ({placeholders})
+        """, [company, cutoff] + url_hashes)
+        reactivated_urls = [row['url'] for row in cursor.fetchall()]
+
         cursor.execute(f"""
             UPDATE scraped_jobs
             SET status = 'active',
@@ -490,10 +505,9 @@ class DeduplicationTracker:
         """, [now, now, company, cutoff] + url_hashes)
 
         self.conn.commit()
-        count = cursor.rowcount
-        if count > 0:
-            logger.info(f"Re-activated {count} previously removed jobs for {company}")
-        return count
+        if reactivated_urls:
+            logger.info(f"Re-activated {len(reactivated_urls)} previously removed jobs for {company}")
+        return reactivated_urls
 
     def update_last_seen_batch(self, company: str, current_job_urls: set[str]):
         """

@@ -122,7 +122,16 @@ class RipplingScraper(BaseScraper):
         return '; '.join(parts) if parts else "Location not specified"
 
     def _fetch_listing_page(self, page: int) -> dict:
-        """Return the `data` object from the job-posts query on a listing page."""
+        """Return the `data` object from the job-posts query on a listing page.
+
+        A tenant with zero currently-open roles renders `dehydratedState.queries`
+        as an empty list (Rippling doesn't even register the job-posts query
+        server-side when there's nothing to page) -- confirmed 2026-09-13
+        against Forge (0 queries, board copy carries "There are currently no
+        open roles") versus a tenant with real postings (3 queries, including
+        job-posts) on the same adapter. That is a legitimately empty board,
+        not a broken parse, so it returns an empty page rather than raising.
+        """
         url = self.listing_url if page == 0 else f"{self.listing_url}?page={page}"
         nd = self._fetch_next_data(url)
         queries = nd['props']['pageProps']['dehydratedState']['queries']
@@ -130,6 +139,9 @@ class RipplingScraper(BaseScraper):
             key = q.get('queryKey') or []
             if len(key) >= 3 and key[2] == 'job-posts':
                 return q['state']['data']
+        if not queries:
+            self.logger.info("no_queries_on_board_page", url=url, note="board likely has zero open roles")
+            return {'items': [], 'totalPages': 1, 'totalItems': 0}
         raise RuntimeError("job-posts query not found in Rippling __NEXT_DATA__")
 
     def _fetch_job_detail(self, job_url: str) -> dict:
