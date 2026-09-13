@@ -67,6 +67,9 @@ class SmartRecruitersScraper(BaseScraper):
         self.queries: list[str] = [q for q in (sr.get('queries') or []) if q]
         self.max_new_details = config.get('max_new_details_per_run')
         self._known_url_checker: Optional[Callable[[str], bool]] = None
+        # Reason the most recent _request() call returned None, so callers
+        # (e.g. listing_page_failed) can log *why*, not just *that* it failed.
+        self._last_request_error: Optional[str] = None
 
     @staticmethod
     def _company_from_url(base_url: str) -> str:
@@ -91,10 +94,13 @@ class SmartRecruitersScraper(BaseScraper):
 
     async def _request(self, client: httpx.AsyncClient, url: str, params: Optional[dict] = None) -> Optional[dict]:
         """GET with retry on 429/5xx/network errors; None on 404 or exhaustion."""
+        self._last_request_error = None
+        last_exc_message: Optional[str] = None
         for attempt in range(1, MAX_ATTEMPTS + 1):
             try:
                 resp = await client.get(url, params=params, timeout=REQUEST_TIMEOUT)
             except httpx.HTTPError as e:
+                last_exc_message = f"{type(e).__name__}: {e}"
                 self.logger.warning("request_exception", url=url, attempt=attempt, error=str(e))
                 await asyncio.sleep(min(30, 2 ** attempt))
                 continue
@@ -102,9 +108,11 @@ class SmartRecruitersScraper(BaseScraper):
                 try:
                     return resp.json()
                 except ValueError as e:
+                    self._last_request_error = f"json_parse_failed: {e}"
                     self.logger.warning("json_parse_failed", url=url, error=str(e))
                     return None
             if resp.status_code == 404:
+                self._last_request_error = "404 resource_gone"
                 self.logger.info("resource_gone", url=url)
                 return None
             if resp.status_code == 429 or resp.status_code >= 500:
@@ -117,9 +125,11 @@ class SmartRecruitersScraper(BaseScraper):
                                     attempt=attempt, retry_in=delay)
                 await asyncio.sleep(delay)
                 continue
+            self._last_request_error = f"HTTP {resp.status_code}: {resp.text[:200]}"
             self.logger.error("request_failed", url=url, status=resp.status_code, body=resp.text[:200])
             return None
-        self.logger.error("request_exhausted", url=url, attempts=MAX_ATTEMPTS)
+        self._last_request_error = last_exc_message or f"exhausted {MAX_ATTEMPTS} attempts (429/5xx)"
+        self.logger.error("request_exhausted", url=url, attempts=MAX_ATTEMPTS, last_error=self._last_request_error)
         return None
 
     # --------------------------------------------------------------- listing
@@ -184,7 +194,10 @@ class SmartRecruitersScraper(BaseScraper):
                     params['q'] = term
                 data = await self._request(client, f"{API_BASE}/{self.company_id}/postings", params)
                 if not data:
-                    self.logger.error("listing_page_failed", offset=offset, query=term)
+                    self.logger.error(
+                        "listing_page_failed", offset=offset, query=term,
+                        reason=self._last_request_error or "unknown (no response captured)",
+                    )
                     break
                 if total is None:
                     total = int(data.get('totalFound') or 0)

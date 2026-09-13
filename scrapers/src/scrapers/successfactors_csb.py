@@ -73,6 +73,9 @@ class SuccessFactorsCsbScraper(BaseScraper):
         self.sitemap_url = csb.get('sitemap_url') or f"{self.origin}/sitemap.xml"
         self.max_new_details = config.get('max_new_details_per_run')
         self._known_url_checker: Optional[Callable[[str], bool]] = None
+        # Reason the most recent _get() call returned None, so callers
+        # (e.g. listing_page_failed) can log *why*, not just *that* it failed.
+        self._last_request_error: Optional[str] = None
 
     # ------------------------------------------------------------------ hooks
 
@@ -98,16 +101,20 @@ class SuccessFactorsCsbScraper(BaseScraper):
 
     async def _get(self, client: httpx.AsyncClient, url: str) -> Optional[str]:
         """GET with retry on 429/5xx/network errors; None on 404 or exhaustion."""
+        self._last_request_error = None
+        last_exc_message: Optional[str] = None
         for attempt in range(1, MAX_ATTEMPTS + 1):
             try:
                 resp = await client.get(url, timeout=REQUEST_TIMEOUT)
             except httpx.HTTPError as e:
+                last_exc_message = f"{type(e).__name__}: {e}"
                 self.logger.warning("request_exception", url=url, attempt=attempt, error=str(e))
                 await asyncio.sleep(min(30, 2 ** attempt))
                 continue
             if resp.status_code == 200:
                 return resp.text
             if resp.status_code == 404:
+                self._last_request_error = "404 resource_gone"
                 self.logger.info("resource_gone", url=url)
                 return None
             if resp.status_code == 429 or resp.status_code >= 500:
@@ -120,9 +127,11 @@ class SuccessFactorsCsbScraper(BaseScraper):
                                     attempt=attempt, retry_in=delay)
                 await asyncio.sleep(delay)
                 continue
+            self._last_request_error = f"HTTP {resp.status_code}"
             self.logger.error("request_failed", url=url, status=resp.status_code)
             return None
-        self.logger.error("request_exhausted", url=url, attempts=MAX_ATTEMPTS)
+        self._last_request_error = last_exc_message or f"exhausted {MAX_ATTEMPTS} attempts (429/5xx)"
+        self.logger.error("request_exhausted", url=url, attempts=MAX_ATTEMPTS, last_error=self._last_request_error)
         return None
 
     # --------------------------------------------------------------- parsing
@@ -240,7 +249,10 @@ class SuccessFactorsCsbScraper(BaseScraper):
                 await self._rate_limit()
             html = await self._get(client, self._search_url(startrow))
             if not html:
-                self.logger.error("listing_page_failed", startrow=startrow)
+                self.logger.error(
+                    "listing_page_failed", startrow=startrow,
+                    reason=self._last_request_error or "unknown (no response captured)",
+                )
                 break
             if total is None:
                 total = self.parse_total(html)
