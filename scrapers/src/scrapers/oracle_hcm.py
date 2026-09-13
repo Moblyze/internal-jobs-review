@@ -388,21 +388,21 @@ class OracleHCMScraper(BaseScraper):
                 self._deferred += 1
                 return None
 
-            # Location: use PrimaryLocation, append secondary locations if present
+            # Location: PrimaryLocation is `location`, unchanged from before.
+            # Oracle's own API already returns any other listed locations in
+            # `secondaryLocations` — previously appended onto the single
+            # `location` string (e.g. "Houston, Texas; Lagos, Nigeria"),
+            # which buried multi-location postings in one opaque field. Now
+            # kept as a proper `locations` list instead, same underlying data.
             primary_location = (req.get('PrimaryLocation') or 'Location Not Specified').strip()
             secondary_locations = req.get('secondaryLocations', [])
-            if secondary_locations:
-                secondary_names = [
-                    loc.get('Name', '').strip()
-                    for loc in secondary_locations
-                    if loc.get('Name', '').strip()
-                ]
-                if secondary_names:
-                    location = f"{primary_location}; {'; '.join(secondary_names)}"
-                else:
-                    location = primary_location
-            else:
-                location = primary_location
+            secondary_names = [
+                loc.get('Name', '').strip()
+                for loc in secondary_locations
+                if loc.get('Name', '').strip()
+            ]
+            location = primary_location
+            locations = [primary_location] + [n for n in secondary_names if n != primary_location]
 
             # Description: the listing endpoint only returns a short summary
             # (often whitespace). Fetch the detail record for the full HTML
@@ -449,6 +449,7 @@ class OracleHCMScraper(BaseScraper):
                 'title': title,
                 'company': self.company_name,
                 'location': location,
+                'locations': locations,
                 'description': description,
                 'url': job_url,
                 'posted_date': posted_date,

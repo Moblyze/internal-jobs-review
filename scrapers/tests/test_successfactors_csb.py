@@ -42,6 +42,15 @@ DETAIL = '''<div class="job"><h1>Technician II</h1>
 <span class="jobGeoLocation">Emmetsburg, IA, US, 50536</span>
 <span itemprop="description"><p>Requisition ID: 75248</p><p>Service <b>wind</b> turbines.</p><ul><li>GWO required</li></ul></span></div>'''
 
+# Real shape: RWE's listing collapses this to "Essen, NW, DE, 45141 +2 weitere …"
+# but the detail page renders every .jobGeoLocation span in full (verified
+# live 2026-09-13), including a cross-country one (Swindon, GB).
+MULTI_LOCATION_DETAIL = '''<div class="job"><h1>Controller</h1>
+<span class="jobGeoLocation">Essen, NW, DE, 45141</span>
+<span class="jobGeoLocation">Hamburg, HH, DE, 20354</span>
+<span class="jobGeoLocation">Swindon, Wiltshire, GB, SN5 6PB</span>
+<span itemprop="description"><p>Requisition ID: 90210</p><p>Corporate controlling role.</p></span></div>'''
+
 
 class TestSuccessFactorsCsbScraper:
     def test_search_url_and_defaults(self):
@@ -80,8 +89,47 @@ class TestSuccessFactorsCsbScraper:
         d = _scraper().parse_detail(DETAIL)
         assert d['description'] == 'Requisition ID: 75248\nService wind turbines.\nGWO required'
         assert d['location'] == 'Emmetsburg, IA, US, 50536'
+        assert d['locations'] == ['Emmetsburg, IA, US, 50536']
         assert d['requisition_id'] == '75248'
         assert _scraper().parse_detail('<p>nothing</p>') is None
+
+    def test_parse_detail_captures_every_location_on_multi_location_posting(self):
+        """The listing collapses multi-location postings to "+N weitere"
+        (see test_parse_listing_rows), but the detail page renders every
+        .jobGeoLocation span. `location` must stay the first one — same
+        value the pre-multi-location code produced — while `locations`
+        carries the full, possibly cross-country, set."""
+        d = _scraper().parse_detail(MULTI_LOCATION_DETAIL)
+        assert d['location'] == 'Essen, NW, DE, 45141'
+        assert d['locations'] == [
+            'Essen, NW, DE, 45141',
+            'Hamburg, HH, DE, 20354',
+            'Swindon, Wiltshire, GB, SN5 6PB',
+        ]
+
+    @pytest.mark.asyncio
+    async def test_extract_all_jobs_propagates_multi_location_detail(self):
+        s = _scraper()
+
+        async def fake_listing(client, max_jobs=None):
+            return [{'title': 'Controller', 'url': 'https://careers.vestas.com/job/Essen-Controller/1/',
+                     'company': 'Vestas', 'location': 'Essen, NW, DE, 45141', 'posted_date': None,
+                     'requisition_id': '90210'}]
+
+        async def fake_detail(client, url):
+            return s.parse_detail(MULTI_LOCATION_DETAIL)
+
+        s.fetch_listing = fake_listing
+        s.fetch_detail = fake_detail
+        s.set_known_url_checker(lambda url: False)
+
+        jobs = await s.extract_all_jobs()
+        assert jobs[0].location == 'Essen, NW, DE, 45141'
+        assert jobs[0].locations == [
+            'Essen, NW, DE, 45141',
+            'Hamburg, HH, DE, 20354',
+            'Swindon, Wiltshire, GB, SN5 6PB',
+        ]
 
     def test_title_from_url(self):
         assert SuccessFactorsCsbScraper.title_from_url(

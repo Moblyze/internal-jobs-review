@@ -206,12 +206,19 @@ class SuccessFactorsCsbScraper(BaseScraper):
         description = self._html_to_text(node)
         if not description:
             return None
-        loc_el = soup.select_one('.jobGeoLocation')
-        location = ' '.join(loc_el.get_text(' ', strip=True).split()) if loc_el else ''
+        # A multi-location posting renders one .jobGeoLocation span per place
+        # on the detail page even though the listing collapses them to
+        # "City +N more" (see parse_listing). select() (not select_one())
+        # picks up every one of them.
+        loc_els = soup.select('.jobGeoLocation')
+        locations = [' '.join(el.get_text(' ', strip=True).split()) for el in loc_els]
+        locations = [loc for loc in locations if loc]
+        location = locations[0] if locations else ''
         req = _REQ_ID_RE.search(description)
         return {
             'description': description,
             'location': location,
+            'locations': locations,
             'requisition_id': req.group(1) if req else None,
         }
 
@@ -345,6 +352,8 @@ class SuccessFactorsCsbScraper(BaseScraper):
                         job_data['description'] = detail['description']
                         if detail.get('location'):
                             job_data['location'] = detail['location']
+                        if detail.get('locations'):
+                            job_data['locations'] = detail['locations']
                         if detail.get('requisition_id'):
                             job_data['requisition_id'] = detail['requisition_id']
                         job_data = self._enrich_with_certifications(job_data)

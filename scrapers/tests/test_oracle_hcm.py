@@ -27,9 +27,12 @@ def _page(reqs, total):
     return {'items': [{'TotalJobsCount': total, 'requisitionList': reqs}]}
 
 
-def _req(rid, title='Inspector', desc=''):
-    return {'Id': rid, 'Title': title, 'PrimaryLocation': 'Aberdeen, UK',
-            'PostedDate': '2026-09-10', 'ExternalDescriptionStr': desc}
+def _req(rid, title='Inspector', desc='', secondary_locations=None):
+    req = {'Id': rid, 'Title': title, 'PrimaryLocation': 'Aberdeen, UK',
+           'PostedDate': '2026-09-10', 'ExternalDescriptionStr': desc}
+    if secondary_locations is not None:
+        req['secondaryLocations'] = [{'Name': name} for name in secondary_locations]
+    return req
 
 
 class TestOracleHCMScraper:
@@ -84,3 +87,23 @@ class TestOracleHCMScraper:
         assert len(jobs) == 1
         assert str(jobs[0].url) == 'https://hcog.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/7'
         assert jobs[0].location == 'Aberdeen, UK'
+
+    def test_secondary_locations_become_locations_list_not_appended_string(self):
+        """Oracle's API already returns every listed place in
+        secondaryLocations. Before this change it was folded onto `location`
+        as "Aberdeen, UK; Lagos, Nigeria"; now `location` stays just the
+        primary and `locations` carries the full set."""
+        s = _scraper(site_number='CX_1')
+        req = _req('7', desc='x' * 60, secondary_locations=['Lagos, Nigeria', 'Perth, Australia'])
+        parsed = s._parse_requisition(req)
+        assert parsed['location'] == 'Aberdeen, UK'
+        assert parsed['locations'] == ['Aberdeen, UK', 'Lagos, Nigeria', 'Perth, Australia']
+
+    @pytest.mark.asyncio
+    async def test_extract_all_jobs_keeps_multi_location_list_through_validation(self):
+        s = _scraper(site_number='CX_1')
+        s._fetch_page = lambda offset=0, site=None: _page(
+            [_req('7', desc='<p>' + 'y' * 80 + '</p>', secondary_locations=['Lagos, Nigeria'])], 1)
+        jobs = await s.extract_all_jobs()
+        assert jobs[0].location == 'Aberdeen, UK'
+        assert jobs[0].locations == ['Aberdeen, UK', 'Lagos, Nigeria']

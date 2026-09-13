@@ -58,9 +58,15 @@ class TestJobPostingModel:
         )
 
         row = job.to_sheet_row()
-        assert len(row) == 11  # Updated count
-        assert row[8] == "active"  # Status at position 8
-        assert row[9] == now.isoformat()  # Status changed date at position 9
+        # Pinned to HEADER_ROW rather than a hardcoded count: this literal
+        # went stale after an earlier column addition (14 vs. 11) and again
+        # after the `locations` column added for multi-location capture
+        # (2026-09-13) without anyone noticing, since nothing here failed
+        # loudly until the count was checked directly.
+        from src.exporters.sheets import SheetsExporter
+        assert len(row) == len(SheetsExporter.HEADER_ROW)
+        assert row[SheetsExporter.HEADER_ROW.index('Status')] == "active"
+        assert row[SheetsExporter.HEADER_ROW.index('Status Changed Date')] == now.isoformat()
 
 
 class TestDeduplicationTracker:

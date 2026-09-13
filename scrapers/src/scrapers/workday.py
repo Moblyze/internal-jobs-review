@@ -4,8 +4,10 @@ import asyncio
 import random
 import re
 from typing import Optional
+from urllib.parse import urlparse
 
 import dateparser
+import httpx
 from playwright.async_api import Page, TimeoutError as PlaywrightTimeout
 from pydantic import ValidationError
 
@@ -143,6 +145,66 @@ def extract_workday_requisition_id(url: str) -> Optional[str]:
     """
     match = re.search(r'_([A-Z0-9-]+)/?$', url)
     return match.group(1) if match else None
+
+
+def _wday_api_detail_url(job_url: str) -> Optional[str]:
+    """Derive the public CXS detail-JSON endpoint for a Workday job page URL.
+
+    Every Workday tenant exposes the same unauthenticated JSON API its own
+    single-page app calls (see workday_api.py's module docstring for the
+    full shape). Given the public job URL
+    https://{host}/{locale}/{site}/job/{path...} this returns
+    https://{host}/wday/cxs/{tenant}/{site}/job/{path...}, whose
+    `jobPostingInfo.additionalLocations` lists every place beyond the primary
+    one for a multi-location posting. Using the JSON API here (instead of
+    trying to find and expand an "N Locations" widget in the rendered DOM)
+    keeps this best-effort and independent of how a given tenant's SPA
+    happens to lay the widget out.
+    """
+    parsed = urlparse(job_url)
+    host = parsed.netloc
+    parts = [p for p in parsed.path.split('/') if p]
+    if 'job' not in parts:
+        return None
+    job_idx = parts.index('job')
+    if job_idx < 1:
+        return None
+    site = parts[job_idx - 1]
+    external_path = '/' + '/'.join(parts[job_idx:])
+    tenant = host.split('.')[0]
+    return f"https://{host}/wday/cxs/{tenant}/{site}{external_path}"
+
+
+async def fetch_additional_workday_locations(job_url: str) -> list[str]:
+    """Best-effort fetch of a Workday job's non-primary locations.
+
+    Returns [] on any failure (network error, tenant that blocks the API,
+    unexpected response shape) so callers can always safely combine this
+    with a DOM-scraped primary location — this optional enrichment can never
+    make detail extraction fail.
+    """
+    api_url = _wday_api_detail_url(job_url)
+    if not api_url:
+        return []
+    try:
+        async with httpx.AsyncClient() as client:
+            resp = await client.get(
+                api_url,
+                headers={
+                    'User-Agent': (
+                        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 '
+                        '(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+                    ),
+                    'Accept': 'application/json',
+                },
+                timeout=10.0,
+            )
+        if resp.status_code != 200:
+            return []
+        info = resp.json().get('jobPostingInfo') or {}
+        return [parse_workday_location(loc) for loc in (info.get('additionalLocations') or []) if loc]
+    except Exception:
+        return []
 
 
 class WorkdayScraper(BaseScraper):
@@ -499,6 +561,15 @@ class WorkdayScraper(BaseScraper):
         except Exception:
             # Try to find location anywhere on the page as fallback
             data['location'] = 'Location Not Specified'
+
+        # Full location set (optional; best-effort via Workday's public CXS
+        # JSON API — see fetch_additional_workday_locations). `location`
+        # above is untouched either way, so this can only add coverage, not
+        # change existing behavior.
+        extra_locations = await fetch_additional_workday_locations(job_url)
+        data['locations'] = [data['location']] + [
+            loc for loc in extra_locations if loc and loc != data['location']
+        ]
 
         # Posted date (optional)
         try:

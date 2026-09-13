@@ -83,6 +83,42 @@ class TestWorkdayApiScraper:
         assert cards[2]['requisition_id'] == 'R3'  # from the URL when bulletFields is empty
 
     @pytest.mark.asyncio
+    async def test_fetch_detail_captures_additional_locations(self):
+        """Workday's detail JSON already carries every non-primary location in
+        `additionalLocations` (verified live against Baker Hughes 2026-09-13);
+        it was simply never read. `location` must stay exactly what it was
+        before this change; `locations` adds the rest."""
+        s = _scraper()
+
+        async def fake_request(client, method, url, json_body=None):
+            return {'jobPostingInfo': {
+                'jobDescription': '<p>A real description with enough words in it.</p>',
+                'location': 'AE-ABU DHABI-AL GHAITH YARD',
+                'additionalLocations': ['AE-ABU DHABI-AL GHAITH HOLDING TOWER', 'US-TX-HOUSTON'],
+                'postedOn': 'Posted Today', 'timeType': 'Full time', 'jobReqId': 'R1',
+            }}
+
+        s._request = fake_request
+        detail = await s.fetch_detail(client=None, external_path='/job/x')
+        assert detail['location'] == 'Abu Dhabi, AE'
+        assert detail['locations'] == ['Abu Dhabi, AE', 'Houston, TX, US']
+
+    @pytest.mark.asyncio
+    async def test_fetch_detail_with_no_additional_locations_yields_single_item_list(self):
+        s = _scraper()
+
+        async def fake_request(client, method, url, json_body=None):
+            return {'jobPostingInfo': {
+                'jobDescription': '<p>A real description with enough words in it.</p>',
+                'location': 'US-TX-HOUSTON', 'postedOn': 'Posted Today',
+            }}
+
+        s._request = fake_request
+        detail = await s.fetch_detail(client=None, external_path='/job/x')
+        assert detail['location'] == 'Houston, TX, US'
+        assert detail['locations'] == ['Houston, TX, US']
+
+    @pytest.mark.asyncio
     async def test_known_urls_skip_detail_but_stay_in_result(self):
         s = _scraper()
         detail_calls = []

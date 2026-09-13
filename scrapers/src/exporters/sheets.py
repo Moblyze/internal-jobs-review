@@ -116,7 +116,8 @@ class SheetsExporter:
         'Employment Type',
         'Status',
         'Status Changed Date',
-        'Scraped At'
+        'Scraped At',
+        'Locations'
     ]
 
     # Google Sheets API scopes (Drive scope needed for opening spreadsheets by name)
@@ -184,7 +185,7 @@ class SheetsExporter:
             worksheet = self.spreadsheet.add_worksheet(
                 title=sheet_name,
                 rows=1000,
-                cols=14  # 14 columns including Employment Type
+                cols=15  # 15 columns including Employment Type and Locations
             )
 
         # Ensure header row exists and matches current schema
@@ -193,7 +194,7 @@ class SheetsExporter:
             logger.info(f"Updating header row to match schema: {sheet_name}")
             _retry_429(
                 worksheet.update,
-                values=[self.HEADER_ROW], range_name='A1:N1', value_input_option='RAW'
+                values=[self.HEADER_ROW], range_name='A1:O1', value_input_option='RAW'
             )
 
         return worksheet
@@ -210,10 +211,10 @@ class SheetsExporter:
         Raises:
             APIError: If API error persists after retries (see _retry_429 at call site)
         """
-        # Use explicit range notation to ensure data goes to columns A-N
+        # Use explicit range notation to ensure data goes to columns A-O
         # This prevents the gspread append_rows() bug that shifts data to the right
         end_row = start_row + len(rows) - 1
-        range_notation = f'A{start_row}:N{end_row}'
+        range_notation = f'A{start_row}:O{end_row}'
         worksheet.update(values=rows, range_name=range_notation, value_input_option='RAW')
 
     def export_jobs(self, jobs: list[JobPosting], sheet_name: str) -> int:

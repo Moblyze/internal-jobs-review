@@ -19,12 +19,22 @@ Every Workday tenant exposes the same JSON API its own single-page app uses:
 
     GET  https://{host}/wday/cxs/{tenant}/{site}{externalPath}
          -> {"jobPostingInfo": {"title", "jobDescription" (HTML), "location",
-             "postedOn", "startDate", "timeType", "jobReqId", ...}}
+             "additionalLocations": [...], "postedOn", "startDate",
+             "timeType", "jobReqId", ...}}
 
 One small JSON request per job instead of a full page render. Job URLs are
 built as https://{host}/{locale}/{site}{externalPath}, which is byte-for-byte
 the URL the browser scraper recorded, so the dedup tracker and the lifecycle
 manager see the same identities and no history is lost.
+
+MULTI-LOCATION CAPTURE (2026-09-13)
+------------------------------------
+A meaningful share of Workday postings list more than one place (a single
+req open in Houston and Dallas, or Abu Dhabi and a UAE site 10km away). The
+detail JSON already carries every location beyond the primary one in
+`additionalLocations` — it was simply never read. `fetch_detail` now returns
+both `location` (the primary, unchanged) and `locations` (the full list,
+locations[0] == location) so JobPosting.locations captures the rest.
 
 Used by: Baker Hughes, KBR (platform: workday_api in companies.yaml).
 The browser-based WorkdayScraper (platform: workday) is unchanged for the
@@ -288,9 +298,17 @@ class WorkdayApiScraper(BaseScraper):
             return None
 
         salary_match = _SALARY_RE.search(description)
+        primary_location = parse_workday_location(info.get('location') or '')
+        additional_locations = [
+            parse_workday_location(loc) for loc in (info.get('additionalLocations') or []) if loc
+        ]
+        locations = [primary_location] + [
+            loc for loc in additional_locations if loc and loc != primary_location
+        ]
         return {
             'description': description,
-            'location': parse_workday_location(info.get('location') or ''),
+            'location': primary_location,
+            'locations': locations,
             'posted_date': self._parse_posted(info.get('postedOn') or '', info.get('startDate')),
             'employment_type': self._normalize_employment_type(info.get('timeType')),
             'requisition_id': info.get('jobReqId') or None,

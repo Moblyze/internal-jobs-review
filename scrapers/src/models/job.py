@@ -22,6 +22,19 @@ class JobPosting(BaseModel):
 
     # Optional fields (EXTRACT-11 through EXTRACT-14)
     posted_date: Optional[datetime] = Field(None, description="Date job was posted")
+    locations: list[str] = Field(
+        default_factory=list,
+        description=(
+            "All locations listed on the source posting, in source order. "
+            "locations[0] always matches `location` exactly, so `location` "
+            "stays a safe single-value field for existing consumers while "
+            "`locations` carries the full set for postings that name more "
+            "than one place (e.g. a Workday req open in both Houston and "
+            "Dubai). Falls back to [location] when the source lists only "
+            "one place or the scraper hasn't been extended to capture "
+            "multiples yet — never empty on a validated JobPosting."
+        ),
+    )
     skills: list[str] = Field(default_factory=list, description="Required skills (e.g., 'project management', 'welding')")
     certifications: list[str] = Field(default_factory=list, description="Required certifications/licenses (e.g., 'CDL-A', 'OSHA 30', 'API 510') - EXTRACT-14")
     salary: Optional[str] = Field(None, description="Salary information when available")
@@ -65,6 +78,19 @@ class JobPosting(BaseModel):
         from src.aggregators.cleanup import looks_like_company_name
         if looks_like_company_name(self.location, self.company):
             self.location = "Unknown"
+            self.locations = ["Unknown"] if len(self.locations) <= 1 else self.locations
+        return self
+
+    @model_validator(mode='after')
+    def default_locations_to_primary(self) -> 'JobPosting':
+        """Guarantee `locations` is never empty, for scrapers not yet extended
+        to capture multiple locations.
+
+        Runs after sanitize_company_in_location so a sanitized "Unknown"
+        location is reflected here too.
+        """
+        if not self.locations:
+            self.locations = [self.location]
         return self
 
     def to_sheet_row(self) -> list:
@@ -74,7 +100,7 @@ class JobPosting(BaseModel):
         Returns:
             List of values in column order: [title, company, location, description,
             url, requisition_id, posted_date, skills, certifications, salary,
-            employment_type, status, status_changed_date, scraped_at]
+            employment_type, status, status_changed_date, scraped_at, locations]
         """
         return [
             self.title,
@@ -90,5 +116,6 @@ class JobPosting(BaseModel):
             self.employment_type or '',
             self.status,
             self.status_changed_date.isoformat() if self.status_changed_date else '',
-            self.scraped_at.isoformat()
+            self.scraped_at.isoformat(),
+            '; '.join(self.locations) if len(self.locations) > 1 else '',
         ]

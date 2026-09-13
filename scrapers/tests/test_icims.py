@@ -39,13 +39,14 @@ LEGACY_LISTING = '''
 '''
 
 
-def _legacy_detail_page():
+def _legacy_detail_page(job_location=None):
     ld = {'@context': 'https://schema.org', '@type': 'JobPosting', 'title': 'Rope Access III',
           'description': '<p>Perform <b>NDE</b> inspections.</p><ul><li>IRATA L3</li></ul>',
           'datePosted': '2026-09-11T04:00:00.000Z', 'validThrough': '2027-09-11T04:00:00.000Z',
           'employmentType': 'FULL_TIME',
-          'jobLocation': [{'@type': 'Place', 'address': {'@type': 'PostalAddress', 'addressLocality': 'Duluth',
-                                                          'addressRegion': 'MN', 'addressCountry': 'US'}}]}
+          'jobLocation': job_location or [
+              {'@type': 'Place', 'address': {'@type': 'PostalAddress', 'addressLocality': 'Duluth',
+                                              'addressRegion': 'MN', 'addressCountry': 'US'}}]}
     return f'<html><head><script type="application/ld+json">{json.dumps(ld)}</script></head><body></body></html>'
 
 
@@ -76,7 +77,22 @@ class TestLegacyPortal:
         assert d['posted_date'] == datetime(2026, 9, 11)
         assert d['valid_through'] == datetime(2027, 9, 11)
         assert d['location'] == 'Duluth, MN, US'
+        assert d['locations'] == ['Duluth, MN, US']
         assert d['employment_type'] == 'FULL_TIME'
+
+    def test_parse_detail_json_ld_multi_location(self):
+        """schema.org jobLocation can be an array of Place entries. Before
+        this change every entry beyond the first was folded into one
+        semicolon string on `location`; now `location` stays the first
+        (unchanged) and `locations` carries the full, deduped set."""
+        multi = [
+            {'@type': 'Place', 'address': {'addressLocality': 'Duluth', 'addressRegion': 'MN', 'addressCountry': 'US'}},
+            {'@type': 'Place', 'address': {'addressLocality': 'Duluth', 'addressRegion': 'MN', 'addressCountry': 'US'}},
+            {'@type': 'Place', 'address': {'addressLocality': 'Calgary', 'addressRegion': 'AB', 'addressCountry': 'CA'}},
+        ]
+        d = _legacy().parse_legacy_detail(_legacy_detail_page(job_location=multi))
+        assert d['location'] == 'Duluth, MN, US'
+        assert d['locations'] == ['Duluth, MN, US', 'Calgary, AB, CA']  # exact duplicate collapsed
 
     @pytest.mark.asyncio
     async def test_known_urls_skip_detail_and_budget_defers(self):
@@ -101,6 +117,25 @@ class TestLegacyPortal:
         assert [j.requisition_id for j in jobs] == ['1', '2']
         assert 'listing only' in jobs[0].description
         assert jobs[1].location == 'Houston, TX, US' and jobs[1].posted_date == datetime(2026, 9, 1)
+
+    @pytest.mark.asyncio
+    async def test_multi_location_detail_reaches_the_final_posting(self):
+        s = _legacy()
+
+        async def fake_listing(client, max_jobs=None):
+            return [{'title': 'Multi', 'url': 'https://uscareers-acuren.icims.com/jobs/9/multi/job', 'company': 'Acuren',
+                     'location': 'US-TX-Houston', 'requisition_id': '9', 'employment_type': None, 'posted_date': None}]
+
+        async def fake_detail(client, url):
+            return {'description': 'A real description with enough words in it.',
+                    'location': 'Houston, TX, US', 'locations': ['Houston, TX, US', 'Calgary, AB, CA']}
+
+        s.fetch_legacy_listing = fake_listing
+        s.fetch_detail = fake_detail
+        s.set_known_url_checker(lambda url: False)
+        jobs = await s.extract_all_jobs()
+        assert jobs[0].location == 'Houston, TX, US'
+        assert jobs[0].locations == ['Houston, TX, US', 'Calgary, AB, CA']
 
 
 class TestNewPortal:

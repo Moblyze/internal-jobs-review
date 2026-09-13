@@ -228,8 +228,13 @@ class ICIMSScraper(BaseScraper):
                                                   addr.get('addressCountry')) if p)
                     if piece:
                         parts.append(piece)
+                # Dedup while preserving order; keep the first as `location`
+                # (unchanged behavior) and the full set as `locations` rather
+                # than folding every place into one opaque semicolon string.
+                parts = list(dict.fromkeys(parts))
                 if parts:
-                    out['location'] = '; '.join(dict.fromkeys(parts))
+                    out['location'] = parts[0]
+                    out['locations'] = parts
                 break
         if not out.get('description'):
             node = soup.select_one('.iCIMS_JobContent') or soup.select_one('.iCIMS_JobPage')
@@ -394,7 +399,7 @@ class ICIMSScraper(BaseScraper):
                             detail_failures += 1
                             self.logger.warning("detail_unavailable", url=card['url'])
                             continue
-                        for key in ('description', 'posted_date', 'location', 'employment_type'):
+                        for key in ('description', 'posted_date', 'location', 'locations', 'employment_type'):
                             if detail.get(key):
                                 job_data[key] = detail[key]
                         if detail.get('valid_through'):
