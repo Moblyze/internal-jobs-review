@@ -320,6 +320,83 @@ class TestProber:
         v = p.probe("https://x.example/job/1", "Rigger Offshore")
         assert v.status == lv.LIVE and v.fetched_url == "https://x.example/job/1"
 
+    def test_eightfold_deny_by_default_with_specific_allow_is_probed(self):
+        # slb.eightfold.ai/robots.txt and jobs.worley.com/robots.txt as of
+        # 2026-09-13: "Disallow: /" followed by "Allow: /careers" is the
+        # Eightfold-templated pattern that made Worley and Schlumberger come
+        # back 100% UNKNOWN in the 2026-09-13 03:00Z probe (run
+        # 34734549584) -- stdlib urllib.robotparser evaluates rules by file
+        # order and hits "Disallow: /" before ever considering the longer,
+        # more specific "Allow: /careers", incorrectly disallowing every job
+        # page on the host. The real page (verified live 2026-09-13) has a
+        # full JobPosting JSON-LD block, so a correctly-permissive robots
+        # check should let this classify as LIVE.
+        robots = ("User-agent: *\nDisallow: /\nAllow: /$\nAllow: /careers\n"
+                  "Allow: /api/apply\nAllow: /api/pcsx\n")
+        html = ('<html><script type="application/ld+json">'
+                '{"@type": "JobPosting", "title": "Project Accountant II"}'
+                '</script></html>')
+        p = _mock_prober({
+            "https://jobs.worley.com/robots.txt": (200, robots, None),
+            "https://jobs.worley.com/careers/job/1133911358992": (200, html, None),
+        })
+        v = p.probe("https://jobs.worley.com/careers/job/1133911358992", platform="eightfold")
+        assert v.status == lv.LIVE, v.reason
+        assert p.calls == [
+            "https://jobs.worley.com/robots.txt",
+            "https://jobs.worley.com/careers/job/1133911358992",
+        ]
+
+    def test_eightfold_deny_by_default_still_blocks_paths_outside_any_allow(self):
+        robots = "User-agent: *\nDisallow: /\nAllow: /careers\n"
+        p = _mock_prober({"https://jobs.worley.com/robots.txt": (200, robots, None)})
+        v = p.probe("https://jobs.worley.com/candidate/profile/1", platform="eightfold")
+        assert v.status == lv.UNKNOWN and v.reason.startswith("robots disallows")
+
+
+class TestRobotsLongestMatch:
+    """Unit coverage for parse_robots_rules()/robots_can_fetch(), the
+    longest-match-wins replacement for stdlib urllib.robotparser (2026-09-13:
+    see the large comment above parse_robots_rules() in liveness.py)."""
+
+    UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+          "(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36")
+
+    def test_longer_allow_beats_earlier_shorter_disallow(self):
+        robots = "User-agent: *\nDisallow: /\nAllow: /careers\n"
+        assert lv.robots_can_fetch(robots, self.UA, "/careers/job/123") is True
+
+    def test_disallow_wins_outside_the_allow_prefix(self):
+        robots = "User-agent: *\nDisallow: /\nAllow: /careers\n"
+        assert lv.robots_can_fetch(robots, self.UA, "/candidate/login") is False
+
+    def test_no_matching_rule_means_allowed(self):
+        robots = "User-agent: *\nDisallow: /private/\n"
+        assert lv.robots_can_fetch(robots, self.UA, "/careers/job/1") is True
+
+    def test_end_anchor_matches_only_exact_path(self):
+        robots = "User-agent: *\nDisallow: /\nAllow: /$\n"
+        assert lv.robots_can_fetch(robots, self.UA, "/") is True
+        assert lv.robots_can_fetch(robots, self.UA, "/careers") is False
+
+    def test_equal_length_tie_prefers_allow(self):
+        robots = "User-agent: *\nDisallow: /jobs\nAllow: /jobs\n"
+        assert lv.robots_can_fetch(robots, self.UA, "/jobs") is True
+
+    def test_wildcard_star_matches_any_sequence(self):
+        robots = "User-agent: *\nDisallow: /*/refreshFacet\n"
+        assert lv.robots_can_fetch(robots, self.UA, "/en-US/refreshFacet") is False
+        assert lv.robots_can_fetch(robots, self.UA, "/en-US/job/1") is True
+
+    def test_named_agent_group_overrides_star(self):
+        robots = ("User-agent: *\nDisallow: /careers\n"
+                   "User-agent: Mozilla\nAllow: /careers\n")
+        assert lv.robots_can_fetch(robots, self.UA, "/careers/job/1") is True
+
+    def test_empty_disallow_value_is_a_noop(self):
+        robots = "User-agent: *\nDisallow:\n"
+        assert lv.robots_can_fetch(robots, self.UA, "/anything") is True
+
     def test_workday_routes_to_cxs_and_honors_robots_off(self):
         body = json.dumps({"jobPostingInfo": {"posted": True, "endDate": "2026-12-31"}})
         p = _mock_prober({"https://t.wd5.myworkdayjobs.com/wday/cxs/t/Site/job/L/R_1": (200, body, None)},

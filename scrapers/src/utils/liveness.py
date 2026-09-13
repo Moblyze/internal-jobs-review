@@ -52,7 +52,6 @@ import logging
 import re
 import threading
 import time
-import urllib.robotparser
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass
 from datetime import date, datetime, timezone
@@ -541,6 +540,107 @@ def parse_sitemap_urls(xml_text: str) -> tuple[list[str], list[str]]:
 
 
 # --------------------------------------------------------------------------
+# robots.txt (longest-match, spec-compliant -- NOT stdlib RobotFileParser)
+# --------------------------------------------------------------------------
+#
+# WHY THIS EXISTS (2026-09-13)
+# ----------------------------
+# Worley and Schlumberger (both Eightfold-hosted) came back 100% UNKNOWN in
+# the 2026-09-13 03:00Z liveness probe, all with reason "robots disallows
+# /careers/job/...". Their actual robots.txt (fetched directly, confirmed
+# live 2026-09-13):
+#
+#     User-agent: *
+#     Disallow: /
+#     Allow: /$
+#     Allow: /careers
+#     ...
+#
+# Per the robots.txt spec (and every real crawler), the LONGEST matching
+# rule wins regardless of file order, so "Allow: /careers" (9 chars) beats
+# "Disallow: /" (1 char) for a path like "/careers/job/12345" -- the path
+# is allowed. stdlib's urllib.robotparser.RobotFileParser does not implement
+# this: verified directly (2026-09-13) that
+# RobotFileParser.can_fetch(ua, ".../careers/job/...") returns False against
+# this exact file, because it evaluates rules by file order rather than by
+# specificity and hits the broad "Disallow: /" first. That is a real,
+# reproducible stdlib limitation, not a network/anti-bot issue -- our own
+# fetch of the actual job page succeeds and contains a full JobPosting
+# JSON-LD block; the bug was entirely in how we interpreted robots.txt.
+#
+# This is a fairly common real-world pattern (deny-by-default, then allow-list
+# specific sections), so it is very likely to bite other Eightfold/ATS hosts
+# again. Replacing RobotFileParser with a small longest-match implementation
+# fixes the whole class of "Disallow: / ... Allow: /specific-path" files.
+
+def _robots_pattern_to_regex(pattern: str) -> re.Pattern:
+    """Compile one robots.txt path pattern to a regex per Google's matching
+    rules: '*' matches any sequence, '$' anchors the end of the pattern to
+    the end of the path, and everything else is matched literally."""
+    anchored = pattern.endswith("$")
+    body = pattern[:-1] if anchored else pattern
+    regex = "".join(".*" if ch == "*" else re.escape(ch) for ch in body)
+    if anchored:
+        regex += "$"
+    return re.compile(regex)
+
+
+def parse_robots_rules(text: str, user_agent: str) -> list[tuple[str, bool]]:
+    """Return [(pattern, is_allow), ...] for the group matching user_agent,
+    falling back to the '*' group when there's no exact product-token match.
+    Group selection and directive parsing follow the common subset every
+    real robots.txt relies on; matching precedence is applied by
+    robots_can_fetch(), not here."""
+    ua_token = user_agent.split("/")[0].strip().lower()
+    groups: dict[str, list[tuple[str, bool]]] = {}
+    current: list[str] = []
+    for raw_line in text.splitlines():
+        line = raw_line.split("#", 1)[0].strip()
+        if not line or ":" not in line:
+            continue
+        field, _, value = line.partition(":")
+        field = field.strip().lower()
+        value = value.strip()
+        if field == "user-agent":
+            agent = value.lower()
+            # A run of consecutive User-agent lines shares one rule block
+            # (the common "User-agent: a\nUser-agent: b\nDisallow: ..." form).
+            if current and groups.get(current[-1]):
+                current = []
+            current.append(agent)
+            groups.setdefault(agent, [])
+        elif field in ("allow", "disallow") and current:
+            is_allow = field == "allow"
+            for agent in current:
+                if value or is_allow:
+                    groups[agent].append((value, is_allow))
+                # Disallow: (empty value) means "allow everything" -- a
+                # no-op rule, safe to skip rather than special-case.
+    if ua_token in groups:
+        return groups[ua_token]
+    return groups.get("*", [])
+
+
+def robots_can_fetch(text: str, user_agent: str, path: str) -> bool:
+    """True if `path` is allowed by this robots.txt for user_agent, using
+    longest-match-wins precedence (ties go to Allow) per the de facto robots
+    exclusion standard -- unlike stdlib's RobotFileParser, which applies
+    rules in file order and gets patterns like 'Disallow: /' followed by a
+    more specific 'Allow: /careers' wrong. No matching rule means allowed."""
+    best_len = -1
+    best_allow = True
+    for pattern, is_allow in parse_robots_rules(text, user_agent):
+        if not pattern:
+            continue
+        if _robots_pattern_to_regex(pattern).match(path):
+            length = len(pattern)
+            if length > best_len or (length == best_len and is_allow and not best_allow):
+                best_len = length
+                best_allow = is_allow
+    return best_allow
+
+
+# --------------------------------------------------------------------------
 # the prober (network side)
 # --------------------------------------------------------------------------
 
@@ -560,7 +660,7 @@ class LivenessProber:
         )
         self._lock = threading.Lock()
         self._next_slot: dict[str, float] = {}
-        self._robots: dict[str, Optional[urllib.robotparser.RobotFileParser]] = {}
+        self._robots: dict[str, Optional[str]] = {}
         self._robots_lock = threading.Lock()
         self._crewbase_live: Optional[set] = None
         self._crewbase_loaded = False
@@ -594,21 +694,23 @@ class LivenessProber:
 
     # -- robots --------------------------------------------------------------
 
-    def _robots_for(self, host: str) -> Optional[urllib.robotparser.RobotFileParser]:
-        """RobotFileParser for the host; None when robots.txt could not be read (5xx/error)."""
+    def _robots_for(self, host: str) -> Optional[str]:
+        """robots.txt body for the host, or None when it could not be read
+        (5xx/error). Empty string means no robots file (4xx): everything
+        allowed. Matching against the body happens in robots_allows() via
+        robots_can_fetch(), a longest-match-wins parser -- see the big
+        comment above parse_robots_rules() for why this isn't
+        urllib.robotparser."""
         with self._robots_lock:
             if host in self._robots:
                 return self._robots[host]
-        rp = urllib.robotparser.RobotFileParser()
         resp = self.fetch(f"https://{host}/robots.txt", accept="text/plain,*/*;q=0.8")
         if resp.error or resp.status_code is None or resp.status_code >= 500:
             result = None
         elif resp.status_code >= 400:
-            rp.parse([])          # no robots file: everything allowed
-            result = rp
+            result = ""            # no robots file: everything allowed
         else:
-            rp.parse(resp.text.splitlines())
-            result = rp
+            result = resp.text
         with self._robots_lock:
             self._robots[host] = result
         return result
@@ -616,11 +718,13 @@ class LivenessProber:
     def robots_allows(self, url: str) -> tuple[bool, str]:
         if not self.honor_robots:
             return True, ""
-        host = urlparse(url).netloc.lower()
-        rp = self._robots_for(host)
-        if rp is None:
+        p = urlparse(url)
+        host = p.netloc.lower()
+        text = self._robots_for(host)
+        if text is None:
             return False, f"robots.txt unavailable on {host}"
-        if rp.can_fetch(self.user_agent, url):
+        match_target = p.path + (f"?{p.query}" if p.query else "")
+        if robots_can_fetch(text, self.user_agent, match_target):
             return True, ""
         return False, f"robots disallows {urlparse(url).path[:60]} on {host}"
 
