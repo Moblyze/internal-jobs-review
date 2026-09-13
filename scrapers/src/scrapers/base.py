@@ -2,7 +2,6 @@
 
 import asyncio
 import logging
-import os
 import random
 import sys
 from abc import ABC, abstractmethod
@@ -21,28 +20,6 @@ sys.path.insert(0, str(scrapers_path))
 from certification_extractor import extract_job_certifications
 
 logger = structlog.get_logger()
-
-# Process-wide cap on concurrent Playwright browser instances.
-#
-# main.py launches every company's scrape as a concurrent asyncio task with
-# no limit on how many run at once (2026-09-13 incident: ~28 of ~71
-# companies use a Playwright-based scraper, each launching its own headless
-# Chromium). On the single ubuntu-latest GH Actions runner, 20+ simultaneous
-# Chromium processes exhaust CPU/memory, which starves the *other*,
-# httpx-only scrapers (workday_api, icims, successfactors_csb,
-# smartrecruiters) of the CPU time and socket availability their listing
-# requests need — those failed with "listing_page_failed" at offset 0 within
-# milliseconds of each other, and Playwright-heavy companies (Chevron,
-# Marathon Petroleum, SGS) blew through the 45-minute per-company timeout.
-# This semaphore is a module-level global (shared by every BaseScraper
-# subclass instance in the process), so it caps the true bottleneck resource
-# regardless of how many scrape tasks main.py fires off.
-#
-# See docs/2026-09-13-runner-contention-scheduling-fix-proposal.md — this
-# commit is deliberately reverted immediately afterward; it exists in git
-# history as a ready-to-apply fix, not as active behavior on this branch.
-MAX_CONCURRENT_BROWSERS = int(os.environ.get('MAX_CONCURRENT_BROWSERS', '6'))
-_BROWSER_LAUNCH_SEMAPHORE = asyncio.Semaphore(MAX_CONCURRENT_BROWSERS)
 
 
 class BaseScraper(ABC):
@@ -77,17 +54,10 @@ class BaseScraper(ABC):
         self.logger = logger.bind(company=self.company_name)
         self._browser: Optional[Browser] = None
         self._context: Optional[BrowserContext] = None
-        self._holds_browser_slot = False
 
     async def _get_browser_context(self) -> BrowserContext:
         """
         Launch Playwright browser and create context with anti-detection settings.
-
-        Blocks on MAX_CONCURRENT_BROWSERS (module-level semaphore, shared
-        across every scraper instance in the process) so at most that many
-        Chromium processes run at once, regardless of how many companies
-        main.py has launched concurrently. The slot is held for the life of
-        this browser instance and released in _close_browser.
 
         Returns:
             BrowserContext configured for web scraping
@@ -95,36 +65,25 @@ class BaseScraper(ABC):
         if self._context:
             return self._context
 
-        self.logger.debug("waiting_for_browser_slot", max_concurrent=MAX_CONCURRENT_BROWSERS)
-        await _BROWSER_LAUNCH_SEMAPHORE.acquire()
-        self._holds_browser_slot = True
+        self.logger.info("launching_browser")
+        playwright = await async_playwright().start()
 
-        try:
-            self.logger.info("launching_browser")
-            playwright = await async_playwright().start()
+        # Launch headless Chromium with realistic settings
+        self._browser = await playwright.chromium.launch(
+            headless=True,
+            args=[
+                '--disable-blink-features=AutomationControlled',
+                '--disable-dev-shm-usage',
+                '--no-sandbox'
+            ]
+        )
 
-            # Launch headless Chromium with realistic settings
-            self._browser = await playwright.chromium.launch(
-                headless=True,
-                args=[
-                    '--disable-blink-features=AutomationControlled',
-                    '--disable-dev-shm-usage',
-                    '--no-sandbox'
-                ]
-            )
-
-            # Create context with desktop Chrome user agent and viewport
-            self._context = await self._browser.new_context(
-                user_agent='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-                viewport={'width': 1920, 'height': 1080},
-                locale='en-US'
-            )
-        except Exception:
-            # Launch failed after we took a slot; release it so we don't
-            # permanently shrink the pool for the rest of the process.
-            self._holds_browser_slot = False
-            _BROWSER_LAUNCH_SEMAPHORE.release()
-            raise
+        # Create context with desktop Chrome user agent and viewport
+        self._context = await self._browser.new_context(
+            user_agent='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            viewport={'width': 1920, 'height': 1080},
+            locale='en-US'
+        )
 
         return self._context
 
@@ -136,9 +95,6 @@ class BaseScraper(ABC):
         if self._browser:
             await self._browser.close()
             self._browser = None
-        if self._holds_browser_slot:
-            self._holds_browser_slot = False
-            _BROWSER_LAUNCH_SEMAPHORE.release()
 
     async def _rate_limit(self):
         """
