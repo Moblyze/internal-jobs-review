@@ -24,6 +24,25 @@ Usage:
 # max_detail_pages in companies.yaml to cap detail page fetching.
 DEFAULT_COMPANY_TIMEOUT = 2700  # 45 minutes
 
+# Cap on how many companies scrape concurrently (2026-09-13 incident fix).
+#
+# Previously every company ran as a concurrent asyncio task with no limit at
+# all: on 2026-09-13, ~71 companies (up from ~45) launched at once on one
+# GH Actions runner. ~28 of those use a Playwright-based scraper (each its
+# own headless Chromium process) and the rest are httpx-only API clients
+# (workday_api, icims, successfactors_csb, smartrecruiters). The resulting
+# CPU/memory/socket contention caused 23 httpx-based companies to fail their
+# very first listing request within milliseconds of each other, and 3
+# Playwright-heavy companies (Chevron, Marathon Petroleum, SGS) to blow
+# through the 45-min per-company timeout — all previously working fine.
+# See also MAX_CONCURRENT_BROWSERS in src/scrapers/base.py, which caps the
+# heavier resource (Chromium processes) specifically.
+#
+# See docs/2026-09-13-runner-contention-scheduling-fix-proposal.md — this
+# commit is deliberately reverted immediately afterward; it exists in git
+# history as a ready-to-apply fix, not as active behavior on this branch.
+MAX_CONCURRENT_SCRAPES = int(os.environ.get('MAX_CONCURRENT_SCRAPES', '12'))
+
 # A company that historically returns a meaningful number of jobs but comes
 # back with 0 extracted this run is treated as a hard failure, not a quiet
 # zero. 10 mirrors the CRITICAL_PREV_THRESHOLD already used by
@@ -497,27 +516,25 @@ async def main(
         for config in companies_to_scrape.values()
     }
 
-    # Scrape companies in parallel (faster, reduces 3hr runtime to ~30 mins).
-    #
-    # NOTE (2026-09-13): this unbounded concurrency is the prime suspect for
-    # that day's 23-company failure cluster + 3 timeout regressions (see
-    # docs/2026-09-13-runner-contention-scheduling-fix-proposal.md for the
-    # full diagnosis and a ready-to-apply semaphore-based fix). Jesse asked
-    # to hold off applying it until we see whether the failure reproduces on
-    # the 2026-09-14 scheduled run — deliberately NOT changed here.
-    tasks = []
-    for company_key, config in companies_to_scrape.items():
-        task = scrape_company(
-            config=config,
-            tracker=tracker,
-            lifecycle_manager=lifecycle_manager,
-            exporter=exporter,
-            max_jobs=max_jobs,
-            dry_run=dry_run
-        )
-        tasks.append(task)
+    # Scrape companies in parallel, bounded by MAX_CONCURRENT_SCRAPES (faster
+    # than fully sequential, but no longer unbounded — see the constant's
+    # comment for why unbounded concurrency caused the 2026-09-13 incident).
+    scrape_semaphore = asyncio.Semaphore(MAX_CONCURRENT_SCRAPES)
 
-    # Run all company scrapes concurrently
+    async def scrape_company_limited(config: dict) -> dict:
+        async with scrape_semaphore:
+            return await scrape_company(
+                config=config,
+                tracker=tracker,
+                lifecycle_manager=lifecycle_manager,
+                exporter=exporter,
+                max_jobs=max_jobs,
+                dry_run=dry_run
+            )
+
+    tasks = [scrape_company_limited(config) for config in companies_to_scrape.values()]
+
+    # Run all company scrapes concurrently (bounded)
     results = await asyncio.gather(*tasks, return_exceptions=True)
 
     # Convert exceptions to error results
