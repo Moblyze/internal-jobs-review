@@ -51,7 +51,7 @@ from src.scrapers.workday import extract_workday_requisition_id, parse_workday_l
 PAGE_SIZE = 20
 # Safety cap on listing pages (20 x 400 = 8,000 postings).
 MAX_LISTING_PAGES = 400
-REQUEST_TIMEOUT = 30.0
+REQUEST_TIMEOUT = 60.0  # was 30.0; raised 2026-09-14 -- see main.py's STARTUP_STAGGER_SECONDS comment for the measured ~2x timeout inflation this compensates for
 MAX_ATTEMPTS = 4
 
 _BLOCK_TAGS = ['p', 'div', 'li', 'ul', 'ol', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'tr', 'table', 'section']
