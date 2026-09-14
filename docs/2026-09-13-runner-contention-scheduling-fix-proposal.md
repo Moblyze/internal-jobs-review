@@ -1,12 +1,12 @@
-# Runner contention: diagnosis and a ready-to-apply scheduling fix (not yet applied)
+# Runner contention: diagnosis and the applied scheduling fix
 
-Status: **design only, NOT applied to main.py / base.py on this branch.** Jesse
-asked to hold off restructuring scheduling until we see whether the failure
-reproduces on the 2026-09-14 scheduled run, so this branch has only the
-silent-failure-logging fix and the critical-regression failure signal
-applied. This doc (plus commit `e23f3e8` and its immediate revert `020c882`
-on branch `fix/daily-scrape-runner-contention`) is the design to apply if the
-failure recurs.
+Status: **APPLIED.** The 2026-09-14 09:01Z scheduled run (34825740852)
+reproduced the same failure shape (24 employers, same set, same tight
+timestamp clustering) as 2026-09-13, confirming this is systemic rather than
+a one-off. Jesse approved applying the fix. The semaphore code originally
+landed in commit `e23f3e8`, was reverted as `020c882` pending confirmation,
+and was re-applied via `git revert 020c882` (commit `bc475bd`) on branch
+`fix/daily-scrape-runner-contention` once the regression repeated.
 
 ## What happened (2026-09-13)
 
@@ -111,15 +111,17 @@ lands — but it requires re-plumbing dedup-state merging across more shards
 and is a bigger surface area to get wrong, so it's not the first thing to
 reach for.
 
-## Why this isn't applied yet
+## Timeline
 
-Jesse's call (2026-09-13, in-session): one data point (this morning's run)
-isn't enough to justify restructuring the daily workflow's scheduling. If the
-2026-09-14 scheduled run (09:00 UTC) reproduces the same failure pattern
-(especially the same or an overlapping set of companies), that's confirmation
-this is systemic and the fix below should be applied. If it does NOT
-reproduce, treat 09-13 as a one-off (e.g., a transient GH Actions
-infrastructure blip, or a temporary bump in a shared resource) and revisit.
-
-**To apply:** `git revert 020c882` on this branch re-lands the semaphore code
-from commit `e23f3e8` cleanly.
+- **2026-09-13**: first observed. Jesse held off applying the fix pending a
+  second data point, per the reasoning above.
+- **2026-09-14 09:01Z, run 34825740852**: reproduced. Same 24-employer set
+  (KBR, Baker Hughes, BP, GE Vernova, Primoris, Sunrun, ONEOK, AEP, HMH, TC
+  Energy, Invenergy, EMCOR, Acuren US/CA, E2, Danos, UES, TRC, Diversified
+  Energy, NextEra, RWE, Vestas, Boskalis, Vattenfall, Forge), 27
+  `listing_page_failed` + 1 timeout, failures clustered in tight timestamp
+  bands exactly like 09-13. Company/platform mix unchanged (still 71
+  companies, same ~28 Playwright-based). Jesse approved applying the fix as
+  designed — no redesign needed, the pattern matches the original diagnosis.
+- Fix re-applied, verified with a real full-workflow run, merged to main.
+  See branch history for the verification run id and before/after counts.

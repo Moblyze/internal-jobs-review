@@ -38,9 +38,9 @@ logger = structlog.get_logger()
 # subclass instance in the process), so it caps the true bottleneck resource
 # regardless of how many scrape tasks main.py fires off.
 #
-# See docs/2026-09-13-runner-contention-scheduling-fix-proposal.md — this
-# commit is deliberately reverted immediately afterward; it exists in git
-# history as a ready-to-apply fix, not as active behavior on this branch.
+# 2026-09-14: the regression repeated the next day with the same shape,
+# confirming this isn't transient. Design and rationale:
+# docs/2026-09-13-runner-contention-scheduling-fix-proposal.md.
 MAX_CONCURRENT_BROWSERS = int(os.environ.get('MAX_CONCURRENT_BROWSERS', '6'))
 _BROWSER_LAUNCH_SEMAPHORE = asyncio.Semaphore(MAX_CONCURRENT_BROWSERS)
 

@@ -18,6 +18,8 @@ Usage:
     python main.py --dry-run --max-jobs 5
 """
 
+import os  # noqa: E402 -- needed by the os.environ.get() calls in the constants below
+
 # Default per-company timeout in seconds (45 minutes).
 # The overall GH Actions job timeout is 90 minutes. All companies run concurrently,
 # so the bottleneck is the slowest company. Companies with 1000+ jobs use
@@ -38,9 +40,10 @@ DEFAULT_COMPANY_TIMEOUT = 2700  # 45 minutes
 # See also MAX_CONCURRENT_BROWSERS in src/scrapers/base.py, which caps the
 # heavier resource (Chromium processes) specifically.
 #
-# See docs/2026-09-13-runner-contention-scheduling-fix-proposal.md — this
-# commit is deliberately reverted immediately afterward; it exists in git
-# history as a ready-to-apply fix, not as active behavior on this branch.
+# 2026-09-14: the regression repeated on the next scheduled run (34825740852,
+# 09:01Z) with the same failure shape (24 employers, same set, same tight
+# timestamp clustering), confirming this isn't transient. Design and
+# rationale: docs/2026-09-13-runner-contention-scheduling-fix-proposal.md.
 MAX_CONCURRENT_SCRAPES = int(os.environ.get('MAX_CONCURRENT_SCRAPES', '12'))
 
 # A company that historically returns a meaningful number of jobs but comes
@@ -52,7 +55,6 @@ CRITICAL_REGRESSION_BASELINE = 10
 
 import argparse
 import asyncio
-import os
 import sys
 from datetime import datetime
 from typing import Optional
