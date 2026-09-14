@@ -6,6 +6,7 @@ Run with: python -m pytest tests/test_workday_api.py -v
 
 from datetime import datetime
 
+import httpx
 import pytest
 
 from src.scrapers.workday_api import WorkdayApiScraper
@@ -15,6 +16,11 @@ def _scraper(base_url='https://kbr.wd5.myworkdayjobs.com/KBR_Careers', **extra):
     cfg = {'name': 'KBR', 'platform': 'workday_api', 'base_url': base_url,
            'rate_limit_delay': 0, 'sheet_name': 'KBR', **extra}
     return WorkdayApiScraper(cfg)
+
+
+async def _no_sleep(*_args, **_kwargs):
+    """Patched in for asyncio.sleep so retry-backoff tests run instantly."""
+    return None
 
 
 class TestWorkdayApiScraper:
@@ -136,3 +142,59 @@ class TestWorkdayApiScraper:
         jobs = await s.extract_all_jobs()
         # known job kept (listing only), one new job fetched, the other deferred
         assert [str(j.url).rsplit('/', 1)[-1] for j in jobs] == ['K1', 'N1']
+
+
+class TestListingFailureReasonSurfaced:
+    """2026-09-13 incident: listing_page_failed logged with no error text at
+    all, so a whole class of daily-run failures (23 companies, one runner
+    contention burst) was undiagnosable after the fact. _request() must now
+    record *why* it gave up in self._last_request_error, and fetch_listing
+    must not swallow it."""
+
+    @pytest.mark.asyncio
+    async def test_request_records_reason_on_repeated_5xx(self, monkeypatch):
+        s = _scraper()
+        monkeypatch.setattr('src.scrapers.workday_api.asyncio.sleep', _no_sleep)
+
+        async def handler(request):
+            return httpx.Response(503, text='Service Unavailable')
+
+        client = httpx.AsyncClient(transport=httpx.MockTransport(handler))
+        result = await s._request(client, 'POST', f"{s.api_base}/jobs", json_body={'offset': 0})
+        await client.aclose()
+
+        assert result is None
+        assert s._last_request_error is not None
+        assert '503' in s._last_request_error or 'exhausted' in s._last_request_error
+
+    @pytest.mark.asyncio
+    async def test_request_records_reason_on_connection_error(self, monkeypatch):
+        s = _scraper()
+        monkeypatch.setattr('src.scrapers.workday_api.asyncio.sleep', _no_sleep)
+
+        def handler(request):
+            raise httpx.ConnectError('Connection refused')
+
+        client = httpx.AsyncClient(transport=httpx.MockTransport(handler))
+        result = await s._request(client, 'POST', f"{s.api_base}/jobs", json_body={'offset': 0})
+        await client.aclose()
+
+        assert result is None
+        assert 'ConnectError' in s._last_request_error
+        assert 'Connection refused' in s._last_request_error
+
+    @pytest.mark.asyncio
+    async def test_fetch_listing_failure_carries_the_reason_forward(self, caplog):
+        s = _scraper()
+
+        async def failing_request(client, method, url, json_body=None):
+            s._last_request_error = 'HTTP 500: upstream error'
+            return None
+
+        s._request = failing_request
+        cards = await s.fetch_listing(client=None)
+
+        assert cards == []
+        # The reason set by _request must still be readable after
+        # fetch_listing gives up -- this is what listing_page_failed logs.
+        assert s._last_request_error == 'HTTP 500: upstream error'

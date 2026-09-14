@@ -83,6 +83,9 @@ class WorkdayApiScraper(BaseScraper):
         self.locale = config.get('url_locale', 'en-US')
         self.api_base = f"https://{self.host}/wday/cxs/{self.tenant}/{self.site}"
         self._known_url_checker: Optional[Callable[[str], bool]] = None
+        # Reason the most recent _request() call returned None, so callers
+        # (e.g. listing_page_failed) can log *why*, not just *that* it failed.
+        self._last_request_error: Optional[str] = None
 
     # ------------------------------------------------------------------ hooks
 
@@ -120,12 +123,16 @@ class WorkdayApiScraper(BaseScraper):
         """Issue one API request with retry on 429/5xx/network errors.
 
         Returns the parsed JSON, or None if the resource is definitively gone
-        (404) or all attempts failed.
+        (404) or all attempts failed. On any None return, self._last_request_error
+        is set to a short human-readable reason so callers can surface *why*.
         """
+        self._last_request_error = None
+        last_exc_message: Optional[str] = None
         for attempt in range(1, MAX_ATTEMPTS + 1):
             try:
                 resp = await client.request(method, url, json=json_body, timeout=REQUEST_TIMEOUT)
             except httpx.HTTPError as e:
+                last_exc_message = f"{type(e).__name__}: {e}"
                 self.logger.warning("request_exception", url=url, attempt=attempt, error=str(e))
                 await asyncio.sleep(min(30, 2 ** attempt))
                 continue
@@ -134,10 +141,12 @@ class WorkdayApiScraper(BaseScraper):
                 try:
                     return resp.json()
                 except ValueError as e:
+                    self._last_request_error = f"json_parse_failed: {e}"
                     self.logger.warning("json_parse_failed", url=url, error=str(e))
                     return None
 
             if resp.status_code == 404:
+                self._last_request_error = "404 resource_gone"
                 self.logger.info("resource_gone", url=url)
                 return None
 
@@ -154,10 +163,12 @@ class WorkdayApiScraper(BaseScraper):
                 await asyncio.sleep(delay)
                 continue
 
+            self._last_request_error = f"HTTP {resp.status_code}: {resp.text[:200]}"
             self.logger.error("request_failed", url=url, status=resp.status_code, body=resp.text[:200])
             return None
 
-        self.logger.error("request_exhausted", url=url, attempts=MAX_ATTEMPTS)
+        self._last_request_error = last_exc_message or f"exhausted {MAX_ATTEMPTS} attempts (429/5xx)"
+        self.logger.error("request_exhausted", url=url, attempts=MAX_ATTEMPTS, last_error=self._last_request_error)
         return None
 
     # --------------------------------------------------------------- listing
@@ -191,7 +202,10 @@ class WorkdayApiScraper(BaseScraper):
                 json_body={'appliedFacets': {}, 'limit': PAGE_SIZE, 'offset': offset, 'searchText': ''},
             )
             if not data:
-                self.logger.error("listing_page_failed", offset=offset)
+                self.logger.error(
+                    "listing_page_failed", offset=offset,
+                    reason=self._last_request_error or "unknown (no response captured)",
+                )
                 break
 
             if total is None:

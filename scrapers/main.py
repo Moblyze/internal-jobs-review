@@ -18,15 +18,43 @@ Usage:
     python main.py --dry-run --max-jobs 5
 """
 
+import os  # noqa: E402 -- needed by the os.environ.get() calls in the constants below
+
 # Default per-company timeout in seconds (45 minutes).
 # The overall GH Actions job timeout is 90 minutes. All companies run concurrently,
 # so the bottleneck is the slowest company. Companies with 1000+ jobs use
 # max_detail_pages in companies.yaml to cap detail page fetching.
 DEFAULT_COMPANY_TIMEOUT = 2700  # 45 minutes
 
+# Cap on how many companies scrape concurrently (2026-09-13 incident fix).
+#
+# Previously every company ran as a concurrent asyncio task with no limit at
+# all: on 2026-09-13, ~71 companies (up from ~45) launched at once on one
+# GH Actions runner. ~28 of those use a Playwright-based scraper (each its
+# own headless Chromium process) and the rest are httpx-only API clients
+# (workday_api, icims, successfactors_csb, smartrecruiters). The resulting
+# CPU/memory/socket contention caused 23 httpx-based companies to fail their
+# very first listing request within milliseconds of each other, and 3
+# Playwright-heavy companies (Chevron, Marathon Petroleum, SGS) to blow
+# through the 45-min per-company timeout — all previously working fine.
+# See also MAX_CONCURRENT_BROWSERS in src/scrapers/base.py, which caps the
+# heavier resource (Chromium processes) specifically.
+#
+# 2026-09-14: the regression repeated on the next scheduled run (34825740852,
+# 09:01Z) with the same failure shape (24 employers, same set, same tight
+# timestamp clustering), confirming this isn't transient. Design and
+# rationale: docs/2026-09-13-runner-contention-scheduling-fix-proposal.md.
+MAX_CONCURRENT_SCRAPES = int(os.environ.get('MAX_CONCURRENT_SCRAPES', '12'))
+
+# A company that historically returns a meaningful number of jobs but comes
+# back with 0 extracted this run is treated as a hard failure, not a quiet
+# zero. 10 mirrors the CRITICAL_PREV_THRESHOLD already used by
+# scripts/check_scrape_health.py, so both signals agree on what "meaningful"
+# means. Below this, a 0 this run is plausibly a real "no postings today."
+CRITICAL_REGRESSION_BASELINE = 10
+
 import argparse
 import asyncio
-import os
 import sys
 from datetime import datetime
 from typing import Optional
@@ -191,6 +219,23 @@ def load_companies_config(config_path: str = 'config/companies.yaml') -> dict:
         data = yaml.safe_load(f)
 
     return data.get('companies', {})
+
+
+def find_critical_regressions(
+    results: list[dict],
+    baseline_active_counts: dict,
+    threshold: int = CRITICAL_REGRESSION_BASELINE,
+) -> list[dict]:
+    """Return the results for companies that had an established job history
+    (>= threshold active jobs on file before this run) but extracted 0 jobs
+    this run. Pulled out as a pure function so it's unit-testable without
+    standing up the whole scrape pipeline; see main() for how it gates the
+    workflow's exit code."""
+    return [
+        r for r in results
+        if baseline_active_counts.get(r['company'], 0) >= threshold
+        and r['total_extracted'] == 0
+    ]
 
 
 async def scrape_company(
@@ -465,20 +510,33 @@ async def main(
     # Initialize job lifecycle manager
     lifecycle_manager = JobLifecycleManager(tracker=tracker, exporter=exporter)
 
-    # Scrape companies in parallel (faster, reduces 3hr runtime to ~30 mins)
-    tasks = []
-    for company_key, config in companies_to_scrape.items():
-        task = scrape_company(
-            config=config,
-            tracker=tracker,
-            lifecycle_manager=lifecycle_manager,
-            exporter=exporter,
-            max_jobs=max_jobs,
-            dry_run=dry_run
-        )
-        tasks.append(task)
+    # Snapshot each company's known-active job count *before* scraping, so we
+    # can tell a real "0 postings today" apart from a scrape that silently
+    # failed to extract anything (see the critical-regression check below).
+    baseline_active_counts = {
+        config['name']: len(tracker.get_active_jobs_by_company(config['name']))
+        for config in companies_to_scrape.values()
+    }
 
-    # Run all company scrapes concurrently
+    # Scrape companies in parallel, bounded by MAX_CONCURRENT_SCRAPES (faster
+    # than fully sequential, but no longer unbounded — see the constant's
+    # comment for why unbounded concurrency caused the 2026-09-13 incident).
+    scrape_semaphore = asyncio.Semaphore(MAX_CONCURRENT_SCRAPES)
+
+    async def scrape_company_limited(config: dict) -> dict:
+        async with scrape_semaphore:
+            return await scrape_company(
+                config=config,
+                tracker=tracker,
+                lifecycle_manager=lifecycle_manager,
+                exporter=exporter,
+                max_jobs=max_jobs,
+                dry_run=dry_run
+            )
+
+    tasks = [scrape_company_limited(config) for config in companies_to_scrape.values()]
+
+    # Run all company scrapes concurrently (bounded)
     results = await asyncio.gather(*tasks, return_exceptions=True)
 
     # Convert exceptions to error results
@@ -555,8 +613,59 @@ async def main(
     print(f"\nDuration: {round(pipeline_duration, 2)}s")
     print("=" * 95 + "\n")
 
-    # Exit code: 0 if at least one company succeeded, 1 if all failed
-    if success_count > 0:
+    # Critical-regression check (2026-09-13 incident fix).
+    #
+    # Before this, a company that extracted 0 jobs (a bad listing-page
+    # response, a timeout that discarded partial results, etc.) was just
+    # another row in the table above marked "success": True if the scraper
+    # itself didn't raise. main.py's own summary logic only failed the
+    # process when EVERY company failed, so the workflow reported overall
+    # success on 2026-09-13 even with 23 employers silently returning 0.
+    #
+    # A company is flagged CRITICAL here if it had >= CRITICAL_REGRESSION_
+    # BASELINE active jobs on file *before* this run but extracted 0 *this*
+    # run. That baseline (10) matches check_scrape_health.py's threshold.
+    # This check is independent of (and catches failures earlier than)
+    # check_scrape_health.py's day-over-day snapshot comparison, because the
+    # lifecycle manager's safety threshold intentionally leaves "active in
+    # DB" unchanged when a scrape returns too few jobs to trust for removal
+    # detection — which means that signal alone never moves on a 0-job run
+    # and a day-over-day check of it can miss the failure entirely.
+    critical_regressions = find_critical_regressions(results, baseline_active_counts)
+
+    if critical_regressions:
+        print("!" * 95)
+        print(f"CRITICAL: {len(critical_regressions)} companies with an established job history "
+              f"extracted ZERO jobs this run")
+        print("!" * 95)
+        for r in critical_regressions:
+            baseline = baseline_active_counts.get(r['company'], 0)
+            reason = r.get('error') or 'no jobs extracted (see per-company logs for listing_page_failed / scrape_timeout)'
+            line = f"  {r['company']}: {baseline} active on file -> 0 extracted this run ({reason})"
+            print(line)
+            logger.error(
+                "critical_extraction_regression",
+                company=r['company'],
+                baseline_active=baseline,
+                total_extracted=0,
+                error=r.get('error'),
+            )
+            # GitHub Actions annotation: shows up as an unmissable red banner
+            # on the run summary, not just buried in the step log.
+            print(f"::error::Critical scrape regression: {line.strip()}")
+        print("!" * 95 + "\n")
+
+    # Exit code: 0 only if at least one company succeeded AND there are no
+    # critical regressions. A run with 40 healthy companies and 23 silent
+    # zeros must NOT report success.
+    if critical_regressions:
+        logger.error(
+            "pipeline_had_critical_regressions",
+            count=len(critical_regressions),
+            companies=[r['company'] for r in critical_regressions],
+        )
+        sys.exit(1)
+    elif success_count > 0:
         sys.exit(0)
     else:
         logger.error("all_companies_failed", note="No companies successfully scraped")

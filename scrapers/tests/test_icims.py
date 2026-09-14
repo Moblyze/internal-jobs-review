@@ -143,3 +143,37 @@ class TestNewPortal:
         assert calls == [1, 2]
         assert [j.requisition_id for j in jobs] == ['a', 'b', 'c']
         assert str(jobs[0].url) == 'https://jobs.danos.com/jobs/a'
+
+
+class TestListingFailureReasonSurfaced:
+    """2026-09-13 incident: listing_page_failed logged with no error text.
+    _get() must record why in self._last_request_error, for both portal
+    flavors, and fetch_*_listing must not swallow it."""
+
+    @pytest.mark.asyncio
+    async def test_legacy_listing_failure_carries_reason_forward(self):
+        s = _legacy()
+
+        async def failing_get(client, url):
+            s._last_request_error = 'HTTP 500'
+            return None
+
+        s._get = failing_get
+        cards = await s.fetch_legacy_listing(client=None)
+
+        assert cards == []
+        assert s._last_request_error == 'HTTP 500'
+
+    @pytest.mark.asyncio
+    async def test_portal_listing_failure_carries_reason_forward(self):
+        s = _portal()
+
+        async def failing_get(client, url):
+            s._last_request_error = 'ConnectError: Connection refused'
+            return None
+
+        s._get = failing_get
+        cards = await s.fetch_portal_listing(client=None)
+
+        assert cards == []
+        assert s._last_request_error == 'ConnectError: Connection refused'

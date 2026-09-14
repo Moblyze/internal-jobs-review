@@ -100,3 +100,23 @@ class TestSmartRecruitersScraper:
         assert 'listing only' in jobs[0].description
         assert jobs[1].location == 'Papendrecht, ZH, Netherlands'
         assert jobs[1].requisition_id == 'REFN1'
+
+
+class TestListingFailureReasonSurfaced:
+    """2026-09-13 incident: listing_page_failed logged with no error text.
+    _request() must record why in self._last_request_error, and
+    fetch_listing must not swallow it."""
+
+    @pytest.mark.asyncio
+    async def test_listing_failure_carries_reason_forward(self):
+        s = _scraper()
+
+        async def failing_request(client, url, params=None):
+            s._last_request_error = 'HTTP 429: rate limited'
+            return None
+
+        s._request = failing_request
+        cards = await s.fetch_listing(client=None)
+
+        assert cards == []
+        assert s._last_request_error == 'HTTP 429: rate limited'

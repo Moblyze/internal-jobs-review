@@ -333,6 +333,27 @@ def main() -> int:
         print("\nUNKNOWN reasons:", dict(unknown_reasons.most_common(12)))
     if demoted:
         print("\nhosts demoted to UNKNOWN (mostly blocked):", demoted)
+
+    # A host whose rule is systematically not matching what its pages return
+    # (2026-09-13: Worley/Schlumberger came back ~100% UNKNOWN, 0% DEAD) is
+    # invisible in the global top-12 above when its individual reason
+    # strings carry per-request detail (a transport error message, an
+    # "ambiguous"/"title missing" variant) that fragments into many small
+    # buckets instead of one dominant one. Call those hosts out explicitly
+    # with their own reason breakdown so the next incident is diagnosable
+    # from this report alone, without re-running with extra flags.
+    HIGH_UNKNOWN_SHARE = 0.9
+    for host, c in per_host.items():
+        probed = sum(c.values())
+        if probed >= MIN_ROWS_FOR_THRESHOLD and c["UNKNOWN"] / probed >= HIGH_UNKNOWN_SHARE:
+            host_reasons = Counter(
+                v.reason[:80] for r, v in results
+                if v.status == liveness.UNKNOWN and urlparse(r["url"]).netloc.lower() == host
+            )
+            print(f"\n{host}: {c['UNKNOWN']}/{probed} UNKNOWN ({c['UNKNOWN']/probed:.0%}) -- "
+                  f"rule likely not matching this host's pages. Top reasons:")
+            for reason, count in host_reasons.most_common(8):
+                print(f"    {count:5}  {reason}")
     if crewbase_check:
         print(f"\ncrewbase sitemap-diff page sample: {crewbase_check[0]}/{crewbase_check[1]} gone")
 
