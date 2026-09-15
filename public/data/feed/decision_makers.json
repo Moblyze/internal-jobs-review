@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-09-15T00:32:56.498Z"
+    "last_updated_at": "2026-09-15T18:14:12.430Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -12410,6 +12410,66 @@
         "email": null,
         "phone": null,
         "location": null
+      }
+    ]
+  },
+  "kistos holdings plc": {
+    "discovered_at": "2026-09-15T18:14:12.430Z",
+    "contacts": [
+      {
+        "name": "René Borsch",
+        "title": "Managing Director / Country Manager – Kistos Netherlands",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/ren%C3%A9-borsch-5339371b",
+        "source_url": "https://kistosplc.com/investors/corporate-governance/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "The Hague, Netherlands"
+      },
+      {
+        "name": "Sverre Skogen",
+        "title": "Acting CEO – Kistos Energy (Norway) AS",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/sverre-skogen-01a714353",
+        "source_url": "https://kistosplc.com/investors/corporate-governance/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Oslo, Norway"
+      },
+      {
+        "name": "Lars Stoltenberg",
+        "title": "Commercial Director – Kistos Energy (Norway) AS",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/lars-stoltenberg-00585413",
+        "source_url": "https://npf.no/wp-content/uploads/2025/05/Participants-16-May-2025.pdf",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Oslo, Norway"
+      },
+      {
+        "name": "Peter Mann",
+        "title": "Chief Executive Officer & Executive Director",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://kistosplc.com/about-us/our-leadership-team/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "London, UK"
+      },
+      {
+        "name": "Andrew Austin",
+        "title": "Executive Chairman & Founder",
+        "persona": "other",
+        "linkedin_url": "https://www.linkedin.com/in/andrew-austin-7a398a3b",
+        "source_url": "https://kistosplc.com/about-us/our-leadership-team/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "London, UK"
       }
     ]
   }

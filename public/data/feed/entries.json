@@ -2,6 +2,104 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/kistos_completes_acquisition_of_stakes_in_omani_producing_blocks-15-sep-2026-184622-article/?rss=true"
+      }
+    ],
+    "headline": "Kistos Acquires Mitsui Stakes in Onshore Oman Blocks 3 & 4, Enters Middle East",
+    "body": "Kistos Holdings PLC said Tuesday it had consummated the purchase of Mitsui & Co Ltd's stakes in Blocks 3 and 4 onshore Oman, marking its entry into the Middl...",
+    "url": "https://www.rigzone.com/news/kistos_completes_acquisition_of_stakes_in_omani_producing_blocks-15-sep-2026-184622-article/?rss=true",
+    "published_at": "2026-09-15T14:44:41.000Z",
+    "hash": "6126a3c5eaba9890",
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "process_plant_operations"
+    ],
+    "signal_type": "lease_round",
+    "region": "oman",
+    "country": "oman",
+    "tldr": "Kistos Holdings has completed acquisition of Mitsui's stakes in producing onshore Oman Blocks 3 and 4, establishing a new operator footprint in the Middle East. Ongoing production operations signal steady maintenance and operations hiring demand.",
+    "operator": {
+      "name": "Kistos Holdings PLC",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Kistos Holdings PLC",
+      "matched_company_slug": null
+    },
+    "project_name": "Blocks 3 and 4, Onshore Oman",
+    "scope": [
+      "operator_takeover",
+      "producing_asset_operations"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Production Operations Manager",
+        "Onshore Operations Superintendent",
+        "Reservoir Engineer",
+        "Production Engineer",
+        "HSE Manager",
+        "Country Manager Oman",
+        "Asset Manager"
+      ],
+      "skills": [
+        "onshore oil production",
+        "asset management",
+        "reservoir management",
+        "Middle East operations",
+        "operator takeover"
+      ],
+      "certs_freetext": [
+        "IWCF",
+        "NEBOSH"
+      ],
+      "geo_rtw": "Oman — expatriate or locally eligible candidates",
+      "project_experience": [
+        "Oman PDO",
+        "Block 3 Oman",
+        "Block 4 Oman"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "senior",
+      "boolean_search": "(\"Oman\" OR \"Block 3\" OR \"Block 4\") AND (\"onshore oil\" OR \"production operations\" OR \"reservoir engineer\" OR \"asset manager\") AND (\"operator\" OR \"E&P\") AND (\"Middle East\" OR \"GCC\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Kistos Holdings just completed its acquisition of Mitsui's stakes in Oman Blocks 3 & 4 — a new operator entering the Middle East. Roles in ops/engineering likely incoming. Worth a conversation?",
+      "email_subject": "Kistos Oman Blocks 3 & 4 — Ops & Engineering Talent as New Operator Enters Market",
+      "email_body": "Hi [Name],\n\nKistos Holdings has just completed its acquisition of Mitsui's stakes in onshore Oman Blocks 3 and 4, marking its entry into the Middle East as an operator of producing assets.\n\nAs a new operator taking over live production blocks, Kistos will need experienced onshore operations, reservoir, and HSE professionals familiar with Oman or GCC environments.\n\nI work with senior E&P professionals across the Middle East and would welcome the chance to discuss how we can support Kistos's build-out — or connect you with this opportunity if you're exploring your next move.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Completed operator change-of-control on named producing blocks (Blocks 3 & 4, Oman), naming incoming operator Kistos Holdings — qualifying as a field-level operator assignment with ongoing staffing implications.",
+    "phase": "operating",
+    "phase_evidence": "Article describes the blocks as 'producing' and the transaction as 'consummated', confirming live production assets changing hands.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "ongoing",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "836a7f60-683d-41db-863b-62f4c9c69b93",
+    "ingested_at": "2026-09-15T18:12:32.415Z",
+    "source_published_at": "2026-09-15T14:44:41.000Z",
+    "contact_archetypes": [
+      "ops_director",
+      "hiring_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/hornbeck-offshore-awarded-multi-year-decommissioning-contract-in-the-north-sea-302878110.html"

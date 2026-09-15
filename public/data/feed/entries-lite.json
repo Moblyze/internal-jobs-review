@@ -1,5 +1,47 @@
 [
   {
+    "id": "836a7f60-683d-41db-863b-62f4c9c69b93",
+    "ingested_at": "2026-09-15T18:12:32.415Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/kistos_completes_acquisition_of_stakes_in_omani_producing_blocks-15-sep-2026-184622-article/?rss=true"
+      }
+    ],
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "process_plant_operations"
+    ],
+    "signal_type": "lease_round",
+    "region": "oman",
+    "country": "oman",
+    "headline": "Kistos Acquires Mitsui Stakes in Onshore Oman Blocks 3 & 4, Enters Middle East",
+    "operator": {
+      "name": "Kistos Holdings PLC",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Kistos Holdings PLC",
+      "matched_company_slug": null
+    },
+    "project_name": "Blocks 3 and 4, Onshore Oman",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "operating",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "ongoing",
+    "key_people": []
+  },
+  {
     "id": "919e09d5-0994-4a24-9120-7ce17fbc2e2c",
     "ingested_at": "2026-09-15T00:31:17.838Z",
     "sources": [
