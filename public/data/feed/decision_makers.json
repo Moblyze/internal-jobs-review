@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-09-13T12:15:38.892Z"
+    "last_updated_at": "2026-09-15T00:32:56.498Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -12290,6 +12290,126 @@
         "email": null,
         "phone": null,
         "location": "Perth, WA, Australia"
+      }
+    ]
+  },
+  "helix well ops (u.k.) limited": {
+    "discovered_at": "2026-09-15T00:32:56.498Z",
+    "contacts": [
+      {
+        "name": "Stephen Nairn",
+        "title": "Vice President, Well Ops UK (Regional VP, UK/Europe/Africa)",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.dnb.com/business-directory/company-profiles/helix-well-ops-(uk)-limited.b10cf6efeb3d6a78993e79abba0cfd5a",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Aberdeen, UK"
+      },
+      {
+        "name": "Craig McCaul",
+        "title": "Finance Director – Helix Well Ops UK Ltd",
+        "persona": "other",
+        "linkedin_url": "https://www.linkedin.com/in/craig-mccaul-483b2671",
+        "source_url": "https://uk.linkedin.com/in/craig-mccaul-483b2671",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Aberdeen, UK"
+      },
+      {
+        "name": "Rachael Main",
+        "title": "Employee – HELIX WELL OPS (U.K.) LIMITED (role unconfirmed)",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/rachael-main-499907248",
+        "source_url": "https://uk.linkedin.com/in/rachael-main-499907248",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Geoffrey Miet",
+        "title": "Technical Superintendent",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://rocketreach.co/helix-well-ops-uk-limited-management_b7a18ae0c53b5bc2",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Gary Aitchison",
+        "title": "Technical Superintendent",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://rocketreach.co/helix-well-ops-uk-limited-management_b7a18ae0c53b5bc2",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "mmcu (milford mining)": {
+    "discovered_at": "2026-09-15T00:32:56.498Z",
+    "contacts": [
+      {
+        "name": "Jason Schroeder",
+        "title": "HR Manager",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/jasonschroeder2",
+        "source_url": "https://milfordmining.com/meet-the-team/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Cedar City, UT, USA"
+      },
+      {
+        "name": "Brendan Moseley",
+        "title": "Chief Executive Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/brendan-moseley-64b5a738",
+        "source_url": "https://www.deseret.com/utah/2025/05/28/milford-mine-copper-beaver-county/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Western Australia, Australia"
+      },
+      {
+        "name": "Kyle Schuerg",
+        "title": "Mine Operations Leader / Resource Geologist",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/kyle-schuerg-5a6395136",
+        "source_url": "https://milfordmining.com/meet-the-team/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Cedar City, UT, USA"
+      },
+      {
+        "name": "Darin Malchus",
+        "title": "Vice President, Utah",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://siteselection.com/got-minerals/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Milford, UT, USA"
+      },
+      {
+        "name": "Roger Barris",
+        "title": "Chairman",
+        "persona": "other",
+        "linkedin_url": null,
+        "source_url": "http://www.prnewswire.com/news-releases/milford-mining-secures-usda-backed-financing-to-advance-utahs-critical-minerals-production-302874131.html",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": null
       }
     ]
   }

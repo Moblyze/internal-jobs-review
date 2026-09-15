@@ -2,6 +2,212 @@
   {
     "sources": [
       {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/hornbeck-offshore-awarded-multi-year-decommissioning-contract-in-the-north-sea-302878110.html"
+      }
+    ],
+    "headline": "Hornbeck/Helix Well Ops Secures Multi-Year Decom Contract in UK North Sea",
+    "body": "HOUSTON and COVINGTON, La. , Sept. 14, 2026 /PRNewswire/ -- Hornbeck Offshore Services, Inc. (\"Hornbeck\") (NYSE: HOS), a premier integrated offshore services company, today announced that its subsidiary Helix Well Ops (U.K.) Limited has secured a multi-year decommissioning contract with a...",
+    "url": "https://www.prnewswire.com/news-releases/hornbeck-offshore-awarded-multi-year-decommissioning-contract-in-the-north-sea-302878110.html",
+    "published_at": "2026-09-14T20:58:00.000Z",
+    "hash": "9e1fc8953f2536dd",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "rov_subsea",
+      "marine_offshore_ops",
+      "rope_access",
+      "ndt_inspection",
+      "energy_trades"
+    ],
+    "signal_type": "decom",
+    "region": "uk-north-sea",
+    "country": "united_kingdom",
+    "tldr": "Helix Well Ops (U.K.) Limited, a Hornbeck Offshore subsidiary, has been awarded a multi-year decommissioning contract in the North Sea. This signals an extended hiring window for decom-specialist trades, subsea, and marine personnel across the campaign.",
+    "operator": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Helix Well Ops (U.K.) Limited",
+      "matched_company_slug": null
+    },
+    "project_name": null,
+    "scope": [
+      "decom_well_ops",
+      "subsea_decom",
+      "p_and_a"
+    ],
+    "mob_window": {
+      "start": "2026-Q4",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Decommissioning Project Manager",
+        "Well Operations Supervisor",
+        "Subsea Engineer",
+        "ROV Supervisor",
+        "P&A Engineer",
+        "Marine Superintendent",
+        "HSE Advisor",
+        "Decom Planner",
+        "Intervention Specialist",
+        "Offshore Installation Manager"
+      ],
+      "skills": [
+        "well abandonment",
+        "plug and abandonment",
+        "decommissioning",
+        "subsea operations",
+        "ROV operations",
+        "North Sea operations",
+        "well intervention",
+        "offshore project management",
+        "marine logistics"
+      ],
+      "certs_freetext": [
+        "BOSIET/HUET",
+        "OPITO Offshore Emergency Response",
+        "IWCF Well Control",
+        "GWO",
+        "UKOOA Medical"
+      ],
+      "geo_rtw": "UK / EEA right-to-work; North Sea rotational",
+      "project_experience": [
+        "North Sea decommissioning",
+        "Helix Well Ops",
+        "well intervention campaigns"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid-senior to senior",
+      "boolean_search": "(\"decommissioning\" OR \"decom\" OR \"plug and abandonment\" OR \"P&A\" OR \"well abandonment\") AND (\"North Sea\" OR \"UKCS\") AND (\"well operations\" OR \"subsea\" OR \"ROV\" OR \"well intervention\" OR \"offshore\") AND (\"project manager\" OR \"supervisor\" OR \"engineer\" OR \"superintendent\" OR \"OIM\" OR \"planner\") NOT (\"onshore\" OR \"renewable\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Helix Well Ops (Hornbeck Offshore) just landed a multi-year North Sea decom contract and will be ramping specialist personnel. Your background in [P&A/subsea/well ops] looks highly relevant — would you be open to a quick call?",
+      "email_subject": "Multi-Year North Sea Decom Contract — Helix Well Ops Hiring?",
+      "email_body": "Hi [Name],\n\nHelix Well Ops (U.K.) Limited, a Hornbeck Offshore subsidiary, has just been awarded a multi-year decommissioning contract in the North Sea (announced 14 Sept 2026).\n\nGiven the scope and duration, they will almost certainly be building out a specialist decom team — well ops supervisors, P&A engineers, subsea engineers, and marine personnel with UKCS experience.\n\nYour profile suggests you have exactly the kind of background they'll be targeting. I'd love to have a brief conversation to understand where you are career-wise and whether this aligns.\n\nAre you free for a 15-minute call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Decommissioning contract award naming Hornbeck Offshore / Helix Well Ops (U.K.) Limited as the hiring contractor in the North Sea, representing a discrete multi-year workforce demand event.",
+    "phase": null,
+    "phase_evidence": null,
+    "construction_subphase": null,
+    "lifecycle_track": "decommissioning",
+    "decom_stage": "contract_awarded",
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "919e09d5-0994-4a24-9120-7ce17fbc2e2c",
+    "ingested_at": "2026-09-15T00:31:17.838Z",
+    "source_published_at": "2026-09-14T20:58:00.000Z",
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/milford-mining-gets-25m-funding-to-expand-utah-facilities/"
+      }
+    ],
+    "headline": "Milford Mining Secures $25M to Expand Utah Mine Facilities",
+    "body": "The Milford mine was idled for years, but reopened under MMCU management in 2023.",
+    "url": "https://www.mining.com/milford-mining-gets-25m-funding-to-expand-utah-facilities/",
+    "published_at": "2026-09-14T23:45:06.000Z",
+    "hash": "c9ed0683b6748268",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction"
+    ],
+    "signal_type": null,
+    "region": "us-west",
+    "country": "united_states",
+    "tldr": "Milford Mining (MMCU) has secured $25M in funding to expand its Utah mine, which reopened in 2023 — signaling a potential workforce ramp-up at the named site.",
+    "operator": {
+      "name": "MMCU (Milford Mining)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "MMCU (Milford Mining)",
+      "matched_company_slug": null
+    },
+    "project_name": "Milford Mine, Utah",
+    "scope": [
+      "facility_expansion",
+      "mine_expansion"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 25000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mine Manager",
+        "Construction Manager",
+        "Site Supervisor",
+        "HSE Manager",
+        "Maintenance Superintendent",
+        "Mining Engineer",
+        "Plant Operator"
+      ],
+      "skills": [
+        "mine expansion",
+        "facilities construction",
+        "mining operations",
+        "site management",
+        "HSE"
+      ],
+      "certs_freetext": [
+        "MSHA Part 48",
+        "First Aid/CPR"
+      ],
+      "geo_rtw": "US work authorization required; Utah-based or willing to relocate",
+      "project_experience": [
+        "Utah mining operations",
+        "open pit or underground mine expansion"
+      ],
+      "yoe_band": "7-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"Mine Manager\" OR \"Mining Superintendent\" OR \"Construction Manager\" OR \"Site Supervisor\" OR \"HSE Manager\" OR \"Maintenance Superintendent\" OR \"Mining Engineer\") AND (\"mine expansion\" OR \"mining operations\" OR \"facilities construction\" OR \"mineral processing\") AND (\"Utah\" OR \"MSHA\" OR \"hard rock mining\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], with MMCU's $25M expansion underway at the Milford Mine in Utah, specialist mining professionals are going to be in demand. Happy to connect if you're open to new opportunities in the region.",
+      "email_subject": "Milford Mine Utah Expansion — Opportunities for Experienced Mining Professionals",
+      "email_body": "Hi [Name],\n\nMilford Mining (MMCU) has just secured $25M in funding to expand its Utah facilities following the mine's reopening in 2023. This level of investment typically signals a near-term ramp-up in skilled workforce demand — from site supervision and HSE to mining engineering and plant operations.\n\nIf you're open to exploring roles tied to this expansion, I'd welcome a brief conversation.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (MMCU/Milford Mining) secures $25M to expand a named mine facility in Utah, indicating a discrete workforce-demand event in the mining sector.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Funding secured for facility expansion implies capital committed and expansion works imminent, consistent with post-sanction engineering/construction ramp.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "72db9e6a-1cb0-4429-8c14-339c75bdb5c7",
+    "ingested_at": "2026-09-15T00:31:17.838Z",
+    "source_published_at": "2026-09-14T23:45:06.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/harvester_energy_bags_new_malaysian_psc-13-sep-2026-184598-article/?rss=true"
