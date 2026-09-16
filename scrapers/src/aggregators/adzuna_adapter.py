@@ -1,11 +1,92 @@
 import os
+import re
+import json
 import httpx
 import logging
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
+from bs4 import BeautifulSoup
 from src.models.job import JobPosting
 from src.aggregators.base import BaseAggregator, AggregatorFilters
 
 logger = logging.getLogger(__name__)
+
+# Adzuna's search API returns a *snippet*, not the full description: it hard-caps
+# the `description` field at 500 characters and appends a horizontal-ellipsis.
+# That is an API-side cap, not ours -- there is no truncation in this repo. It
+# left 966 active rows sitting at exactly 500 chars, all of which the public jobs
+# site rejects because it requires 600+ characters. The full text is available in
+# the schema.org JobPosting JSON-LD on the Adzuna details page (redirect_url), so
+# we re-fetch it for anything that comes back looking truncated.
+ADZUNA_SNIPPET_LEN = 500
+DETAIL_FETCH_WORKERS = 4
+DETAIL_FETCH_TIMEOUT = 20.0
+# Google Sheets caps a cell at 50,000 chars; stay well clear. Real descriptions
+# do not come near this, so it is a guard rail rather than a truncation policy.
+DESCRIPTION_MAX_LEN = 20000
+DETAIL_USER_AGENT = (
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/125.0 Safari/537.36"
+)
+
+
+def _looks_truncated(description: str) -> bool:
+    """True if a description looks like an Adzuna snippet rather than full text.
+
+    Adzuna ends its snippets with a horizontal ellipsis (U+2026). The length
+    check is a belt-and-braces fallback in case the ellipsis ever changes.
+    """
+    if not description:
+        return False
+    return description.endswith("…") or len(description) >= ADZUNA_SNIPPET_LEN
+
+
+def detail_url(url: str, app_id: str = "") -> str:
+    """Normalize an Adzuna job URL to the details page that serves JSON-LD.
+
+    Two traps, both verified against live pages 2026-09-16:
+
+    1. Adzuna hands back two URL shapes. `/details/<id>` renders the job page;
+       `/land/ad/<id>?se=<token>` is a click-through wrapper that 403s outside a
+       browser session. 444 of the 951 truncated rows in the sheet are the
+       `/land/ad` shape, so without this rewrite half the backfill fails.
+    2. `/details/<id>` with no query string also 403s. The same id WITH the API
+       attribution params returns 200 (or a clean 410 for an expired posting).
+       So a 403 here is a URL-shape problem, not a dead job -- do not read it as
+       evidence the posting is gone.
+    """
+    base = url.split("?", 1)[0].split("#", 1)[0]
+    base = re.sub(r"/land/ad/(\d+)", r"/details/\1", base)
+    source = app_id or os.getenv("ADZUNA_APP_ID", "") or "api"
+    return f"{base}?utm_medium=api&utm_source={source}"
+
+
+def _extract_jsonld_description(html: str) -> str | None:
+    """Pull the full description out of a schema.org JobPosting JSON-LD block.
+
+    Follows the same pattern as the EnergyJobline adapter's detail parsing.
+    """
+    soup = BeautifulSoup(html, "html.parser")
+    for script in soup.find_all("script", type="application/ld+json"):
+        try:
+            data = json.loads(script.string or "")
+        except (json.JSONDecodeError, TypeError):
+            continue
+        candidates = data if isinstance(data, list) else [data]
+        for entry in candidates:
+            if not isinstance(entry, dict):
+                continue
+            if entry.get("@type") != "JobPosting":
+                continue
+            desc_html = entry.get("description") or ""
+            if not desc_html:
+                continue
+            text = BeautifulSoup(desc_html, "html.parser").get_text(
+                separator="\n", strip=True
+            )
+            if text:
+                return text
+    return None
 
 
 class AdzunaAggregator(BaseAggregator):
@@ -15,6 +96,11 @@ class AdzunaAggregator(BaseAggregator):
     def __init__(self):
         self.app_id = os.getenv('ADZUNA_APP_ID', '')
         self.app_key = os.getenv('ADZUNA_APP_KEY', '')
+        # Escape hatch: set ADZUNA_FETCH_FULL_DESCRIPTIONS=0 to fall back to the
+        # 500-char API snippets (e.g. if Adzuna ever starts blocking the fetch).
+        self.fetch_full_descriptions = os.getenv(
+            'ADZUNA_FETCH_FULL_DESCRIPTIONS', '1'
+        ).strip().lower() not in ('0', 'false', 'no')
 
     def is_configured(self) -> bool:
         return bool(self.app_id and self.app_key)
@@ -39,6 +125,58 @@ class AdzunaAggregator(BaseAggregator):
         resp = httpx.get(url, params=params, timeout=30)
         resp.raise_for_status()
         return resp.json()
+
+    def _fetch_full_description(self, client: httpx.Client, url: str) -> str | None:
+        """Fetch a job's full description from its Adzuna details page.
+
+        Returns None on any failure (including HTTP 410, which Adzuna serves for
+        jobs that have since expired) so the caller keeps the snippet.
+        """
+        try:
+            resp = client.get(detail_url(url, self.app_id))
+        except httpx.HTTPError as exc:
+            logger.debug(f"Adzuna detail fetch failed for {url}: {exc}")
+            return None
+        if resp.status_code != 200:
+            logger.debug(f"Adzuna detail fetch {resp.status_code} for {url}")
+            return None
+        try:
+            return _extract_jsonld_description(resp.text)
+        except Exception as exc:  # defensive: never let parsing kill a scrape
+            logger.debug(f"Adzuna detail parse failed for {url}: {exc}")
+            return None
+
+    def _enrich_descriptions(self, jobs: list[JobPosting]) -> None:
+        """Replace truncated Adzuna snippets with the full description, in place.
+
+        Only jobs whose description still looks like a snippet are fetched, and
+        only an improvement is kept -- a shorter or empty result is discarded.
+        """
+        targets = [j for j in jobs if _looks_truncated(j.description)]
+        if not targets:
+            return
+
+        upgraded = 0
+        headers = {"User-Agent": DETAIL_USER_AGENT}
+        with httpx.Client(
+            follow_redirects=True, timeout=DETAIL_FETCH_TIMEOUT, headers=headers
+        ) as client:
+            with ThreadPoolExecutor(max_workers=DETAIL_FETCH_WORKERS) as pool:
+                futures = {
+                    pool.submit(self._fetch_full_description, client, str(job.url)): job
+                    for job in targets
+                }
+                for future in as_completed(futures):
+                    job = futures[future]
+                    full = future.result()
+                    if full and len(full) > len(job.description):
+                        job.description = full[:DESCRIPTION_MAX_LEN]
+                        upgraded += 1
+
+        logger.info(
+            f"Adzuna: recovered full descriptions for {upgraded}/{len(targets)} "
+            f"truncated jobs"
+        )
 
     def count(self, filters: AggregatorFilters) -> int:
         total = 0
@@ -121,5 +259,10 @@ class AdzunaAggregator(BaseAggregator):
                 except Exception as e:
                     logger.warning(f"Adzuna search failed for '{keyword}' in {country}: {e}")
 
+        results = results[:filters.max_results]
+
+        if self.fetch_full_descriptions:
+            self._enrich_descriptions(results)
+
         logger.info(f"Adzuna: found {len(results)} unique jobs")
-        return results[:filters.max_results]
+        return results
