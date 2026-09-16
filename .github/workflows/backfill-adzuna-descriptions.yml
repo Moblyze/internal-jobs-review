@@ -27,13 +27,17 @@ on:
         required: false
         type: boolean
         default: true
+      # Note: passing an EMPTY string to a workflow_dispatch input makes GitHub
+      # substitute the declared default, so "" cannot mean "no restriction".
+      # Hence the explicit ALL sentinel: the safe narrow value stays the
+      # default, and going wide has to be typed out.
       tab:
-        description: 'Tab(s) to process, comma-separated. Empty = every "Aggregator - *" tab'
+        description: 'Tab(s) to process, comma-separated. ALL = every "Aggregator - *" tab'
         required: false
         type: string
         default: 'Aggregator - subsea_oil_gas'
       max_jobs:
-        description: 'Cap rows processed per tab (empty = all)'
+        description: 'Cap rows processed per tab. ALL = no cap'
         required: false
         type: string
         default: '20'
@@ -100,10 +104,14 @@ jobs:
           if [ "$DRY_RUN" = "true" ]; then
             ARGS+=(--dry-run)
           fi
-          if [ -n "$MAX_JOBS" ]; then
+          # tr rather than ${VAR^^}: the latter is bash 4+, so it cannot be
+          # tested on a stock macOS shell before it reaches the runner.
+          MAX_JOBS_UC=$(printf '%s' "$MAX_JOBS" | tr '[:lower:]' '[:upper:]')
+          TAB_UC=$(printf '%s' "$TAB" | tr '[:lower:]' '[:upper:]')
+          if [ -n "$MAX_JOBS" ] && [ "$MAX_JOBS_UC" != "ALL" ]; then
             ARGS+=(--max-jobs "$MAX_JOBS")
           fi
-          if [ -n "$TAB" ]; then
+          if [ -n "$TAB" ] && [ "$TAB_UC" != "ALL" ]; then
             IFS=',' read -ra TAB_LIST <<< "$TAB"
             for t in "${TAB_LIST[@]}"; do
               ARGS+=(--tab "$t")
