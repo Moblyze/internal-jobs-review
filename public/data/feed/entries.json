@@ -527,6 +527,113 @@
   {
     "sources": [
       {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/rio-tinto-wins-aboriginal-consent-for-winu-copper-mine/"
+      }
+    ],
+    "headline": "Rio Tinto Secures Aboriginal Consent for Winu Copper Mine, WA — First Production Targeted 2030",
+    "body": "Agreement with Nyangumarta group clears a key hurdle as Rio Tinto targets first production from the Western Australia mine by 2030.",
+    "url": "https://www.mining.com/rio-tinto-wins-aboriginal-consent-for-winu-copper-mine/",
+    "published_at": "2026-09-10T10:42:00.000Z",
+    "hash": "11df9abf33f1e98d",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "western-australia",
+    "country": "australia",
+    "tldr": "Rio Tinto has secured a heritage/consent agreement with the Nyangumarta group for the Winu copper project in Western Australia, clearing a key development hurdle. First production is targeted by 2030, signalling pre-FID progression and an approaching engineering/construction ramp.",
+    "operator": {
+      "name": "Rio Tinto",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Rio Tinto",
+      "matched_company_slug": null
+    },
+    "project_name": "Winu Copper Mine",
+    "scope": [
+      "mine_development",
+      "copper_processing",
+      "greenfield_construction"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": "2030-Q4",
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mining Project Manager",
+        "FEED Manager",
+        "Project Development Engineer",
+        "Mining Engineer",
+        "Environmental & Approvals Manager",
+        "Community & Stakeholder Manager",
+        "Process Plant Engineer",
+        "Construction Manager"
+      ],
+      "skills": [
+        "copper mine development",
+        "FEED",
+        "greenfield mining projects",
+        "project controls",
+        "stakeholder engagement",
+        "Aboriginal heritage compliance",
+        "WA mining regulation"
+      ],
+      "certs_freetext": [
+        "WA Mine Manager Certificate of Competency",
+        "HSEC certifications",
+        "RPEQ / CPEng"
+      ],
+      "geo_rtw": "Australia — Western Australia right-to-work required",
+      "project_experience": [
+        "Oyu Tolgoi",
+        "Escondida",
+        "Olympic Dam",
+        "Carrapateena",
+        "Prominent Hill",
+        "Boddington"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal / Manager",
+      "boolean_search": "(\"Winu\" OR \"copper mine\" OR \"greenfield mining\") AND (\"FEED\" OR \"project development\" OR \"mine development\" OR \"pre-feasibility\" OR \"feasibility study\") AND (\"Western Australia\" OR \"WA\") AND (\"Rio Tinto\" OR \"mining engineer\" OR \"project manager\" OR \"construction manager\") AND (\"copper\" OR \"base metals\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Rio Tinto's Winu copper project in WA just cleared a major consent milestone with the Nyangumarta group — first production targeted 2030. FEED and development roles are likely to ramp over the next 12-18 months. Would you be open to a conversation about what's coming up? Happy to share more.",
+      "email_subject": "Rio Tinto Winu Copper Mine — Pre-FID Roles Ramping, WA",
+      "email_body": "Hi [Name],\n\nRio Tinto has secured Aboriginal heritage consent from the Nyangumarta group for its Winu copper mine in Western Australia, clearing a key development hurdle ahead of targeting first production by 2030.\n\nWith the project now moving closer to FID, we expect FEED, project development, engineering, and early construction management roles to begin mobilising in the next 12–18 months.\n\nGiven your background in [relevant discipline/greenfield mining], I'd love to connect and explore whether you'd be a fit for upcoming opportunities on Winu or other major WA mining projects we're supporting.\n\nAre you open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Rio Tinto) secures a key regulatory/consent milestone for the named Winu copper mine project in WA, signalling pre-FID progression toward a 2030 production target and an approaching engineering and construction hiring cycle.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states Rio Tinto 'targets first production by 2030' and the consent agreement 'clears a key hurdle', indicating the project has not yet reached FID.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "70ea9fa9-e71c-4765-ae9f-5e4e892bead2",
+    "ingested_at": "2026-09-10T18:13:09.599Z",
+    "source_published_at": "2026-09-10T10:42:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/nextera_energy_seals_19b_doe_loan_to_restart_iowa_nuclear_plant-10-sep-2026-184588-article/?rss=true"
@@ -860,113 +967,6 @@
     "id": "2e24570e-ec60-48b2-b854-9acc44204fac",
     "ingested_at": "2026-09-10T18:13:09.599Z",
     "source_published_at": "2026-09-10T12:51:53.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/rio-tinto-wins-aboriginal-consent-for-winu-copper-mine/"
-      }
-    ],
-    "headline": "Rio Tinto Secures Aboriginal Consent for Winu Copper Mine, WA — First Production Targeted 2030",
-    "body": "Agreement with Nyangumarta group clears a key hurdle as Rio Tinto targets first production from the Western Australia mine by 2030.",
-    "url": "https://www.mining.com/rio-tinto-wins-aboriginal-consent-for-winu-copper-mine/",
-    "published_at": "2026-09-10T10:42:00.000Z",
-    "hash": "11df9abf33f1e98d",
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades",
-      "process_plant_operations"
-    ],
-    "signal_type": "regulatory",
-    "region": "western-australia",
-    "country": "australia",
-    "tldr": "Rio Tinto has secured a heritage/consent agreement with the Nyangumarta group for the Winu copper project in Western Australia, clearing a key development hurdle. First production is targeted by 2030, signalling pre-FID progression and an approaching engineering/construction ramp.",
-    "operator": {
-      "name": "Rio Tinto",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Rio Tinto",
-      "matched_company_slug": null
-    },
-    "project_name": "Winu Copper Mine",
-    "scope": [
-      "mine_development",
-      "copper_processing",
-      "greenfield_construction"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": "2030-Q4",
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Mining Project Manager",
-        "FEED Manager",
-        "Project Development Engineer",
-        "Mining Engineer",
-        "Environmental & Approvals Manager",
-        "Community & Stakeholder Manager",
-        "Process Plant Engineer",
-        "Construction Manager"
-      ],
-      "skills": [
-        "copper mine development",
-        "FEED",
-        "greenfield mining projects",
-        "project controls",
-        "stakeholder engagement",
-        "Aboriginal heritage compliance",
-        "WA mining regulation"
-      ],
-      "certs_freetext": [
-        "WA Mine Manager Certificate of Competency",
-        "HSEC certifications",
-        "RPEQ / CPEng"
-      ],
-      "geo_rtw": "Australia — Western Australia right-to-work required",
-      "project_experience": [
-        "Oyu Tolgoi",
-        "Escondida",
-        "Olympic Dam",
-        "Carrapateena",
-        "Prominent Hill",
-        "Boddington"
-      ],
-      "yoe_band": "10-20",
-      "seniority": "Senior / Principal / Manager",
-      "boolean_search": "(\"Winu\" OR \"copper mine\" OR \"greenfield mining\") AND (\"FEED\" OR \"project development\" OR \"mine development\" OR \"pre-feasibility\" OR \"feasibility study\") AND (\"Western Australia\" OR \"WA\") AND (\"Rio Tinto\" OR \"mining engineer\" OR \"project manager\" OR \"construction manager\") AND (\"copper\" OR \"base metals\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Rio Tinto's Winu copper project in WA just cleared a major consent milestone with the Nyangumarta group — first production targeted 2030. FEED and development roles are likely to ramp over the next 12-18 months. Would you be open to a conversation about what's coming up? Happy to share more.",
-      "email_subject": "Rio Tinto Winu Copper Mine — Pre-FID Roles Ramping, WA",
-      "email_body": "Hi [Name],\n\nRio Tinto has secured Aboriginal heritage consent from the Nyangumarta group for its Winu copper mine in Western Australia, clearing a key development hurdle ahead of targeting first production by 2030.\n\nWith the project now moving closer to FID, we expect FEED, project development, engineering, and early construction management roles to begin mobilising in the next 12–18 months.\n\nGiven your background in [relevant discipline/greenfield mining], I'd love to connect and explore whether you'd be a fit for upcoming opportunities on Winu or other major WA mining projects we're supporting.\n\nAre you open to a brief call this week?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named operator (Rio Tinto) secures a key regulatory/consent milestone for the named Winu copper mine project in WA, signalling pre-FID progression toward a 2030 production target and an approaching engineering and construction hiring cycle.",
-    "phase": "pre_sanction",
-    "phase_evidence": "Article states Rio Tinto 'targets first production by 2030' and the consent agreement 'clears a key hurdle', indicating the project has not yet reached FID.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "70ea9fa9-e71c-4765-ae9f-5e4e892bead2",
-    "ingested_at": "2026-09-10T18:13:09.599Z",
-    "source_published_at": "2026-09-10T10:42:00.000Z",
     "contact_archetypes": [
       "project_manager",
       "business_unit_director"
