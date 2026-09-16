@@ -126,6 +126,12 @@ except ImportError:
     pass
 
 try:
+    from src.scrapers.pinpoint import PinpointScraper
+    SCRAPER_REGISTRY['pinpoint'] = PinpointScraper
+except ImportError:
+    pass
+
+try:
     from src.scrapers.cezanne import CezanneScraper
     SCRAPER_REGISTRY['cezanne'] = CezanneScraper
 except ImportError:
