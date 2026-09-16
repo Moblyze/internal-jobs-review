@@ -47,6 +47,7 @@ from bs4 import BeautifulSoup
 from playwright.async_api import Page
 from pydantic import ValidationError
 
+from src.aggregators.cleanup import looks_like_company_name
 from src.models.job import JobPosting
 from src.scrapers.base import BaseScraper
 
@@ -543,7 +544,19 @@ class HtmlGenericScraper(BaseScraper):
                         location_candidate = after_dash.split('|')[0].strip()
                     else:
                         location_candidate = after_dash.strip()
-                    if location_candidate and len(location_candidate) < 100:
+                    # Guard against "Job Title - Company Name" pages (no pipe,
+                    # no location segment): WRS's titles are exactly this shape
+                    # ("2nd Engineer - Worldwide Recruitment Solutions"), which
+                    # used to get stored as the location until the JobPosting
+                    # company-name sanitizer caught it downstream and blanked
+                    # it to "Unknown" -- discarding a good listing-page location
+                    # along the way. Skip the fallback outright when the
+                    # candidate is the company's own name.
+                    if (
+                        location_candidate
+                        and len(location_candidate) < 100
+                        and not looks_like_company_name(location_candidate, self.company_name)
+                    ):
                         detail['location'] = location_candidate
                         self.logger.debug(
                             "location_from_page_title",
@@ -1019,9 +1032,14 @@ class HtmlGenericScraper(BaseScraper):
                 # Extract title from URL slug
                 parts = url.rstrip('/').split('/')
                 slug = parts[-1] if parts[-1] else parts[-2]
+                # Strip a trailing file extension: legacy ASP.NET/PHP-style ATS
+                # sitemaps end job URLs in ".html"/".aspx" (Altrad's Eploy portal,
+                # ".../pipefitter-advanced--bridgwater.html"), which otherwise
+                # title-cases into "...Bridgwater.Html".
+                slug_no_ext = re.sub(r'\.(html?|aspx|php)$', '', slug, flags=re.IGNORECASE)
                 # Remove leading numeric ID if present (e.g., "526/wiper-..." pattern)
                 # The slug is already the last part after the ID
-                title = slug.replace('-', ' ').strip().title()
+                title = slug_no_ext.replace('-', ' ').strip().title()
 
                 if not title or len(title) < 3:
                     continue
@@ -1033,9 +1051,15 @@ class HtmlGenericScraper(BaseScraper):
                 }
 
                 # Try to extract location from slug (common in maritime job sites)
-                location = self._extract_location_from_slug(slug)
+                location = self._extract_location_from_slug(slug_no_ext)
                 if location:
                     listing['location'] = location
+                    # Provenance: a slug keyword match is a deliberate,
+                    # high-confidence read. The merge below uses this to know it
+                    # should not be overwritten by the detail page's last-resort
+                    # <title>-splitting guess. Only set on this path, so
+                    # selector-driven configs keep their existing behaviour.
+                    listing['_location_from_slug'] = True
                     self.logger.debug(
                         "location_from_slug",
                         slug=slug[:60],
@@ -1282,8 +1306,8 @@ class HtmlGenericScraper(BaseScraper):
                         )
 
                         detail = await self.extract_job_detail(page, listing['url'])
-                        # Merge detail into listing, but preserve listing-level
-                        # location if detail page returned "Location Not Specified"
+                        # Merge detail into listing, but keep the listing's own
+                        # location when the detail page has nothing usable.
                         listing_location = listing.get('location', '')
                         job_data = {**listing, **detail}
                         if (
@@ -1292,6 +1316,20 @@ class HtmlGenericScraper(BaseScraper):
                             and listing_location != 'Location Not Specified'
                         ):
                             job_data['location'] = listing_location
+                        # A location read from the sitemap slug outranks the
+                        # detail page even when the detail page returned
+                        # something, because that something is often the
+                        # last-resort <title> split on " - ". On a multi-segment
+                        # title ("Job Title - Town in Site - Company") that leaks
+                        # the company name into the location, which
+                        # sanitize_company_in_location then blanks to "Unknown",
+                        # losing a location we had already resolved correctly.
+                        # Scoped to slug-derived locations on purpose: a config
+                        # with a real job_location SELECTOR is not guessing, and
+                        # its detail page is usually the more precise of the two.
+                        elif listing.get('_location_from_slug') and listing_location:
+                            job_data['location'] = listing_location
+                        job_data.pop('_location_from_slug', None)
                     else:
                         # Use what we have from the listing
                         if 'description' not in job_data or not job_data.get('description'):

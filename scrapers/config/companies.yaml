@@ -1216,7 +1216,147 @@ companies:
       description: '[data-automation-id="jobPostingDescription"]'
     sheet_name: "Fugro"
 
+  # === Batch 4 direct-employer additions (replacing CrewBase-sourced rows) ===
+  # V.Group (90 CrewBase rows / 253 per CrewBase re-count) is on Pinpoint
+  # (vgroup.pinpointhq.com), NOT html_generic or any adapter this repo has.
+  # Pinpoint exposes a clean unauthenticated JSON feed at /postings.json
+  # (377 postings, full HTML descriptions ~3000 chars, structured location
+  # and job/department fields) -- see the report for the field shape. No
+  # existing adapter's JSON-shape assumptions match it (html_generic's
+  # portal_api_url mode is hardcoded to OSM Thome's osmaportal.com schema:
+  # job.name/slug/locations[]/employment_types[], not Pinpoint's
+  # title/url/path/location{}/job{}). Per instructions, not building a
+  # dedicated adapter here -- flagging for a human decision since 2 more
+  # backlog employers are also on Pinpoint. No companies.yaml entry added.
+
+  # Team Recruitment: plain server-rendered Craft CMS site (no JS rendering
+  # needed). Listing at /vacancies, detail pages have Job Description +
+  # Desired Qualities + a labeled Vacancy ID/Job Type/Department/Location
+  # block. Some short postings (e.g. Crane Operators) run under 600 chars
+  # on the job-description text alone, so the description selector below
+  # pulls the whole content section (job description + labeled fields) to
+  # stay over the gate -- see test evidence in the report.
+  team_recruitment:
+    name: "Team Recruitment"
+    platform: html_generic
+    base_url: "https://www.teamrecruitment.co.uk/vacancies"
+    rate_limit_delay: 2.0
+    selectors:
+      job_card: 'ul#job-list > li'
+      job_title: '.job-listing-title'
+      job_link: 'a'
+      description: 'section.content'
+      location: 'ul.job-details li:has-text("Location") p'
+    html_config:
+      wait_for: '#job-list'
+      detail_wait_for: 'section.content'
+    sheet_name: "Team Recruitment"
+
+  # Altrad UK industrial services (uk.altradservices.com -> careers.uk.altradservices.com,
+  # Eploy ATS). Genuinely separate source from the existing altrad_sparrows_us entry
+  # above: different host, different ATS (Eploy vs EasyApply), different country
+  # (UK trades/nuclear-industrial vs US subsea/maritime "Altrad Sparrows" brand).
+  # CrewBase records this employer as plain "Altrad" (not "Altrad Sparrows"), so
+  # name: below matches that exactly for dedup clustering.
+  # The WordPress marketing page has no job data; the real ATS lives on the
+  # careers. subdomain, whose sitemap (live-jobs.xml) lists all live vacancy
+  # detail pages (156 as of 2026-09-16, matches the site's own "158 Vacancies"
+  # count closely). Detail pages are server-rendered (no JS needed) with a rich
+  # JSON-LD JobPosting block, but html_generic has no JSON-LD parser, so this
+  # config reads the same content from its visible HTML equivalents instead.
+  altrad:
+    name: "Altrad"
+    platform: html_generic
+    base_url: "https://careers.uk.altradservices.com/"
+    rate_limit_delay: 2.5
+    html_config:
+      sitemap_url: "https://careers.uk.altradservices.com/live-jobs.xml"
+      sitemap_job_pattern: "/vacancies/"
+      detail_wait_for: ".vac-details__description"
+    selectors:
+      description: ".vac-details__description"
+      location: "[class*='location']"
+    sheet_name: "Altrad UK"
+
   # === Full-site sitemap crawl (plain HTTP, no browser needed) ===
+
+  # === Direct-employer replacements for CrewBase aggregator rows (added 2026-09-16) ===
+  # name: must match the exact employer string CrewBase uses so the public site's
+  # dedup (normalizeTitle | normalizeEmployerName | countryCode) clusters the two
+  # sources and the employer-site row outranks CrewBase's. sheet_name is the
+  # human-readable tab name and can differ.
+
+  wrs:
+    name: "WRS"
+    # Worldwide Recruitment Solutions. The "offshore-marine-jobs" marketing page
+    # (worldwide-rs.com) has no listings of its own -- it links out to a
+    # "Search Offshore Marine jobs" button pointing at the real job board on the
+    # jobs.worldwide-rs.com subdomain (RecruiterWP/FacetWP plugin), filtered to
+    # job_categories=marine. That filtered URL is the base_url here, not the
+    # marketing page. Listing is server-rendered (no JS needed for the cards).
+    # Only 10 marine jobs live as of 2026-09-16 -- far below CrewBase's claimed
+    # 360 WRS rows; see report for detail. Descriptions are short crew-agency
+    # ads (median ~330 chars raw), most will not clear the 600-char publish gate.
+    platform: html_generic
+    base_url: "https://jobs.worldwide-rs.com/marine/"
+    rate_limit_delay: 2.5
+    selectors:
+      job_card: 'div.job-listing-item'
+      job_title: 'h2 a'
+      job_link: 'h2 a'
+      job_location: 'p.job_listing_location'
+      description: '.entry-content'
+    html_config:
+      wait_for: 'div.job-listing-item'
+      detail_wait_for: '.entry-content'
+      title_from_link: true
+    sheet_name: "WRS"
+
+  atlas_nextwave:
+    name: "Atlas NextWave"
+    # WordPress custom "job" post type (theme dd-atlasnextwave), server-rendered
+    # listing + detail pages. ~23 pages x 12 jobs (~270), matching CrewBase's
+    # claimed 334 well. html_generic's browser-mode pagination loop is capped at
+    # 10 pages internally, so a full run captures ~120 of the newest jobs, not
+    # all 270 -- fine for freshness (site already sorts newest-first) but note
+    # for anyone expecting a full-catalog match.
+    platform: html_generic
+    base_url: "https://atlasnextwave.com/jobs/"
+    rate_limit_delay: 2.5
+    selectors:
+      job_card: 'article.job-summary'
+      job_title: 'p.job-summary__title'
+      job_link: 'a.job-summary__link'
+      job_location: 'p.job-summary__location'
+      description: 'section.text.spacing-row .section-content, section.short-summary .section-content'
+      location: 'div.job-details__item:has-text("Country") p.job-details__text'
+      pagination_next: 'a.next.page-numbers'
+    html_config:
+      wait_for: 'article.job-summary'
+      detail_wait_for: 'section.text.spacing-row'
+    sheet_name: "Atlas NextWave"
+
+  select_offshore:
+    name: "Select Offshore"
+    # Vennture-platform SPA (JS-rendered listing; detail pages are server
+    # pre-rendered but still require the same browser fetch). robots.txt allows
+    # all (`allow: /`). Only 14 jobs rendered on the listing page and 19 job URLs
+    # in the sitemap as of 2026-09-16 -- far below CrewBase's claimed 413 Select
+    # Offshore rows; see report. Descriptions that do exist are solid (~750+
+    # chars), comfortably above the 600-char publish gate.
+    platform: html_generic
+    base_url: "https://www.selectoffshore.com/job-search/"
+    rate_limit_delay: 2.5
+    selectors:
+      job_card: 'li.job-data'
+      job_title: 'div.xs-heading span'
+      job_link: 'a'
+      job_location: 'li:has(i.icon.location) span'
+      description: '.job-data .rte'
+    html_config:
+      wait_for: 'li.job-data'
+      detail_wait_for: '.job-data .rte'
+    sheet_name: "Select Offshore"
 
   crewbase:
     name: "CrewBase"
