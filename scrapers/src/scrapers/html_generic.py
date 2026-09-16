@@ -54,6 +54,93 @@ from src.scrapers.base import BaseScraper
 logger = structlog.get_logger()
 
 
+def _address_part(value) -> str:
+    """One address field as text. schema.org allows a bare string or an object."""
+    if isinstance(value, str):
+        return value.strip()
+    if isinstance(value, dict):
+        return str(value.get('name') or '').strip()
+    return ''
+
+
+def _iter_jsonld_objects(html: str):
+    """Every JSON-LD object on the page, unwrapping lists and @graph."""
+    for block in re.findall(
+        r'<script[^>]*type=[\'"]application/ld\+json[\'"][^>]*>(.*?)</script>',
+        html,
+        re.DOTALL | re.IGNORECASE,
+    ):
+        try:
+            data = json.loads(block)
+        except (json.JSONDecodeError, TypeError):
+            # One malformed block must not hide a good one further down.
+            continue
+        stack = data if isinstance(data, list) else [data]
+        while stack:
+            item = stack.pop(0)
+            if not isinstance(item, dict):
+                continue
+            graph = item.get('@graph')
+            if isinstance(graph, list):
+                stack.extend(graph)
+            yield item
+
+
+def location_from_jsonld(html: str) -> Optional[str]:
+    """The job's location from its schema.org JobPosting markup, or None.
+
+    WHY THIS EXISTS (2026-09-16)
+    ----------------------------
+    Some ATS portals never put the location in selectable HTML. Altrad UK's
+    Eploy portal renders it only inside ASP.NET postback script noise, so every
+    CSS selector missed it, the page-<title> fallback mis-parsed the site's
+    "Job Title - Town in Site - Company" format, and all 156 Altrad jobs
+    resolved to "Unknown". The public store requires a resolvable country, so
+    those jobs could never be published.
+
+    The JSON-LD is the reliable source on such sites: it is the same structured
+    data the employer publishes for Google for Jobs, so it is maintained.
+
+    Returns "Locality, Country" where both exist, matching the house style the
+    rest of the corpus uses ("Abu Dhabi, United Arab Emirates"). Region is used
+    in place of a missing locality rather than added to it, to keep the string
+    geocodable.
+    """
+    for item in _iter_jsonld_objects(html):
+        types = item.get('@type')
+        types = types if isinstance(types, list) else [types]
+        if 'JobPosting' not in types:
+            continue
+
+        job_location = item.get('jobLocation')
+        if isinstance(job_location, list):
+            job_location = job_location[0] if job_location else None
+        if not isinstance(job_location, dict):
+            continue
+
+        address = job_location.get('address')
+        if isinstance(address, str) and address.strip():
+            return address.strip()
+        if not isinstance(address, dict):
+            continue
+
+        locality = _address_part(address.get('addressLocality'))
+        region = _address_part(address.get('addressRegion'))
+        country = _address_part(address.get('addressCountry'))
+
+        # Region is a stand-in for a missing locality, not an extra layer:
+        # "Bridgwater, Somerset, United Kingdom" geocodes no better than
+        # "Bridgwater, United Kingdom" and is further from the house style.
+        place = locality or region
+        parts = [p for p in (place, country) if p]
+        # A city-state repeats itself ("Singapore, Singapore").
+        if len(parts) == 2 and parts[0].lower() == parts[1].lower():
+            parts = parts[:1]
+        if parts:
+            return ', '.join(parts)
+    return None
+
+
 class HtmlGenericScraper(BaseScraper):
     """
     Generic scraper for custom HTML career pages.
@@ -530,6 +617,23 @@ class HtmlGenericScraper(BaseScraper):
             field_name='location',
             default='Location Not Specified'
         )
+
+        # Fallback: the page's own JobPosting JSON-LD. Tried BEFORE the <title>
+        # and slug guesses because it is structured data the employer maintains
+        # for Google for Jobs, not an inference. Some ATS portals (Altrad UK's
+        # Eploy) put the location nowhere else a selector can reach it.
+        if detail['location'] == 'Location Not Specified':
+            try:
+                jsonld_location = location_from_jsonld(await page.content())
+                if jsonld_location:
+                    detail['location'] = jsonld_location
+                    self.logger.debug(
+                        "location_from_jsonld",
+                        url=job_url,
+                        location=jsonld_location,
+                    )
+            except Exception:
+                pass
 
         # Fallback: extract location from page <title> tag
         # Many career sites use "Job Title - Location | Company" format
