@@ -5,6 +5,7 @@ import httpx
 import logging
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
+from typing import Optional
 from bs4 import BeautifulSoup
 from src.models.job import JobPosting
 from src.aggregators.base import BaseAggregator, AggregatorFilters
@@ -39,6 +40,39 @@ def _looks_truncated(description: str) -> bool:
     if not description:
         return False
     return description.endswith("…") or len(description) >= ADZUNA_SNIPPET_LEN
+
+
+def _build_salary(item: dict) -> Optional[str]:
+    """The employer's stated pay, or None when Adzuna is only guessing.
+
+    ADZUNA PREDICTS SALARIES, AND SAYS SO (verified 2026-09-16).
+    ---------------------------------------------------------
+    `salary_is_predicted` is "1" when the figure is Adzuna's own model output
+    rather than anything the employer published. Their details page renders
+    exactly that: "$81,680 per year - estimated". We were ingesting those as if
+    the employer had stated them: 844 of the 969 Adzuna rows carrying a salary
+    had salary_min == salary_max, the shape of a point estimate.
+
+    That matters beyond tidiness. This value reaches a public job page and, for
+    a released trade, the JobPosting `baseSalary` in the structured data. An
+    estimate presented as the job's pay is wrong on the page and a
+    structured-data policy problem in the markup, so a predicted salary is
+    dropped rather than published.
+
+    The period is stated explicitly because the old string had none at all.
+    Adzuna returns these annualized, which is what their own page shows.
+    """
+    if str(item.get("salary_is_predicted", "")).strip() in ("1", "true", "True"):
+        return None
+
+    low, high = item.get("salary_min"), item.get("salary_max")
+    if low and high:
+        if float(low) == float(high):
+            return f"${float(low):,.0f} per year"
+        return f"${float(low):,.0f} - ${float(high):,.0f} per year"
+    if low:
+        return f"${float(low):,.0f}+ per year"
+    return None
 
 
 def detail_url(url: str, app_id: str = "") -> str:
@@ -223,12 +257,7 @@ class AdzunaAggregator(BaseAggregator):
                         if len(description) < 10:
                             description = f"{title} at {company} - {location}"
 
-                        # Build salary string
-                        salary = None
-                        if item.get("salary_min") and item.get("salary_max"):
-                            salary = f"${item['salary_min']:,.0f} - ${item['salary_max']:,.0f}"
-                        elif item.get("salary_min"):
-                            salary = f"${item['salary_min']:,.0f}+"
+                        salary = _build_salary(item)
 
                         # Parse date
                         posted_date = None

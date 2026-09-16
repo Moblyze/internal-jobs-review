@@ -1,0 +1,113 @@
+name: Backfill Salaries
+
+# Repairs pay that is sitting in a row's description but not in its Salary cell.
+#
+# Two defects put unusable pay in the sheet: the Workday regex excluded decimal
+# points (so "$44.68/hour" was stored as "$44") and made the period optional (so
+# a unit-less amount counted as a hit), and nothing ever re-read a description
+# for pay the regex missed. Both are fixed forward in src/utils/salary.py, but
+# the export path only appends rows and updates status columns, so rows already
+# in the sheet keep the bad value. See scrapers/scripts/backfill_salaries.py.
+#
+# No network: the description is already in the sheet. This is a read, a
+# computation and a write.
+#
+# Never blanks and never downgrades: a cell is written only when the description
+# yields a rate WITH a period and the stored value has none.
+#
+# This writes to the SHARED "Job Scraping Results" sheet, so the defaults are a
+# dry run. A live run is a deliberate act.
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (report only; nothing written)'
+        required: false
+        type: boolean
+        default: true
+      # Note: an EMPTY workflow_dispatch input is replaced by its declared
+      # default, so "" cannot mean "no restriction". Hence the ALL sentinel.
+      tab:
+        description: 'Tab(s) to process, comma-separated. ALL = every job tab'
+        required: false
+        type: string
+        default: 'TRC Companies'
+      max_rows:
+        description: 'Cap rows repaired per tab. ALL = no cap'
+        required: false
+        type: string
+        default: '50'
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: scrapers/requirements.txt
+
+      - name: Install Python dependencies
+        working-directory: scrapers
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Create service account credentials file
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          mkdir -p config
+          echo "$GOOGLE_SERVICE_ACCOUNT_JSON" > config/service_account.json
+          chmod 600 config/service_account.json
+
+      # Inputs arrive as env vars rather than being interpolated into the script
+      # body, and args are built as an array, so a tab name containing spaces
+      # stays one argument.
+      - name: Run backfill
+        working-directory: scrapers
+        env:
+          GOOGLE_SERVICE_ACCOUNT_PATH: ${{ github.workspace }}/config/service_account.json
+          GOOGLE_SHEETS_SPREADSHEET_NAME: ${{ secrets.GOOGLE_SHEETS_SPREADSHEET_NAME }}
+          DRY_RUN: ${{ inputs.dry_run }}
+          TAB: ${{ inputs.tab }}
+          MAX_ROWS: ${{ inputs.max_rows }}
+        run: |
+          ARGS=()
+          if [ "$DRY_RUN" = "true" ]; then
+            ARGS+=(--dry-run)
+          fi
+          MAX_ROWS_UC=$(printf '%s' "$MAX_ROWS" | tr '[:lower:]' '[:upper:]')
+          TAB_UC=$(printf '%s' "$TAB" | tr '[:lower:]' '[:upper:]')
+          if [ -n "$MAX_ROWS" ] && [ "$MAX_ROWS_UC" != "ALL" ]; then
+            ARGS+=(--max-rows "$MAX_ROWS")
+          fi
+          if [ -n "$TAB" ] && [ "$TAB_UC" != "ALL" ]; then
+            IFS=',' read -ra TAB_LIST <<< "$TAB"
+            for t in "${TAB_LIST[@]}"; do
+              ARGS+=(--tab "$t")
+            done
+          fi
+          echo "Running: python scripts/backfill_salaries.py ${ARGS[*]}"
+          python scripts/backfill_salaries.py "${ARGS[@]}"
+
+      - name: Upload tab backups as workflow artifact
+        if: always() && inputs.dry_run != true
+        uses: actions/upload-artifact@v4
+        with:
+          name: salary-backfill-backup-${{ github.run_id }}
+          path: scrapers/data/*-salary-backfill-backup-*.csv
+          retention-days: 90
+          if-no-files-found: warn
+
+      - name: Clean up credentials
+        if: always()
+        run: rm -f config/service_account.json

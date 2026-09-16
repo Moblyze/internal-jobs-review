@@ -45,6 +45,7 @@ from pydantic import ValidationError
 
 from src.models.job import JobPosting
 from src.scrapers.base import BaseScraper
+from src.utils.salary import extract_salary
 from src.scrapers.workday import extract_workday_requisition_id, parse_workday_location
 
 # Workday's CXS endpoint rejects limit > 20 with HTTP 400.
@@ -55,10 +56,11 @@ REQUEST_TIMEOUT = 30.0
 MAX_ATTEMPTS = 4
 
 _BLOCK_TAGS = ['p', 'div', 'li', 'ul', 'ol', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'tr', 'table', 'section']
-_SALARY_RE = re.compile(
-    r'\$[\d,]+(?:\s*-\s*\$?[\d,]+)?(?:\s*(?:per|/)\s*(?:year|hour|yr|hr))?',
-    re.IGNORECASE,
-)
+# Salary extraction moved to src/utils/salary.py on 2026-09-16. The regex that
+# used to live here matched `[\d,]+`, which excludes a decimal point, so
+# "$44.68/hour" was captured as "$44"; and it made the period OPTIONAL, so a
+# bare amount with no unit was stored as though it were pay. Between them those
+# two put unusable pay on the public site. See that module for the detail.
 _REQUIREMENTS_RE = re.compile(
     r'(?:Requirements?|Qualifications?|Skills?)[\s:]+(.+?)'
     r'(?:Responsibilities|Duties|Benefits|Equal Opportunity|$)',
@@ -301,7 +303,6 @@ class WorkdayApiScraper(BaseScraper):
         if not description:
             return None
 
-        salary_match = _SALARY_RE.search(description)
         return {
             'description': description,
             'location': parse_workday_location(info.get('location') or ''),
@@ -309,7 +310,7 @@ class WorkdayApiScraper(BaseScraper):
             'employment_type': self._normalize_employment_type(info.get('timeType')),
             'requisition_id': info.get('jobReqId') or None,
             'skills': self._skills_from_description(description),
-            'salary': salary_match.group(0) if salary_match else None,
+            'salary': extract_salary(description),
         }
 
     # ------------------------------------------------------------ interface
