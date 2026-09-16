@@ -336,6 +336,84 @@ companies:
       title_from_link: true
     sheet_name: "LRQA"
 
+  # PG Global: custom WordPress theme (imdms_blank_wp), NOT WP Job Manager.
+  # No "vacancy" REST route exposed (/wp-json/wp/v2/types has no vacancy entry).
+  # Own site shows only 7 open vacancies as of 2026-09-16, far below the 138
+  # CrewBase rows -- CrewBase's count for this employer looks stale/inflated.
+  pg_global:
+    name: "PG Global"
+    platform: html_generic
+    base_url: "https://www.pg-global.com/vacancies/"
+    rate_limit_delay: 2.5
+    selectors:
+      job_card: 'div.job-list.clearfix'
+      job_title: 'p.title'
+      job_link: 'a.view-position'
+      job_location: '.job-list--mobile .job-list--item-value'
+      description: 'div.vacancies-post-content'
+      # The 5th <li> in the detail page's job-desc-menu is "Country" (order:
+      # Job Type, Salary, Working Hours, Start Date, Country, Location).
+      # Without a real match here the scraper's generic "Title - Company"
+      # page-title fallback misreads the company name as the location, and
+      # the JobPosting model's looks_like_company_name() guard then blanks it
+      # to "Unknown" before the listing-page location can rescue it.
+      location: 'ul.job-desc-menu li:nth-of-type(5) .job-list--item-value'
+    html_config:
+      wait_for: 'div.job-list.clearfix'
+      detail_wait_for: 'div.vacancies-post-content'
+    sheet_name: "PG Global"
+
+  # Elevate Offshore: Matador Jobs Board plugin (matador-job-listings post
+  # type), NOT WP Job Manager. wp-pagenavi pagination, 2 pages x ~16 jobs as
+  # of 2026-09-16 (~32 live), below the 132 CrewBase rows.
+  elevate_offshore:
+    name: "Elevate Offshore"
+    platform: html_generic
+    base_url: "https://www.elevateoffshore.com/vacancies/"
+    rate_limit_delay: 2.5
+    selectors:
+      job_card: 'div.inside-col'
+      job_title: 'h3 a'
+      job_link: 'h3 a'
+      job_location: 'p:has-text("Location:")'
+      description: '.single-job .text-content'
+      location: 'p:has-text("Location:")'
+      # wp-pagenavi's real "next" arrow (a.nextpostslink) is CSS
+      # display:none in this theme, so html_generic's is_visible() check
+      # never clicks it and pagination silently no-ops. The numbered
+      # forward link carries a "larger" class only when it points to a
+      # higher page (never present on the last page, and never present for
+      # the "previous" link), so it advances without looping backward.
+      pagination_next: 'a.page.larger'
+    html_config:
+      wait_for: 'div.inside-col'
+      detail_wait_for: '.single-job'
+      title_from_link: true
+    sheet_name: "Elevate Offshore"
+
+  # Advance Global Recruitment (AGRL): custom WordPress "jobs" post type,
+  # NOT WP Job Manager. Card <h3> mixes the title with a hidden share-modal's
+  # text; job_title lets html_generic take the card's own inner_text fallback,
+  # which in testing isolates the title correctly (see report). Location is
+  # the 2nd .key-info div on both listing and detail markup (salary is 1st,
+  # an empty spacer is 3rd, date is 4th) -- nth-of-type(2) counts among all
+  # sibling <div>s, which is exactly the 4 .key-info divs here.
+  advance_global_recruitment:
+    name: "Advance Global Recruitment"
+    platform: html_generic
+    base_url: "https://www.agrl.co.uk/jobs/"
+    rate_limit_delay: 2.5
+    selectors:
+      job_card: 'div.job-block'
+      job_link: 'a.description'
+      job_location: 'div.job-details div.key-info:nth-of-type(2)'
+      description: 'div.job-content'
+      location: 'div.job-details div.key-info:nth-of-type(2)'
+    html_config:
+      wait_for: 'div.job-block'
+      detail_wait_for: 'div.job-content'
+    sheet_name: "Advance Global Recruitment"
+
   # NOTE: Bechtel uses a non-TalentBrew SuccessFactors frontend (table-based at jobs.bechtel.com/search/).
   # The current SuccessFactors scraper relies on TalentBrew's console.log JSON extraction which
   # won't work here. Needs custom extraction logic or a separate scraper approach.
@@ -358,6 +436,93 @@ companies:
   #   sheet_name: "Bechtel"
 
   # === Phenom TXM platform ===
+
+  # SA Operations (sa-world.com) is a Joomla site (view-category/layout-blog).
+  # Real jobs live at /open-vacancies.html, NOT behind any ATS -- server-rendered
+  # article cards, one per job, "Read more" links to a full detail page with a
+  # complete description under div.articleBody. Paginated 10/page, 16 pages
+  # total (~160 jobs) via ?start=N; html_generic's pagination safety cap is 10
+  # pages, so this will only pick up the first ~100. robots.txt only blocks
+  # Joomla admin paths -- /open-vacancies.html is allowed.
+  sa_operations:
+    name: "SA Operations"
+    platform: html_generic
+    base_url: "https://www.sa-world.com/open-vacancies.html"
+    rate_limit_delay: 2.5
+    selectors:
+      job_card: 'div.article'
+      job_title: 'h2 a'
+      job_link: 'h2 a'
+      job_location: 'li.field-entry.location span.field-value'
+      description: 'div.articleBody'
+      location: 'li.field-entry.location span.field-value'
+      pagination_next: 'a[aria-label="Go to next page"]'
+    html_config:
+      wait_for: 'div.article'
+      detail_wait_for: 'div.articleBody'
+    sheet_name: "SA Operations"
+
+  # BSM Shipmanagement: the given URL (bsmshipmanagement.com) is an unrelated
+  # GoDaddy-builder placeholder page ("Navigating Excellence in Shipping",
+  # nothing else) -- not the real company site. The actual company is Bernhard
+  # Schulte Shipmanagement (bs-shipmanagement.com). Shore-based roles are
+  # posted on Teamtailor (bsm.teamtailor.com/jobs), server-rendered HTML,
+  # robots.txt allows /jobs/. Seafarer/at-sea vacancies -- almost certainly
+  # the bulk of BSM's CrewBase volume -- live on a separate portal
+  # (careersatsea.bs-shipmanagement.com), which redirects straight to a
+  # mandatory sign-in/register screen (MariApps "SmartRecruitment" + Identity
+  # Server OIDC) before showing any vacancy; nothing is visible without an
+  # account, so it is not scraped here. Only the public Teamtailor shore-jobs
+  # tab is covered by this config.
+  bsm_shipmanagement:
+    name: "BSM Shipmanagement"
+    platform: html_generic
+    base_url: "https://bsm.teamtailor.com/jobs"
+    rate_limit_delay: 2.5
+    selectors:
+      job_card: 'ul#jobs_list_container li'
+      job_title: 'a[href*="/jobs/"]'
+      job_link: 'a[href*="/jobs/"]'
+      job_location: 'div.mt-4.text-md'
+      description: 'div.prose'
+      location: 'dt:has-text("Locations") + dd'
+    html_config:
+      wait_for: 'ul#jobs_list_container'
+      detail_wait_for: 'div.prose'
+      title_from_link: true
+    sheet_name: "BSM Shipmanagement"
+
+  # ORCA Crew Services: the given URL (orcacrew.com) is an expired/parked
+  # domain that now 403s to a GoDaddy "domain for sale" page -- not the real
+  # site. The real company site is orca-crew.com (WordPress, wp-json REST API
+  # confirmed). Its own careers page only lists shore/office roles via a
+  # custom "career" post type (1 live posting as of 2026-09-16). The bulk of
+  # ORCA's advertised roles are seafarer vacancies on a separate ABP/Angular
+  # portal (orca-crew.lt/account/vacancies): the summary cards (position,
+  # vessel type, contract length, location) are public, but every "Details"
+  # button redirects straight to /account/login -- no description text is
+  # ever exposed without an account, so that portal is not scraped. Also
+  # note the public summary list (63 live rows via its own JobPublic/GetAll
+  # API, checked 2026-09-16) is already far below CrewBase's 248 rows for
+  # ORCA, and contains exact duplicate postings for the same role/vessel
+  # (e.g. two identical "Master / General Cargo / 8 weeks" rows, ids 11256
+  # and 11257) -- the per-vessel duplication trap flagged in the brief.
+  # robots.txt sets Crawl-delay: 10, honored below.
+  orca_crew_services:
+    name: "ORCA Crew Services"
+    platform: html_generic
+    base_url: "https://www.orca-crew.com/about-us/careers/"
+    rate_limit_delay: 10.0
+    selectors:
+      job_card: 'article.bde-loop-item'
+      job_title: 'h3.ee-post-title a'
+      job_link: 'h3.ee-post-title a'
+      description: 'div.bde-rich-text'
+      location: 'div.bde-text:has-text("Location:")'
+    html_config:
+      wait_for: 'article.bde-loop-item'
+      detail_wait_for: 'div.bde-rich-text'
+    sheet_name: "ORCA Crew Services"
 
   oceaneering:
     name: "Oceaneering"
