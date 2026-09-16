@@ -1,0 +1,144 @@
+name: Backfill Adzuna Descriptions
+
+# One-off (resumable) backfill: Adzuna's search API caps its `description` field
+# at 500 characters and appends a horizontal ellipsis. Nothing in this repo
+# truncates it. That left ~950 active rows unpublishable, because the public
+# jobs site rejects any listing under 600 characters.
+#
+# The adapter fix (d6ba522) only helps NEWLY exported rows -- the aggregator
+# export path appends jobs whose URL is not already in the tab and never
+# rewrites an existing row. This workflow patches the rows already in the sheet.
+# See scrapers/scripts/backfill_adzuna_descriptions.py for the full design.
+#
+# This writes to the SHARED "Job Scraping Results" sheet. The defaults below are
+# deliberately the narrow smoke test (dry run, 20 rows, one tab): widening is a
+# deliberate act, not the default.
+#
+# Resumable: outcomes persist per source URL in adzuna_backfill_state.json on
+# the scraper-state-latest release. Re-running retries only unresolved rows, so
+# a rate-limited or timed-out run costs nothing to finish. Rows that 410 (the
+# posting is gone) are recorded and never re-fetched.
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (fetch + report; no writes to the sheet, no state saved)'
+        required: false
+        type: boolean
+        default: true
+      tab:
+        description: 'Tab(s) to process, comma-separated. Empty = every "Aggregator - *" tab'
+        required: false
+        type: string
+        default: 'Aggregator - subsea_oil_gas'
+      max_jobs:
+        description: 'Cap rows processed per tab (empty = all)'
+        required: false
+        type: string
+        default: '20'
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    permissions:
+      contents: write   # to upload state to the scraper-state-latest release
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: scrapers/requirements.txt
+
+      - name: Install Python dependencies
+        working-directory: scrapers
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Download backfill state from release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p scrapers/data
+          gh release download scraper-state-latest -p adzuna_backfill_state.json -D scrapers/data/ 2>/dev/null \
+            && echo "Restored backfill state ($(wc -c < scrapers/data/adzuna_backfill_state.json) bytes)" \
+            || echo "No prior backfill state — starting fresh"
+
+      - name: Create service account credentials file
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          mkdir -p config
+          echo "$GOOGLE_SERVICE_ACCOUNT_JSON" > config/service_account.json
+          chmod 600 config/service_account.json
+
+      # Inputs come in as env vars, never interpolated into the script body:
+      # a tab name is free text and `${{ }}` inside a run block is a script
+      # injection vector. Args are built as an array so a tab name containing
+      # spaces ("Aggregator - subsea_oil_gas") stays a single argument.
+      - name: Run backfill
+        working-directory: scrapers
+        env:
+          GOOGLE_SERVICE_ACCOUNT_PATH: ${{ github.workspace }}/config/service_account.json
+          GOOGLE_SHEETS_SPREADSHEET_NAME: ${{ secrets.GOOGLE_SHEETS_SPREADSHEET_NAME }}
+          # The live scraper attributes its detail fetches with the real app id.
+          # detail_url() falls back to utm_source=api, which serves identically
+          # (verified 2026-09-16), but keep the backfill and the scraper aligned.
+          ADZUNA_APP_ID: ${{ secrets.ADZUNA_APP_ID }}
+          DRY_RUN: ${{ inputs.dry_run }}
+          TAB: ${{ inputs.tab }}
+          MAX_JOBS: ${{ inputs.max_jobs }}
+        run: |
+          ARGS=(--state-path data/adzuna_backfill_state.json)
+          if [ "$DRY_RUN" = "true" ]; then
+            ARGS+=(--dry-run)
+          fi
+          if [ -n "$MAX_JOBS" ]; then
+            ARGS+=(--max-jobs "$MAX_JOBS")
+          fi
+          if [ -n "$TAB" ]; then
+            IFS=',' read -ra TAB_LIST <<< "$TAB"
+            for t in "${TAB_LIST[@]}"; do
+              ARGS+=(--tab "$t")
+            done
+          fi
+          echo "Running: python scripts/backfill_adzuna_descriptions.py ${ARGS[*]}"
+          python scripts/backfill_adzuna_descriptions.py "${ARGS[@]}"
+
+      # always() also covers a timeout-killed job (conclusion: cancelled), so a
+      # run that dies mid-way still persists the waves it completed.
+      - name: Upload backfill state to release
+        if: always() && inputs.dry_run != true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -f scrapers/data/adzuna_backfill_state.json ]; then
+            gh release view scraper-state-latest >/dev/null 2>&1 || \
+              gh release create scraper-state-latest \
+                --title "Scraper Dedup State" \
+                --notes "Persistent state for scraping workflows. Updated automatically."
+            gh release upload scraper-state-latest scrapers/data/adzuna_backfill_state.json --clobber
+            echo "State uploaded"
+          else
+            echo "No state file produced — nothing to upload"
+          fi
+
+      - name: Upload tab backups as workflow artifact
+        if: always() && inputs.dry_run != true
+        uses: actions/upload-artifact@v4
+        with:
+          name: adzuna-backfill-backup-${{ github.run_id }}
+          path: scrapers/data/*-adzuna-backfill-backup-*.csv
+          retention-days: 90
+          if-no-files-found: warn
+
+      - name: Clean up credentials
+        if: always()
+        run: rm -f config/service_account.json
