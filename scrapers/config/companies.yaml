@@ -1386,6 +1386,21 @@ companies:
       detail_wait_for: 'section.single-vacancy'
     sheet_name: "OJ Crew"
 
+  # Columbia Shipmanagement is on Lever, which serves the whole board as
+  # unauthenticated JSON in one call. NOTE the EU region: the US endpoint
+  # (api.lever.co) 404s for this slug, the EU one returns all 217 postings.
+  # `name` must stay "Columbia Shipmanagement" to match CrewBase's string so
+  # the two rows cluster and the employer copy wins.
+  # CrewBase carries 324 rows for them; 217 is the real live number.
+  columbia_shipmanagement:
+    name: "Columbia Shipmanagement"
+    platform: lever
+    base_url: "https://jobs.eu.lever.co/csmcy"
+    lever_slug: "csmcy"
+    lever_region: "eu"
+    rate_limit_delay: 2.0
+    sheet_name: "Columbia Shipmanagement"
+
   crewbase:
     name: "CrewBase"
     platform: crewbase

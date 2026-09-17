@@ -132,6 +132,12 @@ except ImportError:
     pass
 
 try:
+    from src.scrapers.lever import LeverScraper
+    SCRAPER_REGISTRY['lever'] = LeverScraper
+except ImportError:
+    pass
+
+try:
     from src.scrapers.cezanne import CezanneScraper
     SCRAPER_REGISTRY['cezanne'] = CezanneScraper
 except ImportError:
