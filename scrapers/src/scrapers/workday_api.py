@@ -135,7 +135,20 @@ class WorkdayApiScraper(BaseScraper):
                 resp = await client.request(method, url, json=json_body, timeout=REQUEST_TIMEOUT)
             except httpx.HTTPError as e:
                 last_exc_message = f"{type(e).__name__}: {e}"
-                self.logger.warning("request_exception", url=url, attempt=attempt, error=str(e))
+                # Log the exception TYPE, not just str(e). Several httpx errors
+                # (ConnectError, ReadTimeout, ConnectTimeout) stringify to "",
+                # which is how KBR and Baker Hughes failed all four attempts
+                # every day from 2026-09-15 with `"error": ""` in the log and
+                # nothing to diagnose from. Both endpoints answer fine from a
+                # laptop, so whatever this is, it is specific to the runner and
+                # the type is the first thing needed to tell timeout from refusal.
+                self.logger.warning(
+                    "request_exception",
+                    url=url,
+                    attempt=attempt,
+                    error_type=type(e).__name__,
+                    error=str(e) or '(no message)',
+                )
                 await asyncio.sleep(min(30, 2 ** attempt))
                 continue
 
