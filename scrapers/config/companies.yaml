@@ -1358,6 +1358,16 @@ companies:
       detail_wait_for: '.job-data .rte'
     sheet_name: "Select Offshore"
 
+  anglo_eastern:
+    name: "Anglo-Eastern"
+    platform: workable
+    base_url: "https://apply.workable.com/angloeastern/"
+    workable_slug: "angloeastern"
+    rate_limit_delay: 2.0
+    # Workable uses API-first approach, selectors not needed
+    selectors: {}
+    sheet_name: "Anglo-Eastern"
+
   crewbase:
     name: "CrewBase"
     platform: crewbase
