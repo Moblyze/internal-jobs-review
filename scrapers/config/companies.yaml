@@ -1401,6 +1401,46 @@ companies:
     rate_limit_delay: 2.0
     sheet_name: "Columbia Shipmanagement"
 
+  utm_consultants:
+    name: "UTM Consultants"
+    platform: html_generic
+    base_url: "https://www.utmconsultants.com/jobs/"
+    rate_limit_delay: 2.5
+    selectors:
+      job_card: 'article.matador-job'
+      job_title: 'h4.matador-job-title a'
+      job_link: 'h4.matador-job-title a'
+      description: 'div.description'
+      pagination_next: '.matador-pagination a.next.page-numbers'
+    html_config:
+      wait_for: 'article.matador-job'
+      detail_wait_for: 'div.description'
+    sheet_name: "UTM Consultants"
+
+  # Peak Ocean and TEXO both run Bullhorn's OSCP career-portal widget, a
+  # client-rendered SPA in an iframe: html_generic can see nothing in the outer
+  # DOM, so both go through the portal's own public REST endpoint. corp token
+  # and swimlane come from the portal's network calls and differ per employer.
+  # Live counts are far ABOVE CrewBase's, which is the opposite of the usual
+  # direction here: 126 against 13, and 36 against 12.
+  peak_ocean_group:
+    name: "Peak Ocean Group"
+    platform: bullhorn
+    base_url: "https://www.peakoceangp.com/career/"
+    bullhorn_corp_token: "C5RJPS"
+    bullhorn_swimlane: "rest61"
+    rate_limit_delay: 2.0
+    sheet_name: "Peak Ocean Group"
+
+  texo_recruitment:
+    name: "TEXO Recruitment"
+    platform: bullhorn
+    base_url: "https://texo.co.uk/recruitment/vacancies/"
+    bullhorn_corp_token: "76FBES"
+    bullhorn_swimlane: "rest23"
+    rate_limit_delay: 2.0
+    sheet_name: "TEXO Recruitment"
+
   crewbase:
     name: "CrewBase"
     platform: crewbase

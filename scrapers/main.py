@@ -138,6 +138,12 @@ except ImportError:
     pass
 
 try:
+    from src.scrapers.bullhorn import BullhornScraper
+    SCRAPER_REGISTRY['bullhorn'] = BullhornScraper
+except ImportError:
+    pass
+
+try:
     from src.scrapers.cezanne import CezanneScraper
     SCRAPER_REGISTRY['cezanne'] = CezanneScraper
 except ImportError:
