@@ -1368,6 +1368,24 @@ companies:
     selectors: {}
     sheet_name: "Anglo-Eastern"
 
+  oj_crew:
+    name: "OJ Crew"
+    platform: html_generic
+    base_url: "https://ojcrew.com/all-vacancies/"
+    rate_limit_delay: 2.5
+    selectors:
+      job_card: 'div.container:has(p.posted-date)'
+      job_title: 'h3'
+      job_link: 'a.apply-button'
+      job_location: 'div.left p:nth-of-type(2)'
+      description: 'section.single-vacancy div.left'
+      location: '.single-vacancy-icons-row div:nth-of-type(2) p'
+      pagination_next: 'a.next.page-numbers'
+    html_config:
+      wait_for: 'div.container:has(p.posted-date)'
+      detail_wait_for: 'section.single-vacancy'
+    sheet_name: "OJ Crew"
+
   crewbase:
     name: "CrewBase"
     platform: crewbase
