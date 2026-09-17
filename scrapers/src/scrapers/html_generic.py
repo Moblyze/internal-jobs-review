@@ -53,6 +53,11 @@ from src.scrapers.base import BaseScraper
 
 logger = structlog.get_logger()
 
+# Below this, a "description" is not one: it is a title echoed back, a label, or
+# an empty container. Used both to decide whether a job's own page still needs
+# fetching and to drop a row rather than invent text for it.
+MIN_USABLE_DESCRIPTION = 60
+
 
 def _address_part(value) -> str:
     """One address field as text. schema.org allows a bare string or an object."""
@@ -1035,7 +1040,9 @@ class HtmlGenericScraper(BaseScraper):
             'url': job_url,
             'company': self.company_name,
             'location': location or 'Location Not Specified',
-            'description': description or f"{title} position at {self.company_name}.",
+            # Deliberately left EMPTY when the sitemap gives us nothing: that is
+            # the signal the main loop uses to go and fetch the job's own page.
+            'description': description or '',
             'employment_type': employment_type,
         }
 
@@ -1241,8 +1248,10 @@ class HtmlGenericScraper(BaseScraper):
 
                     # Build a description from the section text
                     description = text.strip()
-                    if len(description) < 20:
-                        description = f"{title} position at {self.company_name}. Location: {location}."
+                    if len(description) < MIN_USABLE_DESCRIPTION:
+                        # Empty rather than invented: the main loop then fetches
+                        # the job's own page for the real text.
+                        description = ''
 
                     listings.append({
                         'title': title,
@@ -1393,7 +1402,20 @@ class HtmlGenericScraper(BaseScraper):
                 try:
                     job_data = {**listing}
 
-                    if not skip_detail_pages and listing.get('url'):
+                    # `skip_detail_pages` exists so a source whose LISTING already
+                    # carries the whole advert is not re-fetched once per job. It
+                    # was never meant to mean "publish without a description":
+                    # when a fallback path (sitemap, wp_api) yields a title and
+                    # nothing else, the only honest options are to fetch the job's
+                    # own page or to drop the row, and inventing a sentence was
+                    # doing neither. Measured 2026-09-17: 395 active rows read
+                    # "<title> position at OSM Thome.", 90 of them scraped this
+                    # month, and only 34 of OSM Thome's 436 rows had a real
+                    # description. So the skip is now conditional on actually
+                    # having one. The per-request rate limit still applies, so a
+                    # small site is not hit any harder per request than before.
+                    needs_detail = len((listing.get('description') or '').strip()) < MIN_USABLE_DESCRIPTION
+                    if (not skip_detail_pages or needs_detail) and listing.get('url'):
                         # Ensure browser is available for detail page extraction
                         if page is None:
                             context = await self._get_browser_context()
@@ -1436,14 +1458,22 @@ class HtmlGenericScraper(BaseScraper):
                         job_data.pop('_location_from_slug', None)
                     else:
                         # Use what we have from the listing
-                        if 'description' not in job_data or not job_data.get('description'):
-                            job_data['description'] = f"{job_data['title']} position at {self.company_name}."
                         if 'location' not in job_data:
                             job_data['location'] = 'Location Not Specified'
 
-                    # Ensure minimum description
-                    if not job_data.get('description') or len(job_data['description']) < 10:
-                        job_data['description'] = f"{job_data['title']} position at {self.company_name}."
+                    # No invented descriptions. A stub like "<title> position at
+                    # <company>." is not a description, it just carries a row past
+                    # the model's 10-character minimum and then fails the public
+                    # site's 600-character gate forever, while looking to everyone
+                    # downstream like real captured text. If the detail fetch above
+                    # could not find anything, drop the row and say so.
+                    if len((job_data.get('description') or '').strip()) < MIN_USABLE_DESCRIPTION:
+                        self.logger.warning(
+                            "job_skipped_no_description",
+                            title=str(job_data.get('title'))[:60],
+                            url=str(job_data.get('url'))[:120],
+                        )
+                        continue
 
                     # Enrich with certifications
                     job_data = self._enrich_with_certifications(job_data)
