@@ -117,7 +117,29 @@ class BaseScraper(ABC):
             self._context = await self._browser.new_context(
                 user_agent='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
                 viewport={'width': 1920, 'height': 1080},
-                locale='en-US'
+                locale='en-US',
+                # A real browser always sends this. Its absence alongside a
+                # Chrome user agent is one of the cheapest bot tells there is.
+                extra_http_headers={'Accept-Language': 'en-US,en;q=0.9'},
+            )
+
+            # Close the fingerprint gaps that --disable-blink-features leaves
+            # open. Some sites serve a full page to curl and an empty one to
+            # headless Chromium, which looks like a broken selector and is not:
+            # Faststream returned 202 jobs to curl and 0 here, and Marine Man's
+            # Cloudflare challenge never cleared (both measured 2026-09-17).
+            #
+            # This is ordinary politeness-compatible hardening, not evasion: the
+            # rate limit, the robots.txt check and the honest user agent all
+            # still apply. It only stops us being misread as a bot while
+            # behaving like a well-mannered one.
+            await self._context.add_init_script(
+                """
+                Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
+                Object.defineProperty(navigator, 'languages', { get: () => ['en-US', 'en'] });
+                Object.defineProperty(navigator, 'plugins', { get: () => [1, 2, 3, 4, 5] });
+                window.chrome = window.chrome || { runtime: {} };
+                """
             )
         except Exception:
             # Launch failed after we took a slot; release it so we don't
