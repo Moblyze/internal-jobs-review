@@ -2,6 +2,109 @@
   {
     "sources": [
       {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/us-backs-global-atomics-niger-uranium-mine-with-414m-loan/"
+      }
+    ],
+    "headline": "US DFC Backs Global Atomic's Niger Uranium Mine with $414M Loan",
+    "body": "Debt financing is now 40% higher than the initial $295 million proposed by the International Development Finance in 2024.",
+    "url": "https://www.mining.com/us-backs-global-atomics-niger-uranium-mine-with-414m-loan/",
+    "published_at": "2026-09-18T15:43:58.000Z",
+    "hash": "346a5a2fe9fda98d",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "west-africa",
+    "country": "niger",
+    "tldr": "US International Development Finance Corporation provides $414M debt financing for Global Atomic's uranium mine in Niger, a 40% increase over the initial $295M proposal — signalling project advancement and near-term construction workforce demand.",
+    "operator": {
+      "name": "Global Atomic",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Global Atomic",
+      "matched_company_slug": null
+    },
+    "project_name": "Global Atomic Niger Uranium Mine",
+    "scope": [
+      "mine_development",
+      "civil_construction",
+      "process_plant"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 414000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mine Construction Manager",
+        "Project Manager – Mining",
+        "HSE Manager",
+        "Process Plant Superintendent",
+        "Civil Construction Supervisor",
+        "Mining Engineer",
+        "Commissioning Manager"
+      ],
+      "skills": [
+        "uranium mining",
+        "mine development",
+        "process plant construction",
+        "project controls",
+        "HSE management",
+        "civil works"
+      ],
+      "certs_freetext": [
+        "MSHA",
+        "IOSH",
+        "PMP"
+      ],
+      "geo_rtw": "Niger / West Africa – expat rotation",
+      "project_experience": [
+        "Cigar Lake",
+        "Husab Uranium Mine",
+        "Rossing Uranium",
+        "Orano Arlit"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "senior",
+      "boolean_search": "(\"Mine Manager\" OR \"Construction Manager\" OR \"Project Manager\" OR \"Commissioning Manager\" OR \"Process Plant Superintendent\" OR \"Mining Engineer\" OR \"HSE Manager\") AND (\"uranium\" OR \"uranium mining\" OR \"mine development\" OR \"greenfield mine\") AND (\"West Africa\" OR \"Niger\" OR \"Africa\" OR \"remote site\" OR \"expat\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Global Atomic's Niger uranium mine just secured $414M in US DFC financing — a major step toward construction mobilisation. Are you open to hearing about senior roles on this project?",
+      "email_subject": "Senior Mining Roles – Global Atomic Niger Uranium Mine ($414M DFC-Backed)",
+      "email_body": "Hi [Name],\n\nGlobal Atomic has secured $414M in US Development Finance Corporation debt financing for its uranium mine in Niger — a 40% uplift on the original proposal and a strong signal that construction mobilisation is advancing.\n\nWe are identifying senior mining and construction professionals for key roles on this project, including Construction Managers, Process Plant Superintendents, HSE Leads, and Commissioning Managers with greenfield mine experience in remote/West African environments.\n\nIf you are open to a confidential conversation about your availability and interest, I would love to connect.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Global Atomic) receives $414M project financing for a named uranium mine in Niger, signalling project advancement and near-term construction workforce demand in the mining sector.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "A $414M debt financing package — 40% above the original proposal — has been confirmed, indicating the project has cleared a major financial gate and is progressing toward construction.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "6ef86f81-3549-4ebc-bb86-56e8a02f6a93",
+    "ingested_at": "2026-09-18T18:12:59.716Z",
+    "source_published_at": "2026-09-18T15:43:58.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/paratus-energy-update-regarding-the-petrobras-tender-process-302883147.html"

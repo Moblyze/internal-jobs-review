@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-09-18T12:16:11.549Z",
+  "updated_at": "2026-09-18T18:12:59.716Z",
   "sources": {
     "rigzone": {
       "kind": "ok",
@@ -66,11 +66,11 @@
       "alert_count": 0
     },
     "sec_edgar_8k": {
-      "kind": "fetch_flapping",
-      "error": "EDGAR 500",
-      "error_class": "http_500",
-      "http_status": 500,
-      "first_seen_at": "2026-09-18T12:16:11.549Z",
+      "kind": "ok",
+      "error": null,
+      "error_class": null,
+      "http_status": null,
+      "first_seen_at": null,
       "last_alerted_at": null,
       "alert_count": 0
     }

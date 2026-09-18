@@ -1,5 +1,47 @@
 [
   {
+    "id": "6ef86f81-3549-4ebc-bb86-56e8a02f6a93",
+    "ingested_at": "2026-09-18T18:12:59.716Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/us-backs-global-atomics-niger-uranium-mine-with-414m-loan/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "west-africa",
+    "country": "niger",
+    "headline": "US DFC Backs Global Atomic's Niger Uranium Mine with $414M Loan",
+    "operator": {
+      "name": "Global Atomic",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Global Atomic",
+      "matched_company_slug": null
+    },
+    "project_name": "Global Atomic Niger Uranium Mine",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 414000000,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
     "id": "5e93e63c-3929-4e4c-b768-e38c3d1cb11c",
     "ingested_at": "2026-09-18T12:16:11.549Z",
     "sources": [

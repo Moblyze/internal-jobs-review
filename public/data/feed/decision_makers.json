@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-09-18T12:17:33.363Z"
+    "last_updated_at": "2026-09-18T18:14:37.655Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -12590,6 +12590,66 @@
         "email": null,
         "phone": null,
         "location": "Houston, TX, USA"
+      }
+    ]
+  },
+  "global atomic": {
+    "discovered_at": "2026-09-18T18:14:37.655Z",
+    "contacts": [
+      {
+        "name": "Ian Moffatt",
+        "title": "Project Superintendent, Dasa Project",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://www.newswire.ca/news-releases/global-atomic-strengthens-operations-and-corporate-teams-in-preparation-for-building-the-dasa-project-837723645.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Niger (Dasa Project Site)"
+      },
+      {
+        "name": "Jacques Tremblay",
+        "title": "Manager, Mining Operations, Dasa Project",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.newswire.ca/news-releases/global-atomic-strengthens-operations-and-corporate-teams-in-preparation-for-building-the-dasa-project-837723645.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Niger (Dasa Project Site)"
+      },
+      {
+        "name": "Santiago Faucher",
+        "title": "Chief Technology Officer",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://globalatomiccorp.com/About/executive-management/default.aspx",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Toronto, ON, Canada"
+      },
+      {
+        "name": "Timothy Campbell",
+        "title": "Vice President & Corporate Secretary",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://globalatomiccorp.com/About/executive-management/default.aspx",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Toronto, ON, Canada"
+      },
+      {
+        "name": "Stephen G. Roman",
+        "title": "Founder, Chairman, President & CEO",
+        "persona": "other",
+        "linkedin_url": null,
+        "source_url": "https://globalatomiccorp.com/About/executive-management/default.aspx",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Toronto, ON, Canada"
       }
     ]
   }
