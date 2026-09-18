@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-09-15T18:14:12.430Z"
+    "last_updated_at": "2026-09-18T12:17:33.363Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -12470,6 +12470,126 @@
         "email": null,
         "phone": null,
         "location": "London, UK"
+      }
+    ]
+  },
+  "paratus energy services ltd.": {
+    "discovered_at": "2026-09-18T12:17:33.363Z",
+    "contacts": [
+      {
+        "name": "Oliver Rios",
+        "title": "HR Manager",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/oliver-rios-24175322",
+        "source_url": "https://rocketreach.co/fontis-energy-management_b7116fcec4a79ffa",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Ciudad del Carmen, Campeche, Mexico"
+      },
+      {
+        "name": "Raphael Siri",
+        "title": "Chief Executive Officer, Fontis Energy",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/rapha%C3%ABl-siri-a819243",
+        "source_url": "https://www.paratus-energy.com/about",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Mexico City, Mexico"
+      },
+      {
+        "name": "Rogerio Salbego",
+        "title": "Chief Executive Officer, Seagems",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/rogerio-salbego",
+        "source_url": "https://www.paratus-energy.com/about",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Katy, TX, USA"
+      },
+      {
+        "name": "Baton Haxhimehmedi",
+        "title": "Interim CEO & Group CFO",
+        "persona": "other",
+        "linkedin_url": null,
+        "source_url": "https://www.prnewswire.com/news-releases/paratus-energy-2026-agm-results-notification-302770611.html",
+        "in_target_persona": false,
+        "email": "Baton.Haxhimehmedi@paratus-energy.com",
+        "phone": "+47 406 39 083",
+        "location": null
+      },
+      {
+        "name": "Oscar Armando Mayorga Pedrero",
+        "title": "Rig Manager - Project Manager",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://rocketreach.co/fontis-energy-management_b7116fcec4a79ffa",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Ciudad del Carmen, Campeche, Mexico"
+      }
+    ]
+  },
+  "petrobras": {
+    "discovered_at": "2026-09-18T12:17:33.363Z",
+    "contacts": [
+      {
+        "name": "Lilian Maria Louzada Soncin",
+        "title": "Gerente Executiva de Recursos Humanos (Executive HR Manager)",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/lilian-maria-louzada-soncin-793951162",
+        "source_url": "https://petrobras.com.br/en/quem-somos/liderancas",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Rio de Janeiro, Brazil"
+      },
+      {
+        "name": "Danilo Garbazza Vieira",
+        "title": "Head of Talent Acquisition and Talent Management",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/danilogarbazza",
+        "source_url": "https://www.zoominfo.com/p/Danilo-Garbazza/2098269020",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Rio de Janeiro, Brazil"
+      },
+      {
+        "name": "Sylvia Maria Couto dos Anjos",
+        "title": "Chief Exploration and Production Executive Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/sylvia-anjos-730a3765",
+        "source_url": "https://agencia.petrobras.com.br/en/w/institucional/petrobras-elege-novos-membros-da-diretoria",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Rio de Janeiro, Brazil"
+      },
+      {
+        "name": "Renata Faria Rodrigues Baruzzi Lopes",
+        "title": "Chief Engineering, Technology and Innovation Executive Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/renata-baruzzi-2b4b2b21",
+        "source_url": "https://agencia.petrobras.com.br/en/w/institucional/petrobras-elege-novos-membros-da-diretoria",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Rio de Janeiro, Brazil"
+      },
+      {
+        "name": "Daniel Moore",
+        "title": "Senior Human Resources Generalist",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/daniel-moore-mba-phr-shrm-cp-4954b523",
+        "source_url": "https://www.linkedin.com/in/daniel-moore-mba-phr-shrm-cp-4954b523/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
       }
     ]
   }

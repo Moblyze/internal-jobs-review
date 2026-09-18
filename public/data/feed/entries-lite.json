@@ -1,5 +1,47 @@
 [
   {
+    "id": "5e93e63c-3929-4e4c-b768-e38c3d1cb11c",
+    "ingested_at": "2026-09-18T12:16:11.549Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/paratus-energy-update-regarding-the-petrobras-tender-process-302883147.html"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "rov_subsea",
+      "marine_offshore_ops"
+    ],
+    "signal_type": "tender",
+    "region": "brazil",
+    "country": "brazil",
+    "headline": "Paratus Energy in Active Petrobras PLSV Tender for 2028 Contract Start",
+    "operator": {
+      "name": "Petrobras",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Paratus Energy Services Ltd.",
+      "matched_company_slug": null
+    },
+    "project_name": "Petrobras PLSV Tender 2028",
+    "mob_window": {
+      "start": "2027-Q2",
+      "end": "2028-Q1",
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "828f0128-39bc-4f66-8b71-eba583138f71",
     "ingested_at": "2026-09-16T18:13:20.105Z",
     "sources": [
@@ -5296,49 +5338,6 @@
     "decom_stage": null,
     "outreach_readiness": "hot",
     "estimated_hiring_window": "1-3mo",
-    "key_people": []
-  },
-  {
-    "id": "ee0e420b-f2f0-4d2f-bd83-d69d87a4ca85",
-    "ingested_at": "2026-06-20T07:24:40.592Z",
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/newmonts-red-chris-underground-expansion-gets-regulatory-green-light-in-bc/"
-      }
-    ],
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades",
-      "ndt_inspection"
-    ],
-    "signal_type": "regulatory",
-    "region": "british-columbia-canada",
-    "country": "canada",
-    "headline": "Newmont's Red Chris Underground Block Cave Expansion Receives Regulatory Approval in BC",
-    "operator": {
-      "name": "Newmont",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Newmont",
-      "matched_company_slug": null
-    },
-    "project_name": "Red Chris Underground Block Cave Expansion",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "pre_sanction",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
     "key_people": []
   }
 ]

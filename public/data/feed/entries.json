@@ -2,6 +2,118 @@
   {
     "sources": [
       {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/paratus-energy-update-regarding-the-petrobras-tender-process-302883147.html"
+      }
+    ],
+    "headline": "Paratus Energy in Active Petrobras PLSV Tender for 2028 Contract Start",
+    "body": "HAMILTON, Bermuda, Sept. 18, 2026 /PRNewswire/ -- Reference is made to previous updates from Paratus Energy Services Ltd. (\"Paratus\" or the \"Company\") in relation to the ongoing Petrobras PLSV tender process for contracts commencing in 2028. As disclosed in the Company's Q2 2026 interim...",
+    "url": "https://www.prnewswire.com/news-releases/paratus-energy-update-regarding-the-petrobras-tender-process-302883147.html",
+    "published_at": "2026-09-18T10:01:00.000Z",
+    "hash": "4c201b25d93c1d9d",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "rov_subsea",
+      "marine_offshore_ops"
+    ],
+    "signal_type": "tender",
+    "region": "brazil",
+    "country": "brazil",
+    "tldr": "Paratus Energy Services is competing in Petrobras's PLSV tender for contracts commencing in 2028. Vessel and subsea crew demand will follow award, with mobilization planning likely beginning 12–18 months prior to contract start.",
+    "operator": {
+      "name": "Petrobras",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Paratus Energy Services Ltd.",
+      "matched_company_slug": null
+    },
+    "project_name": "Petrobras PLSV Tender 2028",
+    "scope": [
+      "plsv_operations",
+      "subsea_services",
+      "vessel_contract"
+    ],
+    "mob_window": {
+      "start": "2027-Q2",
+      "end": "2028-Q1",
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "PLSV Superintendent",
+        "Subsea Project Manager",
+        "ROV Supervisor",
+        "Marine Superintendent",
+        "Vessel Operations Manager",
+        "Offshore Installation Manager",
+        "Subsea Engineer",
+        "DP Operator",
+        "Saturation Diver",
+        "Deck Supervisor"
+      ],
+      "skills": [
+        "PLSV operations",
+        "subsea pipeline repair",
+        "flexible lay",
+        "ROV operations",
+        "dynamic positioning",
+        "offshore vessel management",
+        "subsea inspection",
+        "pre-salt operations"
+      ],
+      "certs_freetext": [
+        "OPITO HUET",
+        "BOSIET",
+        "DP Operator Certificate (NI)",
+        "GWO",
+        "CBSP (Brazilian subsea certification)",
+        "Marinheiro de Convés (Brazilian maritime)"
+      ],
+      "geo_rtw": "Brazil (Petrobras PLSV operations; Brazilian maritime RTW advantageous)",
+      "project_experience": [
+        "Petrobras PLSV campaigns",
+        "Normand Oceanic",
+        "Skandi Búzios",
+        "TechnipFMC subsea",
+        "Subsea 7 Brazil",
+        "DOF Subsea Brazil"
+      ],
+      "yoe_band": "8-18",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"PLSV\" OR \"pipe lay support vessel\" OR \"subsea support vessel\") AND (\"Petrobras\" OR \"pre-salt\" OR \"Brazil\") AND (\"ROV Supervisor\" OR \"Marine Superintendent\" OR \"Vessel Superintendent\" OR \"DP Operator\" OR \"Subsea Project Manager\" OR \"Offshore Installation Manager\" OR \"saturation diver\" OR \"deck supervisor\") AND (\"offshore\" OR \"subsea\" OR \"dynamic positioning\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Paratus Energy is competing for a Petrobras PLSV contract starting 2028. As award approaches, vessel & subsea crew planning will accelerate. Your PLSV/subsea background looks highly relevant — open to a confidential conversation?",
+      "email_subject": "Petrobras PLSV Tender 2028 – Subsea & Vessel Crew Opportunity | Paratus Energy",
+      "email_body": "Hi [Name],\n\nParatus Energy Services is actively engaged in Petrobras's PLSV tender process for contracts commencing in 2028. As the award process progresses, Paratus will need experienced PLSV, ROV, and marine operations professionals to crew and manage these vessels.\n\nGiven your background in [PLSV / subsea vessel operations / ROV], I wanted to reach out early to explore whether this could be a strong fit before the formal ramp-up begins.\n\nWould you be open to a brief call to discuss the opportunity confidentially?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Active Petrobras PLSV tender naming both the operator (Petrobras) and the competing contractor (Paratus Energy Services), with a defined 2028 contract start, creating a clear forward vessel and subsea crew demand signal.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states the tender process is 'ongoing' with contracts 'commencing in 2028', indicating pre-award / pre-sanction stage.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "5e93e63c-3929-4e4c-b768-e38c3d1cb11c",
+    "ingested_at": "2026-09-18T12:16:11.549Z",
+    "source_published_at": "2026-09-18T10:01:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org/articles/holtec-smr-project-gets-regulatory-nod-for-early-site-work"
@@ -13367,119 +13479,6 @@
       "site_manager",
       "hiring_manager",
       "project_manager"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/newmonts-red-chris-underground-expansion-gets-regulatory-green-light-in-bc/"
-      }
-    ],
-    "headline": "Newmont's Red Chris Underground Block Cave Expansion Receives Regulatory Approval in BC",
-    "body": "Approvals pave the way for a transition from open-pit mining to a block caving operation in British Columbia.",
-    "url": "https://www.mining.com/newmonts-red-chris-underground-expansion-gets-regulatory-green-light-in-bc/",
-    "published_at": "2026-06-19T19:51:00.000Z",
-    "hash": "ec2708ec2f44993d",
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades",
-      "ndt_inspection"
-    ],
-    "signal_type": "regulatory",
-    "region": "british-columbia-canada",
-    "country": "canada",
-    "tldr": "Newmont has received regulatory approval to transition Red Chris from open-pit to underground block caving in British Columbia, clearing the path toward FID and a significant construction workforce ramp. Recruiters should begin warming pipeline for underground mining and construction trades.",
-    "operator": {
-      "name": "Newmont",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Newmont",
-      "matched_company_slug": null
-    },
-    "project_name": "Red Chris Underground Block Cave Expansion",
-    "scope": [
-      "underground_development",
-      "block_cave_construction",
-      "open_pit_to_underground_transition"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Underground Mine Development Manager",
-        "Block Cave Mine Planner",
-        "Underground Construction Superintendent",
-        "Geotechnical Engineer",
-        "Underground Project Manager",
-        "Mine Development Engineer",
-        "Ventilation Engineer",
-        "Shaft Sinking Superintendent",
-        "Drill and Blast Engineer",
-        "HSE Manager – Underground"
-      ],
-      "skills": [
-        "block cave mining",
-        "underground mine development",
-        "shaft sinking",
-        "drill and blast",
-        "geotechnical engineering",
-        "mine planning",
-        "ventilation design",
-        "open pit to underground transition",
-        "ground support",
-        "rockfall management"
-      ],
-      "certs_freetext": [
-        "BC Mines Act certification",
-        "Mine Manager Certificate of Competency",
-        "Standard First Aid",
-        "WHMIS",
-        "Blasting Certificate"
-      ],
-      "geo_rtw": "Canada – BC/AB eligible; LMIA or Canadian citizen/PR preferred",
-      "project_experience": [
-        "Oyu Tolgoi Block Cave",
-        "Cadia East Panel Cave",
-        "New Afton Block Cave",
-        "Copper Mountain Underground",
-        "Brucejack Underground"
-      ],
-      "yoe_band": "10-20",
-      "seniority": "Senior / Lead / Superintendent",
-      "boolean_search": "(\"block cave\" OR \"block caving\" OR \"underground mine development\" OR \"shaft sinking\" OR \"open pit to underground\") AND (\"mine manager\" OR \"underground superintendent\" OR \"development engineer\" OR \"geotechnical engineer\" OR \"mine planner\") AND (\"Newmont\" OR \"Red Chris\" OR \"Oyu Tolgoi\" OR \"Cadia\" OR \"New Afton\") AND (Canada OR \"British Columbia\" OR BC)"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Newmont's Red Chris block cave in BC just cleared regulatory approval — a major milestone ahead of construction ramp-up. Your underground development background looks like a strong fit for roles that will be coming online. Worth a quick call?",
-      "email_subject": "Red Chris Block Cave (Newmont, BC) — Regulatory Green Light | Your Background Caught My Eye",
-      "email_body": "Hi [Name],\n\nNewmont's Red Chris underground block cave expansion in British Columbia has just received its regulatory approval, marking the transition from open-pit operations and clearing the way toward FID and construction mobilisation.\n\nGiven your experience in underground mine development / block cave operations, I wanted to reach out early — roles at the senior/superintendent level typically get locked in well before boots are on the ground.\n\nWould you be open to a 15-minute call this week to discuss how your background aligns with what's coming up at Red Chris?\n\nBest,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Regulatory approval (permit grant) for Newmont's named Red Chris underground block cave expansion in BC is a qualifying field development plan approval event naming the operator and project.",
-    "phase": "pre_sanction",
-    "phase_evidence": "Article states approvals 'pave the way' for the transition, indicating pre-FID regulatory clearance rather than a sanctioned construction start.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "ee0e420b-f2f0-4d2f-bd83-d69d87a4ca85",
-    "ingested_at": "2026-06-20T07:24:40.592Z",
-    "source_published_at": "2026-06-19T19:51:00.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "business_unit_director"
     ],
     "prompt_version": "phase-targeting-v1.2"
   }
