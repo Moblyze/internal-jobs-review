@@ -37,6 +37,17 @@ on:
         type: boolean
         default: false
 
+# Serialize every workflow that uploads scraper_state.db to the
+# scraper-state-latest release. liveness-probe.yml has always declared this
+# group and refuses to start while a scrape is running, but the guard only ran
+# in one direction: nothing stopped a scrape starting under a still-running
+# probe, and the loser's state upload silently overwrites the winner's. Added
+# 2026-09-21. cancel-in-progress is false on purpose -- a queued daily scrape
+# must wait its turn, never be dropped.
+concurrency:
+  group: scraper-state-db
+  cancel-in-progress: false
+
 jobs:
   # ── Job 1: Employer Scrapers (Workday, Taleo, Workable, etc.) ──
   # Runs in parallel with aggregators

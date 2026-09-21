@@ -48,7 +48,7 @@ API_BASE = "https://api.smartrecruiters.com/v1/companies"
 PUBLIC_BASE = "https://jobs.smartrecruiters.com"
 PAGE_SIZE = 100
 MAX_LISTING_PAGES = 100
-REQUEST_TIMEOUT = 30.0
+REQUEST_TIMEOUT = 60.0  # was 30.0; raised 2026-09-14 -- see main.py's STARTUP_STAGGER_SECONDS comment for the measured ~2x timeout inflation this compensates for
 MAX_ATTEMPTS = 4
 
 _SECTION_ORDER = ('jobDescription', 'qualifications', 'additionalInformation', 'companyDescription')

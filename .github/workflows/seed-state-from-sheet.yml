@@ -27,6 +27,13 @@ on:
         type: boolean
         default: true
 
+# Same scraper_state.db writer group as daily-scrape.yml and
+# liveness-probe.yml (added 2026-09-21); the header note above is now enforced
+# by GitHub rather than by remembering.
+concurrency:
+  group: scraper-state-db
+  cancel-in-progress: false
+
 jobs:
   seed:
     runs-on: ubuntu-latest

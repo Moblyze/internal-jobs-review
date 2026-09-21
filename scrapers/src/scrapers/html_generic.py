@@ -1046,59 +1046,16 @@ class HtmlGenericScraper(BaseScraper):
             'employment_type': employment_type,
         }
 
-    async def _extract_listings_from_portal_api_via_browser(self) -> list[dict]:
-        """
-        Same portal API, called from inside a headless browser page.
-
-        Fallback for hosts that reject the plain HTTP request (WAF, IP
-        reputation): open the career site itself, then run the site's own
-        fetch() against the API from the page context so the request carries
-        exactly the headers, cookies and origin the single-page app sends.
-        """
-        api_url = self.html_config.get('portal_api_url', '')
-        if not api_url:
-            return []
-        headers = dict(self.html_config.get('portal_api_headers', {}))
-        headers.setdefault('Accept', 'application/json')
-        per_page = self.html_config.get('portal_per_page', 100)
-        max_pages = 50
-
-        self.logger.info("fetching_portal_api_via_browser", url=api_url, per_page=per_page)
-        listings = []
-        page_num = 1
-        try:
-            context = await self._get_browser_context()
-            page = await context.new_page()
-            await page.goto(self.base_url, wait_until='domcontentloaded', timeout=60000)
-            while page_num <= max_pages:
-                page_url = f"{api_url}?page={page_num}&per_page={per_page}"
-                result = await page.evaluate(
-                    """async ([url, headers]) => {
-                        const r = await fetch(url, {headers});
-                        const text = await r.text();
-                        return {status: r.status, text};
-                    }""",
-                    [page_url, headers],
-                )
-                if result.get('status') != 200:
-                    self.logger.error("portal_api_browser_status", status=result.get('status'), page=page_num)
-                    break
-                data = json.loads(result.get('text') or '{}')
-                jobs = data.get('data', [])
-                if not jobs:
-                    break
-                for job in jobs:
-                    listing = self._portal_job_to_listing(job)
-                    if listing:
-                        listings.append(listing)
-                if page_num >= (data.get('meta') or {}).get('last_page', 1):
-                    break
-                page_num += 1
-                await self._rate_limit()
-            self.logger.info("portal_api_browser_listings_extracted", count=len(listings), pages_fetched=page_num)
-        except Exception as e:
-            self.logger.error("portal_api_browser_failed", error=str(e), page=page_num)
-        return listings
+    # REMOVED 2026-09-21: _extract_listings_from_portal_api_via_browser().
+    #
+    # It re-issued a portal-API call from inside a headless browser on the
+    # career site's own origin whenever the plain HTTP call was refused. Its
+    # only user was OSM Thome, whose API host (maritime.osmaportal.com) answers
+    # "User-agent: * / Disallow: /" in robots.txt and 403s us accordingly. A
+    # 403 from a host that has already told every crawler to stay out is an
+    # answer, not an obstacle, so there is nothing here to route around. If a
+    # future source needs this, check its robots.txt first and say in the
+    # config why the path is permitted.
 
     def _extract_listings_from_sitemap(self) -> list[dict]:
         """
@@ -1301,10 +1258,6 @@ class HtmlGenericScraper(BaseScraper):
                 # Portal JSON API extraction (e.g., OSM Thome / osmaportal.com)
                 # Returns complete data (title, location, description, employment type)
                 all_listings = self._extract_listings_from_portal_api()
-                if not all_listings:
-                    # Plain HTTP was refused (403 from the CI runner): call the
-                    # same API from inside the career site's own page.
-                    all_listings = await self._extract_listings_from_portal_api_via_browser()
                 if all_listings:
                     skip_detail_pages = True  # API provides all data we need
 

@@ -209,7 +209,16 @@ def retire_on_sheet(spreadsheet, tab: str, urls: set[str], now_iso: str, backup_
     from src.exporters.sheets import _retry_429
 
     try:
-        ws = spreadsheet.worksheet(tab)
+        # Wrapped, like every other Sheets call in this function. gspread's
+        # Spreadsheet.worksheet() is not a local lookup: it re-fetches the whole
+        # spreadsheet's metadata over the API on every call, and this function
+        # is called once per tab. That unretried read is what exhausted the
+        # per-minute read quota and killed the whole probe run on 2026-09-16 and
+        # 2026-09-19 -- after the DEAD verdicts were computed but before most
+        # tabs had been written, so a day of retirements was thrown away each
+        # time. WorksheetNotFound is not an APIError, so it still propagates to
+        # the handler below.
+        ws = _retry_429(spreadsheet.worksheet, tab)
     except WorksheetNotFound:
         logger.warning("tab %r not found on the sheet; %d DEAD urls not retired there", tab, len(urls))
         return 0

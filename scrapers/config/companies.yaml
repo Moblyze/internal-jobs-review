@@ -874,28 +874,39 @@ companies:
 
   # === Generic HTML career pages (Playwright-based) ===
 
-  osm_thome:
-    name: "OSM Thome"
-    platform: html_generic
-    base_url: "https://jobs.osmthome.com/"
-    rate_limit_delay: 3.0
-    # OSM Thome uses a Vue/Quasar SPA backed by a Laravel API at osmaportal.com.
-    # The API returns all job data (title, location, description, employment type)
-    # in paginated JSON — no browser or detail page visits needed.
-    selectors:
-      description: ".job-description, .description, .q-page, main"
-      location: ".job-location, .location, [class*='location']"
-    html_config:
-      # Primary: use the portal API to get complete job data with locations
-      portal_api_url: "https://maritime.osmaportal.com/api/jobs"
-      portal_api_headers:
-        X-Job-Portal: "yes"
-      portal_per_page: 100
-      # Fallback: sitemap extraction (locations from URL slugs only)
-      sitemap_url: "https://jobs.osmthome.com/sitemap.xml"
-      sitemap_job_pattern: "/jobs/"
-      skip_detail_pages: true
-    sheet_name: "OSM Thome"
+  # OSM Thome: RETIRED 2026-09-21. Not scraped, deliberately, on robots.txt
+  # grounds. Do not re-enable without a written OSM Thome permission.
+  #
+  # jobs.osmthome.com is a Vue/Quasar single-page app. Fetched directly it is a
+  # 977-byte shell with zero text content (measured 2026-09-21); every title,
+  # location and description on it comes from one Laravel API at
+  # maritime.osmaportal.com. That host's robots.txt reads:
+  #
+  #     User-agent: LinkedInBot / Twitterbot / facebookexternalhit -> Allow: /
+  #     User-agent: *                                              -> Disallow: /
+  #
+  # So the only source of OSM Thome job data disallows us by name-of-everyone,
+  # and it has been answering our requests with HTTP 403 since 2026-09-15. The
+  # config used to respond to that 403 by re-issuing the same call from inside a
+  # headless browser on the career site's own origin; that is working around a
+  # refusal we were told not to make in the first place, and it is gone with
+  # this entry. Falling back to the (permitted) jobs.osmthome.com sitemap does
+  # not help either: it yields URLs and slugs only, so every row failed the
+  # 60-character description floor, and rendering each of the 567 sitemap URLs
+  # in Playwright burned the whole 2700s company budget for 0 exported jobs,
+  # which is what failed the daily workflow from 2026-09-15 to 2026-09-21.
+  #
+  # Coverage cost, stated plainly: 617 OSM Thome rows were active on the sheet
+  # on 2026-09-21. They are NOT deleted here. They will stop being refreshed and
+  # will go stale on jobs.moblyze.me. Retiring or keeping them is a call for
+  # Jesse, not for this config change. The "Aggregator - osm_thome" keyword
+  # profile is untouched: it searches Adzuna/Jooble, not osmaportal.com.
+  #
+  # osm_thome:
+  #   name: "OSM Thome"
+  #   platform: html_generic
+  #   base_url: "https://jobs.osmthome.com/"
+  #   ... see git history at 2026-09-21 for the full retired block ...
 
   wellsafe_solutions:
     name: "Wellsafe Solutions"
@@ -1201,19 +1212,26 @@ companies:
 
   fugro:
     name: "Fugro"
-    # Large Workday board. Cap at 200 most recent jobs to stay within timeout.
-    platform: workday
+    # 2026-09-21: switched from the Playwright `workday` scraper to the Workday
+    # CXS JSON API (same repair as Baker Hughes, KBR and BP). The browser
+    # scraper paginated the listing fine (137 jobs on 2026-09-21) and then
+    # rendered one detail page per job at 10-17s each under runner load, so it
+    # hit the 1200s company timeout before exporting anything and the run-level
+    # regression guard failed the workflow every day from 2026-09-15.
+    # Verified 2026-09-21: POST /wday/cxs/fugro/Careers/jobs returns total=136,
+    # the same board the browser scraper was reading. Job URLs are built the
+    # same way, so lifecycle history carries over.
+    # robots (checked 2026-09-21): fugro.wd3.myworkdayjobs.com/robots.txt has
+    # "Disallow: /Careers/" and "Disallow: /refreshFacet/" for every user agent.
+    # The CXS path we read is /wday/cxs/fugro/Careers/jobs and the public job
+    # URLs are /en-US/Careers/job/..., neither of which starts with the
+    # disallowed /Careers/ prefix. Same reading Jesse signed off on for BP on
+    # 2026-09-12; see the bp entry above.
+    platform: workday_api
     base_url: "https://fugro.wd3.myworkdayjobs.com/Careers"
     rate_limit_delay: 2.5
-    max_detail_pages: 200
+    max_new_details_per_run: 200
     timeout_seconds: 1200
-    selectors:
-      job_list: '[data-automation-id="jobResults"]'
-      job_card: 'a[data-automation-id="jobTitle"]'
-      job_title: '[data-automation-id="jobPostingHeader"]'
-      location: '[data-automation-id="locations"]'
-      posted_date: '[data-automation-id="postedOn"]'
-      description: '[data-automation-id="jobPostingDescription"]'
     sheet_name: "Fugro"
 
   # === Batch 4 direct-employer additions (replacing CrewBase-sourced rows) ===

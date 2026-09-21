@@ -46,6 +46,27 @@ DEFAULT_COMPANY_TIMEOUT = 2700  # 45 minutes
 # rationale: docs/2026-09-13-runner-contention-scheduling-fix-proposal.md.
 MAX_CONCURRENT_SCRAPES = int(os.environ.get('MAX_CONCURRENT_SCRAPES', '12'))
 
+# Stagger between successive company starts, in seconds (2026-09-14 fix).
+#
+# MAX_CONCURRENT_SCRAPES bounds how many companies run at once, but every
+# permitted slot still fires its FIRST request in the same instant: with 12
+# slots and Python dict order == companies.yaml order, verification run
+# 34849506151 still launched exactly 12 companies simultaneously at t=0,
+# including 4 Playwright-heavy ones (Chevron, Marathon Petroleum,
+# Schlumberger, Worley) alongside Baker Hughes and KBR. Log evidence from
+# that run: both companies' httpx connect attempts took ~55-65 wall-clock
+# seconds to time out against a configured 30s REQUEST_TIMEOUT -- roughly
+# 2x inflation, and IDENTICAL to the millisecond between two unrelated
+# tenants (kbr.wd5.myworkdayjobs.com vs bakerhughes.wd5.myworkdayjobs.com).
+# Matching delays across independent domains rules out a per-tenant/Workday
+# -side rate limit; it points at a shared LOCAL bottleneck (this runner's
+# CPU/DNS/socket capacity, or asyncio event-loop scheduling) hit hardest by
+# everything starting at the exact same instant. See also the
+# REQUEST_TIMEOUT increase in workday_api.py/icims.py/successfactors_csb.py/
+# smartrecruiters.py, which makes a request that's merely delayed (not
+# genuinely dead) survive rather than fail outright.
+STARTUP_STAGGER_SECONDS = float(os.environ.get('STARTUP_STAGGER_SECONDS', '1.5'))
+
 # A company that historically returns a meaningful number of jobs but comes
 # back with 0 extracted this run is treated as a hard failure, not a quiet
 # zero. 10 mirrors the CRITICAL_PREV_THRESHOLD already used by
@@ -541,7 +562,16 @@ async def main(
     # comment for why unbounded concurrency caused the 2026-09-13 incident).
     scrape_semaphore = asyncio.Semaphore(MAX_CONCURRENT_SCRAPES)
 
-    async def scrape_company_limited(config: dict) -> dict:
+    async def scrape_company_limited(config: dict, start_index: int) -> dict:
+        # Spread out the initial burst: without this, the first
+        # MAX_CONCURRENT_SCRAPES companies all fire their first network
+        # request in the same instant (see STARTUP_STAGGER_SECONDS above).
+        # Only the first wave needs it in principle, but staggering every
+        # company by queue position is simplest and the cumulative delay is
+        # small (at most (MAX_CONCURRENT_SCRAPES - 1) * STARTUP_STAGGER_SECONDS
+        # for any one company, since later companies only start once an
+        # earlier slot frees up anyway).
+        await asyncio.sleep(min(start_index, MAX_CONCURRENT_SCRAPES - 1) * STARTUP_STAGGER_SECONDS)
         async with scrape_semaphore:
             return await scrape_company(
                 config=config,
@@ -552,7 +582,10 @@ async def main(
                 dry_run=dry_run
             )
 
-    tasks = [scrape_company_limited(config) for config in companies_to_scrape.values()]
+    tasks = [
+        scrape_company_limited(config, i)
+        for i, config in enumerate(companies_to_scrape.values())
+    ]
 
     # Run all company scrapes concurrently (bounded)
     results = await asyncio.gather(*tasks, return_exceptions=True)
