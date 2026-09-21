@@ -1,5 +1,132 @@
 [
   {
+    "id": "ef04c58d-55ed-48e2-b1a3-57cfa6dead96",
+    "ingested_at": "2026-09-21T18:13:08.767Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/akkuyu-1-set-for-next-stage-of-pre-commissioning-activities"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "vessel_mob",
+    "region": "turkey",
+    "country": "turkey",
+    "headline": "Akkuyu Unit 1 Enters Next Pre-Commissioning Stage — Startup Specialist Demand Imminent",
+    "operator": {
+      "name": "Akkuyu Nuclear JSC",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Akkuyu Nuclear Power Plant Unit 1",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "commissioning",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": []
+  },
+  {
+    "id": "2340052f-4bb8-4aa5-b9d5-6ca84f26f6c9",
+    "ingested_at": "2026-09-21T18:13:08.767Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/france-prepares-to-start-dismantling-first-ungg-reactor"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "ndt_inspection",
+      "rope_access"
+    ],
+    "signal_type": "decom",
+    "region": "france",
+    "country": "france",
+    "headline": "EDF Cyclife Validates Contractual Strategy for Chinon A2 Nuclear Heat Exchanger Dismantling",
+    "operator": {
+      "name": "EDF",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Cyclife",
+      "matched_company_slug": null
+    },
+    "project_name": "Chinon A2 Nuclear Decommissioning",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": null,
+    "construction_subphase": null,
+    "lifecycle_track": "decommissioning",
+    "decom_stage": "permits",
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
+    "id": "77c52e46-4a60-47d3-a014-18f91d613311",
+    "ingested_at": "2026-09-21T18:13:08.767Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/larvotto-begins-gold-antimony-production-at-hillgrove/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "regulatory",
+    "region": "australia",
+    "country": "australia",
+    "headline": "Larvotto Begins Gold & Antimony Production at Hillgrove Mine, Australia",
+    "operator": {
+      "name": "Larvotto Resources",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Larvotto Resources",
+      "matched_company_slug": null
+    },
+    "project_name": "Hillgrove Mine",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "operating",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "ongoing",
+    "key_people": []
+  },
+  {
     "id": "6ef86f81-3549-4ebc-bb86-56e8a02f6a93",
     "ingested_at": "2026-09-18T18:12:59.716Z",
     "sources": [
@@ -5294,50 +5421,6 @@
     "decom_stage": null,
     "outreach_readiness": "live_now",
     "estimated_hiring_window": "now",
-    "key_people": []
-  },
-  {
-    "id": "b0ebf784-33be-47aa-b5dc-a4b5ee2a1f78",
-    "ingested_at": "2026-06-23T13:02:41.033Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/perenco_partners_ink_gas_sales_agreement_for_vietnam_project-23-jun-2026-183972-article/?rss=true"
-      }
-    ],
-    "subsector": "offshore-og",
-    "discipline_tags": [
-      "marine_offshore_ops",
-      "process_plant_operations",
-      "rov_subsea",
-      "energy_trades"
-    ],
-    "signal_type": "fid",
-    "region": "vietnam-offshore",
-    "country": "vietnam",
-    "headline": "Perenco & Partners Sign Gas Sales Agreement for Su Tu Trang Phase 2B, Block 15-1 Vietnam",
-    "operator": {
-      "name": "Perenco",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Su Tu Trang (White Lion) Phase 2B",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "pre_sanction",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
     "key_people": []
   }
 ]

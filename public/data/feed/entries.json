@@ -2,6 +2,310 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/akkuyu-1-set-for-next-stage-of-pre-commissioning-activities"
+      }
+    ],
+    "headline": "Akkuyu Unit 1 Enters Next Pre-Commissioning Stage — Startup Specialist Demand Imminent",
+    "body": "The first unit at Turkey's Akkuyu Nuclear Power Plant is being prepared for the reactor's next stage of pre-start-up testing.",
+    "url": "https://www.world-nuclear-news.org/articles/akkuyu-1-set-for-next-stage-of-pre-commissioning-activities",
+    "published_at": "2026-09-21T09:28:25.000Z",
+    "hash": "dde3c3f1dc11317c",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "vessel_mob",
+    "region": "turkey",
+    "country": "turkey",
+    "tldr": "Akkuyu Nuclear Power Plant Unit 1 is advancing through pre-startup testing, signaling imminent demand for commissioning engineers, startup specialists, and O&M technicians. No contractor explicitly named but hiring window is near-term.",
+    "operator": {
+      "name": "Akkuyu Nuclear JSC",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Akkuyu Nuclear Power Plant Unit 1",
+    "scope": [
+      "pre_commissioning",
+      "startup_testing"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Commissioning Engineer",
+        "Startup Specialist",
+        "Nuclear I&C Technician",
+        "Control Room Operator",
+        "Mechanical Completion Engineer",
+        "Pre-commissioning Lead"
+      ],
+      "skills": [
+        "reactor commissioning",
+        "pre-startup testing",
+        "nuclear safety systems",
+        "mechanical completion",
+        "systems handover",
+        "VVER reactor"
+      ],
+      "certs_freetext": [
+        "nuclear operator licence",
+        "IAEA safety training"
+      ],
+      "geo_rtw": "Turkey or internationally mobile with Turkish work authorisation",
+      "project_experience": [
+        "Hinkley Point C",
+        "Barakah NPP",
+        "Olkiluoto 3",
+        "Flamanville 3"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "senior",
+      "boolean_search": "(\"commissioning engineer\" OR \"startup engineer\" OR \"pre-commissioning\" OR \"control room operator\" OR \"I&C technician\") AND (nuclear OR \"nuclear power plant\" OR VVER OR PWR) AND (commissioning OR \"pre-startup\" OR \"startup testing\" OR \"mechanical completion\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Akkuyu Unit 1 in Turkey is moving into pre-commissioning testing — a clear signal that startup and commissioning specialists will be needed shortly. Given your nuclear background, I'd love to connect about this opportunity.",
+      "email_subject": "Akkuyu Unit 1 – Commissioning Roles Opening Up",
+      "email_body": "Hi [Name],\n\nAkkuyu Nuclear Power Plant Unit 1 in Turkey has entered its next stage of pre-startup testing, which typically precedes an active ramp-up in commissioning and startup personnel.\n\nGiven your experience in nuclear commissioning, I wanted to reach out to explore whether you'd be open to discussing potential opportunities tied to this project.\n\nKey details:\n- Project: Akkuyu NPP Unit 1, Turkey\n- Phase: Pre-commissioning / startup testing\n- Likely roles: Commissioning Engineers, Startup Specialists, I&C Technicians, Control Room Operators\n\nWould you be open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named project (Akkuyu Nuclear Power Plant Unit 1) entering pre-commissioning/startup testing phase — a discrete lifecycle milestone in the nuclear sector with clear near-term labor demand implications.",
+    "phase": "construction",
+    "phase_evidence": "Article states Unit 1 is being prepared for 'next stage of pre-start-up testing', indicating mechanical completion is near or achieved and commissioning activities are underway.",
+    "construction_subphase": "commissioning",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "ef04c58d-55ed-48e2-b1a3-57cfa6dead96",
+    "ingested_at": "2026-09-21T18:13:08.767Z",
+    "source_published_at": "2026-09-21T09:28:25.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/france-prepares-to-start-dismantling-first-ungg-reactor"
+      }
+    ],
+    "headline": "EDF Cyclife Validates Contractual Strategy for Chinon A2 Nuclear Heat Exchanger Dismantling",
+    "body": "EDF subsidiary Cyclife announced the Chinon A nuclear power plant dismantling project has reached a major milestone with the validation of the contractual strategy for dismantling the Chinon A2 plant's heat exchangers.",
+    "url": "https://www.world-nuclear-news.org/articles/france-prepares-to-start-dismantling-first-ungg-reactor",
+    "published_at": "2026-09-21T13:13:38.000Z",
+    "hash": "dcc61fdb76370e1c",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "ndt_inspection",
+      "rope_access"
+    ],
+    "signal_type": "decom",
+    "region": "france",
+    "country": "france",
+    "tldr": "EDF subsidiary Cyclife has validated the contracting strategy for dismantling heat exchangers at the Chinon A2 UNGG reactor, signalling imminent tender/contract awards and a near-term labor demand window for nuclear decommissioning specialists.",
+    "operator": {
+      "name": "EDF",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Cyclife",
+      "matched_company_slug": null
+    },
+    "project_name": "Chinon A2 Nuclear Decommissioning",
+    "scope": [
+      "heat_exchanger_dismantling",
+      "reactor_decom",
+      "nuclear_decommissioning"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Decommissioning Engineer",
+        "Radiological Protection Supervisor",
+        "Decom Project Manager",
+        "Nuclear Safety Engineer",
+        "Dismantling Supervisor",
+        "Health Physics Technician",
+        "Nuclear Construction Manager",
+        "NDT Inspector (Nuclear)",
+        "Waste Management Specialist"
+      ],
+      "skills": [
+        "nuclear decommissioning",
+        "radiological protection",
+        "UNGG reactor",
+        "heat exchanger removal",
+        "nuclear waste management",
+        "contamination control",
+        "dismantling planning",
+        "nuclear safety"
+      ],
+      "certs_freetext": [
+        "SCN1/SCN2 (French nuclear site access)",
+        "Radiological Protection certification",
+        "IRSN approved training",
+        "CEFRI certification"
+      ],
+      "geo_rtw": "France / EU right-to-work",
+      "project_experience": [
+        "Chinon A1",
+        "Bugey decommissioning",
+        "Saint-Laurent A decommissioning",
+        "Brennilis decommissioning",
+        "Calder Hall decommissioning"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "Mid–Senior",
+      "boolean_search": "(\"nuclear decommissioning\" OR \"démantèlement nucléaire\" OR \"nuclear decom\") AND (\"heat exchanger\" OR \"UNGG\" OR \"graphite reactor\" OR \"radiological protection\" OR \"radiological survey\") AND (\"dismantling supervisor\" OR \"decom engineer\" OR \"health physics\" OR \"nuclear safety\" OR \"waste management\") AND (France OR \"Indre-et-Loire\" OR Chinon)"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], EDF's Cyclife subsidiary has just validated the contracting strategy for dismantling Chinon A2's heat exchangers — nuclear decom roles are opening up in France. Would you be open to a quick chat about opportunities on this project?",
+      "email_subject": "Chinon A2 Decom — Nuclear Dismantling Roles Coming Online (Cyclife / EDF)",
+      "email_body": "Hi [Name],\n\nEDF subsidiary Cyclife has reached a key milestone on the Chinon A2 UNGG reactor decommissioning project — the contractual strategy for heat exchanger dismantling has been formally validated, meaning subcontract awards and staffing activity are imminent.\n\nGiven your background in nuclear decommissioning / radiological protection, I wanted to flag this early. We're mapping candidates for roles including Dismantling Supervisors, Radiological Protection Supervisors, Decom Engineers, and Waste Management Specialists, all France-based.\n\nWould you be open to a 15-minute call this week to explore fit?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named EDF subsidiary Cyclife has validated the contractual dismantling strategy for the Chinon A2 nuclear reactor heat exchangers, constituting a discrete decommissioning milestone with imminent contract awards and workforce demand.",
+    "phase": null,
+    "phase_evidence": null,
+    "construction_subphase": null,
+    "lifecycle_track": "decommissioning",
+    "decom_stage": "permits",
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "2340052f-4bb8-4aa5-b9d5-6ca84f26f6c9",
+    "ingested_at": "2026-09-21T18:13:08.767Z",
+    "source_published_at": "2026-09-21T13:13:38.000Z",
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/larvotto-begins-gold-antimony-production-at-hillgrove/"
+      }
+    ],
+    "headline": "Larvotto Begins Gold & Antimony Production at Hillgrove Mine, Australia",
+    "body": "The Australian mine's first concentrate from Hillgrove aims to meet 7% of global antimony demand as markets tighten.",
+    "url": "https://www.mining.com/larvotto-begins-gold-antimony-production-at-hillgrove/",
+    "published_at": "2026-09-21T10:53:00.000Z",
+    "hash": "4cd22aae99372520",
+    "subsector": "mining",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "regulatory",
+    "region": "australia",
+    "country": "australia",
+    "tldr": "Larvotto Resources has commenced concentrate production at the Hillgrove mine in Australia, signalling an operational ramp-up phase with ongoing maintenance and operations hiring likely.",
+    "operator": {
+      "name": "Larvotto Resources",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Larvotto Resources",
+      "matched_company_slug": null
+    },
+    "project_name": "Hillgrove Mine",
+    "scope": [
+      "process_plant_startup",
+      "concentrate_production"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Process Plant Operator",
+        "Metallurgist",
+        "Mine Production Supervisor",
+        "Concentrator Operator",
+        "Maintenance Technician",
+        "HSE Officer"
+      ],
+      "skills": [
+        "gold processing",
+        "antimony",
+        "flotation",
+        "concentrate production",
+        "plant operations",
+        "mineral processing"
+      ],
+      "certs_freetext": [
+        "Australian mining induction",
+        "High Risk Work Licence"
+      ],
+      "geo_rtw": "Australia — right to work required",
+      "project_experience": [
+        "Hillgrove",
+        "gold mine operations",
+        "antimony processing"
+      ],
+      "yoe_band": "5-12",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"Hillgrove\" OR \"antimony\" OR \"gold processing\") AND (\"process plant operator\" OR \"metallurgist\" OR \"concentrator operator\" OR \"mineral processing\" OR \"flotation\") AND (\"Australia\" OR \"New South Wales\" OR \"NSW\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Larvotto Resources has just commenced gold & antimony production at Hillgrove in NSW — operations roles are likely ramping now. Your mineral processing background looks highly relevant. Worth a conversation?",
+      "email_subject": "Hillgrove Mine Now in Production — Operations Roles Opening",
+      "email_body": "Hi [Name],\n\nLarvotto Resources has commenced first concentrate production at the Hillgrove gold and antimony mine in New South Wales, targeting 7% of global antimony supply.\n\nWith the plant now operational, process plant and maintenance roles are likely coming online. Given your background in mineral processing / plant operations, I thought you'd be worth reaching out to directly.\n\nWould you be open to a brief call to discuss opportunities on this project?\n\nBest regards,\n[Your name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Larvotto Resources) and project (Hillgrove Mine) with a confirmed production start-up event in the mining sector, indicating an operational workforce ramp.",
+    "phase": "operating",
+    "phase_evidence": "Article states 'Larvotto begins gold, antimony production at Hillgrove' — first concentrate production has commenced, placing the project in the operating phase.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "ongoing",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "77c52e46-4a60-47d3-a014-18f91d613311",
+    "ingested_at": "2026-09-21T18:13:08.767Z",
+    "source_published_at": "2026-09-21T10:53:00.000Z",
+    "contact_archetypes": [
+      "ops_director",
+      "hiring_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "mining_com",
         "name": "MINING.com",
         "url": "https://www.mining.com/us-backs-global-atomics-niger-uranium-mine-with-414m-loan/"
@@ -13371,112 +13675,6 @@
       "site_manager",
       "hiring_manager",
       "project_manager"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/perenco_partners_ink_gas_sales_agreement_for_vietnam_project-23-jun-2026-183972-article/?rss=true"
-      }
-    ],
-    "headline": "Perenco & Partners Sign Gas Sales Agreement for Su Tu Trang Phase 2B, Block 15-1 Vietnam",
-    "body": "Perenco and its co-venturers in Block 15-1 offshore Vietnam have secured an agreement to supply natural gas from the Su Tu Trang (White Lion) Phase 2B projec...",
-    "url": "https://www.rigzone.com/news/perenco_partners_ink_gas_sales_agreement_for_vietnam_project-23-jun-2026-183972-article/?rss=true",
-    "published_at": "2026-06-23T10:36:47.000Z",
-    "hash": "2c80af461ae828ea",
-    "subsector": "offshore-og",
-    "discipline_tags": [
-      "marine_offshore_ops",
-      "process_plant_operations",
-      "rov_subsea",
-      "energy_trades"
-    ],
-    "signal_type": "fid",
-    "region": "vietnam-offshore",
-    "country": "vietnam",
-    "tldr": "Perenco and co-venturers have secured a gas sales agreement for the Su Tu Trang Phase 2B offshore Vietnam project, a key commercial milestone typically preceding FID and engineering/construction ramp-up. Labor demand likely to follow as project advances toward sanction.",
-    "operator": {
-      "name": "Perenco",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Su Tu Trang (White Lion) Phase 2B",
-    "scope": [
-      "gas_sales_agreement",
-      "offshore_development",
-      "phase_2b"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Offshore Project Manager",
-        "Subsea Engineer",
-        "Production Engineer",
-        "Commissioning Engineer",
-        "Marine Superintendent",
-        "Process Engineer",
-        "Drilling Engineer",
-        "HSE Manager"
-      ],
-      "skills": [
-        "offshore gas development",
-        "subsea production systems",
-        "FPSO operations",
-        "project execution",
-        "commissioning",
-        "Vietnamese offshore"
-      ],
-      "certs_freetext": [
-        "BOSIET/HUET",
-        "OPITO offshore survival",
-        "GWO"
-      ],
-      "geo_rtw": "Vietnam or SE Asia work-eligible",
-      "project_experience": [
-        "Su Tu Den",
-        "Su Tu Vang",
-        "Block 15-1",
-        "Cuu Long Basin",
-        "Nam Con Son"
-      ],
-      "yoe_band": "10-20",
-      "seniority": "Senior / Lead",
-      "boolean_search": "(\"offshore Vietnam\" OR \"Cuu Long\" OR \"Block 15-1\" OR \"Su Tu\") AND (\"offshore project manager\" OR \"subsea engineer\" OR \"commissioning engineer\" OR \"process engineer\" OR \"production engineer\") AND (\"gas development\" OR \"FPSO\" OR \"offshore construction\" OR \"subsea installation\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Perenco's Su Tu Trang Phase 2B gas project offshore Vietnam is progressing toward development following a recent gas sales agreement. Are you open to discussing senior offshore roles on this upcoming campaign?",
-      "email_subject": "Senior Offshore Roles – Su Tu Trang Phase 2B | Perenco Vietnam",
-      "email_body": "Hi [Name],\n\nPerenco and its co-venturers on Block 15-1 offshore Vietnam have secured a gas sales agreement for the Su Tu Trang (White Lion) Phase 2B project — a clear step toward project sanction and execution.\n\nAs this project advances toward FID and engineering/construction ramp-up, operators and contractors in the region will be mobilising experienced offshore professionals.\n\nGiven your background in [offshore gas development / subsea engineering / commissioning], I'd love to connect and explore whether this could be a fit.\n\nAre you available for a brief call this week?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Gas sales agreement for named offshore project (Su Tu Trang Phase 2B, Block 15-1) with named operator (Perenco) is a pre-FID commercial milestone signalling upcoming workforce demand in offshore O&G.",
-    "phase": "pre_sanction",
-    "phase_evidence": "Gas sales agreement secured — a commercial pre-FID milestone; no FID or EPC award mentioned in the article.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "b0ebf784-33be-47aa-b5dc-a4b5ee2a1f78",
-    "ingested_at": "2026-06-23T13:02:41.033Z",
-    "source_published_at": "2026-06-23T10:36:47.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "business_unit_director"
     ],
     "prompt_version": "phase-targeting-v1.2"
   }
