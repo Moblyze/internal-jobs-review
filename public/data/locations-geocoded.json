@@ -179,6 +179,19 @@
     "_skip": true,
     "_skipReason": "numeric-key"
   },
+  "*CYPRUS*": {
+    "city": null,
+    "state": null,
+    "stateCode": null,
+    "country": "Cyprus",
+    "countryCode": "CY",
+    "coordinates": {
+      "latitude": 35.045882,
+      "longitude": 33.221762
+    },
+    "mapboxPlaceName": "Cyprus",
+    "confidence": 1
+  },
   "..., UNAVAILABLE, US": {
     "city": null,
     "state": null,
@@ -13038,6 +13051,19 @@
       "longitude": -88.839052
     },
     "mapboxPlaceName": "Belvidere, Illinois, United States",
+    "confidence": 1
+  },
+  "Belyando, QLD, Australia": {
+    "city": "Belyando",
+    "state": "Queensland",
+    "stateCode": "QLD",
+    "country": "Australia",
+    "countryCode": "AU",
+    "coordinates": {
+      "latitude": -21.85056,
+      "longitude": 146.60611
+    },
+    "mapboxPlaceName": "Belyando, Queensland, Australia",
     "confidence": 1
   },
   "Bend, OR": {
@@ -30514,6 +30540,19 @@
     "mapboxPlaceName": "Clinton, Illinois, United States",
     "confidence": 1
   },
+  "Clinton, MD, US": {
+    "city": "Clinton",
+    "state": "Maryland",
+    "stateCode": "MD",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 38.765251,
+      "longitude": -76.898107
+    },
+    "mapboxPlaceName": "Clinton, Maryland, United States",
+    "confidence": 1
+  },
   "Clinton, OK, US": {
     "city": "Clinton",
     "state": "Oklahoma",
@@ -31373,6 +31412,19 @@
       "longitude": -104.821879
     },
     "mapboxPlaceName": "Colorado Springs, Colorado, United States",
+    "confidence": 1
+  },
+  "Colorado, United States": {
+    "city": null,
+    "state": "Colorado",
+    "stateCode": "CO",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 39.190246,
+      "longitude": -105.604997
+    },
+    "mapboxPlaceName": "Colorado, United States",
     "confidence": 1
   },
   "Colton, CA": {
@@ -36072,6 +36124,19 @@
     "mapboxPlaceName": "Das Island, Abu Dhabi, United Arab Emirates",
     "confidence": 1
   },
+  "Davao City, Davao del Sur, Philippines": {
+    "city": null,
+    "state": "Davao del Sur",
+    "stateCode": "DAS",
+    "country": "Philippines",
+    "countryCode": "PH",
+    "coordinates": {
+      "latitude": 6.744096,
+      "longitude": 125.355532
+    },
+    "mapboxPlaceName": "Davao del Sur, Philippines",
+    "confidence": 0.666667
+  },
   "Davenport, IA": {
     "city": "Davenport",
     "state": "Iowa",
@@ -38505,6 +38570,19 @@
     },
     "mapboxPlaceName": "Dickson, Tennessee, United States",
     "confidence": 1
+  },
+  "Didcot, OXF, GB, OX11 7YU": {
+    "city": "Southampton",
+    "state": "England",
+    "stateCode": "ENG",
+    "country": "United Kingdom",
+    "countryCode": "GB",
+    "coordinates": {
+      "latitude": 50.926787,
+      "longitude": -1.431662
+    },
+    "mapboxPlaceName": "Didcot Road, Southampton, SO15 5QX, United Kingdom",
+    "confidence": 0.37284
   },
   "Diego Garcia, British Indian Ocean Territory": {
     "original": "Diego Garcia, British Indian Ocean Territory",
@@ -47084,6 +47162,19 @@
     "mapboxPlaceName": "Ferrières, Oise, France",
     "confidence": 0.685185
   },
+  "Ferrybridge, WKF, GB, WF11 8NG": {
+    "city": "Ferrybridge",
+    "state": "England",
+    "stateCode": "ENG",
+    "country": "United Kingdom",
+    "countryCode": "GB",
+    "coordinates": {
+      "latitude": 53.71143,
+      "longitude": -1.275828
+    },
+    "mapboxPlaceName": "Ferrybridge, West Yorkshire, England, United Kingdom",
+    "confidence": 0.548148
+  },
   "Fervo": {
     "city": "Baldivis",
     "state": "Western Australia",
@@ -54774,6 +54865,19 @@
       "longitude": -97.78761
     },
     "mapboxPlaceName": "Granbury, Texas, United States",
+    "confidence": 1
+  },
+  "Granby, CT, US": {
+    "city": "Fishers",
+    "state": "Indiana",
+    "stateCode": "IN",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 39.959123,
+      "longitude": -85.90004
+    },
+    "mapboxPlaceName": "Granby Court, Fishers, Indiana 46040, United States",
     "confidence": 1
   },
   "Grand Cane, LA": {
@@ -109304,6 +109408,19 @@
     "mapboxPlaceName": "Pemba, Cabo Delgado, Mozambique",
     "confidence": 0.772222
   },
+  "Pembroke, Pembrokeshire, GB, SA71 5SS": {
+    "city": "Pembroke",
+    "state": "Wales",
+    "stateCode": "WLS",
+    "country": "United Kingdom",
+    "countryCode": "GB",
+    "coordinates": {
+      "latitude": 51.676323,
+      "longitude": -4.918356
+    },
+    "mapboxPlaceName": "Pembroke, Pembrokeshire, Wales, United Kingdom",
+    "confidence": 0.683333
+  },
   "Pembroke, United Kingdom": {
     "city": "Pembroke",
     "state": "Wales",
@@ -118542,6 +118659,19 @@
     "mapboxPlaceName": "Richfield, Ohio, United States",
     "confidence": 1
   },
+  "Richland Hills, Tarrant County": {
+    "city": "Richland Hills",
+    "state": "Texas",
+    "stateCode": "TX",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 32.809104,
+      "longitude": -97.231724
+    },
+    "mapboxPlaceName": "Richland Hills, Texas, United States",
+    "confidence": 1
+  },
   "Richland, Benton County": {
     "city": "Richland",
     "state": "Washington",
@@ -121587,6 +121717,19 @@
     },
     "mapboxPlaceName": "Rosyth, Fife, Scotland, United Kingdom",
     "confidence": 0.703704
+  },
+  "Rotherham, United Kingdom": {
+    "city": "Rotherham",
+    "state": "England",
+    "stateCode": "ENG",
+    "country": "United Kingdom",
+    "countryCode": "GB",
+    "coordinates": {
+      "latitude": 53.430706,
+      "longitude": -1.354767
+    },
+    "mapboxPlaceName": "Rotherham, South Yorkshire, England, United Kingdom",
+    "confidence": 1
   },
   "Rotokawa, Waikato Region, New Zealand": {
     "city": "Rotokawa",
@@ -131819,6 +131962,19 @@
     "mapboxPlaceName": "Southampton, Southampton, England, United Kingdom",
     "confidence": 0.666667
   },
+  "Southampton, Hampshire": {
+    "city": "Southampton",
+    "state": "Massachusetts",
+    "stateCode": "MA",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 42.229313,
+      "longitude": -72.729737
+    },
+    "mapboxPlaceName": "Southampton, Massachusetts, United States",
+    "confidence": 1
+  },
   "Southampton, NY": {
     "city": "Southampton",
     "state": "New York",
@@ -138717,6 +138873,19 @@
     },
     "mapboxPlaceName": "Tanzania, 4310, Mawothi, KwaZulu-Natal, South Africa",
     "confidence": 0.98
+  },
+  "Taralga, NSW, AU": {
+    "city": "Taralga",
+    "state": "New South Wales",
+    "stateCode": "NSW",
+    "country": "Australia",
+    "countryCode": "AU",
+    "coordinates": {
+      "latitude": -34.401634,
+      "longitude": 149.81941
+    },
+    "mapboxPlaceName": "Taralga, New South Wales, Australia",
+    "confidence": 1
   },
   "Taralga, NS, Australia": {
     "city": "Taralga",
@@ -154999,6 +155168,19 @@
       "longitude": -82.533012
     },
     "mapboxPlaceName": "Wellston, Ohio, United States",
+    "confidence": 1
+  },
+  "Wellston, Saint Louis County": {
+    "city": "Wellston",
+    "state": "Missouri",
+    "stateCode": "MO",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 38.6733,
+      "longitude": -90.30094
+    },
+    "mapboxPlaceName": "Wellston, Missouri, United States",
     "confidence": 1
   },
   "Wellsville, NY, United States": {
