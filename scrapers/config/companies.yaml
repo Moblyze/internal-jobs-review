@@ -391,6 +391,35 @@ companies:
       title_from_link: true
     sheet_name: "Elevate Offshore"
 
+  # iPS Powerful People: a WordPress board (ysdms jobs plugin), server rendered,
+  # 50 cards a page behind a real "Next" link. Every detail page carries its own
+  # JobPosting JSON-LD, which is where html_generic recovers the location: the
+  # cards carry a date and a sector but no place.
+  #
+  # ROBOTS (checked 2026-09-21): /vacancies/ is allowed; only the
+  # /vacancies/*-or-* filter URLs are disallowed, and we never build those. The
+  # site asks for Crawl-delay: 10 under User-agent: *, so rate_limit_delay is 10
+  # and not the usual 2.5. That makes a full run ~10 minutes for ~60 jobs, which
+  # is the price of being allowed on the site.
+  #
+  # CrewBase carries 35 rows for this employer. The own board listed 50+ on
+  # 2026-09-21, so this is mostly fresh inventory rather than a swap.
+  ips_powerful_people:
+    name: "iPS Powerful People"
+    platform: html_generic
+    base_url: "https://ipspowerfulpeople.com/vacancies/"
+    rate_limit_delay: 10.0
+    selectors:
+      job_card: 'div.c-grid-builder__card'
+      job_title: 'h2.entry-title'
+      job_link: 'a'
+      description: 'div.c-job-content'
+      pagination_next: 'a.next.page-numbers'
+    html_config:
+      wait_for: 'div.c-grid-builder__card'
+      detail_wait_for: 'div.c-job-content'
+    sheet_name: "iPS Powerful People"
+
   # Advance Global Recruitment (AGRL): custom WordPress "jobs" post type,
   # NOT WP Job Manager. Card <h3> mixes the title with a hidden share-modal's
   # text; job_title lets html_generic take the card's own inner_text fallback,
