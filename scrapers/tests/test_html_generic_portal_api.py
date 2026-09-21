@@ -1,15 +1,19 @@
 #!/usr/bin/env python3
 """Tests for html_generic's portal-API listing mapping and sitemap presence-only guard.
 
-These used to be the OSM Thome tests. OSM Thome itself was retired on
-2026-09-21 because its only data host (maritime.osmaportal.com) disallows every
-crawler in robots.txt, so the fixtures below are now a synthetic portal on an
-example host: the mapping and the presence-only guard are generic html_generic
-behavior and still need covering.
+These used to be the OSM Thome tests. The fixtures below are a synthetic portal
+on an example host instead, because the mapping and the presence-only guard are
+generic html_generic behavior and are worth covering without pinning the tests
+to one live source.
 
-The browser-based portal-API fallback that used to be tested here is gone. It
-existed to re-issue a call that a robots-disallowed host had refused with a 403,
-which is not something this repo should do.
+OSM Thome itself is scraped, on Jesse's decision of 2026-09-21; see the
+osm_thome entry in scrapers/config/companies.yaml for the reasoning and for what
+its robots.txt says.
+
+The browser-based portal-API fallback that used to be tested here is gone and
+stays gone. It re-issued a portal-API call from inside a headless browser when
+the plain call came back 403. The plain call returns HTTP 200 again (measured
+2026-09-21, 453 jobs), so nothing needs it.
 
 Run with: python -m pytest tests/test_html_generic_portal_api.py -v
 """

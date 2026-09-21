@@ -85,6 +85,18 @@ MAX_BODY_BYTES = 2_500_000
 # ToS-restricted and authwalled.
 EXCLUDED_HOST_SUFFIXES = ("indeed.com", "jooble.org", "linkedin.com", "glassdoor.com")
 
+# Hosts this probe reads without applying their robots.txt, because Jesse has
+# decided the source is scraped anyway. Keep this in step with companies.yaml:
+# a host we scrape but refuse to probe is the worst of both states, since its
+# rows keep arriving and never get a liveness verdict again.
+#
+# maritime.osmaportal.com is the OSM Thome job API, scraped on Jesse's decision
+# of 2026-09-21. What was NOT broken before this entry: a robots refusal here
+# returned UNKNOWN, never DEAD, so the 617 OSM Thome rows on the sheet were
+# never at risk of a bogus mass retirement. They had simply stopped being
+# checked, which this restores.
+ROBOTS_EXEMPT_HOSTS = ("maritime.osmaportal.com",)
+
 # host suffix -> classifier kind
 HOST_KINDS = (
     ("myworkdayjobs.com", "workday"),
@@ -720,6 +732,8 @@ class LivenessProber:
             return True, ""
         p = urlparse(url)
         host = p.netloc.lower()
+        if any(host == h or host.endswith("." + h) for h in ROBOTS_EXEMPT_HOSTS):
+            return True, ""
         text = self._robots_for(host)
         if text is None:
             return False, f"robots.txt unavailable on {host}"
