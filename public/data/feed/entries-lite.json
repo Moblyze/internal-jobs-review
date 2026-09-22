@@ -1,5 +1,47 @@
 [
   {
+    "id": "177195b6-1d37-4f8a-b0eb-98535d7b072e",
+    "ingested_at": "2026-09-22T00:30:10.255Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/fortune-minerals-gets-water-licence-and-land-use-permit-for-nico-mine-in-northwest-territories/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "survey_geophysical"
+    ],
+    "signal_type": "regulatory",
+    "region": "canada-northwest-territories",
+    "country": "canada",
+    "headline": "Fortune Minerals Secures Water Licence & Land Use Permit for NICO Mine, NWT",
+    "operator": {
+      "name": "Fortune Minerals",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Fortune Minerals",
+      "matched_company_slug": null
+    },
+    "project_name": "NICO Mine",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
     "id": "ef04c58d-55ed-48e2-b1a3-57cfa6dead96",
     "ingested_at": "2026-09-21T18:13:08.767Z",
     "sources": [
@@ -5292,135 +5334,6 @@
     "decom_stage": null,
     "outreach_readiness": "cold",
     "estimated_hiring_window": "12mo+",
-    "key_people": []
-  },
-  {
-    "id": "93d92ebb-2ab3-45c4-8737-02888e358d04",
-    "ingested_at": "2026-06-23T18:46:09.331Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/bp_eni_greenlight_crossblock_project_offshore_angola-23-jun-2026-183973-article/?rss=true"
-      }
-    ],
-    "subsector": "offshore-og",
-    "discipline_tags": [
-      "energy_trades",
-      "marine_offshore_ops",
-      "rov_subsea",
-      "industrial_construction",
-      "process_plant_operations"
-    ],
-    "signal_type": "fid",
-    "region": "angola-offshore",
-    "country": "angola",
-    "headline": "Azule Energy (BP/Eni JV) Greenlights Cross-Block 5-Field Oil Development Offshore Angola",
-    "operator": {
-      "name": "Azule Energy",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Azule Energy Cross-Block Angola Development",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "sanctioned_engineering",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "3-6mo",
-    "key_people": []
-  },
-  {
-    "id": "6ba21688-5fc0-4747-ba92-5eae993628ff",
-    "ingested_at": "2026-06-23T18:46:09.331Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/pikka_oil_project_in_alaska_reaches_continuous_production-23-jun-2026-183974-article/?rss=true"
-      }
-    ],
-    "subsector": "onshore-og",
-    "discipline_tags": [
-      "process_plant_operations",
-      "drilling_operations"
-    ],
-    "signal_type": "regulatory",
-    "region": "alaska",
-    "country": "united_states",
-    "headline": "Santos Pikka Oil Project Reaches Continuous Production on Alaska North Slope",
-    "operator": {
-      "name": "Santos Ltd",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Santos Ltd",
-      "matched_company_slug": null
-    },
-    "project_name": "Pikka Oil Development",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "operating",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "ongoing",
-    "key_people": []
-  },
-  {
-    "id": "d5647b53-2c4b-4750-945b-9a4925ca3dcf",
-    "ingested_at": "2026-06-23T18:46:09.331Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/cold-hydraulic-tests-under-way-at-turkeys-akkuyu-1"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "process_plant_operations",
-      "industrial_construction"
-    ],
-    "signal_type": "epc_award",
-    "region": "turkey",
-    "country": "turkey",
-    "headline": "Akkuyu Unit 1 Construction Complete; Cold-Hot Commissioning Tests Underway — Rosatom",
-    "operator": {
-      "name": "Akkuyu Nuclear (Rosatom subsidiary)",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Rosatom",
-      "matched_company_slug": null
-    },
-    "project_name": "Akkuyu Nuclear Power Plant Unit 1",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "construction",
-    "construction_subphase": "commissioning",
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "live_now",
-    "estimated_hiring_window": "now",
     "key_people": []
   }
 ]

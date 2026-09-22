@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-09-21T18:15:24.042Z"
+    "last_updated_at": "2026-09-22T00:31:54.026Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -12770,6 +12770,66 @@
         "email": null,
         "phone": null,
         "location": "Armidale, NSW, Australia"
+      }
+    ]
+  },
+  "fortune minerals": {
+    "discovered_at": "2026-09-22T00:31:54.026Z",
+    "contacts": [
+      {
+        "name": "Robin Goad",
+        "title": "President & Chief Executive Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/robin-goad-60b97320",
+        "source_url": "https://www.fortuneminerals.com/about-us/overview/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "London, ON, Canada"
+      },
+      {
+        "name": "Glen Koropchuk",
+        "title": "Technical Director & Independent Director",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.fortuneminerals.com/about-us/overview/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Richard Schryer",
+        "title": "Vice President, Environmental & Regulatory Affairs",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://www.fortuneminerals.com/about/management/default.aspx",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "London, ON, Canada"
+      },
+      {
+        "name": "David Massola",
+        "title": "Vice President, Business Development",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://www.fortuneminerals.com/news-media/news-releases/fortune-minerals-announces-david-massola-has-rejoined-the-company-as-vice-president-business-development",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Toronto, ON, Canada"
+      },
+      {
+        "name": "Patricia Penney",
+        "title": "Interim Chief Financial Officer",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/patricia-penney-17207555",
+        "source_url": "https://www.fortuneminerals.com/about-us/overview/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "London, ON, Canada"
       }
     ]
   }
