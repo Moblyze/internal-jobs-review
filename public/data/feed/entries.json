@@ -2,6 +2,114 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/power-start-up-for-mochovce-4"
+      }
+    ],
+    "headline": "Mochovce Unit 4 Achieves First Power — Final Commissioning Stage Before Commercial Operation",
+    "body": "Slovakia's Mochovce 4 began power generation at 15:33 on Monday, which operator Slovenske elektrárne describes as the last major stage before the unit is put into operation.",
+    "url": "https://www.world-nuclear-news.org/articles/power-start-up-for-mochovce-4",
+    "published_at": "2026-09-22T10:17:48.000Z",
+    "hash": "55ee93eef2398e81",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "regulatory",
+    "region": "central-europe",
+    "country": "slovakia",
+    "tldr": "Slovenske elektrárne's Mochovce Unit 4 has begun power generation, entering the final commissioning phase before commercial operation. This signals an imminent shift to operational staffing and ongoing maintenance hiring.",
+    "operator": {
+      "name": "Slovenske elektrárne",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Slovenske elektrárne",
+      "matched_company_slug": null
+    },
+    "project_name": "Mochovce Unit 4",
+    "scope": [
+      "commissioning",
+      "startup",
+      "power_generation"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Commissioning Engineer",
+        "Startup Test Engineer",
+        "Control Room Operator",
+        "Reactor Systems Engineer",
+        "Nuclear I&C Technician",
+        "Shift Supervisor",
+        "Nuclear Safety Engineer",
+        "Operations & Maintenance Technician"
+      ],
+      "skills": [
+        "nuclear commissioning",
+        "reactor startup",
+        "VVER reactor systems",
+        "I&C systems",
+        "control room operations",
+        "nuclear safety",
+        "systems handover",
+        "pre-operational testing"
+      ],
+      "certs_freetext": [
+        "Nuclear Plant Operator License",
+        "IAEA safety training",
+        "Slovak Nuclear Regulatory Authority (ÚJD SR) certification"
+      ],
+      "geo_rtw": "Slovakia / EU right-to-work",
+      "project_experience": [
+        "Mochovce Unit 3",
+        "Bohunice V1",
+        "Bohunice V2",
+        "Dukovany",
+        "Flamanville",
+        "Olkiluoto 3"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"nuclear commissioning\" OR \"reactor startup\" OR \"nuclear operations\" OR \"control room operator\" OR \"VVER\" OR \"nuclear I&C\") AND (\"commissioning engineer\" OR \"startup engineer\" OR \"shift supervisor\" OR \"reactor engineer\" OR \"operations technician\") AND (\"nuclear power\" OR \"PWR\" OR \"VVER\") NOT (\"decommissioning\" OR \"oil\" OR \"gas\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Mochovce Unit 4 in Slovakia has just achieved first power — the final commissioning stage before commercial operation. Slovenske elektrárne will be moving into full O&M staffing shortly. Would you be open to a conversation about opportunities on this project?",
+      "email_subject": "Mochovce Unit 4 First Power — Nuclear Commissioning & Ops Roles Opening Now",
+      "email_body": "Hi [Name],\n\nSlovenske elektrárne's Mochovce Unit 4 achieved first power generation this week — described by the operator as the last major stage before the unit enters commercial operation.\n\nThis signals an immediate need for experienced nuclear commissioning engineers, control room operators, shift supervisors, and I&C technicians as the unit transitions to full operational status.\n\nGiven your background in [nuclear commissioning / reactor operations / VVER systems], I'd love to connect and share more about the opportunities available.\n\nAre you available for a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Slovenske elektrárne) achieving first power at Mochovce Unit 4 signals entry into the final commissioning phase, creating imminent demand for nuclear commissioning and operations staffing.",
+    "phase": "construction",
+    "phase_evidence": "Article states Mochovce 4 began power generation, described by the operator as 'the last major stage before the unit is put into operation', indicating late-stage commissioning.",
+    "construction_subphase": "commissioning",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "843aa8a0-76f0-47d1-90da-fbf539fbf02a",
+    "ingested_at": "2026-09-22T12:16:32.759Z",
+    "source_published_at": "2026-09-22T10:17:48.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "mining_com",
         "name": "MINING.com",
         "url": "https://www.mining.com/fortune-minerals-gets-water-licence-and-land-use-permit-for-nico-mine-in-northwest-territories/"

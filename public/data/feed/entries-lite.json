@@ -1,5 +1,47 @@
 [
   {
+    "id": "843aa8a0-76f0-47d1-90da-fbf539fbf02a",
+    "ingested_at": "2026-09-22T12:16:32.759Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/power-start-up-for-mochovce-4"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "regulatory",
+    "region": "central-europe",
+    "country": "slovakia",
+    "headline": "Mochovce Unit 4 Achieves First Power — Final Commissioning Stage Before Commercial Operation",
+    "operator": {
+      "name": "Slovenske elektrárne",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Slovenske elektrárne",
+      "matched_company_slug": null
+    },
+    "project_name": "Mochovce Unit 4",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "commissioning",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": []
+  },
+  {
     "id": "177195b6-1d37-4f8a-b0eb-98535d7b072e",
     "ingested_at": "2026-09-22T00:30:10.255Z",
     "sources": [

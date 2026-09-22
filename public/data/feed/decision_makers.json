@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-09-22T00:31:54.026Z"
+    "last_updated_at": "2026-09-22T12:17:52.640Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -12830,6 +12830,66 @@
         "email": null,
         "phone": null,
         "location": "London, ON, Canada"
+      }
+    ]
+  },
+  "slovenske elektrárne": {
+    "discovered_at": "2026-09-22T12:17:52.640Z",
+    "contacts": [
+      {
+        "name": "Ján Svrček",
+        "title": "Head of Employer Branding, Cooperation with Schools & Talent Management",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/jansvrcek",
+        "source_url": "https://sk.linkedin.com/in/jansvrcek",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Bratislava, Slovakia"
+      },
+      {
+        "name": "Zuzana Jošticová",
+        "title": "Head of HR Development",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/zuzana-jo%C5%A1ticov%C3%A1-34639756",
+        "source_url": "https://theorg.com/org/slovenske-elektrarne-a-s/org-chart/zuzana-josticova",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Slovakia"
+      },
+      {
+        "name": "Maria Klementina Igazova",
+        "title": "Recruitment and Employer Branding Specialist",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/maria-klementina-igazova-625222153",
+        "source_url": "https://theorg.com/org/slovenske-elektrarne-a-s/org-chart/maria-klementina-igazova",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Slovakia"
+      },
+      {
+        "name": "Roman Hudec",
+        "title": "Specialist for Cooperation with Schools, Employer Branding & Talent Management",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/roman-hudec-310522166",
+        "source_url": "https://theorg.com/org/slovenske-elektrarne-a-s/org-chart/roman-hudec",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Slovakia"
+      },
+      {
+        "name": "Jana Beňáková",
+        "title": "HR & Recruitment Specialist",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/jana-be%C5%88%C3%A1kov%C3%A1-72776a5a",
+        "source_url": "https://www.linkedin.com/posts/jana-be%C5%88%C3%A1kov%C3%A1-72776a5a_kontroln%C3%BD-fyzik-zar%C3%A1baj-3-700-eur-mesa%C4%8Dne-activity-7092071630754959361-GW5q",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Bratislava, Slovakia"
       }
     ]
   }
