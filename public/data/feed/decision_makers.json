@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-09-22T12:17:52.640Z"
+    "last_updated_at": "2026-09-22T18:16:30.134Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -12890,6 +12890,66 @@
         "email": null,
         "phone": null,
         "location": "Bratislava, Slovakia"
+      }
+    ]
+  },
+  "georgia power": {
+    "discovered_at": "2026-09-22T18:16:30.134Z",
+    "contacts": [
+      {
+        "name": "Lindsay Hill",
+        "title": "Senior Vice President, Human Resources",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/lindsay-hill-634b3849",
+        "source_url": "https://www.georgiapower.com/content/dam/georgia-power/pdfs/company-pdfs/about-us/bio_lindsay-hill.pdf",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Atlanta, GA, USA"
+      },
+      {
+        "name": "Jamal Jessie",
+        "title": "Workforce Development Manager",
+        "persona": "crewing",
+        "linkedin_url": "https://www.linkedin.com/in/jamaljjessie",
+        "source_url": "https://www.businessleadersunited.org/who/executive-committee/jamal-jessie",
+        "in_target_persona": true,
+        "email": null,
+        "phone": "404-506-1329",
+        "location": "Atlanta, GA, USA"
+      },
+      {
+        "name": "Nick Slappy",
+        "title": "Vice President, Transmission Operations, Maintenance & Fleet",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/nick-slappy",
+        "source_url": "https://rocketreach.co/georgia-power-company-management_b5c60a34f42e0c52",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Atlanta, GA, USA"
+      },
+      {
+        "name": "Cleve Fann",
+        "title": "Senior Vice President, Region External Affairs",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/cleve-fann-503601250",
+        "source_url": "https://www.georgiapower.com/news-hub/press-releases/georgia-power-names-audrey-king-and-cleve-fann-to-key-leadership-roles.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Atlanta, GA, USA"
+      },
+      {
+        "name": "Audrey King",
+        "title": "Senior Vice President, Corporate Responsibility & President/CEO, Georgia Power Foundation",
+        "persona": "other",
+        "linkedin_url": null,
+        "source_url": "https://www.georgiapower.com/news-hub/press-releases/georgia-power-names-audrey-king-and-cleve-fann-to-key-leadership-roles.html",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Atlanta, GA, USA"
       }
     ]
   }

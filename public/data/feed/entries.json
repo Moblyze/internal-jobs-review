@@ -4,6 +4,113 @@
       {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/google-agreement-to-support-Georgia-plant-uprates"
+      }
+    ],
+    "headline": "Google Agreement to Support Uprates at Vogtle & Hatch Nuclear Plants — 96 MW Capacity Add",
+    "body": "A new agreement will see Google support uprates on Georgia Power's share of the Vogtle and Hatch plants, which will add around 96 MW of new capacity to the grid.",
+    "url": "https://www.world-nuclear-news.org/articles/google-agreement-to-support-Georgia-plant-uprates",
+    "published_at": "2026-09-22T12:45:49.000Z",
+    "hash": "6da3a4e59b0c2837",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "epc_award",
+    "region": "us-southeast",
+    "country": "united_states",
+    "tldr": "Google is funding uprates at Georgia Power's Vogtle and Hatch nuclear plants, adding ~96 MW. This signals imminent engineering and modification work at two named operating nuclear facilities, creating near-term demand for nuclear-qualified trades and engineers.",
+    "operator": {
+      "name": "Georgia Power",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Vogtle & Hatch Nuclear Plant Uprates",
+    "scope": [
+      "plant_uprate",
+      "capacity_expansion",
+      "nuclear_modification"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Modification Engineer",
+        "Reactor Systems Engineer",
+        "I&C Technician",
+        "Nuclear Construction Manager",
+        "Outage Manager",
+        "Nuclear Project Manager",
+        "Commissioning Engineer",
+        "Nuclear QA/QC Inspector"
+      ],
+      "skills": [
+        "nuclear uprate",
+        "plant modification",
+        "10CFR50",
+        "nuclear commissioning",
+        "I&C systems",
+        "outage management",
+        "nuclear QA",
+        "safety analysis"
+      ],
+      "certs_freetext": [
+        "NRC Licensed Reactor Operator",
+        "ASME Nuclear QA",
+        "10CFR50 Appendix B",
+        "ANSI/ANS nuclear standards"
+      ],
+      "geo_rtw": "US work authorization required; Georgia, USA",
+      "project_experience": [
+        "Vogtle Unit 3 & 4",
+        "Plant Hatch",
+        "nuclear uprate projects",
+        "BWR/PWR modifications"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"nuclear uprate\" OR \"power uprate\" OR \"plant modification\") AND (\"Georgia Power\" OR \"Vogtle\" OR \"Hatch\" OR \"nuclear\") AND (\"project manager\" OR \"modification engineer\" OR \"I&C\" OR \"commissioning engineer\" OR \"outage manager\" OR \"reactor engineer\") AND (\"10CFR50\" OR \"NRC\" OR \"ASME nuclear\" OR \"nuclear QA\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Georgia Power is advancing uprates at Vogtle & Hatch nuclear plants (~96 MW new capacity). This signals near-term demand for nuclear modification and commissioning talent in Georgia. Worth a conversation?",
+      "email_subject": "Nuclear Uprate Work — Vogtle & Hatch | Georgia Power",
+      "email_body": "Hi [Name],\n\nGeorgia Power has announced a Google-backed agreement to uprate capacity at the Vogtle and Hatch nuclear plants, adding approximately 96 MW. This type of plant modification programme typically drives demand for nuclear engineers, I&C technicians, outage managers, and QA/QC specialists.\n\nGiven your background in nuclear plant modifications/uprates, I wanted to reach out ahead of contractor mobilisation. Would you be open to a brief call to discuss how your experience aligns with what's coming?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Georgia Power) and named projects (Vogtle and Hatch) with a discrete capacity uprate event implying engineering and modification workforce demand at two nuclear facilities.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "The article states a new agreement has been signed to support uprates, implying the programme is greenlit and engineering/modification scope is being activated.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "7d16fda2-971e-42bf-bda4-72425d1f0b35",
+    "ingested_at": "2026-09-22T18:14:43.903Z",
+    "source_published_at": "2026-09-22T12:45:49.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org/articles/power-start-up-for-mochovce-4"
       }
     ],
@@ -13456,113 +13563,6 @@
       "site_manager",
       "hiring_manager",
       "project_manager"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/holtec-and-edf-submit-uk-smr-project-proposal"
-      }
-    ],
-    "headline": "Holtec & EDF Submit Joint SMR-300 Proposal for Cottam Site, Nottinghamshire",
-    "body": "US-based Holtec International and France-based EDF have submitted a joint proposal for up to four SMR-300 small modular reactors at the Cottam power plant site in Nottinghamshire in the UK.",
-    "url": "https://www.world-nuclear-news.org//articles/holtec-and-edf-submit-uk-smr-project-proposal",
-    "published_at": "2026-06-24T11:17:34.000Z",
-    "hash": "eb4f3a5acdb4deed",
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations",
-      "energy_trades"
-    ],
-    "signal_type": "regulatory",
-    "region": "uk-midlands",
-    "country": "united_kingdom",
-    "tldr": "Holtec International and EDF have jointly proposed up to four SMR-300 reactors at the Cottam site in Nottinghamshire. Project is pre-sanction but names operators and site, flagging a future significant nuclear construction labor demand in the UK.",
-    "operator": {
-      "name": "Holtec International / EDF",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Cottam SMR-300 Project",
-    "scope": [
-      "smr_construction",
-      "site_development",
-      "nuclear_new_build"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Nuclear Project Manager",
-        "SMR Construction Manager",
-        "Nuclear Site Manager",
-        "Nuclear FEED Engineer",
-        "Nuclear HSE Manager",
-        "Nuclear Commissioning Engineer",
-        "Civil Construction Manager"
-      ],
-      "skills": [
-        "small modular reactor",
-        "SMR",
-        "nuclear new build",
-        "FEED",
-        "nuclear construction",
-        "site development",
-        "nuclear licensing",
-        "ONR regulatory engagement"
-      ],
-      "certs_freetext": [
-        "NVQ Nuclear",
-        "CSCS Nuclear",
-        "IOSH Managing Safely",
-        "Nuclear Safety Case"
-      ],
-      "geo_rtw": "UK right-to-work required",
-      "project_experience": [
-        "Hinkley Point C",
-        "Wylfa Newydd",
-        "Sizewell C",
-        "NuScale VOYGR",
-        "Rolls-Royce SMR"
-      ],
-      "yoe_band": "10-20",
-      "seniority": "Senior / Principal",
-      "boolean_search": "(\"SMR\" OR \"small modular reactor\" OR \"nuclear new build\") AND (\"project manager\" OR \"construction manager\" OR \"commissioning engineer\" OR \"site manager\") AND (\"nuclear\" OR \"ONR\" OR \"Hinkley\" OR \"Sizewell\") AND (\"UK\" OR \"United Kingdom\" OR \"Nottinghamshire\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Holtec & EDF have just submitted a proposal for up to 4 SMR-300 reactors at Cottam, Nottinghamshire. With your nuclear new-build background, you'd be well-placed as this progresses toward FEED & construction. Worth a conversation?",
-      "email_subject": "Cottam SMR-300 Project – Early Talent Mapping (Holtec/EDF)",
-      "email_body": "Hi [Name],\n\nHoltec International and EDF have jointly submitted a proposal to develop up to four SMR-300 small modular reactors at the Cottam power station site in Nottinghamshire, UK.\n\nWhile the project is still at the proposal/pre-sanction stage, it represents a significant future nuclear construction opportunity in the UK, and we are beginning early talent mapping for senior project, engineering, and construction roles.\n\nGiven your experience in [nuclear new build / SMR / FEED engineering], I'd love to connect and understand your current situation and appetite for future opportunities on this programme.\n\nWould you be open to a brief call this week?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named operators Holtec International and EDF have submitted a formal SMR project proposal at a named site (Cottam, Nottinghamshire), constituting a pre-sanction field development / project proposal event in the nuclear subsector with future labor-demand implications.",
-    "phase": "pre_sanction",
-    "phase_evidence": "Article states Holtec and EDF 'have submitted a joint proposal' — no FID, FEED award, or EPC contract mentioned, placing this firmly at pre-sanction stage.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "f5a99af9-0940-41d4-b51e-21956985328e",
-    "ingested_at": "2026-06-24T12:49:08.834Z",
-    "source_published_at": "2026-06-24T11:17:34.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "business_unit_director"
     ],
     "prompt_version": "phase-targeting-v1.2"
   }
