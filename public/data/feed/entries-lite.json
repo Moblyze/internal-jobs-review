@@ -1,5 +1,49 @@
 [
   {
+    "id": "f6faa6fb-679d-4112-aa86-a04f44cb1b5c",
+    "ingested_at": "2026-09-23T18:14:54.733Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/totalenergies_approves_new_upstream_project_for_nigeria_lng-23-sep-2026-184683-article/?rss=true"
+      }
+    ],
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations",
+      "pipeline_mechanical"
+    ],
+    "signal_type": "fid",
+    "region": "west-africa",
+    "country": "nigeria",
+    "headline": "TotalEnergies Takes FID on Ima Gas Development to Supply Nigeria LNG",
+    "operator": {
+      "name": "TotalEnergies SE",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Ima Gas Development",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
     "id": "6eed3c6d-08bb-431e-b02f-a2b1e5125be2",
     "ingested_at": "2026-09-23T12:17:17.785Z",
     "sources": [

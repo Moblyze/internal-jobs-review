@@ -2,6 +2,121 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/totalenergies_approves_new_upstream_project_for_nigeria_lng-23-sep-2026-184683-article/?rss=true"
+      }
+    ],
+    "headline": "TotalEnergies Takes FID on Ima Gas Development to Supply Nigeria LNG",
+    "body": "TotalEnergies SE on Monday announced a final investment decision (FID) to proceed with the Ima Gas Development, which would unlock up to 350 million cubic fe...",
+    "url": "https://www.rigzone.com/news/totalenergies_approves_new_upstream_project_for_nigeria_lng-23-sep-2026-184683-article/?rss=true",
+    "published_at": "2026-09-23T13:17:16.000Z",
+    "hash": "0bcc5b7eb44434a3",
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations",
+      "pipeline_mechanical"
+    ],
+    "signal_type": "fid",
+    "region": "west-africa",
+    "country": "nigeria",
+    "tldr": "TotalEnergies has sanctioned the Ima Gas Development in Nigeria, unlocking up to 350 MMcf/d of gas supply for Nigeria LNG. FID signals imminent EPC/engineering ramp-up and significant workforce demand across construction disciplines.",
+    "operator": {
+      "name": "TotalEnergies SE",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Ima Gas Development",
+    "scope": [
+      "upstream_gas_development",
+      "gas_processing",
+      "lng_feedgas"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Project Manager – Gas Development",
+        "EPC Construction Manager",
+        "Process Engineer",
+        "Commissioning Engineer",
+        "HSE Manager",
+        "Planning & Scheduling Engineer",
+        "Mechanical Engineer",
+        "Pipeline Engineer",
+        "Project Controls Engineer",
+        "Site Manager"
+      ],
+      "skills": [
+        "gas development",
+        "upstream Nigeria",
+        "LNG feedgas",
+        "EPC project management",
+        "process engineering",
+        "commissioning",
+        "pipeline construction",
+        "HSSE",
+        "project controls"
+      ],
+      "certs_freetext": [
+        "NEBOSH",
+        "CSWIP",
+        "Chartered Engineer (CEng)",
+        "PMP"
+      ],
+      "geo_rtw": "Nigeria (expatriate or Nigeria-eligible)",
+      "project_experience": [
+        "Nigeria LNG",
+        "NLNG Train 7",
+        "Egina",
+        "Akpo",
+        "OML 58",
+        "OML 99",
+        "West African gas projects"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"gas development\" OR \"upstream gas\" OR \"LNG feedgas\") AND (\"Nigeria\" OR \"West Africa\") AND (\"EPC\" OR \"project manager\" OR \"construction manager\" OR \"commissioning engineer\" OR \"process engineer\" OR \"pipeline engineer\") AND (\"TotalEnergies\" OR \"NLNG\" OR \"Nigeria LNG\" OR \"Ima\" OR \"OML\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], TotalEnergies just took FID on the Ima Gas Development in Nigeria — a major upstream project feeding Nigeria LNG. EPC and engineering ramp-up is imminent. Are you open to hearing about senior roles on this campaign?",
+      "email_subject": "Ima Gas Development (Nigeria) – Senior Roles Opening Post-FID",
+      "email_body": "Hi [Name],\n\nTotalEnergies has just announced a Final Investment Decision on the Ima Gas Development in Nigeria, unlocking up to 350 MMcf/d of gas supply for Nigeria LNG. With FID confirmed, EPC contracting and detailed engineering are expected to accelerate in the coming months, driving significant demand for experienced upstream and construction professionals.\n\nGiven your background in [relevant discipline/region], I wanted to reach out early — these roles typically fill fast once EPC contracts are awarded.\n\nWould you be open to a brief call to discuss what's coming up on this project?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "FID announced by TotalEnergies for the named Ima Gas Development project in Nigeria, a discrete workforce-demand event in the upstream O&G sector naming the operator and project.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Article states TotalEnergies announced a 'final investment decision (FID) to proceed with the Ima Gas Development', confirming the project is now sanctioned and entering the engineering/EPC phase.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "f6faa6fb-679d-4112-aa86-a04f44cb1b5c",
+    "ingested_at": "2026-09-23T18:14:54.733Z",
+    "source_published_at": "2026-09-23T13:17:16.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/envision-energy-advances-southeastern-europes-wind-market-as-north-macedonias-largest-wind-project-reaches-financial-close-302887442.html"
