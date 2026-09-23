@@ -1,5 +1,47 @@
 [
   {
+    "id": "6eed3c6d-08bb-431e-b02f-a2b1e5125be2",
+    "ingested_at": "2026-09-23T12:17:17.785Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/envision-energy-advances-southeastern-europes-wind-market-as-north-macedonias-largest-wind-project-reaches-financial-close-302887442.html"
+      }
+    ],
+    "subsector": "onshore-renewables",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction"
+    ],
+    "signal_type": "fid",
+    "region": "southeastern-europe",
+    "country": "north_macedonia",
+    "headline": "Envision Energy & Alcazar Energy: 131.25MW Štip Wind Farm Reaches Financial Close in North Macedonia",
+    "operator": {
+      "name": "Alcazar Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Envision Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Štip Wind Farm Phase 1",
+    "mob_window": {
+      "start": "2026-Q4",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": []
+  },
+  {
     "id": "7d16fda2-971e-42bf-bda4-72425d1f0b35",
     "ingested_at": "2026-09-22T18:14:43.903Z",
     "sources": [

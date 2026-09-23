@@ -2,6 +2,114 @@
   {
     "sources": [
       {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/envision-energy-advances-southeastern-europes-wind-market-as-north-macedonias-largest-wind-project-reaches-financial-close-302887442.html"
+      }
+    ],
+    "headline": "Envision Energy & Alcazar Energy: 131.25MW Štip Wind Farm Reaches Financial Close in North Macedonia",
+    "body": "ŠTIP, North Macedonia, Sept. 23, 2026 /PRNewswire/ -- Envision Energy, a global leader in green technology, is advancing wind development in Southeastern Europe as the 131.25 MW first phase of the Štip Wind Farm in North Macedonia reaches financial close. Developed by Alcazar Energy...",
+    "url": "https://www.prnewswire.com/news-releases/envision-energy-advances-southeastern-europes-wind-market-as-north-macedonias-largest-wind-project-reaches-financial-close-302887442.html",
+    "published_at": "2026-09-23T08:27:00.000Z",
+    "hash": "9cd7b3eeba93d25e",
+    "subsector": "onshore-renewables",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction"
+    ],
+    "signal_type": "fid",
+    "region": "southeastern-europe",
+    "country": "north_macedonia",
+    "tldr": "The 131.25 MW first phase of the Štip Wind Farm in North Macedonia has reached financial close, with Envision Energy as turbine supplier and Alcazar Energy as developer. Construction mobilization and associated hiring are imminent.",
+    "operator": {
+      "name": "Alcazar Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Envision Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Štip Wind Farm Phase 1",
+    "scope": [
+      "wind_turbine_supply",
+      "onshore_wind_construction"
+    ],
+    "mob_window": {
+      "start": "2026-Q4",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Wind Farm Construction Manager",
+        "Site Manager",
+        "HSE Manager",
+        "Civil Works Supervisor",
+        "Turbine Erection Supervisor",
+        "Electrical Engineer",
+        "Balance of Plant Engineer",
+        "Commissioning Engineer",
+        "Crane Operator",
+        "Planner / Scheduler"
+      ],
+      "skills": [
+        "onshore wind construction",
+        "turbine installation",
+        "balance of plant",
+        "civil works supervision",
+        "HV electrical works",
+        "commissioning",
+        "HSE management",
+        "project planning"
+      ],
+      "certs_freetext": [
+        "GWO Basic Safety Training",
+        "NEBOSH Construction Certificate",
+        "First Aid at Work",
+        "Appointed Person Lifting Operations"
+      ],
+      "geo_rtw": "EU/EEA or Balkan region right-to-work preferred; North Macedonia project",
+      "project_experience": [
+        "Envision Energy wind projects",
+        "Alcazar Energy wind projects",
+        "Southeastern Europe onshore wind",
+        "Balkan wind farm construction"
+      ],
+      "yoe_band": "7-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"wind farm\" OR \"onshore wind\") AND (\"construction manager\" OR \"site manager\" OR \"turbine installation\" OR \"commissioning engineer\" OR \"balance of plant\" OR \"HSE manager\" OR \"erection supervisor\") AND (\"North Macedonia\" OR \"Balkans\" OR \"Southeastern Europe\" OR \"Eastern Europe\") NOT (offshore)"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], the 131MW Štip Wind Farm in North Macedonia just hit financial close — construction is kicking off now. We're placing [role] profiles for the Envision/Alcazar Energy build. Worth a quick call?",
+      "email_subject": "Štip Wind Farm (131MW) Now in Construction – [Role] Opportunities, North Macedonia",
+      "email_body": "Hi [Name],\n\nThe first phase of the Štip Wind Farm (131.25 MW) in North Macedonia has just reached financial close, with Envision Energy supplying turbines and Alcazar Energy as developer. Construction mobilization is expected imminently.\n\nWe are actively placing experienced onshore wind construction professionals for this project — including Construction Managers, Site Managers, Commissioning Engineers, and HSE leads.\n\nGiven your background in [relevant experience], I'd welcome the chance to discuss whether this could be the right next move for you.\n\nBest regards,\n[Your name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Financial close of the 131.25 MW Štip Wind Farm names operator (Alcazar Energy), turbine supplier/contractor (Envision Energy), and project name — a discrete FID-equivalent event triggering near-term construction hiring.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Article states the project 'reaches financial close,' indicating FID/financial sanction has occurred and construction preparation will follow.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "6eed3c6d-08bb-431e-b02f-a2b1e5125be2",
+    "ingested_at": "2026-09-23T12:17:17.785Z",
+    "source_published_at": "2026-09-23T08:27:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org/articles/google-agreement-to-support-Georgia-plant-uprates"

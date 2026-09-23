@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-09-22T18:16:30.134Z"
+    "last_updated_at": "2026-09-23T12:18:52.050Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -12950,6 +12950,66 @@
         "email": null,
         "phone": null,
         "location": "Atlanta, GA, USA"
+      }
+    ]
+  },
+  "alcazar energy": {
+    "discovered_at": "2026-09-23T12:18:52.050Z",
+    "contacts": [
+      {
+        "name": "Kyle Blockley",
+        "title": "Head of Recruitment",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/kyleblockley",
+        "source_url": "https://alcazarenergy.com/teams/kyle-blockley/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Dubai, UAE"
+      },
+      {
+        "name": "Joanna Housham",
+        "title": "Manager, Human Resources",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://www.zoominfo.com/c/alcazar-energy/369168919",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Dubai, UAE"
+      },
+      {
+        "name": "Tim Sheahan",
+        "title": "Senior Director",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/tim-sheahan-94138146",
+        "source_url": "https://ae.linkedin.com/in/tim-sheahan-94138146",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Dubai, UAE"
+      },
+      {
+        "name": "Patricia Gimenez Marti",
+        "title": "Head of ESG",
+        "persona": "other",
+        "linkedin_url": "https://www.linkedin.com/in/patriciagimenezmarti",
+        "source_url": "https://alcazarenergy.com/teams/patricia-gimenez/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Dubai, UAE"
+      },
+      {
+        "name": "Daniel Calderon",
+        "title": "Co-Founder and Managing Partner",
+        "persona": "other",
+        "linkedin_url": null,
+        "source_url": "https://alcazarenergy.com/team/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Dubai, UAE"
       }
     ]
   }
