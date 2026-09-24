@@ -68,6 +68,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from src.utils import liveness, osm_snapshot  # noqa: E402
 from src.utils.deduplication import DeduplicationTracker  # noqa: E402
 from src.utils import monitoring  # noqa: E402
+from src.utils import sheet_roster  # noqa: E402
 
 logger = logging.getLogger("probe_liveness")
 
@@ -381,6 +382,12 @@ def main() -> int:
     ap.add_argument("--no-sheet", action="store_true", help="write the DB and JSON only; leave the sheet alone")
     ap.add_argument("--dry-run", action="store_true", help="probe and report; write nothing but the JSON")
     ap.add_argument("--today", default=None, help="YYYY-MM-DD for validThrough comparisons (testing)")
+    ap.add_argument("--no-sheet-roster", action="store_true",
+                    help="probe DB-active rows only (skip rows marked active on the sheet that the DB lacks)")
+    ap.add_argument("--sheet-roster-only", action="store_true",
+                    help="probe only the sheet-only rows (DB-active rows were already probed today)")
+    ap.add_argument("--sheet-max-per-host", type=int, default=sheet_roster.DEFAULT_PER_HOST_CAP,
+                    help="max sheet-only URLs probed per host per run, least recently checked first (default 600)")
     ap.add_argument("--osm-snapshot", default="data/" + osm_snapshot.ASSET_NAME,
                     help="OSM Thome listing snapshot fetched off-CI (release asset osm-snapshot.json)")
     args = ap.parse_args()
@@ -398,6 +405,42 @@ def main() -> int:
     if wanted:
         rows = [r for r in rows if tab_for(r, meta) in wanted or r["company"] in wanted]
     tabs = {r["url_hash"]: tab_for(r, meta) for r in rows}
+    for r in rows:
+        r["tabs"] = {tabs[r["url_hash"]]}
+
+    # ---- sheet roster: rows marked active on the sheet that the DB lacks (2026-09-24) ----
+    spreadsheet = None
+    sheet_index: dict = {}
+    sheet_stats = None
+    snapshot_path = None
+    if not args.no_sheet_roster and not args.no_sheet:
+        spreadsheet = open_spreadsheet()
+        if spreadsheet is None:
+            logger.warning("no sheet credentials; sheet roster skipped (DB-active rows only)")
+        else:
+            sheet_rows_all = [r for r in sheet_roster.read_sheet_rows(spreadsheet) if r["tab"] != OSM_TAB]
+            # Full snapshot of every job row's status BEFORE any write: the restore point.
+            stamp0 = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+            snapshot_path = f"data/sheet-status-snapshot-{stamp0}.csv"
+            os.makedirs("data", exist_ok=True)
+            with open(snapshot_path, "w", newline="", encoding="utf-8") as f:
+                w0 = csv.writer(f)
+                w0.writerow(["tab", "row", "url", "status"])
+                for r in sheet_rows_all:
+                    w0.writerow([r["tab"], r["row"], r["url"], r["status"]])
+            sheet_index = sheet_roster.build_active_index(sheet_rows_all)
+            tab_company = {m["sheet_name"]: name for name, m in meta.items()}
+            db_active_urls = {r["url"] for r in rows} if not wanted else {r["url"] for r in tracker.get_active_jobs()}
+            extra, sheet_stats = sheet_roster.select_sheet_only(
+                sheet_index, db_active_urls, tracker.get_sheet_probe_checked(), tracker._hash_url,
+                liveness.is_excluded_host, args.sheet_max_per_host, wanted or None, tab_company)
+            for r in extra:
+                tabs[r["url_hash"]] = sorted(r["tabs"])[0]
+            rows = extra if args.sheet_roster_only else rows + extra
+            logger.info("sheet roster: %s (snapshot %s)", sheet_stats, snapshot_path)
+    # A URL retires in EVERY tab where it is marked active, not just its home tab.
+    for r in rows:
+        r["tabs"] = set(r.get("tabs") or ()) | set(sheet_index.get(r["url"], {}).get("tabs", ()))
 
     excluded = [r for r in rows if liveness.is_excluded_host(r["url"])]
     probe_rows = [r for r in rows if not liveness.is_excluded_host(r["url"])]
@@ -479,15 +522,20 @@ def main() -> int:
             [(row["url_hash"], v.status, v.valid_through, v.reason[:120]) for row, v in results],
             checked_at=checked_at,
         )
+        tracker.record_sheet_probe(
+            [(row["url_hash"], row["url"], v.status, v.reason) for row, v in results if row.get("sheet_only")],
+            checked_at=checked_at,
+        )
         removed_db = tracker.mark_jobs_removed([r["url_hash"] for r in to_remove], reason="source_gone")
     tracker.close()
 
     # ---- sheet ----
     sheet_rows = 0
+    sheet_retired_by_tab: dict = {}
     osm_report = None
     do_osm_sweep = osm_snap is not None and (not wanted or OSM_TAB in wanted)
     if (to_remove or do_osm_sweep) and not args.no_sheet:
-        spreadsheet = open_spreadsheet()
+        spreadsheet = spreadsheet or open_spreadsheet()
         if spreadsheet is None:
             if args.dry_run:
                 logger.info("no sheet credentials; sheet step skipped (dry run)")
@@ -500,12 +548,15 @@ def main() -> int:
             os.makedirs("data", exist_ok=True)
             by_tab = defaultdict(set)
             for r in to_remove:
-                by_tab[tabs[r["url_hash"]]].add(r["url"])
+                for t in (r.get("tabs") or {tabs[r["url_hash"]]}):
+                    by_tab[t].add(r["url"])
             with open(backup_path, "w", newline="", encoding="utf-8") as f:
                 w = csv.writer(f)
                 w.writerow(["tab", "row", "url", "previous_status"])
                 for tab, urls in sorted(by_tab.items()):
-                    sheet_rows += retire_on_sheet(spreadsheet, tab, urls, now_iso, w, args.dry_run)
+                    n_tab = retire_on_sheet(spreadsheet, tab, urls, now_iso, w, args.dry_run)
+                    sheet_retired_by_tab[tab] = n_tab
+                    sheet_rows += n_tab
                     time.sleep(1.5)
                 if do_osm_sweep:
                     open_urls = {str(j["id"]): f"https://jobs.osmthome.com/jobs/{j['id']}/{j.get('slug', '')}"
@@ -547,6 +598,21 @@ def main() -> int:
                 [(OSM_TAB, gone, before, "not in the complete OSM listing snapshot fetched off-CI")]))
     print("\n=== summary ===")
     print(f"mode: {'DRY RUN' if args.dry_run else 'LIVE'}   rows probed: {len(results)}   excluded-host rows: {len(excluded)}")
+    if sheet_stats is not None:
+        print(f"sheet roster: {sheet_stats}   snapshot: {snapshot_path}")
+        sheet_only_results = Counter(v.status for r, v in results if r.get("sheet_only"))
+        print(f"sheet-only verdicts: {dict(sheet_only_results)}")
+    if sheet_retired_by_tab:
+        print("\n=== sheet rows set removed, per tab (active rows before -> after) ===")
+        before_rows = Counter()
+        if snapshot_path:
+            with open(snapshot_path, encoding="utf-8") as f:
+                for rec in csv.DictReader(f):
+                    if rec["status"].strip().lower() == "active":
+                        before_rows[rec["tab"]] += 1
+        for tab, n in sorted(sheet_retired_by_tab.items(), key=lambda kv: -kv[1]):
+            b = before_rows.get(tab)
+            print(f"{tab:34} {n:6} removed" + (f"   active {b} -> {b - n}" if b is not None else ""))
     print(f"live {totals['LIVE']}  dead {totals['DEAD']}  blocked {totals['BLOCKED']}  unknown {totals['UNKNOWN']}")
     print(f"removed: db {removed_db}, sheet rows {sheet_rows}   large tabs (noted, not held): {large_tabs or 'none'}")
     print(f"osm snapshot: {osm_why}")

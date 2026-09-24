@@ -9,8 +9,11 @@ name: Liveness Probe
 # Slot: 03:00 UTC. daily-scrape.yml starts 09:00 and runs ~75 min, so its
 # state-DB upload lands ~10:15 and Auto Data Sync (10:00) reads this file
 # with verdicts ~7 h old. Confirmed-DEAD rows retire regardless of share
-# (2026-09-24); a tab retiring >25% posts a note to #monitoring. Both this workflow and daily-scrape upload
-# scraper_state.db to release scraper-state-latest, so the guard step below
+# (2026-09-24); a tab retiring >25% posts a note to #monitoring. The roster
+# also covers rows marked active on the SHEET that the DB lacks (deduped by
+# URL, at most 600 per host per run, least recently checked first); a full
+# status snapshot of every job tab is uploaded as an artifact before writes.
+# Both this workflow and daily-scrape upload scraper_state.db to release scraper-state-latest, so the guard step below
 # refuses to run while a scrape or seed run is in progress.
 
 on:
@@ -32,6 +35,11 @@ on:
         description: 'Optional: comma-separated tab or company names (e.g. Worley,CrewBase)'
         required: false
         type: string
+      sheet_roster_only:
+        description: 'Probe only rows marked active on the sheet that the state DB lacks'
+        required: false
+        type: boolean
+        default: false
       limit_per_host:
         description: 'Optional: probe at most N rows per host (testing)'
         required: false
@@ -124,6 +132,7 @@ jobs:
           if [ "${{ inputs.dry_run }}" = "true" ]; then CMD="$CMD --dry-run"; fi
           if [ "${{ inputs.allow_mass_removal }}" = "true" ]; then CMD="$CMD --allow-mass-removal"; fi
           if [ -n "${{ inputs.company }}" ]; then CMD="$CMD --company \"${{ inputs.company }}\""; fi
+          if [ "${{ inputs.sheet_roster_only }}" = "true" ]; then CMD="$CMD --sheet-roster-only"; fi
           if [ -n "${{ inputs.limit_per_host }}" ]; then CMD="$CMD --limit-per-host ${{ inputs.limit_per_host }}"; fi
           echo "Running: $CMD"
           eval "$CMD"
@@ -136,6 +145,7 @@ jobs:
           path: |
             scrapers/data/liveness-latest.json
             scrapers/data/liveness-retire-backup-*.csv
+            scrapers/data/sheet-status-snapshot-*.csv
           retention-days: 30
           if-no-files-found: ignore
 

@@ -126,9 +126,37 @@ class DeduplicationTracker:
                 last_error TEXT
             )
         """)
+        # Liveness verdicts for rows marked active on the SHEET that this DB
+        # does not hold as active (2026-09-24). Drives the least-recently-
+        # checked rotation that spreads them across daily probe runs.
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS sheet_probe_log (
+                url_hash TEXT PRIMARY KEY,
+                url TEXT NOT NULL,
+                checked_at TEXT NOT NULL,
+                status TEXT,
+                reason TEXT
+            )
+        """)
         self.conn.commit()
 
         logger.debug("Database schema initialized")
+
+    def get_sheet_probe_checked(self) -> dict:
+        """url_hash -> last checked_at for sheet-only rows the probe has checked."""
+        cur = self.conn.execute("SELECT url_hash, checked_at FROM sheet_probe_log")
+        return {r['url_hash']: r['checked_at'] for r in cur.fetchall()}
+
+    def record_sheet_probe(self, verdicts: list[tuple], checked_at: str) -> int:
+        """Upsert (url_hash, url, status, reason) verdicts for sheet-only rows."""
+        self.conn.executemany(
+            "INSERT INTO sheet_probe_log (url_hash, url, checked_at, status, reason) VALUES (?, ?, ?, ?, ?) "
+            "ON CONFLICT(url_hash) DO UPDATE SET url=excluded.url, checked_at=excluded.checked_at, "
+            "status=excluded.status, reason=excluded.reason",
+            [(h, u, checked_at, st, (r or '')[:120]) for h, u, st, r in verdicts],
+        )
+        self.conn.commit()
+        return len(verdicts)
 
     def update_zero_streaks(self, scraped: list[str], zeroed: dict) -> dict:
         """Advance the zero-extraction streak for every company scraped this run.
