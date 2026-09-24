@@ -931,6 +931,10 @@ companies:
   # (portal_snapshot_path below): the scrape builds listings from it and the
   # liveness probe classifies OSM rows from it; CI itself never calls the API
   # while a fresh snapshot exists. No proxy, no browser trick, no other source.
+  # Missed nights: co.kedy.osm-snapshot-nudge asks Jesse at 10:00 and 14:00 ET
+  # ("run now?") once the snapshot is over 36 h old; nothing fetches without
+  # his click. An unanswered 14:00 prompt, or no snapshot at liveness time,
+  # posts to #monitoring.
   osm_thome:
     name: "OSM Thome"
     platform: html_generic

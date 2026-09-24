@@ -456,6 +456,13 @@ def main() -> int:
     osm_snap, osm_why = osm_snapshot.load(args.osm_snapshot)
     osm_open = osm_snapshot.open_ids(osm_snap) if osm_snap else None
     logger.info("osm snapshot: %s", osm_why)
+    if osm_snap is None and not args.dry_run and (not wanted or OSM_TAB in wanted):
+        # Backstop for the Mac Studio being off altogether (its own 10:00/14:00
+        # prompt, osm_snapshot_nudge.py, covers a merely missed night).
+        monitoring.post_monitoring_note(
+            f":alarm_clock: OSM Thome jobs are not refreshing: no usable listing snapshot ({osm_why}). "
+            "The Mac Studio's nightly fetch (launchd co.kedy.osm-snapshot) has not uploaded one; "
+            "OSM rows stay UNKNOWN until it does. Check ~/.local/log/osm-snapshot.log on the Studio.")
     prober = liveness.LivenessProber(min_interval=args.min_interval, today=today, osm_open_ids=osm_open)
     progress, lock = Counter(), threading.Lock()
     results: list[tuple[dict, liveness.Verdict]] = []

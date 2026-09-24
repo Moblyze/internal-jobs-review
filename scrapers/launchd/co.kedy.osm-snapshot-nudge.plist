@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Daytime prompt when the nightly OSM Thome fetch was missed (Jesse approved 2026-09-24).
+  10:00 and 14:00 local (ET). Silent unless the last good fetch is over 36 h old.
+  Shows "OSM jobs refresh missed, run now?"; nothing reaches OSM without a click.
+  An unanswered 14:00 prompt posts a #monitoring note via osm-refresh-missed.yml.
+  Install: cp to ~/Library/LaunchAgents/ then
+           launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/co.kedy.osm-snapshot-nudge.plist
+  Log: ~/.local/log/osm-snapshot.log (shared with co.kedy.osm-snapshot)
+  The slot is chosen by the hour at run time (before 12:00 = morning).
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>co.kedy.osm-snapshot-nudge</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/sh</string>
+    <string>-c</string>
+    <string>if [ "$(date +%H)" -lt 12 ]; then S=morning; else S=afternoon; fi; exec /opt/homebrew/bin/python3 /Users/jesse/development/moblyze/internal-jobs-review/scrapers/scripts/osm_snapshot_nudge.py --slot "$S"</string>
+  </array>
+  <key>WorkingDirectory</key><string>/Users/jesse/development/moblyze/internal-jobs-review/scrapers</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key><string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+  </dict>
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict><key>Hour</key><integer>10</integer><key>Minute</key><integer>0</integer></dict>
+    <dict><key>Hour</key><integer>14</integer><key>Minute</key><integer>0</integer></dict>
+  </array>
+  <key>StandardOutPath</key><string>/Users/jesse/.local/log/osm-snapshot.log</string>
+  <key>StandardErrorPath</key><string>/Users/jesse/.local/log/osm-snapshot.log</string>
+  <key>ProcessType</key><string>Interactive</string>
+</dict>
+</plist>

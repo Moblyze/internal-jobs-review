@@ -1,0 +1,32 @@
+name: OSM Refresh Missed (nudge)
+
+# Backup nudge for the OSM Thome off-CI fetch. The Mac Studio agent
+# co.kedy.osm-snapshot-nudge (scrapers/scripts/osm_snapshot_nudge.py) asks
+# Jesse at 10:00 and 14:00 ET when the nightly fetch was missed; if the 14:00
+# prompt goes unanswered it dispatches this workflow, which posts the message
+# to #monitoring. The webhook lives only in GitHub secrets. Posts only; no
+# request to OSM is made from here.
+
+on:
+  workflow_dispatch:
+    inputs:
+      message:
+        description: 'Text for the #monitoring note'
+        required: true
+        type: string
+
+jobs:
+  nudge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Post to #monitoring
+        working-directory: scrapers
+        env:
+          SLACK_MONITORING_WEBHOOK: ${{ secrets.SLACK_MONITORING_WEBHOOK }}
+          MESSAGE: ${{ inputs.message }}
+        run: |
+          python3 -c "import os,sys; from src.utils import monitoring; sys.exit(0 if monitoring.post_monitoring_note(':alarm_clock: ' + os.environ['MESSAGE']) else 1)"

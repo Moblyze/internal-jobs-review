@@ -224,3 +224,107 @@ def test_html_generic_falls_back_to_api_when_snapshot_stale(tmp_path, monkeypatc
     })
     assert [l["url"] for l in s._extract_listings_from_portal_api()] == ["https://jobs.osmthome.com/jobs/9/job-9"]
     assert len(called) == 1
+
+
+# -- description backfill (reads the snapshot, never OSM) ----------------------------
+
+def test_backfill_plan_repairs_only_active_stub_rows():
+    from backfill_osm_descriptions import plan
+    from src.scrapers.html_generic import HtmlGenericScraper
+
+    mapper = HtmlGenericScraper({"name": "OSM Thome", "platform": "html_generic", "sheet_name": "OSM Thome",
+                                 "base_url": "https://jobs.osmthome.com/", "rate_limit_delay": 0,
+                                 "html_config": {}})
+    long_text = "<p>Keep the engine room running. First Aid certificate required.</p>" + "<p>" + "Duties include watchkeeping. " * 30 + "</p>"
+    snap = _snap([_job(1, description=long_text), _job(2, description=long_text), _job(3, description=long_text)])
+    header = ["Title", "Company", "Location", "Description", "URL", "Requisition ID", "Posted Date", "Skills",
+              "Certifications", "Salary", "Employment Type", "Status", "Status Changed Date", "Scraped At"]
+    base = "https://jobs.osmthome.com/jobs/"
+
+    def row(i, desc, status="active", loc="Location Not Specified", certs=""):
+        return [f"Job {i}", "OSM Thome", loc, desc, f"{base}{i}/job-{i}", "", "", "", certs, "", "", status, "", ""]
+    rows = [row(1, "Job 1 position at OSM Thome."),          # stub, active -> repaired
+            row(2, "x" * 700),                                # already long -> untouched
+            row(3, "stub", status="removed"),                 # not active -> untouched
+            row(4, "stub")]                                   # not in snapshot -> untouched
+    edits = plan(rows, header, snap, mapper)
+    assert [e["row"] for e in edits] == [2]
+    e = edits[0]
+    assert len(e["new"]["description"]) > 600 and "<p>" not in e["new"]["description"]
+    assert e["new"]["location"] == "Worldwide"
+    assert "First Aid" in e["new"]["certifications"]
+    assert e["old"]["description"] == "Job 1 position at OSM Thome."
+
+
+# -- missed-run daytime prompt (Mac Studio) -----------------------------------------
+
+import osm_snapshot_nudge as nudge  # noqa: E402
+
+
+def test_nudge_decide():
+    fresh = {"last_success_at": (NOW - timedelta(hours=30)).isoformat()}
+    stale = {"last_success_at": (NOW - timedelta(hours=40)).isoformat()}
+    backoff = {**stale, "next_allowed_at": (NOW + timedelta(days=1)).isoformat()}
+    assert nudge.decide(fresh, NOW) == "fresh"
+    assert nudge.decide(stale, NOW) == "prompt"
+    assert nudge.decide({}, NOW) == "prompt"
+    assert nudge.decide(backoff, NOW) == "backoff"
+
+
+class _Run:
+    def __init__(self, rc=0, out=""):
+        self.returncode, self.stdout, self.stderr = rc, out, ""
+
+
+@pytest.mark.parametrize("rc, out, expect", [
+    (0, "button returned:Run now, gave up:false", "run"),
+    (0, "button returned:, gave up:true", "timeout"),
+    (1, "", "no"),                     # "Not now" is the cancel button (error -128)
+])
+def test_nudge_ask_parses_dialog(monkeypatch, rc, out, expect):
+    monkeypatch.setattr(nudge.subprocess, "run", lambda *a, **k: _Run(rc, out))
+    assert nudge.ask("x", timeout=1) == expect
+
+
+def _stale_state(tmp_path):
+    d = tmp_path / "st"
+    d.mkdir()
+    (d / "state.json").write_text(json.dumps({"last_success_at": (datetime.now(timezone.utc)
+                                                                  - timedelta(hours=50)).isoformat()}))
+    return str(d)
+
+
+@pytest.mark.parametrize("slot, answer, fetches, slacks", [
+    ("morning", "timeout", 0, 0),
+    ("afternoon", "timeout", 0, 1),
+    ("afternoon", "no", 0, 1),
+    ("morning", "run", 1, 0),
+])
+def test_nudge_flow_needs_a_click_to_fetch(monkeypatch, tmp_path, slot, answer, fetches, slacks):
+    calls = {"fetch": 0, "slack": 0}
+    monkeypatch.setattr(nudge, "ask", lambda msg, timeout=0: answer)
+    monkeypatch.setattr(nudge, "notify", lambda text: None)
+    monkeypatch.setattr(nudge, "run_fetch", lambda: (calls.__setitem__("fetch", calls["fetch"] + 1) or (0, "ok")))
+    monkeypatch.setattr(nudge, "slack_backup",
+                        lambda *a, **k: calls.__setitem__("slack", calls["slack"] + 1))
+    monkeypatch.setattr(sys, "argv", ["nudge", "--slot", slot, "--state-dir", _stale_state(tmp_path)])
+    nudge.main()
+    assert (calls["fetch"], calls["slack"]) == (fetches, slacks)
+
+
+def test_nudge_silent_when_fresh(monkeypatch, tmp_path):
+    d = tmp_path / "st"
+    d.mkdir()
+    (d / "state.json").write_text(json.dumps({"last_success_at": datetime.now(timezone.utc).isoformat()}))
+    monkeypatch.setattr(nudge, "ask", lambda *a, **k: pytest.fail("must not prompt when fresh"))
+    monkeypatch.setattr(sys, "argv", ["nudge", "--slot", "afternoon", "--state-dir", str(d)])
+    assert nudge.main() == 0
+
+
+def test_slack_backup_once_per_day(monkeypatch, tmp_path):
+    sent = []
+    monkeypatch.setattr(nudge.subprocess, "run", lambda cmd, **k: sent.append(cmd) or _Run(0))
+    state, path = {}, str(tmp_path / "state.json")
+    nudge.slack_backup("m", state, path, "2026-09-25")
+    nudge.slack_backup("m", state, path, "2026-09-25")
+    assert len(sent) == 1 and "osm-refresh-missed.yml" in sent[0]
