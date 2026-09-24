@@ -120,6 +120,8 @@ class TestExportJobsBatching:
         worksheet.row_count = row_count
         worksheet.row_values.return_value = SheetsExporter.HEADER_ROW
         exporter.spreadsheet.worksheet.return_value = worksheet
+        # Tab lookups go through the per-run metadata cache (2026-09-24).
+        exporter._worksheet = lambda name: worksheet
         return worksheet
 
     @patch("src.exporters.sheets.time.sleep")
@@ -173,3 +175,27 @@ class TestExportJobsBatching:
         assert written == 50
         assert mock_append.call_count == 3
         assert mock_sleep.call_count == 2
+
+
+class TestWorksheetCache:
+    def test_tab_metadata_is_read_once_per_run(self):
+        exporter = SheetsExporter.__new__(SheetsExporter)
+        exporter.spreadsheet = MagicMock()
+        a, b = MagicMock(title="A"), MagicMock(title="B")
+        exporter.spreadsheet.worksheets.return_value = [a, b]
+        assert exporter._worksheet("A") is a
+        assert exporter._worksheet("B") is b
+        assert exporter._worksheet("A") is a
+        assert exporter.spreadsheet.worksheets.call_count == 1
+        exporter.spreadsheet.worksheet.assert_not_called()
+
+    def test_missing_tab_raises_worksheet_not_found(self):
+        from gspread.exceptions import WorksheetNotFound
+        exporter = SheetsExporter.__new__(SheetsExporter)
+        exporter.spreadsheet = MagicMock()
+        exporter.spreadsheet.worksheets.return_value = []
+        try:
+            exporter._worksheet("Nope")
+            assert False, "expected WorksheetNotFound"
+        except WorksheetNotFound:
+            pass

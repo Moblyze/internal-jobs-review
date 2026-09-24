@@ -33,6 +33,8 @@ EasyApply JSON-LD structure (on detail pages):
 - industry: "Manufacturing / Production / QA" etc.
 """
 
+import asyncio
+import time
 import json
 import re
 from datetime import datetime
@@ -112,8 +114,18 @@ class EasyApplyScraper(BaseScraper):
 
         self.logger.info("fetching_rss_feed", url=url)
 
-        response = requests.get(url, headers=headers, timeout=30)
-        response.raise_for_status()
+        # One retry on a network error: a single 30s read timeout zeroed
+        # Altrad Sparrows (44 active) in run 36025378075 (2026-09-24).
+        for attempt in (1, 2):
+            try:
+                response = requests.get(url, headers=headers, timeout=30)
+                response.raise_for_status()
+                break
+            except requests.RequestException as e:
+                if attempt == 2:
+                    raise
+                self.logger.warning("rss_fetch_retry", url=url, error=str(e))
+                time.sleep(5)
 
         self.logger.info("rss_feed_fetched", status=response.status_code,
                          content_length=len(response.text))
@@ -439,7 +451,7 @@ class EasyApplyScraper(BaseScraper):
 
         try:
             # Step 1: Fetch RSS feed
-            rss_xml = self._fetch_rss_feed()
+            rss_xml = await asyncio.to_thread(self._fetch_rss_feed)
 
             # Step 2: Parse RSS items
             rss_jobs = self._parse_rss_items(rss_xml)

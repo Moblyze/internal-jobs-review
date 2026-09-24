@@ -23,6 +23,7 @@ class TestBatchStatusUpdateChunking:
         ws = MagicMock()
         exporter.spreadsheet = MagicMock()
         exporter.spreadsheet.worksheet.return_value = ws
+        exporter._worksheet = lambda name: ws
         monkeypatch.setattr(SheetsExporter, 'STATUS_UPDATE_CHUNK', 3)
         monkeypatch.setattr(SheetsExporter, 'INTER_BATCH_PAUSE_SECONDS', 0)
 

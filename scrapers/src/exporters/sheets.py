@@ -164,7 +164,26 @@ class SheetsExporter:
             scopes=self.SCOPES
         )
         self.client = gspread.authorize(credentials)
-        self.spreadsheet = self.client.open(self.spreadsheet_name)
+        self.spreadsheet = _retry_429(self.client.open, self.spreadsheet_name)
+        self._ws_cache: Optional[dict] = None
+        self._header_checked: set = set()
+
+    def _worksheet(self, sheet_name: str):
+        """Worksheet by title, from ONE metadata read per run (2026-09-24).
+
+        Spreadsheet.worksheet() re-fetches the whole spreadsheet's metadata on
+        every call, and the daily run made ~5 unretried reads per employer
+        (worksheet(), row_values(1), get_all_values(), again for the lifecycle
+        diff). Verification run 36025378075 had 10+ employers die on a Sheets
+        read 429 once the event loop stopped being blocked and exports landed
+        closer together. List the tabs once, retry every read.
+        """
+        if getattr(self, '_ws_cache', None) is None:
+            self._ws_cache = {ws.title: ws for ws in _retry_429(self.spreadsheet.worksheets)}
+        ws = self._ws_cache.get(sheet_name)
+        if ws is None:
+            raise WorksheetNotFound(sheet_name)
+        return ws
 
     def _get_or_create_worksheet(self, sheet_name: str):
         """
@@ -177,24 +196,30 @@ class SheetsExporter:
             Worksheet object
         """
         try:
-            worksheet = self.spreadsheet.worksheet(sheet_name)
+            worksheet = self._worksheet(sheet_name)
             logger.debug(f"Found existing worksheet: {sheet_name}")
         except WorksheetNotFound:
             logger.info(f"Creating new worksheet: {sheet_name}")
-            worksheet = self.spreadsheet.add_worksheet(
+            worksheet = _retry_429(
+                self.spreadsheet.add_worksheet,
                 title=sheet_name,
                 rows=1000,
                 cols=14  # 14 columns including Employment Type
             )
+            self._ws_cache[sheet_name] = worksheet
 
-        # Ensure header row exists and matches current schema
-        current_header = worksheet.row_values(1) if worksheet.row_count > 0 else []
-        if not current_header or current_header != self.HEADER_ROW:
-            logger.info(f"Updating header row to match schema: {sheet_name}")
-            _retry_429(
-                worksheet.update,
-                values=[self.HEADER_ROW], range_name='A1:N1', value_input_option='RAW'
-            )
+        # Ensure header row exists and matches current schema (once per tab per run)
+        if not hasattr(self, '_header_checked'):
+            self._header_checked = set()
+        if sheet_name not in self._header_checked:
+            current_header = _retry_429(worksheet.row_values, 1) if worksheet.row_count > 0 else []
+            if not current_header or current_header != self.HEADER_ROW:
+                logger.info(f"Updating header row to match schema: {sheet_name}")
+                _retry_429(
+                    worksheet.update,
+                    values=[self.HEADER_ROW], range_name='A1:N1', value_input_option='RAW'
+                )
+            self._header_checked.add(sheet_name)
 
         return worksheet
 
@@ -237,7 +262,7 @@ class SheetsExporter:
         worksheet = self._get_or_create_worksheet(sheet_name)
 
         # Find the next available row (after existing data)
-        existing_data_rows = len(worksheet.get_all_values())
+        existing_data_rows = len(_retry_429(worksheet.get_all_values))
         next_row = existing_data_rows + 1
 
         # Convert jobs to rows
@@ -286,13 +311,13 @@ class SheetsExporter:
             Dictionary mapping URL to row number (1-indexed)
         """
         try:
-            worksheet = self.spreadsheet.worksheet(sheet_name)
+            worksheet = self._worksheet(sheet_name)
         except WorksheetNotFound:
             logger.debug(f"Worksheet not found: {sheet_name}")
             return {}
 
         # Get all values from the worksheet
-        all_values = worksheet.get_all_values()
+        all_values = _retry_429(worksheet.get_all_values)
         if len(all_values) <= 1:  # Only header or empty
             return {}
 
@@ -335,7 +360,7 @@ class SheetsExporter:
         Raises:
             APIError: If Google Sheets API errors persist after retries
         """
-        worksheet = self.spreadsheet.worksheet(sheet_name)
+        worksheet = self._worksheet(sheet_name)
 
         # Get column indices for status fields
         status_col = self.HEADER_ROW.index('Status') + 1  # gspread uses 1-indexed columns
@@ -371,7 +396,7 @@ class SheetsExporter:
         if not updates:
             return
 
-        worksheet = self.spreadsheet.worksheet(sheet_name)
+        worksheet = self._worksheet(sheet_name)
 
         # Get column indices (0-indexed for conversion to A1 notation)
         status_col_idx = self.HEADER_ROW.index('Status')
