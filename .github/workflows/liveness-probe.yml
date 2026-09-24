@@ -127,12 +127,19 @@ jobs:
           GOOGLE_SERVICE_ACCOUNT_PATH: config/service_account.json
           GOOGLE_SHEETS_SPREADSHEET_NAME: ${{ secrets.GOOGLE_SHEETS_SPREADSHEET_NAME }}
           SLACK_MONITORING_WEBHOOK: ${{ secrets.SLACK_MONITORING_WEBHOOK }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           CMD="python scripts/probe_liveness.py --state-db data/scraper_state.db --out data/liveness-latest.json"
           if [ "${{ inputs.dry_run }}" = "true" ]; then CMD="$CMD --dry-run"; fi
           if [ "${{ inputs.allow_mass_removal }}" = "true" ]; then CMD="$CMD --allow-mass-removal"; fi
           if [ -n "${{ inputs.company }}" ]; then CMD="$CMD --company \"${{ inputs.company }}\""; fi
           if [ "${{ inputs.sheet_roster_only }}" = "true" ]; then CMD="$CMD --sheet-roster-only"; fi
+          # Partial runs merge into the day's full verdicts instead of replacing them.
+          if [ -n "${{ inputs.company }}${{ inputs.limit_per_host }}" ] || [ "${{ inputs.sheet_roster_only }}" = "true" ]; then
+            if gh release download scraper-state-latest -p liveness-latest.json -O data/liveness-prev.json --clobber; then
+              CMD="$CMD --merge-out data/liveness-prev.json"
+            fi
+          fi
           if [ -n "${{ inputs.limit_per_host }}" ]; then CMD="$CMD --limit-per-host ${{ inputs.limit_per_host }}"; fi
           echo "Running: $CMD"
           eval "$CMD"

@@ -180,3 +180,15 @@ def test_sheet_roster_only_skips_db_rows(env, monkeypatch):
     assert _run(db, cfg, "--sheet-roster-only") == 0
     assert "https://db.example.com/job/9/" not in seen
     assert grid["TechnipFMC"][1][3] == "removed"
+
+
+def test_merge_out_keeps_previous_verdicts(env):
+    grid, db, cfg = env
+    os.makedirs("data", exist_ok=True)
+    with open("data/prev.json", "w") as f:
+        json.dump({"rows": {"https://other.example.com/1": {"s": "LIVE"},
+                            "https://careers.technipfmc.com/job/2/": {"s": "UNKNOWN"}}}, f)
+    assert _run(db, cfg, "--sheet-roster-only", "--merge-out", "data/prev.json") == 0
+    rows = json.load(open("data/out.json"))["rows"]
+    assert rows["https://other.example.com/1"]["s"] == "LIVE"                  # kept
+    assert rows["https://careers.technipfmc.com/job/2/"]["s"] == "LIVE"        # this run wins

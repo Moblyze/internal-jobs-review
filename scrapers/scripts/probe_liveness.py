@@ -386,6 +386,8 @@ def main() -> int:
                     help="probe DB-active rows only (skip rows marked active on the sheet that the DB lacks)")
     ap.add_argument("--sheet-roster-only", action="store_true",
                     help="probe only the sheet-only rows (DB-active rows were already probed today)")
+    ap.add_argument("--merge-out", default=None,
+                    help="existing verdicts JSON to merge this run's verdicts into (partial runs)")
     ap.add_argument("--sheet-max-per-host", type=int, default=sheet_roster.DEFAULT_PER_HOST_CAP,
                     help="max sheet-only URLs probed per host per run, least recently checked first (default 600)")
     ap.add_argument("--osm-snapshot", default="data/" + osm_snapshot.ASSET_NAME,
@@ -584,6 +586,14 @@ def main() -> int:
             for row, v in results
         },
     }
+    if args.merge_out and os.path.exists(args.merge_out):
+        # A partial run (--company, --sheet-roster-only, --limit-per-host) must not
+        # replace the full day's verdicts that export-jobs.js reads (2026-09-24).
+        with open(args.merge_out, encoding="utf-8") as f:
+            prev = json.load(f).get("rows", {})
+        prev.update(out["rows"])
+        out["rows"] = prev
+        logger.info("merged into %s: %d urls total", args.merge_out, len(prev))
     os.makedirs(os.path.dirname(os.path.abspath(args.out)) or ".", exist_ok=True)
     with open(args.out, "w", encoding="utf-8") as f:
         json.dump(out, f, separators=(",", ":"))
