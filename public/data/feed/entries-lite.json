@@ -1,5 +1,90 @@
 [
   {
+    "id": "654b7426-c701-47ab-ab7a-852d83caec70",
+    "ingested_at": "2026-09-24T18:14:15.816Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/polish-plant-contract-negotiations-move-to-next-stage"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "poland",
+    "country": "poland",
+    "headline": "Westinghouse-Bechtel & PEJ Agree Main EPC Terms for Poland's First Nuclear Plant",
+    "operator": {
+      "name": "Polskie Elektrownie Jądrowe (PEJ)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Westinghouse-Bechtel Consortium",
+      "matched_company_slug": null
+    },
+    "project_name": "Poland First Nuclear Power Plant",
+    "mob_window": {
+      "start": "2025-Q1",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
+    "id": "dfefdb35-ac1d-4350-b414-69d4680bb217",
+    "ingested_at": "2026-09-24T18:14:15.816Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/oceanagolds-97-gram-hit-backs-waihi-expansion/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "new-zealand",
+    "country": "new_zealand",
+    "headline": "OceanaGold Plans 50% Waihi Plant Expansion After High-Grade Wharekirauponga Discovery",
+    "operator": {
+      "name": "OceanaGold",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "OceanaGold",
+      "matched_company_slug": null
+    },
+    "project_name": "Waihi Plant Expansion / Wharekirauponga",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "d3c33fe4-c2a4-4d8b-bd6e-7ee2225d889b",
     "ingested_at": "2026-09-24T06:19:41.897Z",
     "sources": [
@@ -5325,51 +5410,6 @@
     "decom_stage": null,
     "outreach_readiness": "hot",
     "estimated_hiring_window": "3-6mo",
-    "key_people": []
-  },
-  {
-    "id": "6b071f57-c3ea-4961-9bd8-0e873e251ab3",
-    "ingested_at": "2026-06-26T12:47:51.415Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/var_energi_greenlights_gjoa_projects-26-jun-2026-183997-article/?rss=true"
-      }
-    ],
-    "subsector": "offshore-og",
-    "discipline_tags": [
-      "rov_subsea",
-      "marine_offshore_ops",
-      "energy_trades",
-      "industrial_construction",
-      "pipeline_mechanical"
-    ],
-    "signal_type": "fid",
-    "region": "norway-north-sea",
-    "country": "norway",
-    "headline": "Vår Energi FID on Gjøa Subsea Projects, Norway North Sea",
-    "operator": {
-      "name": "Vår Energi ASA",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Gjøa Subsea Projects",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "sanctioned_engineering",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
     "key_people": []
   }
 ]

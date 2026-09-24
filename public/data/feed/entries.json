@@ -2,6 +2,227 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/polish-plant-contract-negotiations-move-to-next-stage"
+      }
+    ],
+    "headline": "Westinghouse-Bechtel & PEJ Agree Main EPC Terms for Poland's First Nuclear Plant",
+    "body": "The Westinghouse-Bechtel consortium and Polskie Elektrownie Jądrowe have agreed the main commercial and legal terms of the Engineering, Procurement and Construction contract that will deliver Poland's first nuclear power plant, and plan to complete the contract negotiation process by the end of this year.",
+    "url": "https://www.world-nuclear-news.org/articles/polish-plant-contract-negotiations-move-to-next-stage",
+    "published_at": "2026-09-24T10:03:56.000Z",
+    "hash": "695e7f50e7849cb6",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "poland",
+    "country": "poland",
+    "tldr": "Westinghouse-Bechtel consortium and Polskie Elektrownie Jądrowe have agreed principal commercial and legal EPC terms for Poland's first nuclear plant, with contract finalisation targeted by year-end — signalling an imminent engineering ramp-up and early hiring wave.",
+    "operator": {
+      "name": "Polskie Elektrownie Jądrowe (PEJ)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Westinghouse-Bechtel Consortium",
+      "matched_company_slug": null
+    },
+    "project_name": "Poland First Nuclear Power Plant",
+    "scope": [
+      "epc_nuclear",
+      "engineering",
+      "procurement",
+      "construction"
+    ],
+    "mob_window": {
+      "start": "2025-Q1",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Project Engineer",
+        "EPC Project Manager",
+        "Nuclear Construction Manager",
+        "Mechanical Engineer – Nuclear",
+        "Civil/Structural Engineer – Nuclear",
+        "Electrical Engineer – Nuclear",
+        "I&C Engineer – Nuclear",
+        "Procurement Manager",
+        "Nuclear Safety Engineer",
+        "Quality Assurance Manager",
+        "Planning/Scheduling Engineer",
+        "Nuclear Commissioning Engineer",
+        "HSE Manager – Nuclear"
+      ],
+      "skills": [
+        "nuclear EPC",
+        "AP1000 reactor",
+        "ASME nuclear codes",
+        "nuclear quality assurance",
+        "nuclear safety case",
+        "procurement nuclear",
+        "project controls nuclear",
+        "construction management",
+        "commissioning nuclear",
+        "Polish regulatory compliance"
+      ],
+      "certs_freetext": [
+        "ASME NQA-1",
+        "nuclear security clearance",
+        "PMP",
+        "CSCS",
+        "ISO 19443"
+      ],
+      "geo_rtw": "EU/EEA right-to-work; Poland work authorisation advantageous",
+      "project_experience": [
+        "Hinkley Point C",
+        "Vogtle Units 3 & 4",
+        "Olkiluoto 3",
+        "Sizewell C",
+        "Flamanville 3"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"nuclear EPC\" OR \"nuclear construction\" OR \"AP1000\" OR \"nuclear engineering\") AND (\"project manager\" OR \"construction manager\" OR \"commissioning engineer\" OR \"mechanical engineer\" OR \"electrical engineer\" OR \"I&C engineer\" OR \"civil engineer\" OR \"QA manager\") AND (\"Bechtel\" OR \"Westinghouse\" OR \"nuclear power plant\" OR \"NPP\") AND (\"ASME\" OR \"NQA-1\" OR \"nuclear safety\" OR \"IAEA\") NOT (\"intern\" OR \"graduate\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], with the Westinghouse-Bechtel EPC contract for Poland's first nuclear plant nearing execution, we're mapping senior nuclear engineering & construction talent for this programme. Your background in [relevant project] looks highly relevant — open to a confidential conversation?",
+      "email_subject": "Poland Nuclear EPC – Senior Roles | Westinghouse-Bechtel Programme",
+      "email_body": "Hi [Name],\n\nThe Westinghouse-Bechtel consortium and Polskie Elektrownie Jądrowe have agreed the main commercial and legal terms of the EPC contract for Poland's first nuclear power plant, with full contract execution targeted by end of year.\n\nThis marks the transition into active engineering mobilisation, and our client is beginning to identify senior [discipline] professionals with large-scale nuclear EPC experience.\n\nGiven your background on [adjacent project], I'd welcome a brief call to discuss how your profile aligns with early-stage opportunities on this programme.\n\nAre you available for a 15-minute call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "EPC contract terms agreed between named hiring entity (Westinghouse-Bechtel consortium) and named operator (PEJ) for a named nuclear project, with contract finalisation and engineering ramp-up imminent.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Article states the consortium and PEJ 'have agreed the main commercial and legal terms of the Engineering, Procurement and Construction contract' and plan to complete negotiations by year-end, placing the project at the threshold of EPC execution and engineering ramp.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "654b7426-c701-47ab-ab7a-852d83caec70",
+    "ingested_at": "2026-09-24T18:14:15.816Z",
+    "source_published_at": "2026-09-24T10:03:56.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/oceanagolds-97-gram-hit-backs-waihi-expansion/"
+      }
+    ],
+    "headline": "OceanaGold Plans 50% Waihi Plant Expansion After High-Grade Wharekirauponga Discovery",
+    "body": "OceanaGold plans a 50% expansion of its Waihi plant after discovering rich gold veins in Wharekirauponga.",
+    "url": "https://www.mining.com/oceanagolds-97-gram-hit-backs-waihi-expansion/",
+    "published_at": "2026-09-24T14:43:23.000Z",
+    "hash": "571e606829c7c5e9",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "new-zealand",
+    "country": "new_zealand",
+    "tldr": "OceanaGold is planning a 50% expansion of its Waihi processing plant following a high-grade gold discovery at Wharekirauponga. A workforce ramp-up is anticipated as the expansion progresses toward sanction.",
+    "operator": {
+      "name": "OceanaGold",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "OceanaGold",
+      "matched_company_slug": null
+    },
+    "project_name": "Waihi Plant Expansion / Wharekirauponga",
+    "scope": [
+      "plant_expansion",
+      "underground_mining",
+      "processing_facility"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mining Engineer",
+        "Underground Mining Supervisor",
+        "Plant Expansion Project Manager",
+        "Process Plant Engineer",
+        "Construction Manager",
+        "HSE Advisor",
+        "Metallurgist",
+        "Geological Engineer"
+      ],
+      "skills": [
+        "underground gold mining",
+        "processing plant expansion",
+        "ore processing",
+        "mine development",
+        "FEED/pre-FID study",
+        "gold metallurgy"
+      ],
+      "certs_freetext": [
+        "New Zealand mining certificates",
+        "First Aid",
+        "Site Safety Certificate"
+      ],
+      "geo_rtw": "New Zealand right-to-work",
+      "project_experience": [
+        "Waihi Gold Mine",
+        "Macraes Mine",
+        "Didipio Mine",
+        "Haile Gold Mine"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"mining engineer\" OR \"underground mining\" OR \"plant expansion\" OR \"process plant\" OR \"metallurgist\" OR \"construction manager\") AND (\"gold mining\" OR \"underground\" OR \"ore processing\" OR \"mine development\") AND (\"New Zealand\" OR \"Waihi\" OR \"Wharekirauponga\" OR \"OceanaGold\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], OceanaGold is planning a 50% expansion of its Waihi plant in NZ following a major high-grade discovery at Wharekirauponga. We're tracking early-stage hiring for this ramp-up — open to a quick chat?",
+      "email_subject": "Waihi Plant Expansion – Early Talent Positioning | OceanaGold NZ",
+      "email_body": "Hi [Name],\n\nOceanaGold has announced a planned 50% expansion of its Waihi processing plant in New Zealand, underpinned by a high-grade gold discovery at Wharekirauponga.\n\nAs this moves toward sanction and detailed engineering, we expect a ramp-up in demand for experienced mining, process plant, and construction professionals with underground gold mining backgrounds.\n\nWe work with candidates who have relevant experience across similar expansions and are well-positioned to support early workforce planning.\n\nWould you be open to a brief conversation about how we might assist?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (OceanaGold) announces a 50% plant expansion at a named project (Waihi/Wharekirauponga) in the mining sector, indicating a future workforce ramp-up event.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states OceanaGold 'plans' a 50% expansion following discovery — no FID or EPC award mentioned, indicating pre-sanction/concept stage.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "dfefdb35-ac1d-4350-b414-69d4680bb217",
+    "ingested_at": "2026-09-24T18:14:15.816Z",
+    "source_published_at": "2026-09-24T14:43:23.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/envision-energy----------------302888431.html"
@@ -13434,121 +13655,6 @@
       "hiring_manager",
       "business_unit_director",
       "hr_business_partner"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/var_energi_greenlights_gjoa_projects-26-jun-2026-183997-article/?rss=true"
-      }
-    ],
-    "headline": "Vår Energi FID on Gjøa Subsea Projects, Norway North Sea",
-    "body": "Vår Energi ASA and its partners have made a final investment decision to proceed with the Gjøa Subsea Projects on Norway's side of the North Sea, targeting a...",
-    "url": "https://www.rigzone.com/news/var_energi_greenlights_gjoa_projects-26-jun-2026-183997-article/?rss=true",
-    "published_at": "2026-06-26T10:46:24.000Z",
-    "hash": "59a533ec1c9c5133",
-    "subsector": "offshore-og",
-    "discipline_tags": [
-      "rov_subsea",
-      "marine_offshore_ops",
-      "energy_trades",
-      "industrial_construction",
-      "pipeline_mechanical"
-    ],
-    "signal_type": "fid",
-    "region": "norway-north-sea",
-    "country": "norway",
-    "tldr": "Vår Energi and partners have taken FID on the Gjøa Subsea Projects offshore Norway, triggering EPC/SURF tendering and engineering ramp-up. Subsea, marine, and construction hiring expected within 3-12 months.",
-    "operator": {
-      "name": "Vår Energi ASA",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Gjøa Subsea Projects",
-    "scope": [
-      "subsea_install",
-      "fid",
-      "field_development"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Subsea Project Manager",
-        "Subsea Engineer",
-        "SURF Engineer",
-        "Offshore Installation Manager",
-        "Project Engineer",
-        "Construction Manager",
-        "Subsea Construction Superintendent",
-        "Pipeline Engineer",
-        "ROV Supervisor",
-        "Marine Coordinator"
-      ],
-      "skills": [
-        "subsea field development",
-        "SURF installation",
-        "pipeline design",
-        "subsea engineering",
-        "offshore project management",
-        "ROV operations",
-        "umbilicals risers flowlines",
-        "North Sea operations"
-      ],
-      "certs_freetext": [
-        "BOSIET/HUET",
-        "OPITO offshore survival",
-        "Norwegian Offshore Safety Certificate",
-        "Offshore Medical (OGUK or equivalent)"
-      ],
-      "geo_rtw": "Norway / EEA right-to-work",
-      "project_experience": [
-        "Gjøa",
-        "Johan Sverdrup",
-        "Snorre",
-        "Åsgard",
-        "Balder X",
-        "Duva",
-        "Nova"
-      ],
-      "yoe_band": "8-20",
-      "seniority": "mid-to-senior",
-      "boolean_search": "(\"subsea project manager\" OR \"SURF engineer\" OR \"subsea construction manager\" OR \"subsea engineer\" OR \"pipeline engineer\" OR \"offshore installation manager\" OR \"ROV supervisor\") AND (\"North Sea\" OR \"NCS\" OR \"Norwegian Continental Shelf\") AND (\"subsea\" OR \"SURF\" OR \"umbilicals\" OR \"flowlines\" OR \"risers\") NOT (\"decommissioning\" OR \"onshore\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Vår Energi just took FID on the Gjøa Subsea Projects on the NCS — EPC/SURF contracts and engineering ramp-up will follow shortly. With your subsea background, you could be well-positioned. Worth a quick chat?",
-      "email_subject": "Gjøa Subsea Projects – FID Taken, Roles Opening Soon",
-      "email_body": "Hi [Name],\n\nVår Energi and partners have just sanctioned the Gjøa Subsea Projects offshore Norway. With FID now confirmed, EPC tenders and detailed engineering mobilisation are expected to follow in the coming months — driving demand for experienced subsea, SURF, and offshore construction professionals on the NCS.\n\nGiven your background in [relevant discipline], I wanted to reach out early before these roles go to market.\n\nWould you be open to a brief call this week to discuss how your experience aligns with what's coming?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "FID taken by named operator Vår Energi ASA on the Gjøa Subsea Projects offshore Norway, a discrete sanctioning event triggering downstream EPC and workforce demand.",
-    "phase": "sanctioned_engineering",
-    "phase_evidence": "Article states Vår Energi and partners 'have made a final investment decision to proceed with the Gjøa Subsea Projects', indicating FID just taken and engineering phase commencing.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "6b071f57-c3ea-4961-9bd8-0e873e251ab3",
-    "ingested_at": "2026-06-26T12:47:51.415Z",
-    "source_published_at": "2026-06-26T10:46:24.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "hiring_manager",
-      "business_unit_director"
     ],
     "prompt_version": "phase-targeting-v1.2"
   }
