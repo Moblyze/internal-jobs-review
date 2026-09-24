@@ -1,5 +1,89 @@
 [
   {
+    "id": "d3c33fe4-c2a4-4d8b-bd6e-7ee2225d889b",
+    "ingested_at": "2026-09-24T06:19:41.897Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/envision-energy----------------302888431.html"
+      }
+    ],
+    "subsector": "onshore-renewables",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction"
+    ],
+    "signal_type": "fid",
+    "region": "southeast-europe",
+    "country": "north_macedonia",
+    "headline": "Envision Energy's 131.25MW Shtip Wind Farm Phase 1 Reaches Financial Close in North Macedonia",
+    "operator": {
+      "name": "Envision Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Envision Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Shtip Wind Farm Phase 1",
+    "mob_window": {
+      "start": "2026-Q4",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": []
+  },
+  {
+    "id": "7691b6b4-5488-4c88-882f-2af872c1ae1a",
+    "ingested_at": "2026-09-24T06:19:41.897Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/envision-energy-rozvija-trh-s-veternou-energiou-v-juhovychodnej-europe-najvai-veterny-projekt-v-severnom-macedonsku-ma-definitivne-zabezpeene-financovanie-302888394.html"
+      }
+    ],
+    "subsector": "onshore-renewables",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction"
+    ],
+    "signal_type": "fid",
+    "region": "southeast-europe",
+    "country": "north_macedonia",
+    "headline": "Envision Energy Secures Financing for 131.25 MW Štip Wind Farm Phase 1 in North Macedonia",
+    "operator": {
+      "name": "Envision Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Envision Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Štip Wind Farm Phase 1",
+    "mob_window": {
+      "start": "2026-Q4",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": []
+  },
+  {
     "id": "f6faa6fb-679d-4112-aa86-a04f44cb1b5c",
     "ingested_at": "2026-09-23T18:14:54.733Z",
     "sources": [

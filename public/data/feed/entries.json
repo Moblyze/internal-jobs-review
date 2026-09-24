@@ -2,6 +2,215 @@
   {
     "sources": [
       {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/envision-energy----------------302888431.html"
+      }
+    ],
+    "headline": "Envision Energy's 131.25MW Shtip Wind Farm Phase 1 Reaches Financial Close in North Macedonia",
+    "body": "ШТИП, Северная Македония, 24 сентября 2026 г. /PRNewswire/ -- Envision Energy, мировой лидер в области зеленых технологий, продвигает развитие ветроэнергетики в Юго-Восточной Европе, поскольку первая фаза ветропарка Штип в Северной Македонии мощностью 131,25 МВт достигает финансового...",
+    "url": "https://www.prnewswire.com/news-releases/envision-energy----------------302888431.html",
+    "published_at": "2026-09-24T01:20:00.000Z",
+    "hash": "4e8d129fab4f476e",
+    "subsector": "onshore-renewables",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction"
+    ],
+    "signal_type": "fid",
+    "region": "southeast-europe",
+    "country": "north_macedonia",
+    "tldr": "Envision Energy's Shtip Wind Farm Phase 1 (131.25MW) has reached financial close in North Macedonia, signalling imminent construction mobilisation and a near-term demand window for wind construction and installation trades.",
+    "operator": {
+      "name": "Envision Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Envision Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Shtip Wind Farm Phase 1",
+    "scope": [
+      "wind_turbine_erection",
+      "civil_works",
+      "electrical_balance_of_plant"
+    ],
+    "mob_window": {
+      "start": "2026-Q4",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Wind Construction Manager",
+        "Site Manager",
+        "HSE Manager",
+        "Civil Works Supervisor",
+        "Electrical BOP Supervisor",
+        "Wind Turbine Erection Supervisor",
+        "Commissioning Engineer",
+        "Project Engineer"
+      ],
+      "skills": [
+        "wind farm construction",
+        "turbine erection",
+        "balance of plant",
+        "civil earthworks",
+        "HV electrical installation",
+        "commissioning",
+        "HSE management"
+      ],
+      "certs_freetext": [
+        "GWO Basic Safety Training",
+        "IRATA (rope access if required)",
+        "EUSR/CSCS or equivalent",
+        "First Aid"
+      ],
+      "geo_rtw": "EU/EEA or North Macedonia work-eligible",
+      "project_experience": [
+        "Vestas wind farm construction",
+        "Siemens Gamesa onshore wind",
+        "Enercon installation projects",
+        "Balkans renewable energy projects"
+      ],
+      "yoe_band": "7-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"wind farm\" OR \"onshore wind\" OR \"wind turbine erection\") AND (\"construction manager\" OR \"site manager\" OR \"commissioning engineer\" OR \"BOP supervisor\" OR \"HSE manager\") AND (\"financial close\" OR \"EPC\" OR \"balance of plant\" OR \"civil works\") AND (\"Southeast Europe\" OR \"Balkans\" OR \"North Macedonia\" OR \"Romania\" OR \"Serbia\" OR \"Bulgaria\" OR \"Greece\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Envision Energy's 131MW Shtip Wind Farm in North Macedonia has just reached financial close — construction mobilisation is imminent. Are you open to a site leadership or commissioning role in Southeast Europe?",
+      "email_subject": "Wind Construction Opportunity — Shtip 131MW, North Macedonia (Financial Close Reached)",
+      "email_body": "Hi [Name],\n\nEnvision Energy's Shtip Wind Farm Phase 1 (131.25MW) in North Macedonia has just reached financial close, meaning construction is set to kick off in the coming months.\n\nGiven your background in onshore wind construction / commissioning, I wanted to reach out ahead of the mobilisation curve. Roles likely to be active shortly include Construction Manager, HSE Manager, Electrical BOP Supervisor, and Commissioning Engineers.\n\nWould you be open to a conversation about your availability and interest in a Southeast Europe posting?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Financial close on a named 131.25MW onshore wind project (Shtip Wind Farm Phase 1) with a named operator (Envision Energy) signals imminent construction mobilisation and discrete labour demand.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "The article states Phase 1 of the Shtip Wind Farm has reached financial close, indicating FID has been achieved and construction-phase engineering/mobilisation is next.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "d3c33fe4-c2a4-4d8b-bd6e-7ee2225d889b",
+    "ingested_at": "2026-09-24T06:19:41.897Z",
+    "source_published_at": "2026-09-24T01:20:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/envision-energy-rozvija-trh-s-veternou-energiou-v-juhovychodnej-europe-najvai-veterny-projekt-v-severnom-macedonsku-ma-definitivne-zabezpeene-financovanie-302888394.html"
+      }
+    ],
+    "headline": "Envision Energy Secures Financing for 131.25 MW Štip Wind Farm Phase 1 in North Macedonia",
+    "body": "ŠTIP, Severné Macedónsko, 24. septembra 2026 /PRNewswire/ -- Spoločnosť Envision Energy, globálny líder v oblasti zelených technológií, napreduje v rozvoji veternej energie v juhovýchodnej Európe, keďže prvá fáza veterného parku Štip s výkonom 131,25 MW v Severnom Macedónsku má...",
+    "url": "https://www.prnewswire.com/news-releases/envision-energy-rozvija-trh-s-veternou-energiou-v-juhovychodnej-europe-najvai-veterny-projekt-v-severnom-macedonsku-ma-definitivne-zabezpeene-financovanie-302888394.html",
+    "published_at": "2026-09-24T00:28:00.000Z",
+    "hash": "8853c7133245e8da",
+    "subsector": "onshore-renewables",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction"
+    ],
+    "signal_type": "fid",
+    "region": "southeast-europe",
+    "country": "north_macedonia",
+    "tldr": "Envision Energy has secured definitive financing for the 131.25 MW first phase of the Štip wind farm in North Macedonia, the country's largest wind project. Construction hiring window is opening as the project moves toward execution.",
+    "operator": {
+      "name": "Envision Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Envision Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Štip Wind Farm Phase 1",
+    "scope": [
+      "wind_farm_construction",
+      "civil_works",
+      "turbine_installation"
+    ],
+    "mob_window": {
+      "start": "2026-Q4",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Wind Farm Construction Manager",
+        "Site Manager",
+        "HSE Manager",
+        "Civil Works Supervisor",
+        "Turbine Erection Supervisor",
+        "Commissioning Engineer",
+        "Electrical Engineer",
+        "Project Manager"
+      ],
+      "skills": [
+        "wind turbine installation",
+        "onshore wind construction",
+        "civil engineering",
+        "HV electrical",
+        "project commissioning",
+        "HSE management"
+      ],
+      "certs_freetext": [
+        "GWO Basic Safety Training",
+        "CSCS",
+        "IOSH Managing Safely"
+      ],
+      "geo_rtw": "EU/EEA or North Macedonia work authorization",
+      "project_experience": [
+        "onshore wind farm construction",
+        "Southeast Europe renewables",
+        "Balkans wind projects"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"wind farm\" OR \"onshore wind\" OR \"wind turbine installation\") AND (\"construction manager\" OR \"site manager\" OR \"commissioning engineer\" OR \"HSE manager\" OR \"turbine erection\") AND (\"Southeast Europe\" OR \"Balkans\" OR \"North Macedonia\" OR \"Romania\" OR \"Bulgaria\" OR \"Serbia\") AND (\"GWO\" OR \"civil works\" OR \"HV\" OR \"SCADA\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Envision Energy has just secured financing for the 131 MW Štip Wind Farm in North Macedonia — the country's largest wind project. Construction roles are opening up. Are you available for a conversation about the opportunity?",
+      "email_subject": "Construction Opportunity – Štip Wind Farm 131 MW, North Macedonia (Envision Energy)",
+      "email_body": "Hi [Name],\n\nEnvision Energy has secured definitive financing for Phase 1 of the Štip Wind Farm (131.25 MW) in North Macedonia — the country's largest wind project to date.\n\nWith financing closed, construction mobilisation is imminent, and we are identifying experienced wind farm construction and commissioning professionals for key site roles.\n\nGiven your background in onshore wind construction, I'd love to connect and explore whether this could be a fit.\n\nAre you available for a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Financing close (effective FID) for a named 131.25 MW wind project (Štip Wind Farm Phase 1) by a named developer (Envision Energy) in North Macedonia signals imminent construction mobilisation and workforce demand.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Article states Phase 1 of the Štip wind park 'má definitívne zabezpečené financovanie' (has definitively secured financing), indicating FID/financial close has been achieved.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "7691b6b4-5488-4c88-882f-2af872c1ae1a",
+    "ingested_at": "2026-09-24T06:19:41.897Z",
+    "source_published_at": "2026-09-24T00:28:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/totalenergies_approves_new_upstream_project_for_nigeria_lng-23-sep-2026-184683-article/?rss=true"
