@@ -6296,6 +6296,19 @@
     "mapboxPlaceName": "West Arecibo Place, Tucson, Arizona 85757, United States",
     "confidence": 0.862222
   },
+  "Arendal, Norway": {
+    "city": "Arendal",
+    "state": "Agder",
+    "stateCode": "42",
+    "country": "Norway",
+    "countryCode": "NO",
+    "coordinates": {
+      "latitude": 58.45976,
+      "longitude": 8.764941
+    },
+    "mapboxPlaceName": "Arendal, Agder, Norway",
+    "confidence": 1
+  },
   "Arendal, Norway, Bergen, Norway": {
     "city": "Bergen",
     "state": "Vestland",
@@ -17260,6 +17273,19 @@
     },
     "mapboxPlaceName": "Brazil, Indiana, United States",
     "confidence": 1
+  },
+  "Brazil, Rio De Janeiro, Brazil": {
+    "city": "Cabo Frio",
+    "state": "Rio de Janeiro",
+    "stateCode": "RJ",
+    "country": "Brazil",
+    "countryCode": "BR",
+    "coordinates": {
+      "latitude": -22.839409,
+      "longitude": -42.033491
+    },
+    "mapboxPlaceName": "Rua Brasilia Reis, Cabo Frio - Rio de Janeiro, 28920, Brazil",
+    "confidence": 0.99
   },
   "Brazil, South America": {
     "city": "Brazil",
@@ -58961,6 +58987,19 @@
       "longitude": -95.363433
     },
     "mapboxPlaceName": "Houston, Texas, United States",
+    "confidence": 1
+  },
+  "HRA": {
+    "city": "Hradec Králové",
+    "state": "Hradec Králové",
+    "stateCode": "52",
+    "country": "Czech Republic",
+    "countryCode": "CZ",
+    "coordinates": {
+      "latitude": 50.209568,
+      "longitude": 15.831634
+    },
+    "mapboxPlaceName": "Hradec Králové, Hradec Králové, Czech Republic",
     "confidence": 1
   },
   "HTH Communications LLC": {
@@ -165046,6 +165085,10 @@
     },
     "mapboxPlaceName": "United Kingdom",
     "confidence": 1
+  },
+  "unknown": {
+    "_skip": true,
+    "_reason": "non-location placeholder"
   },
   "wordwide": {
     "city": "Grimsby",
