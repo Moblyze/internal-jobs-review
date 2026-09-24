@@ -19,10 +19,18 @@ Safety
 * Circuit breaker: 15 consecutive BLOCKED on a host stops requesting it.
 * A host that comes back mostly BLOCKED in a run is recorded UNKNOWN, and
   nothing on it is removed.
-* Mass-removal threshold (mirrors JobLifecycleManager): when DEAD rows exceed
-  --max-dead-share (default 10%) of a tab's probed rows and the tab has more
-  than 10 active rows, the DEAD verdicts are recorded but the rows are NOT
-  retired; re-run with --allow-mass-removal after reading the report.
+* Every DEAD verdict is an individual confirmation at the source (404/410,
+  a "has been filled" marker, an ATS status endpoint, or absence from a fully
+  fetched and page-sample-confirmed CrewBase sitemap), so DEAD rows are
+  retired regardless of what share of a tab they are (Jesse, 2026-09-24: "We
+  never want to keep dead jobs on the site because it might harm us with
+  Google"). Until then the 10% mass-removal hold kept 191 confirmed-dead
+  TechnipFMC rows live for days. The protection against a broken probe lives
+  where the uncertainty is: UNKNOWN / BLOCKED / fetch errors never retire, a
+  mostly-blocked host is demoted to UNKNOWN, a partial CrewBase sitemap read
+  yields UNKNOWN, and an unconfirmed sitemap diff is demoted to UNKNOWN.
+  A tab retiring more than 25% of its probed rows posts a note to #monitoring
+  (SLACK_MONITORING_WEBHOOK) instead of being held.
 * Sheet writes touch only the Status / Status Changed Date cells of rows
   whose URL was verified DEAD, after a CSV backup of (tab, row, url, old
   status) that the workflow uploads as an artifact.
@@ -59,6 +67,7 @@ import yaml
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from src.utils import liveness  # noqa: E402
 from src.utils.deduplication import DeduplicationTracker  # noqa: E402
+from src.utils import monitoring  # noqa: E402
 
 logger = logging.getLogger("probe_liveness")
 
@@ -171,23 +180,30 @@ def confirm_crewbase_dead(results, prober: liveness.LivenessProber, sample: int 
     return gone, checked
 
 
-def decide_removals(results, tabs: dict, max_dead_share: float, allow_mass: bool) -> tuple[list, dict]:
-    """(rows to retire, {tab: report}) honoring the mass-removal threshold per tab."""
-    per_tab = defaultdict(lambda: {"probed": 0, "dead": 0, "dead_rows": []})
+def decide_removals(results, tabs: dict, notify_share: float = monitoring.LARGE_RETIRE_SHARE) -> tuple[list, dict]:
+    """(rows to retire, {tab: report}).
+
+    Every DEAD row is retired: a DEAD verdict is a per-row confirmation at the
+    source, never an inference from a failed or partial read (those come back
+    UNKNOWN / BLOCKED and are never retired). A tab whose DEAD share is above
+    `notify_share` is marked `large` so the run posts a #monitoring note; it is
+    NOT held.
+    """
+    per_tab = defaultdict(lambda: {"probed": 0, "dead": 0, "dead_rows": [], "reasons": Counter()})
     for row, v in results:
         t = per_tab[tabs[row["url_hash"]]]
         t["probed"] += 1
         if v.status == liveness.DEAD:
             t["dead"] += 1
             t["dead_rows"].append(row)
+            t["reasons"][v.reason.split(" (")[0][:40]] += 1
     to_remove, report = [], {}
     for tab, t in per_tab.items():
         share = t["dead"] / t["probed"] if t["probed"] else 0.0
-        held = (t["dead"] > 0 and t["probed"] > MIN_ROWS_FOR_THRESHOLD
-                and share > max_dead_share and not allow_mass)
-        report[tab] = {"probed": t["probed"], "dead": t["dead"], "dead_share": round(share, 3), "held": held}
-        if not held:
-            to_remove.extend(t["dead_rows"])
+        report[tab] = {"probed": t["probed"], "dead": t["dead"], "dead_share": round(share, 3),
+                       "large": monitoring.is_large_retire(t["dead"], t["probed"], notify_share),
+                       "top_reasons": t["reasons"].most_common(3)}
+        to_remove.extend(t["dead_rows"])
     return to_remove, report
 
 
@@ -285,9 +301,12 @@ def main() -> int:
     ap.add_argument("--out", default="data/liveness-latest.json", help="verdicts keyed by URL, read by scripts/export-jobs.js")
     ap.add_argument("--company", default="", help="comma-separated tab or company names to limit the run to")
     ap.add_argument("--limit-per-host", type=int, default=None, help="probe at most N rows per host (testing)")
-    ap.add_argument("--max-dead-share", type=float, default=0.10,
-                    help="hold removals for a tab whose DEAD share exceeds this (default 0.10)")
-    ap.add_argument("--allow-mass-removal", action="store_true", help="retire DEAD rows even above --max-dead-share")
+    ap.add_argument("--notify-dead-share", type=float, default=monitoring.LARGE_RETIRE_SHARE,
+                    help="post a #monitoring note for a tab retiring more than this share (default 0.25); never holds")
+    # Retired 2026-09-24: DEAD rows are no longer held by share. Both flags are
+    # accepted and ignored so older dispatches and scripts do not break.
+    ap.add_argument("--max-dead-share", type=float, default=None, help=argparse.SUPPRESS)
+    ap.add_argument("--allow-mass-removal", action="store_true", help=argparse.SUPPRESS)
     ap.add_argument("--min-interval", type=float, default=1.0, help="seconds between requests to one host")
     ap.add_argument("--no-sheet", action="store_true", help="write the DB and JSON only; leave the sheet alone")
     ap.add_argument("--dry-run", action="store_true", help="probe and report; write nothing but the JSON")
@@ -367,10 +386,12 @@ def main() -> int:
         print(f"\ncrewbase sitemap-diff page sample: {crewbase_check[0]}/{crewbase_check[1]} gone")
 
     # ---- decide and apply removals ----
-    to_remove, tab_report = decide_removals(results, tabs, args.max_dead_share, args.allow_mass_removal)
+    if args.max_dead_share is not None or args.allow_mass_removal:
+        logger.info("--max-dead-share / --allow-mass-removal are retired: confirmed-DEAD rows always retire")
+    to_remove, tab_report = decide_removals(results, tabs, args.notify_dead_share)
     print("\n=== per tab ===")
     for tab, rep in sorted(tab_report.items(), key=lambda kv: -kv[1]["dead"]):
-        flag = "  HELD (above --max-dead-share; re-run with --allow-mass-removal)" if rep["held"] else ""
+        flag = "  LARGE (retired; #monitoring note)" if rep["large"] else ""
         print(f"{tab:34} probed {rep['probed']:6}  dead {rep['dead']:6}  share {rep['dead_share']:.1%}{flag}")
 
     checked_at = datetime.utcnow().isoformat()
@@ -427,11 +448,18 @@ def main() -> int:
         json.dump(out, f, separators=(",", ":"))
 
     totals = Counter(v.status for _r, v in results)
-    held_tabs = [t for t, rep in tab_report.items() if rep["held"]]
+    large_tabs = [t for t, rep in tab_report.items() if rep["large"]]
+    if large_tabs and not args.dry_run and removed_db:
+        batches = []
+        for t in sorted(large_tabs, key=lambda t: -tab_report[t]["dead"]):
+            rep = tab_report[t]
+            why = "confirmed dead at source: " + ", ".join(f"{r} x{n}" for r, n in rep["top_reasons"])
+            batches.append((t, rep["dead"], rep["probed"], why))
+        monitoring.post_monitoring_note(monitoring.format_large_retire_note("Liveness probe", batches))
     print("\n=== summary ===")
     print(f"mode: {'DRY RUN' if args.dry_run else 'LIVE'}   rows probed: {len(results)}   excluded-host rows: {len(excluded)}")
     print(f"live {totals['LIVE']}  dead {totals['DEAD']}  blocked {totals['BLOCKED']}  unknown {totals['UNKNOWN']}")
-    print(f"removed: db {removed_db}, sheet rows {sheet_rows}   held tabs: {held_tabs or 'none'}")
+    print(f"removed: db {removed_db}, sheet rows {sheet_rows}   large tabs (noted, not held): {large_tabs or 'none'}")
     print(f"requests: {prober.requests_made}   probe runtime: {probe_seconds/60:.1f} min   total: {(time.time()-t0)/60:.1f} min")
     print(f"json: {args.out} ({len(out['rows'])} urls)")
     return 0

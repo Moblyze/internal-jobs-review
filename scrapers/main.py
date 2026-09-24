@@ -509,6 +509,8 @@ async def scrape_company(
             'total_extracted': len(jobs),
             'new_jobs': len(new_jobs),
             'removed_jobs': removed_count,
+            'active_before': lifecycle_summary.get('active_before', 0),
+            'large_retire': lifecycle_summary.get('large_retire', False),
             'exported': exported_count,
             'duration_seconds': round(duration, 2),
             'success': True
@@ -721,6 +723,16 @@ async def main(
     total_new = sum(r['new_jobs'] for r in results)
     total_removed = sum(r['removed_jobs'] for r in results)
     total_exported = sum(r['exported'] for r in results)
+
+    # Large retire batches are noted in #monitoring, never held (2026-09-24 rule:
+    # dead jobs come off the site; size alone is not a reason to keep them).
+    large = [r for r in results if r.get('large_retire')]
+    if large and not dry_run:
+        from src.utils.monitoring import format_large_retire_note, post_monitoring_note
+        post_monitoring_note(format_large_retire_note(
+            "Daily Job Scraping",
+            [(r['company'], r['removed_jobs'], r['active_before'], "missing from a full listing read")
+             for r in large]))
 
     logger.info(
         "pipeline_complete",

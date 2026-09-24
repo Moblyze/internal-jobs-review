@@ -11,6 +11,7 @@ from typing import Optional
 from src.exporters.sheets import SheetsExporter
 from src.models.job import JobPosting
 from src.utils.deduplication import DeduplicationTracker
+from src.utils.monitoring import is_large_retire
 
 logger = logging.getLogger(__name__)
 
@@ -61,8 +62,13 @@ class JobLifecycleManager:
         # Extract URLs from current jobs
         current_urls = {str(job.url) for job in current_jobs}
 
-        # Safety threshold: if scrape returned very few results compared to
-        # known active jobs, skip removal to avoid wiping on transient failures
+        # Partial-read guard: if the scrape returned very few results compared
+        # to known active jobs, the listing diff is not trusted (a broken or
+        # truncated board read must not wipe a company). This is the ONLY hold,
+        # and it only suspends the diff. Rows the source page itself confirmed
+        # DEAD within PROBE_TRUST_DAYS are retired anyway (Jesse, 2026-09-24:
+        # never keep dead jobs on the site), and a healthy diff is never
+        # capped by size; a large batch is flagged for a #monitoring note.
         active_jobs = self.tracker.get_active_jobs_by_company(company)
         active_count = len(active_jobs)
 
@@ -71,7 +77,8 @@ class JobLifecycleManager:
             logger.warning(
                 f"Safety threshold triggered for {company}: "
                 f"scrape returned {len(current_urls)} jobs but "
-                f"{active_count} are active in DB. Skipping removal."
+                f"{active_count} are active in DB. Skipping the listing diff "
+                f"(source-confirmed DEAD rows still retire)."
             )
             skip_removal = True
 
@@ -84,7 +91,10 @@ class JobLifecycleManager:
         self.tracker.update_last_seen_batch(company, current_urls)
 
         # Detect removed jobs
-        removed_jobs = [] if skip_removal else self.tracker.detect_removed_jobs(company, current_urls)
+        if skip_removal:
+            removed_jobs = self._probe_confirmed_dead(active_jobs, current_urls)
+        else:
+            removed_jobs = self.tracker.detect_removed_jobs(company, current_urls)
 
         # The listing diff has false positives (page caps, partial scrapes).
         # A row the source page itself reported LIVE within PROBE_TRUST_DAYS
@@ -101,7 +111,10 @@ class JobLifecycleManager:
         removed_count = 0
         if removed_jobs:
             url_hashes = [job['url_hash'] for job in removed_jobs]
-            removed_count = self.tracker.mark_jobs_removed(url_hashes)
+            if skip_removal:   # only probe-confirmed rows reach here
+                removed_count = self.tracker.mark_jobs_removed(url_hashes, reason='source_gone')
+            else:
+                removed_count = self.tracker.mark_jobs_removed(url_hashes)
 
             # Update Google Sheets if exporter is available
             # Use the current timestamp since we just marked them as removed
@@ -121,13 +134,32 @@ class JobLifecycleManager:
             f"current={len(current_jobs)}, removed={removed_count}"
         )
 
+        large = is_large_retire(removed_count, active_count)
+        if large:
+            logger.warning(
+                f"large_retire {company}: {removed_count} of {active_count} active rows retired "
+                f"({removed_count / active_count:.0%}); noted for #monitoring, not held"
+            )
+
         return {
             'company': company,
             'current_jobs': len(current_jobs),
             'removed_jobs': removed_count,
+            'active_before': active_count,
+            'large_retire': large,
+            'diff_skipped': skip_removal,
             'kept_live_by_probe': len(probe_live),
             'processed_at': datetime.utcnow().isoformat()
         }
+
+    def _probe_confirmed_dead(self, active_jobs: list[dict], current_urls: set[str]) -> list[dict]:
+        """Active rows the source page confirmed DEAD within PROBE_TRUST_DAYS and not relisted now."""
+        cutoff = (datetime.utcnow() - timedelta(days=self.tracker.PROBE_TRUST_DAYS)).isoformat()
+        return [
+            j for j in active_jobs
+            if j.get('source_status') == 'DEAD' and (j.get('source_checked_at') or '') >= cutoff
+            and j['url'] not in current_urls
+        ]
 
     def _split_probe_live(self, removed_jobs: list[dict]) -> tuple[list[dict], list[dict]]:
         """(rows the diff may retire, rows a fresh LIVE probe verdict protects)."""

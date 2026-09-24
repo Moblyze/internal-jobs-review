@@ -8,7 +8,8 @@ name: Liveness Probe
 #
 # Slot: 03:00 UTC. daily-scrape.yml starts 09:00 and runs ~75 min, so its
 # state-DB upload lands ~10:15 and Auto Data Sync (10:00) reads this file
-# with verdicts ~7 h old. Both this workflow and daily-scrape upload
+# with verdicts ~7 h old. Confirmed-DEAD rows retire regardless of share
+# (2026-09-24); a tab retiring >25% posts a note to #monitoring. Both this workflow and daily-scrape upload
 # scraper_state.db to release scraper-state-latest, so the guard step below
 # refuses to run while a scrape or seed run is in progress.
 
@@ -23,7 +24,7 @@ on:
         type: boolean
         default: false
       allow_mass_removal:
-        description: 'Retire DEAD rows even where a tab is above the 10% mass-removal threshold'
+        description: 'No-op since 2026-09-24: confirmed-DEAD rows always retire (kept so older dispatches still work)'
         required: false
         type: boolean
         default: false
@@ -105,6 +106,7 @@ jobs:
         env:
           GOOGLE_SERVICE_ACCOUNT_PATH: config/service_account.json
           GOOGLE_SHEETS_SPREADSHEET_NAME: ${{ secrets.GOOGLE_SHEETS_SPREADSHEET_NAME }}
+          SLACK_MONITORING_WEBHOOK: ${{ secrets.SLACK_MONITORING_WEBHOOK }}
         run: |
           CMD="python scripts/probe_liveness.py --state-db data/scraper_state.db --out data/liveness-latest.json"
           if [ "${{ inputs.dry_run }}" = "true" ]; then CMD="$CMD --dry-run"; fi

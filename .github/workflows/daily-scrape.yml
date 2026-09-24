@@ -121,6 +121,7 @@ jobs:
         env:
           GOOGLE_SERVICE_ACCOUNT_PATH: config/service_account.json
           GOOGLE_SHEETS_SPREADSHEET_NAME: ${{ secrets.GOOGLE_SHEETS_SPREADSHEET_NAME }}
+          SLACK_MONITORING_WEBHOOK: ${{ secrets.SLACK_MONITORING_WEBHOOK }}
           LOG_LEVEL: INFO
         run: |
           CMD="python main.py"
