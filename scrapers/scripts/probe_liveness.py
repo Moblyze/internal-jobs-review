@@ -65,13 +65,14 @@ from urllib.parse import urlparse
 import yaml
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from src.utils import liveness  # noqa: E402
+from src.utils import liveness, osm_snapshot  # noqa: E402
 from src.utils.deduplication import DeduplicationTracker  # noqa: E402
 from src.utils import monitoring  # noqa: E402
 
 logger = logging.getLogger("probe_liveness")
 
 CREWBASE_TAB = "CrewBase"
+OSM_TAB = "OSM Thome"
 DEAD_SHEET_STATUSES = {"removed", "inactive", "expired", "closed"}
 CIRCUIT_BREAKER_BLOCKED = 15      # consecutive BLOCKED answers before a host is abandoned for the run
 HOST_BLOCKED_SHARE = 0.5          # a host with more BLOCKED than this is UNKNOWN for the run
@@ -276,6 +277,75 @@ def retire_on_sheet(spreadsheet, tab: str, urls: set[str], now_iso: str, backup_
     return len(targets)
 
 
+def plan_osm_sweep(url_col: list[str], status_col: list[str], open_urls: dict[str, str]) -> tuple[list, list]:
+    """(rows to retire, rows to revive) on the OSM Thome tab, from a complete listing snapshot.
+
+    The DB-driven paths (lifecycle diff, the probe's DEAD list) only touch URLs
+    the state DB still calls active. On 2026-09-24 the OSM tab had drifted far
+    from the DB: 1,203 distinct URLs active on the sheet vs 553 in the DB, 869
+    of them no longer in OSM's listing, and live jobs sitting at "removed".
+    This squares the tab with the listing itself:
+      * retire: status not already dead, job id NOT in the listing;
+      * revive: status dead, and the row URL is exactly the listing's URL for
+        an open job (same id AND slug), so only a certain match comes back.
+    Each entry is (sheet row number, url, old status).
+    """
+    retire, revive = [], []
+    for idx in range(1, len(url_col)):          # skip header
+        u = url_col[idx].strip()
+        jid = osm_snapshot.job_id_from_url(u)
+        if not jid:
+            continue
+        old = status_col[idx].strip() if idx < len(status_col) else ""
+        dead = old.lower() in DEAD_SHEET_STATUSES
+        if not dead and jid not in open_urls:
+            retire.append((idx + 1, u, old))
+        elif dead and open_urls.get(jid) == u:
+            revive.append((idx + 1, u, old))
+    return retire, revive
+
+
+def sweep_osm_sheet(spreadsheet, open_urls: dict[str, str], now_iso: str, backup_writer, dry_run: bool) -> dict:
+    """Apply plan_osm_sweep to the OSM Thome tab (rows backed up to the CSV first)."""
+    from gspread.exceptions import WorksheetNotFound
+    from src.exporters.sheets import _retry_429
+
+    try:
+        ws = _retry_429(spreadsheet.worksheet, OSM_TAB)
+    except WorksheetNotFound:
+        logger.warning("tab %r not found; OSM sweep skipped", OSM_TAB)
+        return {}
+    header = [h.strip().lower() for h in _retry_429(ws.row_values, 1)]
+    url_i, status_i, date_i = header.index("url"), header.index("status"), header.index("status changed date")
+    url_col = _retry_429(ws.col_values, url_i + 1)
+    time.sleep(1.0)
+    status_col = _retry_429(ws.col_values, status_i + 1)
+    retire, revive = plan_osm_sweep(url_col, status_col, open_urls)
+    active_urls = {url_col[i].strip() for i in range(1, len(url_col))
+                   if i < len(status_col) and status_col[i].strip().lower() not in DEAD_SHEET_STATUSES}
+    retire_urls = {u for _rn, u, _o in retire}
+    report = {"retire_rows": len(retire), "retire_urls": len(retire_urls), "revive_rows": len(revive),
+              "revive_urls": len({u for _rn, u, _o in revive}), "active_urls_before": len(active_urls)}
+    for rn, u, old in retire + revive:
+        backup_writer.writerow([OSM_TAB, rn, u, old])
+    if dry_run:
+        return report
+    s_letter, d_letter = col_to_letter(status_i), col_to_letter(date_i)
+    updates = []
+    for rows, new_status in ((retire, "removed"), (revive, "active")):
+        for rn, _u, _old in rows:
+            updates.append({"range": f"{s_letter}{rn}", "values": [[new_status]]})
+            updates.append({"range": f"{d_letter}{rn}", "values": [[now_iso]]})
+    for i in range(0, len(updates), WRITE_CHUNK * 2):
+        chunk = updates[i:i + WRITE_CHUNK * 2]
+        # fresh dicts per attempt: gspread mutates the payload (sheet-title prefix)
+        _retry_429(lambda c=chunk: ws.batch_update([dict(u) for u in c], value_input_option="RAW"))
+        if i + WRITE_CHUNK * 2 < len(updates):
+            time.sleep(INTER_CHUNK_PAUSE)
+    logger.info("OSM sweep: %s", report)
+    return report
+
+
 def open_spreadsheet():
     import gspread
     from google.oauth2.service_account import Credentials
@@ -311,6 +381,8 @@ def main() -> int:
     ap.add_argument("--no-sheet", action="store_true", help="write the DB and JSON only; leave the sheet alone")
     ap.add_argument("--dry-run", action="store_true", help="probe and report; write nothing but the JSON")
     ap.add_argument("--today", default=None, help="YYYY-MM-DD for validThrough comparisons (testing)")
+    ap.add_argument("--osm-snapshot", default="data/" + osm_snapshot.ASSET_NAME,
+                    help="OSM Thome listing snapshot fetched off-CI (release asset osm-snapshot.json)")
     args = ap.parse_args()
 
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
@@ -336,7 +408,12 @@ def main() -> int:
                 len(rows), len(excluded), len(probe_rows), len(by_host))
 
     today = date.fromisoformat(args.today) if args.today else None
-    prober = liveness.LivenessProber(min_interval=args.min_interval, today=today)
+    # OSM Thome is never requested from CI (its API blocks datacenter IPs); its
+    # rows are classified from the listing the Mac Studio publishes daily.
+    osm_snap, osm_why = osm_snapshot.load(args.osm_snapshot)
+    osm_open = osm_snapshot.open_ids(osm_snap) if osm_snap else None
+    logger.info("osm snapshot: %s", osm_why)
+    prober = liveness.LivenessProber(min_interval=args.min_interval, today=today, osm_open_ids=osm_open)
     progress, lock = Counter(), threading.Lock()
     results: list[tuple[dict, liveness.Verdict]] = []
     with ThreadPoolExecutor(max_workers=min(MAX_WORKERS, max(1, len(by_host)))) as pool:
@@ -407,7 +484,9 @@ def main() -> int:
 
     # ---- sheet ----
     sheet_rows = 0
-    if to_remove and not args.no_sheet:
+    osm_report = None
+    do_osm_sweep = osm_snap is not None and (not wanted or OSM_TAB in wanted)
+    if (to_remove or do_osm_sweep) and not args.no_sheet:
         spreadsheet = open_spreadsheet()
         if spreadsheet is None:
             if args.dry_run:
@@ -428,6 +507,10 @@ def main() -> int:
                 for tab, urls in sorted(by_tab.items()):
                     sheet_rows += retire_on_sheet(spreadsheet, tab, urls, now_iso, w, args.dry_run)
                     time.sleep(1.5)
+                if do_osm_sweep:
+                    open_urls = {str(j["id"]): f"https://jobs.osmthome.com/jobs/{j['id']}/{j.get('slug', '')}"
+                                 for j in osm_snap["jobs"] if osm_snapshot.is_open(j)}
+                    osm_report = sweep_osm_sheet(spreadsheet, open_urls, now_iso, w, args.dry_run)
             logger.info("sheet backup of changed rows: %s", backup_path)
 
     # ---- JSON for export-jobs.js ----
@@ -456,10 +539,19 @@ def main() -> int:
             why = "confirmed dead at source: " + ", ".join(f"{r} x{n}" for r, n in rep["top_reasons"])
             batches.append((t, rep["dead"], rep["probed"], why))
         monitoring.post_monitoring_note(monitoring.format_large_retire_note("Liveness probe", batches))
+    if osm_report and not args.dry_run:
+        before, gone = osm_report.get("active_urls_before", 0), osm_report.get("retire_urls", 0)
+        if monitoring.is_large_retire(gone, before, args.notify_dead_share):
+            monitoring.post_monitoring_note(monitoring.format_large_retire_note(
+                "Liveness probe (OSM Thome sheet sweep)",
+                [(OSM_TAB, gone, before, "not in the complete OSM listing snapshot fetched off-CI")]))
     print("\n=== summary ===")
     print(f"mode: {'DRY RUN' if args.dry_run else 'LIVE'}   rows probed: {len(results)}   excluded-host rows: {len(excluded)}")
     print(f"live {totals['LIVE']}  dead {totals['DEAD']}  blocked {totals['BLOCKED']}  unknown {totals['UNKNOWN']}")
     print(f"removed: db {removed_db}, sheet rows {sheet_rows}   large tabs (noted, not held): {large_tabs or 'none'}")
+    print(f"osm snapshot: {osm_why}")
+    if osm_report is not None:
+        print(f"osm sheet sweep{' (DRY RUN)' if args.dry_run else ''}: {osm_report}")
     print(f"requests: {prober.requests_made}   probe runtime: {probe_seconds/60:.1f} min   total: {(time.time()-t0)/60:.1f} min")
     print(f"json: {args.out} ({len(out['rows'])} urls)")
     return 0

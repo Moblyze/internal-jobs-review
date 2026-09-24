@@ -953,6 +953,24 @@ class HtmlGenericScraper(BaseScraper):
         if not api_url:
             return []
 
+        # A listing fetched off-CI (OSM Thome, 2026-09-24: the API 403s every
+        # datacenter IP, so the Mac Studio fetches it and publishes a snapshot;
+        # see src/utils/osm_snapshot.py). Only a complete, fresh snapshot is
+        # used; otherwise fall through to the live call as before.
+        snap_path = self.html_config.get('portal_snapshot_path')
+        if snap_path:
+            from src.utils import osm_snapshot
+            snap, why = osm_snapshot.load(
+                snap_path, max_age_hours=self.html_config.get('portal_snapshot_max_age_hours',
+                                                              osm_snapshot.DEFAULT_MAX_AGE_HOURS))
+            if snap is not None:
+                listings = [l for l in (self._portal_job_to_listing(j) for j in snap['jobs']) if l]
+                self.logger.info("portal_snapshot_used", path=snap_path, jobs=len(snap['jobs']),
+                                 listings=len(listings), generated_at=snap['generated_at'])
+                return listings
+            self.logger.warning("portal_snapshot_unusable", path=snap_path, reason=why,
+                                note="falling back to the live API call")
+
         headers = self.html_config.get('portal_api_headers', {})
         per_page = self.html_config.get('portal_per_page', 100)
 

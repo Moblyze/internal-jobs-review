@@ -918,6 +918,19 @@ companies:
   #    The old headless-browser fallback that re-issued the call from the career
   #    site's origin stays deleted; nothing needs it. If the plain call starts
   #    being refused again, raise it with Jesse rather than routing around it.
+  #
+  # Jesse's decision of 2026-09-24 (the 403 did come back, for datacenter IPs
+  # only): run ONLY the OSM fetch and OSM liveness from a non-datacenter
+  # location at a polite rate, about 6 requests a day, to keep OSM jobs fresh
+  # and retire dead ones. Measured that day: GitHub runners and the OVH cloud
+  # VPS (AS16276) get 403; the Mac Studio gets 200 (490 jobs, 5 pages).
+  # So the Mac Studio's launchd agent co.kedy.osm-snapshot runs
+  # scripts/osm_snapshot_fetch.py once a day (5 requests, 20 s apart, real
+  # browser User-Agent, stops and backs off 1/2/4/7 days on any non-200) and
+  # uploads osm-snapshot.json to the scraper-state-latest release. CI reads it
+  # (portal_snapshot_path below): the scrape builds listings from it and the
+  # liveness probe classifies OSM rows from it; CI itself never calls the API
+  # while a fresh snapshot exists. No proxy, no browser trick, no other source.
   osm_thome:
     name: "OSM Thome"
     platform: html_generic
@@ -934,6 +947,10 @@ companies:
       portal_api_headers:
         X-Job-Portal: "yes"
       portal_per_page: 100
+      # Off-CI listing (see the 2026-09-24 note above). Used only when complete
+      # and under 36 h old; otherwise the live API call and then the sitemap
+      # presence fallback run as before.
+      portal_snapshot_path: "data/osm-snapshot.json"
       # Fallback: sitemap extraction. It carries URLs only, so extract_all_jobs
       # keeps it to jobs already on file (see "sitemap_presence_only"); new jobs
       # wait for a run where the API answers.

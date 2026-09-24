@@ -87,6 +87,18 @@ jobs:
           cp data/scraper_state.db data/scraper_state.pre-probe.db
           echo "State DB: $(wc -c < data/scraper_state.db) bytes"
 
+      - name: Download OSM Thome listing snapshot (fetched off-CI)
+        # maritime.osmaportal.com blocks datacenter IPs, so the Mac Studio
+        # fetches OSM's listing once a day (launchd co.kedy.osm-snapshot,
+        # scrapers/scripts/osm_snapshot_fetch.py) and uploads it here. Missing
+        # or stale is fine: OSM rows then stay UNKNOWN / presence-only.
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download scraper-state-latest -p osm-snapshot.json -D data/ --clobber 2>/dev/null \
+            && echo "OSM snapshot: $(wc -c < data/osm-snapshot.json) bytes" \
+            || echo "No OSM snapshot on the release; OSM Thome runs without it"
+
       - name: Upload pre-probe backup of the state DB
         uses: actions/upload-artifact@v4
         with:

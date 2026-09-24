@@ -109,6 +109,18 @@ jobs:
             && echo "Restored dedup state ($(wc -c < data/scraper_state.db) bytes)" \
             || echo "No prior state found — starting fresh"
 
+      - name: Download OSM Thome listing snapshot (fetched off-CI)
+        # maritime.osmaportal.com blocks datacenter IPs, so the Mac Studio
+        # fetches OSM's listing once a day (launchd co.kedy.osm-snapshot,
+        # scrapers/scripts/osm_snapshot_fetch.py) and uploads it here. Missing
+        # or stale is fine: OSM rows then stay UNKNOWN / presence-only.
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download scraper-state-latest -p osm-snapshot.json -D data/ --clobber 2>/dev/null \
+            && echo "OSM snapshot: $(wc -c < data/osm-snapshot.json) bytes" \
+            || echo "No OSM snapshot on the release; OSM Thome runs without it"
+
       - name: Create service account credentials file
         env:
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}

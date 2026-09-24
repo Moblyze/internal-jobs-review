@@ -24,7 +24,9 @@ Rules were calibrated on a 726-URL probe the same day (liveness_probe_2026-09-12
                    (ExternalPostedEndDate = validThrough); empty -> DEAD
   Workable         job page: redirect to ?not_found=true -> DEAD; title on
                    page -> LIVE; api/v1 job detail as a fallback (404 -> DEAD)
-  OSM Thome        maritime.osmaportal.com/api/jobs/{id}: 200 -> LIVE, 404 -> DEAD
+  OSM Thome        the off-CI listing snapshot (osm_snapshot.py, fetched daily
+                   on the Mac Studio): id listed -> LIVE, absent -> DEAD; no
+                   snapshot -> UNKNOWN. No request to OSM from CI at all.
   ADP              job-requisitions/{id} REST: requisitionTitle -> LIVE, else DEAD
   CrewBase         the site's job sitemaps list every live URL; a row whose
                    URL is not in the sitemap is DEAD (per-page GET is 410 for
@@ -436,6 +438,18 @@ def classify_osm_api(resp: Response) -> Verdict:
     return Verdict(UNKNOWN, f"osm api http {c}", http=c)
 
 
+def classify_osm_snapshot(url: str, open_ids: Optional[set]) -> Verdict:
+    """LIVE/DEAD for an OSM Thome row from the off-CI listing snapshot, no request made."""
+    if open_ids is None:
+        return Verdict(UNKNOWN, "osm snapshot unavailable (API blocks CI; see osm_snapshot.py)")
+    m = re.search(r"/jobs/(\d+)", urlparse(url).path)
+    if not m:
+        return Verdict(UNKNOWN, "osm url has no job id")
+    if m.group(1) in open_ids:
+        return Verdict(LIVE, "in osm listing snapshot")
+    return Verdict(DEAD, "not in osm listing snapshot")
+
+
 _ADP_OPEN_STATES = {"open", "active", "published", "posted"}
 
 
@@ -661,8 +675,12 @@ class LivenessProber:
 
     def __init__(self, user_agent: str = USER_AGENT, timeout: float = DEFAULT_TIMEOUT,
                  min_interval: float = DEFAULT_MIN_INTERVAL, honor_robots: bool = True,
-                 today: Optional[date] = None, client: Optional[httpx.Client] = None):
+                 today: Optional[date] = None, client: Optional[httpx.Client] = None,
+                 osm_open_ids: Optional[set] = None):
         self.user_agent = user_agent
+        # OSM Thome ids open in the off-CI listing snapshot (src/utils/osm_snapshot.py),
+        # or None when no complete, fresh snapshot was available this run.
+        self.osm_open_ids = osm_open_ids
         self.min_interval = min_interval
         self.honor_robots = honor_robots
         self.today = today or datetime.now(timezone.utc).date()
@@ -792,6 +810,13 @@ class LivenessProber:
         kind = host_kind(url, platform)
         if kind == "crewbase":
             return classify_crewbase(url, self.crewbase_live_urls())
+        if kind == "osm":
+            # Never requested from here. The OSM API 403s every datacenter IP
+            # (GitHub runners, the OVH VPS), so per-job calls only tripped the
+            # circuit breaker and left every row UNKNOWN. Since 2026-09-24
+            # (Jesse's go) the Mac Studio fetches the full listing once a day
+            # and this reads it: in the listing = LIVE, absent = DEAD.
+            return classify_osm_snapshot(url, self.osm_open_ids)
 
         api_url = None
         if kind == "workday":

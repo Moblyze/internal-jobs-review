@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  OSM Thome listing fetch, Mac Studio only (Jesse's go, 2026-09-24).
+  OSM's API 403s datacenter IPs (GitHub runners, the OVH VPS), so this machine
+  fetches the listing once a day (5 requests as of 2026-09-24) and uploads
+  osm-snapshot.json to the scraper-state-latest release for CI.
+  21:30 local (ET) = 01:30 UTC in summer / 02:30 UTC in winter, before the
+  03:00 UTC liveness probe and the 09:00 UTC daily scrape.
+  Install: cp to ~/Library/LaunchAgents/ then
+           launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/co.kedy.osm-snapshot.plist
+  Log: ~/.local/log/osm-snapshot.log   State: ~/Library/Application Support/moblyze-osm-snapshot/
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>co.kedy.osm-snapshot</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/opt/homebrew/bin/python3</string>
+    <string>/Users/jesse/development/moblyze/internal-jobs-review/scrapers/scripts/osm_snapshot_fetch.py</string>
+  </array>
+  <key>WorkingDirectory</key><string>/Users/jesse/development/moblyze/internal-jobs-review/scrapers</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key><string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+  </dict>
+  <key>StartCalendarInterval</key>
+  <dict><key>Hour</key><integer>21</integer><key>Minute</key><integer>30</integer></dict>
+  <key>StandardOutPath</key><string>/Users/jesse/.local/log/osm-snapshot.log</string>
+  <key>StandardErrorPath</key><string>/Users/jesse/.local/log/osm-snapshot.log</string>
+  <key>ProcessType</key><string>Background</string>
+</dict>
+</plist>
