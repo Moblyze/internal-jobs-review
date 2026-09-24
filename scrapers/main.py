@@ -74,6 +74,24 @@ STARTUP_STAGGER_SECONDS = float(os.environ.get('STARTUP_STAGGER_SECONDS', '1.5')
 # means. Below this, a 0 this run is plausibly a real "no postings today."
 CRITICAL_REGRESSION_BASELINE = 10
 
+# How a critical regression turns into the run's exit code (2026-09-24).
+#
+# From 2026-09-13 any single regressed employer failed the whole run. The run
+# then went red on every one of the 8 scheduled days Sep 15-24, and red every
+# day reads as "the scraper is broken" when ~80 of ~88 employers were fine and
+# their rows reached the sheet. It also hid which failures were real: a source
+# that is genuinely broken (OSM Thome, every day) looked the same as one that
+# lost a race once (PG Global, one day). So:
+#   - a company that zeroes on PERSISTENT_ZERO_RUNS consecutive runs fails the
+#     run (it is broken, somebody must look);
+#   - SYSTEMIC_REGRESSION_COUNT or more zeroes in one run fail it too (that is
+#     the runner or a shared dependency, not one site; Sep 14 had 24);
+#   - anything less is reported as a warning annotation plus the job summary
+#     table, and the run stays green. It is still counted: the streak table
+#     turns tomorrow's repeat into a failure.
+PERSISTENT_ZERO_RUNS = int(os.environ.get('PERSISTENT_ZERO_RUNS', '2'))
+SYSTEMIC_REGRESSION_COUNT = int(os.environ.get('SYSTEMIC_REGRESSION_COUNT', '10'))
+
 import argparse
 import asyncio
 import sys
@@ -275,6 +293,69 @@ def find_critical_regressions(
         if baseline_active_counts.get(r['company'], 0) >= threshold
         and r['total_extracted'] == 0
     ]
+
+
+def classify_regressions(
+    regressions: list[dict],
+    streaks: dict,
+    persistent_runs: int = PERSISTENT_ZERO_RUNS,
+    systemic_count: int = SYSTEMIC_REGRESSION_COUNT,
+) -> dict:
+    """Split critical regressions into what fails the run and what only warns.
+
+    streaks: {company: consecutive zero runs including this one}. A company
+    missing from it (dry run, no state) counts as a first occurrence.
+    Returns {'persistent': [...], 'transient': [...], 'systemic': bool,
+    'fail': bool}. Pure, so it is unit-testable.
+    """
+    persistent = [r for r in regressions if streaks.get(r['company'], 1) >= persistent_runs]
+    transient = [r for r in regressions if streaks.get(r['company'], 1) < persistent_runs]
+    systemic = len(regressions) >= systemic_count
+    return {
+        'persistent': persistent,
+        'transient': transient,
+        'systemic': systemic,
+        'fail': bool(persistent) or systemic,
+    }
+
+
+def write_step_summary(results: list[dict], baseline: dict, verdict: dict, streaks: dict) -> None:
+    """Per-source outcome table for the GitHub Actions run page."""
+    path = os.environ.get('GITHUB_STEP_SUMMARY')
+    if not path:
+        return
+    ok = sum(1 for r in results if r['total_extracted'] > 0)
+    lines = [
+        "## Employer scrapers",
+        "",
+        f"{ok} of {len(results)} sources extracted jobs; "
+        f"{sum(r['total_extracted'] for r in results)} jobs extracted, "
+        f"{sum(r['exported'] for r in results)} new rows exported.",
+        "",
+    ]
+    bad = verdict['persistent'] + verdict['transient']
+    if bad:
+        lines += [
+            "| Source | Active on file | Extracted | Zero runs in a row | Verdict | Reason |",
+            "|---|---|---|---|---|---|",
+        ]
+        for r in bad:
+            streak = streaks.get(r['company'], 1)
+            v = 'FAIL (persistent)' if r in verdict['persistent'] else 'warn (first zero)'
+            reason = (r.get('error') or 'no jobs extracted').replace('|', '/')[:120]
+            lines.append(
+                f"| {r['company']} | {baseline.get(r['company'], 0)} | 0 | {streak} | {v} | {reason} |"
+            )
+        if verdict['systemic']:
+            lines += ["", f"**Systemic:** {len(bad)} sources zeroed in one run (threshold "
+                          f"{SYSTEMIC_REGRESSION_COUNT}); suspect the runner or a shared dependency."]
+    else:
+        lines.append("No source with an established history came back empty.")
+    try:
+        with open(path, 'a') as fh:
+            fh.write("\n".join(lines) + "\n")
+    except OSError as e:
+        logger.warning("step_summary_write_failed", error=str(e))
 
 
 async def scrape_company(
@@ -618,6 +699,18 @@ async def main(
         except Exception as e:
             logger.error("overview_update_failed", error=str(e), exc_info=True)
 
+    # Regressions are judged here, before the tracker closes, because the
+    # zero-run streak lives in the same state DB (see classify_regressions).
+    critical_regressions = find_critical_regressions(results, baseline_active_counts)
+    if dry_run:
+        streaks = {}
+    else:
+        streaks = tracker.update_zero_streaks(
+            scraped=[r['company'] for r in results],
+            zeroed={r['company']: r.get('error') for r in critical_regressions},
+        )
+    verdict = classify_regressions(critical_regressions, streaks)
+
     # Close tracker
     tracker.close()
 
@@ -682,41 +775,51 @@ async def main(
     # DB" unchanged when a scrape returns too few jobs to trust for removal
     # detection — which means that signal alone never moves on a 0-job run
     # and a day-over-day check of it can miss the failure entirely.
-    critical_regressions = find_critical_regressions(results, baseline_active_counts)
+    write_step_summary(results, baseline_active_counts, verdict, streaks)
 
     if critical_regressions:
         print("!" * 95)
-        print(f"CRITICAL: {len(critical_regressions)} companies with an established job history "
-              f"extracted ZERO jobs this run")
+        print(f"{len(critical_regressions)} companies with an established job history "
+              f"extracted ZERO jobs this run "
+              f"({len(verdict['persistent'])} persistent, {len(verdict['transient'])} first-time"
+              f"{', SYSTEMIC' if verdict['systemic'] else ''})")
         print("!" * 95)
         for r in critical_regressions:
             baseline = baseline_active_counts.get(r['company'], 0)
+            streak = streaks.get(r['company'], 1)
             reason = r.get('error') or 'no jobs extracted (see per-company logs for listing_page_failed / scrape_timeout)'
-            line = f"  {r['company']}: {baseline} active on file -> 0 extracted this run ({reason})"
+            line = (f"  {r['company']}: {baseline} active on file -> 0 extracted this run, "
+                    f"{streak} run(s) in a row ({reason})")
             print(line)
             logger.error(
                 "critical_extraction_regression",
                 company=r['company'],
                 baseline_active=baseline,
                 total_extracted=0,
+                zero_streak=streak,
                 error=r.get('error'),
             )
-            # GitHub Actions annotation: shows up as an unmissable red banner
-            # on the run summary, not just buried in the step log.
-            print(f"::error::Critical scrape regression: {line.strip()}")
+            # Annotation on the run page. Persistent (or systemic) regressions
+            # are errors and fail the run; a first-time zero is a warning.
+            level = 'error' if (r in verdict['persistent'] or verdict['systemic']) else 'warning'
+            print(f"::{level}::Scrape regression: {line.strip()}")
         print("!" * 95 + "\n")
 
-    # Exit code: 0 only if at least one company succeeded AND there are no
-    # critical regressions. A run with 40 healthy companies and 23 silent
-    # zeros must NOT report success.
-    if critical_regressions:
+    if verdict['fail']:
         logger.error(
             "pipeline_had_critical_regressions",
             count=len(critical_regressions),
-            companies=[r['company'] for r in critical_regressions],
+            persistent=[r['company'] for r in verdict['persistent']],
+            systemic=verdict['systemic'],
         )
         sys.exit(1)
     elif success_count > 0:
+        if critical_regressions:
+            logger.warning(
+                "pipeline_partial_success",
+                first_time_zero=[r['company'] for r in verdict['transient']],
+                note="each is a warning today and fails the run if it repeats on the next run",
+            )
         sys.exit(0)
     else:
         logger.error("all_companies_failed", note="No companies successfully scraped")

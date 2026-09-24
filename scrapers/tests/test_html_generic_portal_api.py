@@ -20,7 +20,7 @@ Run with: python -m pytest tests/test_html_generic_portal_api.py -v
 
 import pytest
 
-from src.scrapers.html_generic import HtmlGenericScraper
+from src.scrapers.html_generic import PRESENCE_ONLY_DESCRIPTION, HtmlGenericScraper
 
 
 def _scraper():
@@ -61,7 +61,8 @@ async def test_sitemap_fallback_keeps_only_known_jobs_when_api_is_down(monkeypat
     A sitemap row carries a URL and a slug but no advert text, so it can never
     be exported on its own (the 60-char description floor drops it). The guard
     under test is the filter that happens BEFORE that: unknown URLs are dropped
-    outright so a brand new job is not turned into a title-only row.
+    outright so a brand new job is not turned into a title-only row, and known
+    URLs are kept present without fetching their pages.
     """
     s = _scraper()
     s._extract_listings_from_portal_api = lambda: []
@@ -99,5 +100,9 @@ async def test_sitemap_fallback_keeps_only_known_jobs_when_api_is_down(monkeypat
     s._close_browser = fake_close
 
     jobs = await s.extract_all_jobs()
-    assert seen == ['https://jobs.example.com/jobs/526/known']
+    # Known rows stay present WITHOUT a detail render (2026-09-24): their text
+    # is never exported (filter_new drops known URLs), and rendering 553 OSM
+    # Thome pages blew the 2700s company budget every day.
+    assert seen == []
     assert [str(j.url) for j in jobs] == ['https://jobs.example.com/jobs/526/known']
+    assert jobs[0].description == PRESENCE_ONLY_DESCRIPTION

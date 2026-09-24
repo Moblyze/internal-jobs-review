@@ -35,6 +35,7 @@ Configuration in companies.yaml:
 """
 
 import html
+import asyncio
 import json
 import re
 import xml.etree.ElementTree as ET
@@ -57,6 +58,10 @@ logger = structlog.get_logger()
 # an empty container. Used both to decide whether a job's own page still needs
 # fetching and to drop a row rather than invent text for it.
 MIN_USABLE_DESCRIPTION = 60
+
+# Placeholder for presence-only rows (see extract_all_jobs). Never exported:
+# those URLs are already on file, so filter_new() removes them before export.
+PRESENCE_ONLY_DESCRIPTION = "[presence-only: already on file, seen in sitemap this run]"
 
 
 def _address_part(value) -> str:
@@ -1257,18 +1262,18 @@ class HtmlGenericScraper(BaseScraper):
             if self.html_config.get('portal_api_url'):
                 # Portal JSON API extraction (e.g., OSM Thome / osmaportal.com)
                 # Returns complete data (title, location, description, employment type)
-                all_listings = self._extract_listings_from_portal_api()
+                all_listings = await asyncio.to_thread(self._extract_listings_from_portal_api)
                 if all_listings:
                     skip_detail_pages = True  # API provides all data we need
 
             if not all_listings and self.html_config.get('wp_api_url'):
                 # WordPress REST API extraction (e.g., Wellsafe Solutions)
-                all_listings = self._extract_listings_from_wp_api()
+                all_listings = await asyncio.to_thread(self._extract_listings_from_wp_api)
                 skip_detail_pages = True  # WP API provides all data we need
 
             if not all_listings and self.html_config.get('sitemap_url'):
                 # Sitemap-based extraction (fallback for OSM Thome if API fails)
-                all_listings = self._extract_listings_from_sitemap()
+                all_listings = await asyncio.to_thread(self._extract_listings_from_sitemap)
                 if all_listings and skip_detail_pages and self.html_config.get('portal_api_url'):
                     # The sitemap only carries URLs. With no detail pass, a
                     # job that is not yet on the sheet would be exported as a
@@ -1278,7 +1283,7 @@ class HtmlGenericScraper(BaseScraper):
                     # the API answers.
                     before = len(all_listings)
                     all_listings = [
-                        l for l in all_listings
+                        {**l, '_presence_only': True} for l in all_listings
                         if self._known_url_checker and self._known_url_checker(l.get('url', ''))
                     ]
                     self.logger.warning(
@@ -1354,6 +1359,23 @@ class HtmlGenericScraper(BaseScraper):
             for idx, listing in enumerate(listings_to_process):
                 try:
                     job_data = {**listing}
+
+                    # Presence-only rows (sitemap fallback while the API is
+                    # down) are URLs already exported, so filter_new() drops
+                    # them before export and the lifecycle diff reads only the
+                    # URL. Rendering their detail pages bought nothing: the text
+                    # was discarded every time. It also cost the whole run: 553
+                    # OSM Thome pages at ~9.5s each blew the 2700s company cap
+                    # daily from 2026-09-18, so 0 came back, the known rows went
+                    # unconfirmed, and the workflow went red. Keep them present
+                    # without a fetch. The marker text below never reaches the
+                    # sheet; it only satisfies the model's 10-char minimum.
+                    if job_data.pop('_presence_only', False):
+                        job_data['description'] = PRESENCE_ONLY_DESCRIPTION
+                        job_data.setdefault('location', 'Location Not Specified')
+                        job_data.pop('_location_from_slug', None)
+                        jobs.append(JobPosting(**job_data))
+                        continue
 
                     # `skip_detail_pages` exists so a source whose LISTING already
                     # carries the whole advert is not re-fetched once per job. It

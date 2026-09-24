@@ -53,6 +53,7 @@ import html
 import json
 import re
 import time
+import asyncio
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from typing import Optional
@@ -380,7 +381,16 @@ class CrewBaseScraper(BaseScraper):
         """
         self.logger.info("extraction_start", company=self.company_name, max_jobs=max_jobs)
 
-        job_urls = self._discover_job_urls()
+        # Both the sitemap walk and the page crawl are blocking `requests`
+        # work, so they run on a worker thread. Measured 2026-09-24 (run
+        # 35978707181): called directly, the 12,514-page crawl held the one
+        # event loop every employer scraper shares for 568s straight. Nothing
+        # else logged a line in that window; TEXO's Bullhorn call and WRS's
+        # listing wait both expired inside it and came back with 0 jobs, and
+        # Playwright scrapers queued behind it. Which employers happened to be
+        # mid-request when CrewBase started decided which ones "failed" that
+        # day, which is why the failing set changed daily.
+        job_urls = await asyncio.to_thread(self._discover_job_urls)
         if not job_urls:
             self.logger.warning("no_job_urls_found", sitemap=self.sitemap_index_url)
             return []
@@ -388,7 +398,7 @@ class CrewBaseScraper(BaseScraper):
         if max_jobs:
             job_urls = job_urls[:max_jobs]
 
-        raw_jobs = self._fetch_all_job_data(job_urls)
+        raw_jobs = await asyncio.to_thread(self._fetch_all_job_data, job_urls)
         self.logger.info("raw_jobs_fetched", count=len(raw_jobs), attempted=len(job_urls))
 
         jobs: list[JobPosting] = []

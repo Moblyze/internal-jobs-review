@@ -114,7 +114,58 @@ class DeduplicationTracker:
         """)
         self.conn.commit()
 
+        # Consecutive runs (scheduled or manual) on which a company with an established
+        # history extracted 0 jobs (2026-09-24). main.py uses it to tell a
+        # one-day blip (warn, run stays green) from a source that is actually
+        # broken (fail the run). See main.classify_regressions().
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS extraction_zero_streaks (
+                company TEXT PRIMARY KEY,
+                streak INTEGER NOT NULL,
+                last_run TIMESTAMP NOT NULL,
+                last_error TEXT
+            )
+        """)
+        self.conn.commit()
+
         logger.debug("Database schema initialized")
+
+    def update_zero_streaks(self, scraped: list[str], zeroed: dict) -> dict:
+        """Advance the zero-extraction streak for every company scraped this run.
+
+        Args:
+            scraped: every company name scraped this run.
+            zeroed: {company: error_or_None} for companies flagged as a
+                critical regression (established history, 0 extracted).
+
+        Returns {company: streak} for the zeroed companies, streak counting
+        this run (1 = first zero run in a row). Companies scraped but not
+        zeroed are reset to 0.
+        """
+        now = datetime.utcnow().isoformat()
+        cursor = self.conn.cursor()
+        out = {}
+        for company in scraped:
+            if company in zeroed:
+                cursor.execute(
+                    "SELECT streak FROM extraction_zero_streaks WHERE company = ?", (company,)
+                )
+                row = cursor.fetchone()
+                streak = (row['streak'] if row else 0) + 1
+                cursor.execute(
+                    "INSERT OR REPLACE INTO extraction_zero_streaks "
+                    "(company, streak, last_run, last_error) VALUES (?, ?, ?, ?)",
+                    (company, streak, now, zeroed[company]),
+                )
+                out[company] = streak
+            else:
+                cursor.execute(
+                    "INSERT OR REPLACE INTO extraction_zero_streaks "
+                    "(company, streak, last_run, last_error) VALUES (?, 0, ?, NULL)",
+                    (company, now),
+                )
+        self.conn.commit()
+        return out
 
     def record_health_snapshot(self) -> str:
         """Persist current per-company active + total counts with a timestamp.

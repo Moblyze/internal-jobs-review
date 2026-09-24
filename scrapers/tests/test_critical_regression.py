@@ -87,3 +87,55 @@ class TestFindCriticalRegressions:
 
         assert find_critical_regressions(results, baseline, threshold=5) == [results[0]]
         assert find_critical_regressions(results, baseline, threshold=6) == []
+
+
+# ---------------------------------------------------------------------------
+# 2026-09-24: exit-code policy. A first-time zero warns; a repeat or a
+# systemic wave fails the run.
+# ---------------------------------------------------------------------------
+
+from main import classify_regressions  # noqa: E402
+
+
+class TestClassifyRegressions:
+    def test_first_time_zero_is_a_warning_not_a_failure(self):
+        regs = [_result('PG Global', 0)]
+        v = classify_regressions(regs, {'PG Global': 1}, persistent_runs=2, systemic_count=10)
+        assert v['fail'] is False
+        assert [r['company'] for r in v['transient']] == ['PG Global']
+        assert v['persistent'] == []
+
+    def test_repeat_zero_fails_the_run(self):
+        """OSM Thome zeroed on every run Sep 18-24: that is a broken source."""
+        regs = [_result('OSM Thome', 0, error='Timed out after 2700s'), _result('WRS', 0)]
+        v = classify_regressions(regs, {'OSM Thome': 7, 'WRS': 1}, persistent_runs=2, systemic_count=10)
+        assert v['fail'] is True
+        assert [r['company'] for r in v['persistent']] == ['OSM Thome']
+        assert [r['company'] for r in v['transient']] == ['WRS']
+
+    def test_many_first_time_zeroes_in_one_run_is_systemic(self):
+        regs = [_result(f'Co{i}', 0) for i in range(10)]
+        v = classify_regressions(regs, {f'Co{i}': 1 for i in range(10)}, persistent_runs=2, systemic_count=10)
+        assert v['systemic'] is True
+        assert v['fail'] is True
+
+    def test_missing_streak_counts_as_first_occurrence(self):
+        """Dry runs do not touch the streak table; a zero there must not fail."""
+        v = classify_regressions([_result('KBR', 0)], {}, persistent_runs=2, systemic_count=10)
+        assert v['fail'] is False
+
+    def test_no_regressions_passes(self):
+        v = classify_regressions([], {}, persistent_runs=2, systemic_count=10)
+        assert v == {'persistent': [], 'transient': [], 'systemic': False, 'fail': False}
+
+
+class TestZeroStreaks:
+    def test_streak_increments_and_resets(self, tmp_path):
+        from src.utils.deduplication import DeduplicationTracker
+        t = DeduplicationTracker(str(tmp_path / 'state.db'))
+        assert t.update_zero_streaks(['A', 'B'], {'A': 'timeout'}) == {'A': 1}
+        assert t.update_zero_streaks(['A', 'B'], {'A': None, 'B': None}) == {'A': 2, 'B': 1}
+        # A recovers, B repeats
+        assert t.update_zero_streaks(['A', 'B'], {'B': None}) == {'B': 2}
+        assert t.update_zero_streaks(['A'], {'A': None}) == {'A': 1}
+        t.close()
