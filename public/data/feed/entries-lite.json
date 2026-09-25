@@ -1,5 +1,47 @@
 [
   {
+    "id": "38a7f723-0461-4648-9f7e-0b6e5ce34f16",
+    "ingested_at": "2026-09-25T12:17:16.226Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/agreement-clears-way-for-resumption-of-niger-uranium-project"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "survey_geophysical"
+    ],
+    "signal_type": "regulatory",
+    "region": "west-africa",
+    "country": "niger",
+    "headline": "Mining Convention Formalised for Madouela Uranium Project, Clearing Path to Resume Operations",
+    "operator": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Madouela",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
     "id": "654b7426-c701-47ab-ab7a-852d83caec70",
     "ingested_at": "2026-09-24T18:14:15.816Z",
     "sources": [

@@ -4,6 +4,107 @@
       {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/agreement-clears-way-for-resumption-of-niger-uranium-project"
+      }
+    ],
+    "headline": "Mining Convention Formalised for Madouela Uranium Project, Clearing Path to Resume Operations",
+    "body": "The Mining Convention for the Madouela project formalises a framework agreement announced in August and triggers the process to discontinue international arbitration proceedings over the project in Niger.",
+    "url": "https://www.world-nuclear-news.org/articles/agreement-clears-way-for-resumption-of-niger-uranium-project",
+    "published_at": "2026-09-25T10:05:09.000Z",
+    "hash": "27ad715f063babb1",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "survey_geophysical"
+    ],
+    "signal_type": "regulatory",
+    "region": "west-africa",
+    "country": "niger",
+    "tldr": "A Mining Convention for Niger's Madouela uranium project has been formalised, resolving a framework agreement and discontinuing arbitration — signalling project resumption and near-term workforce demand.",
+    "operator": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Madouela",
+    "scope": [
+      "mining_convention",
+      "project_resumption"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mining Project Manager",
+        "Uranium Project Engineer",
+        "Site Manager",
+        "HSE Manager",
+        "Geologist",
+        "Mine Planner",
+        "Construction Manager"
+      ],
+      "skills": [
+        "uranium mining",
+        "open-pit or underground mine development",
+        "project ramp-up",
+        "EPCM",
+        "mine commissioning"
+      ],
+      "certs_freetext": [
+        "MSHA",
+        "IAEA radiation safety",
+        "Mining Engineer certification"
+      ],
+      "geo_rtw": "Niger / West Africa; international assignees accepted",
+      "project_experience": [
+        "Imouraren",
+        "Somair",
+        "Cominak",
+        "Rossing",
+        "Husab"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior to Principal",
+      "boolean_search": "(\"uranium mining\" OR \"uranium project\" OR \"mine development\" OR \"EPCM mining\") AND (\"Project Manager\" OR \"Site Manager\" OR \"Mine Planner\" OR \"Construction Manager\" OR \"Geologist\") AND (\"West Africa\" OR \"Niger\" OR \"Francophone Africa\" OR \"remote site\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Niger's Madouela uranium project has just had its Mining Convention formalised — a strong signal that site work is resuming. Are you open to senior roles on this project? Happy to share details.",
+      "email_subject": "Madouela Uranium Project Resuming — Senior Roles Opening Up",
+      "email_body": "Hi [Name],\n\nNiger's Madouela uranium project has just formalised its Mining Convention, resolving a long-standing dispute and clearing the way for project resumption. This typically triggers rapid hiring across project management, engineering, and site operations.\n\nGiven your background in [uranium/mine development], I wanted to reach out early. Would you be open to a conversation about senior opportunities on this project?\n\nBest regards,\n[Your name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Mining Convention formalised for the named Madouela uranium project in Niger, signalling regulatory clearance and project resumption with direct workforce-demand implications.",
+    "phase": "pre_sanction",
+    "phase_evidence": "The article states the convention 'triggers the process to discontinue international arbitration' — the project is clearing legal/regulatory hurdles before active development resumes, indicating pre-sanction status.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "38a7f723-0461-4648-9f7e-0b6e5ce34f16",
+    "ingested_at": "2026-09-25T12:17:16.226Z",
+    "source_published_at": "2026-09-25T10:05:09.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org/articles/polish-plant-contract-negotiations-move-to-next-stage"
       }
     ],
