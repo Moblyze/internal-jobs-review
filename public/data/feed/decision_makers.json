@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-09-24T18:16:05.032Z"
+    "last_updated_at": "2026-09-28T18:17:12.462Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -13186,6 +13186,126 @@
         "persona": "hr",
         "linkedin_url": null,
         "source_url": "https://theorg.com/org/oceanagold-corp/teams/people-and-culture",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "pttep": {
+    "discovered_at": "2026-09-28T18:17:12.462Z",
+    "contacts": [
+      {
+        "name": "Kanita Sartwattayu",
+        "title": "CEO Designate & Acting Executive Vice President, Strategy, Business Development, and Human Resources Group",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/kanita-sartwattayu-115058206",
+        "source_url": "https://www.pttep.com/en/leadership/leadership-team/78/ms-kanita-sartwattayu",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Bangkok, Thailand"
+      },
+      {
+        "name": "Wilairuengsuwan Pongtai",
+        "title": "Vice President, Human Resources Policy & System",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://www.zoominfo.com/p/Wilairuengsuwan-Pongtai/1619722235",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Bangkok, Thailand"
+      },
+      {
+        "name": "Anchalee Kaewla",
+        "title": "Vice President, Human Resources",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://www.zoominfo.com/p/Pttep-Kaewla/7081026003",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Bangkok, Thailand"
+      },
+      {
+        "name": "Natruedee Khositaphai",
+        "title": "Executive Vice President, Operations Support Group",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.pttep.com/en/leadership/leadership-team/72/mrs-natruedee-khositaphai",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Bangkok, Thailand"
+      },
+      {
+        "name": "Nirandorn Rojanasomsith",
+        "title": "Executive Vice President, Engineering, Development & Maintenance Group",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.zoominfo.com/pic/ptt-exploration-and-production-public-company-ltd/352328584",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Bangkok, Thailand"
+      }
+    ]
+  },
+  "montage gold": {
+    "discovered_at": "2026-09-28T18:17:12.462Z",
+    "contacts": [
+      {
+        "name": "Caroline Jacquemot",
+        "title": "Human Resources Director",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://rocketreach.co/caroline-jacquemot-email_287956735",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "United Arab Emirates"
+      },
+      {
+        "name": "Alex Oscar Achi",
+        "title": "HR Manager - Projects",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/alex-oscar-achi-47269333",
+        "source_url": "https://www.linkedin.com/in/alex-oscar-achi-47269333/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Abidjan, Côte d'Ivoire"
+      },
+      {
+        "name": "Peder Olsen",
+        "title": "President & Chief Development Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/peder-olsen-202b2a60",
+        "source_url": "https://www.prnewswire.com/news-releases/montage-gold-expands-leadership-team-and-announces-c20-million-non-brokered-financing-backed-by-lundin-trusts-302069397.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Perth, Western Australia, Australia"
+      },
+      {
+        "name": "Martino De Ciccio",
+        "title": "Chief Executive Officer",
+        "persona": "other",
+        "linkedin_url": null,
+        "source_url": "https://www.montagegold.com/about/management/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Vancouver, BC, Canada"
+      },
+      {
+        "name": "Jeremy Langford",
+        "title": "Non-Executive Director (former COO, Centamin & Artemis Gold)",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.montagegold.com/about/board-of-directors/",
         "in_target_persona": true,
         "email": null,
         "phone": null,

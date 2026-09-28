@@ -2,6 +2,229 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/pttep_approves_bussabong_gas_project-28-sep-2026-184716-article/?rss=true"
+      }
+    ],
+    "headline": "PTTEP Sanctions Bussabong Gas Field Development in Gulf of Thailand",
+    "body": "PTT Exploration and Production Public Co Ltd (PTTEP) has made a final investment decision to develop the Bussabong gas field in the Gulf of Thailand.\n\r\n\r\n...",
+    "url": "https://www.rigzone.com/news/pttep_approves_bussabong_gas_project-28-sep-2026-184716-article/?rss=true",
+    "published_at": "2026-09-28T13:19:09.000Z",
+    "hash": "6535b9af2fe1a0bf",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "marine_offshore_ops",
+      "process_plant_operations",
+      "pipeline_mechanical"
+    ],
+    "signal_type": "fid",
+    "region": "gulf-of-thailand",
+    "country": "thailand",
+    "tldr": "PTTEP has taken FID on the Bussabong gas field in the Gulf of Thailand, triggering EPC tendering and engineering ramp-up. Contractor and construction hiring activity expected within 6-12 months.",
+    "operator": {
+      "name": "PTTEP",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Bussabong Gas Project",
+    "scope": [
+      "field_development",
+      "gas_production",
+      "offshore_platform"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Project Manager",
+        "Offshore Project Engineer",
+        "Subsea Engineer",
+        "Commissioning Engineer",
+        "Construction Manager",
+        "Process Engineer",
+        "HSE Manager",
+        "Structural Engineer",
+        "Procurement Manager",
+        "Planning Engineer"
+      ],
+      "skills": [
+        "offshore gas field development",
+        "FID project execution",
+        "EPC contracting",
+        "offshore platform design",
+        "Gulf of Thailand operations",
+        "project controls",
+        "subsea systems",
+        "gas processing"
+      ],
+      "certs_freetext": [
+        "BOSIET",
+        "OPITO offshore survival",
+        "NEBOSH",
+        "CSWIP"
+      ],
+      "geo_rtw": "Thailand / SE Asia work-eligible",
+      "project_experience": [
+        "Zawtika",
+        "Arthit",
+        "Erawan",
+        "Bongkot",
+        "MTJDA"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"Project Manager\" OR \"Construction Manager\" OR \"Commissioning Engineer\" OR \"Process Engineer\" OR \"Subsea Engineer\" OR \"Planning Engineer\" OR \"HSE Manager\") AND (\"offshore\" OR \"offshore gas\" OR \"Gulf of Thailand\" OR \"PTTEP\" OR \"Bussabong\") AND (\"FID\" OR \"field development\" OR \"EPC\" OR \"offshore platform\" OR \"gas production\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], PTTEP has just sanctioned the Bussabong Gas Project in the Gulf of Thailand. EPC awards and engineering ramp-up are expected imminently. Are you open to hearing about senior offshore roles on this campaign?",
+      "email_subject": "Bussabong Gas Project – Senior Offshore Roles | Post-FID Ramp-Up",
+      "email_body": "Hi [Name],\n\nPTTEP has taken a Final Investment Decision on the Bussabong Gas Field in the Gulf of Thailand, signalling the start of EPC tendering and project execution hiring.\n\nGiven your background in offshore gas field development in SE Asia, I wanted to reach out early — roles across project management, engineering, commissioning, and HSE are likely to come to market in the coming months.\n\nWould you be open to a brief call to discuss your availability and interest?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "PTTEP has taken FID on the named Bussabong Gas Project in the Gulf of Thailand, a discrete field development sanction that directly signals EPC tendering and workforce ramp-up.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Article states PTTEP 'has made a final investment decision to develop the Bussabong gas field', confirming FID and transition into engineering/contracting phase.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "981eb60a-427d-44fc-b4b4-ef1fb41bda04",
+    "ingested_at": "2026-09-28T18:15:13.200Z",
+    "source_published_at": "2026-09-28T13:19:09.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/montage-pours-first-gold-at-kone-ahead-of-schedule/"
+      }
+    ],
+    "headline": "Montage Pours First Gold at Koné Mine Ahead of Schedule — Commercial Production Targeted Year-End",
+    "body": "The Côte d’Ivoire mine has begun producing months early, as Montage targets commercial production by year-end",
+    "url": "https://www.mining.com/montage-pours-first-gold-at-kone-ahead-of-schedule/",
+    "published_at": "2026-09-28T15:55:54.000Z",
+    "hash": "f294c49051904660",
+    "subsector": "mining",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "epc_award",
+    "region": "west-africa",
+    "country": "cote_divoire",
+    "tldr": "Montage Gold has achieved first gold pour at the Koné mine in Côte d'Ivoire ahead of schedule, with commercial production targeted by year-end — signalling an active commissioning/ramp-up phase and near-term operational staffing demand.",
+    "operator": {
+      "name": "Montage Gold",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Montage Gold",
+      "matched_company_slug": null
+    },
+    "project_name": "Koné Gold Mine",
+    "scope": [
+      "first_gold",
+      "commissioning",
+      "process_plant_startup"
+    ],
+    "mob_window": {
+      "start": "2025-Q2",
+      "end": "2025-Q4",
+      "duration_months": 6
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Plant Commissioning Engineer",
+        "Process Plant Superintendent",
+        "Metallurgist",
+        "Gold Room Operator",
+        "Maintenance Superintendent",
+        "Electrical Commissioning Engineer",
+        "Instrumentation & Control Technician",
+        "HSE Advisor",
+        "Production Supervisor",
+        "Mine Operations Manager"
+      ],
+      "skills": [
+        "gold processing",
+        "CIL/CIP circuit operations",
+        "plant commissioning",
+        "SAG/ball mill operations",
+        "DCS/SCADA",
+        "preventive maintenance",
+        "metallurgical accounting",
+        "startup procedures",
+        "process optimization"
+      ],
+      "certs_freetext": [
+        "HSEC site induction",
+        "First Aid / Medical Fitness Certificate",
+        "Electrical/Instrumentation trade certification"
+      ],
+      "geo_rtw": "West Africa — Côte d'Ivoire; FIFO-eligible candidates",
+      "project_experience": [
+        "Syama Gold Mine",
+        "Houndé Gold Mine",
+        "Ity CIL Project",
+        "Fetekro Project",
+        "Wahgnion Gold Mine"
+      ],
+      "yoe_band": "7-15",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"gold mine\" OR \"gold processing\" OR \"CIL\" OR \"CIP\" OR \"SAG mill\") AND (\"commissioning\" OR \"plant startup\" OR \"process plant\" OR \"metallurgist\" OR \"plant superintendent\") AND (\"West Africa\" OR \"Côte d'Ivoire\" OR \"Ivory Coast\" OR \"FIFO\") AND (\"mine operations\" OR \"production supervisor\" OR \"maintenance superintendent\" OR \"instrumentation\" OR \"DCS\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Montage Gold has just poured first gold at Koné in Côte d'Ivoire ahead of schedule, targeting commercial production by year-end. This commissioning ramp creates urgent demand for experienced process plant and operations professionals. Would you be open to a quick chat about opportunities on-site?",
+      "email_subject": "Koné Gold Mine – Commissioning & Operations Roles | Côte d'Ivoire FIFO",
+      "email_body": "Hi [Name],\n\nMontage Gold has achieved first gold pour at its Koné mine in Côte d'Ivoire ahead of schedule, with commercial production targeted before year-end. This accelerated timeline is driving immediate demand for commissioning engineers, metallurgists, plant superintendents, and operations supervisors.\n\nGiven your background in [gold processing / plant commissioning / West Africa operations], I wanted to reach out directly — these roles typically move fast once commercial production is declared.\n\nWould you be available for a brief call this week to discuss?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Montage Gold) and project (Koné Gold Mine) with a discrete workforce-demand event — first gold pour ahead of schedule with commercial production targeted year-end, signalling active commissioning and operational staffing ramp.",
+    "phase": "construction",
+    "phase_evidence": "Article states the mine 'has begun producing months early' and 'targets commercial production by year-end', placing the project in active commissioning/startup.",
+    "construction_subphase": "commissioning",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "9dd973ef-e98b-44c3-a5e4-96e9a456a411",
+    "ingested_at": "2026-09-28T18:15:13.200Z",
+    "source_published_at": "2026-09-28T15:55:54.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org/articles/agreement-clears-way-for-resumption-of-niger-uranium-project"
@@ -13420,224 +13643,6 @@
       "project_manager",
       "hiring_manager",
       "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/polish-developer-applies-for-state-funding-for-three-smr-plants"
-      }
-    ],
-    "headline": "Orlen Synthos Green Energy Applies for CfD Funding for 14 BWRX-300 SMRs at Three Polish Sites",
-    "body": "Orlen Synthos Green Energy has applied to Poland's Minister of Energy for a Contract for Difference for the construction of a total of 14 BWRX-300 small modular reactors at three locations in Poland.",
-    "url": "https://www.world-nuclear-news.org//articles/polish-developer-applies-for-state-funding-for-three-smr-plants",
-    "published_at": "2026-06-30T10:34:21.000Z",
-    "hash": "f39b58244e84eea5",
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations",
-      "energy_trades"
-    ],
-    "signal_type": "regulatory",
-    "region": "poland",
-    "country": "poland",
-    "tldr": "Orlen Synthos Green Energy has filed for a Contract for Difference to fund 14 BWRX-300 small modular reactors across three Polish locations. Project remains pre-sanction pending state funding approval, with active hiring likely 12+ months out.",
-    "operator": {
-      "name": "Orlen Synthos Green Energy",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Orlen Synthos Green Energy",
-      "matched_company_slug": null
-    },
-    "project_name": "BWRX-300 SMR Programme Poland",
-    "scope": [
-      "nuclear_newbuild",
-      "smr_construction",
-      "civil_works"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Nuclear Project Director",
-        "SMR Development Manager",
-        "Nuclear FEED Manager",
-        "Licensing & Permitting Manager",
-        "Nuclear Civil Engineering Lead",
-        "Nuclear Safety Engineer",
-        "Reactor Systems Engineer"
-      ],
-      "skills": [
-        "BWRX-300",
-        "small modular reactor",
-        "nuclear new build",
-        "Contract for Difference",
-        "nuclear licensing",
-        "FEED",
-        "nuclear regulatory affairs",
-        "boiling water reactor"
-      ],
-      "certs_freetext": [
-        "Nuclear Safety Case",
-        "EUR qualification",
-        "IAEA safety standards familiarity"
-      ],
-      "geo_rtw": "Poland / EU right-to-work",
-      "project_experience": [
-        "Hinkley Point C",
-        "Olkiluoto 3",
-        "Vogtle Units 3&4",
-        "NuScale UAMPS",
-        "GE-Hitachi BWRX-300 Ontario Power"
-      ],
-      "yoe_band": "12-20",
-      "seniority": "Senior / Principal",
-      "boolean_search": "(\"BWRX-300\" OR \"small modular reactor\" OR \"SMR\" OR \"nuclear new build\" OR \"BWR\" OR \"boiling water reactor\") AND (\"project director\" OR \"development manager\" OR \"licensing manager\" OR \"nuclear engineer\" OR \"FEED manager\" OR \"permitting\") AND (\"Poland\" OR \"CEE\" OR \"Europe\" OR \"Hinkley\" OR \"Olkiluoto\" OR \"Vogtle\" OR \"NuScale\" OR \"GE Hitachi\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Orlen Synthos Green Energy has just filed for state CfD funding to build 14 BWRX-300 SMRs across three Polish sites — pre-sanction now, engineering ramp incoming. Are you open to a conversation about senior nuclear development roles in Poland?",
-      "email_subject": "BWRX-300 SMR Programme Poland — Senior Nuclear Roles Incoming",
-      "email_body": "Hi [Name],\n\nOrlen Synthos Green Energy has formally applied to Poland's Minister of Energy for a Contract for Difference to fund the construction of 14 BWRX-300 small modular reactors at three locations across Poland.\n\nThe project is currently pre-sanction, but a CfD application signals serious intent to move toward FID — meaning FEED, licensing, and development hiring will begin ramping in the coming 12+ months.\n\nGiven your background in [nuclear new build / SMR / BWR programmes], I wanted to flag this early. We're already mapping candidates for senior nuclear development, licensing, and engineering roles ahead of the curve.\n\nWould you be open to a brief call to discuss how this aligns with your next move?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named operator (Orlen Synthos Green Energy) has filed a formal funding application for 14 BWRX-300 SMR units at three named Polish locations, constituting a pre-sanction project milestone with future labor-demand implications in nuclear construction.",
-    "phase": "pre_sanction",
-    "phase_evidence": "Article states the developer 'has applied' for a Contract for Difference — a funding mechanism prerequisite to FID, confirming the project has not yet been sanctioned.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "257083cc-6f50-4521-bfc7-58eee51654e5",
-    "ingested_at": "2026-06-30T12:45:17.555Z",
-    "source_published_at": "2026-06-30T10:34:21.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/fuel-loading-begins-at-slovakias-mochovce-4"
-      }
-    ],
-    "headline": "Fuel Loading Begins at Mochovce Unit 4 — Slovenské elektrárne Enters Active Commissioning",
-    "body": "Slovenské elektrárne has begun loading nuclear fuel into Mochovce Nuclear Power Plant's fourth unit, marking the start of its active commissioning.",
-    "url": "https://www.world-nuclear-news.org//articles/fuel-loading-begins-at-slovakias-mochovce-4",
-    "published_at": "2026-06-30T15:33:51.000Z",
-    "hash": "2021b06acac536f9",
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "process_plant_operations",
-      "industrial_construction"
-    ],
-    "signal_type": "regulatory",
-    "region": "central-europe",
-    "country": "slovakia",
-    "tldr": "Slovenské elektrárne has commenced fuel loading at Mochovce NPP Unit 4, signalling the active commissioning phase. Immediate demand for commissioning engineers, startup specialists, and nuclear operations staff is likely.",
-    "operator": {
-      "name": "Slovenské elektrárne",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Slovenské elektrárne",
-      "matched_company_slug": null
-    },
-    "project_name": "Mochovce Nuclear Power Plant Unit 4",
-    "scope": [
-      "nuclear_fuel_loading",
-      "active_commissioning",
-      "startup"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Nuclear Commissioning Engineer",
-        "Startup Engineer",
-        "Reactor Commissioning Specialist",
-        "Nuclear Operations Engineer",
-        "Commissioning Manager",
-        "I&C Commissioning Technician",
-        "Shift Supervisor",
-        "Control Room Operator",
-        "Nuclear Safety Engineer",
-        "Mechanical Completion Engineer"
-      ],
-      "skills": [
-        "nuclear fuel loading",
-        "reactor commissioning",
-        "nuclear startup testing",
-        "I&C systems",
-        "VVER reactor",
-        "nuclear safety",
-        "mechanical completion",
-        "systems handover",
-        "pre-operational testing",
-        "control room operations"
-      ],
-      "certs_freetext": [
-        "Nuclear Operator License",
-        "IAEA safety training",
-        "VVER-440 qualification",
-        "Radiation Protection certification"
-      ],
-      "geo_rtw": "EU work authorisation (Slovakia/Central Europe)",
-      "project_experience": [
-        "Mochovce Unit 3",
-        "Bohunice NPP",
-        "Temelin NPP",
-        "Paks NPP",
-        "Flamanville EPR commissioning"
-      ],
-      "yoe_band": "8-15",
-      "seniority": "mid-senior",
-      "boolean_search": "(\"nuclear commissioning\" OR \"reactor startup\" OR \"fuel loading\" OR \"nuclear operations\") AND (\"VVER\" OR \"PWR\" OR \"nuclear power plant\") AND (\"commissioning engineer\" OR \"startup engineer\" OR \"shift supervisor\" OR \"control room operator\" OR \"I&C technician\") AND (\"mechanical completion\" OR \"pre-operational testing\" OR \"systems handover\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], fuel loading has just begun at Mochovce Unit 4 in Slovakia — active commissioning is now underway. Your nuclear commissioning background looks highly relevant. Would you be open to a brief conversation about opportunities on this project?",
-      "email_subject": "Mochovce Unit 4 Active Commissioning Now Underway — Nuclear Roles Available",
-      "email_body": "Hi [Name],\n\nSlovenské elektrárne has commenced fuel loading at Mochovce Nuclear Power Plant Unit 4 in Slovakia, marking the start of active commissioning — one of the most talent-intensive phases of any nuclear build.\n\nGiven your background in [nuclear commissioning / reactor startup / nuclear operations], I wanted to reach out directly. We are supporting staffing for this phase and have immediate interest in profiles with VVER or PWR commissioning experience.\n\nWould you be available for a short call this week to discuss?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Fuel loading commencement at Mochovce Unit 4 names operator Slovenské elektrárne and signals the active commissioning phase of a nuclear project, creating immediate discrete demand for commissioning and startup personnel.",
-    "phase": "construction",
-    "phase_evidence": "Article states 'fuel loading begins… marking the start of its active commissioning,' placing the unit firmly in the commissioning sub-phase.",
-    "construction_subphase": "commissioning",
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "live_now",
-    "estimated_hiring_window": "now",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "ddb89ab8-8cb0-4327-aab6-5a0cdb831851",
-    "ingested_at": "2026-06-30T12:45:17.555Z",
-    "source_published_at": "2026-06-30T15:33:51.000Z",
-    "contact_archetypes": [
-      "site_manager",
-      "hiring_manager",
-      "project_manager"
     ],
     "prompt_version": "phase-targeting-v1.2"
   }
