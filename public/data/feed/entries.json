@@ -4,6 +4,336 @@
       {
         "id": "rigzone",
         "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/shell_greenlights_project_to_double_lng_canada_capacity-29-sep-2026-184730-article/?rss=true"
+      }
+    ],
+    "headline": "Shell Takes FID on LNG Canada Phase 2, Doubling Export Capacity in British Columbia",
+    "body": "Shell PLC on Tuesday announced a final investment decision to proceed with the second phase of its liquefied natural gas (LNG) project in British Columbia, w...",
+    "url": "https://www.rigzone.com/news/shell_greenlights_project_to_double_lng_canada_capacity-29-sep-2026-184730-article/?rss=true",
+    "published_at": "2026-09-29T14:30:30.000Z",
+    "hash": "00104c2749af465d",
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations",
+      "pipeline_mechanical"
+    ],
+    "signal_type": "fid",
+    "region": "canada-bc",
+    "country": "canada",
+    "tldr": "Shell has sanctioned LNG Canada Phase 2 in British Columbia, triggering a major EPC and construction hiring ramp. Large contingent workforce demand expected across trades, commissioning, and plant operations over the coming years.",
+    "operator": {
+      "name": "Shell PLC",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "LNG Canada Phase 2",
+    "scope": [
+      "lng_liquefaction",
+      "topsides_epc",
+      "process_plant"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Construction Manager",
+        "LNG Process Engineer",
+        "Commissioning Manager",
+        "HSE Manager",
+        "Module Fabrication Supervisor",
+        "Mechanical Completion Lead",
+        "Piping Superintendent",
+        "Electrical Superintendent",
+        "Instrumentation & Controls Engineer",
+        "Planning & Scheduling Engineer",
+        "Welding Inspector"
+      ],
+      "skills": [
+        "LNG liquefaction",
+        "process plant construction",
+        "module fabrication",
+        "brownfield tie-in",
+        "mechanical completion",
+        "commissioning",
+        "piping",
+        "EPC execution",
+        "HSE leadership",
+        "primavera P6"
+      ],
+      "certs_freetext": [
+        "NCSO (Canada)",
+        "CSTS-09",
+        "H2S Alive",
+        "First Aid Level 1",
+        "TWIC equivalent",
+        "Red Seal Trades Certification"
+      ],
+      "geo_rtw": "Canada (BC) — must hold or be eligible for Canadian work authorization",
+      "project_experience": [
+        "LNG Canada Phase 1",
+        "Sabine Pass LNG",
+        "Ichthys LNG",
+        "Wheatstone LNG",
+        "Woodfibre LNG",
+        "Coastal GasLink"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Lead / Superintendent",
+      "boolean_search": "(\"LNG\" OR \"liquefied natural gas\") AND (\"construction manager\" OR \"commissioning manager\" OR \"mechanical completion\" OR \"piping superintendent\" OR \"electrical superintendent\" OR \"HSE manager\" OR \"module fabrication\" OR \"process plant\") AND (\"British Columbia\" OR \"Canada\" OR \"Kitimat\") AND (\"EPC\" OR \"LNG Canada\" OR \"FEED\" OR \"brownfield\") NOT (\"sales\" OR \"business development\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Shell has just taken FID on LNG Canada Phase 2 in BC — a major construction ramp is incoming. Your background in [LNG/process plant/commissioning] looks highly relevant. Worth a quick chat about upcoming roles?",
+      "email_subject": "LNG Canada Phase 2 FID — Senior Construction & Commissioning Roles Incoming",
+      "email_body": "Hi [Name],\n\nShell has formally sanctioned LNG Canada Phase 2 in British Columbia, triggering one of the largest onshore LNG construction programs in Canada's history.\n\nAs EPC contracts are awarded and construction mobilises, we expect significant demand for senior construction managers, commissioning leads, piping and electrical superintendents, HSE professionals, and trades supervisors.\n\nGiven your experience in [LNG / process plant / major EPC], I'd love to connect you with this opportunity early — before roles go live publicly.\n\nAre you open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Shell has taken a final investment decision (FID) on LNG Canada Phase 2, a named project, creating an immediate and large downstream workforce-demand signal across EPC, construction, and commissioning disciplines.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Article states Shell announced a 'final investment decision to proceed with the second phase,' confirming FID has been taken and EPC/engineering ramp-up will follow.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "16e0f478-eb71-47b2-aee1-1030bfc2570d",
+    "ingested_at": "2026-09-29T18:15:10.412Z",
+    "source_published_at": "2026-09-29T14:30:30.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/perenco_signs_preliminary_agreement_to_electrify_production_offshore_brazil-29-sep-2026-184727-article/?rss=true"
+      }
+    ],
+    "headline": "Perenco Signs LOI with Porto do Açu for First Offshore Platform Electrification in Brazil's Campos Basin",
+    "body": "Perenco has signed a letter of intent with Porto do Açu for what it says is the first offshore platform electrification project in Brazil's Campos Basin.\n...",
+    "url": "https://www.rigzone.com/news/perenco_signs_preliminary_agreement_to_electrify_production_offshore_brazil-29-sep-2026-184727-article/?rss=true",
+    "published_at": "2026-09-29T13:27:11.000Z",
+    "hash": "77b8fd211f747ab3",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction",
+      "marine_offshore_ops"
+    ],
+    "signal_type": "epc_award",
+    "region": "brazil-campos-basin",
+    "country": "brazil",
+    "tldr": "Perenco has signed a letter of intent with Porto do Açu to electrify an offshore platform in the Campos Basin — Brazil's first such project. Early-stage agreement signals upcoming FEED and engineering workforce demand.",
+    "operator": {
+      "name": "Perenco",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Porto do Açu",
+      "matched_company_slug": null
+    },
+    "project_name": "Campos Basin Offshore Platform Electrification",
+    "scope": [
+      "platform_electrification",
+      "offshore_power_supply",
+      "feed"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Electrification Project Manager",
+        "Offshore Electrical Engineer",
+        "FEED Manager",
+        "Power Systems Engineer",
+        "Project Development Engineer",
+        "Subsea Power Engineer",
+        "Topsides Electrical Lead"
+      ],
+      "skills": [
+        "offshore platform electrification",
+        "power-from-shore",
+        "FEED",
+        "HV/MV systems",
+        "offshore electrical design",
+        "Campos Basin",
+        "Brazil offshore"
+      ],
+      "certs_freetext": [
+        "CREA (Brazil)",
+        "IECEx",
+        "CompEx",
+        "BOSIET"
+      ],
+      "geo_rtw": "Brazil (Campos Basin / Rio de Janeiro state)",
+      "project_experience": [
+        "Equinor Johan Sverdrup electrification",
+        "Petrobras platform electrification",
+        "Açu Port energy projects"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"offshore electrification\" OR \"power from shore\" OR \"platform electrification\" OR \"offshore power systems\") AND (\"FEED\" OR \"front end engineering\" OR \"EPC\") AND (\"Campos Basin\" OR \"Brazil offshore\" OR \"Santos Basin\") AND (\"electrical engineer\" OR \"project manager\" OR \"power engineer\" OR \"topsides electrical\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Perenco & Porto do Açu have signed an LOI for Brazil's first offshore platform electrification project in the Campos Basin. FEED engineers and power systems specialists will be in demand soon. Would you be open to a brief chat?",
+      "email_subject": "Campos Basin Electrification – Early Talent Positioning for Perenco/Porto do Açu Project",
+      "email_body": "Hi [Name],\n\nPerenco has signed a letter of intent with Porto do Açu to deliver the first offshore platform electrification project in Brazil's Campos Basin — a landmark initiative that will require specialist FEED, electrical engineering, and power systems talent as it progresses.\n\nGiven your background in [offshore electrical/FEED/power systems], I'd love to connect you with the right stakeholders early in the project cycle.\n\nWould you have 15 minutes this week for a call?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Letter of intent between named operator (Perenco) and named contractor/partner (Porto do Açu) for a discrete offshore electrification project in Brazil's Campos Basin — a qualifying early-stage project development signal.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article describes a 'letter of intent' (LOI/preliminary agreement), indicating the project is pre-FID and has not yet been sanctioned.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "08225b61-6739-44cd-9a3b-db1d4037a4a2",
+    "ingested_at": "2026-09-29T18:15:10.412Z",
+    "source_published_at": "2026-09-29T13:27:11.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/polimex-mostostal-to-build-polish-ap1000-assembly-halls"
+      }
+    ],
+    "headline": "Polimex Mostostal Selected by Bechtel to Build AP1000 Assembly Halls for Poland's First Nuclear Plant",
+    "body": "Polish construction engineering firm Polimex Mostostal has been selected by Bechtel to deliver, assemble and commission two large-scale assembly halls as part of the project to construct the country's first nuclear power plant.",
+    "url": "https://www.world-nuclear-news.org/articles/polimex-mostostal-to-build-polish-ap1000-assembly-halls",
+    "published_at": "2026-09-29T14:54:32.000Z",
+    "hash": "90a00a1c13582689",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "poland",
+    "country": "poland",
+    "tldr": "Bechtel has awarded Polimex Mostostal a contract to deliver, assemble and commission two large-scale assembly halls for Poland's first AP1000 nuclear power plant, signalling an imminent construction ramp-up and significant trades labour demand.",
+    "operator": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Polimex Mostostal",
+      "matched_company_slug": null
+    },
+    "project_name": "Polish AP1000 Nuclear Power Plant",
+    "scope": [
+      "assembly_hall_construction",
+      "civil_works",
+      "commissioning"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Construction Manager",
+        "Site Manager",
+        "Civil Engineer",
+        "Structural Engineer",
+        "HSE Manager",
+        "Commissioning Engineer",
+        "Project Engineer",
+        "Steel Fabricator Supervisor",
+        "Trades Supervisor"
+      ],
+      "skills": [
+        "nuclear construction",
+        "AP1000",
+        "large-scale industrial construction",
+        "steel fabrication",
+        "assembly hall construction",
+        "commissioning",
+        "civil works",
+        "QA/QC nuclear"
+      ],
+      "certs_freetext": [
+        "IAEA nuclear safety",
+        "ISO 9001",
+        "nuclear quality assurance",
+        "CSCS"
+      ],
+      "geo_rtw": "Poland / EU work-eligible",
+      "project_experience": [
+        "Hinkley Point C",
+        "Vogtle AP1000",
+        "Olkiluoto 3",
+        "Flamanville 3"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "senior",
+      "boolean_search": "(\"construction manager\" OR \"site manager\" OR \"commissioning engineer\" OR \"project engineer\" OR \"civil engineer\" OR \"structural engineer\" OR \"HSE manager\") AND (\"nuclear\" OR \"AP1000\" OR \"nuclear power plant\" OR \"nuclear construction\") AND (\"Poland\" OR \"Polska\" OR \"industrial construction\" OR \"assembly hall\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Polimex Mostostal has just been contracted by Bechtel to build AP1000 assembly halls for Poland's first nuclear plant. Given your nuclear construction background, I'd love to discuss roles on this project. Open to a quick chat?",
+      "email_subject": "Nuclear Construction Roles – Poland AP1000 Project (Polimex Mostostal / Bechtel)",
+      "email_body": "Hi [Name],\n\nPolimex Mostostal has been selected by Bechtel to deliver and commission two large-scale assembly halls for Poland's first AP1000 nuclear power plant — a landmark project that will require experienced nuclear construction professionals.\n\nGiven your background in [nuclear/industrial construction], I wanted to reach out early as hiring is expected to ramp up in the coming months. Roles likely include Construction Managers, HSE leads, Civil/Structural Engineers, and Commissioning Engineers.\n\nWould you be open to a brief call to explore whether this could be a strong fit for your next step?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "EPC sub-contract award naming contractor (Polimex Mostostal) and hiring entity (Bechtel) for assembly halls at Poland's first AP1000 nuclear power plant, a discrete workforce-demand event in the nuclear sector.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Polimex Mostostal has been 'selected by Bechtel to deliver, assemble and commission' the halls, indicating a contract award stage consistent with post-FID engineering and early construction mobilisation.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "9dd28952-6d9f-457a-be88-ea1174ba0bda",
+    "ingested_at": "2026-09-29T18:15:10.412Z",
+    "source_published_at": "2026-09-29T14:54:32.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
         "url": "https://www.rigzone.com/news/pttep_approves_bussabong_gas_project-28-sep-2026-184716-article/?rss=true"
       }
     ],
@@ -13324,114 +13654,6 @@
     "source_published_at": "2026-07-01T11:41:07.000Z",
     "contact_archetypes": [
       "project_manager",
-      "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/energy-transition-minerals-receives-regional-approvals-for-penouta-mine-restart-in-spain/"
-      }
-    ],
-    "headline": "Energy Transition Minerals Receives Regional Approvals for Penouta Mine Restart in Spain",
-    "body": "Europe mines almost none of the metals Penouta yields — tin, tantalum and niobium.",
-    "url": "https://www.mining.com/energy-transition-minerals-receives-regional-approvals-for-penouta-mine-restart-in-spain/",
-    "published_at": "2026-07-01T12:51:45.000Z",
-    "hash": "66e55bad023be247",
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades"
-    ],
-    "signal_type": "regulatory",
-    "region": "spain",
-    "country": "spain",
-    "tldr": "Energy Transition Minerals has secured regional regulatory approvals to restart the Penouta tin/tantalum/niobium mine in Spain, signalling an imminent workforce ramp-up for mining operations.",
-    "operator": {
-      "name": "Energy Transition Minerals",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Energy Transition Minerals",
-      "matched_company_slug": null
-    },
-    "project_name": "Penouta Mine",
-    "scope": [
-      "mine_restart",
-      "regulatory_approval"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Mine Manager",
-        "Mining Engineer",
-        "Process Plant Superintendent",
-        "HSE Manager",
-        "Metallurgist",
-        "Drilling & Blasting Supervisor",
-        "Mineral Processing Engineer",
-        "Site Manager",
-        "Maintenance Superintendent"
-      ],
-      "skills": [
-        "hard rock mining",
-        "tin processing",
-        "tantalum",
-        "niobium",
-        "mineral processing",
-        "open pit operations",
-        "mine planning",
-        "process plant operations",
-        "HSE management"
-      ],
-      "certs_freetext": [
-        "WHMIS",
-        "First Aid",
-        "Explosives Handling Certificate",
-        "NEBOSH"
-      ],
-      "geo_rtw": "EU/EEA right-to-work, Spain-based or willing to relocate",
-      "project_experience": [
-        "Penouta",
-        "European critical minerals projects",
-        "tin mining",
-        "tantalum mining"
-      ],
-      "yoe_band": "8-15",
-      "seniority": "mid-senior",
-      "boolean_search": "(\"Mine Manager\" OR \"Mining Engineer\" OR \"Process Plant Superintendent\" OR \"Metallurgist\" OR \"HSE Manager\" OR \"Mineral Processing Engineer\" OR \"Site Manager\") AND (\"tin\" OR \"tantalum\" OR \"niobium\" OR \"hard rock mining\" OR \"mineral processing\" OR \"open pit\") AND (Spain OR Europe OR \"critical minerals\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Energy Transition Minerals has just received regional approvals to restart the Penouta mine in Spain (tin/tantalum/niobium). A workforce ramp-up is expected soon — are you open to hearing about senior roles on this project?",
-      "email_subject": "Penouta Mine Restart – Senior Mining Roles | Spain",
-      "email_body": "Hi [Name],\n\nEnergy Transition Minerals has secured regional approvals to restart the Penouta mine in Galicia, Spain — one of Europe's rare sources of tin, tantalum, and niobium.\n\nAs the project moves toward operational restart, we anticipate demand for experienced mining professionals across engineering, processing, HSE, and site management disciplines.\n\nGiven your background in [relevant discipline], I wanted to reach out early to explore whether this opportunity aligns with your career plans.\n\nWould you be open to a brief call this week?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Regulatory approval granted for named operator (Energy Transition Minerals) to restart a named mine (Penouta) in Spain, constituting a permit grant qualifying event with clear workforce demand implications.",
-    "phase": "sanctioned_engineering",
-    "phase_evidence": "Regional approvals received for mine restart indicate the project has cleared a key regulatory gate and is moving toward operational ramp-up.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "c76c8558-3b83-479a-9d59-f479625c6e2d",
-    "ingested_at": "2026-07-01T13:00:46.490Z",
-    "source_published_at": "2026-07-01T12:51:45.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "hiring_manager",
       "business_unit_director"
     ],
     "prompt_version": "phase-targeting-v1.2"
