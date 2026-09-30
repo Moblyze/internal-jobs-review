@@ -1,35 +1,36 @@
 [
   {
-    "id": "670b94e5-d4db-414f-8fc9-309606451e20",
-    "ingested_at": "2026-09-30T12:19:16.344Z",
+    "id": "d454909a-e726-4218-8747-c841ecdb8528",
+    "ingested_at": "2026-09-30T18:14:33.167Z",
     "sources": [
       {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org/articles/first-construction-permit-issued-for-bwrx300-smr-in-us"
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/midocean_confirms_participation_in_lng_canada-30-sep-2026-184738-article/?rss=true"
       }
     ],
-    "subsector": "nuclear",
+    "subsector": "onshore-og",
     "discipline_tags": [
-      "industrial_construction",
       "energy_trades",
-      "process_plant_operations"
+      "industrial_construction",
+      "process_plant_operations",
+      "pipeline_mechanical"
     ],
-    "signal_type": "regulatory",
-    "region": "us-southeast",
-    "country": "united_states",
-    "headline": "NRC Issues First US Construction Permit for TVA BWRX-300 SMR at Clinch River",
+    "signal_type": "fid",
+    "region": "canada-bc",
+    "country": "canada",
+    "headline": "MidOcean Confirms Stake in Sanctioned LNG Canada Phase 2, British Columbia",
     "operator": {
-      "name": "Tennessee Valley Authority (TVA)",
+      "name": "LNG Canada",
       "matched_company_slug": null
     },
     "hiring_entity": {
-      "name": "GE Vernova Hitachi Nuclear Energy",
+      "name": "MidOcean Energy",
       "matched_company_slug": null
     },
-    "project_name": "Clinch River BWRX-300 SMR",
+    "project_name": "LNG Canada Phase 2",
     "mob_window": {
-      "start": "2025-Q3",
+      "start": null,
       "end": null,
       "duration_months": null
     },
@@ -83,6 +84,49 @@
     "decom_stage": null,
     "outreach_readiness": "cold",
     "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
+    "id": "670b94e5-d4db-414f-8fc9-309606451e20",
+    "ingested_at": "2026-09-30T12:19:16.344Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/first-construction-permit-issued-for-bwrx300-smr-in-us"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-southeast",
+    "country": "united_states",
+    "headline": "NRC Issues First US Construction Permit for TVA BWRX-300 SMR at Clinch River",
+    "operator": {
+      "name": "Tennessee Valley Authority (TVA)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "GE Vernova Hitachi Nuclear Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Clinch River BWRX-300 SMR",
+    "mob_window": {
+      "start": "2025-Q3",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
     "key_people": []
   },
   {
@@ -344,6 +388,48 @@
     "key_people": []
   },
   {
+    "id": "dfefdb35-ac1d-4350-b414-69d4680bb217",
+    "ingested_at": "2026-09-24T18:14:15.816Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/oceanagolds-97-gram-hit-backs-waihi-expansion/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "new-zealand",
+    "country": "new_zealand",
+    "headline": "OceanaGold Plans 50% Waihi Plant Expansion After High-Grade Wharekirauponga Discovery",
+    "operator": {
+      "name": "OceanaGold",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "OceanaGold",
+      "matched_company_slug": null
+    },
+    "project_name": "Waihi Plant Expansion / Wharekirauponga",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "654b7426-c701-47ab-ab7a-852d83caec70",
     "ingested_at": "2026-09-24T18:14:15.816Z",
     "sources": [
@@ -384,48 +470,6 @@
     "decom_stage": null,
     "outreach_readiness": "warming",
     "estimated_hiring_window": "6-12mo",
-    "key_people": []
-  },
-  {
-    "id": "dfefdb35-ac1d-4350-b414-69d4680bb217",
-    "ingested_at": "2026-09-24T18:14:15.816Z",
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/oceanagolds-97-gram-hit-backs-waihi-expansion/"
-      }
-    ],
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades"
-    ],
-    "signal_type": "fid",
-    "region": "new-zealand",
-    "country": "new_zealand",
-    "headline": "OceanaGold Plans 50% Waihi Plant Expansion After High-Grade Wharekirauponga Discovery",
-    "operator": {
-      "name": "OceanaGold",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "OceanaGold",
-      "matched_company_slug": null
-    },
-    "project_name": "Waihi Plant Expansion / Wharekirauponga",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "pre_sanction",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
     "key_people": []
   },
   {
@@ -5368,93 +5412,6 @@
     "decom_stage": null,
     "outreach_readiness": "warming",
     "estimated_hiring_window": "6-12mo",
-    "key_people": []
-  },
-  {
-    "id": "ff68b407-631e-45f6-8b4c-0901cd8ddb9f",
-    "ingested_at": "2026-07-02T12:42:29.541Z",
-    "sources": [
-      {
-        "id": "pr_newswire_energy",
-        "name": "PR Newswire (Energy)",
-        "url": "https://www.prnewswire.com/news-releases/ng-energy-provides-update-on-operations-at-sinu-9-and-maria-conchita-302816452.html"
-      }
-    ],
-    "subsector": "onshore-og",
-    "discipline_tags": [
-      "drilling_operations",
-      "pipeline_mechanical",
-      "process_plant_operations",
-      "industrial_construction"
-    ],
-    "signal_type": "tender",
-    "region": "colombia",
-    "country": "colombia",
-    "headline": "NG Energy Spuds Magico-2X at Sinú-9; Pipeline Loop Complete, Commissioning Underway at Jobo & Guayabal",
-    "operator": {
-      "name": "NG Energy",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "NG Energy",
-      "matched_company_slug": null
-    },
-    "project_name": "Sinú-9 / Maria Conchita",
-    "mob_window": {
-      "start": "2026-Q3",
-      "end": "2026-Q4",
-      "duration_months": 6
-    },
-    "contract_value_usd": null,
-    "phase": "construction",
-    "construction_subphase": "commissioning",
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "live_now",
-    "estimated_hiring_window": "now",
-    "key_people": []
-  },
-  {
-    "id": "3b95acb8-d236-4b98-b1f3-ad6ff38f53fa",
-    "ingested_at": "2026-07-02T12:42:29.541Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/sge-team-targets-14-bwrx300-smrs-uk"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades",
-      "process_plant_operations"
-    ],
-    "signal_type": "fid",
-    "region": "uk",
-    "country": "united_kingdom",
-    "headline": "SGE-Led Team Plans 14 BWRX-300 SMRs Across Three UK Sites with Samsung, Laing O'Rourke & Aecon",
-    "operator": {
-      "name": "SGE",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Laing O'Rourke / Aecon Group / Samsung C&T",
-      "matched_company_slug": null
-    },
-    "project_name": "BWRX-300 SMR UK Deployment (14-unit programme)",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "pre_sanction",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
     "key_people": []
   }
 ]

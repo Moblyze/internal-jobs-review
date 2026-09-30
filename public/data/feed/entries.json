@@ -2,102 +2,96 @@
   {
     "sources": [
       {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org/articles/first-construction-permit-issued-for-bwrx300-smr-in-us"
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/midocean_confirms_participation_in_lng_canada-30-sep-2026-184738-article/?rss=true"
       }
     ],
-    "headline": "NRC Issues First US Construction Permit for TVA BWRX-300 SMR at Clinch River",
-    "body": "The US Nuclear Regulatory Commission has issued a construction permit for the Tennessee Valley Authority's planned GE Vernova Hitachi BWRX‑300 small modular reactor at the Clinch River site.",
-    "url": "https://www.world-nuclear-news.org/articles/first-construction-permit-issued-for-bwrx300-smr-in-us",
-    "published_at": "2026-09-30T15:02:24.000Z",
-    "hash": "aaecfb84f236b82a",
-    "subsector": "nuclear",
+    "headline": "MidOcean Confirms Stake in Sanctioned LNG Canada Phase 2, British Columbia",
+    "body": "MidOcean Energy on Tuesday confirmed its participation in the newly sanctioned second development of LNG Canada in British Columbia via a partnership with Pe...",
+    "url": "https://www.rigzone.com/news/midocean_confirms_participation_in_lng_canada-30-sep-2026-184738-article/?rss=true",
+    "published_at": "2026-09-30T13:30:58.000Z",
+    "hash": "40eb837ea0648a8a",
+    "subsector": "onshore-og",
     "discipline_tags": [
-      "industrial_construction",
       "energy_trades",
-      "process_plant_operations"
+      "industrial_construction",
+      "process_plant_operations",
+      "pipeline_mechanical"
     ],
-    "signal_type": "regulatory",
-    "region": "us-southeast",
-    "country": "united_states",
-    "tldr": "The NRC has issued a construction permit for TVA's GE Vernova Hitachi BWRX-300 SMR at Clinch River, Tennessee — a regulatory greenlight that moves the project from pre-sanction toward EPC mobilization and opens a significant near-term hiring window for nuclear construction talent.",
+    "signal_type": "fid",
+    "region": "canada-bc",
+    "country": "canada",
+    "tldr": "MidOcean Energy has confirmed participation in the newly sanctioned LNG Canada Phase 2 development in British Columbia via a partnership. FID signals an imminent ramp-up in EPC and construction workforce demand.",
     "operator": {
-      "name": "Tennessee Valley Authority (TVA)",
+      "name": "LNG Canada",
       "matched_company_slug": null
     },
     "hiring_entity": {
-      "name": "GE Vernova Hitachi Nuclear Energy",
+      "name": "MidOcean Energy",
       "matched_company_slug": null
     },
-    "project_name": "Clinch River BWRX-300 SMR",
+    "project_name": "LNG Canada Phase 2",
     "scope": [
-      "smr_construction",
-      "nuclear_civil_works",
-      "module_fabrication",
-      "nuclear_island_install"
+      "lng_liquefaction",
+      "onshore_epc",
+      "process_plant"
     ],
     "mob_window": {
-      "start": "2025-Q3",
+      "start": null,
       "end": null,
       "duration_months": null
     },
     "contract_value_usd": null,
     "targeting": {
       "job_titles_freetext": [
-        "Nuclear Construction Manager",
-        "Site Construction Manager",
-        "Nuclear Project Manager",
-        "Civil/Structural Superintendent",
-        "Nuclear QA/QC Manager",
-        "Nuclear HSE Manager",
-        "Mechanical Superintendent",
-        "Electrical Superintendent",
-        "Nuclear Commissioning Engineer",
-        "I&C Engineer",
-        "Nuclear Craft Foreman"
+        "LNG Construction Manager",
+        "Process Engineer",
+        "Project Manager – LNG",
+        "HSE Manager",
+        "Commissioning Engineer",
+        "Module Fabrication Superintendent",
+        "Planning Engineer",
+        "Cost Engineer",
+        "Site Manager"
       ],
       "skills": [
-        "nuclear construction",
-        "SMR",
-        "BWRX-300",
-        "NRC regulatory compliance",
-        "nuclear QA 10 CFR 50 Appendix B",
-        "civil nuclear build",
-        "module assembly",
-        "nuclear safety culture",
-        "boiling water reactor",
-        "construction permit",
-        "nuclear island installation"
+        "LNG plant construction",
+        "liquefaction process",
+        "EPC project delivery",
+        "HAZOP",
+        "pre-commissioning",
+        "brownfield/greenfield LNG",
+        "British Columbia projects"
       ],
       "certs_freetext": [
-        "10 CFR 50 Appendix B QA",
-        "OSHA 30 Construction",
-        "Nuclear Energy Institute (NEI) training",
-        "NRC-qualified inspector",
-        "PMP"
+        "CSTS",
+        "NCSO",
+        "PEng (Canada)",
+        "BOSIET"
       ],
-      "geo_rtw": "US work authorization required; Tennessee / Oak Ridge area",
+      "geo_rtw": "Canada – must hold valid Canadian work authorization",
       "project_experience": [
-        "Vogtle Units 3 & 4",
-        "NuScale USNC CFPP",
-        "Hinkley Point C",
-        "Ontario Power Generation SMR",
-        "STP Nuclear Operating Company"
+        "LNG Canada Phase 1",
+        "Woodfibre LNG",
+        "Sabine Pass LNG",
+        "Ichthys LNG",
+        "Wheatstone LNG",
+        "Cameron LNG"
       ],
-      "yoe_band": "10-25",
-      "seniority": "Senior / Principal / Superintendent",
-      "boolean_search": "(\"nuclear construction\" OR \"SMR\" OR \"small modular reactor\" OR \"BWRX-300\" OR \"boiling water reactor\") AND (\"construction manager\" OR \"site manager\" OR \"project manager\" OR \"superintendent\" OR \"commissioning engineer\" OR \"QA manager\" OR \"HSE manager\" OR \"I&C engineer\") AND (\"nuclear\" OR \"NRC\" OR \"10 CFR 50\" OR \"Vogtle\" OR \"Hinkley\") AND (\"Tennessee\" OR \"Oak Ridge\" OR \"Clinch River\" OR \"civil nuclear\")"
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal",
+      "boolean_search": "(\"LNG\" OR \"liquefied natural gas\") AND (\"construction manager\" OR \"commissioning engineer\" OR \"process engineer\" OR \"project manager\" OR \"site manager\" OR \"planning engineer\") AND (\"LNG Canada\" OR \"liquefaction\" OR \"FEED\" OR \"EPC\" OR \"onshore LNG\") AND (Canada OR \"British Columbia\")"
     },
     "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], the NRC just issued the first US construction permit for TVA's BWRX-300 SMR at Clinch River — a landmark project now moving toward active build. We're placing nuclear construction leaders for this program. Would you be open to a quick call?",
-      "email_subject": "Clinch River BWRX-300 SMR — Nuclear Construction Roles Opening Now",
-      "email_body": "Hi [Name],\n\nThe NRC has just issued the first-ever US construction permit for the Tennessee Valley Authority's BWRX-300 small modular reactor at Clinch River — a historic milestone that signals the project is moving from development into active construction mobilization.\n\nWith GE Vernova Hitachi Nuclear Energy leading the reactor technology, we anticipate significant demand for experienced nuclear construction professionals across civil, mechanical, electrical, I&C, QA/QC, and HSE disciplines over the coming months.\n\nGiven your background in [nuclear construction / Vogtle / civil nuclear build], I'd love to explore whether this aligns with your next move.\n\nAre you available for a 15-minute call this week?\n\nBest regards,\n[Your Name]"
+      "linkedin_inmail": "Hi [Name], with LNG Canada Phase 2 now sanctioned and MidOcean Energy confirmed as a partner, construction hiring is set to ramp fast in BC. Are you open to hearing about senior roles on this project?",
+      "email_subject": "LNG Canada Phase 2 Sanctioned – Senior Construction & Engineering Roles – BC",
+      "email_body": "Hi [Name],\n\nLNG Canada Phase 2 has just received FID, with MidOcean Energy confirmed as a partner on the British Columbia development. This represents one of the largest LNG construction programs in North America and will drive significant demand for experienced LNG construction, engineering, and commissioning professionals.\n\nGiven your background in [LNG/process plant/EPC projects], I wanted to reach out early — the best roles on programs like this fill quickly once EPC awards are made.\n\nWould you be open to a brief call to discuss what's coming up?\n\nBest regards,\n[Your Name]"
     },
     "bd_relevant": true,
-    "bd_relevance_reason": "NRC construction permit issued for TVA's named BWRX-300 SMR project at Clinch River — a regulatory approval that directly enables construction mobilization and workforce ramp-up at a named operator and project.",
+    "bd_relevance_reason": "FID confirmed for LNG Canada Phase 2 with MidOcean Energy named as a participant, signalling imminent EPC and construction workforce ramp-up on a named project.",
     "phase": "sanctioned_engineering",
-    "phase_evidence": "Construction permit issued by NRC signals regulatory greenlight moving project from pre-sanction into engineering/early construction mobilization phase.",
+    "phase_evidence": "Article states the project is 'newly sanctioned' (FID achieved), placing it at the transition into detailed engineering and EPC award phase.",
     "construction_subphase": null,
     "lifecycle_track": "greenfield",
     "decom_stage": null,
@@ -106,9 +100,9 @@
     "key_people": [],
     "enrichment_status": "ok",
     "enrichment_model": "claude-sonnet-4-6",
-    "id": "670b94e5-d4db-414f-8fc9-309606451e20",
-    "ingested_at": "2026-09-30T12:19:16.344Z",
-    "source_published_at": "2026-09-30T15:02:24.000Z",
+    "id": "d454909a-e726-4218-8747-c841ecdb8528",
+    "ingested_at": "2026-09-30T18:14:33.167Z",
+    "source_published_at": "2026-09-30T13:30:58.000Z",
     "contact_archetypes": [
       "project_manager",
       "hiring_manager",
@@ -220,6 +214,123 @@
     "source_published_at": "2026-09-30T11:51:00.000Z",
     "contact_archetypes": [
       "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/first-construction-permit-issued-for-bwrx300-smr-in-us"
+      }
+    ],
+    "headline": "NRC Issues First US Construction Permit for TVA BWRX-300 SMR at Clinch River",
+    "body": "The US Nuclear Regulatory Commission has issued a construction permit for the Tennessee Valley Authority's planned GE Vernova Hitachi BWRX‑300 small modular reactor at the Clinch River site.",
+    "url": "https://www.world-nuclear-news.org/articles/first-construction-permit-issued-for-bwrx300-smr-in-us",
+    "published_at": "2026-09-30T15:02:24.000Z",
+    "hash": "aaecfb84f236b82a",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-southeast",
+    "country": "united_states",
+    "tldr": "The NRC has issued a construction permit for TVA's GE Vernova Hitachi BWRX-300 SMR at Clinch River, Tennessee — a regulatory greenlight that moves the project from pre-sanction toward EPC mobilization and opens a significant near-term hiring window for nuclear construction talent.",
+    "operator": {
+      "name": "Tennessee Valley Authority (TVA)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "GE Vernova Hitachi Nuclear Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Clinch River BWRX-300 SMR",
+    "scope": [
+      "smr_construction",
+      "nuclear_civil_works",
+      "module_fabrication",
+      "nuclear_island_install"
+    ],
+    "mob_window": {
+      "start": "2025-Q3",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Construction Manager",
+        "Site Construction Manager",
+        "Nuclear Project Manager",
+        "Civil/Structural Superintendent",
+        "Nuclear QA/QC Manager",
+        "Nuclear HSE Manager",
+        "Mechanical Superintendent",
+        "Electrical Superintendent",
+        "Nuclear Commissioning Engineer",
+        "I&C Engineer",
+        "Nuclear Craft Foreman"
+      ],
+      "skills": [
+        "nuclear construction",
+        "SMR",
+        "BWRX-300",
+        "NRC regulatory compliance",
+        "nuclear QA 10 CFR 50 Appendix B",
+        "civil nuclear build",
+        "module assembly",
+        "nuclear safety culture",
+        "boiling water reactor",
+        "construction permit",
+        "nuclear island installation"
+      ],
+      "certs_freetext": [
+        "10 CFR 50 Appendix B QA",
+        "OSHA 30 Construction",
+        "Nuclear Energy Institute (NEI) training",
+        "NRC-qualified inspector",
+        "PMP"
+      ],
+      "geo_rtw": "US work authorization required; Tennessee / Oak Ridge area",
+      "project_experience": [
+        "Vogtle Units 3 & 4",
+        "NuScale USNC CFPP",
+        "Hinkley Point C",
+        "Ontario Power Generation SMR",
+        "STP Nuclear Operating Company"
+      ],
+      "yoe_band": "10-25",
+      "seniority": "Senior / Principal / Superintendent",
+      "boolean_search": "(\"nuclear construction\" OR \"SMR\" OR \"small modular reactor\" OR \"BWRX-300\" OR \"boiling water reactor\") AND (\"construction manager\" OR \"site manager\" OR \"project manager\" OR \"superintendent\" OR \"commissioning engineer\" OR \"QA manager\" OR \"HSE manager\" OR \"I&C engineer\") AND (\"nuclear\" OR \"NRC\" OR \"10 CFR 50\" OR \"Vogtle\" OR \"Hinkley\") AND (\"Tennessee\" OR \"Oak Ridge\" OR \"Clinch River\" OR \"civil nuclear\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], the NRC just issued the first US construction permit for TVA's BWRX-300 SMR at Clinch River — a landmark project now moving toward active build. We're placing nuclear construction leaders for this program. Would you be open to a quick call?",
+      "email_subject": "Clinch River BWRX-300 SMR — Nuclear Construction Roles Opening Now",
+      "email_body": "Hi [Name],\n\nThe NRC has just issued the first-ever US construction permit for the Tennessee Valley Authority's BWRX-300 small modular reactor at Clinch River — a historic milestone that signals the project is moving from development into active construction mobilization.\n\nWith GE Vernova Hitachi Nuclear Energy leading the reactor technology, we anticipate significant demand for experienced nuclear construction professionals across civil, mechanical, electrical, I&C, QA/QC, and HSE disciplines over the coming months.\n\nGiven your background in [nuclear construction / Vogtle / civil nuclear build], I'd love to explore whether this aligns with your next move.\n\nAre you available for a 15-minute call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "NRC construction permit issued for TVA's named BWRX-300 SMR project at Clinch River — a regulatory approval that directly enables construction mobilization and workforce ramp-up at a named operator and project.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Construction permit issued by NRC signals regulatory greenlight moving project from pre-sanction into engineering/early construction mobilization phase.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "670b94e5-d4db-414f-8fc9-309606451e20",
+    "ingested_at": "2026-09-30T12:19:16.344Z",
+    "source_published_at": "2026-09-30T15:02:24.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
       "business_unit_director"
     ],
     "prompt_version": "phase-targeting-v1.2"
@@ -881,6 +992,109 @@
   {
     "sources": [
       {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/oceanagolds-97-gram-hit-backs-waihi-expansion/"
+      }
+    ],
+    "headline": "OceanaGold Plans 50% Waihi Plant Expansion After High-Grade Wharekirauponga Discovery",
+    "body": "OceanaGold plans a 50% expansion of its Waihi plant after discovering rich gold veins in Wharekirauponga.",
+    "url": "https://www.mining.com/oceanagolds-97-gram-hit-backs-waihi-expansion/",
+    "published_at": "2026-09-24T14:43:23.000Z",
+    "hash": "571e606829c7c5e9",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "new-zealand",
+    "country": "new_zealand",
+    "tldr": "OceanaGold is planning a 50% expansion of its Waihi processing plant following a high-grade gold discovery at Wharekirauponga. A workforce ramp-up is anticipated as the expansion progresses toward sanction.",
+    "operator": {
+      "name": "OceanaGold",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "OceanaGold",
+      "matched_company_slug": null
+    },
+    "project_name": "Waihi Plant Expansion / Wharekirauponga",
+    "scope": [
+      "plant_expansion",
+      "underground_mining",
+      "processing_facility"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mining Engineer",
+        "Underground Mining Supervisor",
+        "Plant Expansion Project Manager",
+        "Process Plant Engineer",
+        "Construction Manager",
+        "HSE Advisor",
+        "Metallurgist",
+        "Geological Engineer"
+      ],
+      "skills": [
+        "underground gold mining",
+        "processing plant expansion",
+        "ore processing",
+        "mine development",
+        "FEED/pre-FID study",
+        "gold metallurgy"
+      ],
+      "certs_freetext": [
+        "New Zealand mining certificates",
+        "First Aid",
+        "Site Safety Certificate"
+      ],
+      "geo_rtw": "New Zealand right-to-work",
+      "project_experience": [
+        "Waihi Gold Mine",
+        "Macraes Mine",
+        "Didipio Mine",
+        "Haile Gold Mine"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"mining engineer\" OR \"underground mining\" OR \"plant expansion\" OR \"process plant\" OR \"metallurgist\" OR \"construction manager\") AND (\"gold mining\" OR \"underground\" OR \"ore processing\" OR \"mine development\") AND (\"New Zealand\" OR \"Waihi\" OR \"Wharekirauponga\" OR \"OceanaGold\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], OceanaGold is planning a 50% expansion of its Waihi plant in NZ following a major high-grade discovery at Wharekirauponga. We're tracking early-stage hiring for this ramp-up — open to a quick chat?",
+      "email_subject": "Waihi Plant Expansion – Early Talent Positioning | OceanaGold NZ",
+      "email_body": "Hi [Name],\n\nOceanaGold has announced a planned 50% expansion of its Waihi processing plant in New Zealand, underpinned by a high-grade gold discovery at Wharekirauponga.\n\nAs this moves toward sanction and detailed engineering, we expect a ramp-up in demand for experienced mining, process plant, and construction professionals with underground gold mining backgrounds.\n\nWe work with candidates who have relevant experience across similar expansions and are well-positioned to support early workforce planning.\n\nWould you be open to a brief conversation about how we might assist?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (OceanaGold) announces a 50% plant expansion at a named project (Waihi/Wharekirauponga) in the mining sector, indicating a future workforce ramp-up event.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states OceanaGold 'plans' a 50% expansion following discovery — no FID or EPC award mentioned, indicating pre-sanction/concept stage.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "dfefdb35-ac1d-4350-b414-69d4680bb217",
+    "ingested_at": "2026-09-24T18:14:15.816Z",
+    "source_published_at": "2026-09-24T14:43:23.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org/articles/polish-plant-contract-negotiations-move-to-next-stage"
@@ -992,109 +1206,6 @@
     "contact_archetypes": [
       "project_manager",
       "hiring_manager",
-      "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/oceanagolds-97-gram-hit-backs-waihi-expansion/"
-      }
-    ],
-    "headline": "OceanaGold Plans 50% Waihi Plant Expansion After High-Grade Wharekirauponga Discovery",
-    "body": "OceanaGold plans a 50% expansion of its Waihi plant after discovering rich gold veins in Wharekirauponga.",
-    "url": "https://www.mining.com/oceanagolds-97-gram-hit-backs-waihi-expansion/",
-    "published_at": "2026-09-24T14:43:23.000Z",
-    "hash": "571e606829c7c5e9",
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades"
-    ],
-    "signal_type": "fid",
-    "region": "new-zealand",
-    "country": "new_zealand",
-    "tldr": "OceanaGold is planning a 50% expansion of its Waihi processing plant following a high-grade gold discovery at Wharekirauponga. A workforce ramp-up is anticipated as the expansion progresses toward sanction.",
-    "operator": {
-      "name": "OceanaGold",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "OceanaGold",
-      "matched_company_slug": null
-    },
-    "project_name": "Waihi Plant Expansion / Wharekirauponga",
-    "scope": [
-      "plant_expansion",
-      "underground_mining",
-      "processing_facility"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Mining Engineer",
-        "Underground Mining Supervisor",
-        "Plant Expansion Project Manager",
-        "Process Plant Engineer",
-        "Construction Manager",
-        "HSE Advisor",
-        "Metallurgist",
-        "Geological Engineer"
-      ],
-      "skills": [
-        "underground gold mining",
-        "processing plant expansion",
-        "ore processing",
-        "mine development",
-        "FEED/pre-FID study",
-        "gold metallurgy"
-      ],
-      "certs_freetext": [
-        "New Zealand mining certificates",
-        "First Aid",
-        "Site Safety Certificate"
-      ],
-      "geo_rtw": "New Zealand right-to-work",
-      "project_experience": [
-        "Waihi Gold Mine",
-        "Macraes Mine",
-        "Didipio Mine",
-        "Haile Gold Mine"
-      ],
-      "yoe_band": "8-15",
-      "seniority": "mid-senior",
-      "boolean_search": "(\"mining engineer\" OR \"underground mining\" OR \"plant expansion\" OR \"process plant\" OR \"metallurgist\" OR \"construction manager\") AND (\"gold mining\" OR \"underground\" OR \"ore processing\" OR \"mine development\") AND (\"New Zealand\" OR \"Waihi\" OR \"Wharekirauponga\" OR \"OceanaGold\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], OceanaGold is planning a 50% expansion of its Waihi plant in NZ following a major high-grade discovery at Wharekirauponga. We're tracking early-stage hiring for this ramp-up — open to a quick chat?",
-      "email_subject": "Waihi Plant Expansion – Early Talent Positioning | OceanaGold NZ",
-      "email_body": "Hi [Name],\n\nOceanaGold has announced a planned 50% expansion of its Waihi processing plant in New Zealand, underpinned by a high-grade gold discovery at Wharekirauponga.\n\nAs this moves toward sanction and detailed engineering, we expect a ramp-up in demand for experienced mining, process plant, and construction professionals with underground gold mining backgrounds.\n\nWe work with candidates who have relevant experience across similar expansions and are well-positioned to support early workforce planning.\n\nWould you be open to a brief conversation about how we might assist?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named operator (OceanaGold) announces a 50% plant expansion at a named project (Waihi/Wharekirauponga) in the mining sector, indicating a future workforce ramp-up event.",
-    "phase": "pre_sanction",
-    "phase_evidence": "Article states OceanaGold 'plans' a 50% expansion following discovery — no FID or EPC award mentioned, indicating pre-sanction/concept stage.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "dfefdb35-ac1d-4350-b414-69d4680bb217",
-    "ingested_at": "2026-09-24T18:14:15.816Z",
-    "source_published_at": "2026-09-24T14:43:23.000Z",
-    "contact_archetypes": [
-      "project_manager",
       "business_unit_director"
     ],
     "prompt_version": "phase-targeting-v1.2"
@@ -13544,234 +13655,6 @@
     "contact_archetypes": [
       "ops_director",
       "hiring_manager"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "pr_newswire_energy",
-        "name": "PR Newswire (Energy)",
-        "url": "https://www.prnewswire.com/news-releases/ng-energy-provides-update-on-operations-at-sinu-9-and-maria-conchita-302816452.html"
-      }
-    ],
-    "headline": "NG Energy Spuds Magico-2X at Sinú-9; Pipeline Loop Complete, Commissioning Underway at Jobo & Guayabal",
-    "body": "Magico-2X, the second well of the six-well 2026 drilling program at Sinú-9, was spudded on June 26, 2026, primarily targeting the newly discovered Pre-CDO–San Cayetano formation. INFRAES pipeline loop to Jobo has been completed; commissioning activities at the Jobo and Guayabal facilities...",
-    "url": "https://www.prnewswire.com/news-releases/ng-energy-provides-update-on-operations-at-sinu-9-and-maria-conchita-302816452.html",
-    "published_at": "2026-07-02T11:00:00.000Z",
-    "hash": "f4a93f945a4f1c64",
-    "subsector": "onshore-og",
-    "discipline_tags": [
-      "drilling_operations",
-      "pipeline_mechanical",
-      "process_plant_operations",
-      "industrial_construction"
-    ],
-    "signal_type": "tender",
-    "region": "colombia",
-    "country": "colombia",
-    "tldr": "NG Energy has spudded the second well of a six-well 2026 drilling program at Sinú-9 block in Colombia, with pipeline infrastructure complete and commissioning activities now live at the Jobo and Guayabal facilities — indicating an active, multi-discipline labor demand window across drilling, pipeline, and process commissioning roles.",
-    "operator": {
-      "name": "NG Energy",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "NG Energy",
-      "matched_company_slug": null
-    },
-    "project_name": "Sinú-9 / Maria Conchita",
-    "scope": [
-      "drilling_campaign",
-      "pipeline_loop",
-      "facility_commissioning"
-    ],
-    "mob_window": {
-      "start": "2026-Q3",
-      "end": "2026-Q4",
-      "duration_months": 6
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Drilling Supervisor",
-        "Company Man",
-        "Wellsite Geologist",
-        "Commissioning Engineer",
-        "Pipeline Commissioning Supervisor",
-        "Process Commissioning Engineer",
-        "HSE Supervisor",
-        "Facilities Superintendent",
-        "Instrumentation & Control Technician",
-        "Production Operator"
-      ],
-      "skills": [
-        "onshore drilling operations",
-        "well spud",
-        "pipeline commissioning",
-        "gas facility commissioning",
-        "pre-startup safety review",
-        "process plant startup",
-        "Colombia upstream operations",
-        "HAZOP",
-        "P&ID walkdown"
-      ],
-      "certs_freetext": [
-        "Well Control (IWCF or IADC)",
-        "H2S Alive",
-        "BOSIET or equivalent onshore safety",
-        "Colombian O&G regulatory awareness"
-      ],
-      "geo_rtw": "Colombia — must be eligible to work in Colombia or be expatriate with valid work permit",
-      "project_experience": [
-        "Sinú-9",
-        "Maria Conchita",
-        "Colombia onshore O&G",
-        "Latin America onshore drilling campaigns",
-        "gas facility commissioning"
-      ],
-      "yoe_band": "8-18",
-      "seniority": "Mid-senior to senior; supervisor/superintendent level preferred given active drilling and commissioning phase",
-      "boolean_search": "(\"drilling supervisor\" OR \"company man\" OR \"commissioning engineer\" OR \"commissioning supervisor\" OR \"wellsite geologist\" OR \"facilities superintendent\" OR \"production operator\") AND (\"onshore\" OR \"Colombia\" OR \"Latin America\") AND (\"drilling\" OR \"pipeline commissioning\" OR \"gas facility\" OR \"process commissioning\" OR \"startup\") AND (\"IWCF\" OR \"IADC\" OR \"well control\" OR \"pre-startup\" OR \"HAZOP\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], NG Energy has spudded well 2 of 6 at Sinú-9, Colombia, with pipeline and commissioning work live at Jobo & Guayabal. Active hiring window now — are you open to a conversation about drilling/commissioning roles on this program?",
-      "email_subject": "Active Roles: NG Energy Sinú-9 Drilling & Commissioning Program – Colombia 2026",
-      "email_body": "Hi [Name],\n\nNG Energy is executing a six-well 2026 drilling campaign at their Sinú-9 block in Colombia, with Magico-2X (well #2) spudded June 26, 2026. Simultaneously, the INFRAES pipeline loop to Jobo is complete and commissioning activities are live at the Jobo and Guayabal facilities.\n\nThis creates an immediate, multi-discipline demand window across:\n• Drilling Supervisors / Company Men\n• Pipeline & Facility Commissioning Engineers/Supervisors\n• Process/I&C Commissioning Technicians\n• HSE Supervisors\n\nGiven your background in [relevant discipline], I wanted to reach out directly. Would you be available for a brief call this week to discuss fit and timing?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named operator (NG Energy) executing a six-well drilling program at named block (Sinú-9/Maria Conchita) with simultaneous pipeline loop completion and active facility commissioning — multiple discrete workforce demand signals across drilling and commissioning disciplines.",
-    "phase": "construction",
-    "phase_evidence": "Magico-2X spudded June 26, 2026 as part of an active six-well drilling program, and commissioning activities are stated as underway at Jobo and Guayabal facilities.",
-    "construction_subphase": "commissioning",
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "live_now",
-    "estimated_hiring_window": "now",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "ff68b407-631e-45f6-8b4c-0901cd8ddb9f",
-    "ingested_at": "2026-07-02T12:42:29.541Z",
-    "source_published_at": "2026-07-02T11:00:00.000Z",
-    "contact_archetypes": [
-      "site_manager",
-      "hiring_manager",
-      "project_manager"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/sge-team-targets-14-bwrx300-smrs-uk"
-      }
-    ],
-    "headline": "SGE-Led Team Plans 14 BWRX-300 SMRs Across Three UK Sites with Samsung, Laing O'Rourke & Aecon",
-    "body": "Poland's SGE and a deployment team including Samsung C&T, Laing O'Rourke, Aecon Group and Google Cloud, have outlined plans for the privately financed deployment of 14 GE Vernova Hitachi BWRX-300 small modular reactors across three sites in the UK.",
-    "url": "https://www.world-nuclear-news.org//articles/sge-team-targets-14-bwrx300-smrs-uk",
-    "published_at": "2026-07-02T16:36:20.000Z",
-    "hash": "f3d6825dcb2d2a32",
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades",
-      "process_plant_operations"
-    ],
-    "signal_type": "fid",
-    "region": "uk",
-    "country": "united_kingdom",
-    "tldr": "SGE, Samsung C&T, Laing O'Rourke, Aecon Group and Google Cloud have outlined plans for 14 GE Vernova Hitachi BWRX-300 SMRs at three UK sites. This is a pre-sanction announcement signalling a significant future nuclear construction workforce ramp across the UK.",
-    "operator": {
-      "name": "SGE",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Laing O'Rourke / Aecon Group / Samsung C&T",
-      "matched_company_slug": null
-    },
-    "project_name": "BWRX-300 SMR UK Deployment (14-unit programme)",
-    "scope": [
-      "smr_deployment",
-      "civil_construction",
-      "nuclear_epc",
-      "multi_site"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Nuclear Project Manager",
-        "SMR Construction Manager",
-        "Nuclear Civil Engineer",
-        "Reactor Commissioning Engineer",
-        "Nuclear HSE Manager",
-        "Nuclear Quality Assurance Manager",
-        "Nuclear Mechanical Engineer",
-        "Nuclear I&C Engineer",
-        "Nuclear Structural Engineer",
-        "Nuclear Programme Planner"
-      ],
-      "skills": [
-        "SMR construction",
-        "nuclear project delivery",
-        "BWRX-300",
-        "nuclear quality assurance",
-        "nuclear commissioning",
-        "civil nuclear",
-        "modular reactor",
-        "nuclear safety case",
-        "GE Vernova Hitachi",
-        "NEC contract"
-      ],
-      "certs_freetext": [
-        "Nuclear Baseline Security Clearance (UK)",
-        "SC Clearance (UK)",
-        "CSCS Nuclear",
-        "IOSH Managing Safely",
-        "APM Project Management Qualification"
-      ],
-      "geo_rtw": "UK right-to-work required",
-      "project_experience": [
-        "Hinkley Point C",
-        "Sizewell C",
-        "Darlington SMR (Canada)",
-        "Horizon Nuclear Power",
-        "NuScale VOYGR",
-        "Rolls-Royce SMR"
-      ],
-      "yoe_band": "10-20",
-      "seniority": "Senior / Principal / Lead",
-      "boolean_search": "(\"nuclear\" OR \"SMR\" OR \"small modular reactor\" OR \"BWRX-300\" OR \"GE Vernova\" OR \"Hitachi\") AND (\"construction manager\" OR \"project manager\" OR \"commissioning engineer\" OR \"civil nuclear\" OR \"nuclear engineer\" OR \"nuclear HSE\" OR \"nuclear QA\") AND (\"UK\" OR \"United Kingdom\" OR \"England\" OR \"Scotland\") NOT (\"oil\" OR \"gas\" OR \"wind\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], the SGE-led team (Laing O'Rourke, Aecon, Samsung C&T) is planning 14 BWRX-300 SMRs across three UK sites. As this programme advances toward sanction, nuclear construction talent is being mapped now. Would you be open to a confidential conversation?",
-      "email_subject": "14 BWRX-300 SMRs UK — Nuclear Construction Talent Mapping",
-      "email_body": "Hi [Name],\n\nSGE, alongside Laing O'Rourke, Aecon Group, Samsung C&T and Google Cloud, has announced plans for 14 GE Vernova Hitachi BWRX-300 small modular reactors across three UK sites — one of the largest civil nuclear programmes announced in the UK in decades.\n\nAs the programme moves toward sanction and EPC mobilisation, we are proactively mapping senior nuclear construction, commissioning and engineering talent with civil nuclear or SMR programme experience.\n\nGiven your background in [relevant nuclear/construction discipline], I'd welcome a confidential conversation about how your experience aligns with the emerging opportunities on this programme.\n\nAre you available for a brief call this week?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named deployment team (SGE, Samsung C&T, Laing O'Rourke, Aecon Group) has outlined plans for 14 BWRX-300 SMRs at three UK sites, constituting a large-scale nuclear workforce demand signal in the UK.",
-    "phase": "pre_sanction",
-    "phase_evidence": "Article states the team has 'outlined plans' for deployment — no FID, EPC award or sanction language is present.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "3b95acb8-d236-4b98-b1f3-ad6ff38f53fa",
-    "ingested_at": "2026-07-02T12:42:29.541Z",
-    "source_published_at": "2026-07-02T16:36:20.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "business_unit_director"
     ],
     "prompt_version": "phase-targeting-v1.2"
   }

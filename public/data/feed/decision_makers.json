@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-09-30T12:21:43.178Z"
+    "last_updated_at": "2026-09-30T18:16:21.979Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -13730,6 +13730,126 @@
         "email": null,
         "phone": null,
         "location": "Kuching, Malaysia"
+      }
+    ]
+  },
+  "midocean energy": {
+    "discovered_at": "2026-09-30T18:16:21.979Z",
+    "contacts": [
+      {
+        "name": "Beth Castberg Litton",
+        "title": "Managing Director & Chief Human Resources Officer",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/beth-castberg-litton-bb225b",
+        "source_url": "https://midoceanenergy.com/team-category/operations-administration/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Washington, DC, USA"
+      },
+      {
+        "name": "Terence Jupp",
+        "title": "Chief Operating Officer",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://midoceanenergy.com/our-leadership/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Sean Mahony",
+        "title": "Senior Vice President, Asset Management",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/sean-mahony-943a2476",
+        "source_url": "https://midoceanenergy.com/team/sean-mahony/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Sydney, Australia"
+      },
+      {
+        "name": "Warren Handley",
+        "title": "Vice President, Joint Ventures",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://midoceanenergy.com/team/warren-handley/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Emily Rodgers",
+        "title": "Chief Sustainability Officer",
+        "persona": "other",
+        "linkedin_url": "https://www.linkedin.com/in/emily-rodgers-4254215",
+        "source_url": "https://midoceanenergy.com/team/emily-rodgers-2/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      }
+    ]
+  },
+  "lng canada": {
+    "discovered_at": "2026-09-30T18:16:21.979Z",
+    "contacts": [
+      {
+        "name": "Maria Dray",
+        "title": "Vice President, Human Resources",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/mariadray",
+        "source_url": "https://lobbycanada.gc.ca/app/secure/ocl/lrs/do/clntSmmry?sMdKy=1718266103742&clientOrgCorpNumber=334906",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Calgary, AB, Canada"
+      },
+      {
+        "name": "Amir Bakar",
+        "title": "Chief Operating Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/amir-bakar-38718482",
+        "source_url": "https://www.datanyze.com/companies/lng-canada/358099404",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Calgary, AB, Canada"
+      },
+      {
+        "name": "Teresa Waddington",
+        "title": "Deputy Chief Operating Officer & Safety, Chief & Sustainability Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/teresa-waddington",
+        "source_url": "https://www.datanyze.com/companies/lng-canada/358099404",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Calgary, AB, Canada"
+      },
+      {
+        "name": "Steve Corbin",
+        "title": "Vice President & Executive Project Director",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://www.lngcanada.ca/news/lng-canada-announces-change-in-ceo/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Calgary, AB, Canada"
+      },
+      {
+        "name": "Tom Frost",
+        "title": "Project Director",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/tom-frost-82ba8b8b",
+        "source_url": "https://www.zoominfo.com/p/Tom-Frost/1400523268",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Calgary, AB, Canada"
       }
     ]
   }
