@@ -1,5 +1,91 @@
 [
   {
+    "id": "670b94e5-d4db-414f-8fc9-309606451e20",
+    "ingested_at": "2026-09-30T12:19:16.344Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/first-construction-permit-issued-for-bwrx300-smr-in-us"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-southeast",
+    "country": "united_states",
+    "headline": "NRC Issues First US Construction Permit for TVA BWRX-300 SMR at Clinch River",
+    "operator": {
+      "name": "Tennessee Valley Authority (TVA)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "GE Vernova Hitachi Nuclear Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Clinch River BWRX-300 SMR",
+    "mob_window": {
+      "start": "2025-Q3",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
+    "id": "419444c5-0307-4410-a859-463c3a210c21",
+    "ingested_at": "2026-09-30T12:19:16.344Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/hoegh-evi-and-petros-to-develop-lng-terminal-in-sarawak-302894351.html"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "marine_offshore_ops",
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "fid",
+    "region": "southeast-asia",
+    "country": "malaysia",
+    "headline": "Höegh Evi & PETROS Enter JDA for LNG Floating Terminal in Sarawak, Malaysia",
+    "operator": {
+      "name": "Petroleum Sarawak Berhad (PETROS)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Höegh Evi",
+      "matched_company_slug": null
+    },
+    "project_name": "Sarawak LNG Floating Terminal",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "16e0f478-eb71-47b2-aee1-1030bfc2570d",
     "ingested_at": "2026-09-29T18:15:10.412Z",
     "sources": [

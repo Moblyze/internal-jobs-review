@@ -2,6 +2,231 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/first-construction-permit-issued-for-bwrx300-smr-in-us"
+      }
+    ],
+    "headline": "NRC Issues First US Construction Permit for TVA BWRX-300 SMR at Clinch River",
+    "body": "The US Nuclear Regulatory Commission has issued a construction permit for the Tennessee Valley Authority's planned GE Vernova Hitachi BWRX‑300 small modular reactor at the Clinch River site.",
+    "url": "https://www.world-nuclear-news.org/articles/first-construction-permit-issued-for-bwrx300-smr-in-us",
+    "published_at": "2026-09-30T15:02:24.000Z",
+    "hash": "aaecfb84f236b82a",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-southeast",
+    "country": "united_states",
+    "tldr": "The NRC has issued a construction permit for TVA's GE Vernova Hitachi BWRX-300 SMR at Clinch River, Tennessee — a regulatory greenlight that moves the project from pre-sanction toward EPC mobilization and opens a significant near-term hiring window for nuclear construction talent.",
+    "operator": {
+      "name": "Tennessee Valley Authority (TVA)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "GE Vernova Hitachi Nuclear Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Clinch River BWRX-300 SMR",
+    "scope": [
+      "smr_construction",
+      "nuclear_civil_works",
+      "module_fabrication",
+      "nuclear_island_install"
+    ],
+    "mob_window": {
+      "start": "2025-Q3",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Construction Manager",
+        "Site Construction Manager",
+        "Nuclear Project Manager",
+        "Civil/Structural Superintendent",
+        "Nuclear QA/QC Manager",
+        "Nuclear HSE Manager",
+        "Mechanical Superintendent",
+        "Electrical Superintendent",
+        "Nuclear Commissioning Engineer",
+        "I&C Engineer",
+        "Nuclear Craft Foreman"
+      ],
+      "skills": [
+        "nuclear construction",
+        "SMR",
+        "BWRX-300",
+        "NRC regulatory compliance",
+        "nuclear QA 10 CFR 50 Appendix B",
+        "civil nuclear build",
+        "module assembly",
+        "nuclear safety culture",
+        "boiling water reactor",
+        "construction permit",
+        "nuclear island installation"
+      ],
+      "certs_freetext": [
+        "10 CFR 50 Appendix B QA",
+        "OSHA 30 Construction",
+        "Nuclear Energy Institute (NEI) training",
+        "NRC-qualified inspector",
+        "PMP"
+      ],
+      "geo_rtw": "US work authorization required; Tennessee / Oak Ridge area",
+      "project_experience": [
+        "Vogtle Units 3 & 4",
+        "NuScale USNC CFPP",
+        "Hinkley Point C",
+        "Ontario Power Generation SMR",
+        "STP Nuclear Operating Company"
+      ],
+      "yoe_band": "10-25",
+      "seniority": "Senior / Principal / Superintendent",
+      "boolean_search": "(\"nuclear construction\" OR \"SMR\" OR \"small modular reactor\" OR \"BWRX-300\" OR \"boiling water reactor\") AND (\"construction manager\" OR \"site manager\" OR \"project manager\" OR \"superintendent\" OR \"commissioning engineer\" OR \"QA manager\" OR \"HSE manager\" OR \"I&C engineer\") AND (\"nuclear\" OR \"NRC\" OR \"10 CFR 50\" OR \"Vogtle\" OR \"Hinkley\") AND (\"Tennessee\" OR \"Oak Ridge\" OR \"Clinch River\" OR \"civil nuclear\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], the NRC just issued the first US construction permit for TVA's BWRX-300 SMR at Clinch River — a landmark project now moving toward active build. We're placing nuclear construction leaders for this program. Would you be open to a quick call?",
+      "email_subject": "Clinch River BWRX-300 SMR — Nuclear Construction Roles Opening Now",
+      "email_body": "Hi [Name],\n\nThe NRC has just issued the first-ever US construction permit for the Tennessee Valley Authority's BWRX-300 small modular reactor at Clinch River — a historic milestone that signals the project is moving from development into active construction mobilization.\n\nWith GE Vernova Hitachi Nuclear Energy leading the reactor technology, we anticipate significant demand for experienced nuclear construction professionals across civil, mechanical, electrical, I&C, QA/QC, and HSE disciplines over the coming months.\n\nGiven your background in [nuclear construction / Vogtle / civil nuclear build], I'd love to explore whether this aligns with your next move.\n\nAre you available for a 15-minute call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "NRC construction permit issued for TVA's named BWRX-300 SMR project at Clinch River — a regulatory approval that directly enables construction mobilization and workforce ramp-up at a named operator and project.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Construction permit issued by NRC signals regulatory greenlight moving project from pre-sanction into engineering/early construction mobilization phase.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "670b94e5-d4db-414f-8fc9-309606451e20",
+    "ingested_at": "2026-09-30T12:19:16.344Z",
+    "source_published_at": "2026-09-30T15:02:24.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/hoegh-evi-and-petros-to-develop-lng-terminal-in-sarawak-302894351.html"
+      }
+    ],
+    "headline": "Höegh Evi & PETROS Enter JDA for LNG Floating Terminal in Sarawak, Malaysia",
+    "body": "KUCHING, Malaysia, Sept. 30, 2026 /PRNewswire/ -- Höegh Evi, a leader in floating energy infrastructure with worldwide operations and management based in Norway, and Petroleum Sarawak Berhad (PETROS), Sarawak's state-owned oil and gas company, have entered into a Joint Development...",
+    "url": "https://www.prnewswire.com/news-releases/hoegh-evi-and-petros-to-develop-lng-terminal-in-sarawak-302894351.html",
+    "published_at": "2026-09-30T11:51:00.000Z",
+    "hash": "a60f19245d2cef81",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "marine_offshore_ops",
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "fid",
+    "region": "southeast-asia",
+    "country": "malaysia",
+    "tldr": "Höegh Evi and Petroleum Sarawak Berhad (PETROS) have signed a Joint Development Agreement for a floating LNG terminal in Sarawak, signalling early pre-FID activity and future FSRU/FLNG-related workforce demand in Malaysia.",
+    "operator": {
+      "name": "Petroleum Sarawak Berhad (PETROS)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Höegh Evi",
+      "matched_company_slug": null
+    },
+    "project_name": "Sarawak LNG Floating Terminal",
+    "scope": [
+      "fsru_development",
+      "lng_terminal",
+      "floating_energy_infrastructure"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "FSRU Project Manager",
+        "LNG Terminal Development Engineer",
+        "Floating Infrastructure FEED Manager",
+        "Marine Operations Manager",
+        "LNG Process Engineer",
+        "Offshore Project Director",
+        "Business Development Manager – LNG"
+      ],
+      "skills": [
+        "FSRU",
+        "FLNG",
+        "LNG terminal development",
+        "floating storage and regasification",
+        "FEED",
+        "joint development agreement",
+        "offshore marine operations",
+        "gas processing"
+      ],
+      "certs_freetext": [
+        "OPITO BOSIET",
+        "GWO Basic Safety Training",
+        "STCW",
+        "Chartered Engineer (CEng)"
+      ],
+      "geo_rtw": "Malaysia / Southeast Asia; Norwegian/European expat profiles with regional LNG experience",
+      "project_experience": [
+        "Höegh Giant FSRU",
+        "BW FSRU projects",
+        "Golar LNG terminals",
+        "Excelerate Energy FSRU",
+        "Petronas FLNG Satu",
+        "Petronas FLNG Dua"
+      ],
+      "yoe_band": "12-20",
+      "seniority": "Senior / Principal / Director",
+      "boolean_search": "(\"FSRU\" OR \"floating storage regasification unit\" OR \"FLNG\" OR \"LNG terminal\") AND (\"FEED\" OR \"EPIC\" OR \"project development\" OR \"joint development\") AND (\"LNG\" OR \"floating infrastructure\" OR \"gas terminal\") AND (\"Malaysia\" OR \"Sarawak\" OR \"Southeast Asia\" OR \"Norway\") AND (\"project manager\" OR \"project director\" OR \"development engineer\" OR \"marine operations\" OR \"process engineer\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Höegh Evi & PETROS have just signed a JDA for a floating LNG terminal in Sarawak. With pre-FEED activity expected to ramp up, senior FSRU/LNG development talent will be in demand. Would you be open to a quick conversation?",
+      "email_subject": "Sarawak Floating LNG Terminal – Senior FSRU/LNG Talent Demand on the Horizon",
+      "email_body": "Hi [Name],\n\nHöegh Evi and Petroleum Sarawak Berhad (PETROS) have announced a Joint Development Agreement to develop a floating LNG terminal in Sarawak, Malaysia.\n\nThis marks the start of a pre-FID development cycle that will require experienced FSRU, LNG terminal, and offshore project development professionals as the project progresses through FEED and toward sanction.\n\nGiven your background in [FSRU / LNG terminal / floating infrastructure], I'd love to explore whether you'd be open to hearing more as this opportunity develops.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named JDA between Höegh Evi (contractor/developer) and PETROS (state operator) for a floating LNG terminal in Sarawak — a discrete pre-FID project development event with clear future workforce demand.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article describes a Joint Development Agreement just entered into, indicating concept/pre-FEED stage with no FID announced.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "419444c5-0307-4410-a859-463c3a210c21",
+    "ingested_at": "2026-09-30T12:19:16.344Z",
+    "source_published_at": "2026-09-30T11:51:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/shell_greenlights_project_to_double_lng_canada_capacity-29-sep-2026-184730-article/?rss=true"
