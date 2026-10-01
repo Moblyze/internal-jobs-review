@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-09-30T18:16:21.979Z"
+    "last_updated_at": "2026-10-01T00:39:41.569Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -13850,6 +13850,66 @@
         "email": null,
         "phone": null,
         "location": "Calgary, AB, Canada"
+      }
+    ]
+  },
+  "borr drilling limited": {
+    "discovered_at": "2026-10-01T00:39:41.569Z",
+    "contacts": [
+      {
+        "name": "Karla Mothe",
+        "title": "Senior Vice President of Human Resources",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/karla-mothe-a1a8a741",
+        "source_url": "https://www.borrdrilling.com/about",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "United Kingdom"
+      },
+      {
+        "name": "Samantha Shiach",
+        "title": "Director, Human Resources Talent Acquisition & Development",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/samantha-shiach-32450b20",
+        "source_url": "https://www.datanyze.com/companies/borr-drilling/399460193",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Aberdeen, UK"
+      },
+      {
+        "name": "Harvey Snowling",
+        "title": "Chief Operating Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/harvey-snowling-5192071b",
+        "source_url": "https://finance.yahoo.com/quote/BORR/profile/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Kenneth Johnson",
+        "title": "Senior Vice President, Eastern Hemisphere",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/ken-johnson-246a3a14",
+        "source_url": "https://www.zoominfo.com/p/Kenneth-Johnson/3049849302",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Dubai, UAE"
+      },
+      {
+        "name": "Anna Cairns",
+        "title": "Global Human Resources Director",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/anna-cairns",
+        "source_url": "https://theorg.com/org/borr-drilling/teams/human-resources-and-legal",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "United Kingdom"
       }
     ]
   }
