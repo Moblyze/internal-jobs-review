@@ -2,6 +2,447 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/amplitude_energy_goes_ahead_with_east_coast_supply_project-01-oct-2026-184748-article/?rss=true"
+      }
+    ],
+    "headline": "Amplitude Energy Takes FID on East Coast Supply Project Off Victoria, Australia",
+    "body": "Amplitude Energy Ltd announced Wednesday a final investment decision (FID) to proceed with the East Coast Supply Project (ECSP) off the coast of Victoria in ...",
+    "url": "https://www.rigzone.com/news/amplitude_energy_goes_ahead_with_east_coast_supply_project-01-oct-2026-184748-article/?rss=true",
+    "published_at": "2026-10-01T13:15:35.000Z",
+    "hash": "70e9eb7b52950f25",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "marine_offshore_ops",
+      "process_plant_operations",
+      "pipeline_mechanical",
+      "industrial_construction"
+    ],
+    "signal_type": "fid",
+    "region": "australia-victoria",
+    "country": "australia",
+    "tldr": "Amplitude Energy has sanctioned the East Coast Supply Project (ECSP) offshore Victoria, triggering EPC and FEED-to-construction transition hiring. Recruiters should engage now ahead of engineering and construction ramp-up.",
+    "operator": {
+      "name": "Amplitude Energy Ltd",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "East Coast Supply Project (ECSP)",
+    "scope": [
+      "offshore_development",
+      "gas_supply"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Project Manager",
+        "Project Engineer",
+        "Offshore Construction Manager",
+        "FEED Engineer",
+        "Commissioning Manager",
+        "HSE Manager",
+        "Subsea Engineer",
+        "Pipeline Engineer",
+        "Planning Engineer",
+        "Procurement Manager"
+      ],
+      "skills": [
+        "offshore gas development",
+        "FID execution",
+        "FEED to EPC transition",
+        "subsea systems",
+        "pipeline design",
+        "offshore project management",
+        "commissioning"
+      ],
+      "certs_freetext": [
+        "OPITO",
+        "BOSIET",
+        "NOPSEMA compliance",
+        "IWCF"
+      ],
+      "geo_rtw": "Australia (right to work preferred; NOPSEMA regulatory environment)",
+      "project_experience": [
+        "Bass Strait",
+        "Otway Basin",
+        "Gippsland Basin",
+        "offshore Victoria gas projects"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior to Principal",
+      "boolean_search": "(\"offshore project manager\" OR \"commissioning manager\" OR \"FEED engineer\" OR \"subsea engineer\" OR \"pipeline engineer\" OR \"offshore construction manager\" OR \"HSE manager\") AND (\"offshore gas\" OR \"offshore development\" OR \"FID\" OR \"FEED\" OR \"EPC\") AND (\"Australia\" OR \"Victoria\" OR \"Bass Strait\" OR \"Otway\" OR \"Gippsland\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Amplitude Energy has just taken FID on the East Coast Supply Project off Victoria — engineering and construction roles are ramping. Your offshore background looks very relevant. Worth a quick chat?",
+      "email_subject": "FID Taken — Amplitude Energy East Coast Supply Project, Victoria Offshore",
+      "email_body": "Hi [Name],\n\nAmplitude Energy Ltd has just announced a Final Investment Decision (FID) on the East Coast Supply Project (ECSP) offshore Victoria, Australia — meaning engineering and construction hiring is imminent.\n\nGiven your background in [relevant discipline], I wanted to reach out before the roles go live. I'm working with clients active in this space and would love to understand your current availability and interest.\n\nAre you open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "FID announced by named operator (Amplitude Energy Ltd) for a named project (East Coast Supply Project) in offshore O&G off Victoria, Australia — a clear discrete labor-demand trigger.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Article states Amplitude Energy announced a 'final investment decision (FID) to proceed with the East Coast Supply Project' — FID marks transition from pre-sanction to sanctioned engineering.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "c1174914-5e0e-47eb-8e69-9baaac7ad028",
+    "ingested_at": "2026-10-01T18:15:50.333Z",
+    "source_published_at": "2026-10-01T13:15:35.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/onesubsea_to_deliver_production_systems_for_rovuma_lng-01-oct-2026-184753-article/?rss=true"
+      }
+    ],
+    "headline": "OneSubsea Wins Subsea Production Systems Contract from ExxonMobil for Rovuma LNG Phase 1",
+    "body": "OneSubsea said Wednesday it had received a contract from Exxon Mobil Corp to deliver subsea production systems for phase 1 of the planned Rovuma LNG project ...",
+    "url": "https://www.rigzone.com/news/onesubsea_to_deliver_production_systems_for_rovuma_lng-01-oct-2026-184753-article/?rss=true",
+    "published_at": "2026-10-01T15:37:27.000Z",
+    "hash": "7bfffa596abf5790",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "rov_subsea",
+      "process_plant_operations",
+      "marine_offshore_ops",
+      "industrial_construction"
+    ],
+    "signal_type": "epc_award",
+    "region": "east-africa",
+    "country": "mozambique",
+    "tldr": "OneSubsea has been awarded a contract by ExxonMobil to deliver subsea production systems for Rovuma LNG Phase 1, signalling an active engineering and supply chain ramp-up with nearterm hiring demand across subsea disciplines.",
+    "operator": {
+      "name": "ExxonMobil",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "OneSubsea",
+      "matched_company_slug": null
+    },
+    "project_name": "Rovuma LNG Phase 1",
+    "scope": [
+      "subsea_production_systems",
+      "subsea_epc"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Subsea Systems Engineer",
+        "Subsea Project Engineer",
+        "Subsea Package Manager",
+        "Subsea Production Engineer",
+        "Subsea Interface Engineer",
+        "Subsea Controls Engineer",
+        "Subsea Commissioning Engineer",
+        "Project Manager – Subsea Systems",
+        "Subsea Installation Engineer",
+        "Flow Assurance Engineer"
+      ],
+      "skills": [
+        "subsea production systems",
+        "SURF",
+        "subsea controls",
+        "flow assurance",
+        "LNG subsea",
+        "subsea trees",
+        "manifolds",
+        "umbilicals",
+        "deepwater",
+        "FEED to EPC"
+      ],
+      "certs_freetext": [
+        "BOSIET",
+        "OPITO offshore survival",
+        "GWO",
+        "CSWIP subsea inspection"
+      ],
+      "geo_rtw": "EU/UK/US/Australian passport holders eligible; Mozambique work permit required",
+      "project_experience": [
+        "Coral Sul FLNG",
+        "Mozambique LNG",
+        "Scarborough",
+        "Greater Tortue Ahmeyim",
+        "Sapinhoa",
+        "Johan Sverdrup"
+      ],
+      "yoe_band": "8-18",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"subsea production systems\" OR \"subsea systems engineer\" OR \"subsea project engineer\" OR \"subsea package manager\" OR \"subsea controls\") AND (\"LNG\" OR \"deepwater\" OR \"SURF\" OR \"flow assurance\" OR \"subsea trees\" OR \"manifolds\") AND (\"OneSubsea\" OR \"TechnipFMC\" OR \"Baker Hughes\" OR \"SLB\" OR \"Aker Solutions\" OR \"Subsea 7\") AND (\"Mozambique\" OR \"East Africa\" OR \"deepwater\" OR \"FEED\" OR \"EPC\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], OneSubsea just secured the subsea production systems contract for ExxonMobil's Rovuma LNG Phase 1. With engineering ramping now, there'll be strong demand for experienced subsea systems engineers. Would you be open to a quick chat about opportunities on this project?",
+      "email_subject": "Rovuma LNG Phase 1 – Subsea Systems Roles Now Opening (OneSubsea / ExxonMobil)",
+      "email_body": "Hi [Name],\n\nOneSubsea has just been awarded the subsea production systems contract by ExxonMobil for Phase 1 of the Rovuma LNG project in Mozambique — one of the most significant deepwater LNG developments in East Africa.\n\nWith the contract now in hand, detailed engineering is expected to ramp up in the near term, creating demand for experienced professionals across subsea systems, controls, flow assurance, and project management disciplines.\n\nGiven your background in [relevant subsea discipline], I thought this could be a strong fit. I'd welcome a brief call to discuss how your experience aligns with what OneSubsea will be looking for.\n\nAre you available for a 15-minute call this week or next?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "EPC contract award naming OneSubsea as contractor and ExxonMobil as operator for Rovuma LNG Phase 1 subsea production systems — clear workforce demand signal.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Contract has been awarded to OneSubsea to deliver subsea production systems for Phase 1, indicating post-FID engineering execution is commencing.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "aedacb0a-e8b7-4d51-acf0-b0b060a0da68",
+    "ingested_at": "2026-10-01T18:15:50.333Z",
+    "source_published_at": "2026-10-01T15:37:27.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/hinkley-point-c-completes-620-metre-tunnel-for-fish"
+      }
+    ],
+    "headline": "Hinkley Point C Completes 620m Fish Return Tunnel — Construction Milestone",
+    "body": "A tunnel boring machine has finished digging a 620-metre tunnel which will form part of Hinkley Point C's system for returning fish to the sea.",
+    "url": "https://www.world-nuclear-news.org/articles/hinkley-point-c-completes-620-metre-tunnel-for-fish",
+    "published_at": "2026-10-01T08:02:22.000Z",
+    "hash": "7706eae74628bbe4",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction"
+    ],
+    "signal_type": "epc_award",
+    "region": "uk",
+    "country": "united_kingdom",
+    "tldr": "A tunnel boring machine has completed a 620-metre tunnel at Hinkley Point C, marking an active construction milestone at the UK's flagship nuclear new-build. Continued trades and specialist labor demand expected as construction progresses.",
+    "operator": {
+      "name": "EDF Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Hinkley Point C",
+    "scope": [
+      "civil_works",
+      "tunnelling"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Tunnel Engineer",
+        "Civil Construction Supervisor",
+        "Construction Manager",
+        "HSE Advisor",
+        "Mechanical Completion Engineer",
+        "Site Engineer"
+      ],
+      "skills": [
+        "tunnel boring",
+        "civil construction",
+        "nuclear new-build",
+        "underground works",
+        "site supervision"
+      ],
+      "certs_freetext": [
+        "CSCS",
+        "EUSR Nuclear",
+        "SMSTS",
+        "CCNSG Safety Passport"
+      ],
+      "geo_rtw": "UK right-to-work",
+      "project_experience": [
+        "Sizewell C",
+        "Wylfa Newydd",
+        "Crossrail",
+        "HS2",
+        "Thames Tideway"
+      ],
+      "yoe_band": "7-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"tunnel\" OR \"TBM\" OR \"civil construction\" OR \"nuclear construction\") AND (\"Hinkley\" OR \"nuclear new build\" OR \"EDF\") AND (\"construction manager\" OR \"site engineer\" OR \"civil engineer\" OR \"HSE advisor\") AND (\"CSCS\" OR \"CCNSG\" OR \"EUSR\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Hinkley Point C just hit a key civil works milestone — tunnelling complete, construction ramping. Are you open to roles on one of the UK's largest nuclear new-builds? Happy to share details.",
+      "email_subject": "Hinkley Point C — Civil & Construction Roles as Project Ramps",
+      "email_body": "Hi [Name],\n\nHinkley Point C has just completed a major civil works milestone with the finish of its 620-metre fish return tunnel. As construction continues to ramp at this landmark UK nuclear new-build project, demand for experienced construction and engineering professionals is increasing.\n\nIf you have nuclear or major infrastructure construction experience and are open to new opportunities, I'd love to connect and discuss what's available on-site.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Active construction milestone at named nuclear new-build project (Hinkley Point C), confirming ongoing construction-phase labor demand.",
+    "phase": "construction",
+    "phase_evidence": "Article states a tunnel boring machine has finished digging, confirming active civil construction works underway at Hinkley Point C.",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "00418320-6e8d-4da5-88e6-d9f3572d0ff1",
+    "ingested_at": "2026-10-01T18:15:50.333Z",
+    "source_published_at": "2026-10-01T08:02:22.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager",
+      "hr_business_partner",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/usa-south-korea-targeting-six-ap1000-two-apr1400-units"
+      }
+    ],
+    "headline": "US DoC Outlines $120B Framework for Six AP1000 and Two APR1400 Nuclear Units in USA",
+    "body": "A USD120 billion framework agreement to build six Westinghouse AP1000 units and two of South Korea's APR1400 units in the USA has been outlined by the US Department of Commerce.",
+    "url": "https://www.world-nuclear-news.org/articles/usa-south-korea-targeting-six-ap1000-two-apr1400-units",
+    "published_at": "2026-10-01T12:08:45.000Z",
+    "hash": "38294be80fb1dd10",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "fid",
+    "region": "usa",
+    "country": "united_states",
+    "tldr": "The US Department of Commerce has outlined a $120B framework agreement to build six Westinghouse AP1000 and two APR1400 units in the USA, signalling a major future nuclear construction workforce ramp-up. No FID or EPC contract has been awarded yet; projects remain pre-sanction.",
+    "operator": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Westinghouse Electric Company",
+      "matched_company_slug": null
+    },
+    "project_name": "US AP1000 / APR1400 Nuclear Build Programme",
+    "scope": [
+      "nuclear_island_construction",
+      "civil_works",
+      "turbine_island",
+      "epc_planning"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 120000000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Construction Manager",
+        "Civil Construction Superintendent",
+        "Nuclear Project Manager",
+        "Reactor Systems Engineer",
+        "Mechanical Superintendent",
+        "Electrical Superintendent",
+        "Nuclear QA/QC Manager",
+        "HVAC Superintendent",
+        "Nuclear HSE Manager",
+        "Commissioning Engineer"
+      ],
+      "skills": [
+        "AP1000 reactor construction",
+        "APR1400 reactor construction",
+        "nuclear quality assurance",
+        "nuclear safety culture",
+        "large-scale civil construction",
+        "mechanical erection",
+        "electrical installation",
+        "nuclear commissioning",
+        "NRC regulatory compliance",
+        "schedule planning"
+      ],
+      "certs_freetext": [
+        "10 CFR 50 qualification",
+        "ASME N-stamp",
+        "OSHA 30 Construction",
+        "PMP",
+        "CWI (AWS Certified Welding Inspector)"
+      ],
+      "geo_rtw": "USA work-authorized",
+      "project_experience": [
+        "Vogtle Units 3 & 4",
+        "VC Summer",
+        "Hinkley Point C",
+        "Barakah Nuclear Power Plant",
+        "Shin Hanul"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal",
+      "boolean_search": "(\"AP1000\" OR \"APR1400\" OR \"nuclear construction\" OR \"reactor construction\") AND (\"construction manager\" OR \"project manager\" OR \"superintendent\" OR \"commissioning engineer\" OR \"QA manager\" OR \"HSE manager\") AND (\"Westinghouse\" OR \"Vogtle\" OR \"nuclear power plant\" OR \"pressurized water reactor\" OR \"PWR\") AND (\"ASME\" OR \"NRC\" OR \"10 CFR\" OR \"nuclear quality\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], the US DoC has outlined a $120B framework for 8 new nuclear units (AP1000 & APR1400) in the USA — one of the largest nuclear build programmes in decades. With your background in nuclear construction, you could be well-positioned early. Worth a conversation?",
+      "email_subject": "US $120B Nuclear Build Programme — Early Talent Mapping (AP1000/APR1400)",
+      "email_body": "Hi [Name],\n\nThe US Department of Commerce has outlined a $120 billion framework agreement to construct six Westinghouse AP1000 units and two APR1400 units across the United States — a programme that will require deep nuclear construction expertise at every level.\n\nWhile formal EPC contracts have not yet been awarded, we are proactively mapping experienced nuclear construction professionals — Construction Managers, Superintendents, QA/QC leads, and Commissioning Engineers — ahead of what is expected to be a significant workforce ramp-up.\n\nGiven your experience on [relevant project], I'd welcome a brief call to understand your availability and interest as this programme matures.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Framework agreement naming Westinghouse (contractor/technology provider) and the US Government for eight named reactor units represents a discrete nuclear workforce-demand signal at pre-sanction stage.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article describes a 'framework agreement outlined' by the US Department of Commerce — no FID, EPC award, or construction contract has been issued.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "7c1311ba-9984-4074-a2bd-431b96fc1d2f",
+    "ingested_at": "2026-10-01T18:15:50.333Z",
+    "source_published_at": "2026-10-01T12:08:45.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/borr-drilling-limited--contracting-updates-302895008.html"
@@ -13348,219 +13789,6 @@
       "site_manager",
       "hiring_manager",
       "project_manager"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/exxonmobil_qatarenergy_affirm_commerciality_of_cyprus_discoveries-03-jul-2026-184052-article/?rss=true"
-      }
-    ],
-    "headline": "ExxonMobil & QatarEnergy Declare Commerciality on Two Cyprus Block 10 Discoveries",
-    "body": "QatarEnergy and Exxon Mobil Corp have signed a \"commercial discovery declaration\" with the Cypriot government for two discoveries in Block 10 in the Mediterr...",
-    "url": "https://www.rigzone.com/news/exxonmobil_qatarenergy_affirm_commerciality_of_cyprus_discoveries-03-jul-2026-184052-article/?rss=true",
-    "published_at": "2026-07-03T09:23:25.000Z",
-    "hash": "4fc5c6e391507a28",
-    "subsector": "offshore-og",
-    "discipline_tags": [
-      "drilling_operations",
-      "survey_geophysical",
-      "rov_subsea",
-      "marine_offshore_ops"
-    ],
-    "signal_type": "lease_round",
-    "region": "eastern-mediterranean",
-    "country": "cyprus",
-    "tldr": "ExxonMobil and QatarEnergy have formally declared commercial discoveries on Block 10 offshore Cyprus, signalling progression toward FEED/FID and future development hiring activity. Workforce demand likely 12+ months out pending field development plan approval.",
-    "operator": {
-      "name": "ExxonMobil",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Block 10, Cyprus",
-    "scope": [
-      "commercial_discovery_declaration",
-      "field_development_planning"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Subsea Development Engineer",
-        "Reservoir Engineer",
-        "Field Development Planner",
-        "Offshore Project Manager",
-        "FEED Manager",
-        "Subsea Conceptual Engineer"
-      ],
-      "skills": [
-        "field development planning",
-        "deepwater subsea",
-        "FEED",
-        "reservoir engineering",
-        "Mediterranean offshore",
-        "gas development"
-      ],
-      "certs_freetext": [
-        "OPITO BOSIET",
-        "IWCF",
-        "GWO"
-      ],
-      "geo_rtw": "EU/EEA or Cyprus work-eligible",
-      "project_experience": [
-        "Aphrodite Gas Field",
-        "Calypso Cyprus",
-        "Leviathan",
-        "Zohr"
-      ],
-      "yoe_band": "10-20",
-      "seniority": "Senior / Lead",
-      "boolean_search": "(\"field development\" OR \"FEED\" OR \"subsea development\") AND (\"deepwater\" OR \"offshore gas\") AND (\"Mediterranean\" OR \"Cyprus\" OR \"Eastern Mediterranean\") AND (\"ExxonMobil\" OR \"QatarEnergy\" OR \"Block 10\") AND (\"reservoir engineer\" OR \"development engineer\" OR \"project manager\" OR \"subsea engineer\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], ExxonMobil & QatarEnergy have declared commerciality on Cyprus Block 10 — FEED and development planning are likely next. With your deepwater/subsea background, you could be well positioned as this moves forward. Open to a quick chat?",
-      "email_subject": "Cyprus Block 10 — ExxonMobil/QatarEnergy Development on the Horizon",
-      "email_body": "Hi [Name],\n\nExxonMobil and QatarEnergy have formally declared commercial discoveries on Block 10 offshore Cyprus, signing a declaration with the Cypriot government. This signals the project is advancing toward FEED and eventual FID, with development engineering roles likely to open over the next 12+ months.\n\nGiven your experience in deepwater/offshore gas development, I wanted to flag this early — these mandates tend to move quickly once FEED is awarded.\n\nWould you be open to a brief conversation about how your profile aligns with where this project is heading?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Commercial discovery declaration on a named block (Block 10, Cyprus) by named operators ExxonMobil and QatarEnergy signals progression toward FID and future workforce demand in offshore O&G.",
-    "phase": "pre_sanction",
-    "phase_evidence": "Article describes a 'commercial discovery declaration' with the Cypriot government — a pre-FID milestone preceding FEED and project sanction.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "c6684a2b-5d46-4eac-86f6-20b799d8c266",
-    "ingested_at": "2026-07-03T12:41:30.590Z",
-    "source_published_at": "2026-07-03T09:23:25.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/woodside_assumes_operatorship_of_aussie_gas_assets_from_exxonmobil-03-jul-2026-184053-article/?rss=true"
-      }
-    ],
-    "headline": "Woodside Assumes Operatorship of Gippsland Basin & Kipper Unit JVs from ExxonMobil",
-    "body": "Exxon Mobil Corp has completed the transfer of operatorship of the Gippsland Basin Joint Venture (GBJV) and Kipper Unit Joint Venture (KUJV) to Woodside Ener...",
-    "url": "https://www.rigzone.com/news/woodside_assumes_operatorship_of_aussie_gas_assets_from_exxonmobil-03-jul-2026-184053-article/?rss=true",
-    "published_at": "2026-07-03T10:53:40.000Z",
-    "hash": "3c3fbde469bfb3a5",
-    "subsector": "offshore-og",
-    "discipline_tags": [
-      "marine_offshore_ops",
-      "process_plant_operations",
-      "drilling_operations"
-    ],
-    "signal_type": "regulatory",
-    "region": "australia",
-    "country": "australia",
-    "tldr": "ExxonMobil has completed the transfer of operatorship of the GBJV and KUJV to Woodside Energy, triggering an operator change-of-control at two producing Australian offshore gas assets. This creates near-term demand for Woodside-aligned operations and maintenance personnel.",
-    "operator": {
-      "name": "Woodside Energy",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Woodside Energy",
-      "matched_company_slug": null
-    },
-    "project_name": "Gippsland Basin Joint Venture / Kipper Unit Joint Venture",
-    "scope": [
-      "operator_transition",
-      "asset_operations",
-      "maintenance"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Operations Manager",
-        "Asset Manager",
-        "Production Supervisor",
-        "Offshore Installation Manager",
-        "Maintenance Superintendent",
-        "Process Engineer",
-        "Rotating Equipment Engineer",
-        "Instrumentation & Control Technician",
-        "HSE Manager",
-        "Wells Engineer"
-      ],
-      "skills": [
-        "offshore gas operations",
-        "asset management",
-        "production operations",
-        "operator transition",
-        "CMMS",
-        "maintenance planning",
-        "Gippsland Basin",
-        "HSSE"
-      ],
-      "certs_freetext": [
-        "OPITO BOSIET",
-        "HUET",
-        "Offshore Medical",
-        "Australian Gas Safety"
-      ],
-      "geo_rtw": "Australia — right to work required",
-      "project_experience": [
-        "Gippsland Basin Joint Venture",
-        "Kipper Unit Joint Venture",
-        "Bass Strait",
-        "North West Shelf",
-        "Pluto LNG",
-        "Scarborough"
-      ],
-      "yoe_band": "8-20",
-      "seniority": "mid-senior",
-      "boolean_search": "(\"Gippsland Basin\" OR \"Kipper Unit\" OR \"Bass Strait\" OR \"offshore gas\" OR \"offshore operations\") AND (\"Operations Manager\" OR \"Asset Manager\" OR \"Offshore Installation Manager\" OR \"Maintenance Superintendent\" OR \"Production Supervisor\" OR \"Wells Engineer\" OR \"Process Engineer\") AND (\"Woodside\" OR \"ExxonMobil\" OR \"ESSO Australia\" OR \"BHP\" OR \"offshore Australia\") AND (\"operator transition\" OR \"asset operations\" OR \"production operations\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Woodside Energy has just assumed operatorship of the Gippsland Basin & Kipper Unit JVs from ExxonMobil — they'll be building out their ops team. Your offshore Australia background looks highly relevant. Worth a quick chat?",
-      "email_subject": "Woodside Operatorship of Gippsland Basin — Ops Roles Opening Up",
-      "email_body": "Hi [Name],\n\nWoodside Energy has just completed the transfer of operatorship of the Gippsland Basin Joint Venture and Kipper Unit Joint Venture from ExxonMobil. Operator transitions of this scale typically drive rapid resourcing activity as the incoming operator builds or reorients its operations and maintenance team on-asset.\n\nGiven your background in [offshore gas operations / asset management / maintenance], I wanted to reach out to see if you'd be open to exploring what Woodside may be looking for as they stand up their new operating model across these assets.\n\nHappy to share more detail — are you available for a brief call this week?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Operator change-of-control at named offshore gas assets (GBJV and KUJV) with Woodside assuming operatorship from ExxonMobil — a qualifying workforce-demand event per BD criteria.",
-    "phase": "operating",
-    "phase_evidence": "The assets are existing producing joint ventures (Gippsland Basin JV and Kipper Unit JV) with operatorship being transferred, indicating ongoing production operations.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "1-3mo",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "cbcc1a76-d1b0-4c6d-80ec-ed0aaf415c1d",
-    "ingested_at": "2026-07-03T12:41:30.590Z",
-    "source_published_at": "2026-07-03T10:53:40.000Z",
-    "contact_archetypes": [
-      "ops_director",
-      "hiring_manager"
     ],
     "prompt_version": "phase-targeting-v1.2"
   }

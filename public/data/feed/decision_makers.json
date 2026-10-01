@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-10-01T00:39:41.569Z"
+    "last_updated_at": "2026-10-01T18:18:22.889Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -13910,6 +13910,186 @@
         "email": null,
         "phone": null,
         "location": "United Kingdom"
+      }
+    ]
+  },
+  "amplitude energy ltd": {
+    "discovered_at": "2026-10-01T18:18:22.889Z",
+    "contacts": [
+      {
+        "name": "Chad Wilson",
+        "title": "Chief Operating Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/chad-wilson-96a01a5b",
+        "source_url": "https://amplitudeenergy.com.au/about/management/chief-operating-officer",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Adelaide, Australia"
+      },
+      {
+        "name": "Nathan Childs",
+        "title": "Chief Corporate Services Officer",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/nathan-childs-82686776",
+        "source_url": "https://amplitudeenergy.com.au/about/management/chief-corporate-services-officer",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Norwood, South Australia, Australia"
+      },
+      {
+        "name": "Dean Johnson",
+        "title": "Operations Manager",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://stockanalysis.com/quote/asx/AEL/company/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Ilija Grgic",
+        "title": "OGPP Transition Manager",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://stockanalysis.com/quote/asx/AEL/company/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Jane Norman",
+        "title": "Managing Director and CEO",
+        "persona": "other",
+        "linkedin_url": null,
+        "source_url": "https://amplitudeenergy.com.au/about/management",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Adelaide, South Australia, Australia"
+      }
+    ]
+  },
+  "onesubsea": {
+    "discovered_at": "2026-10-01T18:18:22.889Z",
+    "contacts": [
+      {
+        "name": "Joana Pereira",
+        "title": "HR Director",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/joana-pereira-b0064785",
+        "source_url": "https://www.onesubsea.slb.com/about/leadership",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Hakan Eser",
+        "title": "Vice President, Subsea Lifecycle Services",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/hakan-eser-48430214",
+        "source_url": "https://www.onesubsea.slb.com/about/leadership",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Gary Archer",
+        "title": "Vice President, Subsea Production Systems",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/gary-archer-8157a237",
+        "source_url": "https://www.onesubsea.slb.com/about/leadership",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Maria Peralta",
+        "title": "Vice President, Subsea Production Systems (Norway)",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/mariajjperalta",
+        "source_url": "https://www.onesubsea.slb.com/about/leadership",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Oslo, Norway"
+      },
+      {
+        "name": "Mads Hjelmeland",
+        "title": "Chief Executive Officer",
+        "persona": "other",
+        "linkedin_url": null,
+        "source_url": "https://www.onesubsea.slb.com/about/leadership",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      }
+    ]
+  },
+  "westinghouse electric company": {
+    "discovered_at": "2026-10-01T18:18:22.889Z",
+    "contacts": [
+      {
+        "name": "Annie Livingston",
+        "title": "Senior Director, Global Talent Acquisition",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/annie-livingston-884427",
+        "source_url": "https://www.zoominfo.com/p/Annie-Livingston/2329245079",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Pittsburgh, PA, USA"
+      },
+      {
+        "name": "Robert Bruns",
+        "title": "Talent Acquisition - Nuclear Services",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/robert-bruns-3a77441",
+        "source_url": "https://www.zoominfo.com/p/Robert-Bruns/88965993",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Cranberry Township, PA, USA"
+      },
+      {
+        "name": "Anne M. Naqi",
+        "title": "Interim Chief Human Resources Officer",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/anne-m-naqi-83963b4",
+        "source_url": "https://rocketreach.co/westinghouse-electric-company-management_b5c495dbf42e0dc8",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Canonsburg, PA, USA"
+      },
+      {
+        "name": "Ron Timperio",
+        "title": "Chief Operating Officer & Executive Vice President, Global Operations Services",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/ronaldtimperio",
+        "source_url": "https://info.westinghousenuclear.com/news/westinghouse-announces-executive-management-appointments-april-2024",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Marie Blanc",
+        "title": "President, Outage & Maintenance Services",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/marie-blanc-658ba810",
+        "source_url": "https://westinghousenuclear.com/media/zmrppnkl/wec_bio_marieblanc_dec2024.pdf",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Zurich, Switzerland"
       }
     ]
   }
