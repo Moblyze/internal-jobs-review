@@ -1,5 +1,90 @@
 [
   {
+    "id": "6e4739af-9f1c-4a9b-a4aa-2a186265da1a",
+    "ingested_at": "2026-10-02T18:15:41.065Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/second-part-of-construction-permit-application-submitted-for-pioneer-smrs"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-midwest",
+    "country": "united_states",
+    "headline": "Holtec Submits Preliminary Safety Analysis Report for Two SMRs at Palisades, Michigan",
+    "operator": {
+      "name": "Holtec",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Holtec",
+      "matched_company_slug": null
+    },
+    "project_name": "Palisades Energy Center SMR Units",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
+    "id": "c52725c5-b859-4b0a-9f98-cd92b740fb7a",
+    "ingested_at": "2026-10-02T18:15:41.065Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/kghm-south32-kick-off-725m-sierra-gorda-expansion/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "chile",
+    "country": "chile",
+    "headline": "KGHM & South32 Sanction $725M Sierra Gorda Copper Mine Expansion – Construction 2027",
+    "operator": {
+      "name": "KGHM / South32",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Sierra Gorda Expansion",
+    "mob_window": {
+      "start": "2027-Q1",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 725000000,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "a494b348-b051-4221-9092-f610440a66a5",
     "ingested_at": "2026-10-02T12:18:50.261Z",
     "sources": [

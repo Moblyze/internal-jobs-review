@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-10-02T12:20:23.871Z"
+    "last_updated_at": "2026-10-02T18:17:25.532Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -14150,6 +14150,126 @@
         "email": null,
         "phone": null,
         "location": "United Kingdom"
+      }
+    ]
+  },
+  "holtec": {
+    "discovered_at": "2026-10-02T18:17:25.532Z",
+    "contacts": [
+      {
+        "name": "Jack Johnston",
+        "title": "Director - Human Resources",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/jack-johnston-4b33404",
+        "source_url": "https://contactout.com/Jack-Johnston-10632",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Pittsburgh, PA, USA"
+      },
+      {
+        "name": "Paul C. McInerney",
+        "title": "Recruiter",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/paulmcinerney",
+        "source_url": "https://theorg.com/org/holtec-international/org-chart/paul-c-mcinerney",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Haddonfield, NJ, USA"
+      },
+      {
+        "name": "Arlenne Franchesca Schweiger",
+        "title": "Human Resources / Full-Cycle Recruitment",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/arlenne-franchesca-schweiger-622b7373",
+        "source_url": "https://www.linkedin.com/in/arlenne-franchesca-schweiger-622b7373",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Steven Soler",
+        "title": "Senior Vice President, Holtec Decommissioning International & Executive in Charge of Palisades Restart",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/steven-soler-b3128930",
+        "source_url": "https://holtecinternational.com/company/leadership/corporate-leadership/steven-soler/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Jupiter, FL, USA"
+      },
+      {
+        "name": "Michael P. McNamara",
+        "title": "Vice President Construction, Holtec Government Services",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/michael-p-mcnamara-1a12b511",
+        "source_url": "https://theorg.com/org/holtec-international/org-chart/michael-p-mcnamara",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Camden, NJ, USA"
+      }
+    ]
+  },
+  "kghm / south32": {
+    "discovered_at": "2026-10-02T18:17:25.532Z",
+    "contacts": [
+      {
+        "name": "Katie Tovich",
+        "title": "Chief Human Resources & Commercial Officer",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/katie-tovich-3b3b4327",
+        "source_url": "https://www.south32.net/about-us/our-board-and-lead-team",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Perth, Australia"
+      },
+      {
+        "name": "Leigh Bigg",
+        "title": "Vice President Human Resources",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/leigh-bigg-3436671",
+        "source_url": "https://theorg.com/org/south32/org-chart/leigh-bigg",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Perth, Australia"
+      },
+      {
+        "name": "Yvonne Daisley",
+        "title": "Specialist Talent Acquisition",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/yvonne-daisley-81462b54",
+        "source_url": "https://www.signalhire.com/companies/south32/employees",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Perth, Australia"
+      },
+      {
+        "name": "Magdalena Lipińska",
+        "title": "HR Managing Department Director (Dyrektor Departamentu Kadr)",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://kghm.com/en/contact-0",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Lubin, Poland"
+      },
+      {
+        "name": "John Haynes",
+        "title": "Head of Operations & Development",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/john-haynes-pe-b0560111",
+        "source_url": "https://theorg.com/org/kghm-international/org-chart/john-haynes",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Greater Phoenix Area, AZ, USA"
       }
     ]
   }
