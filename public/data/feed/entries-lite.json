@@ -1,5 +1,49 @@
 [
   {
+    "id": "aedacb0a-e8b7-4d51-acf0-b0b060a0da68",
+    "ingested_at": "2026-10-01T18:15:50.333Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/onesubsea_to_deliver_production_systems_for_rovuma_lng-01-oct-2026-184753-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "rov_subsea",
+      "process_plant_operations",
+      "marine_offshore_ops",
+      "industrial_construction"
+    ],
+    "signal_type": "epc_award",
+    "region": "east-africa",
+    "country": "mozambique",
+    "headline": "OneSubsea Wins Subsea Production Systems Contract from ExxonMobil for Rovuma LNG Phase 1",
+    "operator": {
+      "name": "ExxonMobil",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "OneSubsea",
+      "matched_company_slug": null
+    },
+    "project_name": "Rovuma LNG Phase 1",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": []
+  },
+  {
     "id": "c1174914-5e0e-47eb-8e69-9baaac7ad028",
     "ingested_at": "2026-10-01T18:15:50.333Z",
     "sources": [
@@ -42,50 +86,6 @@
     "decom_stage": null,
     "outreach_readiness": "warming",
     "estimated_hiring_window": "6-12mo",
-    "key_people": []
-  },
-  {
-    "id": "aedacb0a-e8b7-4d51-acf0-b0b060a0da68",
-    "ingested_at": "2026-10-01T18:15:50.333Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/onesubsea_to_deliver_production_systems_for_rovuma_lng-01-oct-2026-184753-article/?rss=true"
-      }
-    ],
-    "subsector": "offshore-og",
-    "discipline_tags": [
-      "rov_subsea",
-      "process_plant_operations",
-      "marine_offshore_ops",
-      "industrial_construction"
-    ],
-    "signal_type": "epc_award",
-    "region": "east-africa",
-    "country": "mozambique",
-    "headline": "OneSubsea Wins Subsea Production Systems Contract from ExxonMobil for Rovuma LNG Phase 1",
-    "operator": {
-      "name": "ExxonMobil",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "OneSubsea",
-      "matched_company_slug": null
-    },
-    "project_name": "Rovuma LNG Phase 1",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "sanctioned_engineering",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "3-6mo",
     "key_people": []
   },
   {
@@ -474,6 +474,48 @@
     "key_people": []
   },
   {
+    "id": "9dd973ef-e98b-44c3-a5e4-96e9a456a411",
+    "ingested_at": "2026-09-28T18:15:13.200Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/montage-pours-first-gold-at-kone-ahead-of-schedule/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "epc_award",
+    "region": "west-africa",
+    "country": "cote_divoire",
+    "headline": "Montage Pours First Gold at Koné Mine Ahead of Schedule — Commercial Production Targeted Year-End",
+    "operator": {
+      "name": "Montage Gold",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Montage Gold",
+      "matched_company_slug": null
+    },
+    "project_name": "Koné Gold Mine",
+    "mob_window": {
+      "start": "2025-Q2",
+      "end": "2025-Q4",
+      "duration_months": 6
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "commissioning",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": []
+  },
+  {
     "id": "981eb60a-427d-44fc-b4b4-ef1fb41bda04",
     "ingested_at": "2026-09-28T18:15:13.200Z",
     "sources": [
@@ -516,48 +558,6 @@
     "decom_stage": null,
     "outreach_readiness": "warming",
     "estimated_hiring_window": "6-12mo",
-    "key_people": []
-  },
-  {
-    "id": "9dd973ef-e98b-44c3-a5e4-96e9a456a411",
-    "ingested_at": "2026-09-28T18:15:13.200Z",
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/montage-pours-first-gold-at-kone-ahead-of-schedule/"
-      }
-    ],
-    "subsector": "mining",
-    "discipline_tags": [
-      "process_plant_operations",
-      "industrial_construction"
-    ],
-    "signal_type": "epc_award",
-    "region": "west-africa",
-    "country": "cote_divoire",
-    "headline": "Montage Pours First Gold at Koné Mine Ahead of Schedule — Commercial Production Targeted Year-End",
-    "operator": {
-      "name": "Montage Gold",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Montage Gold",
-      "matched_company_slug": null
-    },
-    "project_name": "Koné Gold Mine",
-    "mob_window": {
-      "start": "2025-Q2",
-      "end": "2025-Q4",
-      "duration_months": 6
-    },
-    "contract_value_usd": null,
-    "phase": "construction",
-    "construction_subphase": "commissioning",
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "1-3mo",
     "key_people": []
   },
   {
@@ -5371,91 +5371,6 @@
     "decom_stage": null,
     "outreach_readiness": "warming",
     "estimated_hiring_window": "6-12mo",
-    "key_people": []
-  },
-  {
-    "id": "f496a1d0-e4ca-45be-9732-3b473d9e4e4c",
-    "ingested_at": "2026-07-03T18:30:43.302Z",
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/canadian-govt-commits-352m-to-red-chris-mine-expansion-in-british-columbia/"
-      }
-    ],
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades"
-    ],
-    "signal_type": "regulatory",
-    "region": "british-columbia-canada",
-    "country": "canada",
-    "headline": "Canadian Gov't Commits $352M to Red Chris Mine Expansion in British Columbia",
-    "operator": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Red Chris Mine Expansion",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": 352000000,
-    "phase": "sanctioned_engineering",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": []
-  },
-  {
-    "id": "e188de34-967e-4826-8182-01343fbd1efa",
-    "ingested_at": "2026-07-03T18:30:43.302Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/palisades-enters-final-stage-of-work-before-restart"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "process_plant_operations",
-      "ndt_inspection",
-      "industrial_construction"
-    ],
-    "signal_type": "regulatory",
-    "region": "us-midwest",
-    "country": "united_states",
-    "headline": "Holtec Palisades Nuclear Plant Enters Final Pre-Restart Commissioning Phase",
-    "operator": {
-      "name": "Holtec International",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Holtec International",
-      "matched_company_slug": null
-    },
-    "project_name": "Palisades Nuclear Plant Restart",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "construction",
-    "construction_subphase": "commissioning",
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "1-3mo",
     "key_people": []
   }
 ]
