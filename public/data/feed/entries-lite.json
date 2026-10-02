@@ -1,5 +1,92 @@
 [
   {
+    "id": "a494b348-b051-4221-9092-f610440a66a5",
+    "ingested_at": "2026-10-02T12:18:50.261Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/chevron_replenishes_exploration_stake_in_namibian_orange_basin-02-oct-2026-184756-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "survey_geophysical",
+      "rov_subsea",
+      "marine_offshore_ops"
+    ],
+    "signal_type": "lease_round",
+    "region": "offshore-namibia",
+    "country": "namibia",
+    "headline": "Chevron Acquires Custos Energy Stake in PEL 90 Offshore Namibia Orange Basin",
+    "operator": {
+      "name": "Chevron Corp",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Chevron Corp",
+      "matched_company_slug": null
+    },
+    "project_name": "PEL 90 – Orange Basin, Namibia",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
+    "id": "4c6983ee-0d2a-4e1f-a00b-5ff268b7ba90",
+    "ingested_at": "2026-10-02T12:18:50.261Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/hinkley-pointb-second-agr-transferred-for-decommissioning"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "ndt_inspection"
+    ],
+    "signal_type": "decom",
+    "region": "uk-england",
+    "country": "united_kingdom",
+    "headline": "Hinkley Point B Nuclear Station Transfers to NDA for Decommissioning",
+    "operator": {
+      "name": "Nuclear Decommissioning Authority",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Nuclear Decommissioning Authority",
+      "matched_company_slug": null
+    },
+    "project_name": "Hinkley Point B Decommissioning",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": null,
+    "construction_subphase": null,
+    "lifecycle_track": "decommissioning",
+    "decom_stage": "planning",
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
     "id": "aedacb0a-e8b7-4d51-acf0-b0b060a0da68",
     "ingested_at": "2026-10-01T18:15:50.333Z",
     "sources": [

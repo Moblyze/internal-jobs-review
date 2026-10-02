@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-10-01T18:18:22.889Z"
+    "last_updated_at": "2026-10-02T12:20:23.871Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -14090,6 +14090,66 @@
         "email": null,
         "phone": null,
         "location": "Zurich, Switzerland"
+      }
+    ]
+  },
+  "nuclear decommissioning authority": {
+    "discovered_at": "2026-10-02T12:20:23.871Z",
+    "contacts": [
+      {
+        "name": "David Vineall",
+        "title": "Group Chief People Officer",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/davidvineall",
+        "source_url": "https://www.gov.uk/government/organisations/nuclear-decommissioning-authority/about/our-governance",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Moor Row, Cumbria, UK"
+      },
+      {
+        "name": "Kath Dunne",
+        "title": "Head of Group Talent and Mobility",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/kath-dunne-fcipd-a376556b",
+        "source_url": "https://hrtoday.in/kath-dunne-appointed-as-head-of-group-talent-and-mobility-at-nuclear-decommissioning-authority/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Witham, UK"
+      },
+      {
+        "name": "Alan Cumming",
+        "title": "Group Chief Assurance and Performance Officer",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.gov.uk/government/organisations/nuclear-decommissioning-authority/about/our-governance",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Moor Row, Cumbria, UK"
+      },
+      {
+        "name": "Gareth Taylor",
+        "title": "Group Performance Improvement Director",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.gov.uk/government/people/gareth-taylor",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "United Kingdom"
+      },
+      {
+        "name": "Emma Ferguson-Gould",
+        "title": "Group Chief Commercial and Business Development Officer",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://www.gov.uk/government/organisations/nuclear-decommissioning-authority/about/our-governance",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "United Kingdom"
       }
     ]
   }
