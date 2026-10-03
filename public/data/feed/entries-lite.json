@@ -5502,47 +5502,5 @@
         "hiring_relevance": "context_only"
       }
     ]
-  },
-  {
-    "id": "736a710d-fe6f-4a6a-9fce-bb2557dbfe72",
-    "ingested_at": "2026-07-04T18:23:37.878Z",
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/canadian-govt-commits-352m-to-red-chris-mine-expansion-in-british-columbia/"
-      }
-    ],
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades"
-    ],
-    "signal_type": "regulatory",
-    "region": "western-canada",
-    "country": "canada",
-    "headline": "Canada Commits $352M to Red Chris Mine Expansion in British Columbia",
-    "operator": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Red Chris Mine Expansion",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": 352000000,
-    "phase": "sanctioned_engineering",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": []
   }
 ]
