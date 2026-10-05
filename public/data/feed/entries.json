@@ -2,6 +2,105 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/buru_launches_approval_process_for_western_australian_gas_project-05-oct-2026-184769-article/?rss=true"
+      }
+    ],
+    "headline": "Buru Energy Refers Rafael Gas Project to WA EPA — Environmental Approval Process Launched",
+    "body": "Buru Energy Ltd said Monday it had referred the Rafael Gas Project in the Canning Basin to the Environmental Protection Authority of Western Australia (EPA W...",
+    "url": "https://www.rigzone.com/news/buru_launches_approval_process_for_western_australian_gas_project-05-oct-2026-184769-article/?rss=true",
+    "published_at": "2026-10-05T11:03:25.000Z",
+    "hash": "842cc97ac9bdc0a8",
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "pipeline_mechanical",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "western-australia",
+    "country": "australia",
+    "tldr": "Buru Energy has initiated the environmental approval process for the Rafael Gas Project in the Canning Basin, WA. This is a pre-sanction regulatory milestone; active hiring is likely 12+ months out pending EPA approval and FID.",
+    "operator": {
+      "name": "Buru Energy Ltd",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Rafael Gas Project",
+    "scope": [
+      "onshore_gas_development",
+      "environmental_approval"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Project Engineer",
+        "Environmental Advisor",
+        "FEED Manager",
+        "Gas Development Engineer",
+        "Facilities Engineer",
+        "Project Manager – Onshore Gas"
+      ],
+      "skills": [
+        "onshore gas development",
+        "FEED",
+        "environmental permitting",
+        "Canning Basin",
+        "project management"
+      ],
+      "certs_freetext": [
+        "NOPSEMA",
+        "WA EPA compliance"
+      ],
+      "geo_rtw": "Australia – must hold AU work rights",
+      "project_experience": [
+        "Canning Basin",
+        "onshore WA gas projects",
+        "Browse Basin"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"Rafael Gas\" OR \"Canning Basin\" OR \"Buru Energy\") AND (\"onshore gas\" OR \"gas development\" OR \"FEED\" OR \"project engineer\" OR \"facilities engineer\") AND (\"Western Australia\" OR \"WA\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Buru Energy has just kicked off the EPA approval process for the Rafael Gas Project in the Canning Basin — a key pre-FID milestone. Are you open to a conversation about upcoming opportunities on this project?",
+      "email_subject": "Rafael Gas Project, WA – Pre-Sanction Opportunity Pipeline",
+      "email_body": "Hi [Name],\n\nBuru Energy has formally referred the Rafael Gas Project in the Canning Basin to the WA Environmental Protection Authority, marking a significant pre-sanction milestone.\n\nAs this project moves toward potential FID, there will be growing demand for experienced onshore gas professionals — particularly those with FEED, permitting, and facilities engineering backgrounds in Western Australia.\n\nI'd welcome the chance to discuss how your background aligns with what will be needed as this project progresses.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Buru Energy) has filed for environmental approval of the named Rafael Gas Project in the Canning Basin — a regulatory permit milestone qualifying as a pre-sanction BD signal for an onshore O&G project.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states Buru Energy 'referred the Rafael Gas Project … to the Environmental Protection Authority of Western Australia,' indicating environmental permitting is underway ahead of any FID.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "9842ae80-adc5-4c3e-827a-1c4134678dae",
+    "ingested_at": "2026-10-05T12:18:56.071Z",
+    "source_published_at": "2026-10-05T11:03:25.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org/articles/second-part-of-construction-permit-application-submitted-for-pioneer-smrs"

@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-10-02T18:17:25.532Z"
+    "last_updated_at": "2026-10-05T12:20:09.654Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -14270,6 +14270,66 @@
         "email": null,
         "phone": null,
         "location": "Greater Phoenix Area, AZ, USA"
+      }
+    ]
+  },
+  "buru energy ltd": {
+    "discovered_at": "2026-10-05T12:20:09.654Z",
+    "contacts": [
+      {
+        "name": "Mark Lanigan",
+        "title": "Regional Operations Manager",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/mark-lanigan-5969b7a0",
+        "source_url": "https://rocketreach.co/buru-energy-limited-management_b5f0de08f42d351b",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Western Australia, Australia"
+      },
+      {
+        "name": "Hamish Maddern",
+        "title": "Project Manager",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/hamish-maddern-62500619",
+        "source_url": "https://www.linkedin.com/in/hamish-maddern-62500619",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Perth, Australia"
+      },
+      {
+        "name": "Ibrahim Kale",
+        "title": "Drilling & Completions Manager",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/ibrahim-kale-68b89216",
+        "source_url": "https://www.zoominfo.com/p/Ibrahim-Kale/11248717290",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Perth, Western Australia, Australia"
+      },
+      {
+        "name": "Rachel McIntyre",
+        "title": "Development Manager",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/rachel-mcintyre-b9a36712",
+        "source_url": "https://theorg.com/org/buru-energy/org-chart/rachel-mcintyre",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Western Australia, Australia"
+      },
+      {
+        "name": "Grant McMurtrie",
+        "title": "General Manager of Exploration",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/grant-mcmurtrie",
+        "source_url": "https://beta.finance.yahoo.com/quote/BRNGF/profile/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Perth, Western Australia, Australia"
       }
     ]
   }

@@ -1,5 +1,49 @@
 [
   {
+    "id": "9842ae80-adc5-4c3e-827a-1c4134678dae",
+    "ingested_at": "2026-10-05T12:18:56.071Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/buru_launches_approval_process_for_western_australian_gas_project-05-oct-2026-184769-article/?rss=true"
+      }
+    ],
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "pipeline_mechanical",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "western-australia",
+    "country": "australia",
+    "headline": "Buru Energy Refers Rafael Gas Project to WA EPA — Environmental Approval Process Launched",
+    "operator": {
+      "name": "Buru Energy Ltd",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Rafael Gas Project",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "6e4739af-9f1c-4a9b-a4aa-2a186265da1a",
     "ingested_at": "2026-10-02T18:15:41.065Z",
     "sources": [
