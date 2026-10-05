@@ -1,5 +1,88 @@
 [
   {
+    "id": "8ae2826f-232c-4982-ad67-a67434dc7cb0",
+    "ingested_at": "2026-10-05T18:15:21.918Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/suncor_sells_assets_off_canadian_east_coast_to_ithaca-05-oct-2026-184771-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [],
+    "signal_type": "lease_round",
+    "region": "canada-east-coast",
+    "country": "canada",
+    "headline": "Ithaca Energy Acquires Suncor's Offshore Newfoundland & Labrador Stakes for up to $1.11B",
+    "operator": {
+      "name": "Ithaca Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Ithaca Energy",
+      "matched_company_slug": null
+    },
+    "project_name": null,
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 1110000000,
+    "phase": "operating",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
+    "id": "aab4a8a4-c30e-430c-877b-e846545575ef",
+    "ingested_at": "2026-10-05T18:15:21.918Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/gas-liquids-engineering-completes-detailed-engineering-for-taqa-north-s-ferrier-gas-plant-839438058.html"
+      }
+    ],
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations",
+      "pipeline_mechanical"
+    ],
+    "signal_type": "epc_award",
+    "region": "canada-alberta",
+    "country": "canada",
+    "headline": "Gas Liquids Engineering Completes IFC Engineering for TAQA North's Ferrier Gas Plant, Alberta",
+    "operator": {
+      "name": "TAQA North Ltd.",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Gas Liquids Engineering Ltd.",
+      "matched_company_slug": null
+    },
+    "project_name": "Ferrier Gas Plant",
+    "mob_window": {
+      "start": "2026-Q4",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": []
+  },
+  {
     "id": "9842ae80-adc5-4c3e-827a-1c4134678dae",
     "ingested_at": "2026-10-05T12:18:56.071Z",
     "sources": [

@@ -4,6 +4,216 @@
       {
         "id": "rigzone",
         "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/suncor_sells_assets_off_canadian_east_coast_to_ithaca-05-oct-2026-184771-article/?rss=true"
+      }
+    ],
+    "headline": "Ithaca Energy Acquires Suncor's Offshore Newfoundland & Labrador Stakes for up to $1.11B",
+    "body": "Ithaca Energy PLC has agreed to buy Suncor Energy Inc's stakes in oil projects offshore Newfoundland and Labrador for up to $1.11 billion.\n\r\n\r\nThe acqu...",
+    "url": "https://www.rigzone.com/news/suncor_sells_assets_off_canadian_east_coast_to_ithaca-05-oct-2026-184771-article/?rss=true",
+    "published_at": "2026-10-05T12:32:21.000Z",
+    "hash": "fb8090c5a9df18a4",
+    "subsector": "offshore-og",
+    "discipline_tags": [],
+    "signal_type": "lease_round",
+    "region": "canada-east-coast",
+    "country": "canada",
+    "tldr": "Ithaca Energy is acquiring Suncor's interests in offshore Newfoundland & Labrador oil projects for up to $1.11B, signalling an operator change-of-control that may drive new hiring and contractor alignment under Ithaca's ownership.",
+    "operator": {
+      "name": "Ithaca Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Ithaca Energy",
+      "matched_company_slug": null
+    },
+    "project_name": null,
+    "scope": [
+      "operator_transition",
+      "asset_acquisition"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 1110000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Asset Manager",
+        "Operations Manager",
+        "Subsea Engineer",
+        "Production Engineer",
+        "Project Manager",
+        "Wells Manager"
+      ],
+      "skills": [
+        "offshore operations",
+        "asset management",
+        "subsea systems",
+        "well management",
+        "FPSO operations",
+        "Newfoundland offshore"
+      ],
+      "certs_freetext": [
+        "BOSIET",
+        "HUET",
+        "OPITO"
+      ],
+      "geo_rtw": "Canada / UK (Ithaca Energy HQ London)",
+      "project_experience": [
+        "Hibernia",
+        "Terra Nova",
+        "White Rose",
+        "West White Rose"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "senior",
+      "boolean_search": "(\"Asset Manager\" OR \"Operations Manager\" OR \"Production Engineer\" OR \"Wells Manager\" OR \"Subsea Engineer\" OR \"Project Manager\") AND (\"offshore\" OR \"FPSO\" OR \"subsea\") AND (\"Newfoundland\" OR \"Canada East Coast\" OR \"Grand Banks\") AND (\"Ithaca\" OR \"Suncor\" OR \"Hibernia\" OR \"Terra Nova\" OR \"White Rose\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Ithaca Energy's acquisition of Suncor's Newfoundland offshore assets signals a new operator ramp-up on Canada's East Coast. Are you open to discussing roles tied to this transition?",
+      "email_subject": "Ithaca Energy – Offshore Newfoundland Operator Transition | Senior Roles Emerging",
+      "email_body": "Hi [Name],\n\nIthaca Energy has just agreed to acquire Suncor's offshore Newfoundland & Labrador stakes for up to $1.11B — an operator change-of-control that typically drives immediate workforce restructuring and new contractor alignment.\n\nGiven your background in [relevant discipline] on East Coast Canada or similar offshore assets, I wanted to reach out early before these roles are formally posted.\n\nWould you be open to a brief call to explore what's emerging?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "M&A deal directly assigns named offshore Newfoundland & Labrador projects from Suncor to Ithaca Energy as new operator, qualifying as an operator change-of-control affecting named assets with workforce implications.",
+    "phase": "operating",
+    "phase_evidence": "The article references existing 'oil projects offshore Newfoundland and Labrador', implying producing assets being transferred rather than new development.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "8ae2826f-232c-4982-ad67-a67434dc7cb0",
+    "ingested_at": "2026-10-05T18:15:21.918Z",
+    "source_published_at": "2026-10-05T12:32:21.000Z",
+    "contact_archetypes": [
+      "ops_director",
+      "hiring_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/gas-liquids-engineering-completes-detailed-engineering-for-taqa-north-s-ferrier-gas-plant-839438058.html"
+      }
+    ],
+    "headline": "Gas Liquids Engineering Completes IFC Engineering for TAQA North's Ferrier Gas Plant, Alberta",
+    "body": "CALGARY, AB, Oct. 5, 2026 /CNW/ -- Gas Liquids Engineering Ltd. (GLE) is pleased to announce the successful completion of its detailed engineering Issued for Construction (IFC) scope for TAQA North Ltd.'s new Ferrier Gas Plant in west-central Alberta. The facility is currently under...",
+    "url": "https://www.prnewswire.com/news-releases/gas-liquids-engineering-completes-detailed-engineering-for-taqa-north-s-ferrier-gas-plant-839438058.html",
+    "published_at": "2026-10-05T13:05:00.000Z",
+    "hash": "1ccce3452f93f4e1",
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations",
+      "pipeline_mechanical"
+    ],
+    "signal_type": "epc_award",
+    "region": "canada-alberta",
+    "country": "canada",
+    "tldr": "GLE has delivered Issued-for-Construction detailed engineering for TAQA North's new Ferrier Gas Plant in west-central Alberta, signalling the facility is now moving into active construction and peak trade-labor demand.",
+    "operator": {
+      "name": "TAQA North Ltd.",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Gas Liquids Engineering Ltd.",
+      "matched_company_slug": null
+    },
+    "project_name": "Ferrier Gas Plant",
+    "scope": [
+      "detailed_engineering_ifc",
+      "gas_plant_construction",
+      "process_plant_epc"
+    ],
+    "mob_window": {
+      "start": "2026-Q4",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Construction Manager",
+        "Site Superintendent",
+        "Mechanical Supervisor",
+        "Piping Supervisor",
+        "HSE Advisor",
+        "QA/QC Inspector",
+        "Process Commissioning Engineer",
+        "Instrumentation Supervisor",
+        "Electrical Supervisor",
+        "Structural Steel Supervisor"
+      ],
+      "skills": [
+        "gas plant construction",
+        "IFC package execution",
+        "process piping",
+        "mechanical installation",
+        "instrument loop checks",
+        "pre-commissioning",
+        "ABSA pressure vessels",
+        "Alberta construction codes"
+      ],
+      "certs_freetext": [
+        "Alberta Journeyman Pipefitter",
+        "Alberta Journeyman Electrician",
+        "Alberta Journeyman Millwright",
+        "ABSA In-Service Inspection",
+        "H2S Alive",
+        "First Aid Level 3"
+      ],
+      "geo_rtw": "Canada — Alberta RTW required",
+      "project_experience": [
+        "Pembina Pipeline gas plants",
+        "Keyera gas processing",
+        "Enbridge gas facilities Alberta",
+        "Plains Midstream Canada"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "mid-to-senior trades and supervisory",
+      "boolean_search": "(\"gas plant\" OR \"gas processing\" OR \"midstream\") AND (\"construction manager\" OR \"site superintendent\" OR \"mechanical supervisor\" OR \"piping supervisor\" OR \"commissioning engineer\" OR \"HSE advisor\" OR \"QA/QC\") AND (\"Alberta\" OR \"west-central Alberta\" OR \"Ferrier\") AND (\"IFC\" OR \"issued for construction\" OR \"pre-commissioning\" OR \"process plant\") NOT (\"downstream refinery\" OR \"offshore\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], TAQA North's Ferrier Gas Plant in Alberta has just received its IFC engineering package — construction is ramping now. Are you available for a site supervisor or commissioning role starting Q4 2026?",
+      "email_subject": "Ferrier Gas Plant (TAQA North, Alberta) — Construction Roles Available Now",
+      "email_body": "Hi [Name],\n\nGas Liquids Engineering has just completed the Issued-for-Construction engineering package for TAQA North's new Ferrier Gas Plant in west-central Alberta, meaning boots are hitting the ground imminently.\n\nWe are sourcing experienced construction supervisors, mechanical/piping leads, HSE advisors, and commissioning engineers for this ramp-up. Alberta RTW is required.\n\nIf you're available or know someone who is, I'd welcome a quick call this week.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "IFC engineering completion by a named contractor (GLE) for a named operator (TAQA North) on a named project (Ferrier Gas Plant) signals immediate construction ramp-up and active trade/supervisory hiring demand.",
+    "phase": "construction",
+    "phase_evidence": "Article states 'The facility is currently under...' (construction implied by IFC completion and ongoing site activity).",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "aab4a8a4-c30e-430c-877b-e846545575ef",
+    "ingested_at": "2026-10-05T18:15:21.918Z",
+    "source_published_at": "2026-10-05T13:05:00.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
         "url": "https://www.rigzone.com/news/buru_launches_approval_process_for_western_australian_gas_project-05-oct-2026-184769-article/?rss=true"
       }
     ],
