@@ -1,5 +1,91 @@
 [
   {
+    "id": "32e8fd49-470d-432f-9bf4-d4c777a370a9",
+    "ingested_at": "2026-10-06T18:14:35.005Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/doe-offers-vistra-loan-for-reactor-upgrades-and-uprates"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-midwest-northeast",
+    "country": "united_states",
+    "headline": "DOE Conditional Loan of $4.2B to Vistra for Uprates at Beaver Valley, Davis-Besse & Perry Nuclear Plants",
+    "operator": {
+      "name": "Vistra Corp",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Vistra Corp",
+      "matched_company_slug": null
+    },
+    "project_name": "Beaver Valley / Davis-Besse / Perry Nuclear Uprate & Modernisation Programme",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 4200000000,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
+    "id": "71b03a8f-e32e-435c-b6d4-703e7db84e1e",
+    "ingested_at": "2026-10-06T18:14:35.005Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/new-end-user-agreements-support-long-term-us-plant-operations"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "energy_trades",
+      "industrial_construction"
+    ],
+    "signal_type": "epc_award",
+    "region": "us-midwest",
+    "country": "united_states",
+    "headline": "Constellation Energy to Add 890 MW Nuclear Capacity on PJM Grid via Google PPA; Oracle Offtakes Point Beach Output",
+    "operator": {
+      "name": "Constellation Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Constellation Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Point Beach Nuclear Power Plant / PJM 890 MW Nuclear Expansion",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "operating",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "ongoing",
+    "key_people": []
+  },
+  {
     "id": "ed94d933-50a1-42f4-af34-e8b91217ca53",
     "ingested_at": "2026-10-06T00:32:55.535Z",
     "sources": [
@@ -5574,53 +5660,6 @@
     "decom_stage": null,
     "outreach_readiness": "warming",
     "estimated_hiring_window": "6-12mo",
-    "key_people": []
-  },
-  {
-    "id": "20e23ec0-8fc5-4f94-86b4-092193662eb6",
-    "ingested_at": "2026-07-08T12:37:26.761Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/equinor_awards_contracts_for_norway_tiebacks-08-jul-2026-184084-article/?rss=true"
-      }
-    ],
-    "subsector": "offshore-og",
-    "discipline_tags": [
-      "energy_trades",
-      "ndt_inspection",
-      "industrial_construction",
-      "pipeline_mechanical",
-      "rov_subsea",
-      "marine_offshore_ops",
-      "process_plant_operations"
-    ],
-    "signal_type": "epc_award",
-    "region": "norway-north-sea",
-    "country": "norway",
-    "headline": "Equinor Awards ~$613M Contracts for Four Norway Tieback Projects",
-    "operator": {
-      "name": "Equinor ASA",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Norway Tiebacks (four unnamed projects)",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": 613390000,
-    "phase": "sanctioned_engineering",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "3-6mo",
     "key_people": []
   }
 ]

@@ -2,6 +2,232 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/doe-offers-vistra-loan-for-reactor-upgrades-and-uprates"
+      }
+    ],
+    "headline": "DOE Conditional Loan of $4.2B to Vistra for Uprates at Beaver Valley, Davis-Besse & Perry Nuclear Plants",
+    "body": "The US Department of Energy has announced a conditional loan commitment of up to USD4.2 billion to finance uprates and modernisation projects at Vistra Corp's Beaver Valley, Davis-Besse and Perry nuclear power plants.",
+    "url": "https://www.world-nuclear-news.org/articles/doe-offers-vistra-loan-for-reactor-upgrades-and-uprates",
+    "published_at": "2026-10-06T14:03:53.000Z",
+    "hash": "6aec2c626406d71a",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-midwest-northeast",
+    "country": "united_states",
+    "tldr": "DOE has conditionally committed up to $4.2B to Vistra Corp to fund reactor uprates and modernisation at three named US nuclear plants, signalling a multi-site capital programme with near-term engineering and trades hiring demand.",
+    "operator": {
+      "name": "Vistra Corp",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Vistra Corp",
+      "matched_company_slug": null
+    },
+    "project_name": "Beaver Valley / Davis-Besse / Perry Nuclear Uprate & Modernisation Programme",
+    "scope": [
+      "reactor_uprate",
+      "plant_modernisation",
+      "capital_works"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 4200000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Project Manager",
+        "Reactor Engineer",
+        "Outage Manager",
+        "Nuclear Construction Manager",
+        "I&C Engineer",
+        "Electrical Engineer – Nuclear",
+        "Nuclear Commissioning Engineer",
+        "HSE Manager – Nuclear",
+        "Mechanical Engineer – Nuclear",
+        "Turbine Upgrade Engineer"
+      ],
+      "skills": [
+        "reactor uprate",
+        "nuclear plant modernisation",
+        "outage management",
+        "nuclear safety",
+        "instrumentation and controls",
+        "PWR/BWR systems",
+        "mechanical completion",
+        "capital project execution",
+        "10CFR50 compliance"
+      ],
+      "certs_freetext": [
+        "NRC-related qualifications",
+        "ANSI/ANS nuclear standards familiarity",
+        "OSHA 30",
+        "PMP"
+      ],
+      "geo_rtw": "US work authorisation required",
+      "project_experience": [
+        "Beaver Valley Nuclear Plant",
+        "Davis-Besse Nuclear Plant",
+        "Perry Nuclear Power Plant",
+        "Vogtle Unit 3/4",
+        "Nine Mile Point",
+        "Surry Power Station"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"nuclear\" AND (\"uprate\" OR \"modernisation\" OR \"outage manager\" OR \"reactor engineer\" OR \"nuclear construction\" OR \"I&C engineer\" OR \"nuclear project manager\")) AND (\"PWR\" OR \"BWR\" OR \"pressurized water\" OR \"boiling water\" OR \"10CFR50\" OR \"NRC\") AND (\"Beaver Valley\" OR \"Davis-Besse\" OR \"Perry\" OR \"nuclear power plant\" OR \"capital project\") AND (\"United States\" OR \"Ohio\" OR \"Pennsylvania\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Vistra Corp has secured a $4.2B DOE loan for uprates at Beaver Valley, Davis-Besse & Perry. We're sourcing nuclear project and engineering talent for this multi-site programme. Would you be open to a brief conversation?",
+      "email_subject": "Nuclear Uprate Programme – Vistra Corp | Senior Engineering & PM Roles (Beaver Valley / Davis-Besse / Perry)",
+      "email_body": "Hi [Name],\n\nThe US Department of Energy has conditionally committed up to $4.2 billion to Vistra Corp to fund reactor uprates and modernisation across three nuclear plants: Beaver Valley (PA), Davis-Besse (OH), and Perry (OH).\n\nThis is a significant multi-site capital programme and we anticipate demand for senior nuclear engineers, project managers, outage managers, I&C specialists, and construction leads in the near term.\n\nGiven your background in [relevant nuclear discipline], I wanted to reach out early. Would you be available for a quick call this week to explore whether this could be a fit?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "DOE conditional loan commitment of $4.2B to named operator Vistra Corp for reactor uprates and modernisation at three specifically named nuclear plants constitutes a capital project funding event with direct workforce-demand implications.",
+    "phase": "pre_sanction",
+    "phase_evidence": "The DOE commitment is described as 'conditional', indicating projects are pre-FID and still in the financing/approval stage.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "32e8fd49-470d-432f-9bf4-d4c777a370a9",
+    "ingested_at": "2026-10-06T18:14:35.005Z",
+    "source_published_at": "2026-10-06T14:03:53.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/new-end-user-agreements-support-long-term-us-plant-operations"
+      }
+    ],
+    "headline": "Constellation Energy to Add 890 MW Nuclear Capacity on PJM Grid via Google PPA; Oracle Offtakes Point Beach Output",
+    "body": "Google and Constellation Energy have announced a long-term collaboration to bring 890 MW of new nuclear capacity onto the PJM Interconnection grid, as well as a power purchase agreement. Meanwhile, Oracle is to subscribe to output from the Point Beach nuclear power plant.",
+    "url": "https://www.world-nuclear-news.org/articles/new-end-user-agreements-support-long-term-us-plant-operations",
+    "published_at": "2026-10-06T15:23:47.000Z",
+    "hash": "415e2e8af4f4197a",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "energy_trades",
+      "industrial_construction"
+    ],
+    "signal_type": "epc_award",
+    "region": "us-midwest",
+    "country": "united_states",
+    "tldr": "Constellation Energy is expanding nuclear capacity by 890 MW on the PJM grid under a long-term Google collaboration and PPA, while Oracle subscribes to output from Point Beach nuclear plant — signalling sustained operations and potential workforce ramp at both assets.",
+    "operator": {
+      "name": "Constellation Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Constellation Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Point Beach Nuclear Power Plant / PJM 890 MW Nuclear Expansion",
+    "scope": [
+      "power_purchase_agreement",
+      "plant_operations",
+      "capacity_expansion"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Plant Operator",
+        "Reactor Operator",
+        "Senior Reactor Operator",
+        "Nuclear Operations Manager",
+        "Shift Supervisor",
+        "Nuclear I&C Technician",
+        "Health Physics Technician",
+        "Nuclear Maintenance Technician",
+        "Outage Manager",
+        "Nuclear Engineer"
+      ],
+      "skills": [
+        "nuclear plant operations",
+        "reactor operations",
+        "PJM grid operations",
+        "outage management",
+        "instrumentation and controls",
+        "radiation protection",
+        "ALARA",
+        "preventive maintenance",
+        "LWR operations"
+      ],
+      "certs_freetext": [
+        "NRC Senior Reactor Operator (SRO) License",
+        "NRC Reactor Operator (RO) License",
+        "10 CFR 50 Appendix B QA",
+        "OSHA 30 General Industry"
+      ],
+      "geo_rtw": "US work authorization required; Point Beach WI, PJM footprint (IL, OH, PA, WI, MI)",
+      "project_experience": [
+        "Point Beach Nuclear Plant",
+        "Dresden Generating Station",
+        "Braidwood Station",
+        "Byron Nuclear Generating Station",
+        "Calvert Cliffs",
+        "Three Mile Island"
+      ],
+      "yoe_band": "5-20",
+      "seniority": "mid to senior",
+      "boolean_search": "(\"nuclear plant operator\" OR \"reactor operator\" OR \"senior reactor operator\" OR \"shift supervisor\" OR \"nuclear operations\" OR \"outage manager\" OR \"health physics\" OR \"nuclear I&C\" OR \"nuclear maintenance\") AND (\"NRC license\" OR \"SRO\" OR \"LWR\" OR \"PWR\" OR \"BWR\" OR \"radiation protection\" OR \"ALARA\") AND (\"Constellation Energy\" OR \"Point Beach\" OR \"nuclear power plant\" OR \"PJM\") AND (\"United States\" OR Wisconsin OR Illinois OR Ohio OR Pennsylvania)"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Constellation Energy is expanding nuclear capacity on the PJM grid (890 MW) and sustaining Point Beach ops under new long-term offtake deals. Strong demand for licensed operators, I&C techs, and outage specialists. Worth a conversation?",
+      "email_subject": "Nuclear Ops Opportunities – Constellation Energy / Point Beach Expansion",
+      "email_body": "Hi [Name],\n\nConstellation Energy has just announced a major 890 MW nuclear capacity expansion on the PJM grid in partnership with Google, alongside a new long-term power purchase agreement covering Point Beach Nuclear Power Plant with Oracle as offtaker.\n\nLong-term commercial commitments like these typically drive sustained and often expanded operations staffing — licensed operators, outage managers, I&C technicians, and health physics professionals are particularly in demand.\n\nGiven your background in [nuclear ops / reactor operations / outage management], I'd love to explore whether there's a fit with Constellation's current or upcoming requirements.\n\nWould you be open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Constellation Energy) commits to 890 MW new nuclear capacity on PJM grid and long-term plant operations at Point Beach under Google and Oracle offtake deals, signalling sustained and potentially expanded workforce demand at named facilities.",
+    "phase": "operating",
+    "phase_evidence": "Article references long-term operations of existing capacity and the Point Beach nuclear power plant as an already-operational asset receiving a new offtake subscriber.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "ongoing",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "71b03a8f-e32e-435c-b6d4-703e7db84e1e",
+    "ingested_at": "2026-10-06T18:14:35.005Z",
+    "source_published_at": "2026-10-06T15:23:47.000Z",
+    "contact_archetypes": [
+      "ops_director",
+      "hiring_manager",
+      "hr_business_partner",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "mining_com",
         "name": "MINING.com",
         "url": "https://www.mining.com/barrick-secures-15-year-north-mara-mining-licences-in-tanzania/"
@@ -14084,123 +14310,6 @@
     "source_published_at": "2026-07-08T11:47:51.000Z",
     "contact_archetypes": [
       "project_manager",
-      "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/equinor_awards_contracts_for_norway_tiebacks-08-jul-2026-184084-article/?rss=true"
-      }
-    ],
-    "headline": "Equinor Awards ~$613M Contracts for Four Norway Tieback Projects",
-    "body": "Equinor ASA and its partners have signed contracts worth around NOK 6 billion ($613.39 million) for four tieback projects in different stages of development ...",
-    "url": "https://www.rigzone.com/news/equinor_awards_contracts_for_norway_tiebacks-08-jul-2026-184084-article/?rss=true",
-    "published_at": "2026-07-08T08:05:40.000Z",
-    "hash": "a2ddc8b6e3b7a94f",
-    "subsector": "offshore-og",
-    "discipline_tags": [
-      "energy_trades",
-      "ndt_inspection",
-      "industrial_construction",
-      "pipeline_mechanical",
-      "rov_subsea",
-      "marine_offshore_ops",
-      "process_plant_operations"
-    ],
-    "signal_type": "epc_award",
-    "region": "norway-north-sea",
-    "country": "norway",
-    "tldr": "Equinor and partners have signed NOK 6 billion (~$613M) in contracts across four tieback projects at various development stages offshore Norway, signalling a broad engineering and construction hiring wave across multiple campaigns.",
-    "operator": {
-      "name": "Equinor ASA",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Norway Tiebacks (four unnamed projects)",
-    "scope": [
-      "tieback_epc",
-      "subsea_install",
-      "pipeline_mechanical",
-      "hookup_commissioning"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": 613390000,
-    "targeting": {
-      "job_titles_freetext": [
-        "Subsea Project Engineer",
-        "Tieback Project Manager",
-        "Pipeline Engineer",
-        "Subsea Installation Engineer",
-        "Commissioning Engineer",
-        "Construction Manager",
-        "Subsea Controls Engineer",
-        "Structural Engineer",
-        "Offshore Commissioning Technician",
-        "SURF Engineer"
-      ],
-      "skills": [
-        "subsea tieback",
-        "SURF installation",
-        "pipeline engineering",
-        "hookup and commissioning",
-        "subsea controls",
-        "offshore project management",
-        "FEED to EPC transition",
-        "Norway continental shelf"
-      ],
-      "certs_freetext": [
-        "BOSIET/HUET",
-        "Norwegian Offshore Safety Certificate (NOSC)",
-        "Offshore Medical (Norwegian standard)",
-        "GWO Basic Safety"
-      ],
-      "geo_rtw": "Norway / NCS — EU/EEA right-to-work preferred",
-      "project_experience": [
-        "Snorre Expansion",
-        "Johan Castberg",
-        "Balder X",
-        "Kristin Satellite",
-        "Tyrihans tieback",
-        "Trestakk"
-      ],
-      "yoe_band": "8-18",
-      "seniority": "mid-to-senior",
-      "boolean_search": "(\"subsea tieback\" OR \"SURF\" OR \"pipeline tieback\" OR \"subsea installation\") AND (\"Equinor\" OR \"NCS\" OR \"Norwegian Continental Shelf\") AND (\"project engineer\" OR \"project manager\" OR \"commissioning engineer\" OR \"construction manager\" OR \"pipeline engineer\" OR \"subsea engineer\") AND (Norway OR Stavanger OR Bergen OR Oslo)"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Equinor has just awarded ~$613M in contracts for four Norway tieback projects — multiple hiring campaigns now opening on the NCS. Are you available or open to contract/perm roles in subsea/SURF or commissioning? Happy to share details.",
-      "email_subject": "Equinor Norway Tiebacks — $613M Contract Wave | Subsea/SURF & Commissioning Roles",
-      "email_body": "Hi [Name],\n\nEquinor and its partners have just signed contracts worth approximately NOK 6 billion (~$613M) across four tieback projects on the Norwegian Continental Shelf, covering multiple stages of development.\n\nThis signals a significant near-term demand for subsea, pipeline, SURF, and commissioning professionals on the NCS.\n\nGiven your background in [relevant discipline], I wanted to reach out before these roles are formally posted. I'm currently mapping candidates for project engineering, construction management, and commissioning positions tied to these campaigns.\n\nAre you currently available or open to hearing more? I'd welcome a quick call to discuss fit and timing.\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Equinor has awarded NOK 6B (~$613M) in EPC/tieback contracts across four named development projects offshore Norway, a clear multi-project workforce demand signal.",
-    "phase": "sanctioned_engineering",
-    "phase_evidence": "Article states contracts have been signed for projects 'in different stages of development', indicating post-FID engineering and execution phases are active.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "3-6mo",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "20e23ec0-8fc5-4f94-86b4-092193662eb6",
-    "ingested_at": "2026-07-08T12:37:26.761Z",
-    "source_published_at": "2026-07-08T08:05:40.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "hiring_manager",
       "business_unit_director"
     ],
     "prompt_version": "phase-targeting-v1.2"

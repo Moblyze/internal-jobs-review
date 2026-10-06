@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-10-06T00:34:38.708Z"
+    "last_updated_at": "2026-10-06T18:16:35.163Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -14454,6 +14454,66 @@
         "email": null,
         "phone": null,
         "location": "Knoxville, TN, USA"
+      }
+    ]
+  },
+  "vistra corp": {
+    "discovered_at": "2026-10-06T18:16:35.163Z",
+    "contacts": [
+      {
+        "name": "Amanda DonCarlos",
+        "title": "Senior Vice President & Chief Human Resources Officer",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/amanda-doncarlos-07562689",
+        "source_url": "https://vistracorp.com/about/leadership/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Dallas, TX, USA"
+      },
+      {
+        "name": "Tricia Eusebio",
+        "title": "Vice President, Human Resources Operations",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/tricia-eusebio-93b0a232",
+        "source_url": "https://www.zoominfo.com/p/Tricia-Eusebio/10121253915",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Dallas-Fort Worth, TX, USA"
+      },
+      {
+        "name": "Mary Pastirik",
+        "title": "Senior Recruiter",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/mpastirik",
+        "source_url": "https://www.linkedin.com/in/mpastirik/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Amber Spanke",
+        "title": "Senior Recruiter",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/yesthatsreallymyname",
+        "source_url": "https://www.linkedin.com/in/yesthatsreallymyname/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Carrie Kirby",
+        "title": "Executive Vice President & Chief Administrative Officer",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/carrie-lee-kirby-360074a3",
+        "source_url": "https://www.marketscreener.com/insider/CARRIE-KIRBY-A1GE7H/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Dallas, TX, USA"
       }
     ]
   }
