@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-10-05T18:17:26.872Z"
+    "last_updated_at": "2026-10-06T00:34:38.708Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -14396,5 +14396,65 @@
   "taqa north ltd.": {
     "discovered_at": "2026-10-05T18:17:26.872Z",
     "contacts": []
+  },
+  "barrick": {
+    "discovered_at": "2026-10-06T00:34:38.708Z",
+    "contacts": [
+      {
+        "name": "Darian Rich",
+        "title": "Human Resources Executive (Chief Human Resources Officer)",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/darian-rich-6a24183a",
+        "source_url": "https://rocketreach.co/barrick-gold-corporation-hr-department_b5c637b6f42e0ca3",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Henderson, NV, USA"
+      },
+      {
+        "name": "Richard Barley",
+        "title": "Chief HR Officer, North American Barrick",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/richard-barley-07542a35",
+        "source_url": "https://www.globenewswire.com/news-release/2026/04/28/3282351/0/en/Barrick-Advances-IPO-of-North-American-Gold-Assets-Announces-Executive-Appointments.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "United Kingdom"
+      },
+      {
+        "name": "Tim Cribb",
+        "title": "Chief Operating Officer, North American Barrick",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/timcribb",
+        "source_url": "https://www.globenewswire.com/news-release/2026/04/28/3282351/0/en/Barrick-Advances-IPO-of-North-American-Gold-Assets-Announces-Executive-Appointments.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Henri Gonin",
+        "title": "Managing Director, Nevada Gold Mines",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/henri-gonin-8a0ba847",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/756894/000119312524198723/d876961dex992.htm",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Elko, NV, USA"
+      },
+      {
+        "name": "Christine Keener",
+        "title": "Chief Operating Officer, North America (Barrick Mining)",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/christine-keener-ab2b7294",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/756894/000119312524068604/d647963dex991.pdf",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Knoxville, TN, USA"
+      }
+    ]
   }
 }

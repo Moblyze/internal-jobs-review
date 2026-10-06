@@ -1,35 +1,38 @@
 [
   {
-    "id": "8ae2826f-232c-4982-ad67-a67434dc7cb0",
-    "ingested_at": "2026-10-05T18:15:21.918Z",
+    "id": "ed94d933-50a1-42f4-af34-e8b91217ca53",
+    "ingested_at": "2026-10-06T00:32:55.535Z",
     "sources": [
       {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/suncor_sells_assets_off_canadian_east_coast_to_ithaca-05-oct-2026-184771-article/?rss=true"
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/barrick-secures-15-year-north-mara-mining-licences-in-tanzania/"
       }
     ],
-    "subsector": "offshore-og",
-    "discipline_tags": [],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
     "signal_type": "lease_round",
-    "region": "canada-east-coast",
-    "country": "canada",
-    "headline": "Ithaca Energy Acquires Suncor's Offshore Newfoundland & Labrador Stakes for up to $1.11B",
+    "region": "east-africa",
+    "country": "tanzania",
+    "headline": "Barrick Secures 15-Year Mining Licences for North Mara, Tanzania",
     "operator": {
-      "name": "Ithaca Energy",
+      "name": "Barrick",
       "matched_company_slug": null
     },
     "hiring_entity": {
-      "name": "Ithaca Energy",
+      "name": "Barrick",
       "matched_company_slug": null
     },
-    "project_name": null,
+    "project_name": "North Mara",
     "mob_window": {
       "start": null,
       "end": null,
       "duration_months": null
     },
-    "contract_value_usd": 1110000000,
+    "contract_value_usd": null,
     "phase": "operating",
     "construction_subphase": null,
     "lifecycle_track": "greenfield",
@@ -80,6 +83,45 @@
     "decom_stage": null,
     "outreach_readiness": "live_now",
     "estimated_hiring_window": "now",
+    "key_people": []
+  },
+  {
+    "id": "8ae2826f-232c-4982-ad67-a67434dc7cb0",
+    "ingested_at": "2026-10-05T18:15:21.918Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/suncor_sells_assets_off_canadian_east_coast_to_ithaca-05-oct-2026-184771-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [],
+    "signal_type": "lease_round",
+    "region": "canada-east-coast",
+    "country": "canada",
+    "headline": "Ithaca Energy Acquires Suncor's Offshore Newfoundland & Labrador Stakes for up to $1.11B",
+    "operator": {
+      "name": "Ithaca Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Ithaca Energy",
+      "matched_company_slug": null
+    },
+    "project_name": null,
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 1110000000,
+    "phase": "operating",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
     "key_people": []
   },
   {

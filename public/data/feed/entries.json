@@ -2,83 +2,90 @@
   {
     "sources": [
       {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/suncor_sells_assets_off_canadian_east_coast_to_ithaca-05-oct-2026-184771-article/?rss=true"
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/barrick-secures-15-year-north-mara-mining-licences-in-tanzania/"
       }
     ],
-    "headline": "Ithaca Energy Acquires Suncor's Offshore Newfoundland & Labrador Stakes for up to $1.11B",
-    "body": "Ithaca Energy PLC has agreed to buy Suncor Energy Inc's stakes in oil projects offshore Newfoundland and Labrador for up to $1.11 billion.\n\r\n\r\nThe acqu...",
-    "url": "https://www.rigzone.com/news/suncor_sells_assets_off_canadian_east_coast_to_ithaca-05-oct-2026-184771-article/?rss=true",
-    "published_at": "2026-10-05T12:32:21.000Z",
-    "hash": "fb8090c5a9df18a4",
-    "subsector": "offshore-og",
-    "discipline_tags": [],
+    "headline": "Barrick Secures 15-Year Mining Licences for North Mara, Tanzania",
+    "body": "The latest approval removes tenure risk, leaving Barrick to reverse a sharp first-half production decline.",
+    "url": "https://www.mining.com/barrick-secures-15-year-north-mara-mining-licences-in-tanzania/",
+    "published_at": "2026-10-05T19:10:00.000Z",
+    "hash": "8fe5072664457a6b",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
     "signal_type": "lease_round",
-    "region": "canada-east-coast",
-    "country": "canada",
-    "tldr": "Ithaca Energy is acquiring Suncor's interests in offshore Newfoundland & Labrador oil projects for up to $1.11B, signalling an operator change-of-control that may drive new hiring and contractor alignment under Ithaca's ownership.",
+    "region": "east-africa",
+    "country": "tanzania",
+    "tldr": "Barrick has secured 15-year mining licences for the North Mara gold mine in Tanzania, removing tenure risk and signalling a ramp-up to reverse a sharp production decline. Near-term workforce demand likely as operations scale up.",
     "operator": {
-      "name": "Ithaca Energy",
+      "name": "Barrick",
       "matched_company_slug": null
     },
     "hiring_entity": {
-      "name": "Ithaca Energy",
+      "name": "Barrick",
       "matched_company_slug": null
     },
-    "project_name": null,
+    "project_name": "North Mara",
     "scope": [
-      "operator_transition",
-      "asset_acquisition"
+      "licence_renewal",
+      "production_rampup"
     ],
     "mob_window": {
       "start": null,
       "end": null,
       "duration_months": null
     },
-    "contract_value_usd": 1110000000,
+    "contract_value_usd": null,
     "targeting": {
       "job_titles_freetext": [
-        "Asset Manager",
-        "Operations Manager",
-        "Subsea Engineer",
-        "Production Engineer",
-        "Project Manager",
-        "Wells Manager"
+        "Mining Manager",
+        "Production Superintendent",
+        "Underground Mining Engineer",
+        "Open Pit Superintendent",
+        "Mine Planning Engineer",
+        "HSE Manager",
+        "Maintenance Superintendent",
+        "Process Plant Manager"
       ],
       "skills": [
-        "offshore operations",
-        "asset management",
-        "subsea systems",
-        "well management",
-        "FPSO operations",
-        "Newfoundland offshore"
+        "underground mining",
+        "open pit operations",
+        "production ramp-up",
+        "mine planning",
+        "gold processing",
+        "maintenance management",
+        "HSE"
       ],
       "certs_freetext": [
-        "BOSIET",
-        "HUET",
-        "OPITO"
+        "Mine Manager Certificate of Competency",
+        "IOSH",
+        "NEBOSH"
       ],
-      "geo_rtw": "Canada / UK (Ithaca Energy HQ London)",
+      "geo_rtw": "Tanzania or East Africa-eligible; expatriate roles likely",
       "project_experience": [
-        "Hibernia",
-        "Terra Nova",
-        "White Rose",
-        "West White Rose"
+        "Bulyanhulu",
+        "Kibali",
+        "Lumwana",
+        "Geita Gold Mine",
+        "Twiga Minerals"
       ],
-      "yoe_band": "10-20",
+      "yoe_band": "8-15",
       "seniority": "senior",
-      "boolean_search": "(\"Asset Manager\" OR \"Operations Manager\" OR \"Production Engineer\" OR \"Wells Manager\" OR \"Subsea Engineer\" OR \"Project Manager\") AND (\"offshore\" OR \"FPSO\" OR \"subsea\") AND (\"Newfoundland\" OR \"Canada East Coast\" OR \"Grand Banks\") AND (\"Ithaca\" OR \"Suncor\" OR \"Hibernia\" OR \"Terra Nova\" OR \"White Rose\")"
+      "boolean_search": "(\"Mining Manager\" OR \"Production Superintendent\" OR \"Mine Planning Engineer\" OR \"Underground Mining Engineer\" OR \"Open Pit Superintendent\" OR \"Process Plant Manager\" OR \"Maintenance Superintendent\" OR \"HSE Manager\") AND (\"gold mining\" OR \"underground mining\" OR \"open pit\" OR \"mine ramp-up\") AND (\"Tanzania\" OR \"East Africa\" OR \"Barrick\" OR \"North Mara\" OR \"Bulyanhulu\" OR \"Kibali\" OR \"Lumwana\")"
     },
     "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Ithaca Energy's acquisition of Suncor's Newfoundland offshore assets signals a new operator ramp-up on Canada's East Coast. Are you open to discussing roles tied to this transition?",
-      "email_subject": "Ithaca Energy – Offshore Newfoundland Operator Transition | Senior Roles Emerging",
-      "email_body": "Hi [Name],\n\nIthaca Energy has just agreed to acquire Suncor's offshore Newfoundland & Labrador stakes for up to $1.11B — an operator change-of-control that typically drives immediate workforce restructuring and new contractor alignment.\n\nGiven your background in [relevant discipline] on East Coast Canada or similar offshore assets, I wanted to reach out early before these roles are formally posted.\n\nWould you be open to a brief call to explore what's emerging?\n\nBest regards,\n[Your Name]"
+      "linkedin_inmail": "Hi [Name], Barrick has just secured 15-year licences for North Mara in Tanzania and is pushing to reverse a production decline — senior mining roles are likely to open soon. Would you be open to a quick chat about opportunities on site?",
+      "email_subject": "North Mara (Barrick) – Senior Mining Roles Likely as Licences Secured",
+      "email_body": "Hi [Name],\n\nBarrick has just secured 15-year mining licences for the North Mara gold mine in Tanzania, removing tenure risk and signalling a drive to recover a sharp production decline in H1.\n\nAs the operation ramps back up, we anticipate demand for experienced mining professionals — particularly in production, mine planning, maintenance, and HSE — and are proactively mapping talent ahead of formal mandates.\n\nGiven your background in [relevant discipline], I wanted to reach out early. Would you be open to a brief call this week to explore whether North Mara could be a fit?\n\nBest regards,\n[Your Name]"
     },
     "bd_relevant": true,
-    "bd_relevance_reason": "M&A deal directly assigns named offshore Newfoundland & Labrador projects from Suncor to Ithaca Energy as new operator, qualifying as an operator change-of-control affecting named assets with workforce implications.",
+    "bd_relevance_reason": "Named operator (Barrick) granted a 15-year mining licence for the named project (North Mara) in Tanzania, constituting a specific lease/licence award with implied workforce ramp-up signal.",
     "phase": "operating",
-    "phase_evidence": "The article references existing 'oil projects offshore Newfoundland and Labrador', implying producing assets being transferred rather than new development.",
+    "phase_evidence": "Article states Barrick aims to 'reverse a sharp first-half production decline', indicating the mine is operational but underperforming and seeking to scale up.",
     "construction_subphase": null,
     "lifecycle_track": "greenfield",
     "decom_stage": null,
@@ -87,9 +94,9 @@
     "key_people": [],
     "enrichment_status": "ok",
     "enrichment_model": "claude-sonnet-4-6",
-    "id": "8ae2826f-232c-4982-ad67-a67434dc7cb0",
-    "ingested_at": "2026-10-05T18:15:21.918Z",
-    "source_published_at": "2026-10-05T12:32:21.000Z",
+    "id": "ed94d933-50a1-42f4-af34-e8b91217ca53",
+    "ingested_at": "2026-10-06T00:32:55.535Z",
+    "source_published_at": "2026-10-05T19:10:00.000Z",
     "contact_archetypes": [
       "ops_director",
       "hiring_manager"
@@ -206,6 +213,103 @@
       "site_manager",
       "hiring_manager",
       "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/suncor_sells_assets_off_canadian_east_coast_to_ithaca-05-oct-2026-184771-article/?rss=true"
+      }
+    ],
+    "headline": "Ithaca Energy Acquires Suncor's Offshore Newfoundland & Labrador Stakes for up to $1.11B",
+    "body": "Ithaca Energy PLC has agreed to buy Suncor Energy Inc's stakes in oil projects offshore Newfoundland and Labrador for up to $1.11 billion.\n\r\n\r\nThe acqu...",
+    "url": "https://www.rigzone.com/news/suncor_sells_assets_off_canadian_east_coast_to_ithaca-05-oct-2026-184771-article/?rss=true",
+    "published_at": "2026-10-05T12:32:21.000Z",
+    "hash": "fb8090c5a9df18a4",
+    "subsector": "offshore-og",
+    "discipline_tags": [],
+    "signal_type": "lease_round",
+    "region": "canada-east-coast",
+    "country": "canada",
+    "tldr": "Ithaca Energy is acquiring Suncor's interests in offshore Newfoundland & Labrador oil projects for up to $1.11B, signalling an operator change-of-control that may drive new hiring and contractor alignment under Ithaca's ownership.",
+    "operator": {
+      "name": "Ithaca Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Ithaca Energy",
+      "matched_company_slug": null
+    },
+    "project_name": null,
+    "scope": [
+      "operator_transition",
+      "asset_acquisition"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 1110000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Asset Manager",
+        "Operations Manager",
+        "Subsea Engineer",
+        "Production Engineer",
+        "Project Manager",
+        "Wells Manager"
+      ],
+      "skills": [
+        "offshore operations",
+        "asset management",
+        "subsea systems",
+        "well management",
+        "FPSO operations",
+        "Newfoundland offshore"
+      ],
+      "certs_freetext": [
+        "BOSIET",
+        "HUET",
+        "OPITO"
+      ],
+      "geo_rtw": "Canada / UK (Ithaca Energy HQ London)",
+      "project_experience": [
+        "Hibernia",
+        "Terra Nova",
+        "White Rose",
+        "West White Rose"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "senior",
+      "boolean_search": "(\"Asset Manager\" OR \"Operations Manager\" OR \"Production Engineer\" OR \"Wells Manager\" OR \"Subsea Engineer\" OR \"Project Manager\") AND (\"offshore\" OR \"FPSO\" OR \"subsea\") AND (\"Newfoundland\" OR \"Canada East Coast\" OR \"Grand Banks\") AND (\"Ithaca\" OR \"Suncor\" OR \"Hibernia\" OR \"Terra Nova\" OR \"White Rose\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Ithaca Energy's acquisition of Suncor's Newfoundland offshore assets signals a new operator ramp-up on Canada's East Coast. Are you open to discussing roles tied to this transition?",
+      "email_subject": "Ithaca Energy – Offshore Newfoundland Operator Transition | Senior Roles Emerging",
+      "email_body": "Hi [Name],\n\nIthaca Energy has just agreed to acquire Suncor's offshore Newfoundland & Labrador stakes for up to $1.11B — an operator change-of-control that typically drives immediate workforce restructuring and new contractor alignment.\n\nGiven your background in [relevant discipline] on East Coast Canada or similar offshore assets, I wanted to reach out early before these roles are formally posted.\n\nWould you be open to a brief call to explore what's emerging?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "M&A deal directly assigns named offshore Newfoundland & Labrador projects from Suncor to Ithaca Energy as new operator, qualifying as an operator change-of-control affecting named assets with workforce implications.",
+    "phase": "operating",
+    "phase_evidence": "The article references existing 'oil projects offshore Newfoundland and Labrador', implying producing assets being transferred rather than new development.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "8ae2826f-232c-4982-ad67-a67434dc7cb0",
+    "ingested_at": "2026-10-05T18:15:21.918Z",
+    "source_published_at": "2026-10-05T12:32:21.000Z",
+    "contact_archetypes": [
+      "ops_director",
+      "hiring_manager"
     ],
     "prompt_version": "phase-targeting-v1.2"
   },
