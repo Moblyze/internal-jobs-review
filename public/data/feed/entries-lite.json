@@ -5491,48 +5491,5 @@
     "outreach_readiness": "warming",
     "estimated_hiring_window": "ongoing",
     "key_people": []
-  },
-  {
-    "id": "4300e457-d369-4232-9f5b-2caed4342b10",
-    "ingested_at": "2026-07-09T00:40:17.309Z",
-    "sources": [
-      {
-        "id": "pr_newswire_energy",
-        "name": "PR Newswire (Energy)",
-        "url": "https://www.prnewswire.com/news-releases/strathcona-resources-ltd-announces-first-steam-at-meota-central-and-provides-update-on-lloydminster-thermal-business-302821329.html"
-      }
-    ],
-    "subsector": "onshore-og",
-    "discipline_tags": [
-      "process_plant_operations",
-      "industrial_construction",
-      "energy_trades"
-    ],
-    "signal_type": "fid",
-    "region": "canada-prairies",
-    "country": "canada",
-    "headline": "Strathcona Resources Achieves First Steam at Meota Central; Construction Complete, First Oil Imminent",
-    "operator": {
-      "name": "Strathcona Resources Ltd.",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Strathcona Resources Ltd.",
-      "matched_company_slug": null
-    },
-    "project_name": "Meota Central",
-    "mob_window": {
-      "start": "2026-Q3",
-      "end": "2026-Q4",
-      "duration_months": 3
-    },
-    "contract_value_usd": null,
-    "phase": "construction",
-    "construction_subphase": "commissioning",
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "live_now",
-    "estimated_hiring_window": "now",
-    "key_people": []
   }
 ]
