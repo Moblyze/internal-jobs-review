@@ -4,6 +4,115 @@
       {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/poland-begins-ordering-long-lead-components-for-first-ap1000"
+      }
+    ],
+    "headline": "Polskie Elektrownie Jądrowe Commissions Westinghouse for Long-Lead Items on Poland's First AP1000 Nuclear Plant",
+    "body": "Polskie Elektrownie Jądrowe has commissioned Westinghouse to begin ordering long-lead items for the first unit of Poland's planned first nuclear power plant, which will comprise three AP1000 reactors.",
+    "url": "https://www.world-nuclear-news.org/articles/poland-begins-ordering-long-lead-components-for-first-ap1000",
+    "published_at": "2026-10-08T16:16:41.000Z",
+    "hash": "97b8d99538f17347",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "poland",
+    "country": "poland",
+    "tldr": "Polskie Elektrownie Jądrowe has formally commissioned Westinghouse to begin procuring long-lead components for Unit 1 of Poland's first nuclear plant (3x AP1000). This early procurement step signals a pre-sanction ramp with engineering and supply-chain roles emerging in the 12mo+ window.",
+    "operator": {
+      "name": "Polskie Elektrownie Jądrowe",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Westinghouse Electric Company",
+      "matched_company_slug": null
+    },
+    "project_name": "Poland AP1000 Nuclear Power Plant – Unit 1",
+    "scope": [
+      "long_lead_procurement",
+      "nuclear_island_components",
+      "ap1000_units_x3"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Procurement Engineer",
+        "Long-Lead Equipment Manager",
+        "Nuclear Supply Chain Manager",
+        "AP1000 Systems Engineer",
+        "Nuclear Project Engineer",
+        "Quality Assurance Engineer – Nuclear",
+        "Nuclear Construction Planner",
+        "Reactor Commissioning Engineer"
+      ],
+      "skills": [
+        "AP1000 reactor design",
+        "nuclear long-lead procurement",
+        "nuclear quality assurance",
+        "ASME N-stamp",
+        "nuclear supply chain management",
+        "Westinghouse AP1000",
+        "nuclear project engineering",
+        "NRC/regulatory compliance"
+      ],
+      "certs_freetext": [
+        "ASME NQA-1",
+        "ASME N-stamp",
+        "PMP",
+        "European nuclear safety certifications",
+        "IAEA safety standards familiarity"
+      ],
+      "geo_rtw": "Poland / EU work authorization or willingness to relocate",
+      "project_experience": [
+        "Vogtle Units 3 & 4",
+        "Hinkley Point C",
+        "Olkiluoto 3",
+        "UAE Barakah Nuclear Plant",
+        "AP1000 projects globally"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal",
+      "boolean_search": "(\"AP1000\" OR \"nuclear procurement\" OR \"long-lead\" OR \"nuclear supply chain\") AND (\"Westinghouse\" OR \"nuclear power plant\" OR \"reactor\") AND (\"procurement engineer\" OR \"supply chain manager\" OR \"nuclear engineer\" OR \"project engineer\" OR \"QA engineer\") AND (\"ASME NQA-1\" OR \"N-stamp\" OR \"nuclear quality\" OR \"nuclear construction\") NOT (\"oil\" OR \"gas\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Westinghouse is now procuring long-lead components for Poland's first AP1000 nuclear plant. With your nuclear supply-chain/engineering background, this could be a strong fit. Worth a quick chat?",
+      "email_subject": "Poland AP1000 – Westinghouse Long-Lead Procurement | Nuclear Engineering Opportunity",
+      "email_body": "Hi [Name],\n\nPolskie Elektrownie Jądrowe has formally engaged Westinghouse to begin ordering long-lead components for Unit 1 of Poland's first nuclear power plant — a three-unit AP1000 development.\n\nThis early procurement phase signals that engineering and supply-chain roles are beginning to materialise. Given your background in [AP1000 / nuclear procurement / nuclear engineering], I wanted to reach out before the hiring wave peaks.\n\nWould you be open to a brief conversation about how your experience might align with roles emerging on this programme?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Polskie Elektrownie Jądrowe) has formally commissioned named contractor (Westinghouse) to procure long-lead items for a specific nuclear project, constituting an actionable early-phase contract award with staffing implications.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article describes ordering of 'long-lead items for the first unit' of a 'planned first nuclear power plant,' indicating pre-FID early procurement activity rather than a full project sanction.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "b6494b8e-eef0-4a56-9a0e-f6c62cb5ff20",
+    "ingested_at": "2026-10-08T18:14:46.458Z",
+    "source_published_at": "2026-10-08T16:16:41.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org/articles/westinghouse-teams-up-with-hyundai-ec-for-dutch-feed-studies"
       }
     ],
@@ -749,112 +858,6 @@
   {
     "sources": [
       {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org/articles/second-part-of-construction-permit-application-submitted-for-pioneer-smrs"
-      }
-    ],
-    "headline": "Holtec Submits Preliminary Safety Analysis Report for Two SMRs at Palisades, Michigan",
-    "body": "Holtec has submitted the Preliminary Safety Analysis Report to the US Nuclear Regulatory Commission for two small modular reactor units at the Palisades Energy Center in Michigan, completing the second phase of the Construction Permit Application process.",
-    "url": "https://www.world-nuclear-news.org/articles/second-part-of-construction-permit-application-submitted-for-pioneer-smrs",
-    "published_at": "2026-10-02T14:38:26.000Z",
-    "hash": "980865d615af2cae",
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations",
-      "energy_trades"
-    ],
-    "signal_type": "regulatory",
-    "region": "us-midwest",
-    "country": "united_states",
-    "tldr": "Holtec has completed the second phase of the Construction Permit Application for two SMR units at Palisades Energy Center, advancing the project toward NRC approval and eventual construction hiring.",
-    "operator": {
-      "name": "Holtec",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Holtec",
-      "matched_company_slug": null
-    },
-    "project_name": "Palisades Energy Center SMR Units",
-    "scope": [
-      "smr_construction",
-      "nuclear_licensing",
-      "construction_permit"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Nuclear Construction Manager",
-        "Reactor Engineer",
-        "Nuclear Safety Analyst",
-        "Licensing Engineer",
-        "SMR Project Engineer",
-        "Nuclear QA/QC Manager",
-        "Civil/Structural Engineer – Nuclear",
-        "HSE Manager – Nuclear Construction"
-      ],
-      "skills": [
-        "SMR design",
-        "nuclear licensing",
-        "NRC regulatory process",
-        "preliminary safety analysis",
-        "nuclear construction management",
-        "QA/QC nuclear",
-        "FSAR/PSAR preparation"
-      ],
-      "certs_freetext": [
-        "NRC 10 CFR Part 50",
-        "ASME Nuclear Certification",
-        "PMP",
-        "CHP (Certified Health Physicist)"
-      ],
-      "geo_rtw": "US work authorization required (Michigan)",
-      "project_experience": [
-        "Vogtle Units 3 & 4",
-        "NuScale UAMPS Carbon Free Power Project",
-        "Holtec SMR-300",
-        "TerraPower Natrium"
-      ],
-      "yoe_band": "10-20",
-      "seniority": "Senior / Principal",
-      "boolean_search": "(\"SMR\" OR \"small modular reactor\" OR \"nuclear construction\" OR \"reactor licensing\") AND (\"NRC\" OR \"10 CFR 50\" OR \"construction permit\" OR \"PSAR\" OR \"FSAR\") AND (\"Holtec\" OR \"Palisades\" OR \"nuclear project manager\" OR \"nuclear engineer\") AND (\"Michigan\" OR \"United States\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Holtec has just submitted the Preliminary Safety Analysis Report for two SMRs at Palisades, MI — moving closer to NRC construction permit approval. Are you open to discussing senior nuclear engineering/construction roles as this project ramps toward build phase?",
-      "email_subject": "Palisades SMR – Senior Nuclear Roles Ahead of Construction Permit Approval",
-      "email_body": "Hi [Name],\n\nHoltec has completed the second phase of its Construction Permit Application for two small modular reactor units at the Palisades Energy Center in Michigan, submitting the Preliminary Safety Analysis Report to the NRC.\n\nAs the project advances toward permit approval and eventual construction mobilization, we are mapping senior nuclear engineering, licensing, and construction management talent for the pipeline.\n\nGiven your background in [nuclear construction / SMR / NRC licensing], I'd welcome a brief conversation about how your profile aligns with upcoming needs on this project.\n\nWould you have 15 minutes this week?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Holtec's submission of the Preliminary Safety Analysis Report to the NRC for two named SMR units at Palisades is a regulatory milestone in the Construction Permit Application process, directly advancing a named nuclear project toward construction and labor demand.",
-    "phase": "pre_sanction",
-    "phase_evidence": "Article states this completes 'the second phase of the Construction Permit Application process,' indicating the project is still in the pre-FID licensing stage.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "6e4739af-9f1c-4a9b-a4aa-2a186265da1a",
-    "ingested_at": "2026-10-02T18:15:41.065Z",
-    "source_published_at": "2026-10-02T14:38:26.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
         "id": "mining_com",
         "name": "MINING.com",
         "url": "https://www.mining.com/kghm-south32-kick-off-725m-sierra-gorda-expansion/"
@@ -958,6 +961,112 @@
     "id": "c52725c5-b859-4b0a-9f98-cd92b740fb7a",
     "ingested_at": "2026-10-02T18:15:41.065Z",
     "source_published_at": "2026-10-02T15:43:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/second-part-of-construction-permit-application-submitted-for-pioneer-smrs"
+      }
+    ],
+    "headline": "Holtec Submits Preliminary Safety Analysis Report for Two SMRs at Palisades, Michigan",
+    "body": "Holtec has submitted the Preliminary Safety Analysis Report to the US Nuclear Regulatory Commission for two small modular reactor units at the Palisades Energy Center in Michigan, completing the second phase of the Construction Permit Application process.",
+    "url": "https://www.world-nuclear-news.org/articles/second-part-of-construction-permit-application-submitted-for-pioneer-smrs",
+    "published_at": "2026-10-02T14:38:26.000Z",
+    "hash": "980865d615af2cae",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-midwest",
+    "country": "united_states",
+    "tldr": "Holtec has completed the second phase of the Construction Permit Application for two SMR units at Palisades Energy Center, advancing the project toward NRC approval and eventual construction hiring.",
+    "operator": {
+      "name": "Holtec",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Holtec",
+      "matched_company_slug": null
+    },
+    "project_name": "Palisades Energy Center SMR Units",
+    "scope": [
+      "smr_construction",
+      "nuclear_licensing",
+      "construction_permit"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Construction Manager",
+        "Reactor Engineer",
+        "Nuclear Safety Analyst",
+        "Licensing Engineer",
+        "SMR Project Engineer",
+        "Nuclear QA/QC Manager",
+        "Civil/Structural Engineer – Nuclear",
+        "HSE Manager – Nuclear Construction"
+      ],
+      "skills": [
+        "SMR design",
+        "nuclear licensing",
+        "NRC regulatory process",
+        "preliminary safety analysis",
+        "nuclear construction management",
+        "QA/QC nuclear",
+        "FSAR/PSAR preparation"
+      ],
+      "certs_freetext": [
+        "NRC 10 CFR Part 50",
+        "ASME Nuclear Certification",
+        "PMP",
+        "CHP (Certified Health Physicist)"
+      ],
+      "geo_rtw": "US work authorization required (Michigan)",
+      "project_experience": [
+        "Vogtle Units 3 & 4",
+        "NuScale UAMPS Carbon Free Power Project",
+        "Holtec SMR-300",
+        "TerraPower Natrium"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal",
+      "boolean_search": "(\"SMR\" OR \"small modular reactor\" OR \"nuclear construction\" OR \"reactor licensing\") AND (\"NRC\" OR \"10 CFR 50\" OR \"construction permit\" OR \"PSAR\" OR \"FSAR\") AND (\"Holtec\" OR \"Palisades\" OR \"nuclear project manager\" OR \"nuclear engineer\") AND (\"Michigan\" OR \"United States\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Holtec has just submitted the Preliminary Safety Analysis Report for two SMRs at Palisades, MI — moving closer to NRC construction permit approval. Are you open to discussing senior nuclear engineering/construction roles as this project ramps toward build phase?",
+      "email_subject": "Palisades SMR – Senior Nuclear Roles Ahead of Construction Permit Approval",
+      "email_body": "Hi [Name],\n\nHoltec has completed the second phase of its Construction Permit Application for two small modular reactor units at the Palisades Energy Center in Michigan, submitting the Preliminary Safety Analysis Report to the NRC.\n\nAs the project advances toward permit approval and eventual construction mobilization, we are mapping senior nuclear engineering, licensing, and construction management talent for the pipeline.\n\nGiven your background in [nuclear construction / SMR / NRC licensing], I'd welcome a brief conversation about how your profile aligns with upcoming needs on this project.\n\nWould you have 15 minutes this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Holtec's submission of the Preliminary Safety Analysis Report to the NRC for two named SMR units at Palisades is a regulatory milestone in the Construction Permit Application process, directly advancing a named nuclear project toward construction and labor demand.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states this completes 'the second phase of the Construction Permit Application process,' indicating the project is still in the pre-FID licensing stage.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "6e4739af-9f1c-4a9b-a4aa-2a186265da1a",
+    "ingested_at": "2026-10-02T18:15:41.065Z",
+    "source_published_at": "2026-10-02T14:38:26.000Z",
     "contact_archetypes": [
       "project_manager",
       "business_unit_director"
@@ -13665,119 +13774,6 @@
     "id": "f2564e47-5427-4e27-b198-db61974dd7c5",
     "ingested_at": "2026-07-10T18:32:32.182Z",
     "source_published_at": "2026-07-10T06:14:50.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/tender-launched-for-dismantling-of-ignalina-cores"
-      }
-    ],
-    "headline": "Altra Launches International Tender for Ignalina NPP Reactor Core Design & Dismantling",
-    "body": "The Lithuanian state-owned company leading the decommissioning of the Ignalina nuclear power plant, Altra, has launched an international tender for the design and dismantling of the reactor cores of the plant's two RBMK-1500 reactors.",
-    "url": "https://www.world-nuclear-news.org//articles/tender-launched-for-dismantling-of-ignalina-cores",
-    "published_at": "2026-07-10T11:15:17.000Z",
-    "hash": "3a12fa687ed7c0d0",
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "ndt_inspection",
-      "rope_access"
-    ],
-    "signal_type": "tender",
-    "region": "baltics",
-    "country": "lithuania",
-    "tldr": "Lithuanian decom company Altra has issued an international tender for design and physical dismantling of both RBMK-1500 reactor cores at Ignalina NPP, signalling an imminent contract award and workforce ramp-up for specialist nuclear decom trades.",
-    "operator": {
-      "name": "Altra",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Ignalina Nuclear Power Plant Decommissioning",
-    "scope": [
-      "reactor_core_dismantling",
-      "decom_design",
-      "rbmk_reactor_decom"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Nuclear Decommissioning Engineer",
-        "Reactor Dismantling Engineer",
-        "Nuclear Project Manager",
-        "Radiation Protection Supervisor",
-        "Decommissioning Project Director",
-        "Nuclear Safety Engineer",
-        "Remote Handling Technician",
-        "Decommissioning Planner",
-        "Health Physics Technician",
-        "Nuclear Construction Manager"
-      ],
-      "skills": [
-        "RBMK reactor",
-        "nuclear decommissioning",
-        "reactor core dismantling",
-        "radiation protection",
-        "nuclear waste management",
-        "remote handling",
-        "nuclear safety case",
-        "decom planning",
-        "graphite moderator",
-        "nuclear regulatory compliance"
-      ],
-      "certs_freetext": [
-        "Nuclear Safety certification",
-        "Radiation Protection Supervisor (RPS)",
-        "IAEA decommissioning guidelines",
-        "EU nuclear decom regulatory compliance"
-      ],
-      "geo_rtw": "EU/EEA right to work preferred; Lithuania-based or deployable",
-      "project_experience": [
-        "Chernobyl decommissioning",
-        "Kozloduy NPP decommissioning",
-        "Bohunice NPP decommissioning",
-        "Sellafield decommissioning",
-        "Magnox decommissioning",
-        "Ringhals decommissioning"
-      ],
-      "yoe_band": "10-20",
-      "seniority": "Senior / Lead",
-      "boolean_search": "(\"nuclear decommissioning\" OR \"reactor dismantling\" OR \"RBMK\" OR \"decom engineer\") AND (\"radiation protection\" OR \"nuclear safety\" OR \"remote handling\" OR \"reactor core\") AND (\"project manager\" OR \"project director\" OR \"decommissioning engineer\" OR \"health physics\" OR \"nuclear construction\") NOT (\"oil\" OR \"gas\" OR \"wind\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Altra has just launched an international tender for design & dismantling of both RBMK-1500 reactor cores at Ignalina NPP in Lithuania. Given your nuclear decom background, this looks like a strong fit — keen to discuss? Happy to share more detail.",
-      "email_subject": "Ignalina NPP Reactor Core Dismantling Tender — Nuclear Decom Opportunity",
-      "email_body": "Hi [Name],\n\nI wanted to reach out as a relevant opportunity has just emerged in nuclear decommissioning.\n\nAltra, the Lithuanian state-owned company leading the Ignalina NPP decommissioning programme, has launched an international tender for the design and physical dismantling of both RBMK-1500 reactor cores. This is a specialist scope that demands experienced nuclear decom professionals with reactor dismantling, radiation protection, and nuclear safety expertise.\n\nGiven your background in [relevant experience], I believe you could be a strong match for roles likely to emerge on this contract once it is awarded.\n\nWould you be open to a brief call to explore further?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "International decommissioning tender launched by named operator (Altra) for reactor core dismantling at a named nuclear facility (Ignalina NPP), creating a clear near-term contract award and workforce demand signal.",
-    "phase": "pre_sanction",
-    "phase_evidence": "Article states a tender has been 'launched' for design and dismantling, meaning a contract has not yet been awarded — the project is at the tender/pre-award stage.",
-    "construction_subphase": null,
-    "lifecycle_track": "decommissioning",
-    "decom_stage": "permits",
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "b74823a2-b9d5-43b9-aed8-88a1067e5406",
-    "ingested_at": "2026-07-10T12:47:54.068Z",
-    "source_published_at": "2026-07-10T11:15:17.000Z",
     "contact_archetypes": [
       "project_manager",
       "business_unit_director"

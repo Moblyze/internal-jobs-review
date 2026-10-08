@@ -1,5 +1,48 @@
 [
   {
+    "id": "b6494b8e-eef0-4a56-9a0e-f6c62cb5ff20",
+    "ingested_at": "2026-10-08T18:14:46.458Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/poland-begins-ordering-long-lead-components-for-first-ap1000"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "poland",
+    "country": "poland",
+    "headline": "Polskie Elektrownie Jądrowe Commissions Westinghouse for Long-Lead Items on Poland's First AP1000 Nuclear Plant",
+    "operator": {
+      "name": "Polskie Elektrownie Jądrowe",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Westinghouse Electric Company",
+      "matched_company_slug": null
+    },
+    "project_name": "Poland AP1000 Nuclear Power Plant – Unit 1",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "5b2052c2-8258-4367-a6b4-45cd66e3526d",
     "ingested_at": "2026-10-08T12:18:01.132Z",
     "sources": [
@@ -298,6 +341,48 @@
     "key_people": []
   },
   {
+    "id": "c52725c5-b859-4b0a-9f98-cd92b740fb7a",
+    "ingested_at": "2026-10-02T18:15:41.065Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/kghm-south32-kick-off-725m-sierra-gorda-expansion/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "chile",
+    "country": "chile",
+    "headline": "KGHM & South32 Sanction $725M Sierra Gorda Copper Mine Expansion – Construction 2027",
+    "operator": {
+      "name": "KGHM / South32",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Sierra Gorda Expansion",
+    "mob_window": {
+      "start": "2027-Q1",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 725000000,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "6e4739af-9f1c-4a9b-a4aa-2a186265da1a",
     "ingested_at": "2026-10-02T18:15:41.065Z",
     "sources": [
@@ -332,48 +417,6 @@
       "duration_months": null
     },
     "contract_value_usd": null,
-    "phase": "pre_sanction",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
-    "key_people": []
-  },
-  {
-    "id": "c52725c5-b859-4b0a-9f98-cd92b740fb7a",
-    "ingested_at": "2026-10-02T18:15:41.065Z",
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/kghm-south32-kick-off-725m-sierra-gorda-expansion/"
-      }
-    ],
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades"
-    ],
-    "signal_type": "fid",
-    "region": "chile",
-    "country": "chile",
-    "headline": "KGHM & South32 Sanction $725M Sierra Gorda Copper Mine Expansion – Construction 2027",
-    "operator": {
-      "name": "KGHM / South32",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Sierra Gorda Expansion",
-    "mob_window": {
-      "start": "2027-Q1",
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": 725000000,
     "phase": "pre_sanction",
     "construction_subphase": null,
     "lifecycle_track": "greenfield",
@@ -5406,49 +5449,6 @@
     "decom_stage": null,
     "outreach_readiness": "cold",
     "estimated_hiring_window": "12mo+",
-    "key_people": []
-  },
-  {
-    "id": "b74823a2-b9d5-43b9-aed8-88a1067e5406",
-    "ingested_at": "2026-07-10T12:47:54.068Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/tender-launched-for-dismantling-of-ignalina-cores"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "ndt_inspection",
-      "rope_access"
-    ],
-    "signal_type": "tender",
-    "region": "baltics",
-    "country": "lithuania",
-    "headline": "Altra Launches International Tender for Ignalina NPP Reactor Core Design & Dismantling",
-    "operator": {
-      "name": "Altra",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Ignalina Nuclear Power Plant Decommissioning",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "pre_sanction",
-    "construction_subphase": null,
-    "lifecycle_track": "decommissioning",
-    "decom_stage": "permits",
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
     "key_people": []
   }
 ]
