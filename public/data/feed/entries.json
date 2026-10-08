@@ -4,6 +4,114 @@
       {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/westinghouse-teams-up-with-hyundai-ec-for-dutch-feed-studies"
+      }
+    ],
+    "headline": "Westinghouse Contracts Hyundai E&C for FEED Studies on Two AP1000 NPPs in Netherlands",
+    "body": "South Korea's Hyundai Engineering & Construction has been contracted by Westinghouse to carry out basic design studies for the construction of two large nuclear power plants in the Netherlands based on Westinghouse's AP1000 design.",
+    "url": "https://www.world-nuclear-news.org/articles/westinghouse-teams-up-with-hyundai-ec-for-dutch-feed-studies",
+    "published_at": "2026-10-08T11:04:41.000Z",
+    "hash": "4c049669d3106a57",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "netherlands",
+    "country": "netherlands",
+    "tldr": "Westinghouse has awarded Hyundai E&C a basic design (FEED) contract for two AP1000 nuclear power plants in the Netherlands, signalling pre-FID engineering activity and a future large-scale construction workforce ramp. Recruiters should begin warming relationships with nuclear FEED engineers and discipline leads.",
+    "operator": {
+      "name": "Westinghouse",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Hyundai Engineering & Construction",
+      "matched_company_slug": null
+    },
+    "project_name": "Netherlands AP1000 Nuclear Power Plants",
+    "scope": [
+      "feed",
+      "basic_design",
+      "nuclear_npp"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear FEED Engineer",
+        "Basic Design Lead",
+        "Nuclear Civil/Structural Engineer",
+        "Nuclear Mechanical Engineer",
+        "Nuclear I&C Engineer",
+        "Project Controls Engineer",
+        "Safety Case Engineer",
+        "Licensing Engineer"
+      ],
+      "skills": [
+        "AP1000 reactor design",
+        "nuclear FEED",
+        "basic design",
+        "nuclear safety analysis",
+        "I&C systems",
+        "civil/structural nuclear",
+        "regulatory licensing",
+        "IAEA standards"
+      ],
+      "certs_freetext": [
+        "EUR-ACE",
+        "PMP",
+        "IAEA nuclear safety certification",
+        "Dutch nuclear regulator (ANVS) familiarity"
+      ],
+      "geo_rtw": "EU/EEA work authorisation preferred; Netherlands-eligible",
+      "project_experience": [
+        "Hinkley Point C",
+        "Vogtle Units 3 & 4",
+        "Olkiluoto 3",
+        "Barakah NPP",
+        "AP1000"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"AP1000\" OR \"nuclear power plant\" OR \"NPP\") AND (\"FEED\" OR \"basic design\" OR \"nuclear engineering\") AND (\"Westinghouse\" OR \"Hyundai E&C\" OR \"nuclear FEED\") AND (\"Netherlands\" OR \"EU\" OR \"Europe\") AND (\"lead engineer\" OR \"senior engineer\" OR \"licensing engineer\" OR \"I&C\" OR \"civil nuclear\" OR \"mechanical nuclear\" OR \"safety case\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Hyundai E&C has just been contracted by Westinghouse for FEED studies on two AP1000 nuclear plants in the Netherlands. Senior nuclear FEED engineers with AP1000 or large NPP experience will be in demand soon. Worth a conversation?",
+      "email_subject": "AP1000 FEED Opportunity — Netherlands | Hyundai E&C / Westinghouse",
+      "email_body": "Hi [Name],\n\nWestinghouse has just contracted Hyundai Engineering & Construction to carry out basic design (FEED) studies for two AP1000 nuclear power plants in the Netherlands.\n\nThis pre-FID FEED phase typically requires a rapid build-out of senior nuclear discipline engineers — civil/structural, mechanical, I&C, licensing, and safety case — over the coming 6-12 months.\n\nGiven your background in [AP1000 / nuclear FEED / large NPP projects], I wanted to reach out early. Would you be open to a brief call to discuss where this project is heading and how your profile aligns?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named FEED contract award between Westinghouse (operator/technology licensor) and Hyundai E&C (contractor) for two AP1000 nuclear power plants in the Netherlands, constituting a discrete workforce-demand event in the nuclear subsector.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states Hyundai E&C is contracted to carry out 'basic design studies' — FEED-level work prior to FID.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "5b2052c2-8258-4367-a6b4-45cd66e3526d",
+    "ingested_at": "2026-10-08T12:18:01.132Z",
+    "source_published_at": "2026-10-08T11:04:41.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org/articles/doe-offers-vistra-loan-for-reactor-upgrades-and-uprates"
       }
     ],

@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-10-06T18:16:35.163Z"
+    "last_updated_at": "2026-10-08T12:19:20.590Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -14514,6 +14514,66 @@
         "email": null,
         "phone": null,
         "location": "Dallas, TX, USA"
+      }
+    ]
+  },
+  "westinghouse": {
+    "discovered_at": "2026-10-08T12:19:20.590Z",
+    "contacts": [
+      {
+        "name": "Annie Livingston",
+        "title": "Senior Director, Global Talent Acquisition",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/annie-livingston-884427",
+        "source_url": "https://www.zoominfo.com/p/Annie-Livingston/2329245079",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Pittsburgh, PA, USA"
+      },
+      {
+        "name": "Robert Bruns",
+        "title": "Talent Acquisition - Nuclear Services",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/robert-bruns-3a77441",
+        "source_url": "https://www.linkedin.com/in/robert-bruns-3a77441",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Cranberry Township, PA, USA"
+      },
+      {
+        "name": "Gilma Saravia",
+        "title": "Vice President, Human Resources",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/gilmasaravia",
+        "source_url": "https://hrtoday.in/gilma-saravia-appointed-as-vice-president-human-resources-at-westinghouse-electric-company/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Detroit Metropolitan Area, USA"
+      },
+      {
+        "name": "Jan Hawkins",
+        "title": "Director, Human Resources, Automation and Field Services",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/jan-hawkins-b3634173",
+        "source_url": "https://www.comparably.com/companies/westinghouse/human-resources",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Cranberry Township, PA, USA"
+      },
+      {
+        "name": "Pamela Cowan",
+        "title": "President, Outage & Maintenance Services",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/pamela-cowan-01883424b",
+        "source_url": "https://info.westinghousenuclear.com/news/author/westinghouse/page/25",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Cranberry Township, PA, USA"
       }
     ]
   }
