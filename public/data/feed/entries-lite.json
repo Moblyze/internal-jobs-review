@@ -5407,47 +5407,5 @@
     "outreach_readiness": "warming",
     "estimated_hiring_window": "6-12mo",
     "key_people": []
-  },
-  {
-    "id": "b9b02726-6089-44fa-8b43-cd02f00f0431",
-    "ingested_at": "2026-07-09T18:38:11.879Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/reactor-vessel-installed-in-el-dabaas-second-unit"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations"
-    ],
-    "signal_type": "epc_award",
-    "region": "north-africa",
-    "country": "egypt",
-    "headline": "Reactor Pressure Vessel Installed in El Dabaa NPP Unit 2 — Construction Milestone",
-    "operator": {
-      "name": "El Dabaa Nuclear Power Plant",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "El Dabaa Nuclear Power Plant Unit 2",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "construction",
-    "construction_subphase": "peak",
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "3-6mo",
-    "key_people": []
   }
 ]
