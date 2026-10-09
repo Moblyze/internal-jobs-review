@@ -2,6 +2,117 @@
   {
     "sources": [
       {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/levack-restart-puts-magna-on-two-mine-path/"
+      }
+    ],
+    "headline": "Magna Mining Restarts Levack Mine in Sudbury, Ontario — Two-Mine Production Track",
+    "body": "Levack is to join Magna’s producing McCreedy West mine as it builds a multi-mine business around Sudbury’s existing infrastructure.",
+    "url": "https://www.mining.com/levack-restart-puts-magna-on-two-mine-path/",
+    "published_at": "2026-10-08T19:05:57.000Z",
+    "hash": "ade651b16f6d4d58",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "ontario-canada",
+    "country": "canada",
+    "tldr": "Magna Mining is restarting the Levack mine in Sudbury, Ontario, adding it to the producing McCreedy West mine. The restart signals near-term workforce ramp-up demand for underground mining operations leveraging existing regional infrastructure.",
+    "operator": {
+      "name": "Magna Mining",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Magna Mining",
+      "matched_company_slug": null
+    },
+    "project_name": "Levack Mine",
+    "scope": [
+      "mine_restart",
+      "underground_mining",
+      "multi_mine_operations"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Underground Mine Superintendent",
+        "Mine Manager",
+        "Underground Shift Supervisor",
+        "Mine Engineer",
+        "Underground Electrician",
+        "Mine Maintenance Supervisor",
+        "HSE Manager",
+        "Ventilation Engineer",
+        "Hoisting Engineer",
+        "Drill and Blast Engineer"
+      ],
+      "skills": [
+        "underground hard rock mining",
+        "mine restart",
+        "Sudbury Basin operations",
+        "drill and blast",
+        "ventilation",
+        "hoisting",
+        "mine development",
+        "nickel/copper sulphide mining"
+      ],
+      "certs_freetext": [
+        "Ontario Mine Manager Certificate of Competency",
+        "Ontario Hoisting Engineer Certificate",
+        "Common Core Underground Hard Rock Miner",
+        "WHMIS",
+        "Working at Heights Ontario"
+      ],
+      "geo_rtw": "Canada — Ontario RTW preferred; Sudbury region",
+      "project_experience": [
+        "McCreedy West",
+        "Levack",
+        "Sudbury Basin",
+        "Vale Sudbury Operations",
+        "Glencore Sudbury INO"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"underground mine\" OR \"hard rock mining\" OR \"mine restart\" OR \"mine development\") AND (\"Sudbury\" OR \"Ontario\" OR \"nickel\" OR \"copper sulphide\") AND (\"mine superintendent\" OR \"shift supervisor\" OR \"mine engineer\" OR \"underground electrician\" OR \"HSE manager\" OR \"drill and blast\" OR \"hoisting engineer\" OR \"ventilation engineer\") AND (\"mine restart\" OR \"ramp-up\" OR \"production restart\" OR \"multi-mine\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Magna Mining is restarting the Levack mine in Sudbury alongside McCreedy West — a clear workforce ramp signal. Are you open to hearing about underground ops roles coming up in the Sudbury Basin?",
+      "email_subject": "Levack Mine Restart — Underground Mining Roles | Sudbury, Ontario",
+      "email_body": "Hi [Name],\n\nMagna Mining has announced the restart of its Levack mine in Sudbury, Ontario, building a two-mine operation alongside the producing McCreedy West mine. This restart will drive near-term demand for experienced underground hard rock mining professionals across operations, engineering, and HSE functions.\n\nGiven your background in [relevant experience], I wanted to reach out to see if you'd be open to a conversation about opportunities with Magna in the Sudbury Basin.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Magna Mining) announces restart of a named mine (Levack) in Ontario, creating a discrete workforce-demand event in the mining sector.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Article states Levack 'is to join' the producing McCreedy West mine, indicating a restart decision has been made but operations have not yet commenced.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "556e8b51-0b63-4f01-8637-058890b6b828",
+    "ingested_at": "2026-10-09T00:34:32.562Z",
+    "source_published_at": "2026-10-08T19:05:57.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org/articles/poland-begins-ordering-long-lead-components-for-first-ap1000"
@@ -13567,216 +13678,6 @@
       "site_manager",
       "hiring_manager",
       "project_manager"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/guardian-metal-montana-mining-association-forge-us-tungsten-processing-alliance/"
-      }
-    ],
-    "headline": "Guardian Metal & Montana Mining Association Form US Tungsten Processing Alliance – First Ore Shipments Late Summer 2026",
-    "body": "First shipments of legacy ore are expected by late summer 2026.",
-    "url": "https://www.mining.com/guardian-metal-montana-mining-association-forge-us-tungsten-processing-alliance/",
-    "published_at": "2026-07-10T23:54:46.000Z",
-    "hash": "7210bff1266fc786",
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations"
-    ],
-    "signal_type": "epc_award",
-    "region": "us-montana",
-    "country": "united_states",
-    "tldr": "Guardian Metal and the Montana Mining Association have announced a tungsten processing alliance with first legacy ore shipments expected by late summer 2026, signaling a near-term ramp-up in processing operations and associated workforce demand.",
-    "operator": {
-      "name": "Guardian Metal",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Guardian Metal",
-      "matched_company_slug": null
-    },
-    "project_name": "Montana Tungsten Processing Alliance",
-    "scope": [
-      "ore_processing",
-      "legacy_ore_handling"
-    ],
-    "mob_window": {
-      "start": "2026-Q3",
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Mineral Processing Operator",
-        "Process Plant Supervisor",
-        "Metallurgist",
-        "Plant Maintenance Technician",
-        "HSE Officer",
-        "Mine Site Logistics Coordinator",
-        "Ore Handling Supervisor"
-      ],
-      "skills": [
-        "tungsten processing",
-        "mineral processing",
-        "ore handling",
-        "hydrometallurgy",
-        "plant operations",
-        "heavy industry maintenance"
-      ],
-      "certs_freetext": [
-        "MSHA Part 46 or Part 48",
-        "First Aid/CPR",
-        "Confined Space Entry",
-        "Forklift Operator Certification"
-      ],
-      "geo_rtw": "US work authorization required; Montana-based or willing to relocate",
-      "project_experience": [
-        "tungsten mining",
-        "critical minerals processing",
-        "molybdenum processing",
-        "rare earth processing"
-      ],
-      "yoe_band": "5-15",
-      "seniority": "mid to senior",
-      "boolean_search": "(\"tungsten processing\" OR \"mineral processing\" OR \"ore processing\" OR \"hydrometallurgy\") AND (\"process operator\" OR \"plant supervisor\" OR \"metallurgist\" OR \"ore handling\" OR \"plant maintenance\") AND (\"mining\" OR \"critical minerals\") AND (Montana OR \"United States\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Guardian Metal is ramping up tungsten processing operations in Montana with first ore shipments targeted for late summer 2026. Given your background in mineral processing, I'd love to explore if there's a fit. Are you open to a quick chat?",
-      "email_subject": "Tungsten Processing Roles – Guardian Metal Montana Ramp-Up (2026)",
-      "email_body": "Hi [Name],\n\nI wanted to reach out regarding an exciting opportunity tied to Guardian Metal's new tungsten processing alliance with the Montana Mining Association. First legacy ore shipments are expected by late summer 2026, which means the team will be building out its operational workforce in the coming months.\n\nGiven your experience in mineral or process plant operations, I believe you could be a strong fit for roles coming online during this ramp-up phase.\n\nWould you be open to a 15-minute call to discuss? I'm happy to work around your schedule.\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named operators (Guardian Metal, Montana Mining Association) announce a tungsten processing alliance with a defined first-shipment milestone of late summer 2026, constituting a discrete workforce-demand event in the mining subsector.",
-    "phase": "sanctioned_engineering",
-    "phase_evidence": "First shipments of legacy ore are expected by late summer 2026, indicating the alliance is confirmed and operational ramp-up is being planned, consistent with a post-sanction engineering/preparation phase.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "397a92b4-c6f2-46a3-9db6-df9217741ce5",
-    "ingested_at": "2026-07-11T00:34:58.547Z",
-    "source_published_at": "2026-07-10T23:54:46.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "hiring_manager",
-      "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/argentina-announces-privately-financed-smr-plan"
-      }
-    ],
-    "headline": "Meitner Energy to Invest $1.2B in 300 MW SMR at Atucha Site, Argentina",
-    "body": "Argentina's government has said US-based Meitner Energy is planning to invest USD1.2 billion in the construction of a 300 MW small modular reactor at the Atucha site.",
-    "url": "https://www.world-nuclear-news.org//articles/argentina-announces-privately-financed-smr-plan",
-    "published_at": "2026-07-10T06:14:50.000Z",
-    "hash": "8a8eb235c2624b6e",
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations",
-      "energy_trades"
-    ],
-    "signal_type": "fid",
-    "region": "argentina",
-    "country": "argentina",
-    "tldr": "US-based Meitner Energy has announced a $1.2B investment to construct a 300 MW small modular reactor at Argentina's Atucha site. Construction hiring is not yet imminent — project is pre-sanction/announcement stage.",
-    "operator": {
-      "name": "Meitner Energy",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Meitner Energy",
-      "matched_company_slug": null
-    },
-    "project_name": "Atucha SMR",
-    "scope": [
-      "smr_construction",
-      "nuclear_civil_works",
-      "plant_erection"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": 1200000000,
-    "targeting": {
-      "job_titles_freetext": [
-        "Nuclear Construction Manager",
-        "SMR Project Director",
-        "Nuclear Project Engineer",
-        "Civil Construction Superintendent",
-        "Nuclear I&C Engineer",
-        "Commissioning Engineer",
-        "HSE Manager Nuclear",
-        "Mechanical Construction Supervisor"
-      ],
-      "skills": [
-        "small modular reactor",
-        "nuclear construction",
-        "NSSS installation",
-        "nuclear civil works",
-        "commissioning nuclear",
-        "QA/QC nuclear",
-        "nuclear regulatory compliance"
-      ],
-      "certs_freetext": [
-        "Nuclear Quality Assurance (NQA-1)",
-        "IAEA safety standards",
-        "PMP",
-        "NUPIC qualification"
-      ],
-      "geo_rtw": "Argentina or internationally mobile with valid work authorization",
-      "project_experience": [
-        "Vogtle Unit 3/4",
-        "Hinkley Point C",
-        "NuScale UAMPS",
-        "Bruce Power refurbishment",
-        "Barakah Nuclear"
-      ],
-      "yoe_band": "10-20",
-      "seniority": "Senior / Lead",
-      "boolean_search": "(\"small modular reactor\" OR \"SMR\" OR \"nuclear construction\" OR \"NSSS\") AND (\"construction manager\" OR \"project director\" OR \"project engineer\" OR \"commissioning engineer\" OR \"superintendent\") AND (\"nuclear\" OR \"NQA-1\" OR \"IAEA\") AND (\"Argentina\" OR \"internationally mobile\" OR \"nuclear EPC\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Meitner Energy just announced a $1.2B SMR project at Argentina's Atucha site. Given your nuclear construction background, I'd love to explore how you might fit as this project develops. Worth a quick chat?",
-      "email_subject": "Nuclear SMR Opportunity – Meitner Energy / Atucha, Argentina ($1.2B)",
-      "email_body": "Hi [Name],\n\nMeitner Energy (US-based) has announced plans to invest $1.2 billion in a 300 MW small modular reactor at Argentina's Atucha nuclear site — one of the most significant nuclear new-build announcements in South America in years.\n\nWhile the project is still in early planning, construction and engineering talent will be in demand as FID approaches. Given your experience in [nuclear construction / SMR / nuclear EPC], I wanted to reach out early.\n\nWould you be open to a brief conversation about how your background aligns with opportunities on this programme?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named operator (Meitner Energy) announcing $1.2B investment in SMR construction at a named site (Atucha), constituting a discrete nuclear workforce-demand signal.",
-    "phase": "pre_sanction",
-    "phase_evidence": "Article states the government 'has said Meitner Energy is planning to invest' — indicating intent/announcement stage, not yet FID or EPC award.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "f2564e47-5427-4e27-b198-db61974dd7c5",
-    "ingested_at": "2026-07-10T18:32:32.182Z",
-    "source_published_at": "2026-07-10T06:14:50.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "business_unit_director"
     ],
     "prompt_version": "phase-targeting-v1.2"
   }

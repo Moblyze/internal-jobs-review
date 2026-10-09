@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-10-08T12:19:20.590Z"
+    "last_updated_at": "2026-10-09T00:35:42.351Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -14574,6 +14574,66 @@
         "email": null,
         "phone": null,
         "location": "Cranberry Township, PA, USA"
+      }
+    ]
+  },
+  "magna mining": {
+    "discovered_at": "2026-10-09T00:35:42.351Z",
+    "contacts": [
+      {
+        "name": "Katy Scharf",
+        "title": "Director, Human Resources & Community Relations",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://rocketreach.co/katy-scharf-email_8008515",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Sudbury, ON, Canada"
+      },
+      {
+        "name": "Jeff Huffman",
+        "title": "Chief Operating Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/jeffreyjameshuffman",
+        "source_url": "https://magnamining.com/magna-mining-appoints-jeff-huffman-as-chief-operating-officer/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Greater Sudbury, ON, Canada"
+      },
+      {
+        "name": "Justin Palkovits",
+        "title": "Chief Mine Engineer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/justin-palkovits-p-eng-b3700058",
+        "source_url": "https://www.linkedin.com/in/justin-palkovits-p-eng-b3700058/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Canada"
+      },
+      {
+        "name": "Anthony Chevrier",
+        "title": "Manager of Health and Safety",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://rocketreach.co/magna-mining-inc-management_b47ab140fc4489b4",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Greater Sudbury, ON, Canada"
+      },
+      {
+        "name": "Jason Jessup",
+        "title": "CEO & Director",
+        "persona": "other",
+        "linkedin_url": null,
+        "source_url": "https://magnamining.com/about/leadership-team/",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Greater Sudbury, ON, Canada"
       }
     ]
   }

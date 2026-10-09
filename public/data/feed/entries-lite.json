@@ -1,5 +1,47 @@
 [
   {
+    "id": "556e8b51-0b63-4f01-8637-058890b6b828",
+    "ingested_at": "2026-10-09T00:34:32.562Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/levack-restart-puts-magna-on-two-mine-path/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "ontario-canada",
+    "country": "canada",
+    "headline": "Magna Mining Restarts Levack Mine in Sudbury, Ontario — Two-Mine Production Track",
+    "operator": {
+      "name": "Magna Mining",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Magna Mining",
+      "matched_company_slug": null
+    },
+    "project_name": "Levack Mine",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": []
+  },
+  {
     "id": "b6494b8e-eef0-4a56-9a0e-f6c62cb5ff20",
     "ingested_at": "2026-10-08T18:14:46.458Z",
     "sources": [
@@ -5364,91 +5406,6 @@
     "decom_stage": null,
     "outreach_readiness": "hot",
     "estimated_hiring_window": "1-3mo",
-    "key_people": []
-  },
-  {
-    "id": "397a92b4-c6f2-46a3-9db6-df9217741ce5",
-    "ingested_at": "2026-07-11T00:34:58.547Z",
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/guardian-metal-montana-mining-association-forge-us-tungsten-processing-alliance/"
-      }
-    ],
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations"
-    ],
-    "signal_type": "epc_award",
-    "region": "us-montana",
-    "country": "united_states",
-    "headline": "Guardian Metal & Montana Mining Association Form US Tungsten Processing Alliance – First Ore Shipments Late Summer 2026",
-    "operator": {
-      "name": "Guardian Metal",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Guardian Metal",
-      "matched_company_slug": null
-    },
-    "project_name": "Montana Tungsten Processing Alliance",
-    "mob_window": {
-      "start": "2026-Q3",
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "sanctioned_engineering",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": []
-  },
-  {
-    "id": "f2564e47-5427-4e27-b198-db61974dd7c5",
-    "ingested_at": "2026-07-10T18:32:32.182Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/argentina-announces-privately-financed-smr-plan"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations",
-      "energy_trades"
-    ],
-    "signal_type": "fid",
-    "region": "argentina",
-    "country": "argentina",
-    "headline": "Meitner Energy to Invest $1.2B in 300 MW SMR at Atucha Site, Argentina",
-    "operator": {
-      "name": "Meitner Energy",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Meitner Energy",
-      "matched_company_slug": null
-    },
-    "project_name": "Atucha SMR",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": 1200000000,
-    "phase": "pre_sanction",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
     "key_people": []
   }
 ]
