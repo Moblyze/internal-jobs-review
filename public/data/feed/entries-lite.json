@@ -1,5 +1,48 @@
 [
   {
+    "id": "c33eadb5-9efc-4c7b-b40c-bf9416ea2dc2",
+    "ingested_at": "2026-10-09T12:16:50.660Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/framatome-to-continue-maintaining-sizewell-b-plant"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "ndt_inspection",
+      "industrial_construction"
+    ],
+    "signal_type": "epc_award",
+    "region": "uk",
+    "country": "united_kingdom",
+    "headline": "Framatome Renews Long-Term Maintenance & Outage Services Agreement at Sizewell B Nuclear Plant",
+    "operator": {
+      "name": "EDF",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Framatome",
+      "matched_company_slug": null
+    },
+    "project_name": "Sizewell B",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "operating",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "ongoing",
+    "key_people": []
+  },
+  {
     "id": "556e8b51-0b63-4f01-8637-058890b6b828",
     "ingested_at": "2026-10-09T00:34:32.562Z",
     "sources": [

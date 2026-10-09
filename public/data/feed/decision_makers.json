@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-10-09T00:35:42.351Z"
+    "last_updated_at": "2026-10-09T12:18:17.610Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -14634,6 +14634,66 @@
         "email": null,
         "phone": null,
         "location": "Greater Sudbury, ON, Canada"
+      }
+    ]
+  },
+  "framatome": {
+    "discovered_at": "2026-10-09T12:18:17.610Z",
+    "contacts": [
+      {
+        "name": "Kellea Hogan",
+        "title": "Vice President & Chief Human Resources Officer",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/kellea-hogan-40463929",
+        "source_url": "https://nuclearenergyconference.org/panelist/view-134/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Lynchburg, VA, USA"
+      },
+      {
+        "name": "Camille Grout",
+        "title": "Senior Executive Vice President, Human Resources",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/camille-grout-03151a129",
+        "source_url": "https://www.framatome.com/en/about/governance/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Paris, France"
+      },
+      {
+        "name": "Lionel Gaiffe",
+        "title": "Senior Executive Vice President, Operational Excellence and Fuel Business Unit",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/lionel-gaiffe-065429165",
+        "source_url": "https://www.framatome.com/en/about/governance/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Paris, France"
+      },
+      {
+        "name": "Jean-Bernard Ville",
+        "title": "Senior Executive Vice President, Projects and Components Manufacturing Business Unit",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/jean-bernard-ville-63026413a",
+        "source_url": "https://www.framatome.com/en/about/governance/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Paris, France"
+      },
+      {
+        "name": "Michelle Adams",
+        "title": "HR Manager",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/michelle-adams-b0028227",
+        "source_url": "https://www.linkedin.com/in/michelle-adams-b0028227/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Amherst, VA, USA"
       }
     ]
   }

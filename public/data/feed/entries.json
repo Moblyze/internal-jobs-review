@@ -2,6 +2,118 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/framatome-to-continue-maintaining-sizewell-b-plant"
+      }
+    ],
+    "headline": "Framatome Renews Long-Term Maintenance & Outage Services Agreement at Sizewell B Nuclear Plant",
+    "body": "Framatome and EDF have renewed their long-term service agreement covering a comprehensive range of maintenance and outage services to support the long-term operation strategy of the Sizewell B nuclear power plant in Suffolk, England.",
+    "url": "https://www.world-nuclear-news.org/articles/framatome-to-continue-maintaining-sizewell-b-plant",
+    "published_at": "2026-10-09T09:58:19.000Z",
+    "hash": "fe37622bac4f0dcf",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "ndt_inspection",
+      "industrial_construction"
+    ],
+    "signal_type": "epc_award",
+    "region": "uk",
+    "country": "united_kingdom",
+    "tldr": "Framatome and EDF have renewed a long-term service agreement covering maintenance and outage services at Sizewell B in Suffolk, England. This ongoing contract sustains continuous demand for nuclear maintenance and outage trades.",
+    "operator": {
+      "name": "EDF",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Framatome",
+      "matched_company_slug": null
+    },
+    "project_name": "Sizewell B",
+    "scope": [
+      "maintenance_services",
+      "outage_services",
+      "long_term_operations_support"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Maintenance Engineer",
+        "Outage Manager",
+        "Mechanical Maintenance Technician",
+        "Electrical Maintenance Technician",
+        "I&C Technician",
+        "NDT Inspector",
+        "Radiation Protection Supervisor",
+        "Nuclear Outage Planner",
+        "Maintenance Supervisor"
+      ],
+      "skills": [
+        "nuclear maintenance",
+        "planned outage management",
+        "PWR systems",
+        "radiation protection",
+        "mechanical maintenance",
+        "electrical maintenance",
+        "instrumentation and control",
+        "NDT",
+        "nuclear safety case"
+      ],
+      "certs_freetext": [
+        "CCNSG Safety Passport",
+        "Radiation Protection Supervisor (RPS)",
+        "ASME NQA-1",
+        "EN 45013 NDT certification",
+        "EDF Nuclear Passport"
+      ],
+      "geo_rtw": "UK right-to-work required; Suffolk, England",
+      "project_experience": [
+        "Hinkley Point B",
+        "Hunterston B",
+        "Heysham",
+        "Torness",
+        "Flamanville",
+        "Dungeness B"
+      ],
+      "yoe_band": "5-15",
+      "seniority": "mid to senior",
+      "boolean_search": "(\"nuclear maintenance\" OR \"outage management\" OR \"PWR maintenance\" OR \"planned outage\") AND (\"Framatome\" OR \"EDF\" OR \"Sizewell\" OR \"nuclear power plant\") AND (\"mechanical maintenance\" OR \"electrical maintenance\" OR \"I&C\" OR \"NDT\" OR \"radiation protection\") AND (\"UK\" OR \"United Kingdom\" OR \"Suffolk\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Framatome has renewed its long-term maintenance & outage contract at Sizewell B (EDF). Ongoing demand for nuclear maintenance engineers, outage planners & NDT specialists in Suffolk. Open to a conversation?",
+      "email_subject": "Nuclear Maintenance Roles – Framatome / Sizewell B (EDF), Suffolk",
+      "email_body": "Hi [Name],\n\nFramatome has just renewed its long-term maintenance and outage services agreement with EDF at Sizewell B nuclear power plant in Suffolk, England. This represents a sustained pipeline of work covering mechanical, electrical, I&C, and NDT disciplines across planned outage and ongoing maintenance campaigns.\n\nGiven your background in nuclear maintenance/outage work, I wanted to reach out directly — there are likely to be ongoing opportunities for experienced professionals with PWR or AGR experience and UK right-to-work.\n\nWould you be open to a brief call to discuss how your experience aligns?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Long-term maintenance and outage services contract renewal naming operator EDF and contractor Framatome at a specific nuclear facility (Sizewell B), indicating ongoing workforce demand.",
+    "phase": "operating",
+    "phase_evidence": "Article states the agreement supports the 'long-term operation strategy of the Sizewell B nuclear power plant', confirming the plant is operational and in a maintenance/operations phase.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "ongoing",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "c33eadb5-9efc-4c7b-b40c-bf9416ea2dc2",
+    "ingested_at": "2026-10-09T12:16:50.660Z",
+    "source_published_at": "2026-10-09T09:58:19.000Z",
+    "contact_archetypes": [
+      "ops_director",
+      "hiring_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "mining_com",
         "name": "MINING.com",
         "url": "https://www.mining.com/levack-restart-puts-magna-on-two-mine-path/"
