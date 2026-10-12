@@ -1,5 +1,49 @@
 [
   {
+    "id": "68875bc7-8d54-41f7-b615-c01623f192ec",
+    "ingested_at": "2026-10-12T12:24:39.790Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/shell_comes_in_after_bp_exits_equinor_oil_project_offshore_canada-12-oct-2026-184824-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "marine_offshore_ops",
+      "rov_subsea",
+      "drilling_operations",
+      "process_plant_operations"
+    ],
+    "signal_type": "lease_round",
+    "region": "canada-east-coast",
+    "country": "canada",
+    "headline": "Shell Acquires 30% Stake in Bay du Nord Offshore Canada as BP Exits",
+    "operator": {
+      "name": "Equinor",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Shell",
+      "matched_company_slug": null
+    },
+    "project_name": "Bay du Nord",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "c33eadb5-9efc-4c7b-b40c-bf9416ea2dc2",
     "ingested_at": "2026-10-09T12:16:50.660Z",
     "sources": [

@@ -2,6 +2,110 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/shell_comes_in_after_bp_exits_equinor_oil_project_offshore_canada-12-oct-2026-184824-article/?rss=true"
+      }
+    ],
+    "headline": "Shell Acquires 30% Stake in Bay du Nord Offshore Canada as BP Exits",
+    "body": "Shell PLC has agreed to acquire a 30 percent stake in the Bay du Nord oil project off the coast of the Canadian province of Newfoundland and Labrador, follow...",
+    "url": "https://www.rigzone.com/news/shell_comes_in_after_bp_exits_equinor_oil_project_offshore_canada-12-oct-2026-184824-article/?rss=true",
+    "published_at": "2026-10-12T11:38:53.000Z",
+    "hash": "694e13f4b5ec09b8",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "marine_offshore_ops",
+      "rov_subsea",
+      "drilling_operations",
+      "process_plant_operations"
+    ],
+    "signal_type": "lease_round",
+    "region": "canada-east-coast",
+    "country": "canada",
+    "tldr": "Shell has agreed to take BP's 30% stake in Equinor's Bay du Nord deepwater project offshore Newfoundland, signalling a change of operator interest that could influence upcoming development contracting and workforce planning as FID approaches.",
+    "operator": {
+      "name": "Equinor",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Shell",
+      "matched_company_slug": null
+    },
+    "project_name": "Bay du Nord",
+    "scope": [
+      "equity_acquisition",
+      "deepwater_development"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Deepwater Project Manager",
+        "Offshore Development Engineer",
+        "Subsea Engineer",
+        "FPSO Project Engineer",
+        "Wells Planning Engineer",
+        "Business Development Manager – Offshore"
+      ],
+      "skills": [
+        "deepwater development",
+        "FPSO",
+        "subsea systems",
+        "offshore project management",
+        "Newfoundland offshore",
+        "pre-FID planning"
+      ],
+      "certs_freetext": [
+        "BOSIET/HUET",
+        "PEng (Canada)",
+        "OPITO Offshore Safety"
+      ],
+      "geo_rtw": "Canada – eligible to work offshore Newfoundland & Labrador",
+      "project_experience": [
+        "Hebron",
+        "Terra Nova",
+        "Hibernia",
+        "White Rose",
+        "Mariner",
+        "Johan Sverdrup"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"Bay du Nord\" OR \"deepwater\" OR \"FPSO\") AND (\"offshore Canada\" OR \"Newfoundland\" OR \"Grand Banks\") AND (\"project manager\" OR \"development engineer\" OR \"subsea engineer\" OR \"wells engineer\" OR \"FPSO engineer\") AND (Shell OR Equinor OR \"Cenovus\" OR \"offshore development\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Shell's entry into Bay du Nord offshore Canada signals upcoming deepwater development activity. Given your background in [deepwater/FPSO], I'd love to connect about roles likely to emerge as this project advances. Worth a quick chat?",
+      "email_subject": "Bay du Nord – Shell/Equinor Deepwater Opportunity, Offshore Canada",
+      "email_body": "Hi [Name],\n\nShell has just agreed to acquire a 30% stake in Equinor's Bay du Nord deepwater project offshore Newfoundland, replacing BP. As the project moves toward FID and eventual development, we anticipate demand for experienced deepwater, subsea, and FPSO professionals.\n\nGiven your experience in [relevant discipline], I wanted to reach out early — these roles tend to move fast once contracting begins.\n\nWould you be open to a brief call to discuss what's emerging?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Operator change-of-control event naming Shell (incoming), BP (exiting), Equinor (operator), and the Bay du Nord project — a discrete equity/project assignment qualifying under the field development operator change criteria.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article describes a stake acquisition ahead of development execution; no FID or EPC award referenced, placing the project in pre-sanction/development planning stage.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "68875bc7-8d54-41f7-b615-c01623f192ec",
+    "ingested_at": "2026-10-12T12:24:39.790Z",
+    "source_published_at": "2026-10-12T11:38:53.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org/articles/framatome-to-continue-maintaining-sizewell-b-plant"
