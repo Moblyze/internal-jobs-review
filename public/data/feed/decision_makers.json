@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-10-09T12:18:17.610Z"
+    "last_updated_at": "2026-10-13T18:18:32.732Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -14694,6 +14694,66 @@
         "email": null,
         "phone": null,
         "location": "Amherst, VA, USA"
+      }
+    ]
+  },
+  "norwegian nuclear decommissioning (nnd)": {
+    "discovered_at": "2026-10-13T18:18:32.732Z",
+    "contacts": [
+      {
+        "name": "Pål Mikkelsen",
+        "title": "Director (CEO)",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/p%C3%A5l-mikkelsen-682b795",
+        "source_url": "https://www.neimagazine.com/news/nnd-applies-for-licences-for-norways-nuclear-facilities-10486142/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Halden, Norway"
+      },
+      {
+        "name": "Nils Bøhmer",
+        "title": "Chief Technology Officer (CTO)",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.jacobs.com/newsroom/press-release/jacobs-plan-norway-nuclear-decommissioning-program",
+        "in_target_persona": true,
+        "email": "nils.bohmer@nnd.no",
+        "phone": "+47 900 37 517",
+        "location": "Halden, Norway"
+      },
+      {
+        "name": "Ann-Cathrin Becken",
+        "title": "Sector Director of Administration",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://afry.com/en/newsroom/press-releases/advansia-part-afry-and-partners-assists-nnd-in-important-decommissioning",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Halden, Norway"
+      },
+      {
+        "name": "Nina Ramberg",
+        "title": "Security Chief",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.neimagazine.com/news/nnd-applies-for-licences-for-norways-nuclear-facilities-10486142/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Halden, Norway"
+      },
+      {
+        "name": "Martin Andreasson",
+        "title": "Director of Communications",
+        "persona": "other",
+        "linkedin_url": null,
+        "source_url": "https://world-nuclear-news.org/articles/norway-asks-22-municipalities-about-hosting-nuclear-waste-facilities",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Halden, Norway"
       }
     ]
   }

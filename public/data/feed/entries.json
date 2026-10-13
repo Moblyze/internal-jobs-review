@@ -2,6 +2,206 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/czech-smr-environmental-impact-assessment-submitted"
+      }
+    ],
+    "headline": "ČEZ Submits EIA for Rolls-Royce SMR Project at Temelín",
+    "body": "ČEZ has submitted the Environmental Impact Assessment documentation to the Ministry of the Environment for its Rolls-Royce SMR small modular reactor project in Temelín.",
+    "url": "https://www.world-nuclear-news.org/articles/czech-smr-environmental-impact-assessment-submitted",
+    "published_at": "2026-10-13T10:58:34.000Z",
+    "hash": "c8ed4f6ff2e570cb",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "central-europe",
+    "country": "czech_republic",
+    "tldr": "ČEZ has filed the Environmental Impact Assessment for its Rolls-Royce SMR project at Temelín, placing the project in pre-sanction/permitting phase. Active hiring is 12+ months away pending regulatory approval.",
+    "operator": {
+      "name": "ČEZ",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Temelín SMR (Rolls-Royce SMR)",
+    "scope": [
+      "eia_submission",
+      "smr_development"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Project Manager",
+        "Nuclear Licensing Engineer",
+        "Environmental Permitting Manager",
+        "SMR Development Engineer",
+        "Nuclear Safety Engineer"
+      ],
+      "skills": [
+        "small modular reactor",
+        "nuclear licensing",
+        "environmental impact assessment",
+        "nuclear project development",
+        "regulatory submissions"
+      ],
+      "certs_freetext": [
+        "Nuclear Safety qualification",
+        "EUR-ACE",
+        "IAEA safety standards familiarity"
+      ],
+      "geo_rtw": "Czech Republic / EU eligible",
+      "project_experience": [
+        "Rolls-Royce SMR UK",
+        "Hinkley Point C",
+        "Dukovany NPP",
+        "Flamanville",
+        "Vogtle AP1000"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "senior",
+      "boolean_search": "(\"SMR\" OR \"small modular reactor\" OR \"nuclear project\") AND (\"licensing\" OR \"environmental impact assessment\" OR \"EIA\" OR \"nuclear permitting\") AND (\"project manager\" OR \"licensing engineer\" OR \"development engineer\" OR \"safety engineer\") AND (\"Rolls-Royce SMR\" OR \"ČEZ\" OR \"Temelín\" OR \"Dukovany\" OR \"Hinkley\" OR \"AP1000\" OR \"VVER\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], ČEZ has just filed the EIA for the Rolls-Royce SMR project at Temelín — a signal that nuclear development activity in Czech Republic is stepping up. Would you be open to a conversation about opportunities in this space?",
+      "email_subject": "Temelín SMR – Early-Stage Nuclear Opportunities in Czech Republic",
+      "email_body": "Hi [Name],\n\nČEZ has submitted its Environmental Impact Assessment for the Rolls-Royce SMR project at Temelín, marking a meaningful milestone in the Czech SMR programme.\n\nWhile active hiring is still 12+ months out pending regulatory approval, we're building a pipeline of nuclear licensing, permitting, and development professionals for this and adjacent projects.\n\nGiven your background in [nuclear licensing / SMR development / nuclear project management], I'd love to connect and understand your interest and availability.\n\nWould you have 15 minutes for a call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "EIA regulatory submission by named operator ČEZ for the named Rolls-Royce SMR project at Temelín is a qualifying permitting milestone in the nuclear subsector, indicating pre-sanction project progression.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states the EIA documentation has just been submitted to the Ministry of the Environment — a pre-FID regulatory step with no construction or EPC award indicated.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "dbad1d51-39cd-4349-bb75-f6b0cbf60c74",
+    "ingested_at": "2026-10-13T18:16:33.613Z",
+    "source_published_at": "2026-10-13T10:58:34.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/nnd-applies-to-take-over-kjeller-nuclear-facilities"
+      }
+    ],
+    "headline": "Norwegian Nuclear Decommissioning Applies to Take Over Kjeller Nuclear Facilities for Decom",
+    "body": "Norwegian Nuclear Decommissioning has submitted a licence application to the country's nuclear regulator to take over responsibility for the nuclear facilities at Kjeller from the Institute of Energy Engineering ahead of their decommissioning.",
+    "url": "https://www.world-nuclear-news.org/articles/nnd-applies-to-take-over-kjeller-nuclear-facilities",
+    "published_at": "2026-10-13T12:30:19.000Z",
+    "hash": "6231ff44a72f99e3",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "ndt_inspection",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "norway",
+    "country": "norway",
+    "tldr": "NND has submitted a licence application to assume operator responsibility for the Kjeller nuclear facilities from IFE, ahead of decommissioning. Regulatory approval will unlock planning and eventual contract awards for decom work.",
+    "operator": {
+      "name": "Norwegian Nuclear Decommissioning (NND)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Norwegian Nuclear Decommissioning (NND)",
+      "matched_company_slug": null
+    },
+    "project_name": "Kjeller Nuclear Facilities Decommissioning",
+    "scope": [
+      "operator_transfer",
+      "decommissioning_planning",
+      "nuclear_decom"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Decommissioning Project Manager",
+        "Radiation Protection Supervisor",
+        "Nuclear Safety Engineer",
+        "Decommissioning Engineer",
+        "Health Physics Technician",
+        "Waste Management Specialist",
+        "Nuclear Licensing Specialist"
+      ],
+      "skills": [
+        "nuclear decommissioning",
+        "radiation protection",
+        "nuclear safety",
+        "waste characterisation",
+        "regulatory licensing",
+        "nuclear facility management",
+        "NORM/radioactive waste"
+      ],
+      "certs_freetext": [
+        "Radiation Protection Supervisor (RPS)",
+        "IAEA nuclear safety training",
+        "Norwegian nuclear regulatory familiarity"
+      ],
+      "geo_rtw": "Norway (EU/EEA right-to-work preferred)",
+      "project_experience": [
+        "Halden Reactor Decommissioning",
+        "Studsvik decommissioning",
+        "Sellafield",
+        "NDA UK projects"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "senior",
+      "boolean_search": "(\"nuclear decommissioning\" OR \"decom\" OR \"radiation protection\" OR \"health physics\") AND (\"project manager\" OR \"decommissioning engineer\" OR \"nuclear safety\" OR \"waste management\") AND (Norway OR Kjeller OR Halden OR \"nuclear facility\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Norwegian Nuclear Decommissioning is pursuing a licence to take over the Kjeller nuclear site ahead of decommissioning. Planning roles are likely to open soon — your background in nuclear decom/radiation protection makes you a strong fit. Worth a conversation?",
+      "email_subject": "Kjeller Nuclear Decom — Early-Stage Opportunities with NND, Norway",
+      "email_body": "Hi [Name],\n\nNorwegian Nuclear Decommissioning (NND) has just submitted a licence application to take over the Kjeller nuclear facilities from the Institute of Energy Engineering, marking the formal start of the decommissioning process.\n\nAs NND moves through regulatory approval, planning and specialist roles are expected to ramp — particularly in nuclear safety, radiation protection, waste management, and project controls.\n\nGiven your experience in [relevant area], I'd love to explore whether you'd be open to hearing more as mandates come to market.\n\nBest,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (NND) filing a regulatory application to assume control of the named Kjeller nuclear facilities specifically for decommissioning — a qualifying operator-change/decom planning event with clear future workforce demand.",
+    "phase": null,
+    "phase_evidence": null,
+    "construction_subphase": null,
+    "lifecycle_track": "decommissioning",
+    "decom_stage": "permits",
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "9dd7788c-1522-4403-aa1e-48f8a12c0ff3",
+    "ingested_at": "2026-10-13T18:16:33.613Z",
+    "source_published_at": "2026-10-13T12:30:19.000Z",
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/shell_comes_in_after_bp_exits_equinor_oil_project_offshore_canada-12-oct-2026-184824-article/?rss=true"
