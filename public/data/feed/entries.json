@@ -2,6 +2,111 @@
   {
     "sources": [
       {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/sargent--lundy-to-provide-engineering-and-licensing-support-for-deployable-energys-unity-1-microreactor-302908922.html"
+      }
+    ],
+    "headline": "Sargent & Lundy Selected for Engineering & Licensing Support on Deployable Energy's Unity-1 Microreactor",
+    "body": "Selection supports preparation of a construction permit application to the U.S. Nuclear Regulatory Commission HOUSTON, Oct. 14, 2026 /PRNewswire/ -- Deployable Energy today announced that it selected Sargent & Lundy, the nation's leading nuclear engineering design firm, to provide...",
+    "url": "https://www.prnewswire.com/news-releases/sargent--lundy-to-provide-engineering-and-licensing-support-for-deployable-energys-unity-1-microreactor-302908922.html",
+    "published_at": "2026-10-14T17:34:00.000Z",
+    "hash": "92fedba8fb6f6d1c",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "us-domestic",
+    "country": "united_states",
+    "tldr": "Deployable Energy has selected Sargent & Lundy to provide engineering and licensing support for its Unity-1 microreactor, targeting a U.S. NRC construction permit application. This is a pre-sanction FEED/licensing phase with hiring likely 12+ months out.",
+    "operator": {
+      "name": "Deployable Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Sargent & Lundy",
+      "matched_company_slug": null
+    },
+    "project_name": "Unity-1 Microreactor",
+    "scope": [
+      "nuclear_engineering",
+      "licensing_support",
+      "construction_permit_application"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Licensing Engineer",
+        "Nuclear Safety Engineer",
+        "Reactor Design Engineer",
+        "NRC Regulatory Affairs Specialist",
+        "Nuclear Project Manager",
+        "FSAR/SAR Document Engineer",
+        "Advanced Reactor Engineer"
+      ],
+      "skills": [
+        "NRC licensing",
+        "construction permit application",
+        "nuclear safety analysis",
+        "advanced reactor design",
+        "microreactor",
+        "FSAR preparation",
+        "10 CFR Part 50",
+        "10 CFR Part 52"
+      ],
+      "certs_freetext": [
+        "Professional Engineer (Nuclear)",
+        "ANS membership",
+        "NRC SRP familiarity"
+      ],
+      "geo_rtw": "US work authorization required",
+      "project_experience": [
+        "NuScale VOYGR",
+        "Kairos Power Hermes",
+        "X-energy Xe-100",
+        "TerraPower Natrium",
+        "Oklo Aurora"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal",
+      "boolean_search": "(\"nuclear licensing\" OR \"NRC licensing\" OR \"construction permit application\" OR \"advanced reactor\" OR \"microreactor\") AND (\"Sargent Lundy\" OR \"nuclear engineering\" OR \"FSAR\" OR \"safety analysis report\") AND (\"10 CFR\" OR \"regulatory affairs\" OR \"nuclear safety\") AND (\"project manager\" OR \"licensing engineer\" OR \"reactor design\" OR \"safety engineer\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Sargent & Lundy has been selected to support Deployable Energy's Unity-1 microreactor NRC licensing effort. With your nuclear licensing/advanced reactor background, this could be a strong fit. Open to a quick chat?",
+      "email_subject": "Unity-1 Microreactor – NRC Licensing Roles | Sargent & Lundy",
+      "email_body": "Hi [Name],\n\nSargent & Lundy has just been selected by Deployable Energy to lead engineering and NRC licensing support for the Unity-1 microreactor program in the U.S.\n\nGiven your background in nuclear licensing and advanced reactor design, I wanted to reach out directly — this is an early-phase program that will be building out its technical team over the coming months.\n\nWould you be open to a brief conversation about the opportunity?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "FEED/licensing contract award naming Deployable Energy as operator and Sargent & Lundy as engineering contractor for the Unity-1 microreactor, a named nuclear project with clear workforce-demand implications.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states the selection supports 'preparation of a construction permit application to the U.S. Nuclear Regulatory Commission,' indicating pre-FID licensing/FEED stage.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "6277b92b-5024-48cc-9796-afa70dd7d40f",
+    "ingested_at": "2026-10-14T18:13:53.203Z",
+    "source_published_at": "2026-10-14T17:34:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org/articles/westinghouse-places-initial-orders-for-polish-plant"

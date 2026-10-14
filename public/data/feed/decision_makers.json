@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-10-14T12:18:57.746Z"
+    "last_updated_at": "2026-10-14T18:15:24.666Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -14814,6 +14814,126 @@
         "email": null,
         "phone": null,
         "location": "Warsaw, Poland"
+      }
+    ]
+  },
+  "sargent & lundy": {
+    "discovered_at": "2026-10-14T18:15:24.666Z",
+    "contacts": [
+      {
+        "name": "Meghan Wilhelm",
+        "title": "Vice President, Human Resources",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/meghanwilhelm",
+        "source_url": "https://www.sargentlundy.com/news/2023-executive-appointments/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Chicago, IL, USA"
+      },
+      {
+        "name": "Samantha Barnowski",
+        "title": "Senior Corporate Recruiter",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/samantha-barnowski",
+        "source_url": "https://www.linkedin.com/in/samantha-barnowski/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Greater Chicago Area, USA"
+      },
+      {
+        "name": "Mark Santschi",
+        "title": "Senior Vice President & Director of Operations",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/mark-santschi-18895212",
+        "source_url": "https://www.sargentlundy.com/about/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "New Lenox, IL, USA"
+      },
+      {
+        "name": "Scott Bartz",
+        "title": "Vice President, Construction & Commissioning Services",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/scott-bartz-1a321835",
+        "source_url": "https://www.sargentlundy.com/news/sargent-lundy-announces-2025-executive-appointments/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Riverview, FL, USA"
+      },
+      {
+        "name": "Diana Ard",
+        "title": "Technical Recruiter",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/diana-ard",
+        "source_url": "https://www.linkedin.com/in/diana-ard/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Irvine, CA, USA"
+      }
+    ]
+  },
+  "deployable energy": {
+    "discovered_at": "2026-10-14T18:15:24.666Z",
+    "contacts": [
+      {
+        "name": "Lance Maul",
+        "title": "Co-Founder & Chief Operations Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/lancemaul",
+        "source_url": "https://www.deployable.energy/about",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Mike Zurlo",
+        "title": "VP Projects Development",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/mikezurloabzinc",
+        "source_url": "https://www.cnhinews.com/news/article_a2b8b9e9-ed3c-521d-9a16-b41dd3ec0b20.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "North Port-Sarasota, FL, USA"
+      },
+      {
+        "name": "Bobby Gallagher",
+        "title": "CEO, CTO & Co-Founder",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/bobbyjgallagher",
+        "source_url": "https://www.deployable.energy/about",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Sanjay Mukhi",
+        "title": "Co-Founder & Chief Commercialization Officer",
+        "persona": "other",
+        "linkedin_url": "https://www.linkedin.com/in/sanjaymukhi",
+        "source_url": "https://www.deployable.energy/about",
+        "in_target_persona": false,
+        "email": "sanjay@deployable.energy",
+        "phone": "+1 (956) 251-4192",
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Richard Gaut",
+        "title": "Chief Financial Officer",
+        "persona": "other",
+        "linkedin_url": "https://www.linkedin.com/in/richard-gaut",
+        "source_url": "https://www.deployable.energy/post/meet-the-deployable-energy-leadership-team",
+        "in_target_persona": false,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
       }
     ]
   }

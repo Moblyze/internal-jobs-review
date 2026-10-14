@@ -1,5 +1,47 @@
 [
   {
+    "id": "6277b92b-5024-48cc-9796-afa70dd7d40f",
+    "ingested_at": "2026-10-14T18:13:53.203Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/sargent--lundy-to-provide-engineering-and-licensing-support-for-deployable-energys-unity-1-microreactor-302908922.html"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "us-domestic",
+    "country": "united_states",
+    "headline": "Sargent & Lundy Selected for Engineering & Licensing Support on Deployable Energy's Unity-1 Microreactor",
+    "operator": {
+      "name": "Deployable Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Sargent & Lundy",
+      "matched_company_slug": null
+    },
+    "project_name": "Unity-1 Microreactor",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "18a32b64-8006-401d-adc9-08d31ce6310e",
     "ingested_at": "2026-10-14T12:17:14.587Z",
     "sources": [
