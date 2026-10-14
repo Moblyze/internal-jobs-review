@@ -1,5 +1,48 @@
 [
   {
+    "id": "18a32b64-8006-401d-adc9-08d31ce6310e",
+    "ingested_at": "2026-10-14T12:17:14.587Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/westinghouse-places-initial-orders-for-polish-plant"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "poland",
+    "country": "poland",
+    "headline": "Westinghouse Places Conditional Purchase Orders for Safety Modules at Poland's First Nuclear Plant",
+    "operator": {
+      "name": "Poland (national nuclear program)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Westinghouse Electric Company",
+      "matched_company_slug": null
+    },
+    "project_name": "Poland First Nuclear Power Plant – Unit 1",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
     "id": "dbad1d51-39cd-4349-bb75-f6b0cbf60c74",
     "ingested_at": "2026-10-13T18:16:33.613Z",
     "sources": [
@@ -5323,50 +5366,6 @@
     "decom_stage": null,
     "outreach_readiness": "warming",
     "estimated_hiring_window": "6-12mo",
-    "key_people": []
-  },
-  {
-    "id": "dbc53d9f-5edb-45bf-b71b-8339758c84ff",
-    "ingested_at": "2026-07-16T06:52:30.005Z",
-    "sources": [
-      {
-        "id": "pr_newswire_energy",
-        "name": "PR Newswire (Energy)",
-        "url": "https://www.prnewswire.com/news-releases/cbi-to-complete-kittiwake-journey-with-life-of-field-contract-award-302826976.html"
-      }
-    ],
-    "subsector": "offshore-og",
-    "discipline_tags": [
-      "process_plant_operations",
-      "marine_offshore_ops",
-      "ndt_inspection",
-      "energy_trades"
-    ],
-    "signal_type": "epc_award",
-    "region": "uk-north-sea",
-    "country": "united_kingdom",
-    "headline": "CB&I Asset Solutions Wins EnQuest Kittiwake Life-of-Field Duty Holder Contract Through COP",
-    "operator": {
-      "name": "EnQuest",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "CB&I Asset Solutions",
-      "matched_company_slug": null
-    },
-    "project_name": "Kittiwake",
-    "mob_window": {
-      "start": "2026-Q3",
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "operating",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "1-3mo",
     "key_people": []
   }
 ]

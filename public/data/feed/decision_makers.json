@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-10-13T18:18:32.732Z"
+    "last_updated_at": "2026-10-14T12:18:57.746Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -14754,6 +14754,66 @@
         "email": null,
         "phone": null,
         "location": "Halden, Norway"
+      }
+    ]
+  },
+  "poland (national nuclear program)": {
+    "discovered_at": "2026-10-14T12:18:57.746Z",
+    "contacts": [
+      {
+        "name": "Agnieszka F.",
+        "title": "Dyrektor Pionu HR (Director of HR Division)",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/agnieszka-f-50837ab5",
+        "source_url": "https://www.linkedin.com/in/joanna-miazek-pyp%C5%82acz-08953011/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Warsaw, Poland"
+      },
+      {
+        "name": "Monika Kosyra",
+        "title": "HR Business Partner",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/monika-kosyra-hrbp",
+        "source_url": "https://www.linkedin.com/in/monika-kosyra-hrbp/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Warsaw, Poland"
+      },
+      {
+        "name": "Joanna Wójcik",
+        "title": "HR Business Partner",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/joanna-w%C3%B3jcik-aa78b0a3",
+        "source_url": "https://www.linkedin.com/in/joanna-w%C3%B3jcik-aa78b0a3/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Warsaw, Poland"
+      },
+      {
+        "name": "Joanna Karwowska",
+        "title": "HR Expert / HR Business Partner",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/joanna-karwowska-864309133",
+        "source_url": "https://www.linkedin.com/in/joanna-karwowska-864309133/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Warsaw, Poland"
+      },
+      {
+        "name": "Tomasz Szubiela",
+        "title": "Vice President of the Management Board (formerly Executive Director & Director of the Nuclear Power Plant Construction Program)",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://pej.pl/en/press-center/news/change-in-the-management-board-of-polskie-elektrownie-jadrowe/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Warsaw, Poland"
       }
     ]
   }
