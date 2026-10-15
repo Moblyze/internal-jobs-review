@@ -1,5 +1,90 @@
 [
   {
+    "id": "01ef605e-2674-43b5-a6b3-806d1a041cc2",
+    "ingested_at": "2026-10-15T18:13:45.095Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/joint-venture-formed-for-six-unit-smr-plant-in-poland"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "fid",
+    "region": "poland",
+    "country": "poland",
+    "headline": "SGE & ZE PAK Form JV to Develop 6-Unit BWRX-300 SMR Plant at Pątnów, Poland",
+    "operator": {
+      "name": "SGE / ZE PAK Joint Venture",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Pątnów SMR Nuclear Power Plant",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
+    "id": "40989645-6ee0-42f1-8933-360ba11bedc1",
+    "ingested_at": "2026-10-15T18:13:45.095Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/mhi-delivers-replacement-steam-generators-for-french-reactor"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "france",
+    "country": "france",
+    "headline": "MHI Delivers Replacement Steam Generators for EDF Cruas Unit 2 Nuclear Plant",
+    "operator": {
+      "name": "EDF",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Mitsubishi Heavy Industries",
+      "matched_company_slug": null
+    },
+    "project_name": "Cruas Nuclear Power Plant Unit 2 Steam Generator Replacement",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "peak",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": []
+  },
+  {
     "id": "6277b92b-5024-48cc-9796-afa70dd7d40f",
     "ingested_at": "2026-10-14T18:13:53.203Z",
     "sources": [

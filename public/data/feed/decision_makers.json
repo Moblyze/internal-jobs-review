@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-10-14T18:15:24.666Z"
+    "last_updated_at": "2026-10-15T18:15:41.100Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -14934,6 +14934,126 @@
         "email": null,
         "phone": null,
         "location": "Houston, TX, USA"
+      }
+    ]
+  },
+  "sge / ze pak joint venture": {
+    "discovered_at": "2026-10-15T18:15:41.100Z",
+    "contacts": [
+      {
+        "name": "Rafał Kasprów",
+        "title": "President of the Management Board (CEO), SGE S.A. / PAK BWRX Joint Venture",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/rafa%C5%82-kaspr%C3%B3w-968318b",
+        "source_url": "https://sge.eu/sge-and-ze-pak-to-build-six-small-modular-reactors-at-patnow-poland/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Warsaw, Poland"
+      },
+      {
+        "name": "Krzysztof Dominiczak",
+        "title": "Vice President of the Management Board, SGE S.A. / Director of Operations & Program Management Office, ORLEN Synthos Green Energy",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/krzysztof-dominiczak-1156439a",
+        "source_url": "https://globuc.com/conferences/go-net-zero-energy/speakers/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Warsaw, Poland"
+      },
+      {
+        "name": "Mariusz Waniołka",
+        "title": "Vice President of the Management Board, SGE S.A.",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/waniolka",
+        "source_url": "https://okredo.com/en-pl/company/synthos-green-energy-spolka-akcyjna-krs-0000863394",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Warsaw, Poland"
+      },
+      {
+        "name": "Piotr Żak",
+        "title": "President of the Management Board, ZE PAK S.A. (PAK BWRX Joint Venture co-founder)",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://sge.eu/sge-and-ze-pak-to-build-six-small-modular-reactors-at-patnow-poland/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Konin, Poland"
+      },
+      {
+        "name": "Katarzyna Sobierajska",
+        "title": "Vice President of the Management Board (Deputy CEO), ZE PAK S.A. — overseeing Logistics, Procurement & Administration",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://zepak.com.pl/en/about-us/company-management/management-board/more/katarzyna-sobierajska.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Konin, Poland"
+      }
+    ]
+  },
+  "mitsubishi heavy industries": {
+    "discovered_at": "2026-10-15T18:15:41.100Z",
+    "contacts": [
+      {
+        "name": "Elizabeth Jarrin",
+        "title": "Global Talent Acquisition and Development Manager",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/elizabeth-jarrin-hr",
+        "source_url": "https://www.linkedin.com/in/elizabeth-jarrin-hr/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Greater Tokyo Area, Japan"
+      },
+      {
+        "name": "Junichiro Kakihara",
+        "title": "Executive Vice President, In Charge of HR",
+        "persona": "hr",
+        "linkedin_url": null,
+        "source_url": "https://www.mhi.com/news/pdf/24020603.pdf",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Tokyo, Japan"
+      },
+      {
+        "name": "Takao Tsukui",
+        "title": "Chairman & CEO, Mitsubishi Heavy Industries America, Inc.",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/takao-tsukui",
+        "source_url": "https://houston.org/people/takao-tsukui/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Takajiro Ishikawa",
+        "title": "President & CEO, Mitsubishi Heavy Industries America, Inc.",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/takajiro-ishikawa",
+        "source_url": "https://houston.org/people/takajiro-ishikawa/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Houston, TX, USA"
+      },
+      {
+        "name": "Lee Bussie",
+        "title": "Director of Operations, Mitsubishi Heavy Industries America (Corrugating Machinery Division)",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/adam-ridgley-091717164",
+        "source_url": "https://www.linkedin.com/in/adam-ridgley-091717164/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Hunt Valley, MD, USA"
       }
     ]
   }

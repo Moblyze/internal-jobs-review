@@ -2,6 +2,219 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/joint-venture-formed-for-six-unit-smr-plant-in-poland"
+      }
+    ],
+    "headline": "SGE & ZE PAK Form JV to Develop 6-Unit BWRX-300 SMR Plant at Pątnów, Poland",
+    "body": "Poland's SGE and ZE Pak have agreed to establish a joint venture to develop a nuclear power plant in Pątnów which will feature up to six BWRX-300 small modular reactors.",
+    "url": "https://www.world-nuclear-news.org/articles/joint-venture-formed-for-six-unit-smr-plant-in-poland",
+    "published_at": "2026-10-15T12:39:52.000Z",
+    "hash": "3657e8f45611ef6d",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "fid",
+    "region": "poland",
+    "country": "poland",
+    "tldr": "Polish entities SGE and ZE PAK have formed a joint venture to develop a six-unit BWRX-300 SMR nuclear plant at Pątnów. Project is pre-sanction but names the JV partners and site, signalling an early-stage workforce pipeline for nuclear construction disciplines.",
+    "operator": {
+      "name": "SGE / ZE PAK Joint Venture",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Pątnów SMR Nuclear Power Plant",
+    "scope": [
+      "nuclear_newbuild",
+      "smr_development",
+      "site_development"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Project Development Manager",
+        "SMR Project Engineer",
+        "Nuclear FEED Manager",
+        "Nuclear Licensing & Permitting Manager",
+        "Nuclear Safety Engineer",
+        "Project Controls Manager",
+        "Nuclear Business Development Manager"
+      ],
+      "skills": [
+        "SMR development",
+        "BWRX-300",
+        "nuclear project development",
+        "nuclear licensing",
+        "FEED management",
+        "nuclear safety case",
+        "project controls"
+      ],
+      "certs_freetext": [
+        "Nuclear safety case accreditation",
+        "EUR-ACE",
+        "Chartered Engineer (nuclear)"
+      ],
+      "geo_rtw": "Poland / EU right-to-work",
+      "project_experience": [
+        "Hinkley Point C",
+        "Sizewell C",
+        "NuScale VOYGR",
+        "GE Hitachi BWRX-300",
+        "Darlington SMR",
+        "Olkiluoto 3"
+      ],
+      "yoe_band": "12-20",
+      "seniority": "Senior / Principal",
+      "boolean_search": "(\"SMR\" OR \"small modular reactor\" OR \"BWRX-300\" OR \"nuclear power plant\") AND (\"project development\" OR \"FEED\" OR \"nuclear licensing\" OR \"nuclear safety\" OR \"project controls\") AND (\"Poland\" OR \"Europe\" OR \"EU\") AND (\"GE Hitachi\" OR \"nuclear newbuild\" OR \"NPP\" OR \"Hinkley\" OR \"Sizewell\" OR \"Olkiluoto\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], SGE & ZE PAK have just JV'd to develop a 6-unit BWRX-300 SMR plant in Pątnów, Poland — early-stage nuclear development roles are forming. Your SMR/nuclear background looks relevant. Worth a conversation?",
+      "email_subject": "Nuclear Development Opportunity — 6-Unit BWRX-300 SMR Plant, Poland",
+      "email_body": "Hi [Name],\n\nI wanted to flag a developing opportunity that may align with your background. Polish entities SGE and ZE PAK have formally established a joint venture to develop a six-unit BWRX-300 small modular reactor plant at Pątnów, Poland — one of the more concrete SMR development commitments in Central Europe to date.\n\nAs the project moves into FEED and licensing phases, demand for experienced nuclear development, licensing, and project controls professionals will grow. Given your experience in [relevant area], I'd love to explore whether this could be a fit.\n\nAre you open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operators (SGE and ZE PAK) have formally established a JV to develop a specific named nuclear project (Pątnów BWRX-300 SMR plant), constituting a discrete workforce-demand signal in the nuclear subsector.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states partners 'agreed to establish a joint venture to develop' the plant — JV formation is the initiating step, no FID or EPC award mentioned.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "01ef605e-2674-43b5-a6b3-806d1a041cc2",
+    "ingested_at": "2026-10-15T18:13:45.095Z",
+    "source_published_at": "2026-10-15T12:39:52.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/mhi-delivers-replacement-steam-generators-for-french-reactor"
+      }
+    ],
+    "headline": "MHI Delivers Replacement Steam Generators for EDF Cruas Unit 2 Nuclear Plant",
+    "body": "Japan's Mitsubishi Heavy Industries has delivered a further three replacement steam generators to EDF. They are scheduled to be installed in unit 2 of its Cruas nuclear power plant in southeastern France.",
+    "url": "https://www.world-nuclear-news.org/articles/mhi-delivers-replacement-steam-generators-for-french-reactor",
+    "published_at": "2026-10-15T14:18:36.000Z",
+    "hash": "a89b6279d896c8d5",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "france",
+    "country": "france",
+    "tldr": "Mitsubishi Heavy Industries has delivered three replacement steam generators to EDF for installation at Cruas nuclear power plant Unit 2 in southeastern France, signalling an upcoming outage and installation campaign requiring specialist nuclear trades.",
+    "operator": {
+      "name": "EDF",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Mitsubishi Heavy Industries",
+      "matched_company_slug": null
+    },
+    "project_name": "Cruas Nuclear Power Plant Unit 2 Steam Generator Replacement",
+    "scope": [
+      "steam_generator_replacement",
+      "nuclear_outage",
+      "mechanical_installation"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Outage Manager",
+        "Mechanical Installation Supervisor",
+        "Nuclear Commissioning Engineer",
+        "Steam Generator Installation Technician",
+        "Nuclear Maintenance Technician",
+        "Radiation Protection Supervisor",
+        "Rigging & Lifting Supervisor",
+        "Nuclear Quality Inspector"
+      ],
+      "skills": [
+        "steam generator replacement",
+        "nuclear outage management",
+        "heavy lift rigging",
+        "nuclear mechanical maintenance",
+        "radiation protection",
+        "nuclear quality assurance",
+        "PWR systems",
+        "mechanical fitting"
+      ],
+      "certs_freetext": [
+        "Nuclear Safety Passport (France)",
+        "SCN1/SCN2 (French nuclear site access)",
+        "CACES lifting/rigging",
+        "Radiation Protection certification (RP supervisor)"
+      ],
+      "geo_rtw": "France (EU work authorisation required)",
+      "project_experience": [
+        "Flamanville EPR",
+        "Paluel steam generator replacement",
+        "Bugey outage",
+        "EDF grand carénage"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"steam generator\" OR \"nuclear outage\" OR \"PWR maintenance\") AND (\"mechanical installation\" OR \"nuclear maintenance\" OR \"outage manager\" OR \"commissioning engineer\") AND (\"EDF\" OR \"nuclear power plant\" OR \"pressurised water reactor\") AND (France OR \"Cruas\" OR \"grand carénage\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], MHI has delivered replacement steam generators to EDF's Cruas Unit 2 plant in France — installation campaign upcoming. Your nuclear outage/mechanical background looks highly relevant. Worth a quick call?",
+      "email_subject": "Cruas Unit 2 Steam Generator Installation — Nuclear Outage Roles, France",
+      "email_body": "Hi [Name],\n\nMitsubishi Heavy Industries has delivered three replacement steam generators to EDF for installation at the Cruas nuclear power plant (Unit 2) in southeastern France. An outage and installation campaign is imminent, and operators will be mobilising specialist nuclear trades shortly.\n\nGiven your background in [nuclear outage management / mechanical installation / radiation protection], I wanted to reach out ahead of the hiring curve.\n\nAre you open to discussing contract or permanent opportunities on this campaign?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (EDF), named contractor/supplier (MHI), named project (Cruas Unit 2), with a discrete installation campaign imminent in the nuclear sector.",
+    "phase": "construction",
+    "phase_evidence": "Steam generators have been delivered and 'are scheduled to be installed' — installation work is the immediate next step, placing this in active construction/outage execution.",
+    "construction_subphase": "peak",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "40989645-6ee0-42f1-8933-360ba11bedc1",
+    "ingested_at": "2026-10-15T18:13:45.095Z",
+    "source_published_at": "2026-10-15T14:18:36.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/sargent--lundy-to-provide-engineering-and-licensing-support-for-deployable-energys-unity-1-microreactor-302908922.html"
