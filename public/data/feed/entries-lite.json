@@ -1,5 +1,47 @@
 [
   {
+    "id": "5ddb3adc-2ccf-482f-b086-3b8f7cec2aed",
+    "ingested_at": "2026-10-16T18:13:12.888Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/norwegian-used-fuel-to-be-stored-in-sweden"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "decom",
+    "region": "scandinavia",
+    "country": "norway",
+    "headline": "Norwegian Nuclear Decommissioning Awards Used Fuel Management Contract to Studsvik for Halden & Kjeller",
+    "operator": {
+      "name": "Norwegian Nuclear Decommissioning",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Studsvik",
+      "matched_company_slug": null
+    },
+    "project_name": "Halden and Kjeller Research Reactor Decommissioning",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": null,
+    "construction_subphase": null,
+    "lifecycle_track": "decommissioning",
+    "decom_stage": "contract_awarded",
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": []
+  },
+  {
     "id": "01ef605e-2674-43b5-a6b3-806d1a041cc2",
     "ingested_at": "2026-10-15T18:13:45.095Z",
     "sources": [

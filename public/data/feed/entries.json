@@ -4,6 +4,109 @@
       {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/norwegian-used-fuel-to-be-stored-in-sweden"
+      }
+    ],
+    "headline": "Norwegian Nuclear Decommissioning Awards Used Fuel Management Contract to Studsvik for Halden & Kjeller",
+    "body": "Norwegian Nuclear Decommissioning has signed an agreement with Swedish nuclear technical services provider Studsvik to manage used nuclear fuel from the former research reactors at Halden and Kjeller.",
+    "url": "https://www.world-nuclear-news.org/articles/norwegian-used-fuel-to-be-stored-in-sweden",
+    "published_at": "2026-10-16T12:37:56.000Z",
+    "hash": "9b7e9c703d22db69",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "decom",
+    "region": "scandinavia",
+    "country": "norway",
+    "tldr": "Norwegian Nuclear Decommissioning has contracted Studsvik to manage spent nuclear fuel from the decommissioned Halden and Kjeller research reactors, signaling active decommissioning execution and near-term specialist labor demand.",
+    "operator": {
+      "name": "Norwegian Nuclear Decommissioning",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Studsvik",
+      "matched_company_slug": null
+    },
+    "project_name": "Halden and Kjeller Research Reactor Decommissioning",
+    "scope": [
+      "used_fuel_management",
+      "nuclear_waste_handling",
+      "decommissioning_services"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Decommissioning Engineer",
+        "Radiological Protection Supervisor",
+        "Health Physics Technician",
+        "Nuclear Waste Management Specialist",
+        "Spent Fuel Handling Technician",
+        "Decommissioning Project Manager",
+        "Nuclear Safety Engineer",
+        "Radiation Protection Officer"
+      ],
+      "skills": [
+        "spent nuclear fuel handling",
+        "radioactive waste management",
+        "decommissioning planning",
+        "radiological surveying",
+        "nuclear safety",
+        "ALARA principles",
+        "nuclear waste characterisation",
+        "interim storage"
+      ],
+      "certs_freetext": [
+        "Radiation Protection Supervisor (RPS)",
+        "Nuclear Safety certification",
+        "IAEA safeguards training",
+        "Norwegian or Swedish nuclear authority recognised qualifications"
+      ],
+      "geo_rtw": "Norway or Sweden; EU/EEA right to work required",
+      "project_experience": [
+        "Kjeller Research Reactor",
+        "Halden Research Reactor",
+        "Studsvik nuclear site",
+        "IFE Norway decommissioning"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "Mid-Senior",
+      "boolean_search": "(\"nuclear decommissioning\" OR \"spent fuel\" OR \"used nuclear fuel\" OR \"radioactive waste management\") AND (\"health physics\" OR \"radiation protection\" OR \"radiological\" OR \"nuclear waste\") AND (\"decommissioning\" OR \"D&D\" OR \"fuel handling\") AND (Norway OR Sweden OR Scandinavia OR \"Nordic countries\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Studsvik has just been contracted by Norwegian Nuclear Decommissioning to manage spent fuel from the Halden & Kjeller reactors. Are you open to hearing about specialist roles on this Scandinavian decom project?",
+      "email_subject": "Specialist Nuclear Decom Roles – Studsvik/Norwegian Nuclear Decommissioning (Halden & Kjeller)",
+      "email_body": "Hi [Name],\n\nNorwegian Nuclear Decommissioning has awarded Studsvik a contract to manage used nuclear fuel from the former Halden and Kjeller research reactors in Norway — signalling active execution of a significant Scandinavian decommissioning programme.\n\nGiven your background in [spent fuel handling / radiological protection / nuclear decom], I wanted to reach out to explore whether you'd be open to a conversation about specialist opportunities supporting this work.\n\nWould you be available for a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named contract award between Norwegian Nuclear Decommissioning (operator) and Studsvik (contractor) for used fuel management at the Halden and Kjeller research reactor decommissioning projects — a discrete decommissioning services contract with clear specialist labor demand.",
+    "phase": null,
+    "phase_evidence": null,
+    "construction_subphase": null,
+    "lifecycle_track": "decommissioning",
+    "decom_stage": "contract_awarded",
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "5ddb3adc-2ccf-482f-b086-3b8f7cec2aed",
+    "ingested_at": "2026-10-16T18:13:12.888Z",
+    "source_published_at": "2026-10-16T12:37:56.000Z",
+    "contact_archetypes": [],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org/articles/joint-venture-formed-for-six-unit-smr-plant-in-poland"
       }
     ],
