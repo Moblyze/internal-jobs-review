@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-10-15T18:15:41.100Z"
+    "last_updated_at": "2026-10-18T06:17:48.260Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -15054,6 +15054,44 @@
         "email": null,
         "phone": null,
         "location": "Hunt Valley, MD, USA"
+      }
+    ]
+  },
+  "exiro nickel": {
+    "discovered_at": "2026-10-18T06:17:48.260Z",
+    "contacts": [
+      {
+        "name": "Vern Baker",
+        "title": "Chief Operating Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/vern-baker-b848b132",
+        "source_url": "https://exironickel.ca/about-us/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Shastri Ramnath",
+        "title": "Chief Executive Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/shastri-ramnath",
+        "source_url": "https://exironickel.ca/about-us/",
+        "in_target_persona": true,
+        "email": "info@exironickel.ca",
+        "phone": null,
+        "location": "Toronto, ON, Canada"
+      },
+      {
+        "name": "Stephanie Hart",
+        "title": "Chief Financial and Risk Officer",
+        "persona": "other",
+        "linkedin_url": "https://www.linkedin.com/in/stephanieehart",
+        "source_url": "https://exironickel.ca/about-us/",
+        "in_target_persona": false,
+        "email": "info@exironickel.ca",
+        "phone": null,
+        "location": null
       }
     ]
   }

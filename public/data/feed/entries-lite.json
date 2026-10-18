@@ -1,5 +1,47 @@
 [
   {
+    "id": "cc5b0bcd-fd2f-4a2e-b3d3-a5c85d221a96",
+    "ingested_at": "2026-10-18T06:17:02.233Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/vale-base-metals-schlieWt-transaktion-zur-neuregelung-der-eigentumsverhaltnisse-am-thompson-minenkomplex-ab-302911931.html"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "canada-manitoba",
+    "country": "canada",
+    "headline": "Exiro Nickel Takes Operational Control of Thompson Mine Complex with $200M Investment",
+    "operator": {
+      "name": "Exiro Nickel",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Exiro Nickel",
+      "matched_company_slug": null
+    },
+    "project_name": "Thompson Mine Complex",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 200000000,
+    "phase": "operating",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
     "id": "5ddb3adc-2ccf-482f-b086-3b8f7cec2aed",
     "ingested_at": "2026-10-16T18:13:12.888Z",
     "sources": [

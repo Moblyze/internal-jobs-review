@@ -2,6 +2,111 @@
   {
     "sources": [
       {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/vale-base-metals-schlieWt-transaktion-zur-neuregelung-der-eigentumsverhaltnisse-am-thompson-minenkomplex-ab-302911931.html"
+      }
+    ],
+    "headline": "Exiro Nickel Takes Operational Control of Thompson Mine Complex with $200M Investment",
+    "body": "Die Transaktion läutet ein neues Kapitel für Thompson ein, gestützt durch neue Investitionen in Höhe von 200 Millionen US-Dollar (ca. 280 Millionen CAD) VBM behält eine Minderheitsbeteiligung von 18,9 % sowie einen mehrjährigen Abnahmevertrag, während Exiro Nickel den Betrieb des...",
+    "url": "https://www.prnewswire.com/news-releases/vale-base-metals-schlieWt-transaktion-zur-neuregelung-der-eigentumsverhaltnisse-am-thompson-minenkomplex-ab-302911931.html",
+    "published_at": "2026-10-18T05:49:00.000Z",
+    "hash": "978b5912aa91f624",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "canada-manitoba",
+    "country": "canada",
+    "tldr": "Vale Base Metals has closed a transaction transferring operational control of the Thompson mine complex to Exiro Nickel, backed by $200M USD in new investment. VBM retains an 18.9% minority stake; Exiro Nickel now leads operations, signaling a potential workforce ramp-up under new ownership.",
+    "operator": {
+      "name": "Exiro Nickel",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Exiro Nickel",
+      "matched_company_slug": null
+    },
+    "project_name": "Thompson Mine Complex",
+    "scope": [
+      "mine_operations",
+      "ownership_transition",
+      "capital_investment"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 200000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mine Manager",
+        "General Manager Operations",
+        "Site Manager",
+        "Production Superintendent",
+        "Metallurgical Engineer",
+        "Mine Planner",
+        "HSE Manager",
+        "Maintenance Superintendent",
+        "Process Plant Manager"
+      ],
+      "skills": [
+        "nickel mining",
+        "underground mining",
+        "mine operations management",
+        "process plant operations",
+        "maintenance management",
+        "production planning"
+      ],
+      "certs_freetext": [
+        "Mine Manager Certificate of Competency",
+        "WHMIS",
+        "First Aid Level 2"
+      ],
+      "geo_rtw": "Canada (Manitoba) — must hold Canadian work authorization",
+      "project_experience": [
+        "Thompson Nickel Belt",
+        "Vale Manitoba Operations",
+        "Voisey's Bay",
+        "Raglan Mine",
+        "Sudbury Operations"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "senior-to-management",
+      "boolean_search": "(\"Mine Manager\" OR \"Site Manager\" OR \"General Manager\" OR \"Production Superintendent\" OR \"Maintenance Superintendent\" OR \"Process Plant Manager\") AND (\"nickel\" OR \"underground mining\" OR \"base metals\") AND (\"Thompson\" OR \"Manitoba\" OR \"Canada\") NOT (graduate OR intern OR junior)"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Exiro Nickel has just taken operational control of the Thompson Mine Complex in Manitoba with $200M in new investment — new ownership often means leadership hiring. Are you open to a conversation about senior ops roles up there?",
+      "email_subject": "Thompson Mine Complex — Exiro Nickel Operational Leadership Opportunities",
+      "email_body": "Hi [Name],\n\nVale Base Metals has completed its ownership transition of the Thompson Mine Complex in Manitoba to Exiro Nickel, backed by $200M USD in fresh capital investment. New ownership of a major nickel operation of this scale typically triggers a significant leadership and operational staffing review.\n\nGiven your background in [nickel/underground mining/mine operations], I wanted to reach out to see if you'd be open to exploring potential senior roles tied to this transition.\n\nHappy to share more details — would a brief call work for you this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Completed ownership transfer of the named Thompson Mine Complex to Exiro Nickel with $200M new investment, naming both operator (Exiro Nickel) and incumbent minority stakeholder (Vale Base Metals) — an operator change-of-control event with direct workforce demand implications in mining.",
+    "phase": "operating",
+    "phase_evidence": "Article states Exiro Nickel takes over 'Betrieb' (operations) of the Thompson mine complex, indicating the asset is operational under new management.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "cc5b0bcd-fd2f-4a2e-b3d3-a5c85d221a96",
+    "ingested_at": "2026-10-18T06:17:02.233Z",
+    "source_published_at": "2026-10-18T05:49:00.000Z",
+    "contact_archetypes": [
+      "ops_director",
+      "hiring_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org/articles/norwegian-used-fuel-to-be-stored-in-sweden"
