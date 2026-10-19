@@ -2,6 +2,108 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/aep-amazon-and-x-energy-plan-12-smr-plant"
+      }
+    ],
+    "headline": "AEP & X-energy Sign JDA for 12-SMR 960MW Plant at Indiana Coal Site",
+    "body": "US utility American Electric Power and X-energy have signed a joint development agreement to evaluate a potential 960 MW project at a former coal plant site in Sullivan County, Indiana.",
+    "url": "https://www.world-nuclear-news.org/articles/aep-amazon-and-x-energy-plan-12-smr-plant",
+    "published_at": "2026-10-19T13:35:54.000Z",
+    "hash": "71de20c49562d3d5",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "us-midwest",
+    "country": "united_states",
+    "tldr": "American Electric Power and X-energy have signed a joint development agreement to evaluate a 960 MW small modular reactor project at a former coal plant site in Sullivan County, Indiana. This is pre-FID but names operator and technology partner, signaling future construction labor demand.",
+    "operator": {
+      "name": "American Electric Power (AEP)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "X-energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Sullivan County SMR Project",
+    "scope": [
+      "smr_development",
+      "site_evaluation",
+      "nuclear_newbuild"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Project Development Manager",
+        "SMR Site Evaluation Engineer",
+        "Nuclear Licensing Engineer",
+        "FEED Manager",
+        "Nuclear Project Manager",
+        "Site Characterization Engineer"
+      ],
+      "skills": [
+        "small modular reactor",
+        "nuclear site evaluation",
+        "NRC licensing",
+        "FEED",
+        "nuclear project development",
+        "site remediation coal-to-nuclear"
+      ],
+      "certs_freetext": [
+        "NRC certifications",
+        "PMP",
+        "PE (Nuclear)"
+      ],
+      "geo_rtw": "US work authorization required",
+      "project_experience": [
+        "Vogtle Units 3&4",
+        "Carbon Free Power Project (CFPP)",
+        "TerraPower Natrium",
+        "Kairos Power Hermes"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "senior",
+      "boolean_search": "(\"small modular reactor\" OR \"SMR\" OR \"nuclear new build\") AND (\"site evaluation\" OR \"project development\" OR \"FEED\" OR \"NRC licensing\") AND (\"nuclear\" OR \"X-energy\" OR \"AEP\" OR \"American Electric Power\") NOT (\"solar\" OR \"wind\" OR \"oil\" OR \"gas\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], AEP & X-energy just signed a JDA for a 12-unit SMR project in Indiana. With your nuclear project development background, you could be a great fit as this progresses toward FEED. Open to a quick chat?",
+      "email_subject": "SMR Project Opportunity – AEP & X-energy, Indiana",
+      "email_body": "Hi [Name],\n\nAmerican Electric Power and X-energy have signed a joint development agreement to evaluate a 960 MW small modular reactor project at a former coal plant site in Sullivan County, Indiana — one of the most significant nuclear development signals in the US Midwest in recent years.\n\nAs the project moves toward FEED and eventually construction, demand for experienced nuclear project development, licensing, and engineering professionals will grow significantly.\n\nGiven your background in [relevant experience], I'd love to explore whether there's a fit as this project advances.\n\nAre you open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Joint development agreement names operator (AEP), technology partner (X-energy), and a specific 960 MW SMR project in Indiana, qualifying as a pre-sanction field development signal with future labor demand implications.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states AEP and X-energy 'signed a joint development agreement to evaluate a potential 960 MW project,' indicating concept/pre-FID stage.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "62953ddc-6985-43a0-9475-bdc8f34e4880",
+    "ingested_at": "2026-10-19T18:14:33.697Z",
+    "source_published_at": "2026-10-19T13:35:54.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/vale-base-metals-schlieWt-transaktion-zur-neuregelung-der-eigentumsverhaltnisse-am-thompson-minenkomplex-ab-302911931.html"
@@ -13664,115 +13766,6 @@
       "site_manager",
       "hiring_manager",
       "project_manager"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org//articles/jacobs-to-assist-in-planning-of-uk-smr-projects"
-      }
-    ],
-    "headline": "Jacobs Selected by Great British Energy – Nuclear for UK SMR Planning & Consenting Services",
-    "body": "USA-based engineering group Jacobs has been selected by Great British Energy – Nuclear to provide planning and consenting services for the planned small modular reactor projects in the UK.",
-    "url": "https://www.world-nuclear-news.org//articles/jacobs-to-assist-in-planning-of-uk-smr-projects",
-    "published_at": "2026-07-21T14:43:03.000Z",
-    "hash": "19c64d42db5fb709",
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations"
-    ],
-    "signal_type": "epc_award",
-    "region": "uk",
-    "country": "united_kingdom",
-    "tldr": "Jacobs has been awarded planning and consenting services for UK small modular reactor projects under Great British Energy – Nuclear, signalling early-stage pre-sanction hiring for nuclear planners, permitting specialists, and engineers.",
-    "operator": {
-      "name": "Great British Energy – Nuclear",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Jacobs",
-      "matched_company_slug": null
-    },
-    "project_name": "UK Small Modular Reactor (SMR) Programme",
-    "scope": [
-      "planning_consenting",
-      "regulatory_permitting",
-      "feed"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Nuclear Planning Consultant",
-        "Consenting Manager",
-        "Environmental Impact Assessment Lead",
-        "Nuclear Regulatory Affairs Specialist",
-        "Development Consent Order (DCO) Manager",
-        "Nuclear Project Manager",
-        "FEED Engineer – Nuclear",
-        "Stakeholder Engagement Manager"
-      ],
-      "skills": [
-        "small modular reactors",
-        "nuclear consenting",
-        "development consent order",
-        "environmental impact assessment",
-        "nuclear regulatory compliance",
-        "planning applications",
-        "stakeholder engagement",
-        "UK nuclear licensing"
-      ],
-      "certs_freetext": [
-        "NVQ Nuclear",
-        "IEMA",
-        "Chartered Planner (MRTPI)",
-        "Nuclear Security Clearance (UK)",
-        "CMIOSH"
-      ],
-      "geo_rtw": "UK right-to-work required",
-      "project_experience": [
-        "Hinkley Point C",
-        "Sizewell C",
-        "Rolls-Royce SMR",
-        "NuScale SMR",
-        "Wylfa Newydd",
-        "Bradwell B"
-      ],
-      "yoe_band": "8-20",
-      "seniority": "senior-to-principal",
-      "boolean_search": "(\"small modular reactor\" OR \"SMR\" OR \"nuclear consenting\" OR \"Development Consent Order\" OR \"DCO\" OR \"nuclear planning\") AND (\"planning\" OR \"consenting\" OR \"regulatory\" OR \"EIA\" OR \"environmental impact assessment\") AND (\"nuclear\" OR \"NNB\" OR \"GDA\" OR \"ONR\") AND (\"UK\" OR \"United Kingdom\" OR \"England\" OR \"Wales\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Jacobs has just been selected to deliver planning & consenting services for UK SMR projects under Great British Energy – Nuclear. We're identifying senior nuclear planning and consenting specialists — would you be open to a brief conversation?",
-      "email_subject": "UK SMR Programme – Jacobs Planning & Consenting Roles",
-      "email_body": "Hi [Name],\n\nJacobs has been appointed by Great British Energy – Nuclear to provide planning and consenting services for the UK's SMR programme — one of the most significant nuclear development pipelines in the country.\n\nGiven your background in [nuclear consenting / DCO / nuclear regulatory affairs], I wanted to reach out early as roles are expected to ramp over the coming months.\n\nWould you be available for a quick call to discuss?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "FEED/planning contract award naming Jacobs as service provider and Great British Energy – Nuclear as client for UK SMR projects, creating identifiable early-stage nuclear workforce demand.",
-    "phase": "pre_sanction",
-    "phase_evidence": "Article states Jacobs will 'provide planning and consenting services for the planned small modular reactor projects', indicating pre-FID / pre-consent stage.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "b26b3fce-1ec8-46d7-95be-a8b597205649",
-    "ingested_at": "2026-07-21T12:35:01.906Z",
-    "source_published_at": "2026-07-21T14:43:03.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "business_unit_director"
     ],
     "prompt_version": "phase-targeting-v1.2"
   }

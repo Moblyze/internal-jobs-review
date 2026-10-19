@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-10-18T06:17:48.260Z"
+    "last_updated_at": "2026-10-19T18:16:02.493Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -15092,6 +15092,126 @@
         "email": "info@exironickel.ca",
         "phone": null,
         "location": null
+      }
+    ]
+  },
+  "x-energy": {
+    "discovered_at": "2026-10-19T18:16:02.493Z",
+    "contacts": [
+      {
+        "name": "Dragan Popovic",
+        "title": "Executive Vice President & Chief of Global Operations",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/dragan-popovic-9b0b652",
+        "source_url": "https://x-energy.com/news/x-energy-appoints-dragan-popovic-as-chief-of-global-operations/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Toronto, Ontario, Canada"
+      },
+      {
+        "name": "John Smollen",
+        "title": "Vice President, Construction",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/john-b-smollen-p-e-571424137",
+        "source_url": "https://www.zoominfo.com/pic/x-energy-llc/358242236",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Katy, TX, USA"
+      },
+      {
+        "name": "Carol Tansley",
+        "title": "Vice President, Projects",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/carol-tansley-722271",
+        "source_url": "https://x-energy.com/team/carol-tansley",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Rockville, MD, USA"
+      },
+      {
+        "name": "David Bannister",
+        "title": "Chief Nuclear Officer & ARDP Project Deputy Director",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/dave-bannister-487366271",
+        "source_url": "https://x-energy.com/leadership/david-bannister/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Edward Schinner",
+        "title": "Vice President, Project Director – X-energy Technology Advancement Center",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://x-energy.com/leadership/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "american electric power (aep)": {
+    "discovered_at": "2026-10-19T18:16:02.493Z",
+    "contacts": [
+      {
+        "name": "Phil Ulrich",
+        "title": "Executive Vice President and Chief Human Resources Officer",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/philliprulrich",
+        "source_url": "https://www.aep.com/about/leadership/ulrich/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Columbus, OH, USA"
+      },
+      {
+        "name": "Jennifer Ratliff",
+        "title": "Manager, Talent Acquisition",
+        "persona": "ta",
+        "linkedin_url": null,
+        "source_url": "https://theorg.com/org/american-electric-power/teams/talent-acquisition",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Plain City, OH, USA"
+      },
+      {
+        "name": "McKinley Horton",
+        "title": "Talent Acquisition Specialist Sr.",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/mckinley-horton-994197129",
+        "source_url": "https://theorg.com/org/american-electric-power/teams/talent-acquisition",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Roanoke, VA, USA"
+      },
+      {
+        "name": "Joseph F. Moore",
+        "title": "Executive Vice President, Operational Excellence",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/joe-moore-896a90156",
+        "source_url": "https://www.aep.com/about/leadership/moore/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Des Moines, IA, USA"
+      },
+      {
+        "name": "Steve Thomas",
+        "title": "Director Human Resources",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/steve-thomas-02bb7958",
+        "source_url": "https://www.comparably.com/companies/american-electric-power/human-resources",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Columbus, OH, USA"
       }
     ]
   }
