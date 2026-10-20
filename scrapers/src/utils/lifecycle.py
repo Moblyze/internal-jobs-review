@@ -73,7 +73,13 @@ class JobLifecycleManager:
         active_count = len(active_jobs)
 
         skip_removal = False
-        if active_count > 10 and len(current_urls) < active_count * 0.1:
+        # An EMPTY read holds the diff at any size: with the old "> 10" floor,
+        # a company with exactly 10 active (Sonardyne, Oct 20, 2026, sitemap
+        # timeout) was wiped by one failed fetch.
+        if active_count > 0 and (
+            not current_urls
+            or (active_count > 10 and len(current_urls) < active_count * 0.1)
+        ):
             logger.warning(
                 f"Safety threshold triggered for {company}: "
                 f"scrape returned {len(current_urls)} jobs but "

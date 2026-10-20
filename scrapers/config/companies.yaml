@@ -420,28 +420,37 @@ companies:
       detail_wait_for: 'div.c-job-content'
     sheet_name: "iPS Powerful People"
 
-  # Advance Global Recruitment (AGRL): custom WordPress "jobs" post type,
-  # NOT WP Job Manager. Card <h3> mixes the title with a hidden share-modal's
-  # text; job_title lets html_generic take the card's own inner_text fallback,
-  # which in testing isolates the title correctly (see report). Location is
-  # the 2nd .key-info div on both listing and detail markup (salary is 1st,
-  # an empty spacer is 3rd, date is 4th) -- nth-of-type(2) counts among all
-  # sibling <div>s, which is exactly the 4 .key-info divs here.
-  advance_global_recruitment:
-    name: "Advance Global Recruitment"
-    platform: html_generic
-    base_url: "https://www.agrl.co.uk/jobs/"
-    rate_limit_delay: 2.5
-    selectors:
-      job_card: 'div.job-block'
-      job_link: 'a.description'
-      job_location: 'div.job-details div.key-info:nth-of-type(2)'
-      description: 'div.job-content'
-      location: 'div.job-details div.key-info:nth-of-type(2)'
-    html_config:
-      wait_for: 'div.job-block'
-      detail_wait_for: 'div.job-content'
-    sheet_name: "Advance Global Recruitment"
+  # DISABLED 2026-10-20: AGRL rebuilt agrl.co.uk as a Next.js front end (old
+  # div.job-block markup is gone) that loads jobs from a headless WordPress
+  # endpoint, api.agrl.co.uk/wp-json/agr-bullhorn/v1/jobs. That endpoint
+  # returns 503 "agrbh_oauth_required" (their Bullhorn connection needs an
+  # admin), so their own site lists zero jobs. This source zeroed 12 runs in a
+  # row and failed Daily Job Scraping every day from Oct 9. Re-enable once the
+  # endpoint returns jobs, with a new scraper for that JSON (these selectors
+  # no longer match). Unknown job slugs on the new site return HTTP 200, so the
+  # liveness probe cannot retire the old rows on its own.
+  # # Advance Global Recruitment (AGRL): custom WordPress "jobs" post type,
+  # # NOT WP Job Manager. Card <h3> mixes the title with a hidden share-modal's
+  # # text; job_title lets html_generic take the card's own inner_text fallback,
+  # # which in testing isolates the title correctly (see report). Location is
+  # # the 2nd .key-info div on both listing and detail markup (salary is 1st,
+  # # an empty spacer is 3rd, date is 4th) -- nth-of-type(2) counts among all
+  # # sibling <div>s, which is exactly the 4 .key-info divs here.
+  # advance_global_recruitment:
+  #   name: "Advance Global Recruitment"
+  #   platform: html_generic
+  #   base_url: "https://www.agrl.co.uk/jobs/"
+  #   rate_limit_delay: 2.5
+  #   selectors:
+  #     job_card: 'div.job-block'
+  #     job_link: 'a.description'
+  #     job_location: 'div.job-details div.key-info:nth-of-type(2)'
+  #     description: 'div.job-content'
+  #     location: 'div.job-details div.key-info:nth-of-type(2)'
+  #   html_config:
+  #     wait_for: 'div.job-block'
+  #     detail_wait_for: 'div.job-content'
+  #   sheet_name: "Advance Global Recruitment"
 
   # NOTE: Bechtel uses a non-TalentBrew SuccessFactors frontend (table-based at jobs.bechtel.com/search/).
   # The current SuccessFactors scraper relies on TalentBrew's console.log JSON extraction which

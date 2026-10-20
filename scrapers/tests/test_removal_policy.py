@@ -139,6 +139,18 @@ class TestLifecycleConsistency:
             assert _status(tracker, f"https://x/{i}")[0] == "active"
         assert _status(tracker, "https://x/dead-stale")[0] == "active"   # too old to trust alone
 
+    def test_zero_job_scrape_of_a_small_company_holds_the_diff(self, tracker):
+        # Sonardyne, Oct 20, 2026: sitemap read timed out, the fallback page
+        # returned 0, and with exactly 10 active the old "> 10" guard let the
+        # diff retire all 10. An empty read is never proof a board is empty.
+        for i in range(10):
+            _insert(tracker.conn, f"https://x/{i}")
+        summary = _mgr(tracker).process_scrape_results("Acme", "Acme", [])
+        assert summary["diff_skipped"] is True
+        assert summary["removed_jobs"] == 0
+        for i in range(10):
+            assert _status(tracker, f"https://x/{i}")[0] == "active"
+
     def test_healthy_scrape_retires_large_batch_and_flags_it(self, tracker):
         for i in range(100):
             _insert(tracker.conn, f"https://x/{i}")
