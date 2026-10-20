@@ -549,7 +549,7 @@ class DeduplicationTracker:
     def _probe_cutoff(self) -> str:
         return (datetime.utcnow() - timedelta(days=self.PROBE_TRUST_DAYS)).isoformat()
 
-    def reactivate_jobs(self, company: str, current_job_urls: set[str]) -> int:
+    def reactivate_jobs(self, company: str, current_job_urls: set[str], return_urls: bool = False):
         """
         Re-activate jobs that were marked removed but appear in current scrape.
 
@@ -561,11 +561,15 @@ class DeduplicationTracker:
             company: Company name
             current_job_urls: Set of URLs from current scraping run
 
+            return_urls: When True, return the list of re-activated URLs
+                instead of the count (the lifecycle manager writes them back
+                to the sheet).
+
         Returns:
-            Number of jobs re-activated
+            Number of jobs re-activated (or their URLs when return_urls=True)
         """
         if not current_job_urls:
-            return 0
+            return [] if return_urls else 0
 
         now = datetime.utcnow().isoformat()
         cursor = self.conn.cursor()
@@ -586,23 +590,28 @@ class DeduplicationTracker:
                 f"diff_vs_probe {company}: {len(held)} rows are back in the listing but the source "
                 f"page said DEAD within {self.PROBE_TRUST_DAYS} days; kept removed (first: {held[0]})"
             )
+        reactivate_where = f"""
+            WHERE company = ?
+                AND status = 'removed'
+                AND NOT (COALESCE(source_status, '') = 'DEAD' AND COALESCE(source_checked_at, '') >= ?)
+                AND url_hash IN ({placeholders})
+        """
+        cursor.execute(f"SELECT url FROM scraped_jobs {reactivate_where}", [company, cutoff] + url_hashes)
+        reactivated_urls = [row['url'] for row in cursor.fetchall()]
         cursor.execute(f"""
             UPDATE scraped_jobs
             SET status = 'active',
                 status_changed_date = ?,
                 last_seen = ?,
                 removed_reason = NULL
-            WHERE company = ?
-                AND status = 'removed'
-                AND NOT (COALESCE(source_status, '') = 'DEAD' AND COALESCE(source_checked_at, '') >= ?)
-                AND url_hash IN ({placeholders})
+            {reactivate_where}
         """, [now, now, company, cutoff] + url_hashes)
 
         self.conn.commit()
         count = cursor.rowcount
         if count > 0:
             logger.info(f"Re-activated {count} previously removed jobs for {company}")
-        return count
+        return reactivated_urls if return_urls else count
 
     def update_last_seen_batch(self, company: str, current_job_urls: set[str]):
         """

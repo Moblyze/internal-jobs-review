@@ -89,9 +89,15 @@ class JobLifecycleManager:
             skip_removal = True
 
         # Re-activate jobs that reappeared after being marked removed
-        reactivated = self.tracker.reactivate_jobs(company, current_urls)
-        if reactivated > 0:
-            logger.info(f"Re-activated {reactivated} previously removed jobs for {company}")
+        reactivated_urls = self.tracker.reactivate_jobs(company, current_urls, return_urls=True)
+        if reactivated_urls:
+            logger.info(f"Re-activated {len(reactivated_urls)} previously removed jobs for {company}")
+            # Write the reactivation back to the sheet the same way retirements
+            # are written. Without this, a row wrongly retired (a partial read:
+            # Sonardyne, Oct 20, 2026) stays "removed" on the sheet forever
+            # while the DB says active, because the diff only sees DB state.
+            if self.exporter:
+                self._update_sheet_statuses(sheet_name, reactivated_urls, 'active')
 
         # Update last_seen for all scraped jobs (not just new ones)
         self.tracker.update_last_seen_batch(company, current_urls)
@@ -178,6 +184,27 @@ class JobLifecycleManager:
             return removed_jobs, []
         keep = {j['url_hash'] for j in protected}
         return [j for j in removed_jobs if j['url_hash'] not in keep], protected
+
+    def _update_sheet_statuses(self, sheet_name: str, urls: list[str], new_status: str):
+        """Set Status / Status Changed Date on the existing sheet rows for urls.
+
+        Only rows already on the tab are touched (never appends); same
+        batching and 429 handling as retirements via batch_update_statuses.
+        """
+        try:
+            url_to_row = self.exporter.get_existing_job_urls(sheet_name)
+            now = datetime.utcnow().isoformat()
+            updates = [(url_to_row[u], new_status, now) for u in urls if u in url_to_row]
+            if updates:
+                self.exporter.batch_update_statuses(sheet_name, updates)
+                logger.info(f"Updated {len(updates)} jobs to {new_status} in sheet: {sheet_name}")
+            else:
+                logger.warning(
+                    f"No matching URLs found in sheet {sheet_name} for {len(urls)} {new_status} jobs"
+                )
+        except Exception as e:
+            logger.error(f"Failed to update Google Sheets for {new_status} jobs: {e}", exc_info=True)
+            # Don't raise - lifecycle tracking in DB already succeeded
 
     def _update_sheets_for_removed_jobs(
         self,

@@ -116,3 +116,29 @@ class TestLifecycleProbeGuard:
         assert _row(tracker, 'https://x/live-stale')['status'] == 'removed'
         assert _row(tracker, 'https://x/unprobed')['status'] == 'removed'
         assert _row(tracker, 'https://x/unprobed')['removed_reason'] is None
+
+
+class TestReactivationReachesTheSheet:
+    def test_reactivated_rows_are_written_back_to_the_sheet_as_active(self, tracker):
+        # Sonardyne, Oct 20, 2026: a partial read retired every row in the DB
+        # and on the sheet; the next good scrape reactivated the DB rows only,
+        # so the sheet kept them "removed" until they were restored by hand.
+        fresh = datetime.utcnow().isoformat()
+        _insert(tracker.conn, 'https://x/back', status='removed')
+        _insert(tracker.conn, 'https://x/held-dead', status='removed', source_status='DEAD',
+                source_checked_at=fresh, removed_reason='source_gone')
+        _insert(tracker.conn, 'https://x/still-active')
+        exporter = MagicMock()
+        exporter.get_existing_job_urls.return_value = {
+            'https://x/back': 7, 'https://x/held-dead': 8,
+            'https://x/still-active': 9, 'https://x/unrelated': 10,
+        }
+        mgr = JobLifecycleManager(tracker=tracker, exporter=exporter)
+
+        jobs = [MagicMock(url=u) for u in ('https://x/back', 'https://x/held-dead', 'https://x/still-active')]
+        mgr.process_scrape_results('Acme', 'Acme', jobs)
+
+        assert _row(tracker, 'https://x/back')['status'] == 'active'
+        writes = [u for call in exporter.batch_update_statuses.call_args_list for u in call.args[1]]
+        assert [(row, status) for row, status, _ in writes] == [(7, 'active')]
+        assert exporter.batch_update_statuses.call_args.args[0] == 'Acme'
