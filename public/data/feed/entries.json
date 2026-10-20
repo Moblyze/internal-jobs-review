@@ -4,6 +4,112 @@
       {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/indiana-considering-6-gw-candu-nuclear-project"
+      }
+    ],
+    "headline": "AtkinsRéalis & Hoosier Energy to Explore 6 GW Candu Nuclear Project in Indiana",
+    "body": "AtkinsRéalis Group, Hoosier Energy Rural Electric Cooperative and the State of Indiana in the US are to explore a potential project featuring up to eight Candu nuclear power units, with a combined 6 GW capacity.",
+    "url": "https://www.world-nuclear-news.org/articles/indiana-considering-6-gw-candu-nuclear-project",
+    "published_at": "2026-10-20T13:54:28.000Z",
+    "hash": "7d211e75f048f62c",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "us-midwest",
+    "country": "united_states",
+    "tldr": "AtkinsRéalis, Hoosier Energy Rural Electric Cooperative, and the State of Indiana are exploring up to eight Candu units totalling 6 GW. Project is at early exploration/pre-FEED stage with no FID; hiring window is 12+ months out.",
+    "operator": {
+      "name": "Hoosier Energy Rural Electric Cooperative",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "AtkinsRéalis Group",
+      "matched_company_slug": null
+    },
+    "project_name": "Indiana Candu Nuclear Project",
+    "scope": [
+      "feasibility_study",
+      "nuclear_newbuild",
+      "pre_feed"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Project Manager",
+        "CANDU Reactor Engineer",
+        "Nuclear Feasibility Study Lead",
+        "Nuclear Business Development Manager",
+        "FEED Manager",
+        "Nuclear Regulatory Affairs Specialist",
+        "Site Selection Engineer"
+      ],
+      "skills": [
+        "CANDU reactor technology",
+        "nuclear project development",
+        "feasibility studies",
+        "nuclear licensing",
+        "FEED management",
+        "nuclear safety analysis",
+        "NRC regulatory process"
+      ],
+      "certs_freetext": [
+        "Professional Engineer (Nuclear)",
+        "ANS membership",
+        "NRC/DOE clearance advantageous"
+      ],
+      "geo_rtw": "US work-authorized or transferable visa; Indiana / remote FEED office",
+      "project_experience": [
+        "Bruce Power",
+        "Darlington Refurbishment",
+        "Romanian CANDU projects",
+        "Point Lepreau Refurbishment",
+        "Vogtle Units 3&4",
+        "NuScale UAMPS Carbon Free Power Project"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal",
+      "boolean_search": "(\"CANDU\" OR \"CANDu reactor\" OR \"pressurized heavy water reactor\" OR \"PHWR\") AND (\"nuclear project manager\" OR \"feasibility study\" OR \"FEED\" OR \"nuclear engineer\" OR \"reactor engineer\") AND (\"AtkinsRealis\" OR \"SNC-Lavalin\" OR \"Hoosier Energy\" OR \"Bruce Power\" OR \"Darlington\" OR \"nuclear new build\" OR \"SMR\") AND (\"Indiana\" OR \"United States\" OR \"US nuclear\") AND (\"project development\" OR \"pre-FEED\" OR \"site selection\" OR \"nuclear licensing\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], AtkinsRéalis is exploring a 6 GW CANDU nuclear project in Indiana with Hoosier Energy. Early-stage studies will need experienced CANDU specialists. Would you be open to a brief conversation about your interest?",
+      "email_subject": "CANDU Nuclear Opportunity – Indiana 6 GW Project (AtkinsRéalis)",
+      "email_body": "Hi [Name],\n\nAtkinsRéalis, Hoosier Energy Rural Electric Cooperative, and the State of Indiana have announced plans to explore up to eight CANDU units with a combined 6 GW capacity — one of the largest nuclear development signals in the US in years.\n\nAs this moves toward feasibility and FEED, AtkinsRéalis will be building out a specialist team with CANDU expertise. Given your background in [CANDU/nuclear project development], I wanted to reach out early.\n\nWould you have 15 minutes this week to explore how your experience might align?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Hoosier Energy), contractor/developer (AtkinsRéalis), and a specific nuclear project (up to 8 CANDU units, 6 GW) in Indiana, representing a discrete pre-sanction workforce-demand signal in the nuclear sector.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states parties 'are to explore a potential project,' indicating concept/pre-FEED stage with no FID taken.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "121fa01c-2d9c-4bf8-9ec8-5272e8ba14c2",
+    "ingested_at": "2026-10-20T18:13:45.958Z",
+    "source_published_at": "2026-10-20T13:54:28.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org/articles/aep-amazon-and-x-energy-plan-12-smr-plant"
       }
     ],

@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-10-19T18:16:02.493Z"
+    "last_updated_at": "2026-10-20T18:15:17.506Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -15212,6 +15212,126 @@
         "email": null,
         "phone": null,
         "location": "Columbus, OH, USA"
+      }
+    ]
+  },
+  "atkinsréalis group": {
+    "discovered_at": "2026-10-20T18:15:17.506Z",
+    "contacts": [
+      {
+        "name": "James Cullens",
+        "title": "Chief Human Resources Officer",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/jamescullens",
+        "source_url": "https://www.atkinsrealis.com/en/about/our-leadership",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "London, UK"
+      },
+      {
+        "name": "Elena Karnaukhova",
+        "title": "Senior Manager, Talent Acquisition MEA",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/elena-karnaukhova",
+        "source_url": "https://www.linkedin.com/in/elena-karnaukhova/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "United Arab Emirates"
+      },
+      {
+        "name": "Philip Todd",
+        "title": "SVP, Global Operations",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/philtoddfice",
+        "source_url": "https://theorg.com/org/atkinsrealis/org-chart/philip-todd",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Dubai, UAE"
+      },
+      {
+        "name": "Stéphanie Vaillancourt",
+        "title": "President, Canada",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/stephanie-vaillancourt-090b988a",
+        "source_url": "https://www.atkinsrealis.com/en/regions/canada",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Montreal, QC, Canada"
+      },
+      {
+        "name": "Louis G. Véronneau",
+        "title": "Chief Operating Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/louis-g-v%C3%A9ronneau-67174816",
+        "source_url": "https://www.newswire.ca/news-releases/atkinsrealis-strengthens-executive-leadership-to-accelerate-growth-and-operational-excellence-841422595.html",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Montreal, QC, Canada"
+      }
+    ]
+  },
+  "hoosier energy rural electric cooperative": {
+    "discovered_at": "2026-10-20T18:15:17.506Z",
+    "contacts": [
+      {
+        "name": "Tina Dixon",
+        "title": "HR, Recruiting & Employee Development Analyst",
+        "persona": "ta",
+        "linkedin_url": "https://www.linkedin.com/in/tinadixon2",
+        "source_url": "https://www.zoominfo.com/p/Tina-Dixon/1826030816",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Bloomington, IN, USA"
+      },
+      {
+        "name": "Jon Bobbitt",
+        "title": "Senior Manager of Human Resources",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/jon-bobbitt-7143196",
+        "source_url": "https://rocketreach.co/jon-bobbitt-email_75088916",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Sullivan, IN, USA"
+      },
+      {
+        "name": "Chris Blunk",
+        "title": "Chief Administrative Officer",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/chris-blunk-a1304215",
+        "source_url": "https://www.hoosierenergy.com/our-cooperative/our-team/leadership/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Bloomington, IN, USA"
+      },
+      {
+        "name": "Rob Horton",
+        "title": "Executive Vice President & Chief Operating Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/rob-horton-b0833715",
+        "source_url": "https://www.hoosierenergy.com/our-cooperative/our-team/leadership/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Bloomington, IN, USA"
+      },
+      {
+        "name": "Justin Swarens",
+        "title": "Vice President of Technical Services",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.hoosierenergy.com/our-cooperative/our-team/leadership/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Bloomington, IN, USA"
       }
     ]
   }

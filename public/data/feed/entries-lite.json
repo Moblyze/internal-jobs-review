@@ -1,5 +1,48 @@
 [
   {
+    "id": "121fa01c-2d9c-4bf8-9ec8-5272e8ba14c2",
+    "ingested_at": "2026-10-20T18:13:45.958Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/indiana-considering-6-gw-candu-nuclear-project"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "us-midwest",
+    "country": "united_states",
+    "headline": "AtkinsRéalis & Hoosier Energy to Explore 6 GW Candu Nuclear Project in Indiana",
+    "operator": {
+      "name": "Hoosier Energy Rural Electric Cooperative",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "AtkinsRéalis Group",
+      "matched_company_slug": null
+    },
+    "project_name": "Indiana Candu Nuclear Project",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "62953ddc-6985-43a0-9475-bdc8f34e4880",
     "ingested_at": "2026-10-19T18:14:33.697Z",
     "sources": [
