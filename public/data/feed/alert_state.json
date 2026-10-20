@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-20T06:18:08.052Z",
+  "updated_at": "2026-10-20T12:16:27.458Z",
   "sources": {
     "rigzone": {
       "kind": "ok",
@@ -57,13 +57,13 @@
       "alert_count": 0
     },
     "boem_us": {
-      "kind": "ok",
+      "kind": "content_stale",
       "error": null,
       "error_class": null,
       "http_status": null,
-      "first_seen_at": null,
-      "last_alerted_at": null,
-      "alert_count": 0
+      "first_seen_at": "2026-10-20T12:16:27.458Z",
+      "last_alerted_at": "2026-10-20T12:16:27.458Z",
+      "alert_count": 1
     },
     "sec_edgar_8k": {
       "kind": "ok",
