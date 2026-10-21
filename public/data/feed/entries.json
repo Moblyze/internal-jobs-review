@@ -2,6 +2,110 @@
   {
     "sources": [
       {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/pmet-advances-shaakichiuwaanaan-development-with-more-than-30-000-m-2026-drill-program-302914469.html"
+      }
+    ],
+    "headline": "PMET Advances Shaakichiuwaanaan with 30,000m 2026 Drill Program",
+    "body": "Shaakichiuwaanaan 2026 drill program continues to achieve key objectives in addition to derisking important technical and geological aspects of the Project development. MONTREAL, Oct. 20, 2026 /PRNewswire/ -- October 21 - Sydney, Australia Highlights More than 30,000 m of drilling...",
+    "url": "https://www.prnewswire.com/news-releases/pmet-advances-shaakichiuwaanaan-development-with-more-than-30-000-m-2026-drill-program-302914469.html",
+    "published_at": "2026-10-20T21:00:00.000Z",
+    "hash": "4809abce3025ebf5",
+    "subsector": "mining",
+    "discipline_tags": [
+      "drilling_operations",
+      "survey_geophysical"
+    ],
+    "signal_type": "tender",
+    "region": "canada",
+    "country": "canada",
+    "tldr": "PMET is executing a 30,000m+ drill program at the Shaakichiuwaanaan project in 2026, signaling active exploration drilling demand. Recruiters should target drillers, geologists, and field technicians for near-term mobilization.",
+    "operator": {
+      "name": "PMET",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "PMET",
+      "matched_company_slug": null
+    },
+    "project_name": "Shaakichiuwaanaan",
+    "scope": [
+      "exploration_drilling",
+      "drill_program"
+    ],
+    "mob_window": {
+      "start": "2026-Q1",
+      "end": "2026-Q4",
+      "duration_months": 12
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Diamond Driller",
+        "Drill Helper",
+        "Field Geologist",
+        "Exploration Geologist",
+        "Core Technician",
+        "Drill Supervisor",
+        "Camp Manager",
+        "HSE Advisor – Exploration"
+      ],
+      "skills": [
+        "diamond drilling",
+        "exploration drilling",
+        "core logging",
+        "geological mapping",
+        "drill site supervision",
+        "sample management",
+        "remote camp operations"
+      ],
+      "certs_freetext": [
+        "Standard First Aid",
+        "Wilderness First Aid",
+        "WHMIS",
+        "Explosives Handling (if applicable)"
+      ],
+      "geo_rtw": "Canada – eligible to work in Quebec/Northern Canada",
+      "project_experience": [
+        "Frontier Lithium PAK Project",
+        "Patriot Battery Metals",
+        "Winsome Resources",
+        "Azimut Exploration"
+      ],
+      "yoe_band": "3-10",
+      "seniority": "mid-level",
+      "boolean_search": "(\"diamond driller\" OR \"exploration driller\" OR \"drill supervisor\" OR \"field geologist\" OR \"exploration geologist\" OR \"core technician\" OR \"camp manager\") AND (\"exploration drilling\" OR \"diamond drilling\" OR \"core logging\" OR \"drill program\") AND (Canada OR Quebec OR \"Northern Canada\" OR \"James Bay\") NOT (oil OR gas OR petroleum)"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], PMET is executing a 30,000m+ drill program at Shaakichiuwaanaan in 2026. Your exploration drilling background looks like a strong fit. Are you open to remote/fly-in roles in Canada this season?",
+      "email_subject": "Exploration Drilling Roles – PMET Shaakichiuwaanaan 2026 Program (30,000m+)",
+      "email_body": "Hi [Name],\n\nI wanted to reach out about an active opportunity linked to PMET's 2026 drill program at the Shaakichiuwaanaan project — a 30,000m+ exploration campaign currently underway.\n\nWe're placing experienced drillers, field geologists, core technicians, and drill supervisors for this remote Canadian program. Roles are FIFO/camp-based.\n\nIf you're available or know someone who is, I'd love to connect. Could we set up a quick call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (PMET) executing a 30,000m+ drill program at the named Shaakichiuwaanaan project in 2026, representing a clear discrete workforce-demand event in mining exploration.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article describes ongoing drilling to 'derisk important technical and geological aspects of the Project development,' indicating exploration/pre-FID stage.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "75e11c67-a97a-40d3-9d10-41dc2e89251f",
+    "ingested_at": "2026-10-21T00:27:28.411Z",
+    "source_published_at": "2026-10-20T21:00:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org/articles/indiana-considering-6-gw-candu-nuclear-project"

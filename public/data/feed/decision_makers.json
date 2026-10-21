@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-10-20T18:15:17.506Z"
+    "last_updated_at": "2026-10-21T00:29:02.008Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -15332,6 +15332,66 @@
         "email": null,
         "phone": null,
         "location": "Bloomington, IN, USA"
+      }
+    ]
+  },
+  "pmet": {
+    "discovered_at": "2026-10-21T00:29:02.008Z",
+    "contacts": [
+      {
+        "name": "Frédéric Mercier-Langevin",
+        "title": "Chief Development & Operating Officer (COO/CDO)",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/fr%C3%A9d%C3%A9ric-langevin-436a9a89",
+        "source_url": "https://www.pmet.ca/about/leadership-team/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Gatineau, Quebec, Canada"
+      },
+      {
+        "name": "Greg Barfoot",
+        "title": "Executive Vice President, Project Development",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/greg-b-314a9327",
+        "source_url": "https://www.pmet.ca/news/patriot-battery-metals-appoints-vice-president-project-development-to-its-executive-management-team/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Oakville, Ontario, Canada"
+      },
+      {
+        "name": "Saverio D'Amico",
+        "title": "Director of Logistics and Procurement",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/saverio-d-amico-eng-pmp-0304b17",
+        "source_url": "https://www.linkedin.com/in/saverio-d-amico-eng-pmp-0304b17",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      },
+      {
+        "name": "Grace Barrasso",
+        "title": "Executive Vice President, Corporate Affairs and ESG",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/gracebarrasso",
+        "source_url": "https://www.pmet.ca/about/leadership-team/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Montreal, Quebec, Canada"
+      },
+      {
+        "name": "Darren L. Smith",
+        "title": "Executive Vice President, Exploration",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://stockanalysis.com/quote/tsx/PMET/company/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
       }
     ]
   }

@@ -1,5 +1,47 @@
 [
   {
+    "id": "75e11c67-a97a-40d3-9d10-41dc2e89251f",
+    "ingested_at": "2026-10-21T00:27:28.411Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/pmet-advances-shaakichiuwaanaan-development-with-more-than-30-000-m-2026-drill-program-302914469.html"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "drilling_operations",
+      "survey_geophysical"
+    ],
+    "signal_type": "tender",
+    "region": "canada",
+    "country": "canada",
+    "headline": "PMET Advances Shaakichiuwaanaan with 30,000m 2026 Drill Program",
+    "operator": {
+      "name": "PMET",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "PMET",
+      "matched_company_slug": null
+    },
+    "project_name": "Shaakichiuwaanaan",
+    "mob_window": {
+      "start": "2026-Q1",
+      "end": "2026-Q4",
+      "duration_months": 12
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": []
+  },
+  {
     "id": "121fa01c-2d9c-4bf8-9ec8-5272e8ba14c2",
     "ingested_at": "2026-10-20T18:13:45.958Z",
     "sources": [
