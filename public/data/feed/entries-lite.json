@@ -1,5 +1,92 @@
 [
   {
+    "id": "90c9c0b1-5fce-4e8a-ae06-d8153635354d",
+    "ingested_at": "2026-10-21T18:14:01.533Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/buru_files_for_rafael_gas_production_license-21-oct-2026-184898-article/?rss=true"
+      }
+    ],
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "process_plant_operations",
+      "pipeline_mechanical",
+      "industrial_construction"
+    ],
+    "signal_type": "regulatory",
+    "region": "western-australia",
+    "country": "australia",
+    "headline": "Buru Energy Files Production License for Rafael Gas Project, Canning Basin WA",
+    "operator": {
+      "name": "Buru Energy Ltd",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Buru Energy Ltd",
+      "matched_company_slug": null
+    },
+    "project_name": "Rafael Gas Project",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
+    "id": "898e8978-965f-4ee6-aba4-61546110c854",
+    "ingested_at": "2026-10-21T18:14:01.533Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/westinghouse-invests-usd1-billion-in-us-leu-fuel-plant"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "us-south-carolina",
+    "country": "united_states",
+    "headline": "Westinghouse Invests $1B in New LEU+ Nuclear Fuel Fabrication Plant in Hopkins, SC",
+    "operator": {
+      "name": "Westinghouse",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Westinghouse",
+      "matched_company_slug": null
+    },
+    "project_name": "Columbia Fuel Fabrication Facility LEU+ Expansion",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 1000000000,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
     "id": "0e11af18-8002-4676-9db9-20159b8e0294",
     "ingested_at": "2026-10-21T12:16:14.756Z",
     "sources": [
