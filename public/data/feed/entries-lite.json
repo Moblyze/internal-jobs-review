@@ -1,5 +1,57 @@
 [
   {
+    "id": "0e11af18-8002-4676-9db9-20159b8e0294",
+    "ingested_at": "2026-10-21T12:16:14.756Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/uk_greenlights_3b_jackdaw_gas_project-21-oct-2026-184892-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "marine_offshore_ops",
+      "rov_subsea",
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "uk-north-sea",
+    "country": "united_kingdom",
+    "headline": "UK Greenlights $3B Jackdaw Gas Field — Development Now Approved",
+    "operator": {
+      "name": "Shell",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Jackdaw Gas Field",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 3000000000,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [
+      {
+        "name": "Miatta Fahnbulleh",
+        "title": "UK Energy Secretary",
+        "company": "UK Government",
+        "hiring_relevance": "context_only"
+      }
+    ]
+  },
+  {
     "id": "75e11c67-a97a-40d3-9d10-41dc2e89251f",
     "ingested_at": "2026-10-21T00:27:28.411Z",
     "sources": [

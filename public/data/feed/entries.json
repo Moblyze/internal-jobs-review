@@ -2,6 +2,127 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/uk_greenlights_3b_jackdaw_gas_project-21-oct-2026-184892-article/?rss=true"
+      }
+    ],
+    "headline": "UK Greenlights $3B Jackdaw Gas Field — Development Now Approved",
+    "body": "UK Energy Secretary Miatta Fahnbulleh has greenlit the Jackdaw gas field, a statement posted on the UK government website today revealed.\n\r\n\r\nJackdaw w...",
+    "url": "https://www.rigzone.com/news/uk_greenlights_3b_jackdaw_gas_project-21-oct-2026-184892-article/?rss=true",
+    "published_at": "2026-10-21T09:58:46.000Z",
+    "hash": "bc9df2377f9cbd98",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "marine_offshore_ops",
+      "rov_subsea",
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "uk-north-sea",
+    "country": "united_kingdom",
+    "tldr": "UK Energy Secretary has approved the Jackdaw gas field development, unlocking a ~$3B project and signalling imminent ramp-up of engineering and contracting activity. Hiring demand for offshore O&G disciplines expected within 6-12 months.",
+    "operator": {
+      "name": "Shell",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Jackdaw Gas Field",
+    "scope": [
+      "field_development",
+      "offshore_gas",
+      "subsea_install"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 3000000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Subsea Engineer",
+        "Offshore Project Manager",
+        "Commissioning Engineer",
+        "Drilling Engineer",
+        "HSE Manager",
+        "SURF Engineer",
+        "Pipeline Engineer",
+        "Topsides Engineer",
+        "Construction Manager",
+        "Marine Superintendent"
+      ],
+      "skills": [
+        "offshore gas development",
+        "subsea systems",
+        "SURF",
+        "topsides engineering",
+        "UKCS",
+        "pipeline installation",
+        "well engineering",
+        "commissioning"
+      ],
+      "certs_freetext": [
+        "BOSIET",
+        "OPITO Offshore Safety",
+        "CSWIP",
+        "CompEx",
+        "IWCF"
+      ],
+      "geo_rtw": "UK right-to-work / UKCS offshore-eligible",
+      "project_experience": [
+        "Shearwater",
+        "Penguins",
+        "Clair Ridge",
+        "Schiehallion",
+        "Culzean"
+      ],
+      "yoe_band": "8-18",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"Jackdaw\" OR \"UKCS\" OR \"North Sea\") AND (\"Subsea Engineer\" OR \"Offshore Project Manager\" OR \"Commissioning Engineer\" OR \"Drilling Engineer\" OR \"SURF Engineer\" OR \"Pipeline Engineer\" OR \"Topsides Engineer\" OR \"Construction Manager\") AND (\"offshore gas\" OR \"subsea\" OR \"SURF\" OR \"topsides\" OR \"BOSIET\" OR \"OPITO\") AND (\"Shell\" OR \"North Sea\" OR \"UKCS\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], with the UK just greenlighting Shell's $3B Jackdaw gas field, engineering and offshore contracting demand on the UKCS is set to ramp. Your background in [relevant discipline] looks highly relevant — would you be open to a quick conversation about upcoming roles?",
+      "email_subject": "Jackdaw Gas Field Approved — UKCS Offshore Opportunities Ramping",
+      "email_body": "Hi [Name],\n\nThe UK government has just approved Shell's $3B Jackdaw gas field development in the North Sea, signalling a significant ramp-up in engineering, subsea, and offshore contracting activity on the UKCS over the coming months.\n\nGiven your experience in [relevant discipline/project], I wanted to reach out early — before the market gets competitive — to explore whether you'd be open to discussing upcoming opportunities aligned with this programme.\n\nWould you have 15 minutes for a call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "UK government regulatory approval (field development plan greenlight) for the named Jackdaw gas project, a $3B offshore O&G development, constitutes a discrete workforce-demand event triggering imminent EPC tendering and engineering ramp-up.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "UK Energy Secretary has formally greenlit the Jackdaw gas field, constituting regulatory approval that moves the project from pre-sanction into the engineering and contracting phase.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [
+      {
+        "name": "Miatta Fahnbulleh",
+        "title": "UK Energy Secretary",
+        "company": "UK Government",
+        "hiring_relevance": "context_only"
+      }
+    ],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "0e11af18-8002-4676-9db9-20159b8e0294",
+    "ingested_at": "2026-10-21T12:16:14.756Z",
+    "source_published_at": "2026-10-21T09:58:46.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/pmet-advances-shaakichiuwaanaan-development-with-more-than-30-000-m-2026-drill-program-302914469.html"
