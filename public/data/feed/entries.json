@@ -2,6 +2,111 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/joint-venture-to-operate-planned-uk-bwrx-300-fleet"
+      }
+    ],
+    "headline": "SGE & Origin Nuclear (OPG) Sign LOI for 14-Unit BWRX-300 SMR Fleet JV in UK",
+    "body": "The UK-based project company of European SMR developer and investor SGE, and Origin Nuclear, a subsidiary of Ontario Power Generation, have signed a letter of intent to establish a joint venture for the future operation of a planned fleet of 14 BWRX-300 small modular reactors.",
+    "url": "https://www.world-nuclear-news.org/articles/joint-venture-to-operate-planned-uk-bwrx-300-fleet",
+    "published_at": "2026-10-22T12:02:58.000Z",
+    "hash": "2d41c4300e5abe11",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "fid",
+    "region": "uk",
+    "country": "united_kingdom",
+    "tldr": "SGE's UK project company and Ontario Power Generation's Origin Nuclear have signed an LOI to form a JV targeting a 14-reactor BWRX-300 SMR fleet in the UK. This is pre-FID but names both entities and a concrete fleet scope, signalling future workforce demand in nuclear construction and operations.",
+    "operator": {
+      "name": "SGE / Origin Nuclear (OPG JV)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "UK BWRX-300 SMR Fleet (14 units)",
+    "scope": [
+      "smr_fleet_development",
+      "joint_venture_formation",
+      "pre_feed"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Project Director",
+        "SMR Development Manager",
+        "Nuclear Licensing Engineer",
+        "Nuclear Safety Case Engineer",
+        "Reactor Systems Engineer",
+        "Nuclear Project Manager",
+        "BWRX-300 Subject Matter Expert"
+      ],
+      "skills": [
+        "BWRX-300",
+        "SMR development",
+        "nuclear licensing",
+        "generic design assessment",
+        "nuclear safety case",
+        "GDA",
+        "ONR engagement",
+        "fleet development"
+      ],
+      "certs_freetext": [
+        "Nuclear Safety Professional (NSP)",
+        "Institution of Nuclear Engineers (INucE)",
+        "UK SC/DV clearance (desirable)"
+      ],
+      "geo_rtw": "UK right-to-work required",
+      "project_experience": [
+        "Hinkley Point C",
+        "Sizewell C",
+        "Bruce Power BWRX-300",
+        "GE Hitachi BWRX-300",
+        "Darlington SMR"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal",
+      "boolean_search": "(\"BWRX-300\" OR \"SMR\" OR \"small modular reactor\") AND (\"nuclear project\" OR \"reactor development\" OR \"nuclear licensing\" OR \"GDA\" OR \"generic design assessment\") AND (\"project director\" OR \"project manager\" OR \"development manager\" OR \"licensing engineer\" OR \"safety case engineer\") AND (\"UK\" OR \"United Kingdom\" OR \"Ontario Power Generation\" OR \"OPG\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], SGE and OPG's Origin Nuclear have signed an LOI for a 14-unit BWRX-300 SMR fleet in the UK — early-stage but a significant nuclear programme shaping up. Would your background in SMR/nuclear development be open for a conversation?",
+      "email_subject": "UK BWRX-300 SMR Fleet — Early BD Opportunity | SGE × Origin Nuclear JV",
+      "email_body": "Hi [Name],\n\nSGE (UK) and Origin Nuclear — a subsidiary of Ontario Power Generation — have just signed a Letter of Intent to establish a joint venture targeting a planned fleet of 14 BWRX-300 small modular reactors in the UK.\n\nWhile this is pre-FID, the programme is real and named, and early-stage nuclear development roles (licensing, safety case, project development) will begin to emerge as the JV takes shape.\n\nGiven your experience in [SMR / nuclear licensing / GDA / nuclear project development], I'd love to discuss how your profile aligns with what this programme will need.\n\nAre you open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operators (SGE UK and Origin Nuclear/OPG) have signed an LOI to form a JV for a specific 14-unit BWRX-300 SMR fleet in the UK, constituting a discrete field development / pre-sanction workforce demand signal in nuclear.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article describes an LOI to establish a JV for a 'planned fleet' — no FID or EPC award has occurred; project is in concept/pre-FEED stage.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "99e9ece3-ae0c-4eff-b202-dea1df70c90e",
+    "ingested_at": "2026-10-22T18:13:03.476Z",
+    "source_published_at": "2026-10-22T12:02:58.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "mining_com",
         "name": "MINING.com",
         "url": "https://www.mining.com/hudbay-mitsubishi-approve-copper-world-construction/"

@@ -1,5 +1,47 @@
 [
   {
+    "id": "99e9ece3-ae0c-4eff-b202-dea1df70c90e",
+    "ingested_at": "2026-10-22T18:13:03.476Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/joint-venture-to-operate-planned-uk-bwrx-300-fleet"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "fid",
+    "region": "uk",
+    "country": "united_kingdom",
+    "headline": "SGE & Origin Nuclear (OPG) Sign LOI for 14-Unit BWRX-300 SMR Fleet JV in UK",
+    "operator": {
+      "name": "SGE / Origin Nuclear (OPG JV)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "UK BWRX-300 SMR Fleet (14 units)",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "c8f70e8c-8e19-47f8-a479-c416bd77e76e",
     "ingested_at": "2026-10-22T00:28:26.325Z",
     "sources": [

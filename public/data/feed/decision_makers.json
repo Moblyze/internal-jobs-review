@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-10-21T00:29:02.008Z"
+    "last_updated_at": "2026-10-22T18:14:31.455Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -15388,6 +15388,44 @@
         "persona": "operations",
         "linkedin_url": null,
         "source_url": "https://stockanalysis.com/quote/tsx/PMET/company/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "sge / origin nuclear (opg jv)": {
+    "discovered_at": "2026-10-22T18:14:31.455Z",
+    "contacts": [
+      {
+        "name": "Jos Diening",
+        "title": "President and CEO, Origin Nuclear",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/josdiening",
+        "source_url": "https://www.world-nuclear-news.org/articles/joint-venture-to-operate-planned-uk-bwrx-300-fleet",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Courtice, ON, Canada"
+      },
+      {
+        "name": "Rafał Kasprów",
+        "title": "CEO, SGE / SGE SMR UK",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/rafa%C5%82-kaspr%C3%B3w-968318b",
+        "source_url": "https://sge.eu/leadership/rafal-kasprow/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Warsaw, Poland"
+      },
+      {
+        "name": "Robert Franklin Rudich",
+        "title": "Director and Co-founder, SGE SMR UK Limited",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://open.endole.co.uk/insight/people/34985986-robert-franklin-rudich",
         "in_target_persona": true,
         "email": null,
         "phone": null,
