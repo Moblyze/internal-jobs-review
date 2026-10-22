@@ -1,5 +1,49 @@
 [
   {
+    "id": "c8f70e8c-8e19-47f8-a479-c416bd77e76e",
+    "ingested_at": "2026-10-22T00:28:26.325Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/hudbay-mitsubishi-approve-copper-world-construction/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "ndt_inspection",
+      "pipeline_mechanical"
+    ],
+    "signal_type": "fid",
+    "region": "us-southwest",
+    "country": "united_states",
+    "headline": "Hudbay & Mitsubishi Approve Copper World Mine Construction – One of Largest New US Copper Projects",
+    "operator": {
+      "name": "Hudbay Minerals",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Hudbay Minerals",
+      "matched_company_slug": null
+    },
+    "project_name": "Copper World",
+    "mob_window": {
+      "start": "2025-Q3",
+      "end": "2029-Q2",
+      "duration_months": 48
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": []
+  },
+  {
     "id": "90c9c0b1-5fce-4e8a-ae06-d8153635354d",
     "ingested_at": "2026-10-21T18:14:01.533Z",
     "sources": [
@@ -5501,93 +5545,6 @@
     "decom_stage": null,
     "outreach_readiness": "cold",
     "estimated_hiring_window": "12mo+",
-    "key_people": []
-  },
-  {
-    "id": "6aba7121-aed5-4cde-bd8b-c8b985189857",
-    "ingested_at": "2026-07-23T18:29:43.019Z",
-    "sources": [
-      {
-        "id": "pr_newswire_energy",
-        "name": "PR Newswire (Energy)",
-        "url": "https://www.prnewswire.com/news-releases/panamint-capital-breaks-ground-on-historic-1-2-gw-solar-project-at-texas-energy-site-302833535.html"
-      }
-    ],
-    "subsector": "onshore-renewables",
-    "discipline_tags": [
-      "energy_trades",
-      "industrial_construction",
-      "survey_geophysical"
-    ],
-    "signal_type": "fid",
-    "region": "us-texas",
-    "country": "united_states",
-    "headline": "Panamint Capital Breaks Ground on 1.2 GW Big Rooter Solar Project at Twin Oaks, Texas",
-    "operator": {
-      "name": "Panamint Capital",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Panamint Capital",
-      "matched_company_slug": null
-    },
-    "project_name": "Big Rooter Power",
-    "mob_window": {
-      "start": "2026-Q3",
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": 1700000000,
-    "phase": "construction",
-    "construction_subphase": "rampup",
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "live_now",
-    "estimated_hiring_window": "now",
-    "key_people": []
-  },
-  {
-    "id": "d9fb5068-d0c0-4864-a367-aa33c9acd122",
-    "ingested_at": "2026-07-23T18:29:43.019Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/beetaloo_pilot_project_to_start_gas_sales_in_q3_tamboran_says-22-jul-2026-184191-article/?rss=true"
-      }
-    ],
-    "subsector": "onshore-og",
-    "discipline_tags": [
-      "drilling_operations",
-      "process_plant_operations",
-      "pipeline_mechanical",
-      "energy_trades"
-    ],
-    "signal_type": "fid",
-    "region": "australia-onshore",
-    "country": "australia",
-    "headline": "Tamboran Resources Completes Beetaloo Well Stimulation; Shenandoah South Pilot Gas Sales Targeted Q3",
-    "operator": {
-      "name": "Tamboran Resources Corp",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Tamboran Resources Corp",
-      "matched_company_slug": null
-    },
-    "project_name": "Shenandoah South (Beetaloo Pilot Project)",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "construction",
-    "construction_subphase": "commissioning",
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "1-3mo",
     "key_people": []
   }
 ]
