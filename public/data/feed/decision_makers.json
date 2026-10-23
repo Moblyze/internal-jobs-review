@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-10-22T18:14:31.455Z"
+    "last_updated_at": "2026-10-23T18:14:46.941Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -15426,6 +15426,66 @@
         "persona": "project",
         "linkedin_url": null,
         "source_url": "https://open.endole.co.uk/insight/people/34985986-robert-franklin-rudich",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": null
+      }
+    ]
+  },
+  "bannerman energy / cnnc overseas (jv)": {
+    "discovered_at": "2026-10-23T18:14:46.941Z",
+    "contacts": [
+      {
+        "name": "Gavin Chamberlain",
+        "title": "Managing Director & Chief Executive Officer",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/gavin-chamberlain-71a58b6",
+        "source_url": "https://announcements.asx.com.au/asxpdf/20260924/pdf/074fyc78npvydt.pdf",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Johannesburg, South Africa"
+      },
+      {
+        "name": "Danie van Aswegen",
+        "title": "CEO, Bannerman Mining Resources Namibia (COO – Namibia)",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/danie-van-aswegen-05897b53",
+        "source_url": "https://smallcaps.com.au/article/bannerman-energy-gives-green-light-to-etango-uranium-mine-in-namibia",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Swakopmund, Namibia"
+      },
+      {
+        "name": "Jeff Pipe",
+        "title": "Project Manager – Etango Uranium Project",
+        "persona": "project",
+        "linkedin_url": "https://www.linkedin.com/in/jeff-pipe-a637472b",
+        "source_url": "https://nambusinessexpress.com/?p=5948",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Johannesburg, South Africa"
+      },
+      {
+        "name": "Brandon Munro",
+        "title": "Executive Chairman & Managing Director",
+        "persona": "operations",
+        "linkedin_url": "https://www.linkedin.com/in/brandonmunro",
+        "source_url": "https://announcements.asx.com.au/asxpdf/20260924/pdf/074fyc78npvydt.pdf",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Perth, WA, Australia"
+      },
+      {
+        "name": "Cindy Fraser",
+        "title": "Project Commercial Manager – Etango Uranium Project",
+        "persona": "project",
+        "linkedin_url": null,
+        "source_url": "https://nambusinessexpress.com/?p=5948",
         "in_target_persona": true,
         "email": null,
         "phone": null,

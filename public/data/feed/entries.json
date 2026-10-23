@@ -4,6 +4,116 @@
       {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/fid-sees-etango-enter-full-scale-construction"
+      }
+    ],
+    "headline": "FID Taken on Etango Uranium Project in Namibia — Full-Scale Construction Commences",
+    "body": "A positive final investment decision from the Bannerman Energy-CNNC Overseas joint venture means the Etango uranium project in Namibia can transition into full-scale construction activities, with commissioning and production targeted for 2028.",
+    "url": "https://www.world-nuclear-news.org/articles/fid-sees-etango-enter-full-scale-construction",
+    "published_at": "2026-10-23T14:13:54.000Z",
+    "hash": "f95a513f96c66ff7",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "fid",
+    "region": "southern-africa",
+    "country": "namibia",
+    "tldr": "Bannerman Energy and CNNC Overseas JV have taken FID on the Etango uranium project in Namibia, triggering a full-scale construction ramp-up with commissioning and production targeted for 2028. Prime window for construction trades and project delivery personnel.",
+    "operator": {
+      "name": "Bannerman Energy / CNNC Overseas (JV)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Etango Uranium Project",
+    "scope": [
+      "greenfield_construction",
+      "process_plant_build",
+      "commissioning_prep"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": "2028-Q2",
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Construction Manager",
+        "Site Manager",
+        "Project Manager",
+        "HSE Manager",
+        "Planning Engineer",
+        "Process Engineer",
+        "Commissioning Engineer",
+        "Mechanical Supervisor",
+        "Civil Construction Supervisor",
+        "Electrical Superintendent"
+      ],
+      "skills": [
+        "uranium processing",
+        "heap leach construction",
+        "open-pit mine construction",
+        "process plant construction",
+        "EPCM delivery",
+        "commissioning",
+        "project controls",
+        "HSE management"
+      ],
+      "certs_freetext": [
+        "SACPCMP registration",
+        "NEBOSH",
+        "GCC Mines & Works",
+        "IOSH"
+      ],
+      "geo_rtw": "Namibia-eligible or SADC-mobile",
+      "project_experience": [
+        "Husab Uranium Mine",
+        "Langer Heinrich Uranium Mine",
+        "Rossing Uranium Mine",
+        "Trekkopje Project"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "senior-to-principal",
+      "boolean_search": "(\"Construction Manager\" OR \"Site Manager\" OR \"Project Manager\" OR \"Commissioning Engineer\" OR \"Mechanical Superintendent\" OR \"HSE Manager\" OR \"Planning Engineer\") AND (\"uranium\" OR \"heap leach\" OR \"process plant\" OR \"open pit\" OR \"mining construction\" OR \"EPCM\") AND (\"Namibia\" OR \"SADC\" OR \"Africa\") NOT (\"oil\" OR \"gas\" OR \"offshore\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], FID has just been taken on the Etango Uranium Project in Namibia — full-scale construction is now underway targeting commissioning in 2028. Your background in [relevant discipline] looks like a strong fit. Worth a conversation?",
+      "email_subject": "Etango Uranium — FID Taken, Construction Roles Now Active (Namibia)",
+      "email_body": "Hi [Name],\n\nThe Bannerman Energy / CNNC Overseas joint venture has just taken a positive FID on the Etango Uranium Project in Namibia, officially triggering full-scale construction with commissioning and production targeted for 2028.\n\nThis creates an immediate demand for experienced construction, project management, and commissioning professionals with uranium or process-plant backgrounds.\n\nGiven your experience in [relevant area], I'd love to discuss how your profile aligns with roles coming to market on this project.\n\nAre you open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "FID taken by named JV (Bannerman Energy / CNNC Overseas) on the named Etango Uranium Project in Namibia, triggering full-scale construction — a discrete workforce-demand event in mining.",
+    "phase": "construction",
+    "phase_evidence": "Article states the FID 'means the Etango uranium project in Namibia can transition into full-scale construction activities.'",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "c016ec4f-1e01-4fe8-8e33-73064dae5343",
+    "ingested_at": "2026-10-23T18:13:15.566Z",
+    "source_published_at": "2026-10-23T14:13:54.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org/articles/joint-venture-to-operate-planned-uk-bwrx-300-fleet"
       }
     ],

@@ -1,5 +1,48 @@
 [
   {
+    "id": "c016ec4f-1e01-4fe8-8e33-73064dae5343",
+    "ingested_at": "2026-10-23T18:13:15.566Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/fid-sees-etango-enter-full-scale-construction"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "fid",
+    "region": "southern-africa",
+    "country": "namibia",
+    "headline": "FID Taken on Etango Uranium Project in Namibia — Full-Scale Construction Commences",
+    "operator": {
+      "name": "Bannerman Energy / CNNC Overseas (JV)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Etango Uranium Project",
+    "mob_window": {
+      "start": null,
+      "end": "2028-Q2",
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": []
+  },
+  {
     "id": "99e9ece3-ae0c-4eff-b202-dea1df70c90e",
     "ingested_at": "2026-10-22T18:13:03.476Z",
     "sources": [
