@@ -2,6 +2,120 @@
   {
     "sources": [
       {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/bannerman-pulls-trigger-on-353m-uranium-mine/"
+      }
+    ],
+    "headline": "Bannerman Takes FID on $353M Etango Uranium Mine in Namibia – First Production 2028",
+    "body": "Construction on the Etango uranium project in Namibia approved, with funding secured without project debt and first production targeted for 2028.",
+    "url": "https://www.mining.com/bannerman-pulls-trigger-on-353m-uranium-mine/",
+    "published_at": "2026-10-23T22:39:00.000Z",
+    "hash": "d48d8b50ecd8f89f",
+    "subsector": "mining",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "fid",
+    "region": "southern-africa",
+    "country": "namibia",
+    "tldr": "Bannerman Energy has sanctioned construction of the Etango uranium project in Namibia with $353M in equity funding and no project debt. Construction ramp-up is imminent with first production targeted for 2028, opening a significant near-term hiring window for mining construction and process trades.",
+    "operator": {
+      "name": "Bannerman Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Bannerman Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Etango Uranium Project",
+    "scope": [
+      "mine_construction",
+      "process_plant_build",
+      "site_civils"
+    ],
+    "mob_window": {
+      "start": "2025-Q3",
+      "end": "2027-Q4",
+      "duration_months": 30
+    },
+    "contract_value_usd": 353000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Construction Manager",
+        "Site Manager",
+        "Project Manager – Mining",
+        "HSE Manager",
+        "Commissioning Manager",
+        "Process Plant Superintendent",
+        "Civil Construction Supervisor",
+        "Mechanical Superintendent",
+        "Electrical Superintendent",
+        "Instrumentation & Control Technician",
+        "Planning Engineer",
+        "QA/QC Inspector"
+      ],
+      "skills": [
+        "uranium mining",
+        "process plant construction",
+        "open pit mining",
+        "heap leach",
+        "civils construction",
+        "mechanical installation",
+        "commissioning",
+        "mine site HSE",
+        "construction planning",
+        "Namibia project experience"
+      ],
+      "certs_freetext": [
+        "SAMTRAC",
+        "NEBOSH",
+        "First Aid Level 3",
+        "Radiation Protection Certificate"
+      ],
+      "geo_rtw": "Namibia-eligible or SADC-region mobility",
+      "project_experience": [
+        "Husab Uranium Mine",
+        "Langer Heinrich Uranium Mine",
+        "Rössing Uranium Mine",
+        "Swakop Uranium"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "Senior / Lead / Superintendent",
+      "boolean_search": "(\"Construction Manager\" OR \"Site Manager\" OR \"Commissioning Manager\" OR \"Mechanical Superintendent\" OR \"Electrical Superintendent\" OR \"HSE Manager\" OR \"Planning Engineer\" OR \"Process Plant\") AND (\"uranium\" OR \"mining\" OR \"heap leach\" OR \"open pit\") AND (\"Namibia\" OR \"SADC\" OR \"southern Africa\" OR \"Langer Heinrich\" OR \"Husab\" OR \"Rössing\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Bannerman Energy has just sanctioned construction of the $353M Etango Uranium Project in Namibia with first production targeted 2028. This opens senior construction and commissioning roles. Would you be open to a conversation?",
+      "email_subject": "Etango Uranium Mine – Senior Construction & Commissioning Roles | Namibia",
+      "email_body": "Hi [Name],\n\nBannerman Energy has taken FID on the $353M Etango Uranium Project in Namibia, with construction now approved and first production targeted for 2028. With equity funding secured and no project debt, this is a well-capitalised build with a clear timeline.\n\nWe are actively mapping senior talent for construction, commissioning, and process plant roles on this project — including Construction Managers, HSE leads, Mechanical/Electrical Superintendents, and Planning Engineers.\n\nGiven your background in [relevant mine/plant construction], I'd welcome a brief call to explore whether Etango could be a strong fit for your next project.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "FID taken on a named $353M uranium mine (Etango) by named operator Bannerman Energy in Namibia, with construction approved and a clear 2028 first-production target — a direct workforce-demand signal.",
+    "phase": "construction",
+    "phase_evidence": "Article states 'Construction on the Etango uranium project in Namibia approved' confirming FID and construction commencement.",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "83070595-beb3-4405-8e60-1792a5d6fe02",
+    "ingested_at": "2026-10-24T00:27:50.422Z",
+    "source_published_at": "2026-10-23T22:39:00.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org/articles/fid-sees-etango-enter-full-scale-construction"

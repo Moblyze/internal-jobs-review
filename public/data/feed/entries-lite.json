@@ -1,5 +1,48 @@
 [
   {
+    "id": "83070595-beb3-4405-8e60-1792a5d6fe02",
+    "ingested_at": "2026-10-24T00:27:50.422Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/bannerman-pulls-trigger-on-353m-uranium-mine/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "fid",
+    "region": "southern-africa",
+    "country": "namibia",
+    "headline": "Bannerman Takes FID on $353M Etango Uranium Mine in Namibia – First Production 2028",
+    "operator": {
+      "name": "Bannerman Energy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Bannerman Energy",
+      "matched_company_slug": null
+    },
+    "project_name": "Etango Uranium Project",
+    "mob_window": {
+      "start": "2025-Q3",
+      "end": "2027-Q4",
+      "duration_months": 30
+    },
+    "contract_value_usd": 353000000,
+    "phase": "construction",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": []
+  },
+  {
     "id": "c016ec4f-1e01-4fe8-8e33-73064dae5343",
     "ingested_at": "2026-10-23T18:13:15.566Z",
     "sources": [
