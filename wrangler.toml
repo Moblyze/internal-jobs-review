@@ -1,10 +1,11 @@
 # Cloudflare Pages project for the internal jobs review site + BD Intel Feed.
-# Account is PINNED to Moblyze Ops. Never the live-product account
-# (45bcf27c...) and never Jesse's personal account (82d362f9...).
+# Account: Moblyze Ops (0afd187e12e71bdbbcab08d42eb5f14c). Never the live-product account
+# (45bcf27c...) and never Jesse's personal account (82d362f9...). Pages config files do not
+# accept account_id, so the pin is CLOUDFLARE_ACCOUNT_ID, enforced by the guard step in
+# .github/actions/cf-deploy/action.yml.
 name = "moblyze-jobs-review"
 pages_build_output_dir = "dist"
 compatibility_date = "2026-10-01"
-account_id = "0afd187e12e71bdbbcab08d42eb5f14c"
 
 # Private R2 bucket: people-data (feed/decision_makers.json), current/jobs-current.json.gz
 # (ops consumers) and the full-corpus archive archive/jobs/YYYY-MM.jsonl.gz (never served).
