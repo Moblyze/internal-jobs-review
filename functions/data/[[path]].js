@@ -6,6 +6,7 @@
 // R2 layout (written by scripts/private-data.sh and the cf-deploy action):
 //   feed/decision_makers.json          raw JSON (people-data)
 //   current/jobs-current.json.gz       full rows of current jobs, gzip (ops consumers)
+//   closed/KK.json.gz                  removed jobs by slug shard, for "closed" job pages
 //   archive/jobs/YYYY-MM.jsonl.gz      full corpus archive, NOT served here (analysis only)
 // The browser never needs jobs-current: the SPA reads the sharded index/detail files
 // that ship as static Pages assets (see scripts/build-site-data.mjs).
@@ -16,7 +17,9 @@ const R2_KEYS = {
 
 export async function onRequestGet({ request, params, env, next }) {
   const rel = Array.isArray(params.path) ? params.path.join('/') : String(params.path || '')
-  const entry = R2_KEYS[rel]
+  let entry = R2_KEYS[rel]
+  const closed = /^closed\/([0-9a-f]{2})\.json$/.exec(rel)
+  if (!entry && closed) entry = { key: `closed/${closed[1]}.json.gz`, gzip: true }
   if (!entry) return next()
 
   const obj = await env.PRIVATE_DATA.get(entry.key)

@@ -215,6 +215,37 @@ function loadDetailShard(manifest, id) {
   return detailShardCache.get(key);
 }
 
+// Closed (removed/expired) jobs are not in the list index. Their pages are served from the
+// private archive: closed shards keyed by FNV-1a(slug), behind the Access-protected Function.
+const closedShardCache = new Map();
+
+/**
+ * Look up a removed/expired job by its page slug. Resolves null when the slug never existed
+ * (or the closed shards are unavailable, e.g. plain `vite preview` without the Function).
+ */
+export async function getClosedJob(slug) {
+  if (!slug) return null;
+  try {
+    const manifest = await loadJobsManifest();
+    const count = manifest.closed?.shards;
+    if (!count) return null;
+    const key = shardKey(jobShardIndex(slug, count), count);
+    if (!closedShardCache.has(key)) {
+      closedShardCache.set(key, fetch(`${import.meta.env.BASE_URL}data/closed/${key}.json`)
+        .then(res => {
+          if (!res.ok || !(res.headers.get('content-type') || '').includes('json')) throw new Error(`closed shard ${key} unavailable`);
+          return res.json();
+        })
+        .catch(err => { closedShardCache.delete(key); throw err; }));
+    }
+    const row = (await closedShardCache.get(key))[slug];
+    return row ? { ...row, closed: true } : null;
+  } catch (err) {
+    console.warn('[useJobs] Closed job lookup failed:', err.message);
+    return null;
+  }
+}
+
 /**
  * Get a job with its full description (loaded on-demand).
  * The list index carries only a short preview; this merges in the description,

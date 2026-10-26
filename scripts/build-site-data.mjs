@@ -14,6 +14,9 @@
  *                                            sharded by FNV-1a(id) % DETAIL_SHARDS, content-hashed
  *   .cf-r2/current/jobs-current.json.gz      full rows of current jobs (ops consumers, served
  *                                            through the Access-protected Pages Function)
+ *   .cf-r2/closed/KK.json.gz                 removed/expired jobs for "closed" job pages: slug -> row
+ *                                            (with description), sharded by FNV-1a(slug) % CLOSED_SHARDS,
+ *                                            served by the Access-protected Pages Function
  *   .cf-r2/archive/jobs/YYYY-MM.jsonl.gz     FULL corpus, all fields, active + removed, one file
  *                                            per month of first sighting (scrapedAt, else
  *                                            postedDate); merged with the prior archive so rows
@@ -31,6 +34,7 @@ import path from 'node:path'
 import zlib from 'node:zlib'
 import crypto from 'node:crypto'
 import { jobShardIndex, shardKey } from '../src/utils/jobShard.js'
+import { jobToSlug } from '../src/utils/formatters.js'
 
 const arg = (name, def) => {
   const i = process.argv.indexOf(name)
@@ -43,6 +47,7 @@ const NO_ARCHIVE = process.argv.includes('--no-archive')
 
 const INDEX_CHUNK = 12500 // list rows per index shard
 const DETAIL_SHARDS = 256 // ~0.6 MB raw each at 50k current jobs
+const CLOSED_SHARDS = 256 // removed jobs, ~1 MB raw each at 79k rows
 const MB = 1048576
 
 const JOBS_PATH = process.env.JOBS_PATH || 'public/data/jobs.json'
@@ -101,6 +106,7 @@ const manifest = {
   totalCurrent: current.length,
   index: [],
   detail: { shards: DETAIL_SHARDS, files: {} },
+  closed: { shards: CLOSED_SHARDS },
 }
 const sizes = { index: 0, detail: 0, maxIndex: 0, maxDetail: 0 }
 
@@ -143,6 +149,32 @@ console.log(`[site-data] detail: ${DETAIL_SHARDS} shards, ${detailCount} jobs, $
 if (!NO_ARCHIVE) {
   fs.rmSync(R2_DIR, { recursive: true, force: true })
   const gz = buf => zlib.gzipSync(buf, { level: 9 })
+
+  // Closed jobs: one row per slug (the page URL is company+title, not id), newest sighting
+  // wins, and a slug that is still current never appears here (current takes precedence).
+  const currentSlugs = new Set(current.map(j => jobToSlug(j.company, j.title)))
+  const fullById = new Map(jobs.map(j => [j.id, j]))
+  const closedShards = Array.from({ length: CLOSED_SHARDS }, () => ({}))
+  let closedCount = 0
+  for (const r of indexRows) {
+    if (isCurrent(r)) continue
+    const slug = jobToSlug(r.company, r.title)
+    if (!slug || currentSlugs.has(slug)) continue
+    const full = fullById.get(r.id) || {}
+    const seen = r.sourceCheckedAt || r.statusChangedDate || r.scrapedAt || ''
+    const row = {
+      id: r.id, title: r.title, company: r.company, location: r.location, status: r.status,
+      skills: r.skills || [], employmentType: r.employmentType, salary: r.salary, postedDate: r.postedDate,
+      lastSeen: seen, url: full.url, description: full.description,
+      structuredDescription: full.structuredDescription || undefined,
+    }
+    const shard = closedShards[jobShardIndex(slug, CLOSED_SHARDS)]
+    if (!shard[slug]) closedCount++
+    if (!shard[slug] || String(seen) > String(shard[slug].lastSeen)) shard[slug] = row
+  }
+  closedShards.forEach((obj, i) =>
+    writeFile(path.join(R2_DIR, 'closed', `${shardKey(i, CLOSED_SHARDS)}.json.gz`), gz(Buffer.from(JSON.stringify(obj)))))
+  console.log(`[site-data] closed: ${closedCount} slugs in ${CLOSED_SHARDS} shards`)
 
   const currentRows = jobs.filter(isCurrent)
   writeFile(path.join(R2_DIR, 'current', 'jobs-current.json.gz'), gz(Buffer.from(JSON.stringify(currentRows))))

@@ -78,3 +78,33 @@ test('same id twice with different urls are both archived', () => {
   const lines = zlib.gunzipSync(fs.readFileSync(path.join(r2, 'archive/jobs/2026-10.jsonl.gz'))).toString().trim().split('\n')
   assert.equal(lines.length, 2)
 })
+
+test('closed jobs are served by slug from the archive shards; current slugs excluded', async () => {
+  const { jobToSlug } = await import('../../src/utils/formatters.js')
+  const jobs = [
+    row('a'),
+    row('old', { status: 'removed', title: 'Old Role', sourceCheckedAt: '2026-09-02T00:00:00Z' }),
+    row('olde', { status: 'removed', title: 'Old Role', sourceCheckedAt: '2026-09-09T00:00:00Z' }),
+    row('a2', { status: 'removed', title: 'Title a' }), // slug still current -> not closed
+  ]
+  const { r2 } = build(jobs)
+  const slug = jobToSlug('Acme', 'Old Role')
+  const key = shardKey(jobShardIndex(slug, 256), 256)
+  const shard = JSON.parse(zlib.gunzipSync(fs.readFileSync(path.join(r2, 'closed', `${key}.json.gz`))))
+  assert.equal(shard[slug].id, 'olde') // newest sighting wins
+  assert.equal(shard[slug].lastSeen, '2026-09-09T00:00:00Z')
+  assert.match(shard[slug].description, /Long description for olde/)
+  const all = fs.readdirSync(path.join(r2, 'closed')).flatMap(f =>
+    Object.keys(JSON.parse(zlib.gunzipSync(fs.readFileSync(path.join(r2, 'closed', f))))))
+  assert.ok(!all.includes(jobToSlug('Acme', 'Title a')))
+})
+
+test('Pages Function serves closed shards from R2 with gzip, 404s when absent', async () => {
+  const { onRequestGet } = await import('../../functions/data/[[path]].js')
+  const env = { PRIVATE_DATA: { get: async k => (k === 'closed/ab.json.gz' ? { body: 'x', httpEtag: '"e"', etag: 'e' } : null) } }
+  const ok = await onRequestGet({ request: {}, params: { path: ['closed', 'ab.json'] }, env, next: () => 'next' })
+  assert.equal(ok.headers.get('Content-Encoding'), 'gzip')
+  const miss = await onRequestGet({ request: {}, params: { path: ['closed', 'cd.json'] }, env, next: () => 'next' })
+  assert.equal(miss.status, 404)
+  assert.equal(await onRequestGet({ request: {}, params: { path: ['closed', '../x.json'] }, env, next: () => 'next' }), 'next')
+})
