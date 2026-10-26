@@ -1,0 +1,10 @@
+# Cloudflare Pages caching. Cloudflare compresses text (Brotli/gzip) automatically.
+# Rules must not overlap: Pages joins every matching rule's header values.
+# Vite fingerprints everything under /assets/.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+# Content-hashed job shards (scripts/build-site-data.mjs). The manifest at
+# /data/jobs-manifest.json is deliberately outside this path so it keeps the
+# Pages default (revalidate every load) and always points at current hashes.
+/data/jobs/*
+  Cache-Control: public, max-age=31536000, immutable

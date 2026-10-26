@@ -1,11 +1,10 @@
 /**
- * Generate jobs-index.json and jobs-index-lite.json from existing jobs.json
+ * Generate jobs-index.json and filter-options.json from existing jobs.json
  *
- * Produces three outputs:
- * 1. jobs-index.json — legacy full index (no description/structuredDescription)
- * 2. jobs-index-lite.json — dictionary-encoded compact index (~16MB vs 45MB)
- *    Uses numeric indices for companies, skills, and locations to minimize size.
- * 3. filter-options.json — pre-computed filter dropdown options (~50KB)
+ * Produces two outputs:
+ * 1. jobs-index.json — deduped, company-normalized rows without description
+ *    (input for scripts/build-site-data.mjs and a few ops scripts; NOT shipped to browsers)
+ * 2. filter-options.json — pre-computed filter dropdown options (~50KB)
  *    Eliminates expensive runtime computation of filter options from 46K jobs.
  *
  * Usage: node scripts/generate-index.js
@@ -21,7 +20,6 @@ const __dirname = path.dirname(__filename);
 
 const JOBS_PATH = path.join(__dirname, '../public/data/jobs.json');
 const INDEX_PATH = path.join(__dirname, '../public/data/jobs-index.json');
-const LITE_INDEX_PATH = path.join(__dirname, '../public/data/jobs-index-lite.json');
 const FILTER_OPTIONS_PATH = path.join(__dirname, '../public/data/filter-options.json');
 const COMPANIES_PATH = path.join(__dirname, '../public/data/companies.json');
 const PDL_CACHE_PATH = path.join(__dirname, '../public/data/pdl-company-cache.json');
@@ -256,88 +254,8 @@ if (fs.existsSync(JOBS_PATH) && isValidJson(JOBS_PATH)) {
   process.exit(1);
 }
 
-// ── Generate dictionary-encoded lite index ──────────────────────────────────
-console.log('\nGenerating lite index...');
-
-// Build dictionaries
-const skillDict = [];
-const skillIndex = {};
-const companyDict = [];
-const companyIndex = {};
-const locationDict = [];
-const locationIndex = {};
-
-indexJobs.forEach(job => {
-  // Skills dictionary
-  (job.skills || []).forEach(s => {
-    if (!(s in skillIndex)) {
-      skillIndex[s] = skillDict.length;
-      skillDict.push(s);
-    }
-  });
-  // Company dictionary
-  if (job.company && !(job.company in companyIndex)) {
-    companyIndex[job.company] = companyDict.length;
-    companyDict.push(job.company);
-  }
-  // Location dictionary (raw location strings)
-  if (job.location && !(job.location in locationIndex)) {
-    locationIndex[job.location] = locationDict.length;
-    locationDict.push(job.location);
-  }
-});
-
-// Build compact job entries using short keys and dictionary indices
-const liteJobs = indexJobs.map(job => {
-  const entry = {
-    t: job.title,
-    c: job.company ? (companyIndex[job.company] ?? -1) : -1,
-    l: job.location ? (locationIndex[job.location] ?? -1) : -1,
-  };
-
-  // Only include non-default status (most are 'active', save space by omitting)
-  if (job.status && job.status !== 'active') entry.s = job.status;
-
-  // Dictionary-encoded skills (numeric indices instead of full strings)
-  if (job.skills && job.skills.length > 0) {
-    entry.k = job.skills.map(s => skillIndex[s]);
-  }
-
-  // Short keys for categorical fields (only when present)
-  if (job.employmentType) entry.e = job.employmentType;
-  if (job.source) entry.sr = job.source;
-  if (job.profile) entry.p = job.profile;
-  if (job.appReady) entry.a = 1;
-
-  // Certifications (small arrays, keep as strings)
-  if (job.extractedCertifications && job.extractedCertifications.length > 0) {
-    entry.cr = job.extractedCertifications;
-  }
-
-  // Display-only fields for JobCard rendering
-  if (job.descriptionPreview) entry.d = job.descriptionPreview.substring(0, 100);
-  if (job.salary) entry.sa = job.salary;
-  if (job.postedDate) entry.pd = job.postedDate;
-
-  return entry;
-});
-
-// IDs stored as separate array (position matches jobs array index)
-const ids = indexJobs.map(job => job.id);
-
-const liteOutput = {
-  _version: 1,
-  skills: skillDict,
-  companies: companyDict,
-  locations: locationDict,
-  ids: ids,
-  jobs: liteJobs,
-};
-
-fs.writeFileSync(LITE_INDEX_PATH, JSON.stringify(liteOutput), 'utf8');
-const liteSize = (fs.statSync(LITE_INDEX_PATH).size / 1024 / 1024).toFixed(1);
-console.log(`Wrote ${LITE_INDEX_PATH} (${liteSize}MB)`);
-console.log(`  Dictionaries: ${skillDict.length} skills, ${companyDict.length} companies, ${locationDict.length} locations`);
+// The dictionary-encoded lite index used to be written here. The SPA now reads
+// sharded, content-hashed files built from jobs-index.json by scripts/build-site-data.mjs.
 
 // ── Focus market label mapping (mirrors src/utils/focusMarkets.js) ──────────
 const FOCUS_MARKET_LABELS = {

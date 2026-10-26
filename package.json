@@ -32,7 +32,8 @@
     "prewarm-company-overviews": "node scripts/prewarm-company-overviews.js",
     "prewarm-contacts": "node scripts/prewarm-contacts.js",
     "build-contact-coverage": "node scripts/build-contact-coverage.js",
-    "test": "node --test scripts/feed-ingest/__tests__/"
+    "build:site-data": "node scripts/build-site-data.mjs",
+    "test": "node --test scripts/feed-ingest/__tests__/ scripts/__tests__/*.test.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.74.0",

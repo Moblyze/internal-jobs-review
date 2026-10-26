@@ -14,14 +14,16 @@
 //   HUNTER_API_KEY     optional — reserved for follow-up email enrichment
 
 import Anthropic from '@anthropic-ai/sdk'
-import { readFile, writeFile, rename } from 'fs/promises'
+import { readFile, writeFile, rename, mkdir } from 'fs/promises'
 import { fileURLToPath } from 'url'
 import { dirname, resolve } from 'path'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = resolve(__dirname, '..')
 const ENTRIES_PATH = resolve(ROOT, 'public/data/feed/entries.json')
-const DM_PATH = resolve(ROOT, 'public/data/feed/decision_makers.json')
+// People-data: never under public/ (it is served). Pulled from / pushed to the
+// private R2 bucket by scripts/private-data.sh.
+const DM_PATH = process.env.DECISION_MAKERS_PATH || resolve(ROOT, '.private/decision_makers.json')
 
 const MODEL = 'claude-sonnet-4-6'
 const MAX_TOKENS = 2048
@@ -211,6 +213,7 @@ async function runWithConcurrency(items, limit, worker) {
 }
 
 async function atomicWriteJson(path, data) {
+  await mkdir(dirname(path), { recursive: true })
   const tmp = `${path}.tmp`
   await writeFile(tmp, JSON.stringify(data, null, 2))
   await rename(tmp, path)

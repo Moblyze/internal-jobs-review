@@ -152,7 +152,8 @@ function JobListPage() {
 
   // Inactive job count: use pre-computed or compute from jobs
   const inactiveJobsCount = useMemo(() => {
-    if (filterOptions?.totalInactive !== undefined) return filterOptions.totalInactive
+    // The site ships current jobs only (removed rows live in the R2 archive), so
+    // there is nothing inactive to toggle in.
     return jobs.filter(job => job.status === 'removed' || job.status === 'paused').length
   }, [filterOptions, jobs])
 

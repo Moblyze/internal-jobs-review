@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams, useSearchParams, Link } from 'react-router-dom'
-import { useJobs, getSimilarJobs, getFullJob } from '../hooks/useJobs'
+import { useJobs, getSimilarJobs, getFullJob, getClosedJob } from '../hooks/useJobs'
 import { formatDate, companyToSlug, findJobBySlug } from '../utils/formatters'
 import { normalizeCompanyName } from '../utils/companyNormalizer'
 import { formatJobDescription } from '../utils/contentFormatter'
@@ -137,8 +137,25 @@ function JobDetailPage() {
     }
   }, [indexJob])
 
-  // Use full job if loaded, otherwise fall back to index data
-  const job = fullJob || indexJob
+  // Removed/expired jobs are not in the list index: look them up in the private archive
+  // so the page still opens (with a "closed" banner). null = not looked up / never existed.
+  const [closedJob, setClosedJob] = useState(null)
+  const [closedLookupDone, setClosedLookupDone] = useState(false)
+  const needsClosedLookup = !loading && !error && !indexJob
+  useEffect(() => {
+    if (!needsClosedLookup) return
+    let cancelled = false
+    setClosedLookupDone(false)
+    getClosedJob(jobSlug).then(row => {
+      if (cancelled) return
+      setClosedJob(row)
+      setClosedLookupDone(true)
+    })
+    return () => { cancelled = true }
+  }, [needsClosedLookup, jobSlug])
+
+  // Use full job if loaded, otherwise fall back to index data, then the closed archive row
+  const job = fullJob || indexJob || (needsClosedLookup ? closedJob : null)
 
   // Load similar jobs when job changes - MUST be before conditional returns
   useEffect(() => {
@@ -152,7 +169,7 @@ function JobDetailPage() {
 
   // Inject schema.org JobPosting structured data
   useEffect(() => {
-    if (!job) return
+    if (!job || job.closed) return // closed jobs must not emit JobPosting markup
 
     const locations = getAllLocations(job.location)
     const schema = buildJobPostingSchema(job, locations)
@@ -183,6 +200,14 @@ function JobDetailPage() {
       <div className="bg-red-50 border border-red-200 rounded-lg p-6 text-center">
         <h2 className="text-lg font-semibold text-red-900 mb-2">Error Loading Job</h2>
         <p className="text-red-700">{error}</p>
+      </div>
+    )
+  }
+
+  if (!job && needsClosedLookup && !closedLookupDone) {
+    return (
+      <div className="flex items-center justify-center min-h-[400px]">
+        <p className="text-gray-600">Looking for this job...</p>
       </div>
     )
   }
@@ -226,6 +251,17 @@ function JobDetailPage() {
   return (
     <div>
       <Breadcrumbs items={breadcrumbItems} />
+
+      {job.closed && (
+        <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-6" role="status">
+          <p className="font-semibold text-amber-900">
+            Closed / no longer listed{job.lastSeen ? ` (last seen ${formatDate(job.lastSeen)})` : ''}
+          </p>
+          <p className="text-sm text-amber-800">
+            This posting has been removed or has expired. It is kept here for reference only.
+          </p>
+        </div>
+      )}
 
       {/* Job Header */}
       <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">

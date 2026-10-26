@@ -21,17 +21,11 @@ on:
 jobs:
   deploy-code:
     runs-on: ubuntu-latest
-    timeout-minutes: 10  # Should complete in ~2-3 minutes
+    timeout-minutes: 30  # R2 artifact upload adds several minutes
 
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url || steps.deployment_retry.outputs.page_url }}
-
-    # Grant GITHUB_TOKEN write permissions for GitHub Pages deployment
+    # Grant GITHUB_TOKEN write permissions for Cloudflare Pages deployment
     permissions:
       contents: read
-      pages: write
-      id-token: write
 
     # Prevent concurrent deployments
     concurrency:
@@ -73,57 +67,25 @@ jobs:
 
       - name: Build website
         env:
+          VITE_BASE: /
           VITE_MAPBOX_TOKEN: ${{ secrets.VITE_MAPBOX_TOKEN }}
           VITE_ONET_API_KEY: ${{ secrets.VITE_ONET_API_KEY }}
           VITE_ONET_BASE_URL: https://api-v2.onetcenter.org
           VITE_AI_PROXY_URL: https://refreshing-vitality-production-3c80.up.railway.app
         run: npm run build
 
-      - name: Setup GitHub Pages
-        uses: actions/configure-pages@v4
-
-      - name: Verify dist contents before upload
-        run: |
-          echo "📦 Contents of dist/ directory:"
-          find dist -type f | sort
-          echo ""
-          echo "📊 File counts:"
-          echo "  Total files: $(find dist -type f | wc -l)"
-          echo "  JavaScript files: $(find dist -name "*.js" | wc -l)"
-          echo "  CSS files: $(find dist -name "*.css" | wc -l)"
-          echo "  Data files: $(find dist/data -type f 2>/dev/null | wc -l || echo '0')"
-          echo "  Asset files: $(find dist/assets -type f 2>/dev/null | wc -l || echo '0')"
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Deploy to Cloudflare Pages (Access-protected, Moblyze Ops)
+        uses: ./.github/actions/cf-deploy
         with:
-          path: 'dist'
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-        # The Pages backend intermittently fails with "Deployment failed, try
-        # again later." during syncing_files even for a healthy artifact —
-        # retry once before failing the run.
-        continue-on-error: true
-
-      - name: Wait before deploy retry
-        if: steps.deployment.outcome == 'failure'
-        run: |
-          echo "⚠️ First Pages deployment attempt failed; retrying in 60s..."
-          sleep 60
-
-      - name: Deploy to GitHub Pages (retry)
-        id: deployment_retry
-        if: steps.deployment.outcome == 'failure'
-        uses: actions/deploy-pages@v4
+          api-token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          account-id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
       - name: Report deployment stats
         if: success()
         run: |
           echo "✅ Fast deployment completed successfully"
           echo "🚀 Deployment type: Code-only (no data processing)"
-          echo "🌐 Site URL: ${{ steps.deployment.outputs.page_url || steps.deployment_retry.outputs.page_url }}"
+          echo "🌐 Site URL: https://moblyze-jobs-review.pages.dev (Access-protected)"
           echo ""
           echo "ℹ️  This workflow deployed code changes using existing data files."
           echo "   To update job data, use the 'Update Website Data' workflow."
