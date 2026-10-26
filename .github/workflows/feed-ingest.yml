@@ -22,6 +22,14 @@ jobs:
 
       - run: npm ci
 
+      - name: Pull people-data from private R2
+        # decision_makers.json is people-data: it lives in private R2 (Moblyze
+        # Ops), never in git. Needs the one-time seed (see plan doc).
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: scripts/private-data.sh pull
+
       - name: Run ingestion
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -48,12 +56,20 @@ jobs:
         run: npm run build-contact-coverage
         continue-on-error: true
 
+      - name: Push people-data back to private R2
+        if: always()
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: scripts/private-data.sh push
+        continue-on-error: true
+
       - name: Commit feed updates
         id: commit
         run: |
           git config user.name 'feed-ingest[bot]'
           git config user.email 'feed-ingest[bot]@users.noreply.github.com'
-          git add public/data/feed/
+          git add public/data/feed/   # decision_makers.json is gitignored (people-data lives in R2)
           if git diff --staged --quiet; then
             echo "no feed changes"
             echo "changed=false" >> "$GITHUB_OUTPUT"

@@ -381,7 +381,7 @@ async function main() {
     jobs = JSON.parse(fs.readFileSync(LOCAL_JOBS_FILE, 'utf-8'));
   } else {
     console.log('Fetching latest jobs.json from live site...');
-    const jobsResponse = await fetch('https://moblyze.github.io/internal-jobs-review/data/jobs.json');
+    const jobsResponse = await fetch(process.env.JOBS_JSON_URL || 'https://moblyze.github.io/internal-jobs-review/data/jobs.json') // protected site: pass JOBS_JSON_URL + CF-Access headers, or use --local;
     jobs = await jobsResponse.json();
   }
 

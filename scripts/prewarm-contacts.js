@@ -32,7 +32,9 @@ import { rankHiringTargets, pickTopContacts } from '../src/utils/feed/relevance.
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = resolve(__dirname, '..')
 const ENTRIES_LITE_PATH = resolve(ROOT, 'public/data/feed/entries-lite.json')
-const DECISION_MAKERS_PATH = resolve(ROOT, 'public/data/feed/decision_makers.json')
+// People-data: never under public/ (it is served). Pulled from / pushed to the
+// private R2 bucket by scripts/private-data.sh.
+const DECISION_MAKERS_PATH = process.env.DECISION_MAKERS_PATH || resolve(ROOT, '.private/decision_makers.json')
 
 const WORKER_BASE = process.env.PDL_COMPANY_FEED_BASE || 'https://pdl-company-feed.jesse-82d.workers.dev'
 const ORIGIN = process.env.PREWARM_ORIGIN || 'https://moblyze.github.io'

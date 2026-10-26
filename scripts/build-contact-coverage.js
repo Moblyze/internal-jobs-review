@@ -21,7 +21,9 @@ import { dirname, resolve } from 'path'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = resolve(__dirname, '..')
-const DECISION_MAKERS_PATH = resolve(ROOT, 'public/data/feed/decision_makers.json')
+// People-data: never under public/ (it is served). Pulled from / pushed to the
+// private R2 bucket by scripts/private-data.sh.
+const DECISION_MAKERS_PATH = process.env.DECISION_MAKERS_PATH || resolve(ROOT, '.private/decision_makers.json')
 const ENTRIES_LITE_PATH = resolve(ROOT, 'public/data/feed/entries-lite.json')
 const OUT_PATH = resolve(ROOT, 'public/data/feed/contact_coverage.json')
 

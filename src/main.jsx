@@ -8,7 +8,7 @@ import { initializeONet } from './utils/onetClient'
 // Start React rendering immediately (non-blocking)
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/internal-jobs-review">
+    <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, "")}>
       <App />
     </BrowserRouter>
   </React.StrictMode>,
