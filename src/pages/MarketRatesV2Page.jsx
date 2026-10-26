@@ -484,7 +484,7 @@ export default function MarketRatesV2Page() {
             <span className="m2-mast__ed">{EDITION} edition</span>
           </div>
           <div className="m2-mast__right">
-            <span className="m2-pill">Internal preview · Illustrative</span>
+            <span className="m2-pill">Beta</span>
             <Link to="/market-rates/v1" className="m2-mast__v1">Compare with v1</Link>
           </div>
         </div>

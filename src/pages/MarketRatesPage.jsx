@@ -72,7 +72,7 @@ function Hero({ data, onMethod, onExplore }) {
         <div className="mr-hero__copy">
           <div className="mr-hero__tags">
             <span className="mr-brandmark"><span className="dot" />Moblyze Market Intelligence</span>
-            <span className="mr-preview-pill" title="Not client-facing. Numbers are from public job ads, not placements.">Internal preview · Illustrative</span>
+            <span className="mr-preview-pill" title="Not client-facing. Numbers are from public job ads, not placements.">Beta</span>
           </div>
           <h1>Market day rates for <em>offshore and energy</em> roles</h1>
           <p>Typical pay by role, region and experience level, benchmarked from {data.counts.observations_dedup.toLocaleString('en-US')} job ads that state their rate. Ranges show the middle half of the market; the marker is the median.</p>
@@ -535,7 +535,7 @@ export default function MarketRatesPage() {
       )}
 
       <footer className="mr-foot">
-        <span className="mr-preview-pill mr-preview-pill--light">Internal preview · Illustrative</span>
+        <span className="mr-preview-pill mr-preview-pill--light">Beta</span>
         <span>Built from public job ads, not placements. Updated {fmtDate(data.cells[0]?.last_updated)}.</span>
         <button type="button" className="mr-linkbtn" onClick={() => setDrawer('method')}><InfoIcon />Methodology</button>
       </footer>
