@@ -1370,28 +1370,21 @@ companies:
 
   wrs:
     name: "WRS"
-    # Worldwide Recruitment Solutions. The "offshore-marine-jobs" marketing page
-    # (worldwide-rs.com) has no listings of its own -- it links out to a
-    # "Search Offshore Marine jobs" button pointing at the real job board on the
-    # jobs.worldwide-rs.com subdomain (RecruiterWP/FacetWP plugin), filtered to
-    # job_categories=marine. That filtered URL is the base_url here, not the
-    # marketing page. Listing is server-rendered (no JS needed for the cards).
-    # Only 10 marine jobs live as of 2026-09-16 -- far below CrewBase's claimed
-    # 360 WRS rows; see report for detail. Descriptions are short crew-agency
-    # ads (median ~330 chars raw), most will not clear the 600-char publish gate.
-    platform: html_generic
-    base_url: "https://jobs.worldwide-rs.com/marine/"
+    # Worldwide Recruitment Solutions. The real board is jobs.worldwide-rs.com
+    # (RecruiterWP/FacetWP). It lists 145 live jobs across energy, marine,
+    # construction and mechanical trades; the previous html_generic config read
+    # only the 14-job "marine" filter (/marine/), which is why it looked thin
+    # against CrewBase's 164 WRS rows. The board registers its jobs as the public
+    # `recruiterwp_job` post type, so the WP REST API returns every job with its
+    # full body (median ~3,200 chars, clears the 600-char publish gate) in 2
+    # requests. robots.txt: Disallow empty (everything allowed). Verified 2026-10-26.
+    platform: wp_rest
+    base_url: "https://jobs.worldwide-rs.com/"
     rate_limit_delay: 2.5
-    selectors:
-      job_card: 'div.job-listing-item'
-      job_title: 'h2 a'
-      job_link: 'h2 a'
-      job_location: 'p.job_listing_location'
-      description: '.entry-content'
-    html_config:
-      wait_for: 'div.job-listing-item'
-      detail_wait_for: '.entry-content'
-      title_from_link: true
+    wp_rest_config:
+      post_type: "recruiterwp_job"
+      per_page: 100
+    selectors: {}
     sheet_name: "WRS"
 
   atlas_nextwave:
@@ -1422,9 +1415,10 @@ companies:
     name: "Select Offshore"
     # Vennture-platform SPA (JS-rendered listing; detail pages are server
     # pre-rendered but still require the same browser fetch). robots.txt allows
-    # all (`allow: /`). Only 14 jobs rendered on the listing page and 19 job URLs
-    # in the sitemap as of 2026-09-16 -- far below CrewBase's claimed 413 Select
-    # Offshore rows; see report. Descriptions that do exist are solid (~750+
+    # all (`allow: /`). The board's own search API (gateway.wearevennture.co.uk
+    # /job-search) reports totalCount 3 on 2026-10-26, which matches what this
+    # scrapes; CrewBase's 556 Select Offshore rows are stale/per-vessel repeats,
+    # not missing inventory. Descriptions that do exist are solid (~750+
     # chars), comfortably above the 600-char publish gate.
     platform: html_generic
     base_url: "https://www.selectoffshore.com/job-search/"
