@@ -28,6 +28,7 @@ const ComparisonTool = lazyWithRetry(() => import('./pages/ComparisonTool'))
 const CompaniesPage = lazyWithRetry(() => import('./pages/CompaniesPage'))
 const FeedPage = lazyWithRetry(() => import('./pages/FeedPage'))
 const MarketRatesPage = lazyWithRetry(() => import('./pages/MarketRatesPage'))
+const MarketRatesV2Page = lazyWithRetry(() => import('./pages/MarketRatesV2Page'))
 
 // Error boundary component
 class ErrorBoundary extends Component {
@@ -138,7 +139,8 @@ function App() {
             <Route path="/companies/:companySlug" element={<CompanyPage />} />
             <Route path="/demo/description-formatting" element={<DescriptionDemoPage />} />
             <Route path="/feed" element={<FeedPage />} />
-            <Route path="/market-rates" element={<MarketRatesPage />} />
+            <Route path="/market-rates" element={<MarketRatesV2Page />} />
+            <Route path="/market-rates/v1" element={<MarketRatesPage />} />
             <Route path="/compare" element={<ComparisonTool />} />
           </Routes>
         </Suspense>
