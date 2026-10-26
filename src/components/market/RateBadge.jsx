@@ -7,8 +7,8 @@ export default function RateBadge({ band, title }) {
   const m = BAND_META[band]
   if (!m) return null
   return (
-    <span className={`mr-badge ${m.tone}`} title={title}>
-      <span className="g" aria-hidden="true">{m.glyph}</span>{m.label}
+    <span className={`mr-badge mr-badge--${m.tone}`} title={title}>
+      <span className="mr-badge__g" aria-hidden="true">{m.glyph}</span>{m.label}
     </span>
   )
 }

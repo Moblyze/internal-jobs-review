@@ -1,19 +1,24 @@
 // src/pages/MarketRatesPage.jsx
 // "Market rates": the first client data-insights view, laid out as if it were
-// a client product so leadership can picture it. Internal preview, illustrative.
+// a paid client product so leadership can picture it. Internal preview, illustrative.
 // Reads /data/market_rates.json (pay_rates/site_bundle.py in moblyze-ops).
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import SEO from '../components/SEO'
 import RangeBar from '../components/market/RangeBar'
 import Sparkline from '../components/market/Sparkline'
 import RateBadge from '../components/market/RateBadge'
-import { BAND_META, LEVELS, LEVEL_SHORT, cellStats, fmtDate, fmtMoney, niceMax, unitSuffix } from '../utils/marketRates'
+import { BAND_META, LEVELS, LEVEL_SHORT, cellStats, fmtAmount, fmtDate, fmtRange, fmtRate, fromDay, niceDomain, niceMax } from '../utils/marketRates'
 import '../market-rates.css'
 
 const DATA_URL = `${import.meta.env.BASE_URL || '/'}data/market_rates.json`
 const BASIS_ORDER = ['contract_day', 'perm_timebased', 'salary_equiv', 'seafarer_month']
-const PERIOD_OPTS = [['native', 'Native'], ['day', 'Day'], ['hour', 'Hour'], ['year', 'Year']]
+const BASIS_SHORT = { contract_day: 'Contract day rate', perm_timebased: 'Hourly', salary_equiv: 'Annual salary', seafarer_month: 'Seafarer monthly' }
+const PERIOD_OPTS = [['native', 'As posted'], ['day', 'Day'], ['hour', 'Hour'], ['month', 'Month'], ['year', 'Year']]
+const REGION_ORDER = ['US', 'UK', 'Europe (other)', 'Middle East', 'Unknown/Worldwide']
+const REGION_SHORT = { US: 'US', UK: 'UK', 'Europe (other)': 'Europe', 'Middle East': 'Middle East', 'Unknown/Worldwide': 'Worldwide' }
+const LADDER_ROLES = ['rov-pilot-technician', 'substation-technician', 'hvac-technician', 'electrician', 'inspector', 'mechanical-technician']
+const CARD_PICKS = ['below_market', 'in_range', 'above_market']
 
 function useMarketRates() {
   const [state, setState] = useState({ data: null, loading: true, error: null })
@@ -28,291 +33,514 @@ function useMarketRates() {
   return state
 }
 
-function Stat({ v, l, txt }) {
-  return <div className="mr-stat"><div className={`v num${txt ? ' txt' : ''}`}>{v}</div><div className="l">{l}</div></div>
+const pOf = (period, cell) => (period === 'native' ? cell.unit : period)
+const isOther = (label) => /\(other\)/.test(label)
+
+function Segmented({ options, value, onChange, label, size }) {
+  return (
+    <div className={`mr-seg${size ? ` mr-seg--${size}` : ''}`} role="group" aria-label={label}>
+      {options.map(([k, l]) => (
+        <button key={k} type="button" aria-pressed={value === k} onClick={() => onChange(k)}>{l}</button>
+      ))}
+    </div>
+  )
 }
 
-function LevelRows({ cell, period, max, labels }) {
-  const parent = cellStats(cell, period)
+function InfoIcon() {
+  return <svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" strokeWidth="1.6" /><path d="M10 9v5M10 6.2v.1" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /></svg>
+}
+
+function Axis({ max, min = 0, period, ticks = 4 }) {
   return (
-    <div className="mr-levels">
-      {LEVELS.map(L => {
-        const lc = cell.levels[L]
-        const n = cell.level_n[L]
-        if (!lc) {
-          return (
-            <div key={L} className="mr-level fallback">
-              <div className="lv">{LEVEL_SHORT[L]}<small>{labels.levels[L]}</small></div>
-              <div className="fb">{n === 0 ? 'No ads state this level.' : `${n} ad${n === 1 ? '' : 's'}: under the n=10 floor, so the role x region range applies.`}</div>
-            </div>
-          )
-        }
-        const s = cellStats(lc, period)
-        return (
-          <div key={L} className="mr-level">
-            <div className="lv">{LEVEL_SHORT[L]}<small>{labels.levels[L]}</small></div>
-            <RangeBar stats={s} max={max} ghost={parent} sub tip={<><br />{lc.n} ads, {lc.employers} employers<br />lighter band = all levels</>} />
-            <div className="median num">{fmtMoney(s.median)}<span style={{ fontSize: 11, fontWeight: 500, color: 'var(--mr-ink-3)' }}>{unitSuffix(s.period)}</span></div>
-            <div className="n num">n={lc.n}</div>
+    <div className="mr-axis" aria-hidden="true">
+      {Array.from({ length: ticks + 1 }, (_, i) => (
+        <span key={i} style={{ left: `${(i / ticks) * 100}%` }}>{fmtAmount(min + ((max - min) * i) / ticks, period)}</span>
+      ))}
+    </div>
+  )
+}
+
+/* ── hero ─────────────────────────────────────────────────────────── */
+function Hero({ data, onMethod, onExplore }) {
+  const ladder = LADDER_ROLES.map(r => data.cells.find(c => c.role === r && c.basis === 'contract_day' && (c.region === 'US' || c.region === 'UK'))).filter(Boolean)
+  const ld = niceDomain(Math.min(...ladder.map(c => c.usd_day.range_lo)), Math.max(...ladder.map(c => c.usd_day.range_hi)))
+  const top = [...data.cells].filter(c => c.basis === 'contract_day').sort((a, b) => b.usd_day.median - a.usd_day.median)[0]
+  const firstSeen = data.cells.map(c => c.first_seen_min).sort()[0]
+  return (
+    <header className="mr-hero">
+      <div className="mr-hero__grid">
+        <div className="mr-hero__copy">
+          <div className="mr-hero__tags">
+            <span className="mr-brandmark"><span className="dot" />Moblyze Market Intelligence</span>
+            <span className="mr-preview-pill" title="Not client-facing. Numbers are from public job ads, not placements.">Internal preview · Illustrative</span>
           </div>
-        )
-      })}
-      {cell.level_n.unspecified > 0 && (
-        <div className="mr-prov" style={{ fontSize: 11.5, marginTop: 2 }}>{cell.level_n.unspecified} of {cell.n_dedup} ads give no years or seniority word and count only in the all-levels range.</div>
+          <h1>Market day rates for <em>offshore and energy</em> roles</h1>
+          <p>Typical pay by role, region and experience level, benchmarked from {data.counts.observations_dedup.toLocaleString('en-US')} job ads that state their rate. Ranges show the middle half of the market; the marker is the median.</p>
+          <div className="mr-hero__cta">
+            <button type="button" className="mr-btn mr-btn--primary" onClick={onExplore}>Explore benchmarks</button>
+            <button type="button" className="mr-btn mr-btn--ghost" onClick={onMethod}><InfoIcon />Methodology</button>
+          </div>
+        </div>
+        <div className="mr-hero__panel" aria-label="Contract day rate preview">
+          <div className="mr-hero__panelhead">
+            <span>Contract day rates</span>
+            <span className="muted">Typical range · median</span>
+          </div>
+          <div className="mr-ladder">
+            {ladder.map(c => {
+              const s = cellStats(c, 'day')
+              const pct = v => `${((v - ld.min) / (ld.max - ld.min)) * 100}%`
+              return (
+                <div key={c.id} className="mr-ladder__row">
+                  <div className="mr-ladder__name">{c.role_label}<span>{REGION_SHORT[c.region]}</span></div>
+                  <div className="mr-ladder__track">
+                    <div className="mr-ladder__band" style={{ left: pct(s.p25Raw), width: `calc(${pct(s.p75Raw)} - ${pct(s.p25Raw)})` }} />
+                    <div className="mr-ladder__med" style={{ left: pct(s.medianRaw) }} />
+                  </div>
+                  <div className="mr-ladder__val num">{fmtRate(s.median, 'day')}</div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </div>
+      <div className="mr-kpis">
+        <div className="mr-kpi">
+          <div className="mr-kpi__l">Job ads with a stated rate</div>
+          <div className="mr-kpi__v num">{data.counts.observations_dedup.toLocaleString('en-US')}</div>
+          <div className="mr-kpi__s">deduped from {data.counts.rows_in.toLocaleString('en-US')} pay mentions</div>
+        </div>
+        <div className="mr-kpi">
+          <div className="mr-kpi__l">Role and region benchmarks</div>
+          <div className="mr-kpi__v num">{data.counts.cells_published}</div>
+          <div className="mr-kpi__s">{data.counts.level_cells_published} split by experience level</div>
+        </div>
+        <div className="mr-kpi">
+          <div className="mr-kpi__l">Highest contract median</div>
+          <div className="mr-kpi__v num">{fmtRate(top.usd_day.median, 'day')}</div>
+          <div className="mr-kpi__s">{top.role_label}, {REGION_SHORT[top.region]}</div>
+        </div>
+        <div className="mr-kpi">
+          <div className="mr-kpi__l">Last updated</div>
+          <div className="mr-kpi__v mr-kpi__v--date">{fmtDate(data.cells[0]?.last_updated)}</div>
+          <div className="mr-kpi__s">ads first seen since {fmtDate(firstSeen)}</div>
+        </div>
+      </div>
+    </header>
+  )
+}
+
+/* ── benchmark card ───────────────────────────────────────────────── */
+function LevelRow({ L, cell, period, max, min, labels }) {
+  const lc = cell.levels?.[L]
+  const n = cell.level_n?.[L] ?? 0
+  return (
+    <div className={`mr-lvl${lc ? '' : ' mr-lvl--empty'}`}>
+      <div className="mr-lvl__name">{LEVEL_SHORT[L]}<small>{labels.levels[L]}</small></div>
+      {lc ? (
+        <>
+          <RangeBar stats={cellStats(lc, period)} max={max} min={min} ghost={cellStats(cell, period)} size="sm"
+            label={`${LEVEL_SHORT[L]} level, ${labels.levels[L]}`} meta={`${lc.n} ads · ${lc.employers} employers`} />
+          <div className="mr-lvl__val num">{fmtRate(cellStats(lc, period).median, period)}</div>
+        </>
+      ) : (
+        <>
+          <div className="mr-lvl__na">{n === 0 ? 'No ads state this level yet' : `${n} ad${n === 1 ? '' : 's'} so far, publishes at 10`}</div>
+          <div className="mr-lvl__val muted">–</div>
+        </>
       )}
     </div>
   )
 }
 
-function RateRow({ cell, period, max, open, onToggle, labels, levelFilter }) {
-  const s = cellStats(cell, period)
-  const types = Object.entries(cell.employer_types || {}).sort((a, b) => b[1] - a[1]).map(([k, v]) => `${v} ${k.replace('_', ' ')}`).join(', ')
-  const shownLevel = levelFilter !== 'all' && cell.levels[levelFilter] ? cell.levels[levelFilter] : null
-  const sh = shownLevel ? cellStats(shownLevel, period) : s
+function Benchmark({ data, cell, roleCells, region, setRegion, basis, setBasis, period, onInfo }) {
+  const p = pOf(period, cell)
+  const s = cellStats(cell, p)
+  const lv = LEVELS.map(L => cell.levels?.[L]).filter(Boolean).map(l => cellStats(l, p))
+  const dom = niceDomain(Math.min(s.p25Raw, ...lv.map(x => x.p25Raw)), Math.max(s.p75Raw, ...lv.map(x => x.p75Raw)))
+  const max = dom.max, min = dom.min
+  const regions = REGION_ORDER.filter(r => roleCells.some(c => c.region === r))
+  const bases = BASIS_ORDER.filter(b => roleCells.some(c => c.region === region && c.basis === b))
+  const converted = p !== cell.unit
   return (
-    <article className={`mr-row${open ? ' open' : ''}`}>
-      <button className="head" onClick={onToggle} aria-expanded={open}>
-        <div className="who">
-          <div className="role">{cell.role_label}</div>
-          <div className="meta">
-            <span>{cell.region_label}</span>
-            {shownLevel && <span className="mr-pill level">{LEVEL_SHORT[levelFilter]} level</span>}
-            {!shownLevel && levelFilter !== 'all' && <span className="mr-pill" title={`${cell.level_n[levelFilter]} ads at this level, under the n=10 floor`}>all levels (n={cell.level_n[levelFilter]} at {LEVEL_SHORT[levelFilter].toLowerCase()})</span>}
-            {sh.converted && <span className="mr-pill conv" title={`Native unit is per ${cell.unit}; converted at ${cell.hours_per_day || 10}h/day, 260 days/yr`}>from /{cell.unit}</span>}
+    <article className="mr-bench">
+      <div className="mr-bench__head">
+        <div className="mr-bench__title">
+          <div className="mr-eyebrow">{cell.basis_label}{converted ? ` · shown per ${p}, posted per ${cell.unit}` : ''}</div>
+          <h3>{cell.role_label}</h3>
+          <div className="mr-bench__controls">
+            <Segmented label="Region" options={regions.map(r => [r, REGION_SHORT[r]])} value={region} onChange={setRegion} size="sm" />
+            {bases.length > 1 && <Segmented label="Pay type" options={bases.map(b => [b, BASIS_SHORT[b]])} value={basis} onChange={setBasis} size="sm" />}
           </div>
         </div>
-        <RangeBar stats={sh} max={max} ghost={shownLevel ? s : null}
-          tip={<><br />{shownLevel ? shownLevel.n : cell.n} ads, {shownLevel ? shownLevel.employers : cell.employers} employers<br />seen {fmtDate(cell.first_seen_min)} to {fmtDate(cell.first_seen_max)}</>} />
-        <div className="median">
-          <div className="v num">{fmtMoney(sh.median)}</div>
-          <div className="u">median{unitSuffix(sh.period)}</div>
+        <div className="mr-bench__headline">
+          <div className="mr-eyebrow">Median</div>
+          <div className="mr-bench__median num">{fmtAmount(s.median, p)}<span>{({ day: '/day', hour: '/hr', month: '/mo', year: '/yr' })[p]}</span></div>
+          <div className="mr-bench__typ">Typical <b className="num">{fmtRange(s.p25, s.p75, p)}</b></div>
         </div>
-        <div className="n">
-          <div><b className="num">n={shownLevel ? shownLevel.n : cell.n}</b> · {shownLevel ? shownLevel.employers : cell.employers} employers</div>
-          <div className="upd">updated {fmtDate(cell.last_updated)}</div>
-        </div>
-      </button>
-      {open && (
-        <div className="mr-detail">
-          <div>
-            <h3>By experience level</h3>
-            <LevelRows cell={cell} period={period} max={max} labels={labels} />
-            {cell.trend && (
-              <div style={{ marginTop: 14 }}>
-                <h3>Monthly median, {cell.trend.length} months with 5+ ads</h3>
-                <Sparkline trend={cell.trend} cell={cell} period={s.period} />
-              </div>
-            )}
+      </div>
+
+      <div className="mr-bench__body">
+        <div className="mr-bench__chart">
+          <div className="mr-bench__all">
+            <div className="mr-lvl__name">All levels<small>{cell.n} ads</small></div>
+            <RangeBar stats={s} max={max} min={min} size="lg" showMedian label={`${cell.role_label}, ${cell.region_label}`} meta={`${cell.n} ads · ${cell.employers} employers`} />
+            <div />
           </div>
-          <div className="mr-prov">
-            <h3>Behind this number</h3>
-            <dl>
-              <dt>Basis</dt><dd>{cell.basis_label}{cell.hours_per_day ? `, ${cell.hours_per_day}h day` : ''}</dd>
-              <dt>Ads used</dt><dd className="num">{cell.n} of {cell.n_dedup} deduped ({cell.outliers_excluded} outliers out), {cell.n_raw} raw</dd>
-              <dt>Employers</dt><dd className="num">{cell.employers} distinct: {types}</dd>
-              <dt>Still live</dt><dd className="num">{Math.round(cell.active_share * 100)}% of ads</dd>
-              <dt>Seen</dt><dd>{fmtDate(cell.first_seen_min)} to {fmtDate(cell.first_seen_max)}</dd>
-              <dt>Currencies</dt><dd className="num">{Object.entries(cell.currencies).map(([k, v]) => `${k} ${v}`).join(', ')}</dd>
-            </dl>
+          <div className="mr-bench__axisrow"><div /><Axis max={max} min={min} ticks={dom.ticks} period={p} /><div /></div>
+          <div className="mr-bench__sub">
+            <span className="mr-eyebrow">By experience</span>
+            <span className="mr-legend"><i className="sw band" />Typical (p25 to p75)<i className="sw med" />Median<i className="sw ghost" />All levels</span>
           </div>
+          {LEVELS.map(L => <LevelRow key={L} L={L} cell={cell} period={p} max={max} min={min} labels={data.labels} />)}
+          <Insight cell={cell} s={s} p={p} data={data} />
         </div>
-      )}
+
+        <aside className="mr-bench__side">
+          <Sparkline trend={cell.trend} cell={cell} period={p} full />
+          <dl className="mr-facts">
+            <div><dt>Sample</dt><dd className="num">{cell.n} ads</dd></div>
+            <div><dt>Employers</dt><dd className="num">{cell.employers}</dd></div>
+            <div><dt>Still live</dt><dd className="num">{Math.round(cell.active_share * 100)}%</dd></div>
+            <div><dt>Seen</dt><dd>{fmtDate(cell.first_seen_min).replace(/, \d{4}$/, '')} to {fmtDate(cell.first_seen_max).replace(/, \d{4}$/, '')}</dd></div>
+          </dl>
+          <button type="button" className="mr-linkbtn" onClick={onInfo}><InfoIcon />How this benchmark is built</button>
+        </aside>
+      </div>
     </article>
   )
 }
 
-function SampleCard({ s, cells }) {
-  const cell = cells.find(c => c.id === s.cell_id)
-  const m = BAND_META[s.band]
-  const u = s.ad_display.unit
-  const ad = s.ad_display.min === s.ad_display.max ? fmtMoney(s.ad_display.min) : `${fmtMoney(s.ad_display.min)} to ${fmtMoney(s.ad_display.max)}`
-  // mini position bar: 0 .. 1.6 x p75
-  const scaleMax = cell ? cell.usd_day.range_hi * 1.6 : 1
-  const pct = (v) => `${Math.max(0, Math.min(100, (v / scaleMax) * 100))}%`
-  const mid = (s.usd_day.min + s.usd_day.max) / 2
+function Insight({ cell, s, p, data }) {
+  const lvl = LEVELS.filter(L => cell.levels?.[L]).map(L => ({ L, st: cellStats(cell.levels[L], p) }))
+  let text
+  if (lvl.length >= 2) {
+    const a = lvl[0], b = lvl[lvl.length - 1]
+    const d = b.st.medianRaw - a.st.medianRaw
+    text = <>{LEVEL_SHORT[b.L]}-level ads ({data.labels.levels[b.L]}) post a median <b>{fmtRate(Math.abs(d), p)} {d >= 0 ? 'more' : 'less'}</b> than {LEVEL_SHORT[a.L].toLowerCase()}-level ads ({d >= 0 ? '+' : '-'}{Math.round(Math.abs(d) / a.st.medianRaw * 100)}%).</>
+  } else {
+    const spread = s.p75Raw - s.p25Raw
+    text = <>The middle half of the market spans <b>{fmtRate(spread, p)}</b>, about {Math.round(spread / s.medianRaw * 100)}% of the median. Experience splits publish as more ads state years.</>
+  }
+  return <div className="mr-insight"><span className="mr-insight__k">Insight</span><p>{text}</p></div>
+}
+
+/* ── role picker ──────────────────────────────────────────────────── */
+function RolePicker({ roles, role, setRole }) {
+  const [q, setQ] = useState('')
+  const shown = roles.filter(r => r.label.toLowerCase().includes(q.trim().toLowerCase()))
   return (
-    <div className="mr-card">
-      <div className="t">{s.title}</div>
-      <div className="sub"><span className="co">{s.employer}</span><span>{s.location || s.region_label}</span></div>
-      <div className="pay">
-        <div className="v num">{ad}<small>{unitSuffix(u)}</small></div>
-        <RateBadge band={s.band} title={`${m.label}: ad midpoint vs the ${s.role_label} ${s.region_label} typical range ${s.market.typical_range}`} />
-      </div>
-      {cell && (
-        <div className="minibar" aria-hidden="true">
-          <div className="b" style={{ left: pct(cell.usd_day.range_lo), width: `calc(${pct(cell.usd_day.range_hi)} - ${pct(cell.usd_day.range_lo)})` }} />
-          <div className={`m ${m.tone}`} style={{ left: pct(mid) }} />
-        </div>
-      )}
-      <div className="mkt">Market: <b>{s.market.typical_range}</b> typical, median {s.market.median_display}, {s.market.n} ads · {s.role_label}, {s.region_label}{s.experience_level ? `, ${LEVEL_SHORT[s.experience_level].toLowerCase()} level` : ''}</div>
+    <div className="mr-picker">
+      <label className="mr-search">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><circle cx="9" cy="9" r="6" /><path d="m14 14 4 4" strokeLinecap="round" /></svg>
+        <input value={q} onChange={e => setQ(e.target.value)} placeholder="Find a role" aria-label="Find a role" />
+      </label>
+      <ul className="mr-picker__list" role="listbox" aria-label="Roles">
+        {shown.map(r => (
+          <li key={r.role}>
+            <button type="button" role="option" aria-selected={r.role === role} onClick={() => setRole(r.role)}>
+              <span>{r.label}</span><span className="num">{r.n.toLocaleString('en-US')}</span>
+            </button>
+          </li>
+        ))}
+        {!shown.length && <li className="mr-picker__none">No role matches</li>}
+      </ul>
+      <select className="mr-picker__select" value={role} onChange={e => setRole(e.target.value)} aria-label="Role">
+        {roles.map(r => <option key={r.role} value={r.role}>{r.label}</option>)}
+      </select>
     </div>
   )
 }
 
+/* ── comparison table ─────────────────────────────────────────────── */
+function CompareTable({ data, region, setRegion, basis, setBasis, period, selectedId, onPick }) {
+  const [all, setAll] = useState(false)
+  const rows = data.cells.filter(c => c.region === region && c.basis === basis).sort((a, b) => b.usd_day.median - a.usd_day.median)
+  const p = rows.length ? pOf(period, rows[0]) : 'day'
+  const dom = rows.length ? niceDomain(Math.min(...rows.map(c => cellStats(c, p).p25Raw)), Math.max(...rows.map(c => cellStats(c, p).p75Raw)), 8) : { min: 0, max: 1, ticks: 4 }
+  const max = dom.max
+  const regions = REGION_ORDER.filter(r => data.cells.some(c => c.region === r && c.basis === basis))
+  const bases = BASIS_ORDER.filter(b => data.cells.some(c => c.region === region && c.basis === b))
+  const shown = all ? rows : rows.slice(0, 10)
+  return (
+    <section className="mr-section" id="compare">
+      <div className="mr-section__head">
+        <div>
+          <div className="mr-eyebrow">Compare</div>
+          <h2>{REGION_SHORT[region]} {BASIS_SHORT[basis].toLowerCase()}s, side by side</h2>
+        </div>
+        <div className="mr-section__tools">
+          <Segmented label="Region" options={regions.map(r => [r, REGION_SHORT[r]])} value={region} onChange={setRegion} size="sm" />
+          <Segmented label="Pay type" options={bases.map(b => [b, BASIS_SHORT[b]])} value={basis} onChange={setBasis} size="sm" />
+        </div>
+      </div>
+      <div className="mr-table" role="table" aria-label="Role comparison">
+        <div className="mr-tr mr-tr--head" role="row">
+          <span role="columnheader">Role</span>
+          <span role="columnheader" className="mr-col-range">Typical range</span>
+          <span role="columnheader" className="r">Median</span>
+          <span role="columnheader" className="r mr-col-lvl">Low</span>
+          <span role="columnheader" className="r mr-col-lvl">Mid</span>
+          <span role="columnheader" className="r mr-col-lvl">High</span>
+          <span role="columnheader" className="mr-col-trend">Trend</span>
+          <span role="columnheader" className="r mr-col-n">Ads</span>
+        </div>
+        {shown.map(c => {
+          const s = cellStats(c, p)
+          return (
+            <button type="button" key={c.id} className={`mr-tr${c.id === selectedId ? ' on' : ''}`} role="row" onClick={() => onPick(c)}>
+              <span className="mr-td-role" role="cell">{c.role_label}<small className="num">{fmtRange(s.p25, s.p75, p)}</small></span>
+              <span className="mr-col-range" role="cell">
+                <RangeBar stats={s} max={max} min={dom.min} size="xs" label={c.role_label} meta={`${c.n} ads · ${c.employers} employers`} />
+              </span>
+              <span className="r num mr-td-med" role="cell">{fmtRate(s.median, p)}</span>
+              {LEVELS.map(L => (
+                <span key={L} className="r num mr-col-lvl" role="cell">{c.levels?.[L] ? fmtAmount(cellStats(c.levels[L], p).median, p) : <span className="muted">–</span>}</span>
+              ))}
+              <span className="mr-col-trend" role="cell"><Sparkline trend={c.trend} cell={c} period={p} /></span>
+              <span className="r num mr-col-n" role="cell">{c.n}</span>
+            </button>
+          )
+        })}
+        <div className="mr-axisrow mr-table__axis"><span /><span className="mr-col-range"><Axis max={max} min={dom.min} ticks={dom.ticks} period={p} /></span></div>
+      </div>
+      {rows.length > 10 && (
+        <button type="button" className="mr-more" onClick={() => setAll(!all)}>{all ? 'Show top 10' : `Show all ${rows.length} roles`}</button>
+      )}
+    </section>
+  )
+}
+
+/* ── job cards ────────────────────────────────────────────────────── */
+function JobCard({ s, cell }) {
+  const u = s.ad_display.unit
+  const m = BAND_META[s.band]
+  const jd = niceDomain(Math.min(cell.usd_day.range_lo, s.usd_day.min) * 0.9, Math.max(cell.usd_day.range_hi, s.usd_day.max) * 1.1)
+  const pct = (v) => `${Math.max(0, Math.min(100, ((v - jd.min) / (jd.max - jd.min)) * 100))}%`
+  const conv = (v) => fromDay(v, u, cell)
+  const marketLo = conv(cell.usd_day.range_lo), marketHi = conv(cell.usd_day.range_hi), marketMed = conv(cell.usd_day.median)
+  const initials = s.employer.split(/\s+/).filter(w => /^[A-Za-z]/.test(w)).slice(0, 2).map(w => w[0]).join('').toUpperCase()
+  const diff = ((s.usd_day.min + s.usd_day.max) / 2 - cell.usd_day.median) / cell.usd_day.median
+  return (
+    <article className="mr-job">
+      <div className="mr-job__top">
+        <span className="mr-job__logo" aria-hidden="true">{initials}</span>
+        <div>
+          <h4>{s.title.replace(/\s+/g, ' ')}</h4>
+          <div className="mr-job__co">{s.employer} · {s.location?.replace(/, (United States|US)$/, '')}</div>
+        </div>
+      </div>
+      <div className="mr-job__pay">
+        <div>
+          <div className="mr-eyebrow">Posted rate</div>
+          <div className="mr-job__rate num">{fmtRange(s.ad_display.min, s.ad_display.max, u)}</div>
+        </div>
+        <RateBadge band={s.band} title={`${m.label}: ad midpoint vs the ${s.role_label}, ${s.region_label} typical range`} />
+      </div>
+      <div className="mr-job__gauge" aria-hidden="true">
+        <div className="mr-job__track" />
+        <div className="mr-job__mkt" style={{ left: pct(cell.usd_day.range_lo), width: `calc(${pct(cell.usd_day.range_hi)} - ${pct(cell.usd_day.range_lo)})` }} />
+        <div className="mr-job__mmed" style={{ left: pct(cell.usd_day.median) }} />
+        <div className={`mr-job__ad mr-job__ad--${m.tone}`} style={{ left: pct(s.usd_day.min), width: `calc(${pct(s.usd_day.max)} - ${pct(s.usd_day.min)} + 2px)` }} />
+      </div>
+      <div className="mr-job__legend"><span><i className="sw band" />Market {fmtRange(marketLo, marketHi, u)}</span><span><i className={`sw ad ${m.tone}`} />This ad</span></div>
+      <div className="mr-job__foot">
+        {Math.abs(diff) < 0.03
+          ? <span className="mr-job__diff num">At the market median</span>
+          : <span className={`mr-job__diff ${diff >= 0 ? 'up' : 'down'} num`}>{diff >= 0 ? '+' : ''}{Math.round(diff * 100)}% vs median</span>}
+        <span>{fmtRate(marketMed, u)} median · {cell.n} ads</span>
+      </div>
+    </article>
+  )
+}
+
+/* ── info drawer ──────────────────────────────────────────────────── */
+function Drawer({ data, cell, onClose }) {
+  useEffect(() => {
+    const k = (e) => { if (e.key === 'Escape') onClose() }
+    window.addEventListener('keydown', k)
+    return () => window.removeEventListener('keydown', k)
+  }, [onClose])
+  const a = data.rules.assumptions
+  const types = cell ? Object.entries(cell.employer_types || {}).sort((x, y) => y[1] - x[1]).map(([k, v]) => `${v} ${k.replace('_', ' ')}`).join(', ') : ''
+  return (
+    <div className="mr-drawer" role="dialog" aria-modal="true" aria-label="About this data">
+      <div className="mr-drawer__scrim" onClick={onClose} />
+      <div className="mr-drawer__panel">
+        <div className="mr-drawer__head">
+          <div>
+            <div className="mr-eyebrow">About this data</div>
+            <h3>{cell ? `${cell.role_label}, ${cell.region_label}` : 'Methodology'}</h3>
+          </div>
+          <button type="button" className="mr-drawer__x" onClick={onClose} aria-label="Close">×</button>
+        </div>
+        <div className="mr-drawer__body">
+          <div className="mr-drawer__note">Internal preview. Illustrative only, built from public job ads, not placements. Not client-facing until source terms are settled.</div>
+          {cell && (
+            <section>
+              <h4>This benchmark</h4>
+              <dl className="mr-dl">
+                <dt>Pay basis</dt><dd>{cell.basis_label}{cell.hours_per_day ? `, ${cell.hours_per_day}h day` : ''}</dd>
+                <dt>Ads used</dt><dd className="num">{cell.n} of {cell.n_dedup} deduped ({cell.outliers_excluded} outliers removed), {cell.n_raw} raw</dd>
+                <dt>Employers</dt><dd className="num">{cell.employers}: {types}</dd>
+                <dt>Currencies</dt><dd className="num">{Object.entries(cell.currencies).map(([k, v]) => `${k} ${v}`).join(', ')}</dd>
+                <dt>Seen</dt><dd>{fmtDate(cell.first_seen_min)} to {fmtDate(cell.first_seen_max)}</dd>
+                <dt>Unleveled</dt><dd className="num">{cell.level_n?.unspecified ?? 0} ads give no years or seniority and count only in all levels</dd>
+              </dl>
+            </section>
+          )}
+          <section>
+            <h4>Coverage</h4>
+            <dl className="mr-dl">
+              <dt>Last updated</dt><dd>{fmtDate(data.cells[0]?.last_updated)}</dd>
+              <dt>Pay mentions</dt><dd className="num">{data.counts.rows_in.toLocaleString('en-US')} scanned</dd>
+              <dt>Ads with pay</dt><dd className="num">{data.counts.observations_dedup.toLocaleString('en-US')} after dedup</dd>
+              <dt>Benchmarks</dt><dd className="num">{data.counts.cells_published} published, {data.counts.level_cells_published} by level</dd>
+            </dl>
+          </section>
+          <section>
+            <h4>How ranges are built</h4>
+            <p>One observation per employer, role, title and stated pay, so reposts collapse. Only ads with an explicit pay period count. A benchmark publishes at {data.rules.min_n}+ ads from {data.rules.min_employers}+ employers. The typical range is p25 to p75 with outliers beyond 3x MAD removed; ends are rounded.</p>
+          </section>
+          <section>
+            <h4>Experience levels</h4>
+            <p>Low is under 5 years, mid 5 to 9, high 10+, from years stated in the ad, else seniority words in the title (trainee, junior: low; senior, lead, chief, superintendent: high). A level shows at 10+ ads.</p>
+          </section>
+          <section>
+            <h4>Rate vs market</h4>
+            <p>In range inside p25 to p75; slightly above or below within 10% outside an end; above or below market beyond that. An ad with its own range is banded on its midpoint.</p>
+          </section>
+          <section>
+            <h4>Conversions</h4>
+            <p>Hourly converts at {a.contract_hours_per_day}h a day on contract work and {a.perm_hours_per_day}h on permanent work; {a.days_per_year} days a year, {a.days_per_month} days a month. FX at ECB reference rates of {fmtDate(data.fx_date)}. Extractor {data.extractor_version}.</p>
+          </section>
+          <section>
+            <h4>Caveats</h4>
+            <p>Ads, not placements. "Up to" ranges overstate; permanent salaries exclude benefits. Marine monthly cells are crewing-agency wages.</p>
+          </section>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+/* ── page ─────────────────────────────────────────────────────────── */
 export default function MarketRatesPage() {
   const { data, loading, error } = useMarketRates()
-  // deep-linkable state: /market-rates?q=electrician&region=US&level=mid&period=day&open=electrician|US|contract_day
   const [params, setParams] = useSearchParams()
-  const [q, setQ] = useState(params.get('q') || '')
-  const [region, setRegion] = useState(params.get('region') || 'all')
-  const [level, setLevel] = useState(LEVELS.includes(params.get('level')) ? params.get('level') : 'all')
-  const [basis, setBasis] = useState(BASIS_ORDER.includes(params.get('basis')) ? params.get('basis') : 'all')
+  const [role, setRoleRaw] = useState(params.get('role') || 'electrician')
+  const [region, setRegionRaw] = useState(params.get('region') || 'US')
+  const [basis, setBasisRaw] = useState(BASIS_ORDER.includes(params.get('basis')) ? params.get('basis') : 'contract_day')
   const [period, setPeriod] = useState(PERIOD_OPTS.some(([k]) => k === params.get('period')) ? params.get('period') : 'native')
-  const [open, setOpen] = useState(params.get('open') || null)
+  const [tRegion, setTRegion] = useState('US')
+  const [tBasis, setTBasis] = useState('contract_day')
+  const [drawer, setDrawer] = useState(null) // null | 'method' | 'cell'
+  const explorerRef = useRef(null)
+
   useEffect(() => {
     const next = new URLSearchParams()
-    if (q) next.set('q', q)
-    if (region !== 'all') next.set('region', region)
-    if (level !== 'all') next.set('level', level)
-    if (basis !== 'all') next.set('basis', basis)
+    next.set('role', role); next.set('region', region); next.set('basis', basis)
     if (period !== 'native') next.set('period', period)
-    if (open) next.set('open', open)
     if (next.toString() !== params.toString()) setParams(next, { replace: true })
-  }, [q, region, level, basis, period, open]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [role, region, basis, period]) // eslint-disable-line react-hooks/exhaustive-deps
 
-  const filtered = useMemo(() => {
+  const roles = useMemo(() => {
     if (!data) return []
-    const needle = q.trim().toLowerCase()
-    return data.cells.filter(c => {
-      if (region !== 'all' && c.region !== region) return false
-      if (basis !== 'all' && c.basis !== basis) return false
-      if (needle && !(c.role_label.toLowerCase().includes(needle) || c.role.includes(needle) || c.region_label.toLowerCase().includes(needle))) return false
-      return true
-    })
-  }, [data, q, region, basis])
-
-  // sections by basis, each with its own shared scale (same unit inside a section)
-  const sections = useMemo(() => {
-    const out = []
-    for (const b of BASIS_ORDER) {
-      const rows = filtered.filter(c => c.basis === b)
-      if (!rows.length) continue
-      const p = period === 'native' ? rows[0].unit : period
-      const top = Math.max(...rows.map(c => {
-        const lc = level !== 'all' && c.levels[level] ? c.levels[level] : c
-        return cellStats(lc, p).p75Raw
-      }))
-      out.push({ basis: b, label: data.labels.bases[b], rows, period: p, max: niceMax(top * 1.08) })
+    const m = new Map()
+    for (const c of data.cells) {
+      const r = m.get(c.role) || { role: c.role, label: c.role_label, n: 0 }
+      r.n += c.n
+      m.set(c.role, r)
     }
-    return out
-  }, [filtered, period, level, data])
+    return [...m.values()].sort((a, b) => (isOther(a.label) - isOther(b.label)) || b.n - a.n)
+  }, [data])
 
-  const totalEmployers = useMemo(() => data ? data.cells.reduce((a, c) => a + c.employers, 0) : 0, [data])
+  const roleCells = useMemo(() => (data ? data.cells.filter(c => c.role === role) : []), [data, role])
+
+  // keep role / region / basis a valid combination
+  const pickFor = (r, preferRegion, preferBasis) => {
+    const cs = data.cells.filter(c => c.role === r)
+    if (!cs.length) return null
+    const byN = (a, b) => b.n - a.n
+    return cs.find(c => c.region === preferRegion && c.basis === preferBasis)
+      || cs.filter(c => c.region === preferRegion).sort(byN)[0]
+      || cs.filter(c => c.basis === preferBasis).sort(byN)[0]
+      || cs.sort(byN)[0]
+  }
+  const apply = (c) => { if (c) { setRoleRaw(c.role); setRegionRaw(c.region); setBasisRaw(c.basis) } }
+  const setRole = (r) => apply(pickFor(r, region, basis))
+  const setRegion = (g) => apply(pickFor(role, g, basis))
+  const setBasis = (b) => apply(pickFor(role, region, b))
+
+  const cell = useMemo(() => {
+    if (!data) return null
+    return data.cells.find(c => c.role === role && c.region === region && c.basis === basis) || pickFor(role, region, basis) || data.cells[0]
+  }, [data, role, region, basis]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  const samples = useMemo(() => {
+    if (!data) return []
+    return CARD_PICKS.map(b => data.samples.find(s => s.band === b)).filter(Boolean)
+      .map(s => ({ s, cell: data.cells.find(c => c.id === s.cell_id) })).filter(x => x.cell)
+  }, [data])
+
+  const scrollToExplorer = () => explorerRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+
+  if (loading) return <div className="mr"><div className="mr-empty">Loading market rates…</div></div>
+  if (error || !data) return <div className="mr"><div className="mr-empty">Could not load market rates: {error}</div></div>
 
   return (
     <div className="mr">
       <SEO title="Market rates - Moblyze Jobs" description="Internal preview of market pay rates by role, region and experience level" />
-      <div className="mr-preview"><span className="tag">Internal preview</span> Illustrative client-product mock. Numbers come from public job ads, not placements; nothing here is client-facing yet.</div>
+      <Hero data={data} onMethod={() => setDrawer('method')} onExplore={scrollToExplorer} />
 
-      <header className="mr-hero">
-        <div>
-          <h1>What the market is <em>paying</em> right now</h1>
-          <p>Typical pay by role, region and experience level, built from {data ? data.counts.rows_in.toLocaleString('en-US') : '…'} pay mentions across energy and marine job ads. Ranges are the middle half of the market (p25 to p75); the tick is the median.</p>
-        </div>
-        {data && (
-          <div className="mr-stats">
-            <Stat v={data.counts.cells_published} l="role x region cells" />
-            <Stat v={data.counts.level_cells_published} l="with experience levels" />
-            <Stat v={data.counts.observations_dedup.toLocaleString('en-US')} l="ads with explicit pay" />
-            <Stat v={fmtDate(data.cells[0]?.last_updated)} l="last updated" txt />
+      <section className="mr-section" ref={explorerRef} id="explore">
+        <div className="mr-section__head">
+          <div>
+            <div className="mr-eyebrow">Benchmarks</div>
+            <h2>Explore a role</h2>
           </div>
-        )}
-      </header>
-
-      {data && (
-        <div className="mr-filters">
-          <div className="row">
-            <label className="mr-search">
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="9" cy="9" r="6" /><path d="m14 14 4 4" strokeLinecap="round" /></svg>
-              <input value={q} onChange={e => setQ(e.target.value)} placeholder="Search a role (electrician, ROV, inspector…)" aria-label="Search roles" />
-            </label>
-            <select className="mr-select" value={region} onChange={e => setRegion(e.target.value)} aria-label="Region">
-              <option value="all">All regions</option>
-              {data.regions.map(r => <option key={r} value={r}>{data.cells.find(c => c.region === r)?.region_label || r}</option>)}
-            </select>
-            <div className="mr-seg" role="group" aria-label="Experience level">
-              <span className="lbl">Level</span>
-              {[['all', 'All'], ...LEVELS.map(L => [L, LEVEL_SHORT[L]])].map(([k, l]) => (
-                <button key={k} aria-pressed={level === k} onClick={() => setLevel(k)} title={k === 'all' ? 'All experience levels' : data.labels.levels[k]}>{l}</button>
-              ))}
-            </div>
-            <div className="mr-seg" role="group" aria-label="Pay period">
-              <span className="lbl">Show</span>
-              {PERIOD_OPTS.map(([k, l]) => <button key={k} aria-pressed={period === k} onClick={() => setPeriod(k)}>{l}</button>)}
-            </div>
-          </div>
-          <div className="row" style={{ marginTop: 8 }}>
-            <div className="mr-chips" role="group" aria-label="Pay basis">
-              <button className="mr-chip" aria-pressed={basis === 'all'} onClick={() => setBasis('all')}>All bases</button>
-              {BASIS_ORDER.map(b => <button key={b} className="mr-chip" aria-pressed={basis === b} onClick={() => setBasis(b)}>{data.labels.bases[b]}</button>)}
-            </div>
-            <span style={{ marginLeft: 'auto', fontSize: 12, color: 'var(--mr-ink-3)' }}>{filtered.length} of {data.cells.length} cells</span>
+          <div className="mr-section__tools">
+            <span className="mr-tools-label">Show rates</span>
+            <Segmented label="Pay period" options={PERIOD_OPTS} value={period} onChange={setPeriod} size="sm" />
           </div>
         </div>
-      )}
-
-      {loading && <div className="mr-empty">Loading market rates…</div>}
-      {error && <div className="mr-empty">Could not load market rates: {error}</div>}
-      {data && !filtered.length && <div className="mr-empty">No published cell matches. Cells need 10+ deduped ads from 3+ employers.</div>}
-
-      {sections.map(sec => (
-        <section key={sec.basis} className="mr-section">
-          <div className="mr-section-head">
-            <h2>{sec.label}</h2>
-            <span className="sub">{sec.rows.length} cell{sec.rows.length === 1 ? '' : 's'} · USD{unitSuffix(sec.period)}{sec.period !== sec.rows[0].unit ? ` (converted from /${sec.rows[0].unit})` : ''}</span>
-          </div>
-          <div className="mr-axis">
-            <span>Role · region</span>
-            <span className="ticks"><span>$0</span><span>{fmtMoney(sec.max / 2, { compact: true })}</span><span>{fmtMoney(sec.max, { compact: true })}{unitSuffix(sec.period)}</span></span>
-            <span style={{ textAlign: 'right' }}>Median</span>
-            <span>Sample</span>
-          </div>
-          <div className="mr-list">
-            {sec.rows.map(c => (
-              <RateRow key={c.id} cell={c} period={sec.period} max={sec.max} open={open === c.id} onToggle={() => setOpen(open === c.id ? null : c.id)} labels={data.labels} levelFilter={level} />
-            ))}
-          </div>
-        </section>
-      ))}
-
-      {data && (
-        <div className="mr-legend">
-          <span><span className="sw" />Typical range, p25 to p75</span>
-          <span><span className="sw tick" />Median</span>
-          <span><span className="sw ghost" />All-levels range behind a level</span>
-          <span>Click a row for levels, trend and provenance</span>
+        <div className="mr-explorer">
+          <RolePicker roles={roles} role={role} setRole={setRole} />
+          {cell && (
+            <Benchmark data={data} cell={cell} roleCells={roleCells} region={cell.region} setRegion={setRegion}
+              basis={cell.basis} setBasis={setBasis} period={period} onInfo={() => setDrawer('cell')} />
+          )}
         </div>
-      )}
+      </section>
 
-      {data && data.samples.length > 0 && (
-        <section className="mr-section">
-          <div className="mr-section-head">
-            <h2>On a job card: rate vs market</h2>
-            <span className="sub">Real ads, banded against their role x region range</span>
+      <CompareTable data={data} region={tRegion} setRegion={(g) => {
+        setTRegion(g)
+        if (!data.cells.some(c => c.region === g && c.basis === tBasis)) setTBasis(BASIS_ORDER.find(b => data.cells.some(c => c.region === g && c.basis === b)))
+      }} basis={tBasis} setBasis={setTBasis} period={period} selectedId={cell?.id}
+        onPick={(c) => { apply(c); scrollToExplorer() }} />
+
+      {samples.length > 0 && (
+        <section className="mr-section" id="job-cards">
+          <div className="mr-section__head">
+            <div>
+              <div className="mr-eyebrow">On a job card</div>
+              <h2>Rate vs market, at a glance</h2>
+            </div>
+            <p className="mr-section__note">Real ads, each banded against the typical range for its role and region.</p>
           </div>
-          <div className="mr-cards">
-            {data.samples.slice(0, 6).map(s => <SampleCard key={s.source_url} s={s} cells={data.cells} />)}
-          </div>
-          <div className="mr-legend">
-            {Object.entries(BAND_META).map(([k, m]) => <span key={k}><RateBadge band={k} /></span>)}
-            <span>In range inside p25 to p75; near within 10% outside an end; above or below beyond that. Ads with their own range are banded on the midpoint.</span>
+          <div className="mr-jobs">
+            {samples.map(({ s, cell: c }) => <JobCard key={s.source_url} s={s} cell={c} />)}
           </div>
         </section>
       )}
 
-      {data && (
-        <footer className="mr-foot">
-          <h2>Source and method</h2>
-          <p style={{ margin: 0 }}>
-            Scraped public job ads (direct career sites, job boards, crewing agencies), extractor {data.extractor_version}, FX at ECB reference rates of {fmtDate(data.fx_date)}. One observation per employer, role, title and stated pay (reposts collapse). Only ads with an explicit pay period count (grade A/B); cells publish at {data.rules.min_n}+ deduped ads from {data.rules.min_employers}+ employers, with 3xMAD outliers excluded. Hourly ads convert at {data.rules.assumptions.contract_hours_per_day}h/day on contract work and {data.rules.assumptions.perm_hours_per_day}h/day on permanent work; {data.rules.assumptions.days_per_year} days a year.
-          </p>
-          <ul>
-            <li><b>Experience level:</b> {data.rules.experience_level}. Of {data.counts.observations_dedup.toLocaleString('en-US')} ads with pay, {data.counts.experience_source_of_observations.years.toLocaleString('en-US')} state years, {data.counts.experience_source_of_observations.title.toLocaleString('en-US')} carry a title word, {data.counts.experience_level_of_observations.unspecified.toLocaleString('en-US')} give neither. {data.rules.level_fallback}.</li>
-            <li><b>Trend:</b> {data.rules.trend}.</li>
-            <li><b>Caveats:</b> ads, not placements; ranges with "up to" overstate and permanent salaries exclude benefits. Marine cells are crewing-agency monthly wages. Not for client use until source terms are settled.</li>
-          </ul>
-        </footer>
-      )}
+      <footer className="mr-foot">
+        <span className="mr-preview-pill mr-preview-pill--light">Internal preview · Illustrative</span>
+        <span>Built from public job ads, not placements. Updated {fmtDate(data.cells[0]?.last_updated)}.</span>
+        <button type="button" className="mr-linkbtn" onClick={() => setDrawer('method')}><InfoIcon />Methodology</button>
+      </footer>
+
+      {drawer && <Drawer data={data} cell={drawer === 'cell' ? cell : null} onClose={() => setDrawer(null)} />}
     </div>
   )
 }

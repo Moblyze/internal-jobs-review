@@ -9,8 +9,8 @@ export const LEVELS = ['low', 'mid', 'high']
 export const LEVEL_SHORT = { low: 'Low', mid: 'Mid', high: 'High' }
 export const BAND_META = {
   in_range:     { label: 'In range',     tone: 'good',   glyph: '●' },
-  near_above:   { label: 'Near (above)', tone: 'near',   glyph: '◐' },
-  near_below:   { label: 'Near (below)', tone: 'near',   glyph: '◑' },
+  near_above:   { label: 'Slightly above', tone: 'near',   glyph: '◐' },
+  near_below:   { label: 'Slightly below', tone: 'near',   glyph: '◑' },
   above_market: { label: 'Above market', tone: 'above',  glyph: '▲' },
   below_market: { label: 'Below market', tone: 'below',  glyph: '▼' },
 }
@@ -81,7 +81,7 @@ export function fmtDate(iso) {
 
 export function fmtMonth(ym) {
   const [y, m] = ym.split('-').map(Number)
-  return new Date(Date.UTC(y, m - 1, 1)).toLocaleDateString('en-US', { month: 'short', year: '2-digit', timeZone: 'UTC' })
+  return new Date(Date.UTC(y, m - 1, 1)).toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' })
 }
 
 // Band a value (usd/day) against a cell's typical range. Mirrors pay_rates/bands.py.
@@ -100,4 +100,40 @@ export function niceMax(v) {
   const f = v / exp
   const nice = f <= 1 ? 1 : f <= 2 ? 2 : f <= 2.5 ? 2.5 : f <= 5 ? 5 : 10
   return nice * exp
+}
+
+// Display formatting used across the redesigned view:
+// $425/day, $36/hr, $6,700/mo, $100k/yr. Values are rounded with roundClean first.
+export const PERIOD_SUFFIX = { day: '/day', hour: '/hr', month: '/mo', year: '/yr' }
+export function fmtAmount(v, period) {
+  if (v == null || isNaN(v)) return '–'
+  const r = roundClean(v, period)
+  if (period === 'year') {
+    const k = r / 1000
+    return `$${k >= 100 ? Math.round(k) : Math.round(k * 10) / 10}k`
+  }
+  return `$${Math.round(r).toLocaleString('en-US')}`
+}
+export function fmtRate(v, period) {
+  if (v == null || isNaN(v)) return '–'
+  return `${fmtAmount(v, period)}${PERIOD_SUFFIX[period] || ''}`
+}
+export function fmtRange(lo, hi, period) {
+  if (lo == null || hi == null) return '–'
+  if (roundClean(lo, period) === roundClean(hi, period)) return fmtRate(lo, period)
+  return `${fmtAmount(lo, period)}-${fmtRate(hi, period)}`
+}
+
+// Axis domain for range plots (not bar lengths, so a non-zero start is honest):
+// pads the data a little and snaps both ends to a nice step, `ticks` intervals.
+export function niceDomain(lo, hi, ticks = 4) {
+  const a = Math.max(0, lo * 0.85), b = hi * 1.08
+  const raw = (b - a) / ticks || 1
+  const exp = Math.pow(10, Math.floor(Math.log10(raw)))
+  const f = raw / exp
+  const step = (f <= 1 ? 1 : f <= 2 ? 2 : f <= 2.5 ? 2.5 : f <= 5 ? 5 : 10) * exp
+  const min = Math.floor(a / step) * step
+  let max = Math.ceil(b / step) * step
+  const n = Math.round((max - min) / step)
+  return { min, max, ticks: n }
 }
