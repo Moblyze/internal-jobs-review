@@ -137,3 +137,32 @@ export function niceDomain(lo, hi, ticks = 4) {
   const n = Math.round((max - min) / step)
   return { min, max, ticks: n }
 }
+
+// 23 -> "23rd percentile"
+export function ordinal(n) {
+  const v = n % 100
+  const s = v >= 11 && v <= 13 ? 'th' : ({ 1: 'st', 2: 'nd', 3: 'rd' }[n % 10] || 'th')
+  return `${n}${s}`
+}
+
+export const LEVEL_FLOOR_N = 11 // n at or below this is too thin to show an experience range
+
+const LEVEL_ORDER = ['low', 'mid', 'high']
+
+// Experience cells that should read "Needs more data" instead of a range:
+// 1) n is at the floor (10-11), or
+// 2) the level's band tops out below the next-lower published level's median (inverted).
+// Works on usd_day so it is unit independent. Returns { suppressed, reason }.
+export function levelCellStatus(levels, level) {
+  const lc = levels?.[level]
+  if (!lc) return { suppressed: true, reason: 'missing' }
+  if (lc.n <= LEVEL_FLOOR_N) return { suppressed: true, reason: 'thin' }
+  const idx = LEVEL_ORDER.indexOf(level)
+  for (let i = idx - 1; i >= 0; i--) {
+    const lower = levels[LEVEL_ORDER[i]]
+    if (!lower) continue
+    if (lc.usd_day.range_hi < lower.usd_day.median) return { suppressed: true, reason: 'inverted' }
+    break
+  }
+  return { suppressed: false, reason: null }
+}

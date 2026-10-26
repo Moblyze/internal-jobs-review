@@ -7,7 +7,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
-import { bandOf, cellStats, fmtAmount, fmtDate, fmtRange, fmtRate, niceDomain } from '../utils/marketRates'
+import { bandOf, cellStats, levelCellStatus, ordinal, fmtAmount, fmtDate, fmtRange, fmtRate, niceDomain } from '../utils/marketRates'
 import '../market-rates-v2.css'
 
 const DATA_URL = `${import.meta.env.BASE_URL || '/'}data/market_rates.json`
@@ -80,8 +80,8 @@ function prettyRole(c) { return c.role_label.replace(/ Technician$/, ' technicia
 function resolveCell(data, role, region, unit, level) {
   const base = data.cells.find(c => c.role === role && c.region === region && c.basis === UNIT_BASIS[unit])
   if (!base) return null
-  const lv = level !== 'all' ? base.levels?.[level] : null
-  return { base, cell: lv || base, levelUsed: lv ? level : 'all', levelMissing: level !== 'all' && !lv ? (base.level_n?.[level] ?? 0) : null }
+  const lv = level !== 'all' && !levelCellStatus(base.levels, level).suppressed ? base.levels[level] : null
+  return { base, cell: lv || base, levelUsed: lv ? level : 'all', levelMissing: level !== 'all' && !lv ? (base.levels?.[level]?.n ?? base.level_n?.[level] ?? 0) : null }
 }
 
 /* ── small pieces ─────────────────────────────────────────────────── */
@@ -174,7 +174,7 @@ function RateCheck({ data, buyer, onDetail }) {
   if (r) {
     for (const l of ['low', 'mid', 'high']) {
       const lc = r.base.levels?.[l]
-      if (!lc || l === r.levelUsed) continue
+      if (!lc || l === r.levelUsed || levelCellStatus(r.base.levels, l).suppressed) continue
       const ls = cellStats(lc, unit)
       const d = ls.median - st.median
       if (d === 0) continue
@@ -226,7 +226,7 @@ function RateCheck({ data, buyer, onDetail }) {
           </label>
         </form>
         {r?.levelMissing != null && (
-          <p className="m2-note">{LEVEL_NAME[f.level]} needs 10+ ads for this role and region ({r.levelMissing} so far), so this compares against all levels.</p>
+          <p className="m2-note">{LEVEL_NAME[f.level]} needs more data for this role and region, so this compares against all levels.</p>
         )}
       </div>
 
@@ -239,7 +239,10 @@ function RateCheck({ data, buyer, onDetail }) {
             </div>
             {ok ? (
               <div className="m2-verdict">
-                <div className="m2-verdict__p num"><small>P</small>{pctl}</div>
+                <div className="m2-verdict__pwrap">
+                  <div className="m2-verdict__p num"><small>P</small>{pctl}</div>
+                  <span className="m2-verdict__pw">{ordinal(pctl)} percentile</span>
+                </div>
                 <div className="m2-verdict__txt">
                   <p className="m2-verdict__line"><b className="num">{Math.round(Math.abs(diff) * 100)}% {dir}</b> the {lvlLabel} of <b className="num">{fmtRate(st.median, unit)}</b></p>
                   <p className={`m2-status m2-status--${STATUS[band].tone}`}><span aria-hidden="true">{STATUS[band].icon}</span>{STATUS[band].label}</p>
@@ -288,7 +291,7 @@ function FreeLayer({ data, onDetail }) {
           <p className="m2-eyebrow">Included in this edition</p>
           <h2 id="m2-free-h">Five featured trades, United States contract day rates</h2>
         </div>
-        <p className="m2-sec__aside">One median and one typical range per trade. Experience levels show only when 10 or more ads back them.</p>
+        <p className="m2-sec__aside">One median and one typical range per trade. Experience ranges show only when enough ads back them and the order holds.</p>
       </header>
       <div className="m2-cards">
         {cells.map(c => {
@@ -304,12 +307,13 @@ function FreeLayer({ data, onDetail }) {
               <ul className="m2-levels">
                 {['low', 'mid', 'high'].map(l => {
                   const lc = c.levels?.[l]
+                  const shown = lc && !levelCellStatus(c.levels, l).suppressed
                   return (
                     <li key={l}>
                       <span className="m2-levels__l">{LEVEL_NAME[l]}<small>{LEVEL_YRS[l]}</small></span>
-                      {lc
+                      {shown
                         ? <span className="m2-levels__v num">{fmtRange(cellStats(lc, 'day').p25, cellStats(lc, 'day').p75, 'day')}</span>
-                        : <span className="m2-levels__na">Needs 10+ ads</span>}
+                        : <span className="m2-levels__na">Needs more data</span>}
                     </li>
                   )
                 })}
