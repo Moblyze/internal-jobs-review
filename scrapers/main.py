@@ -177,6 +177,12 @@ except ImportError:
     pass
 
 try:
+    from src.scrapers.faststream import FaststreamScraper
+    SCRAPER_REGISTRY['faststream'] = FaststreamScraper
+except ImportError:
+    pass
+
+try:
     from src.scrapers.wp_rest import WPRestScraper
     SCRAPER_REGISTRY['wp_rest'] = WPRestScraper
 except ImportError:

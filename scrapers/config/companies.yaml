@@ -1311,6 +1311,15 @@ companies:
   # dedicated adapter here -- flagging for a human decision since 2 more
   # backlog employers are also on Pinpoint. No companies.yaml entry added.
 
+  # Faststream Recruitment (88 CrewBase pay rows) is NOT wired. Adapter
+  # src/scrapers/faststream.py is built and tested (sitemap + detail pages, 193
+  # live jobs, labeled Salary field), but www.faststream.com answers HTTP 202 with
+  # an AWS WAF challenge (x-amzn-waf-action: challenge) after the first few plain
+  # requests, from here and likely from CI. Solving a challenge is circumvention,
+  # so it stays off until Faststream allows it. Verified 2026-10-26.
+  #   faststream: {name: "Faststream Recruitment", platform: faststream,
+  #                base_url: "https://www.faststream.com/", rate_limit_delay: 1.5}
+
   # Team Recruitment: plain server-rendered Craft CMS site (no JS rendering
   # needed). Listing at /vacancies, detail pages have Job Description +
   # Desired Qualities + a labeled Vacancy ID/Job Type/Department/Location
