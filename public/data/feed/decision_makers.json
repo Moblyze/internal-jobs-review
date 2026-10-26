@@ -18,7 +18,7 @@
       "crewing"
     ],
     "notes": "Run truncated due to context budget (~8 companies of 59 covered with searches). Email enrichment deferred per spec.",
-    "last_updated_at": "2026-10-23T18:14:46.941Z"
+    "last_updated_at": "2026-10-26T18:18:29.710Z"
   },
   "perenco": {
     "discovered_at": "2026-05-18T03:08:35.546Z",
@@ -15490,6 +15490,33 @@
         "email": null,
         "phone": null,
         "location": null
+      }
+    ]
+  },
+  "op gold capital": {
+    "discovered_at": "2026-10-26T18:18:29.710Z",
+    "contacts": [
+      {
+        "name": "Olimpo Antonio Oliver Peñaranda",
+        "title": "Representante Legal (Legal Representative) / Head of Grupo OPG",
+        "persona": "operations",
+        "linkedin_url": null,
+        "source_url": "https://www.las2orillas.co/la-presidenta-de-la-anm-se-despide-con-una-ultima-subasta-que-le-dio-via-libre-para-explorar-a-tres-mineras-colombiana/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Bogotá, Colombia"
+      },
+      {
+        "name": "Yesica Patricia Ortegon Moya",
+        "title": "Encargado de Cumplimiento Normativo de Riesgos (Compliance & Risk Officer)",
+        "persona": "hr",
+        "linkedin_url": "https://www.linkedin.com/in/yesica-patricia-ortegon-moya-2531b516b",
+        "source_url": "https://www.linkedin.com/in/yesica-patricia-ortegon-moya-2531b516b/",
+        "in_target_persona": true,
+        "email": null,
+        "phone": null,
+        "location": "Bogotá, Colombia"
       }
     ]
   }

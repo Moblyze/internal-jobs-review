@@ -4,6 +4,106 @@
       {
         "id": "mining_com",
         "name": "MINING.com",
+        "url": "https://www.mining.com/local-miner-outbids-freeport-for-colombia-exploration/"
+      }
+    ],
+    "headline": "OP Gold Capital Awarded 60 sq-km Exploration Block in Cesar, Colombia Over Freeport-McMoRan",
+    "body": "Colombia's OP Gold Capital outbid Freeport-McMoRan for a 60-sq.-km exploration block in Cesar.",
+    "url": "https://www.mining.com/local-miner-outbids-freeport-for-colombia-exploration/",
+    "published_at": "2026-10-26T15:21:20.000Z",
+    "hash": "bc0b8b56c45ee739",
+    "subsector": "mining",
+    "discipline_tags": [
+      "survey_geophysical"
+    ],
+    "signal_type": "lease_round",
+    "region": "colombia",
+    "country": "colombia",
+    "tldr": "OP Gold Capital has secured a 60 sq-km exploration block in Colombia's Cesar region, outbidding Freeport-McMoRan. Early-stage exploration work will drive near-term demand for geologists, geophysicists, and field survey crews.",
+    "operator": {
+      "name": "OP Gold Capital",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "OP Gold Capital",
+      "matched_company_slug": null
+    },
+    "project_name": "Cesar Exploration Block",
+    "scope": [
+      "exploration",
+      "block_award"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Exploration Geologist",
+        "Geophysicist",
+        "Field Geologist",
+        "Exploration Manager",
+        "Survey Geologist",
+        "Drilling Geologist",
+        "Resource Geologist"
+      ],
+      "skills": [
+        "mineral exploration",
+        "geological mapping",
+        "geophysical surveys",
+        "sampling",
+        "GIS",
+        "drill program management",
+        "gold exploration"
+      ],
+      "certs_freetext": [
+        "P.Geo",
+        "MCSM",
+        "MAusIMM"
+      ],
+      "geo_rtw": "Colombia or Latin America RTW; local nationals and expats considered",
+      "project_experience": [
+        "Freeport-McMoRan exploration campaigns",
+        "Colombia gold exploration",
+        "Andean mineral exploration"
+      ],
+      "yoe_band": "5-15",
+      "seniority": "mid to senior",
+      "boolean_search": "(\"exploration geologist\" OR \"geophysicist\" OR \"field geologist\" OR \"resource geologist\" OR \"exploration manager\") AND (\"gold\" OR \"mineral exploration\" OR \"mining exploration\") AND (\"Colombia\" OR \"Andes\" OR \"Latin America\") AND (\"geological mapping\" OR \"geophysical survey\" OR \"sampling\" OR \"drill program\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], OP Gold Capital just secured a 60 sq-km gold exploration block in Cesar, Colombia. With exploration ramping, they'll need experienced geologists and geophysicists. Worth a conversation?",
+      "email_subject": "Exploration Opportunity – OP Gold Capital, Cesar Block, Colombia",
+      "email_body": "Hi [Name],\n\nOP Gold Capital has been awarded a 60 sq-km exploration block in Colombia's Cesar region, outbidding Freeport-McMoRan in the process. As exploration activity mobilises, there will be demand for exploration geologists, geophysicists, and field survey professionals with Andean or Colombian experience.\n\nGiven your background in mineral exploration, I wanted to reach out to see if you'd be open to discussing potential opportunities tied to this campaign.\n\nHappy to share more details — would a brief call work this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Specific exploration block award in Colombia naming operator OP Gold Capital and naming the acreage, qualifying as a lease/block assignment with direct workforce implications in the mining sector.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article describes a block award at the exploration stage — no FID or development plan referenced, indicating pre-sanction/early exploration phase.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "b81aa91e-a4fa-4d50-bf61-924f111c343e",
+    "ingested_at": "2026-10-26T18:17:10.242Z",
+    "source_published_at": "2026-10-26T15:21:20.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
         "url": "https://www.mining.com/bannerman-pulls-trigger-on-353m-uranium-mine/"
       }
     ],
