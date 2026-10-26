@@ -20,7 +20,7 @@ on:
 jobs:
   sync-data-and-deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 15  # Fast without AI processing (~5-10 minutes)
+    timeout-minutes: 40  # Includes the R2 artifact upload
 
     # Grant GITHUB_TOKEN write permissions for data commits and Cloudflare Pages deployment
     permissions:

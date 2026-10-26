@@ -21,7 +21,7 @@ on:
 jobs:
   deploy-code:
     runs-on: ubuntu-latest
-    timeout-minutes: 10  # Should complete in ~2-3 minutes
+    timeout-minutes: 30  # R2 artifact upload adds several minutes
 
     # Grant GITHUB_TOKEN write permissions for Cloudflare Pages deployment
     permissions:

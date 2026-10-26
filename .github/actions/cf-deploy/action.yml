@@ -52,9 +52,12 @@ runs:
         cd .cf-r2
         # current/jobs-current.json.gz is served by the Pages Function, which adds Content-Encoding: gzip.
         # archive/* are plain downloadable .gz files (no content-encoding, so tools get the bytes as stored).
-        for f in $(find . -type f -name '*.gz' | sed 's|^\./||'); do
-          npx --yes wrangler@4 r2 object put "bd-feed-private/$f" --file "$f" --content-type application/gzip --remote
-        done
+        # About 270 objects (256 closed/ shards + current + archive months): upload 8 at a time,
+        # one wrangler call per object, serially, is estimated at ~10 min. xargs exits non-zero if any put fails.
+        npx --yes wrangler@4 --version >/dev/null
+        find . -type f -name '*.gz' | sed 's|^\./||' | \
+          xargs -P 8 -I{} npx --yes wrangler@4 r2 object put "bd-feed-private/{}" --file "{}" --content-type application/gzip --remote
+        echo "uploaded $(find . -type f -name '*.gz' | wc -l) objects to R2"
     - name: Deploy to Cloudflare Pages
       shell: bash
       env:
