@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { mergeEnhancements } from '../utils/jobEnhancementStorage';
 import { decodeLiteIndex } from '../utils/liteIndexDecoder';
+import { jobShardIndex, shardKey } from '../utils/jobShard';
 import { companyToSlug } from '../utils/formatters';
 import { normalizeCompanyName } from '../utils/companyNormalizer';
 
@@ -62,6 +63,20 @@ export function useFilterOptions() {
   return options;
 }
 
+// ── Jobs manifest (index shard list + detail shard map) ─────────────────────
+let manifestCache = null;
+
+async function loadJobsManifest(forceRefresh = false) {
+  if (manifestCache && !forceRefresh) return manifestCache;
+  const res = await fetch(`${import.meta.env.BASE_URL}data/jobs-manifest.json`, {
+    cache: forceRefresh ? 'no-store' : 'no-cache', // always revalidate (ETag), never serve a stale shard list
+  });
+  if (!res.ok) throw new Error('Failed to load jobs manifest');
+  manifestCache = await res.json();
+  detailShardCache.clear();
+  return manifestCache;
+}
+
 export function useJobs() {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -80,47 +95,23 @@ export function useJobs() {
     // Start loading filter options in parallel (tiny file, instant)
     loadFilterOptions();
 
-    // Try lite index first, fall back to legacy index
-    const liteFile = 'data/jobs-index-lite.json';
-    const legacyFile = 'data/jobs-index.json';
-    const cacheBust = forceRefresh ? `?t=${Date.now()}` : '';
-
     if (forceRefresh) {
-      console.log('[useJobs] Force refresh requested - fetching with cache-busting');
+      console.log('[useJobs] Force refresh requested - revalidating manifest');
     }
 
     try {
-      let data;
-      let usedLite = false;
-
-      // Try lite index first
-      try {
-        const liteUrl = `${import.meta.env.BASE_URL}${liteFile}${cacheBust}`;
-        const res = await fetch(liteUrl, {
-          cache: forceRefresh ? 'no-store' : 'default'
-        });
-        if (res.ok) {
-          const liteData = await res.json();
-          if (liteData._version && liteData.jobs) {
-            data = decodeLiteIndex(liteData);
-            usedLite = true;
-            console.log(`[useJobs] Loaded lite index: ${data.length} jobs (decoded from dictionary format)`);
-          }
-        }
-      } catch (liteErr) {
-        console.warn('[useJobs] Lite index not available, falling back to legacy:', liteErr.message);
-      }
-
-      // Fall back to legacy index
-      if (!data) {
-        const legacyUrl = `${import.meta.env.BASE_URL}${legacyFile}${cacheBust}`;
-        const res = await fetch(legacyUrl, {
-          cache: forceRefresh ? 'no-store' : 'default'
-        });
-        if (!res.ok) throw new Error('Failed to load jobs');
-        data = await res.json();
-        console.log(`[useJobs] Loaded legacy index: ${data.length} jobs`);
-      }
+      // The manifest is tiny and always revalidated. Index shards are content-hashed
+      // (immutable, cached forever), so a refresh only downloads shards that changed.
+      const manifest = await loadJobsManifest(forceRefresh);
+      const shards = await Promise.all(
+        manifest.index.map(async ({ file }) => {
+          const res = await fetch(`${import.meta.env.BASE_URL}data/jobs/${file}`);
+          if (!res.ok) throw new Error(`Failed to load jobs shard ${file}`);
+          return decodeLiteIndex(await res.json());
+        })
+      );
+      const data = shards.flat();
+      console.log(`[useJobs] Loaded ${data.length} current jobs from ${shards.length} index shards`);
 
       const now = new Date();
 
@@ -132,7 +123,7 @@ export function useJobs() {
       setLastUpdated(now);
       localStorage.setItem(LAST_UPDATED_KEY, now.toISOString());
       setLoading(false);
-      console.log(`[useJobs] Loading complete (${usedLite ? 'lite' : 'legacy'} format)`);
+      console.log('[useJobs] Loading complete');
 
       // After loading jobs, check for new locations and auto-geocode them
       if (forceRefresh) {
@@ -201,42 +192,33 @@ export function getJobById(jobs, jobId) {
   return jobs.find(job => job.id === jobId);
 }
 
-// Cache for full job data (loaded on-demand for detail pages)
-let fullJobsCache = null;
-let fullJobsPromise = null;
+// Per-job detail (description, structuredDescription, url) lives in content-hashed
+// shards keyed by FNV-1a(id). A detail page fetches exactly one shard (~0.6 MB raw).
+const detailShardCache = new Map(); // shard key -> Promise<object>
 
-/**
- * Load full jobs data (with description) for detail pages.
- * The index file strips descriptions for performance; this loads the full file on demand.
- * Cached after first load.
- */
-export async function loadFullJobData() {
-  if (fullJobsCache) return fullJobsCache;
-  if (fullJobsPromise) return fullJobsPromise;
-
-  fullJobsPromise = (async () => {
-    try {
-      const res = await fetch(`${import.meta.env.BASE_URL}data/jobs.json`);
-      if (!res.ok) throw new Error('Failed to load full job data');
-      const data = await res.json();
-      // Build a map of id -> full job for fast lookups
-      const map = new Map();
-      data.forEach(job => map.set(job.id, job));
-      fullJobsCache = map;
-      return map;
-    } catch (err) {
-      console.error('[useJobs] Error loading full job data:', err);
-      fullJobsPromise = null;
-      return new Map();
-    }
-  })();
-
-  return fullJobsPromise;
+function loadDetailShard(manifest, id) {
+  const count = manifest.detail.shards;
+  const key = shardKey(jobShardIndex(id, count), count);
+  if (!detailShardCache.has(key)) {
+    const file = manifest.detail.files[key];
+    const p = fetch(`${import.meta.env.BASE_URL}data/jobs/detail/${file}`)
+      .then(res => {
+        if (!res.ok) throw new Error(`Failed to load detail shard ${file}`);
+        return res.json();
+      })
+      .catch(err => {
+        detailShardCache.delete(key);
+        throw err;
+      });
+    detailShardCache.set(key, p);
+  }
+  return detailShardCache.get(key);
 }
 
 /**
  * Get a job with its full description (loaded on-demand).
- * Merges the index data with the full description from jobs.json.
+ * The list index carries only a short preview; this merges in the description,
+ * structured description and apply URL from the job's detail shard.
  *
  * @param {Object} indexJob - Job from the index (may lack description)
  * @returns {Promise<Object>} - Job with full description
@@ -246,15 +228,20 @@ export async function getFullJob(indexJob) {
   // If the job already has a full description, return as-is
   if (indexJob.description && !indexJob.descriptionPreview) return indexJob;
 
-  const fullJobs = await loadFullJobData();
-  const fullJob = fullJobs.get(indexJob.id);
-  if (fullJob) {
-    return {
-      ...indexJob,
-      description: fullJob.description,
-      structuredDescription: fullJob.structuredDescription,
-      url: fullJob.url,
-    };
+  try {
+    const manifest = await loadJobsManifest();
+    const shard = await loadDetailShard(manifest, indexJob.id);
+    const detail = shard[indexJob.id];
+    if (detail) {
+      return {
+        ...indexJob,
+        description: detail.description,
+        structuredDescription: detail.structuredDescription,
+        url: detail.url,
+      };
+    }
+  } catch (err) {
+    console.error('[useJobs] Error loading job detail:', err);
   }
   return indexJob;
 }

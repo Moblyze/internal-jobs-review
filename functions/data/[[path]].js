@@ -4,13 +4,14 @@
 // The whole hostname sits behind Cloudflare Access, so this is never public.
 //
 // R2 layout (written by scripts/private-data.sh and the cf-deploy action):
-//   feed/decision_makers.json        raw JSON
-//   jobs.json.gz, jobs-index.json.gz, jobs-index-lite.json.gz   gzip bodies
+//   feed/decision_makers.json          raw JSON (people-data)
+//   current/jobs-current.json.gz       full rows of current jobs, gzip (ops consumers)
+//   archive/jobs/YYYY-MM.jsonl.gz      full corpus archive, NOT served here (analysis only)
+// The browser never needs jobs-current: the SPA reads the sharded index/detail files
+// that ship as static Pages assets (see scripts/build-site-data.mjs).
 const R2_KEYS = {
   'feed/decision_makers.json': { key: 'feed/decision_makers.json', gzip: false },
-  'jobs.json': { key: 'jobs.json.gz', gzip: true },
-  'jobs-index.json': { key: 'jobs-index.json.gz', gzip: true },
-  'jobs-index-lite.json': { key: 'jobs-index-lite.json.gz', gzip: true },
+  'jobs-current.json': { key: 'current/jobs-current.json.gz', gzip: true },
 }
 
 export async function onRequestGet({ request, params, env, next }) {

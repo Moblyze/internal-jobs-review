@@ -58,3 +58,7 @@ data/liveness-retire-backup-*.csv
 public/data/feed/decision_makers.json
 .cf-r2/
 .wrangler/
+
+# Generated site data (scripts/build-site-data.mjs); dev output only, dist/ gets it at build
+public/data/jobs/
+public/data/jobs-manifest.json

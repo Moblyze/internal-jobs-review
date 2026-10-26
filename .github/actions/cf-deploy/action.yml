@@ -1,5 +1,5 @@
 name: Deploy dist/ to Cloudflare Pages (Moblyze Ops)
-description: Prepares dist/, uploads big data files to private R2, deploys to the Access-protected Pages project.
+description: Builds sharded site data, archives the full corpus to private R2, deploys to the Access-protected Pages project.
 inputs:
   api-token:
     description: CLOUDFLARE_API_TOKEN (Pages Edit + R2 Edit on Moblyze Ops only)
@@ -19,18 +19,41 @@ runs:
         if [ "${{ inputs.account-id }}" != "0afd187e12e71bdbbcab08d42eb5f14c" ]; then
           echo "::error::CLOUDFLARE_ACCOUNT_ID is not the Moblyze Ops account; refusing to deploy"; exit 1
         fi
-    - name: Prepare dist for Pages (move oversize data to R2 staging)
+    - name: Pull the prior archive months from private R2 (so rows that left the Sheet are never lost)
+      shell: bash
+      env:
+        CLOUDFLARE_API_TOKEN: ${{ inputs.api-token }}
+        CLOUDFLARE_ACCOUNT_ID: ${{ inputs.account-id }}
+      run: |
+        mkdir -p .cf-prior
+        months="undated"
+        m="2025-08"; end="$(date -u +%Y-%m)"
+        while [ "$m" \< "$end" ] || [ "$m" = "$end" ]; do
+          months="$months $m"
+          m="$(date -u -d "$m-01 +1 month" +%Y-%m)"
+        done
+        for m in $months; do
+          # A missing object is normal (first run, or a month with no rows yet); wrangler exits non-zero.
+          npx --yes wrangler@4 r2 object get "bd-feed-private/archive/jobs/$m.jsonl.gz" --file ".cf-prior/$m.jsonl.gz" --remote >/dev/null 2>&1 || rm -f ".cf-prior/$m.jsonl.gz"
+        done
+        echo "prior archive months present: $(ls .cf-prior | wc -l)"
+    - name: Build sharded site data into dist and stage R2 artifacts
+      shell: bash
+      run: node scripts/build-site-data.mjs --prior-archive .cf-prior
+    - name: Final dist gate (drop non-site files, enforce Pages limits)
       shell: bash
       run: node scripts/cf-prepare-dist.mjs
-    - name: Upload big data files to private R2
+    - name: Upload archive and current-jobs artifacts to private R2
       shell: bash
       env:
         CLOUDFLARE_API_TOKEN: ${{ inputs.api-token }}
         CLOUDFLARE_ACCOUNT_ID: ${{ inputs.account-id }}
       run: |
         cd .cf-r2
+        # current/jobs-current.json.gz is served by the Pages Function, which adds Content-Encoding: gzip.
+        # archive/* are plain downloadable .gz files (no content-encoding, so tools get the bytes as stored).
         for f in $(find . -type f -name '*.gz' | sed 's|^\./||'); do
-          npx --yes wrangler@4 r2 object put "bd-feed-private/$f" --file "$f" --content-type application/json --content-encoding gzip --remote
+          npx --yes wrangler@4 r2 object put "bd-feed-private/$f" --file "$f" --content-type application/gzip --remote
         done
     - name: Deploy to Cloudflare Pages
       shell: bash
