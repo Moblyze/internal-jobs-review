@@ -32,5 +32,7 @@ export async function onRequestGet({ request, params, env, next }) {
   })
   if (entry.gzip) headers.set('Content-Encoding', 'gzip')
   if (obj.etag) headers.set('ETag', obj.httpEtag)
-  return new Response(obj.body, { headers })
+  // The R2 object is already gzip. encodeBody 'manual' sends the bytes as stored; without it the
+  // runtime compresses again and clients get gzip inside gzip (verified Oct 26 on closed/00.json).
+  return new Response(obj.body, { headers, encodeBody: entry.gzip ? 'manual' : 'automatic' })
 }
