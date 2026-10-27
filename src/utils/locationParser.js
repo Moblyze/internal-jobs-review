@@ -135,8 +135,9 @@ function tryGeocoded(locationStr) {
   return null
 }
 
-// Start loading geocoded data immediately (background load)
-loadGeocodedCache()
+// Geocoded data (4.7 MB) is no longer loaded eagerly: list, job and company pages use
+// locations parsed at build time (job.locs, scripts/build-site-facets.mjs). It still
+// loads on demand via getAllLocationsAsync().
 
 // Italian province codes (not in standard ISO state codes)
 const IT_PROVINCE_CODES = {
