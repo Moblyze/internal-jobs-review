@@ -111,6 +111,8 @@ function encodeLite(rows, rowFacets) {
     if (job.skills && job.skills.length) e.k = job.skills.map(s => intern(skills, skillIdx, s))
     if (job.employmentType) e.e = job.employmentType
     if (job.source) e.sr = job.source
+    // the Sheet tab a job came from (CrewBase, an aggregator, or a company's own career site); drives the Source filter
+    if (job.sourceTab) e.st = job.sourceTab
     if (job.profile) e.p = job.profile
     if (job.appReady) e.a = 1
     if (job.extractedCertifications && job.extractedCertifications.length) e.cr = job.extractedCertifications

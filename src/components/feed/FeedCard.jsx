@@ -15,12 +15,12 @@ const SUBSECTOR_PILL = {
   'mining':            'bg-slate-100 text-slate-800',
 }
 const SUBSECTOR_TIP = {
-  'offshore-og':         'Offshore oil & gas — deepwater + shelf production, FPSO/FSO, subsea, drilling',
-  'onshore-og':          'Onshore oil & gas — pipelines, refineries, drilling, LNG terminals',
-  'offshore-wind':       'Offshore wind — monopile, jacket, floating',
-  'onshore-renewables':  'Onshore renewables — solar, onshore wind, BESS',
-  'nuclear':             'Nuclear — PWR/BWR, SMR, refurbishment, new build',
-  'mining':              'Mining — hard rock, surface, mineral processing',
+  'offshore-og':         'Offshore oil & gas: deepwater + shelf production, FPSO/FSO, subsea, drilling',
+  'onshore-og':          'Onshore oil & gas: pipelines, refineries, drilling, LNG terminals',
+  'offshore-wind':       'Offshore wind: monopile, jacket, floating',
+  'onshore-renewables':  'Onshore renewables: solar, onshore wind, BESS',
+  'nuclear':             'Nuclear: PWR/BWR, SMR, refurbishment, new build',
+  'mining':              'Mining: hard rock, surface, mineral processing',
 }
 const SIGNAL_PILL = {
   'fid':         'bg-green-100 text-green-800',
@@ -34,15 +34,15 @@ const SIGNAL_PILL = {
   'regulatory':  'bg-gray-100 text-gray-800',
 }
 const SIGNAL_TIP = {
-  'fid':         'Final Investment Decision — project formally sanctioned; engineering ramp begins.',
-  'epc_award':   'EPC contract awarded — contractor won engineering, procurement & construction scope. Engineering hires start within 1–3mo.',
-  'tender':      'Tender open — operator soliciting bids; no winner yet. Long lead.',
-  'rig_fixture': 'Rig fixture — drilling rig contracted to an operator for a specific campaign.',
-  'vessel_mob':  'Vessel mobilization — offshore vessel/rig moving to site for active work. Immediate hiring window.',
-  'lease_round': 'Lease round / block award — acreage assigned to operator. Years from active hiring.',
-  'replacement': 'Contractor replacement mid-project — work re-tendering likely; near-term staffing turnover.',
-  'decom':       'Decommissioning — end-of-life dismantling or plug-and-abandonment scope.',
-  'regulatory':  'Regulatory milestone — permit, license, or approval that unblocks hiring.',
+  'fid':         'Final Investment Decision: project formally sanctioned; engineering ramp begins.',
+  'epc_award':   'EPC contract awarded: contractor won engineering, procurement & construction scope. Engineering hires start within 1–3mo.',
+  'tender':      'Tender open: operator soliciting bids; no winner yet. Long lead.',
+  'rig_fixture': 'Rig fixture: drilling rig contracted to an operator for a specific campaign.',
+  'vessel_mob':  'Vessel mobilization: offshore vessel/rig moving to site for active work. Immediate hiring window.',
+  'lease_round': 'Lease round / block award: acreage assigned to operator. Years from active hiring.',
+  'replacement': 'Contractor replacement mid-project: work re-tendering likely; near-term staffing turnover.',
+  'decom':       'Decommissioning: end-of-life dismantling or plug-and-abandonment scope.',
+  'regulatory':  'Regulatory milestone: permit, license, or approval that unblocks hiring.',
 }
 
 function PillSubsector({ taxonomy, id }) {
@@ -102,6 +102,37 @@ function PillRegion({ region, country }) {
   )
 }
 
+// The article an entry is based on: first source with a URL. Shows the site's favicon (Google's
+// favicon service by domain), falling back to a neutral globe if the icon does not load.
+function sourceOf(entry) {
+  const s = (entry.sources || []).find(x => x?.url)
+  if (!s) return null
+  try {
+    const u = new URL(s.url)
+    return { url: s.url, name: s.name, host: u.hostname.replace(/^www\./, '') }
+  } catch { return null }
+}
+
+function SourceLink({ src }) {
+  const [iconOk, setIconOk] = useState(true)
+  return (
+    <a
+      className="feed-src"
+      href={src.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={e => e.stopPropagation()}
+      title={`Read the original on ${src.host}`}
+    >
+      {iconOk
+        ? <img src={`https://www.google.com/s2/favicons?domain=${encodeURIComponent(src.host)}&sz=32`} alt="" width="16" height="16" loading="lazy" onError={() => setIconOk(false)} />
+        : <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z" /></svg>}
+      <span>{src.name || src.host}</span>
+      <span aria-hidden="true">↗</span>
+    </a>
+  )
+}
+
 export default function FeedCard({ entry, taxonomy, pdlCache, coverage, onOperatorClick, onContractorClick }) {
   const [expanded, setExpanded] = useState(false)
   const operator = entry.operator?.name
@@ -110,6 +141,7 @@ export default function FeedCard({ entry, taxonomy, pdlCache, coverage, onOperat
   const conSlug = entry.hiring_entity?.matched_company_slug
   const operatorTier = getSizeTier(operator, pdlCache)
   const contractorTier = getSizeTier(contractor, pdlCache)
+  const src = sourceOf(entry)
 
   return (
     <article className="feed-card" onClick={() => setExpanded(x => !x)}>
@@ -127,7 +159,11 @@ export default function FeedCard({ entry, taxonomy, pdlCache, coverage, onOperat
           <Stepper entry={entry} />
         </div>
       </div>
-      <h3 className="text-base font-semibold leading-snug mb-1">{entry.headline}</h3>
+      <h3 className="text-base font-semibold leading-snug mb-1">
+        {src
+          ? <a href={src.url} target="_blank" rel="noopener noreferrer" className="feed-headline" onClick={e => e.stopPropagation()}>{entry.headline}</a>
+          : entry.headline}
+      </h3>
       {entry.estimated_hiring_window && (
         <div className="text-xs italic text-gray-500 mb-1">
           Likely hiring: {entry.estimated_hiring_window}
@@ -136,11 +172,11 @@ export default function FeedCard({ entry, taxonomy, pdlCache, coverage, onOperat
       <div className="flex gap-3 text-xs text-gray-500 pt-2 border-t border-gray-100 mt-2">
         <span><span className="text-gray-400">Hiring:</span> {contractor
           ? <button className="text-blue-700 font-medium hover:underline" onClick={e => { e.stopPropagation(); onContractorClick?.(conSlug, contractor, entry.id) }}>{contractor}</button>
-          : <span className="text-gray-700">—</span>}
+          : <span className="text-gray-400">Not named</span>}
           <SizeBadge tier={contractorTier} /><ContactsBadge coverage={coverage} company={contractor} /></span>
         <span><span className="text-gray-400">Operator:</span> {operator
           ? <button className="text-blue-700 hover:underline" onClick={e => { e.stopPropagation(); onOperatorClick?.(opSlug, operator, entry.id) }}>{operator}</button>
-          : <span className="text-gray-700">—</span>}
+          : <span className="text-gray-400">Not named</span>}
           <SizeBadge tier={operatorTier} /><ContactsBadge coverage={coverage} company={operator} /></span>
         {entry.mob_window?.start && (
           <span className="ml-auto font-medium text-gray-700">
@@ -148,6 +184,7 @@ export default function FeedCard({ entry, taxonomy, pdlCache, coverage, onOperat
           </span>
         )}
       </div>
+      {src && <div className="feed-src-row"><SourceLink src={src} /></div>}
       {expanded && (
         <BdCardExpanded
           entryId={entry.id}

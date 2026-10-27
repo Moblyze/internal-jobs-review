@@ -5,6 +5,12 @@
 .feed .feed-card { background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: var(--s4) var(--s5); margin-bottom: var(--s3); cursor: pointer; transition: border-color .15s; }
 .feed .feed-card:hover { border-color: var(--faint); }
 .feed .feed-card h3 { font-size: 16.5px; font-weight: 800; letter-spacing: -.01em; color: var(--ink); }
+.feed .feed-headline { color: inherit; text-decoration: none; }
+.feed .feed-headline:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.feed .feed-src-row { display: flex; justify-content: flex-end; margin-top: var(--s2); }
+.feed .feed-src { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--muted); text-decoration: none; padding: 2px 8px 2px 4px; border-radius: 6px; }
+.feed .feed-src:hover { color: var(--ink); background: var(--tint); }
+.feed .feed-src img, .feed .feed-src svg { width: 16px; height: 16px; border-radius: 3px; flex: none; }
 @media (max-width: 960px) { .feed-filters { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 720px) {
   .feed { padding: var(--s5) var(--s4) var(--s7); }

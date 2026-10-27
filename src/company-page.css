@@ -1,0 +1,51 @@
+/* Company detail page on the shared system (src/styles/mz-ui.css). */
+.cp { padding: var(--s5) var(--s6) var(--s8); }
+.cp-crumb { font-size: 13px; color: var(--muted); margin-bottom: var(--s3); }
+.cp-crumb a { color: var(--teal-ink); text-decoration: none; font-weight: 600; }
+.cp-crumb a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+.cp-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s6); margin-top: var(--s6); }
+.cp-block { min-width: 0; }
+.cp-block__h { margin: 0; font-size: 13px; font-weight: 700; color: var(--muted); }
+.cp-block__h3 { margin: var(--s5) 0 var(--s2); font-size: 12px; font-weight: 700; color: var(--faint); }
+.cp-big { margin: var(--s1) 0 var(--s4); font-size: 34px; font-weight: 800; letter-spacing: -.035em; line-height: 1.1; }
+.cp-big small { font-size: 14px; font-weight: 600; letter-spacing: 0; color: var(--muted); margin-left: 4px; }
+.cp-quiet { color: var(--faint); font-size: 14px; margin: var(--s2) 0 0; }
+
+.cp-ranked { list-style: none; margin: 0; padding: 0; }
+.cp-ranked li { display: grid; grid-template-columns: minmax(0, 1fr) 72px 44px; gap: var(--s3); align-items: center; padding: 6px 0; border-bottom: 1px solid var(--line-2); font-size: 14px; }
+.cp-ranked__name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; }
+.cp-ranked__bar { height: 6px; background: var(--line-2); border-radius: 3px; overflow: hidden; }
+.cp-ranked__bar i { display: block; height: 100%; background: var(--teal); opacity: .55; border-radius: 3px; }
+.cp-ranked__n { text-align: right; color: var(--ink-2); }
+.cp-ranked li.cp-ranked__more { display: block; border-bottom: 0; font-size: 12.5px; color: var(--faint); }
+.cp-all { margin-top: var(--s2); }
+
+.cp-signals { list-style: none; margin: 0; padding: 0; }
+.cp-signals li { padding: 6px 0; border-bottom: 1px solid var(--line-2); font-size: 13.5px; line-height: 1.4; }
+.cp-signals a { color: var(--ink); text-decoration: none; }
+.cp-signals a:hover { color: var(--teal-ink); text-decoration: underline; text-underline-offset: 3px; }
+.cp-types { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; }
+.cp-types .num { color: var(--faint); }
+
+.cp-alllocs ul { list-style: none; margin: 0; padding: 0; columns: 3 220px; column-gap: var(--s6); }
+.cp-alllocs li { display: flex; justify-content: space-between; gap: var(--s3); padding: 4px 0; border-bottom: 1px solid var(--line-2); font-size: 13.5px; break-inside: avoid; }
+.cp-alllocs li .num { color: var(--muted); }
+
+.cp-jobs-head { display: flex; justify-content: space-between; align-items: center; gap: var(--s4); flex-wrap: wrap; }
+.cp-count { font-size: 15px; font-weight: 700; color: var(--muted); margin-left: 6px; }
+.cp-trade select { height: 38px; min-width: 240px; font-size: 13.5px; }
+.cp-jobs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s4); margin-top: var(--s4); }
+.cp-more { text-align: center; margin-top: var(--s5); }
+
+@media (max-width: 960px) {
+  .cp-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cp-jobs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 720px) {
+  .cp { padding: var(--s4) var(--s4) var(--s7); }
+  .cp-grid { grid-template-columns: minmax(0, 1fr); gap: var(--s5); }
+  .cp-jobs { grid-template-columns: minmax(0, 1fr); }
+  .cp-trade, .cp-trade select { width: 100%; min-width: 0; }
+  .cp-big { font-size: 28px; }
+}

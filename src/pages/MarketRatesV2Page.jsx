@@ -1,11 +1,10 @@
 // src/pages/MarketRatesV2Page.jsx
 // "Moblyze Market Rates": answers one question first, "what does a <role> in <region> typically
-// earn, and is this rate fair?" Lookup and answer on the left, rate check on the right, then how
+// earn, and how does a given rate compare?" Lookup and answer on the left, rate check on the right, then how
 // the number shifts by experience and region, then the common roles in that region.
 // Internal preview. v1 stays at /market-rates/v1.
 // Reads /data/market_rates.json (pay_rates/site_bundle.py in moblyze-ops).
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
 import { DataBasis, PageHeader, fmtUpdated } from '../components/ui/PageParts'
 import { CURRENCIES, bandOf, cellStats, convert, curSym, fxNote, levelCellStatus, loadCurrency, ordinal, fmtAmount, fmtDate, fmtRange, fmtRate, niceDomain, saveCurrency, setActiveCurrency, toUsd } from '../utils/marketRates'
@@ -25,11 +24,11 @@ const regionName = r => REGION_NAME[r] || r
 const IN_THE = new Set(['US', 'UK', 'Middle East'])
 const inRegion = r => r === 'Unknown/Worldwide' ? 'worldwide or unstated locations' : `${IN_THE.has(r) ? 'the ' : ''}${regionName(r)}`
 const STATUS = {
-  in_range: { label: 'Fair: inside the typical range', tone: 'ok' },
-  near_below: { label: 'A little low: just below the typical range', tone: 'warn' },
-  near_above: { label: 'A little high: just above the typical range', tone: 'up' },
-  below_market: { label: 'Low: below the market', tone: 'low' },
-  above_market: { label: 'High: above the market', tone: 'up' },
+  in_range: { label: 'Within the typical range', tone: 'ok' },
+  near_below: { label: 'Slightly below the typical range', tone: 'warn' },
+  near_above: { label: 'Slightly above the typical range', tone: 'up' },
+  below_market: { label: 'Below the typical range', tone: 'low' },
+  above_market: { label: 'Above the typical range', tone: 'up' },
 }
 const START = { role: 'electrician', region: 'US', level: 'all', unit: 'day', rate: '320' }
 const COMMON_ROWS = 10
@@ -44,6 +43,16 @@ function useMarketRates() {
     return () => { off = true }
   }, [])
   return s
+}
+
+// Low-count rule: exact job and employer counts show only when a number rests on EXACT_MIN_JOBS+ jobs
+// from EXACT_MIN_EMPLOYERS+ employers. Below that a band shows ("25+ jobs"), and below the lowest band
+// a "Limited data" tag, never a small number.
+const EXACT_MIN_JOBS = 50, EXACT_MIN_EMPLOYERS = 10
+export function countView(n, employers) {
+  if (n >= EXACT_MIN_JOBS && employers >= EXACT_MIN_EMPLOYERS) return { exact: true, jobs: n.toLocaleString('en-US'), employers: employers.toLocaleString('en-US'), short: n.toLocaleString('en-US') }
+  const band = n >= 100 ? '100+' : n >= 50 ? '50+' : n >= 25 ? '25+' : null
+  return { exact: false, band, short: band || 'Limited' }
 }
 
 // Confidence from deduped observations (n) and distinct employers, the stricter of the two wins.
@@ -170,6 +179,7 @@ function Answer({ r, unit, region, onDetail }) {
   const st = cellStats(r.cell, unit)
   const dom = niceDomain(st.p25Raw, st.p75Raw, 4)
   const conf = confidenceOf(r.cell.n, r.cell.employers)
+  const cv = countView(r.cell.n, r.cell.employers)
   const lvl = r.levelUsed === 'all' ? '' : `${LEVEL_NAME[r.levelUsed].toLowerCase()} `
   return (
     <section className="mr3-answer" aria-labelledby="mr3-answer-h">
@@ -185,15 +195,20 @@ function Answer({ r, unit, region, onDetail }) {
       </div>
       {r.levelMissing && <p className="mr3-note">Not enough jobs state this experience level here yet, so this covers all levels.</p>}
       <p className="mr3-prov">
-        <span className="num">{r.cell.n} jobs</span> from <span className="num">{r.cell.employers} employers</span>, first seen {dateSpan(r.cell.first_seen_min || r.base.first_seen_min, r.cell.first_seen_max || r.base.first_seen_max)}.
-        <span className={`mr3-conf mr3-conf--${conf.toLowerCase()}`} title="High: 50+ jobs from 15+ employers. Medium: 20+ jobs from 6+ employers. Limited: 10+ jobs from 3+ employers.">{conf} confidence</span>
+        {cv.exact
+          ? <><span className="num">{cv.jobs} jobs</span> from <span className="num">{cv.employers} employers</span>, </>
+          : cv.band ? <>Based on <span className="num">{cv.band} jobs</span>, </> : null}
+        {cv.exact || cv.band ? 'first seen' : 'First seen'} {dateSpan(r.cell.first_seen_min || r.base.first_seen_min, r.cell.first_seen_max || r.base.first_seen_max)}.
+        {cv.exact || cv.band
+          ? <span className={`mr3-conf mr3-conf--${conf.toLowerCase()}`} title="How many jobs and employers back this number.">{conf} confidence</span>
+          : <span className="mr3-conf mr3-conf--limited" title="Fewer jobs back this number, so treat it as a guide.">Limited data</span>}
         <button type="button" className="mr3-link" onClick={() => onDetail(r)}>How it's built</button>
       </p>
     </section>
   )
 }
 
-/* ── the check: is this rate fair ─────────────────────────────────── */
+/* ── the check: how does a rate compare ───────────────────────────── */
 function RateCheck({ r, unit, rate, setRate }) {
   const st = cellStats(r.cell, unit)
   const v = parseFloat(String(rate).replace(/[^0-9.]/g, ''))
@@ -208,7 +223,7 @@ function RateCheck({ r, unit, rate, setRate }) {
   const gap = ok ? Math.abs(st.median - v) : 0
   return (
     <section className="mr3-check" aria-labelledby="mr3-check-h">
-      <h2 id="mr3-check-h">Is this rate fair?</h2>
+      <h2 id="mr3-check-h">Compare a rate</h2>
       <label className="mr3-rate">
         <span className="mr3-rate__cur" aria-hidden="true">{curSym()}</span>
         <input inputMode="decimal" value={rate} onChange={e => setRate(e.target.value)} aria-label={`Rate to check, ${UNIT_WORD[unit].replace(/^an? /, 'per ')}`} />
@@ -240,11 +255,11 @@ function Shifts({ data, r, unit, region, onLevel, onRegion }) {
   const levelRows = ['low', 'mid', 'high'].map(l => {
     const lc = r.base.levels?.[l]
     const shown = lc && !levelCellStatus(r.base.levels, l).suppressed
-    return { k: l, name: LEVEL_NAME[l], sub: LEVEL_YRS[l], st: shown ? cellStats(lc, unit) : null, n: shown ? lc.n : null, on: r.levelUsed === l, go: () => onLevel(r.levelUsed === l ? 'all' : l) }
+    return { k: l, name: LEVEL_NAME[l], sub: LEVEL_YRS[l], st: shown ? cellStats(lc, unit) : null, n: shown ? lc.n : null, emp: shown ? lc.employers : 0, on: r.levelUsed === l, go: () => onLevel(r.levelUsed === l ? 'all' : l) }
   })
   const regionRows = data.regions.map(reg => {
     const rc = data.cells.find(c => c.role === r.base.role && c.region === reg && c.basis === r.base.basis)
-    return rc ? { k: reg, name: regionName(reg), st: cellStats(rc, unit), n: rc.n, on: reg === region, go: () => onRegion(reg) } : null
+    return rc ? { k: reg, name: regionName(reg), st: cellStats(rc, unit), n: rc.n, emp: rc.employers, on: reg === region, go: () => onRegion(reg) } : null
   }).filter(Boolean).sort((a, b) => b.st.medianRaw - a.st.medianRaw)
   const all = [...levelRows, ...regionRows].filter(x => x.st)
   const dom = niceDomain(Math.min(...all.map(x => x.st.p25Raw)), Math.max(...all.map(x => x.st.p75Raw)), 4)
@@ -261,7 +276,7 @@ function Shifts({ data, r, unit, region, onLevel, onRegion }) {
                 <>
                   <td className="r num">{fmtRate(x.st.median, unit)}<small className="mr3-range-sm">{fmtRange(x.st.p25, x.st.p75, unit)}</small></td>
                   <td className="mr3-col-bar"><Band st={x.st} dom={dom} size="sm" /></td>
-                  <td className="r num mr3-col-n">{x.n}</td>
+                  <td className="r num mr3-col-n">{countView(x.n, x.emp).short}</td>
                 </>
               ) : <td colSpan={3} className="mr3-na">Needs more jobs</td>}
             </tr>
@@ -302,7 +317,7 @@ function CommonRoles({ data, region, unit, role, onRole }) {
               <td className="r num mr3-strong">{fmtRate(stats[i].median, unit)}</td>
               <td className="r num mr3-col-range">{fmtRange(stats[i].p25, stats[i].p75, unit)}</td>
               <td className="mr3-col-bar"><Band st={stats[i]} dom={dom} size="sm" /></td>
-              <td className="r num mr3-col-n">{c.n}</td>
+              <td className="r num mr3-col-n">{countView(c.n, c.employers).short}</td>
             </tr>
           ))}
         </tbody>
@@ -349,6 +364,7 @@ function DetailDrawer({ data, sel, onClose }) {
   useEffect(() => { const k = e => e.key === 'Escape' && onClose(); window.addEventListener('keydown', k); return () => window.removeEventListener('keydown', k) }, [onClose])
   const c = sel.cell, b = sel.base
   const conf = confidenceOf(c.n, c.employers)
+  const cv = countView(c.n, c.employers)
   const st = cellStats(c, b.unit)
   const cur = Object.entries(c.currencies || {}).map(([k, v]) => `${k} ${v}`).join(', ')
   const types = Object.entries(c.employer_types || {}).map(([k, v]) => `${({ direct: 'direct employer', board: 'job board', crewing_agency: 'crewing agency', staffing: 'staffing agency' })[k] || k.replace('_', ' ')} ${v}`).join(', ')
@@ -356,12 +372,14 @@ function DetailDrawer({ data, sel, onClose }) {
     ['Measure', 'Pay stated on jobs for the role, with duplicates removed across sources.'],
     ['Market', `${b.role_label} · ${regionName(b.region)} · ${sel.levelUsed === 'all' ? 'All levels' : `${LEVEL_NAME[sel.levelUsed]} (${LEVEL_YRS[sel.levelUsed]})`} · ${b.basis_label}`],
     ['Typical range', `${fmtRange(st.p25, st.p75, st.period)}, the middle half of jobs (P25-P75). Median ${fmtRate(st.median, st.period)}.`],
-    ['Jobs used', `${c.n} after removing duplicates (${c.n_raw} before) and ${c.outliers_excluded} ${c.outliers_excluded === 1 ? 'outlier' : 'outliers'} beyond 3x MAD`],
-    ['Employers', `${c.employers} distinct${types ? ` (${types})` : ''}`],
+    ['Jobs used', cv.exact
+      ? `${cv.jobs} after removing duplicates (${c.n_raw.toLocaleString('en-US')} before) and ${c.outliers_excluded} ${c.outliers_excluded === 1 ? 'outlier' : 'outliers'} beyond 3x MAD`
+      : cv.band ? `${cv.band}, after removing duplicates and outliers beyond 3x MAD` : 'Limited data. Duplicates and outliers beyond 3x MAD are removed.'],
+    ...(cv.exact ? [['Employers', `${cv.employers} distinct${types ? ` (${types})` : ''}`]] : []),
     ['First seen', dateSpan(c.first_seen_min || b.first_seen_min, c.first_seen_max || b.first_seen_max)],
     ['Still open', `${Math.round((c.active_share ?? 0) * 100)}% of these jobs are open today`],
     ['Currencies', `${cur || 'USD'} as stated; shown in ${st.currency} at ECB reference rates of ${fmtDate(data.fx?.date || data.fx_date)}`],
-    ['Confidence', `${conf}. High needs 50+ jobs from 15+ employers, Medium 20+ from 6+, Limited 10+ from 3+. Below that nothing publishes.`],
+    ['Confidence', `${cv.exact || cv.band ? conf : 'Limited data'}. Reflects how many jobs and employers back the number. Exact counts show at ${EXACT_MIN_JOBS}+ jobs from ${EXACT_MIN_EMPLOYERS}+ employers.`],
     ['Refreshed', `${fmtDate(c.last_updated || b.last_updated)} · extractor ${data.extractor_version}`],
   ]
   return (
@@ -415,7 +433,7 @@ function Lookup({ data, currency }) {
         <Select label="Pay type" value={unit} onChange={v => set('unit', v)}>{units.map(u => <option key={u} value={u}>{UNIT_LABEL[u]}</option>)}</Select>
       </form>
 
-      {!r && <p className="mr3-empty">No published market yet for this combination. A market publishes at 10+ jobs from 3+ employers.</p>}
+      {!r && <p className="mr3-empty">Not enough data for this combination yet.</p>}
       {r && (
         <>
           <div className="mr3-main">
@@ -466,8 +484,8 @@ export default function MarketRatesV2Page() {
               <button type="button" className="mr3-btn" onClick={() => setModal(true)}>Request access</button>
             </aside>
             <footer className="mr3-foot">
-              <p>Built from pay stated on energy and trades jobs, with duplicates and reposts removed and only pay with an explicit period counted. A number publishes at 10+ jobs from 3+ employers. The typical range is the middle half of jobs (25th to 75th percentile); percentiles for a single rate are estimated from it. Figures are shown in {currency} at ECB reference rates of {fmtDate(data.fx?.date || data.fx_date)}.</p>
-              <p className="mr3-foot__ed">Moblyze Market Rates · {EDITION} · Internal preview, not client-facing · <Link to="/market-rates/v1">Earlier version</Link></p>
+              <p>Built from pay stated on energy and trades jobs, with duplicates and reposts removed and only pay with an explicit period counted. A number publishes only when enough jobs from enough employers back it; exact counts show at 50+ jobs from 10+ employers. The typical range is the middle half of jobs (25th to 75th percentile); percentiles for a single rate are estimated from it. Figures are shown in {currency} at ECB reference rates of {fmtDate(data.fx?.date || data.fx_date)}.</p>
+              <p className="mr3-foot__ed">Moblyze Market Rates · {EDITION} · Internal, not client-facing</p>
             </footer>
           </>
         )}

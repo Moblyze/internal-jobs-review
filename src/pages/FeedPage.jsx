@@ -45,7 +45,7 @@ export default function FeedPage() {
   const pdlCache = usePdlCache()
   const [companyModal, setCompanyModal] = useState(null)
 
-  // Per-company contact-coverage counts (counts only — no PII). Drives the small
+  // Per-company contact-coverage counts (counts only, no PII). Drives the small
   // "N identified · M reachable" badge on each card. Best-effort: cards render
   // fine without it.
   const [coverage, setCoverage] = useState({})
@@ -69,7 +69,7 @@ export default function FeedPage() {
 
   return (
     <>
-      <SEO title="Feed — Moblyze Jobs" description="BD intelligence feed for energy-industry recruiters" />
+      <SEO title="Feed" description="BD intelligence feed for energy-industry recruiters" />
       <div className="mz feed">
         <PageHeader
           title="Feed"

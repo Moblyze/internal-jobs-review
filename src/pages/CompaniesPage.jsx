@@ -13,6 +13,9 @@ import SEO from '../components/SEO'
 import { DataBasis, EmptyState, PageHeader, fmtUpdated } from '../components/ui/PageParts'
 import { mzSelectStyles as compactSelectStyles } from '../components/ui/selectStyles'
 import '../companies.css'
+import { EMPLOYMENT_TYPES, canonicalEmploymentType } from '../utils/employmentType'
+import CompanyCardModal from '../components/feed/CompanyCardModal'
+import { CAREER_KEY, jobSourceKey, jobSourceLabel } from '../utils/jobSource'
 
 // ATS platform colors for badges
 const ATS_COLORS = {
@@ -48,7 +51,7 @@ const COMPANIES_PAGE_SIZE = 60
 const SORT_OPTIONS = [
   { value: 'trade-desc', label: 'Most trade jobs' },
   { value: 'recent-desc', label: 'Most new in 30 days' },
-  { value: 'reach-desc', label: 'Contacts ready first' },
+  { value: 'reach-desc', label: 'Contacts on file first' },
   { value: 'jobs-desc', label: 'Most open jobs' },
   { value: 'name-asc', label: 'Name A-Z' },
 ]
@@ -65,14 +68,6 @@ function ago(t) {
   return m < 12 ? `${m} mo ago` : `${Math.round(m / 12)} yr ago`
 }
 
-// The one next step a row suggests, from what we already know (no lookups, no credits).
-function nextStep(x, cov, sig) {
-  if (cov?.with_email > 0) return { label: 'Start outreach', why: `${cov.with_email} contact${cov.with_email === 1 ? '' : 's'} with email`, tone: 'teal' }
-  if (cov?.identified > 0) return { label: 'Find an email', why: `${cov.identified} contact${cov.identified === 1 ? '' : 's'} named, no email yet`, tone: 'warn' }
-  if (sig > 0) return { label: 'Find a contact', why: 'In recent project news', tone: 'plain' }
-  if ((x?.recent || 0) >= 5) return { label: 'Find a contact', why: 'Hiring now', tone: 'plain' }
-  return { label: 'Watch', why: x?.newest ? 'No new jobs lately' : 'No posting dates yet', tone: 'quiet' }
-}
 
 
 function CompaniesPage() {
@@ -85,6 +80,7 @@ function CompaniesPage() {
   const [search, setSearch] = useState('')
   const [sortBy, setSortBy] = useState('trade-desc')
   const [expandedCompany, setExpandedCompany] = useState(null)
+  const [contactsFor, setContactsFor] = useState(null)
   const MAX_COMPARE = 10
 
   // Derive selectedSlugs from URL-based company filter (enables shareable links)
@@ -194,8 +190,8 @@ function CompaniesPage() {
         const jobCertifications = extractJobCertifications(job)
         if (!filters.certifications.some(cert => jobCertifications.includes(cert))) return false
       }
-      if (filters.employmentTypes?.length > 0 && (!job.employmentType || !filters.employmentTypes.includes(job.employmentType))) return false
-      if (filters.sources?.length > 0 && !filters.sources.includes(job.source || 'direct')) return false
+      if (filters.employmentTypes?.length > 0 && !filters.employmentTypes.includes(canonicalEmploymentType(job.employmentType))) return false
+      if (filters.sources?.length > 0 && !filters.sources.includes(jobSourceKey(job))) return false
       if (filters.market?.length > 0 && (!job.profile || !filters.market.includes(job.profile))) return false
       if (roleSet && !roleSet.has(job.roleId)) return false
       return true
@@ -349,26 +345,37 @@ function CompaniesPage() {
     return certifications.map(cert => ({ label: cert, value: cert }))
   }, [certifications])
 
-  const employmentTypeOptions = useMemo(() =>
-    employmentTypes.map(type => ({ label: type, value: type })),
-    [employmentTypes]
-  )
+  // Canonical employment types with counts (raw values are 50+ variants)
+  const employmentTypeOptions = useMemo(() => {
+    const counts = {}
+    for (const et of filterOptions?.employmentTypes || []) {
+      const k = canonicalEmploymentType(et.name)
+      counts[k] = (counts[k] || 0) + (et.count || 0)
+    }
+    return EMPLOYMENT_TYPES.filter(t => counts[t] || !filterOptions?.employmentTypes)
+      .map(t => ({ label: counts[t] ? `${t} (${counts[t].toLocaleString('en-US')})` : t, value: t }))
+  }, [filterOptions])
 
   const skillOptions = useMemo(() =>
     skills.map(skill => ({ label: skill, value: skill })),
     [skills]
   )
 
+  // Source options, grouped: company career sites (one option) and each job board or aggregator.
+  // A company matches a source when any of its jobs came from it.
   const sourceOptions = useMemo(() => {
     const counts = {}
     jobs.forEach(job => {
       if (job.status === 'removed' || job.status === 'paused') return
-      const src = job.source || 'direct'
-      counts[src] = (counts[src] || 0) + 1
+      const k = jobSourceKey(job)
+      counts[k] = (counts[k] || 0) + 1
     })
-    return Object.entries(counts)
-      .sort((a, b) => b[1] - a[1])
-      .map(([name, count]) => ({ label: `${name} (${count})`, value: name }))
+    const opt = ([k, n]) => ({ label: `${jobSourceLabel(k)} (${n.toLocaleString('en-US')})`, value: k })
+    const boards = Object.entries(counts).filter(([k]) => k !== CAREER_KEY).sort((a, b) => b[1] - a[1]).map(opt)
+    return [
+      { label: 'Company career sites', options: counts[CAREER_KEY] ? [opt([CAREER_KEY, counts[CAREER_KEY]])] : [] },
+      { label: 'Job boards & aggregators', options: boards },
+    ]
   }, [jobs])
 
   // Company filter options (from unfiltered active jobs, with normalized names)
@@ -404,8 +411,8 @@ function CompaniesPage() {
   )
 
   const selectedEmploymentTypes = useMemo(() =>
-    (filters.employmentTypes || []).map(t => ({ label: t, value: t })),
-    [filters.employmentTypes]
+    (filters.employmentTypes || []).map(t => employmentTypeOptions.find(o => o.value === t) || { label: t, value: t }),
+    [filters.employmentTypes, employmentTypeOptions]
   )
 
   const selectedLocations = useMemo(() => {
@@ -422,9 +429,9 @@ function CompaniesPage() {
   )
 
   const selectedSources = useMemo(() =>
-    (filters.sources || []).map(name => {
-      const opt = sourceOptions.find(o => o.value === name)
-      return opt || { label: name, value: name }
+    (filters.sources || []).map(key => {
+      const opt = sourceOptions.flatMap(g => g.options).find(o => o.value === key)
+      return opt || { label: jobSourceLabel(key), value: key }
     }),
     [filters.sources, sourceOptions]
   )
@@ -460,7 +467,7 @@ function CompaniesPage() {
       roles: [], employmentTypes: [], sources: [], profiles: [],
       market: [], showInactive: filters.showInactive
     })
-    // selectedSlugs derived from filters.companies — no separate state to clear
+    // selectedSlugs derived from filters.companies, no separate state to clear
   }
 
   if (loading) {
@@ -478,9 +485,9 @@ function CompaniesPage() {
     )
   }
 
-  const multi = (key, label, value, options, placeholder) => (
-    <label className="mz-field" key={key}>
-      <span className="mz-field__l">{label}</span>
+  const multi = (key, label, value, options, placeholder, hint) => (
+    <label className="mz-field" key={key} title={hint}>
+      <span className="mz-field__l">{label}{hint && <span className="co-hint" aria-hidden="true"> ⓘ</span>}</span>
       <Select
         isMulti
         value={value}
@@ -521,7 +528,7 @@ function CompaniesPage() {
         {multi('certifications', 'Certification', selectedCertifications, certificationOptions, 'Any')}
         {multi('employmentTypes', 'Employment type', selectedEmploymentTypes, employmentTypeOptions, 'Any')}
         {multi('skills', 'Skill', selectedSkills, skillOptions, 'Any')}
-        {multi('sources', 'Source', selectedSources, sourceOptions, 'All sources')}
+        {multi('sources', 'Source', selectedSources, sourceOptions, 'All sources', 'Company career sites: jobs from a company\'s own careers page. Job boards and aggregators: sites that list jobs from many employers, such as CrewBase and Lineman Central.')}
       </div>
 
       <div className="mz-toolbar">
@@ -543,14 +550,13 @@ function CompaniesPage() {
       ) : (
         <div className="co-list" role="list">
           <div className="co-row co-row--head" aria-hidden="true">
-            <span>Company</span><span>Trade jobs open</span><span>Activity</span><span>Where</span><span>Reach</span><span>Next step</span>
+            <span>Company</span><span>Trade jobs open</span><span>Activity</span><span>Where</span><span>Contacts</span>
           </div>
           {shown.map(company => {
             const x = companyExtras[company.slug] || { trade: 0, roles: {}, recent: 0, newest: 0, locs: {}, agency: 0, n: 0 }
             const intel = intelligence[company.slug]
             const cov = reach.coverage[company.name.toLowerCase()] || null
             const sig = reach.signals[company.slug] || 0
-            const step = nextStep(x, cov, sig)
             const trades = Object.entries(x.roles).sort((a, b) => b[1] - a[1])
             const locs = Object.entries(x.locs).sort((a, b) => b[1] - a[1])
             const isAgency = x.n > 0 && x.agency / x.n > 0.5
@@ -603,17 +609,14 @@ function CompaniesPage() {
                   </div>
 
                   <div className="co-cell">
-                    <span className="co-label">Reach</span>
-                    {cov ? (
-                      <span className="co-strong num">{cov.identified} contact{cov.identified === 1 ? '' : 's'}<span className="co-sub-inline"> · {cov.with_email} with email</span></span>
-                    ) : <span className="co-quiet">No contacts yet</span>}
+                    <span className="co-label">Contacts</span>
+                    {cov && cov.identified > 0 ? (
+                      <button type="button" className="co-contacts" onClick={() => setContactsFor({ slug: company.slug, name: company.name })}>
+                        <span className="num">{cov.identified} contact{cov.identified === 1 ? '' : 's'}</span>
+                        <span className="co-sub-inline num">{cov.with_email > 0 ? ` · ${cov.with_email} with email` : ' · no email yet'}</span>
+                      </button>
+                    ) : <span className="co-quiet">None on file</span>}
                     {sig > 0 && <Link to="/feed" className="co-sub co-signal">{sig} project signal{sig === 1 ? '' : 's'} in the feed</Link>}
-                  </div>
-
-                  <div className={`co-cell co-next co-next--${step.tone}`}>
-                    <span className="co-label">Next step</span>
-                    <Link to={`/companies/${company.slug}`} className="co-next__a">{step.label}<span aria-hidden="true"> →</span></Link>
-                    <span className="co-sub">{step.why}</span>
                   </div>
                 </div>
                 {isExpanded && intel && (
@@ -635,8 +638,12 @@ function CompaniesPage() {
         </div>
       )}
 
+      {contactsFor && (
+        <CompanyCardModal slug={contactsFor.slug} name={contactsFor.name} onClose={() => setContactsFor(null)} />
+      )}
+
       <p className="co-foot">
-        Trade jobs are open jobs matched to a Moblyze trade. Activity counts jobs with a posting date in the last 30 days. Contact counts come from the BD feed's saved lookups; nothing on this page looks anyone up.
+        Trade jobs are open jobs matched to a Moblyze trade. Activity counts jobs with a posting date in the last 30 days. Contact counts come from contacts already saved by the BD feed; opening them shows the saved contacts and never runs a paid lookup on its own.
       </p>
     </div>
   )
@@ -846,10 +853,10 @@ function CompanyIntelPanel({ intel, companyDetail }) {
         </div>
       )}
 
-      {/* Scraper Notes */}
+      {/* Source notes */}
       {intel.scraperNotes && (
         <div className="bg-yellow-50 border border-yellow-200 rounded p-2">
-          <span className="text-xs font-medium text-yellow-800">Scraper Notes:</span>
+          <span className="text-xs font-medium text-yellow-800">Source notes:</span>
           <p className="text-xs text-yellow-700 mt-0.5">{intel.scraperNotes}</p>
         </div>
       )}

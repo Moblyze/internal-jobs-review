@@ -51,6 +51,7 @@ export function decodeLiteIndex(liteData) {
     // Categorical fields
     if (entry.e) job.employmentType = entry.e;
     if (entry.sr) job.source = entry.sr;
+    if (entry.st) job.sourceTab = entry.st;
     if (entry.p) job.profile = entry.p;
     if (entry.a) job.appReady = true;
 
