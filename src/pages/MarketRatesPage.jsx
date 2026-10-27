@@ -75,7 +75,7 @@ function Hero({ data, onMethod, onExplore }) {
             <span className="mr-preview-pill" title="Not client-facing. Illustrative market pay data.">Beta</span>
           </div>
           <h1>Market day rates for <em>offshore and energy</em> roles</h1>
-          <p>Typical pay by role, region and experience level, benchmarked from {data.counts.observations_dedup.toLocaleString('en-US')} job ads that state their rate. Ranges show the middle half of the market; the marker is the median.</p>
+          <p>Typical pay by role, region and experience level, benchmarked from {data.counts.observations_dedup.toLocaleString('en-US')} jobs that state their rate. Ranges show the middle half of the market; the marker is the median.</p>
           <div className="mr-hero__cta">
             <button type="button" className="mr-btn mr-btn--primary" onClick={onExplore}>Explore benchmarks</button>
             <button type="button" className="mr-btn mr-btn--ghost" onClick={onMethod}><InfoIcon />Methodology</button>
@@ -106,7 +106,7 @@ function Hero({ data, onMethod, onExplore }) {
       </div>
       <div className="mr-kpis">
         <div className="mr-kpi">
-          <div className="mr-kpi__l">Job ads with a stated rate</div>
+          <div className="mr-kpi__l">Jobs with a stated rate</div>
           <div className="mr-kpi__v num">{data.counts.observations_dedup.toLocaleString('en-US')}</div>
           <div className="mr-kpi__s">deduped from {data.counts.rows_in.toLocaleString('en-US')} pay mentions</div>
         </div>
@@ -123,7 +123,7 @@ function Hero({ data, onMethod, onExplore }) {
         <div className="mr-kpi">
           <div className="mr-kpi__l">Last updated</div>
           <div className="mr-kpi__v mr-kpi__v--date">{fmtDate(data.cells[0]?.last_updated)}</div>
-          <div className="mr-kpi__s">ads first seen since {fmtDate(firstSeen)}</div>
+          <div className="mr-kpi__s">jobs first seen since {fmtDate(firstSeen)}</div>
         </div>
       </div>
     </header>
@@ -140,12 +140,12 @@ function LevelRow({ L, cell, period, max, min, labels }) {
       {lc ? (
         <>
           <RangeBar stats={cellStats(lc, period)} max={max} min={min} ghost={cellStats(cell, period)} size="sm"
-            label={`${LEVEL_SHORT[L]} level, ${labels.levels[L]}`} meta={`${lc.n} ads · ${lc.employers} employers`} />
+            label={`${LEVEL_SHORT[L]} level, ${labels.levels[L]}`} meta={`${lc.n} jobs · ${lc.employers} employers`} />
           <div className="mr-lvl__val num">{fmtRate(cellStats(lc, period).median, period)}</div>
         </>
       ) : (
         <>
-          <div className="mr-lvl__na">{n === 0 ? 'No ads state this level yet' : `${n} ad${n === 1 ? '' : 's'} so far, publishes at 10`}</div>
+          <div className="mr-lvl__na">{n === 0 ? 'No jobs state this level yet' : `${n} job${n === 1 ? '' : 's'} so far, publishes at 10`}</div>
           <div className="mr-lvl__val muted">–</div>
         </>
       )}
@@ -183,8 +183,8 @@ function Benchmark({ data, cell, roleCells, region, setRegion, basis, setBasis, 
       <div className="mr-bench__body">
         <div className="mr-bench__chart">
           <div className="mr-bench__all">
-            <div className="mr-lvl__name">All levels<small>{cell.n} ads</small></div>
-            <RangeBar stats={s} max={max} min={min} size="lg" showMedian label={`${cell.role_label}, ${cell.region_label}`} meta={`${cell.n} ads · ${cell.employers} employers`} />
+            <div className="mr-lvl__name">All levels<small>{cell.n} jobs</small></div>
+            <RangeBar stats={s} max={max} min={min} size="lg" showMedian label={`${cell.role_label}, ${cell.region_label}`} meta={`${cell.n} jobs · ${cell.employers} employers`} />
             <div />
           </div>
           <div className="mr-bench__axisrow"><div /><Axis max={max} min={min} ticks={dom.ticks} period={p} /><div /></div>
@@ -199,7 +199,7 @@ function Benchmark({ data, cell, roleCells, region, setRegion, basis, setBasis, 
         <aside className="mr-bench__side">
           <Sparkline trend={cell.trend} cell={cell} period={p} full />
           <dl className="mr-facts">
-            <div><dt>Sample</dt><dd className="num">{cell.n} ads</dd></div>
+            <div><dt>Sample</dt><dd className="num">{cell.n} jobs</dd></div>
             <div><dt>Employers</dt><dd className="num">{cell.employers}</dd></div>
             <div><dt>Still live</dt><dd className="num">{Math.round(cell.active_share * 100)}%</dd></div>
             <div><dt>Seen</dt><dd>{fmtDate(cell.first_seen_min).replace(/, \d{4}$/, '')} to {fmtDate(cell.first_seen_max).replace(/, \d{4}$/, '')}</dd></div>
@@ -217,10 +217,10 @@ function Insight({ cell, s, p, data }) {
   if (lvl.length >= 2) {
     const a = lvl[0], b = lvl[lvl.length - 1]
     const d = b.st.medianRaw - a.st.medianRaw
-    text = <>{LEVEL_SHORT[b.L]}-level ads ({data.labels.levels[b.L]}) post a median <b>{fmtRate(Math.abs(d), p)} {d >= 0 ? 'more' : 'less'}</b> than {LEVEL_SHORT[a.L].toLowerCase()}-level ads ({d >= 0 ? '+' : '-'}{Math.round(Math.abs(d) / a.st.medianRaw * 100)}%).</>
+    text = <>{LEVEL_SHORT[b.L]}-level jobs ({data.labels.levels[b.L]}) pay a median <b>{fmtRate(Math.abs(d), p)} {d >= 0 ? 'more' : 'less'}</b> than {LEVEL_SHORT[a.L].toLowerCase()}-level jobs ({d >= 0 ? '+' : '-'}{Math.round(Math.abs(d) / a.st.medianRaw * 100)}%).</>
   } else {
     const spread = s.p75Raw - s.p25Raw
-    text = <>The middle half of the market spans <b>{fmtRate(spread, p)}</b>, about {Math.round(spread / s.medianRaw * 100)}% of the median. Experience splits publish as more ads state years.</>
+    text = <>The middle half of the market spans <b>{fmtRate(spread, p)}</b>, about {Math.round(spread / s.medianRaw * 100)}% of the median. Experience splits publish as more jobs state years.</>
   }
   return <div className="mr-insight"><span className="mr-insight__k">Insight</span><p>{text}</p></div>
 }
@@ -283,7 +283,7 @@ function CompareTable({ data, region, setRegion, basis, setBasis, period, select
           <span role="columnheader" className="r mr-col-lvl">Mid</span>
           <span role="columnheader" className="r mr-col-lvl">High</span>
           <span role="columnheader" className="mr-col-trend">Trend</span>
-          <span role="columnheader" className="r mr-col-n">Ads</span>
+          <span role="columnheader" className="r mr-col-n">Jobs</span>
         </div>
         {shown.map(c => {
           const s = cellStats(c, p)
@@ -291,7 +291,7 @@ function CompareTable({ data, region, setRegion, basis, setBasis, period, select
             <button type="button" key={c.id} className={`mr-tr${c.id === selectedId ? ' on' : ''}`} role="row" onClick={() => onPick(c)}>
               <span className="mr-td-role" role="cell">{c.role_label}<small className="num">{fmtRange(s.p25, s.p75, p)}</small></span>
               <span className="mr-col-range" role="cell">
-                <RangeBar stats={s} max={max} min={dom.min} size="xs" label={c.role_label} meta={`${c.n} ads · ${c.employers} employers`} />
+                <RangeBar stats={s} max={max} min={dom.min} size="xs" label={c.role_label} meta={`${c.n} jobs · ${c.employers} employers`} />
               </span>
               <span className="r num mr-td-med" role="cell">{fmtRate(s.median, p)}</span>
               {LEVELS.map(L => (
@@ -335,7 +335,7 @@ function JobCard({ s, cell }) {
           <div className="mr-eyebrow">Posted rate</div>
           <div className="mr-job__rate num">{fmtRange(s.ad_display.min, s.ad_display.max, u)}</div>
         </div>
-        <RateBadge band={s.band} title={`${m.label}: ad midpoint vs the ${s.role_label}, ${s.region_label} typical range`} />
+        <RateBadge band={s.band} title={`${m.label}: job midpoint vs the ${s.role_label}, ${s.region_label} typical range`} />
       </div>
       <div className="mr-job__gauge" aria-hidden="true">
         <div className="mr-job__track" />
@@ -343,12 +343,12 @@ function JobCard({ s, cell }) {
         <div className="mr-job__mmed" style={{ left: pct(cell.usd_day.median) }} />
         <div className={`mr-job__ad mr-job__ad--${m.tone}`} style={{ left: pct(s.usd_day.min), width: `calc(${pct(s.usd_day.max)} - ${pct(s.usd_day.min)} + 2px)` }} />
       </div>
-      <div className="mr-job__legend"><span><i className="sw band" />Market {fmtRange(marketLo, marketHi, u)}</span><span><i className={`sw ad ${m.tone}`} />This ad</span></div>
+      <div className="mr-job__legend"><span><i className="sw band" />Market {fmtRange(marketLo, marketHi, u)}</span><span><i className={`sw ad ${m.tone}`} />This job</span></div>
       <div className="mr-job__foot">
         {Math.abs(diff) < 0.03
           ? <span className="mr-job__diff num">At the market median</span>
           : <span className={`mr-job__diff ${diff >= 0 ? 'up' : 'down'} num`}>{diff >= 0 ? '+' : ''}{Math.round(diff * 100)}% vs median</span>}
-        <span>{fmtRate(marketMed, u)} median · {cell.n} ads</span>
+        <span>{fmtRate(marketMed, u)} median · {cell.n} jobs</span>
       </div>
     </article>
   )
@@ -381,11 +381,11 @@ function Drawer({ data, cell, onClose }) {
               <h4>This benchmark</h4>
               <dl className="mr-dl">
                 <dt>Pay basis</dt><dd>{cell.basis_label}{cell.hours_per_day ? `, ${cell.hours_per_day}h day` : ''}</dd>
-                <dt>Ads used</dt><dd className="num">{cell.n} of {cell.n_dedup} deduped ({cell.outliers_excluded} outliers removed), {cell.n_raw} raw</dd>
+                <dt>Jobs used</dt><dd className="num">{cell.n} of {cell.n_dedup} deduped ({cell.outliers_excluded} outliers removed), {cell.n_raw} raw</dd>
                 <dt>Employers</dt><dd className="num">{cell.employers}: {types}</dd>
                 <dt>Currencies</dt><dd className="num">{Object.entries(cell.currencies).map(([k, v]) => `${k} ${v}`).join(', ')}</dd>
                 <dt>Seen</dt><dd>{fmtDate(cell.first_seen_min)} to {fmtDate(cell.first_seen_max)}</dd>
-                <dt>Unleveled</dt><dd className="num">{cell.level_n?.unspecified ?? 0} ads give no years or seniority and count only in all levels</dd>
+                <dt>Unleveled</dt><dd className="num">{cell.level_n?.unspecified ?? 0} jobs give no years or seniority and count only in all levels</dd>
               </dl>
             </section>
           )}
@@ -394,21 +394,21 @@ function Drawer({ data, cell, onClose }) {
             <dl className="mr-dl">
               <dt>Last updated</dt><dd>{fmtDate(data.cells[0]?.last_updated)}</dd>
               <dt>Pay mentions</dt><dd className="num">{data.counts.rows_in.toLocaleString('en-US')} scanned</dd>
-              <dt>Ads with pay</dt><dd className="num">{data.counts.observations_dedup.toLocaleString('en-US')} after dedup</dd>
+              <dt>Jobs with pay</dt><dd className="num">{data.counts.observations_dedup.toLocaleString('en-US')} after dedup</dd>
               <dt>Benchmarks</dt><dd className="num">{data.counts.cells_published} published, {data.counts.level_cells_published} by level</dd>
             </dl>
           </section>
           <section>
             <h4>How ranges are built</h4>
-            <p>One observation per employer, role, title and stated pay, so reposts collapse. Only ads with an explicit pay period count. A benchmark publishes at {data.rules.min_n}+ ads from {data.rules.min_employers}+ employers. The typical range is p25 to p75 with outliers beyond 3x MAD removed; ends are rounded.</p>
+            <p>One observation per employer, role, title and stated pay, so reposts collapse. Only jobs with an explicit pay period count. A benchmark publishes at {data.rules.min_n}+ jobs from {data.rules.min_employers}+ employers. The typical range is p25 to p75 with outliers beyond 3x MAD removed; ends are rounded.</p>
           </section>
           <section>
             <h4>Experience levels</h4>
-            <p>Low is under 5 years, mid 5 to 9, high 10+, from years stated in the ad, else seniority words in the title (trainee, junior: low; senior, lead, chief, superintendent: high). A level shows at 10+ ads.</p>
+            <p>Low is under 5 years, mid 5 to 9, high 10+, from years stated in the job, else seniority words in the title (trainee, junior: low; senior, lead, chief, superintendent: high). A level shows at 10+ jobs.</p>
           </section>
           <section>
             <h4>Rate vs market</h4>
-            <p>In range inside p25 to p75; slightly above or below within 10% outside an end; above or below market beyond that. An ad with its own range is banded on its midpoint.</p>
+            <p>In range inside p25 to p75; slightly above or below within 10% outside an end; above or below market beyond that. A job with its own pay range is banded on its midpoint.</p>
           </section>
           <section>
             <h4>Conversions</h4>
@@ -528,7 +528,7 @@ export default function MarketRatesPage() {
               <div className="mr-eyebrow">On a job card</div>
               <h2>Rate vs market, at a glance</h2>
             </div>
-            <p className="mr-section__note">Real ads, each banded against the typical range for its role and region.</p>
+            <p className="mr-section__note">Real jobs, each banded against the typical range for its role and region.</p>
           </div>
           <div className="mr-jobs">
             {samples.map(({ s, cell: c }) => <JobCard key={s.source_url} s={s} cell={c} />)}

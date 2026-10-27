@@ -25,7 +25,7 @@ export default function Sparkline({ trend, cell, period, full = false }) {
     return (
       <svg className="mr-spark" viewBox={`0 0 ${W} ${H}`} width={W} height={H} role="img"
         aria-label={`Monthly median ${fmtMonth(trend[0].month)} to ${fmtMonth(trend[last].month)}`}>
-        <title>{trend.map((t, i) => `${fmtMonth(t.month)}: ${fmtRate(vals[i], period)} (${t.n} ads)`).join('\n')}</title>
+        <title>{trend.map((t, i) => `${fmtMonth(t.month)}: ${fmtRate(vals[i], period)} (${t.n} jobs)`).join('\n')}</title>
         <polyline className="mr-spark__line" points={pts} />
         <circle className="mr-spark__dot" cx={x(last)} cy={y(end)} r="2.5" />
       </svg>
@@ -46,7 +46,7 @@ export default function Sparkline({ trend, cell, period, full = false }) {
         <div>
           <div className="mr-eyebrow">Monthly median</div>
           <div className="mr-trend__val num">{fmtRate(vals[hi_], period)}</div>
-          <div className="mr-trend__meta">{fmtMonth(trend[hi_].month)} · {trend[hi_].n} ads</div>
+          <div className="mr-trend__meta">{fmtMonth(trend[hi_].month)} · {trend[hi_].n} jobs</div>
         </div>
         <div className={`mr-delta ${delta >= 0 ? 'up' : 'down'}`}>
           <span aria-hidden="true">{delta >= 0 ? '↗' : '↘'}</span>

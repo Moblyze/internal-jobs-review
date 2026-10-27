@@ -1,10 +1,10 @@
 // src/pages/MarketRatesV2Page.jsx
-// "Moblyze Market Rates, Q4 2026": v2 of the Market rates mock. Fewer numbers,
-// more value per number: a "your rate vs market" hero, a small free layer
-// (five US trades), and a gated full edition shown as locked previews.
-// Internal preview, illustrative. v1 stays at /market-rates/v1.
+// "Moblyze Market Rates": answers one question first, "what does a <role> in <region> typically
+// earn, and is this rate fair?" Lookup and answer on the left, rate check on the right, then how
+// the number shifts by experience and region, then the common roles in that region.
+// Internal preview. v1 stays at /market-rates/v1.
 // Reads /data/market_rates.json (pay_rates/site_bundle.py in moblyze-ops).
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
 import { CURRENCIES, bandOf, cellStats, convert, curSym, fxNote, levelCellStatus, loadCurrency, ordinal, fmtAmount, fmtDate, fmtRange, fmtRate, niceDomain, saveCurrency, setActiveCurrency, toUsd } from '../utils/marketRates'
@@ -12,22 +12,26 @@ import '../market-rates-v2.css'
 
 const DATA_URL = `${import.meta.env.BASE_URL || '/'}data/market_rates.json`
 const EDITION = 'Q4 2026'
-const FEATURED = ['electrician', 'inspector', 'mechanical-technician', 'welding-inspector', 'ndt-technician']
-const FREE_REGION = 'US'
 const LEVEL_NAME = { low: 'Early career', mid: 'Mid-level', high: 'Senior' }
 const LEVEL_YRS = { low: 'under 5 yrs', mid: '5 to 9 yrs', high: '10+ yrs' }
 const UNIT_BASIS = { day: 'contract_day', hour: 'perm_timebased', year: 'salary_equiv', month: 'seafarer_month' }
-const UNIT_LABEL = { day: 'per day', hour: 'per hour', year: 'per year', month: 'per month' }
+const UNIT_LABEL = { day: 'Day rate', hour: 'Hourly', year: 'Salary', month: 'Monthly' }
+const UNIT_LONG = { day: 'Contract day rates', hour: 'Hourly rates on permanent jobs', year: 'Annual salaries', month: 'Monthly seafarer wages' }
+const UNIT_WORD = { day: 'a day', hour: 'an hour', year: 'a year', month: 'a month' }
 const BASIS_NOUN = { contract_day: 'contract day rate', perm_timebased: 'hourly rate', salary_equiv: 'annual salary', seafarer_month: 'monthly seafarer wage' }
-const REGION_NAME = { US: 'United States', UK: 'United Kingdom', 'Middle East': 'Middle East', 'Europe (other)': 'Europe', 'Unknown/Worldwide': 'Worldwide / unstated' }
+const REGION_NAME = { US: 'United States', UK: 'United Kingdom', Canada: 'Canada', Asia: 'Asia', 'Middle East': 'Middle East', 'Europe (other)': 'Europe', 'Unknown/Worldwide': 'Worldwide / unstated' }
+const regionName = r => REGION_NAME[r] || r
+const IN_THE = new Set(['US', 'UK', 'Middle East'])
+const inRegion = r => r === 'Unknown/Worldwide' ? 'worldwide or unstated locations' : `${IN_THE.has(r) ? 'the ' : ''}${regionName(r)}`
 const STATUS = {
-  in_range: { label: 'Inside the typical range', tone: 'ok', icon: '●' },
-  near_below: { label: 'Just below the typical range', tone: 'warn', icon: '▾' },
-  near_above: { label: 'Just above the typical range', tone: 'up', icon: '▴' },
-  below_market: { label: 'Below market', tone: 'low', icon: '▼' },
-  above_market: { label: 'Above market', tone: 'up', icon: '▲' },
+  in_range: { label: 'Fair: inside the typical range', tone: 'ok' },
+  near_below: { label: 'A little low: just below the typical range', tone: 'warn' },
+  near_above: { label: 'A little high: just above the typical range', tone: 'up' },
+  below_market: { label: 'Low: below the market', tone: 'low' },
+  above_market: { label: 'High: above the market', tone: 'up' },
 }
-const HERO_EXAMPLE = { role: 'electrician', region: 'US', level: 'low', unit: 'day', rate: '320' }
+const START = { role: 'electrician', region: 'US', level: 'all', unit: 'day', rate: '320' }
+const COMMON_ROWS = 10
 
 /* ── data helpers ─────────────────────────────────────────────────── */
 function useMarketRates() {
@@ -70,77 +74,81 @@ function dateSpan(a, b) {
   return `${fmtDate(a)}-${fmtDate(b)}`
 }
 
+function monthSpan(a, b) {
+  const m = iso => new Date(iso + 'T00:00:00Z')
+  const A = m(a), B = m(b)
+  const mon = d => d.toLocaleDateString('en-US', { month: 'short', timeZone: 'UTC' })
+  return A.getUTCFullYear() === B.getUTCFullYear()
+    ? `${mon(A)}-${mon(B)} ${B.getUTCFullYear()}`
+    : `${mon(A)} ${A.getUTCFullYear()}-${mon(B)} ${B.getUTCFullYear()}`
+}
+
 function fmtExact(v, unit) {
   const sfx = { day: '/day', hour: '/hr', month: '/mo', year: '/yr' }[unit] || ''
   return `${curSym()}${v.toLocaleString('en-US', { maximumFractionDigits: unit === 'hour' ? 2 : 0 })}${sfx}`
 }
 
-/* ── currency selector ────────────────────────────────────────────── */
-function CurrencyPicker({ value, onChange, fx }) {
-  return (
-    <div className="m2-cur">
-      <div className="m2-cur__seg" role="radiogroup" aria-label="Display currency">
-        {CURRENCIES.map(c => (
-          <button key={c} type="button" role="radio" aria-checked={value === c} className={`m2-cur__opt${value === c ? ' is-on' : ''}`} onClick={() => onChange(c)}>
-            <span aria-hidden="true">{curSym(c)}</span>{c}
-          </button>
-        ))}
-      </div>
-      {fx && <span className="m2-cur__fx num">ECB reference rates, {fmtDate(fx.date)}: {fxNote(fx)}</span>}
-    </div>
-  )
+function plural(role) {
+  const l = role.role_label
+  if (/(Master|Officer|Engineer|Technician|Inspector|Electrician|Operator|Pilot|Supervisor|Welder|Rigger|Fitter|Mechanic|Driver|Manager|Foreman|Hand|Planner|Coordinator|Designer|Surveyor|Diver|Controller|Specialist|Lead|Superintendent)$/.test(l)) return `${l}s`
+  return `${l} roles`
 }
 
-function prettyRole(c) { return c.role_label.replace(/ Technician$/, ' technician').replace(/ Inspector$/, ' inspector') }
+// The basis this page leans on: the bundle's data_basis when present, else what the cells carry.
+function dataBasis(data) {
+  const db = data.counts?.data_basis
+  if (db?.jobs) return { jobs: db.jobs, employers: db.employers, from: db.first_seen_from, to: db.first_seen_to }
+  const jobs = data.cells.reduce((s, c) => s + (c.n_dedup ?? c.n ?? 0), 0)
+  const to = data.cells.reduce((m, c) => (c.first_seen_max && c.first_seen_max > m ? c.first_seen_max : m), '')
+  return { jobs, employers: null, from: null, to: to || null }
+}
 
 // The cell to benchmark against: the level cell when it publishes, else the role x region cell.
 function resolveCell(data, role, region, unit, level) {
   const base = data.cells.find(c => c.role === role && c.region === region && c.basis === UNIT_BASIS[unit])
   if (!base) return null
   const lv = level !== 'all' && !levelCellStatus(base.levels, level).suppressed ? base.levels[level] : null
-  return { base, cell: lv || base, levelUsed: lv ? level : 'all', levelMissing: level !== 'all' && !lv ? (base.levels?.[level]?.n ?? base.level_n?.[level] ?? 0) : null }
+  return { base, cell: lv || base, levelUsed: lv ? level : 'all', levelMissing: level !== 'all' && !lv }
 }
 
 /* ── small pieces ─────────────────────────────────────────────────── */
-function Provenance({ cell, base, compact, onDetail }) {
-  const b = base || cell
-  const conf = confidenceOf(cell.n, cell.employers)
+function CurrencyPicker({ value, onChange, fx }) {
   return (
-    <div className={`m2-prov${compact ? ' m2-prov--compact' : ''}`}>
-      <span className="m2-prov__src">Market pay</span>
-      <span className="m2-prov__dot" />
-      <span className="num">{cell.n} rates</span>
-      <span className="m2-prov__dot" />
-      <span className="num">{cell.employers} employers</span>
-      <span className="m2-prov__dot" />
-      <span className="num">{dateSpan(cell.first_seen_min || b.first_seen_min, cell.first_seen_max || b.first_seen_max)}</span>
-      {!compact && <><span className="m2-prov__dot" /><span>Refreshed {fmtDate(cell.last_updated || b.last_updated)}</span></>}
-      <span className={`m2-conf m2-conf--${conf.toLowerCase()}`} title="High: 50+ rates from 15+ employers. Medium: 20+ rates from 6+ employers. Limited: 10+ rates from 3+ employers.">
-        <span className="m2-conf__bars" aria-hidden="true"><i /><i /><i /></span>{conf}
-      </span>
-      {onDetail && <button type="button" className="m2-prov__more" onClick={onDetail} aria-label="How this number is built">How it's built</button>}
+    <div className="mr3-cur">
+      <div className="mr3-cur__seg" role="radiogroup" aria-label="Display currency">
+        {CURRENCIES.map(c => (
+          <button key={c} type="button" role="radio" aria-checked={value === c} className={`mr3-cur__opt${value === c ? ' is-on' : ''}`} onClick={() => onChange(c)}>
+            <span aria-hidden="true">{curSym(c)}</span>{c}
+          </button>
+        ))}
+      </div>
+      {fx && <span className="mr3-cur__fx num">ECB rates, {fmtDate(fx.date)}: {fxNote(fx)}</span>}
     </div>
   )
 }
 
-function Band({ st, dom, marker, markerLabel, height = 'md', tipTitle }) {
-  const pct = v => Math.max(0, Math.min(100, ((v - dom.min) / (dom.max - dom.min)) * 100))
-  const lo = pct(st.p25), hi = pct(st.p75), med = pct(st.median)
+function Select({ label, value, onChange, children, wide }) {
   return (
-    <div className={`m2-band m2-band--${height}`}>
-      <div className="m2-band__track" />
-      <div className="m2-band__iqr" style={{ left: `${lo}%`, width: `${Math.max(1, hi - lo)}%` }} />
-      <div className="m2-band__med" style={{ left: `${med}%` }} />
+    <label className={`mr3-field${wide ? ' mr3-field--wide' : ''}`}>
+      <span className="mr3-field__l">{label}</span>
+      <select value={value} onChange={e => onChange(e.target.value)}>{children}</select>
+    </label>
+  )
+}
+
+function Band({ st, dom, marker, markerLabel, size = 'md' }) {
+  const pct = v => Math.max(0, Math.min(100, ((v - dom.min) / (dom.max - dom.min)) * 100))
+  const lo = pct(st.p25Raw), hi = pct(st.p75Raw), med = pct(st.medianRaw)
+  return (
+    <div className={`mr3-band mr3-band--${size}`}>
+      <div className="mr3-band__track" />
+      <div className="mr3-band__iqr" style={{ left: `${lo}%`, width: `${Math.max(1, hi - lo)}%` }} />
+      <div className="mr3-band__med" style={{ left: `${med}%` }} />
       {marker != null && (
-        <div className="m2-band__you" style={{ left: `${pct(marker)}%` }}>
-          <span className="m2-band__youlabel num">{markerLabel}</span>
+        <div className="mr3-band__you" style={{ left: `${pct(marker)}%` }}>
+          {markerLabel && <span className={`mr3-band__youlabel num${pct(marker) > 70 ? ' is-right' : pct(marker) < 30 ? ' is-left' : ''}`}>{markerLabel}</span>}
         </div>
       )}
-      <div className="m2-tip" role="tooltip">
-        {tipTitle && <b>{tipTitle}</b>}
-        <span>Typical (P25-P75) <em className="num">{fmtRange(st.p25, st.p75, st.period)}</em></span>
-        <span>Median <em className="num">{fmtRate(st.median, st.period)}</em></span>
-      </div>
     </div>
   )
 }
@@ -148,7 +156,7 @@ function Band({ st, dom, marker, markerLabel, height = 'md', tipTitle }) {
 function Axis({ dom, period }) {
   const step = (dom.max - dom.min) / dom.ticks
   return (
-    <div className="m2-axis" aria-hidden="true">
+    <div className="mr3-axis" aria-hidden="true">
       {Array.from({ length: dom.ticks + 1 }, (_, i) => (
         <span key={i} className="num" style={{ left: `${(i / dom.ticks) * 100}%` }}>{fmtAmount(dom.min + i * step, period)}</span>
       ))}
@@ -156,13 +164,222 @@ function Axis({ dom, period }) {
   )
 }
 
-function LockIcon() {
-  return <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1.6" fill="currentColor" /><path d="M5.2 7V5.2a2.8 2.8 0 0 1 5.6 0V7" fill="none" stroke="currentColor" strokeWidth="1.5" /></svg>
+/* ── the answer: what does this role typically earn ───────────────── */
+function Answer({ r, unit, region, onDetail }) {
+  const st = cellStats(r.cell, unit)
+  const dom = niceDomain(st.p25Raw, st.p75Raw, 4)
+  const conf = confidenceOf(r.cell.n, r.cell.employers)
+  const lvl = r.levelUsed === 'all' ? '' : `${LEVEL_NAME[r.levelUsed].toLowerCase()} `
+  return (
+    <section className="mr3-answer" aria-labelledby="mr3-answer-h">
+      <h2 id="mr3-answer-h" className="mr3-answer__q">{lvl ? `${LEVEL_NAME[r.levelUsed]} ${plural(r.base)}` : plural(r.base)} in {inRegion(region)} typically earn</h2>
+      <p className="mr3-answer__big num">{fmtAmount(st.median, unit)}<small>{{ day: '/day', hour: '/hr', month: '/mo', year: '/yr' }[unit]}</small></p>
+      <p className="mr3-answer__range">
+        Median {BASIS_NOUN[r.base.basis]}. Most jobs pay <b className="num">{fmtAmount(st.p25, unit)} to {fmtAmount(st.p75, unit)}</b> {UNIT_WORD[unit]}.
+        {st.converted && <span className="mr3-answer__conv"> Converted from {BASIS_NOUN[r.base.basis]}s.</span>}
+      </p>
+      <div className="mr3-answer__plot">
+        <Band st={st} dom={dom} size="lg" />
+        <Axis dom={dom} period={unit} />
+      </div>
+      {r.levelMissing && <p className="mr3-note">Not enough jobs state this experience level here yet, so this covers all levels.</p>}
+      <p className="mr3-prov">
+        <span className="num">{r.cell.n} jobs</span> from <span className="num">{r.cell.employers} employers</span>, first seen {dateSpan(r.cell.first_seen_min || r.base.first_seen_min, r.cell.first_seen_max || r.base.first_seen_max)}.
+        <span className={`mr3-conf mr3-conf--${conf.toLowerCase()}`} title="High: 50+ jobs from 15+ employers. Medium: 20+ jobs from 6+ employers. Limited: 10+ jobs from 3+ employers.">{conf} confidence</span>
+        <button type="button" className="mr3-link" onClick={() => onDetail(r)}>How it's built</button>
+      </p>
+    </section>
+  )
 }
 
-/* ── hero: your rate vs market ────────────────────────────────────── */
-function RateCheck({ data, buyer, currency, onDetail }) {
-  const [f, setF] = useState(() => ({ ...HERO_EXAMPLE, rate: String(Math.round(convert(+HERO_EXAMPLE.rate, 'USD', currency))), cur: currency }))
+/* ── the check: is this rate fair ─────────────────────────────────── */
+function RateCheck({ r, unit, rate, setRate }) {
+  const st = cellStats(r.cell, unit)
+  const v = parseFloat(String(rate).replace(/[^0-9.]/g, ''))
+  const ok = isFinite(v) && v > 0
+  const dom = niceDomain(Math.min(st.p25Raw, ok ? v : Infinity) * 0.95, Math.max(st.p75Raw, ok ? v : 0) * 1.03, 4)
+  const pctl = ok ? percentileOf(v, st) : null
+  const diff = ok ? (v - st.medianRaw) / st.medianRaw : 0
+  // banding runs on the cell's USD/day range, so the typed rate goes back to USD per day first
+  const dayV = ok ? toUsd(unit === 'day' ? v : unit === 'hour' ? v * (r.cell.hours_per_day || (r.cell.basis === 'perm_timebased' ? 8 : 10)) : unit === 'year' ? v / 260 : v / 30.4) : null
+  const band = ok ? bandOf(dayV, dayV, r.cell) : null
+  const pctAbs = Math.round(Math.abs(diff) * 100)
+  const gap = ok ? Math.abs(st.median - v) : 0
+  return (
+    <section className="mr3-check" aria-labelledby="mr3-check-h">
+      <h2 id="mr3-check-h">Is this rate fair?</h2>
+      <label className="mr3-rate">
+        <span className="mr3-rate__cur" aria-hidden="true">{curSym()}</span>
+        <input inputMode="decimal" value={rate} onChange={e => setRate(e.target.value)} aria-label={`Rate to check, ${UNIT_WORD[unit].replace(/^an? /, 'per ')}`} />
+        <span className="mr3-rate__unit">{{ day: 'per day', hour: 'per hour', month: 'per month', year: 'per year' }[unit]}</span>
+      </label>
+      <div aria-live="polite">
+        {ok ? (
+          <>
+            <p className={`mr3-verdict mr3-verdict--${STATUS[band].tone}`}>{STATUS[band].label}</p>
+            <p className="mr3-verdict__line">
+              {pctAbs === 0 ? <>Right at the median of <b className="num">{fmtRate(st.median, unit)}</b>.</> : <><b className="num">{fmtExact(v, unit)}</b> is <b className="num">{pctAbs}% {diff < 0 ? 'under' : 'over'}</b> the median of <b className="num">{fmtRate(st.median, unit)}</b>.</>}
+              {diff < -0.02 && <> Adding <b className="num">{fmtRate(gap, unit)}</b> reaches it.</>}
+            </p>
+            <div className="mr3-check__plot">
+              <Band st={st} dom={dom} marker={v} markerLabel={fmtExact(v, unit)} />
+              <Axis dom={dom} period={unit} />
+            </div>
+            <div className="mr3-legend"><span><i className="mr3-key mr3-key--iqr" />Middle half of jobs</span><span><i className="mr3-key mr3-key--med" />Median</span><span><i className="mr3-key mr3-key--you" />This rate</span></div>
+            <p className="mr3-pctl">Pays more than roughly {pctl}% of these jobs ({ordinal(pctl)} percentile).</p>
+          </>
+        ) : <p className="mr3-empty">Enter a rate to compare it with the market.</p>}
+      </div>
+    </section>
+  )
+}
+
+/* ── how it shifts: experience and region ─────────────────────────── */
+function Shifts({ data, r, unit, region, onLevel, onRegion }) {
+  const levelRows = ['low', 'mid', 'high'].map(l => {
+    const lc = r.base.levels?.[l]
+    const shown = lc && !levelCellStatus(r.base.levels, l).suppressed
+    return { k: l, name: LEVEL_NAME[l], sub: LEVEL_YRS[l], st: shown ? cellStats(lc, unit) : null, n: shown ? lc.n : null, on: r.levelUsed === l, go: () => onLevel(r.levelUsed === l ? 'all' : l) }
+  })
+  const regionRows = data.regions.map(reg => {
+    const rc = data.cells.find(c => c.role === r.base.role && c.region === reg && c.basis === r.base.basis)
+    return rc ? { k: reg, name: regionName(reg), st: cellStats(rc, unit), n: rc.n, on: reg === region, go: () => onRegion(reg) } : null
+  }).filter(Boolean).sort((a, b) => b.st.medianRaw - a.st.medianRaw)
+  const all = [...levelRows, ...regionRows].filter(x => x.st)
+  const dom = niceDomain(Math.min(...all.map(x => x.st.p25Raw)), Math.max(...all.map(x => x.st.p75Raw)), 4)
+  const table = ({ title, rows, note }) => (
+    <div className="mr3-shift">
+      <h3>{title}</h3>
+      <table className="mr3-table">
+        <thead><tr><th scope="col">{title === 'By experience' ? 'Level' : 'Region'}</th><th scope="col" className="r">Median</th><th scope="col" className="mr3-col-bar"><span className="sr-only">Range</span></th><th scope="col" className="r mr3-col-n">Jobs</th></tr></thead>
+        <tbody>
+          {rows.map(x => (
+            <tr key={x.k} className={`${x.on ? 'is-on' : ''}${x.st ? ' is-link' : ''}`} onClick={x.st ? x.go : undefined}>
+              <th scope="row">{x.st ? <button type="button" className="mr3-rowbtn" onClick={e => { e.stopPropagation(); x.go() }}>{x.name}</button> : x.name}{x.sub && <small>{x.sub}</small>}</th>
+              {x.st ? (
+                <>
+                  <td className="r num">{fmtRate(x.st.median, unit)}<small className="mr3-range-sm">{fmtRange(x.st.p25, x.st.p75, unit)}</small></td>
+                  <td className="mr3-col-bar"><Band st={x.st} dom={dom} size="sm" /></td>
+                  <td className="r num mr3-col-n">{x.n}</td>
+                </>
+              ) : <td colSpan={3} className="mr3-na">Needs more jobs</td>}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      {note && <p className="mr3-shift__note">{note}</p>}
+    </div>
+  )
+  return (
+    <section className="mr3-sec" aria-labelledby="mr3-shift-h">
+      <h2 id="mr3-shift-h" className="mr3-sec__h">{r.base.role_label} pay by experience and region</h2>
+      <div className="mr3-shifts">
+        {table({ title: 'By experience', rows: levelRows, note: `In ${inRegion(region)}. A level shows once enough jobs state it.` })}
+        {regionRows.length > 1 && table({ title: 'By region', rows: regionRows, note: 'All experience levels.' })}
+      </div>
+    </section>
+  )
+}
+
+/* ── common roles in this region ──────────────────────────────────── */
+function CommonRoles({ data, region, unit, role, onRole }) {
+  const rows = data.cells.filter(c => c.region === region && c.basis === UNIT_BASIS[unit] && !c.role.endsWith('-other') && c.role !== 'supervisor-foreman')
+    .sort((a, b) => b.n - a.n).slice(0, COMMON_ROWS)
+  if (rows.length < 2) return null
+  const stats = rows.map(c => cellStats(c, unit))
+  const dom = niceDomain(Math.min(...stats.map(s => s.p25Raw)), Math.max(...stats.map(s => s.p75Raw)), 4)
+  return (
+    <section className="mr3-sec" aria-labelledby="mr3-common-h">
+      <h2 id="mr3-common-h" className="mr3-sec__h">Most common roles in {regionName(region)}</h2>
+      <p className="mr3-sec__sub">{UNIT_LONG[unit]}, all experience levels. Choose a role to look it up.</p>
+      <table className="mr3-table mr3-table--common">
+        <thead><tr><th scope="col">Role</th><th scope="col" className="r">Median</th><th scope="col" className="r mr3-col-range">Middle half</th><th scope="col" className="mr3-col-bar"><span className="sr-only">Range</span></th><th scope="col" className="r mr3-col-n">Jobs</th></tr></thead>
+        <tbody>
+          {rows.map((c, i) => (
+            <tr key={c.id} className={`is-link${c.role === role ? ' is-on' : ''}`} onClick={() => onRole(c.role)}>
+              <th scope="row"><button type="button" className="mr3-rowbtn" onClick={e => { e.stopPropagation(); onRole(c.role) }}>{c.role_label}</button></th>
+              <td className="r num mr3-strong">{fmtRate(stats[i].median, unit)}</td>
+              <td className="r num mr3-col-range">{fmtRange(stats[i].p25, stats[i].p75, unit)}</td>
+              <td className="mr3-col-bar"><Band st={stats[i]} dom={dom} size="sm" /></td>
+              <td className="r num mr3-col-n">{c.n}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </section>
+  )
+}
+
+/* ── modal + detail drawer ────────────────────────────────────────── */
+function RequestModal({ onClose }) {
+  const [sent, setSent] = useState(false)
+  useEffect(() => { const k = e => e.key === 'Escape' && onClose(); window.addEventListener('keydown', k); return () => window.removeEventListener('keydown', k) }, [onClose])
+  return (
+    <div className="mr3-overlay" onClick={onClose}>
+      <div className="mr3-modal" role="dialog" aria-modal="true" aria-labelledby="mr3-modal-h" onClick={e => e.stopPropagation()}>
+        <button type="button" className="mr3-x" onClick={onClose} aria-label="Close">×</button>
+        <h2 id="mr3-modal-h">Request the full edition</h2>
+        {sent ? (
+          <p className="mr3-modal__done">Mock only. Nothing was sent or stored. In a live version this request would reach the Moblyze team and open a trial of the full edition.</p>
+        ) : (
+          <form onSubmit={e => { e.preventDefault(); setSent(true) }}>
+            <p className="mr3-modal__sub">Early access is limited to energy employers, crewing managers and recruiters.</p>
+            <label className="mr3-field"><span className="mr3-field__l">Company</span><input placeholder="Company name" /></label>
+            <label className="mr3-field"><span className="mr3-field__l">Your role</span>
+              <select defaultValue="emp">
+                <option value="emp">Employer or crewing manager</option>
+                <option value="rec">Recruiter or staffing firm</option>
+                <option value="hr">HR or rewards</option>
+                <option value="oth">Other</option>
+              </select>
+            </label>
+            <label className="mr3-field"><span className="mr3-field__l">Work email</span><input type="email" placeholder="name@company.com" /></label>
+            <label className="mr3-field"><span className="mr3-field__l">Roles and regions you benchmark</span><input placeholder="e.g. ROV pilots, North Sea; electricians, Texas" /></label>
+            <button type="submit" className="mr3-btn mr3-btn--primary">Request access</button>
+            <p className="mr3-modal__fine">Internal preview. This form is a non-functional mock and submits nothing.</p>
+          </form>
+        )}
+      </div>
+    </div>
+  )
+}
+
+function DetailDrawer({ data, sel, onClose }) {
+  useEffect(() => { const k = e => e.key === 'Escape' && onClose(); window.addEventListener('keydown', k); return () => window.removeEventListener('keydown', k) }, [onClose])
+  const c = sel.cell, b = sel.base
+  const conf = confidenceOf(c.n, c.employers)
+  const st = cellStats(c, b.unit)
+  const cur = Object.entries(c.currencies || {}).map(([k, v]) => `${k} ${v}`).join(', ')
+  const types = Object.entries(c.employer_types || {}).map(([k, v]) => `${({ direct: 'direct employer', board: 'job board', crewing_agency: 'crewing agency', staffing: 'staffing agency' })[k] || k.replace('_', ' ')} ${v}`).join(', ')
+  const rows = [
+    ['Measure', 'Pay stated on jobs for the role, with duplicates removed across sources.'],
+    ['Market', `${b.role_label} · ${regionName(b.region)} · ${sel.levelUsed === 'all' ? 'All levels' : `${LEVEL_NAME[sel.levelUsed]} (${LEVEL_YRS[sel.levelUsed]})`} · ${b.basis_label}`],
+    ['Typical range', `${fmtRange(st.p25, st.p75, st.period)}, the middle half of jobs (P25-P75). Median ${fmtRate(st.median, st.period)}.`],
+    ['Jobs used', `${c.n} after removing duplicates (${c.n_raw} before) and ${c.outliers_excluded} ${c.outliers_excluded === 1 ? 'outlier' : 'outliers'} beyond 3x MAD`],
+    ['Employers', `${c.employers} distinct${types ? ` (${types})` : ''}`],
+    ['First seen', dateSpan(c.first_seen_min || b.first_seen_min, c.first_seen_max || b.first_seen_max)],
+    ['Still open', `${Math.round((c.active_share ?? 0) * 100)}% of these jobs are open today`],
+    ['Currencies', `${cur || 'USD'} as stated; shown in ${st.currency} at ECB reference rates of ${fmtDate(data.fx?.date || data.fx_date)}`],
+    ['Confidence', `${conf}. High needs 50+ jobs from 15+ employers, Medium 20+ from 6+, Limited 10+ from 3+. Below that nothing publishes.`],
+    ['Refreshed', `${fmtDate(c.last_updated || b.last_updated)} · extractor ${data.extractor_version}`],
+  ]
+  return (
+    <div className="mr3-overlay mr3-overlay--side" onClick={onClose}>
+      <aside className="mr3-drawer" role="dialog" aria-modal="true" aria-labelledby="mr3-drawer-h" onClick={e => e.stopPropagation()}>
+        <button type="button" className="mr3-x" onClick={onClose} aria-label="Close">×</button>
+        <h2 id="mr3-drawer-h">How this number is built</h2>
+        <dl className="mr3-dl">{rows.map(([k, v]) => <div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
+        <p className="mr3-drawer__fine">Only pay stated with an explicit period counts. Hourly-to-day conversions assume 10 hours on contract work and 8 on permanent work.</p>
+      </aside>
+    </div>
+  )
+}
+
+/* ── page ─────────────────────────────────────────────────────────── */
+function Lookup({ data, currency }) {
+  const [f, setF] = useState(() => ({ ...START, rate: String(Math.round(convert(+START.rate, 'USD', currency))), cur: currency }))
+  const [detail, setDetail] = useState(null)
+  const top = useRef(null)
   const set = (k, v) => setF(p => ({ ...p, [k]: v }))
   // A typed rate follows the display currency, so switching USD -> GBP re-expresses it rather than reinterpreting it.
   useEffect(() => {
@@ -183,369 +400,83 @@ function RateCheck({ data, buyer, currency, onDetail }) {
   const regions = useMemo(() => data.regions.filter(r => data.cells.some(c => c.role === f.role && c.region === r && c.basis === UNIT_BASIS[unit])), [data, f.role, unit])
   const region = regions.includes(f.region) ? f.region : regions[0]
   const r = resolveCell(data, f.role, region, unit, f.level)
-  const v = parseFloat(String(f.rate).replace(/[^0-9.]/g, ''))
-  const ok = r && isFinite(v) && v > 0
-  const st = r ? cellStats(r.cell, unit) : null
-  const dom = st ? niceDomain(Math.min(st.p25Raw, ok ? v : Infinity) * 0.92, Math.max(st.p75Raw, ok ? v : 0) * 1.04, 4) : null
-  const pctl = ok ? percentileOf(v, st) : null
-  const diff = ok ? (v - st.medianRaw) / st.medianRaw : 0
-  // banding runs on the cell's USD/day range, so the typed rate goes back to USD per day first
-  const dayV = ok ? toUsd(unit === 'day' ? v : unit === 'hour' ? v * (r.cell.hours_per_day || (r.cell.basis === 'perm_timebased' ? 8 : 10)) : unit === 'year' ? v / 260 : v / 30.4) : null
-  const band = ok ? bandOf(dayV, dayV, r.cell) : null
-  const lvlLabel = r?.levelUsed !== 'all' ? `${LEVEL_NAME[r.levelUsed].toLowerCase()} median` : 'median'
-  const dir = diff < 0 ? 'under' : 'over'
-  const gapAbs = ok ? Math.abs(st.median - v) : 0
-
-  // "What moves it": only comparisons the data publishes (level cells, other regions).
-  const moves = []
-  if (r) {
-    for (const l of ['low', 'mid', 'high']) {
-      const lc = r.base.levels?.[l]
-      if (!lc || l === r.levelUsed || levelCellStatus(r.base.levels, l).suppressed) continue
-      const ls = cellStats(lc, unit)
-      const d = ls.median - st.median
-      if (d === 0) continue
-      moves.push({ k: `lvl-${l}`, kind: 'Experience', text: `${LEVEL_NAME[l]} (${LEVEL_YRS[l]})`, val: fmtRate(ls.median, unit), d, n: lc.n })
-    }
-    for (const reg of data.regions) {
-      if (reg === region) continue
-      const rc = data.cells.find(c => c.role === f.role && c.region === reg && c.basis === r.base.basis)
-      if (!rc) continue
-      const rs = cellStats(rc, unit)
-      const d = rs.median - st.median
-      if (d === 0) continue
-      moves.push({ k: `reg-${reg}`, kind: 'Region', text: REGION_NAME[reg], val: fmtRate(rs.median, unit), d, n: rc.n })
-    }
-  }
-  const shown = moves.sort((a, b) => Math.abs(b.d) - Math.abs(a.d)).slice(0, 3)
-
-  const copy = buyer === 'employer'
-    ? { eyebrow: 'Rate check for employers and crewing managers', title: <>Are your rates <em>competitive?</em></>, input: 'Rate you offer', lead: ok && diff < -0.02 ? `To reach the market median, add ${fmtRate(gapAbs, unit)}.` : ok ? 'Your offer is at or above the market median.' : '' }
-    : { eyebrow: 'Rate check for recruiters', title: <>What rate can you <em>defend?</em></>, input: 'Rate you plan to quote', lead: st ? `Defensible band: ${fmtRange(st.p25, st.p75, unit)}, the middle half of ${r.cell.n} rates. Quoting up to ${fmtRate(st.p75, unit)} stays inside market.` : '' }
+  const pickRole = role => { set('role', role); top.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }) }
 
   return (
-    <section className="m2-hero" aria-labelledby="m2-hero-h">
-      <div className="m2-hero__copy">
-        <p className="m2-eyebrow">{copy.eyebrow}</p>
-        <h1 id="m2-hero-h">{copy.title}</h1>
-        <p className="m2-hero__sub">Enter a role, region, experience level and rate. See where it sits against what the market pays right now.</p>
-        <form className="m2-form" onSubmit={e => e.preventDefault()}>
-          <label className="m2-field m2-field--wide"><span>Role</span>
-            <select value={f.role} onChange={e => set('role', e.target.value)}>{roles.map(([id, l]) => <option key={id} value={id}>{l}</option>)}</select>
-          </label>
-          <label className="m2-field"><span>Region</span>
-            <select value={region} onChange={e => set('region', e.target.value)}>{regions.map(x => <option key={x} value={x}>{REGION_NAME[x]}</option>)}</select>
-          </label>
-          <label className="m2-field"><span>Experience</span>
-            <select value={f.level} onChange={e => set('level', e.target.value)}>
-              <option value="all">All levels</option>
-              {['low', 'mid', 'high'].map(l => <option key={l} value={l}>{LEVEL_NAME[l]} ({LEVEL_YRS[l]})</option>)}
-            </select>
-          </label>
-          <label className="m2-field m2-field--rate"><span>{copy.input}</span>
-            <div className="m2-rate">
-              <span className="m2-rate__cur">{curSym()}</span>
-              <input inputMode="decimal" value={f.rate} onChange={e => set('rate', e.target.value)} aria-label={copy.input} />
-              <select value={unit} onChange={e => set('unit', e.target.value)} aria-label="Pay period">
-                {units.map(u => <option key={u} value={u}>{UNIT_LABEL[u]}</option>)}
-              </select>
-            </div>
-          </label>
-        </form>
-        {r?.levelMissing != null && (
-          <p className="m2-note">{LEVEL_NAME[f.level]} needs more data for this role and region, so this compares against all levels.</p>
-        )}
-      </div>
+    <>
+      <form className="mr3-form" ref={top} onSubmit={e => e.preventDefault()} aria-label="Look up a market rate">
+        <Select label="Role" value={f.role} onChange={v => set('role', v)} wide>{roles.map(([id, l]) => <option key={id} value={id}>{l}</option>)}</Select>
+        <Select label="Region" value={region} onChange={v => set('region', v)}>{regions.map(x => <option key={x} value={x}>{regionName(x)}</option>)}</Select>
+        <Select label="Experience" value={f.level} onChange={v => set('level', v)}>
+          <option value="all">All levels</option>
+          {['low', 'mid', 'high'].map(l => <option key={l} value={l}>{LEVEL_NAME[l]} ({LEVEL_YRS[l]})</option>)}
+        </Select>
+        <Select label="Pay type" value={unit} onChange={v => set('unit', v)}>{units.map(u => <option key={u} value={u}>{UNIT_LABEL[u]}</option>)}</Select>
+      </form>
 
-      <div className="m2-result" aria-live="polite">
-        {!r && <p className="m2-empty">No published market yet for this combination. A cell publishes at 10+ rates from 3+ employers.</p>}
-        {r && (
-          <>
-            <div className="m2-result__head">
-              <span className="m2-result__ctx">{prettyRole(r.base)} · {REGION_NAME[region]} · {r.levelUsed === 'all' ? 'All levels' : `${LEVEL_NAME[r.levelUsed]} (${LEVEL_YRS[r.levelUsed]})`} · {BASIS_NOUN[r.base.basis]}</span>
-            </div>
-            {ok ? (
-              <div className="m2-verdict">
-                <div className="m2-verdict__pwrap">
-                  <div className="m2-verdict__p num"><small>P</small>{pctl}</div>
-                  <span className="m2-verdict__pw">{ordinal(pctl)} percentile</span>
-                </div>
-                <div className="m2-verdict__txt">
-                  <p className="m2-verdict__line"><b className="num">{Math.round(Math.abs(diff) * 100)}% {dir}</b> the {lvlLabel} of <b className="num">{fmtRate(st.median, unit)}</b></p>
-                  <p className={`m2-status m2-status--${STATUS[band].tone}`}><span aria-hidden="true">{STATUS[band].icon}</span>{STATUS[band].label}</p>
-                </div>
-              </div>
-            ) : <p className="m2-empty">Enter a rate to see its position.</p>}
-            <div className="m2-result__plot">
-              <Band st={st} dom={dom} height="lg" marker={ok ? v : null} markerLabel={ok ? (buyer === 'employer' ? 'Your offer ' : 'Your quote ') + fmtExact(v, unit) : ''} tipTitle="Market" />
-              <Axis dom={dom} period={unit} />
-              <div className="m2-legend"><span><i className="m2-key m2-key--iqr" />Typical range, P25-P75</span><span><i className="m2-key m2-key--med" />Median</span><span><i className="m2-key m2-key--you" />{buyer === 'employer' ? 'Your offer' : 'Your quote'}</span></div>
-            </div>
-            {copy.lead && <p className="m2-lead">{copy.lead}</p>}
-            {shown.length > 0 && (
-              <div className="m2-moves">
-                <h3>What moves it</h3>
-                <ul>
-                  {shown.map(m => (
-                    <li key={m.k}>
-                      <span className="m2-moves__kind">{m.kind}</span>
-                      <span className="m2-moves__what">{m.text}</span>
-                      <span className="m2-moves__val num">{m.val}</span>
-                      <span className={`m2-moves__d num ${m.d > 0 ? 'is-up' : 'is-down'}`}>{m.d > 0 ? '+' : '-'}{fmtRate(Math.abs(m.d), unit)}</span>
-                      <span className="m2-moves__n num">{m.n} rates</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            <Provenance cell={r.cell} base={r.base} onDetail={() => onDetail(r)} />
-          </>
-        )}
-      </div>
-    </section>
+      {!r && <p className="mr3-empty">No published market yet for this combination. A market publishes at 10+ jobs from 3+ employers.</p>}
+      {r && (
+        <>
+          <div className="mr3-main">
+            <Answer r={r} unit={unit} region={region} onDetail={setDetail} />
+            <RateCheck r={r} unit={unit} rate={f.rate} setRate={v => set('rate', v)} />
+          </div>
+          <Shifts data={data} r={r} unit={unit} region={region} onLevel={l => set('level', l)} onRegion={reg => set('region', reg)} />
+        </>
+      )}
+      <CommonRoles data={data} region={region} unit={unit} role={f.role} onRole={pickRole} />
+      {detail && <DetailDrawer data={data} sel={detail} onClose={() => setDetail(null)} />}
+    </>
   )
 }
 
-/* ── free layer ───────────────────────────────────────────────────── */
-function FreeLayer({ data, onDetail }) {
-  const cells = FEATURED.map(role => data.cells.find(c => c.role === role && c.region === FREE_REGION && c.basis === 'contract_day')).filter(Boolean)
-  const all = cells.flatMap(c => [c, ...Object.values(c.levels || {}).filter(Boolean)])
-  const dom = niceDomain(Math.min(...all.map(c => cellStats(c, 'day').p25Raw)), Math.max(...all.map(c => cellStats(c, 'day').p75Raw)), 4)
-  return (
-    <section className="m2-sec" aria-labelledby="m2-free-h">
-      <header className="m2-sec__head">
-        <div>
-          <p className="m2-eyebrow">Included in this edition</p>
-          <h2 id="m2-free-h">Five featured trades, United States contract day rates</h2>
-        </div>
-        <p className="m2-sec__aside">One median and one typical range per trade. Experience ranges show only when enough data backs them and the order holds.</p>
-      </header>
-      <div className="m2-cards">
-        {cells.map(c => {
-          const st = cellStats(c, 'day')
-          return (
-            <article key={c.id} className="m2-card">
-              <div className="m2-card__top">
-                <h3>{prettyRole(c)}</h3>
-                <div className="m2-card__med"><span className="num">{fmtAmount(st.median, 'day')}</span><small>/day median</small></div>
-              </div>
-              <p className="m2-card__range num">Typical {fmtRange(st.p25, st.p75, 'day')}</p>
-              <Band st={st} dom={dom} tipTitle={prettyRole(c)} />
-              <ul className="m2-levels">
-                {['low', 'mid', 'high'].map(l => {
-                  const lc = c.levels?.[l]
-                  const shown = lc && !levelCellStatus(c.levels, l).suppressed
-                  return (
-                    <li key={l}>
-                      <span className="m2-levels__l">{LEVEL_NAME[l]}<small>{LEVEL_YRS[l]}</small></span>
-                      {shown
-                        ? <span className="m2-levels__v num">{fmtRange(cellStats(lc, 'day').p25, cellStats(lc, 'day').p75, 'day')}</span>
-                        : <span className="m2-levels__na">Needs more data</span>}
-                    </li>
-                  )
-                })}
-              </ul>
-              <Provenance cell={c} compact onDetail={() => onDetail({ base: c, cell: c, levelUsed: 'all' })} />
-            </article>
-          )
-        })}
-      </div>
-      <Axis dom={dom} period="day" />
-    </section>
-  )
-}
-
-/* ── gated layer ──────────────────────────────────────────────────── */
-function GatedLayer({ data, onRequest }) {
-  const gridRoles = ['electrician', 'inspector', 'ndt-technician', 'welder', 'chief-officer', 'vessel-master', 'marine-engineer', 'substation-technician']
-  const grid = gridRoles.map(role => ({ role, cells: data.regions.map(reg => data.cells.find(c => c.role === role && c.region === reg && c.basis === 'contract_day')) })).filter(g => g.cells.some(Boolean))
-  const trendCells = data.cells.filter(c => c.trend?.length >= 3)
-  const tc = data.cells.find(c => c.id === 'electrician|US|perm_timebased') || trendCells[0]
-  const tr = tc?.trend || []
-  const tmin = Math.min(...tr.map(t => t.usd_day_median)), tmax = Math.max(...tr.map(t => t.usd_day_median))
-  const pts = tr.map((t, i) => `${(i / Math.max(1, tr.length - 1)) * 200},${54 - ((t.usd_day_median - tmin) / Math.max(1, tmax - tmin)) * 44}`).join(' ')
-  const regionalRole = data.cells.filter(c => c.role === 'chief-officer' && c.basis === 'contract_day')
-
-  const tiles = [
-    { k: 'grid', title: 'Full role, region and experience grid', body: `All ${data.counts.cells_published} published cells and ${data.counts.level_cells_published} experience-level cells, every basis.`, tag: 'Full edition' },
-    { k: 'region', title: 'Regional comparison', body: 'The same role side by side across the US, UK, Middle East, Europe and worldwide crewing.', tag: 'Full edition' },
-    { k: 'trend', title: 'Monthly trends, up to 12 months', body: `Shown only where 3+ months each have 5+ rates: ${trendCells.length} cells qualify today. Others carry no trend.`, tag: 'Full edition' },
-    { k: 'prem', title: 'Certification and rotation premiums', body: 'What a 28/28 rotation or a GWO, CSWIP or IRATA ticket adds. Rotation is stated too rarely to price yet.', tag: 'Coming soon' },
-    { k: 'peer', title: 'Custom peer sets', body: 'Benchmark against the employers you compete with for crew, for example North Sea subsea contractors.', tag: 'Full edition' },
-    { k: 'alert', title: 'Watched-role alerts and CSV export', body: 'A note when a watched role moves outside its range, plus the full grid as a rate card.', tag: 'Full edition' },
-  ]
-
-  return (
-    <section className="m2-sec m2-gated" aria-labelledby="m2-gated-h">
-      <header className="m2-sec__head">
-        <div>
-          <p className="m2-eyebrow"><LockIcon /> Full edition</p>
-          <h2 id="m2-gated-h">Every role, every region, every level</h2>
-        </div>
-        <button type="button" className="m2-btn m2-btn--primary" onClick={onRequest}>Request access</button>
-      </header>
-
-      <div className="m2-locked m2-locked--grid">
-        <div className="m2-locked__blur" aria-hidden="true">
-          <table className="m2-grid">
-            <thead><tr><th>Role, contract day rate</th>{data.regions.map(r => <th key={r}>{REGION_NAME[r]}</th>)}</tr></thead>
-            <tbody>
-              {grid.map(g => (
-                <tr key={g.role}>
-                  <td>{(g.cells.find(Boolean) || {}).role_label}</td>
-                  {g.cells.map((c, i) => <td key={i} className="num">{c ? fmtRange(cellStats(c, 'day').p25, cellStats(c, 'day').p75, 'day') : 'Needs more data'}</td>)}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <div className="m2-locked__cta">
-          <span className="m2-lockbadge"><LockIcon /> Full edition</span>
-          <p><b className="num">{data.counts.cells_published} market cells</b> across {data.regions.length} regions and 3 experience levels</p>
-          <button type="button" className="m2-btn m2-btn--primary" onClick={onRequest}>Request access</button>
-        </div>
-      </div>
-
-      <div className="m2-tiles">
-        {tiles.map(t => (
-          <button type="button" key={t.k} className={`m2-tile${t.tag === 'Coming soon' ? ' is-soon' : ''}`} onClick={onRequest}>
-            <div className="m2-tile__preview" aria-hidden="true">
-              {t.k === 'trend' && tr.length > 1 && <svg viewBox="-4 0 208 60" preserveAspectRatio="none"><polyline points={pts} fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" strokeLinecap="round" vectorEffect="non-scaling-stroke" /></svg>}
-              {t.k === 'region' && <div className="m2-mini-bars">{regionalRole.map(c => <i key={c.id} style={{ width: `${Math.min(100, (c.usd_day.median / 450) * 100)}%` }} />)}</div>}
-              {t.k === 'grid' && <div className="m2-mini-grid">{Array.from({ length: 15 }, (_, i) => <i key={i} style={{ opacity: 0.25 + ((i * 37) % 60) / 100 }} />)}</div>}
-              {t.k === 'prem' && <div className="m2-mini-prem"><span>+?</span><span>+?</span><span>+?</span></div>}
-              {t.k === 'peer' && <div className="m2-mini-peer"><i /><i /><i /><i /></div>}
-              {t.k === 'alert' && <div className="m2-mini-alert"><span>CSV</span><span>Alert</span></div>}
-            </div>
-            <span className={`m2-tile__tag${t.tag === 'Coming soon' ? ' is-soon' : ''}`}>{t.tag === 'Coming soon' ? t.tag : <><LockIcon /> {t.tag}</>}</span>
-            <h3>{t.title}</h3>
-            <p>{t.body}</p>
-          </button>
-        ))}
-      </div>
-    </section>
-  )
-}
-
-/* ── modal + detail drawer ────────────────────────────────────────── */
-function RequestModal({ buyer, onClose }) {
-  const [sent, setSent] = useState(false)
-  useEffect(() => { const k = e => e.key === 'Escape' && onClose(); window.addEventListener('keydown', k); return () => window.removeEventListener('keydown', k) }, [onClose])
-  return (
-    <div className="m2-overlay" onClick={onClose}>
-      <div className="m2-modal" role="dialog" aria-modal="true" aria-labelledby="m2-modal-h" onClick={e => e.stopPropagation()}>
-        <button type="button" className="m2-modal__x" onClick={onClose} aria-label="Close">×</button>
-        <p className="m2-eyebrow">Moblyze Market Rates · {EDITION}</p>
-        <h2 id="m2-modal-h">Request the full edition</h2>
-        {sent ? (
-          <p className="m2-modal__done">Mock only. Nothing was sent or stored. In a live version this request would reach the Moblyze team and open a trial of the full edition.</p>
-        ) : (
-          <form onSubmit={e => { e.preventDefault(); setSent(true) }}>
-            <p className="m2-modal__sub">Early access is limited to energy employers, crewing managers and recruiters. Tell us who you are and what you need to benchmark.</p>
-            <label className="m2-field"><span>Company</span><input placeholder="Company name" /></label>
-            <label className="m2-field"><span>Your role</span>
-              <select defaultValue={buyer === 'employer' ? 'emp' : 'rec'}>
-                <option value="emp">Employer or crewing manager</option>
-                <option value="rec">Recruiter or staffing firm</option>
-                <option value="hr">HR or rewards</option>
-                <option value="oth">Other</option>
-              </select>
-            </label>
-            <label className="m2-field"><span>Work email</span><input type="email" placeholder="name@company.com" /></label>
-            <label className="m2-field"><span>Roles and regions you benchmark</span><input placeholder="e.g. ROV pilots, North Sea; electricians, Texas" /></label>
-            <button type="submit" className="m2-btn m2-btn--primary m2-btn--block">Request access</button>
-            <p className="m2-modal__fine">Internal preview. This form is a non-functional mock and submits nothing.</p>
-          </form>
-        )}
-      </div>
-    </div>
-  )
-}
-
-function DetailDrawer({ data, sel, onClose }) {
-  useEffect(() => { const k = e => e.key === 'Escape' && onClose(); window.addEventListener('keydown', k); return () => window.removeEventListener('keydown', k) }, [onClose])
-  const c = sel.cell, b = sel.base
-  const conf = confidenceOf(c.n, c.employers)
-  const st = cellStats(c, b.unit)
-  const cur = Object.entries(c.currencies || {}).map(([k, v]) => `${k} ${v}`).join(', ')
-  const types = Object.entries(c.employer_types || {}).map(([k, v]) => `${({ direct: 'direct employer', board: 'job board', crewing_agency: 'crewing agency', staffing: 'staffing agency' })[k] || k.replace('_', ' ')} ${v}`).join(', ')
-  const rows = [
-    ['Measure', 'Stated pay rates for the role, deduplicated across sources.'],
-    ['Cell', `${b.role_label} · ${REGION_NAME[b.region]} · ${sel.levelUsed === 'all' ? 'All levels' : `${LEVEL_NAME[sel.levelUsed]} (${LEVEL_YRS[sel.levelUsed]})`} · ${b.basis_label}`],
-    ['Typical range', `${fmtRange(st.p25, st.p75, st.period)} (P25-P75), median ${fmtRate(st.median, st.period)}`],
-    ['Rates used', `${c.n} after removing duplicates (${c.n_raw} raw) and ${c.outliers_excluded} ${c.outliers_excluded === 1 ? 'outlier' : 'outliers'} beyond 3x MAD`],
-    ['Employers', `${c.employers} distinct${types ? ` (${types})` : ''}`],
-    ['First seen', dateSpan(c.first_seen_min || b.first_seen_min, c.first_seen_max || b.first_seen_max)],
-    ['Still open', `${Math.round((c.active_share ?? 0) * 100)}% of these listings are live today`],
-    ['Currencies', `${cur || 'USD'} as stated; shown in ${st.currency} at ECB reference rates of ${fmtDate(data.fx?.date || data.fx_date)}`],
-    ['Confidence', `${conf}. High needs 50+ rates from 15+ employers, Medium 20+ from 6+, Limited 10+ from 3+. Below that a cell does not publish.`],
-    ['Refreshed', `${fmtDate(c.last_updated || b.last_updated)} · extractor ${data.extractor_version}`],
-  ]
-  return (
-    <div className="m2-overlay m2-overlay--side" onClick={onClose}>
-      <aside className="m2-drawer" role="dialog" aria-modal="true" aria-labelledby="m2-drawer-h" onClick={e => e.stopPropagation()}>
-        <button type="button" className="m2-modal__x" onClick={onClose} aria-label="Close">×</button>
-        <p className="m2-eyebrow">Provenance</p>
-        <h2 id="m2-drawer-h">How this number is built</h2>
-        <dl className="m2-dl">{rows.map(([k, v]) => <div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
-        <p className="m2-drawer__fine">Only pay stated with an explicit period is counted. Hourly-to-day conversions assume 10 hours on contract work and 8 on permanent work.</p>
-      </aside>
-    </div>
-  )
-}
-
-/* ── page ─────────────────────────────────────────────────────────── */
 export default function MarketRatesV2Page() {
   const { data, error } = useMarketRates()
-  const [buyer, setBuyer] = useState('employer')
   const [modal, setModal] = useState(false)
-  const [detail, setDetail] = useState(null)
   const [currency, setCurrency] = useState(loadCurrency)
   const pickCurrency = c => { setCurrency(c); saveCurrency(c) }
   // every figure below is formatted in the chosen currency (utils read this during render)
   if (data) setActiveCurrency(currency, data.fx)
+  const basis = data ? dataBasis(data) : null
   return (
-    <div className="m2">
-      <SEO title="Moblyze Market Rates Q4 2026" description="Internal preview of a market pay benchmark for energy and trades roles." />
-      <div className="m2-wrap">
-        <div className="m2-mast">
-          <div className="m2-mast__brand">
-            <span className="m2-mast__mark" aria-hidden="true" />
-            <span className="m2-mast__name">Moblyze Market Rates</span>
-            <span className="m2-mast__ed">{EDITION} edition</span>
+    <div className="mr3">
+      <SEO title="Moblyze Market Rates" description="Internal preview of a market pay benchmark for energy and trades roles." />
+      <div className="mr3-wrap">
+        <header className="mr3-head">
+          <div className="mr3-head__title">
+            <h1>Market rates <span className="mr3-beta">Beta</span></h1>
+            <p className="mr3-head__sub">What energy and trades roles typically earn, from jobs that state their pay.</p>
           </div>
-          <div className="m2-mast__right">
-            {data && <CurrencyPicker value={currency} onChange={pickCurrency} fx={data.fx} />}
-            <span className="m2-pill">Beta</span>
-            <Link to="/market-rates/v1" className="m2-mast__v1">Compare with v1</Link>
-          </div>
-        </div>
+          {data && <CurrencyPicker value={currency} onChange={pickCurrency} fx={data.fx} />}
+        </header>
+        {basis && (
+          <p className="mr3-basis">
+            <span className="mr3-basis__dot" aria-hidden="true" />
+            Based on <b className="num">{basis.jobs.toLocaleString('en-US')}</b> jobs with stated pay
+            {basis.employers ? <> from <b className="num">{basis.employers.toLocaleString('en-US')}</b> employers</> : null}
+            {basis.from && basis.to ? <>, posted {monthSpan(basis.from, basis.to)}</> : null}
+            <span className="mr3-basis__sep" aria-hidden="true">·</span>
+            Updated {fmtDate(data.generated_at.slice(0, 10))}
+          </p>
+        )}
 
-        <div className="m2-buyers" role="tablist" aria-label="Who is this for">
-          {[['employer', 'For employers and crewing managers', 'Are my rates competitive?'], ['recruiter', 'For recruiters', 'What rate can I defend?']].map(([k, who, q]) => (
-            <button key={k} type="button" role="tab" aria-selected={buyer === k} className={`m2-buyer${buyer === k ? ' is-on' : ''}`} onClick={() => setBuyer(k)}>
-              <span className="m2-buyer__who">{who}</span>
-              <span className="m2-buyer__q">{q}</span>
-            </button>
-          ))}
-        </div>
-
-        {error && <p className="m2-empty">Could not load market data ({error}).</p>}
-        {!data && !error && <p className="m2-empty">Loading the {EDITION} edition…</p>}
+        {error && <p className="mr3-empty">Could not load market data ({error}).</p>}
+        {!data && !error && <p className="mr3-empty">Loading market rates…</p>}
         {data && (
           <>
-            <RateCheck data={data} buyer={buyer} currency={currency} onDetail={setDetail} />
-            <FreeLayer data={data} onDetail={setDetail} />
-            <GatedLayer data={data} onRequest={() => setModal(true)} />
-            <footer className="m2-foot">
-              <p>Built from {data.counts.observations_dedup.toLocaleString('en-US')} deduplicated pay rates for energy and trades roles that state pay with an explicit period, Feb to Oct 2026. A number publishes only at 10+ rates from 3+ employers. Percentiles are estimated from each cell's P25, median and P75. Figures are shown in {currency} at ECB reference rates of {fmtDate(data.fx?.date || data.fx_date)}.</p>
-              <p className="m2-foot__ed">Moblyze Market Rates · {EDITION} · Refreshed {fmtDate(data.generated_at.slice(0, 10))} · Internal preview, illustrative, not client-facing</p>
+            <Lookup data={data} currency={currency} />
+            <aside className="mr3-full">
+              <p><b>Full edition.</b> All {data.counts.cells_published} role and region markets, monthly trends, peer sets and CSV export.</p>
+              <button type="button" className="mr3-btn" onClick={() => setModal(true)}>Request access</button>
+            </aside>
+            <footer className="mr3-foot">
+              <p>Built from pay stated on energy and trades jobs, with duplicates and reposts removed and only pay with an explicit period counted. A number publishes at 10+ jobs from 3+ employers. The typical range is the middle half of jobs (25th to 75th percentile); percentiles for a single rate are estimated from it. Figures are shown in {currency} at ECB reference rates of {fmtDate(data.fx?.date || data.fx_date)}.</p>
+              <p className="mr3-foot__ed">Moblyze Market Rates · {EDITION} · Internal preview, not client-facing · <Link to="/market-rates/v1">Earlier version</Link></p>
             </footer>
           </>
         )}
       </div>
-      {modal && <RequestModal buyer={buyer} onClose={() => setModal(false)} />}
-      {detail && data && <DetailDrawer data={data} sel={detail} onClose={() => setDetail(null)} />}
+      {modal && <RequestModal onClose={() => setModal(false)} />}
     </div>
   )
 }
