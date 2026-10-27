@@ -1299,17 +1299,59 @@ companies:
     sheet_name: "Fugro"
 
   # === Batch 4 direct-employer additions (replacing CrewBase-sourced rows) ===
-  # V.Group (90 CrewBase rows / 253 per CrewBase re-count) is on Pinpoint
-  # (vgroup.pinpointhq.com), NOT html_generic or any adapter this repo has.
-  # Pinpoint exposes a clean unauthenticated JSON feed at /postings.json
-  # (377 postings, full HTML descriptions ~3000 chars, structured location
-  # and job/department fields) -- see the report for the field shape. No
-  # existing adapter's JSON-shape assumptions match it (html_generic's
-  # portal_api_url mode is hardcoded to OSM Thome's osmaportal.com schema:
-  # job.name/slug/locations[]/employment_types[], not Pinpoint's
-  # title/url/path/location{}/job{}). Per instructions, not building a
-  # dedicated adapter here -- flagging for a human decision since 2 more
-  # backlog employers are also on Pinpoint. No companies.yaml entry added.
+
+  # === CrewBase replacement connectors, Oct 27, 2026 (Jesse approved) ===
+  # Each `name:` is CrewBase's exact employer string, so the jobs site clusters
+  # the direct row with the CrewBase row and the employer copy wins (see the
+  # scraping-audit skill, references/crewbase-replacement.md).
+
+  # V.Group on Pinpoint: one unauthenticated JSON call returns the whole board.
+  # Its feed files every vessel job under its London head office; the adapter
+  # publishes postings whose location name is "Shipboard" as "Worldwide" (what
+  # CrewBase shows for the same rows), skips the 14 "Register Interest" adverts,
+  # and skips the postings its robots.txt disallows by UUID.
+  v_group:
+    name: "V.Group"
+    platform: pinpoint
+    base_url: "https://vgroup.pinpointhq.com/"
+    rate_limit_delay: 2.0
+    # Tab name without the dot: some readers build unquoted A1 ranges ("<tab>!A:N").
+    sheet_name: "V Group"
+
+  # TOS (jobs.tospeople.com): Next.js board, server-rendered, robots `Allow: /`.
+  # 351 postings over 44 listing pages on Oct 27; one detail request per new
+  # posting (known URLs skip it). "Port & Logistics" is TOS's Dutch port staffing
+  # line (forklift drivers, counter staff), not energy or maritime crew, so it is
+  # left out; every other workfield (Offshore, Maritime, Dredging, Towage, Ship
+  # Delivery, Onshore) is kept.
+  tos_recruitment:
+    name: "TOS Recruitment"
+    platform: tos_people
+    base_url: "https://jobs.tospeople.com/en"
+    rate_limit_delay: 2.0
+    exclude_workfields: ["Port & Logistics"]
+    max_new_details_per_run: 400
+    sheet_name: "TOS Recruitment"
+
+  # IQrewing (iqrewing.com): server-rendered HTML, robots allows everything.
+  # 121 sea vacancies over 13 listing pages on Oct 27.
+  iqrewing:
+    name: "IQrewing"
+    platform: iqrewing
+    base_url: "https://iqrewing.com/eng/jobs"
+    rate_limit_delay: 2.0
+    max_new_details_per_run: 200
+    sheet_name: "IQrewing"
+
+  # Kuiper Group careers portal (linked from kuiper-group.com/jobs/). Listed only
+  # 3 jobs on Oct 27 against 227 active CrewBase "Kuiper" rows; most of those are
+  # email-application adverts with no page behind them.
+  kuiper:
+    name: "Kuiper"
+    platform: kuiper
+    base_url: "https://jobs.kuiper-group.com/online"
+    rate_limit_delay: 2.0
+    sheet_name: "Kuiper"
 
   # Faststream Recruitment (88 CrewBase pay rows) is NOT wired. Adapter
   # src/scrapers/faststream.py is built and tested (sitemap + detail pages, 193

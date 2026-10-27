@@ -8,17 +8,22 @@ far less brittle than driving the rendered page.
 
 Built for the CrewBase replacement, where three employers are on Pinpoint.
 
-⚠️ NOT currently used by V.Group, the board this was written against. Its feed
-tags all 377 postings to its London head office (postcode SW1), including
-"Motorman for cruise vessel Ultramarine" and "V.Ships Manila", while its own
-posting page shows the location as "Shipboard" and never says London. Ingesting
-that would put false geography on 363 public job pages, and CrewBase's own
-location data for V.Group is better ("Worldwide", "United Arab Emirates"). So
-the adapter is ready and tested, and the tenant is a separate decision.
+V.Group (wired Oct 27, 2026). Its feed tags every posting to its London head
+office (city "London", postcode SW1), including "Motorman for cruise vessel
+Ultramarine", while the posting page shows the location as "Shipboard"
+(`location.name`) and never says London. So a posting whose location NAME is a
+vessel placeholder ("Shipboard", "Onboard", "At Sea", "Vessel") is published as
+"Worldwide", the value CrewBase uses for the same V.Group rows and one the jobs
+site resolves to no place rather than a false city. A tenant can add its own
+placeholder names with `shipboard_location_names`.
+
+robots.txt: V.Group's disallows a few individual postings by UUID
+(`/postings/<uuid>`). Those postings are skipped.
 
 Config:
     platform: pinpoint
     base_url: "https://<tenant>.pinpointhq.com/"
+    shipboard_location_names: ["Shipboard"]   # optional, added to the defaults
 
 WHY NOT html_generic: its only JSON mode (`portal_api_url`) is hardcoded to the
 OSM Thome portal's schema (`job.name`/`slug`/`locations[]`), which does not
@@ -41,6 +46,7 @@ Response shape (verified live 2026-09-16):
     }, ...]}
 """
 
+import re
 from typing import Optional
 
 import httpx
@@ -55,10 +61,7 @@ from src.scrapers.base import BaseScraper
 logger = structlog.get_logger()
 
 REQUEST_TIMEOUT = 30.0
-USER_AGENT = (
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
-    "(KHTML, like Gecko) Chrome/125.0 Safari/537.36"
-)
+USER_AGENT = 'Mozilla/5.0 (compatible; MoblyzeJobScraper/1.0; +https://moblyze.me)'
 
 # Every part of a Pinpoint posting that is body copy, in reading order. These
 # are all genuinely part of the posting, so joining them is fuller capture, not
@@ -93,7 +96,33 @@ def is_vacancy(posting: dict) -> bool:
     return name not in NON_VACANCY_LOCATION_NAMES
 
 
-def build_location(posting: dict) -> str:
+# Location names that mean "on a vessel", not a place. A posting filed under one
+# of these gets "Worldwide" rather than the tenant's (head office) city.
+SHIPBOARD_LOCATION_NAMES = {'shipboard', 'onboard', 'on board', 'at sea', 'vessel', 'offshore vessel'}
+SHIPBOARD_LOCATION = 'Worldwide'
+
+
+def disallowed_posting_ids(robots_txt: str) -> set[str]:
+    """Posting UUIDs a tenant's robots.txt disallows (`Disallow: /postings/<uuid>`).
+
+    Pinpoint serves the same posting at `/postings/<uuid>` and `/en/postings/<uuid>`;
+    the robots rule names the bare path, so it is matched on the UUID to honour it
+    under either path.
+    """
+    ids = set()
+    for line in robots_txt.splitlines():
+        m = re.match(r'\s*disallow:\s*/(?:[a-z]{2}/)?postings/([0-9a-f-]{36})\s*$', line, re.IGNORECASE)
+        if m:
+            ids.add(m.group(1).lower())
+    return ids
+
+
+def posting_uuid(url: str) -> str:
+    m = re.search(r'/postings/([0-9a-f-]{36})', url or '', re.IGNORECASE)
+    return m.group(1).lower() if m else ''
+
+
+def build_location(posting: dict, shipboard_names: Optional[set] = None) -> str:
     """"City, Province" from a posting, or a sensible partial.
 
     `province` is usually a country on this platform but not always: US boards
@@ -106,10 +135,13 @@ def build_location(posting: dict) -> str:
     displays the location as "Shipboard" (`location.name`) and never shows
     London. Before adding a Pinpoint tenant, check whether every posting shares
     one city. If it does, the structured location is an HQ default and
-    publishing it would put false geography on the site, which is why V.Group
-    is deliberately not configured. See the module docstring.
+    publishing it would put false geography on the site. V.Group's are all
+    filed under the location name "Shipboard", which maps to "Worldwide" above.
     """
     location = posting.get('location') or {}
+    names = SHIPBOARD_LOCATION_NAMES | {n.lower() for n in (shipboard_names or set())}
+    if str(location.get('name') or '').strip().lower() in names:
+        return SHIPBOARD_LOCATION
     city = str(location.get('city') or '').strip()
     province = str(location.get('province') or '').strip()
     parts = [p for p in (city, province) if p]
@@ -153,6 +185,7 @@ class PinpointScraper(BaseScraper):
     def __init__(self, config: dict):
         super().__init__(config)
         self.base_url = config.get('base_url', '')
+        self.shipboard_names = {str(n).lower() for n in config.get('shipboard_location_names') or []}
 
     async def extract_job_listings(self, page: Page) -> list[dict]:
         """Not used: the JSON endpoint returns whole postings, not stubs."""
@@ -168,6 +201,13 @@ class PinpointScraper(BaseScraper):
             async with httpx.AsyncClient(
                 timeout=REQUEST_TIMEOUT, headers={'User-Agent': USER_AGENT}
             ) as client:
+                blocked: set[str] = set()
+                try:
+                    robots = await client.get(f"{self.base_url.rstrip('/')}/robots.txt")
+                    if robots.status_code == 200:
+                        blocked = disallowed_posting_ids(robots.text)
+                except httpx.HTTPError:
+                    pass  # no robots.txt reachable: nothing extra disallowed
                 response = await client.get(url)
                 response.raise_for_status()
                 payload = response.json()
@@ -178,11 +218,14 @@ class PinpointScraper(BaseScraper):
         postings = payload.get('data') or []
         total = len(postings)
         postings = [p for p in postings if is_vacancy(p)]
+        robots_skipped = sum(1 for p in postings if posting_uuid(p.get('url', '')) in blocked)
+        postings = [p for p in postings if posting_uuid(p.get('url', '')) not in blocked]
         self.logger.info(
             'pinpoint_postings_fetched',
             url=url,
             count=len(postings),
-            skipped_non_vacancies=total - len(postings),
+            skipped_non_vacancies=total - len(postings) - robots_skipped,
+            skipped_robots=robots_skipped,
         )
         if max_jobs:
             postings = postings[:max_jobs]
@@ -204,7 +247,7 @@ class PinpointScraper(BaseScraper):
             job_data = {
                 'title': title,
                 'company': self.company_name,
-                'location': build_location(posting),
+                'location': build_location(posting, self.shipboard_names),
                 'description': description,
                 'url': job_url,
                 # Pinpoint's feed carries no posted date, so none is invented.

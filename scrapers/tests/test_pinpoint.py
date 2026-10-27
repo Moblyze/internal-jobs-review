@@ -6,6 +6,8 @@ Payloads here are trimmed copies of real V.Group postings fetched 2026-09-16.
 import pytest
 
 from src.scrapers.pinpoint import (
+    disallowed_posting_ids,
+    posting_uuid,
     build_description,
     build_location,
     build_salary,
@@ -41,7 +43,22 @@ class TestPostingsUrl:
 
 class TestLocation:
     def test_city_and_country(self):
-        assert build_location(POSTING) == "London, United Kingdom"
+        posting = {"location": {"city": "London", "province": "United Kingdom", "name": "London Office"}}
+        assert build_location(posting) == "London, United Kingdom"
+
+    def test_shipboard_is_worldwide_not_the_head_office(self):
+        # V.Group files every vessel job under city "London" (its HQ) with the
+        # location name "Shipboard". Publishing London would be false geography.
+        assert build_location(POSTING) == "Worldwide"
+
+    @pytest.mark.parametrize("name", ["SHIPBOARD", "At Sea", "onboard"])
+    def test_shipboard_variants(self, name):
+        assert build_location({"location": {"city": "London", "name": name}}) == "Worldwide"
+
+    def test_tenant_specific_placeholder(self):
+        posting = {"location": {"city": "Glasgow", "name": "Fleet"}}
+        assert build_location(posting) == "Glasgow"
+        assert build_location(posting, {"fleet"}) == "Worldwide"
 
     def test_us_board_puts_a_state_in_province(self):
         # Verified live: 14 of V.Group's 377 rows do this. "Mobile, Alabama"
@@ -123,3 +140,24 @@ class TestNonVacancies:
     )
     def test_real_postings_pass(self, location):
         assert is_vacancy({"location": location}) is True
+
+
+class TestRobots:
+    ROBOTS = """User-Agent: *
+Disallow: /mydata
+Disallow: /postings/b8d8f436-d167-422f-8643-7f569e409d56
+Disallow: /postings/7986CFF2-31c1-4f1f-845e-5bb464cf3283
+"""
+
+    def test_disallowed_posting_uuids_are_read(self):
+        assert disallowed_posting_ids(self.ROBOTS) == {
+            "b8d8f436-d167-422f-8643-7f569e409d56",
+            "7986cff2-31c1-4f1f-845e-5bb464cf3283",
+        }
+
+    def test_uuid_matches_the_localized_path_too(self):
+        url = "https://vgroup.pinpointhq.com/en/postings/b8d8f436-d167-422f-8643-7f569e409d56"
+        assert posting_uuid(url) in disallowed_posting_ids(self.ROBOTS)
+
+    def test_no_uuid(self):
+        assert posting_uuid("https://vgroup.pinpointhq.com/") == ""

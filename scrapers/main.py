@@ -177,6 +177,24 @@ except ImportError:
     pass
 
 try:
+    from src.scrapers.tos_people import TosPeopleScraper
+    SCRAPER_REGISTRY['tos_people'] = TosPeopleScraper
+except ImportError:
+    pass
+
+try:
+    from src.scrapers.iqrewing import IQrewingScraper
+    SCRAPER_REGISTRY['iqrewing'] = IQrewingScraper
+except ImportError:
+    pass
+
+try:
+    from src.scrapers.kuiper import KuiperScraper
+    SCRAPER_REGISTRY['kuiper'] = KuiperScraper
+except ImportError:
+    pass
+
+try:
     from src.scrapers.faststream import FaststreamScraper
     SCRAPER_REGISTRY['faststream'] = FaststreamScraper
 except ImportError:
