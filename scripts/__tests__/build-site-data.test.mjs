@@ -7,6 +7,7 @@ import zlib from 'node:zlib'
 import { execFileSync } from 'node:child_process'
 import { decodeLiteIndex } from '../../src/utils/liteIndexDecoder.js'
 import { jobShardIndex, shardKey } from '../../src/utils/jobShard.js'
+import { jobToSlug } from '../../src/utils/formatters.js'
 
 const SCRIPT = path.resolve('scripts/build-site-data.mjs')
 const row = (id, o = {}) => ({
@@ -107,4 +108,43 @@ test('Pages Function serves closed shards from R2 with gzip, 404s when absent', 
   const miss = await onRequestGet({ request: {}, params: { path: ['closed', 'cd.json'] }, env, next: () => 'next' })
   assert.equal(miss.status, 404)
   assert.equal(await onRequestGet({ request: {}, params: { path: ['closed', '../x.json'] }, env, next: () => 'next' }), 'next')
+})
+
+test('build-time facets: filters file counts current jobs only; rows carry parsed facets', () => {
+  const jobs = [
+    row('a', { appReady: true, title: 'Welder' }),
+    row('b', { location: 'Aberdeen, United Kingdom' }),
+    row('c', { status: 'removed', appReady: true }),
+  ]
+  const { out } = build(jobs)
+  const manifest = JSON.parse(fs.readFileSync(path.join(out, 'jobs-manifest.json')))
+  assert.ok(manifest.dataUpdatedAt)
+  assert.match(manifest.filters, /^filters\.[0-9a-f]{8}\.json$/)
+  const filters = JSON.parse(fs.readFileSync(path.join(out, 'jobs', manifest.filters)))
+  assert.equal(filters.appReadyCount, 1) // the removed app-ready job is not counted
+  assert.equal(filters.totalCurrent, 2)
+  assert.ok(filters.locations.length >= 2)
+  assert.ok(Array.isArray(filters.locationOptions) && Array.isArray(filters.roles))
+  const decoded = manifest.index.flatMap(({ file }) =>
+    decodeLiteIndex(JSON.parse(fs.readFileSync(path.join(out, 'jobs', file)))))
+  const a = decoded.find(j => j.id === 'a')
+  assert.ok(a.locs.length > 0)
+  assert.ok(Array.isArray(a.validSkills))
+})
+
+test('job page shards are keyed by slug with similar jobs; company shards by company slug', () => {
+  const jobs = [row('a'), row('b'), row('x', { company: 'Other Co', title: 'Pipefitter' })]
+  const { out } = build(jobs)
+  const manifest = JSON.parse(fs.readFileSync(path.join(out, 'jobs-manifest.json')))
+  const slug = jobToSlug('Acme', 'Title a')
+  const pkey = shardKey(jobShardIndex(slug, manifest.page.shards), manifest.page.shards)
+  const page = JSON.parse(fs.readFileSync(path.join(out, 'jobs/page', manifest.page.files[pkey])))[slug]
+  assert.equal(page.job.id, 'a')
+  assert.equal(page.job.url, 'https://x.test/a')
+  assert.match(page.job.description, /Long description for a/)
+  assert.equal(page.similar[0].id, 'b') // same company first
+  assert.ok(page.similar.some(s => s.id === 'x')) // shared location fills the rest
+  const ckey = shardKey(jobShardIndex('acme', manifest.company.shards), manifest.company.shards)
+  const company = JSON.parse(fs.readFileSync(path.join(out, 'jobs/company', manifest.company.files[ckey]))).acme
+  assert.deepEqual(company.jobs.map(j => j.id).sort(), ['a', 'b'])
 })

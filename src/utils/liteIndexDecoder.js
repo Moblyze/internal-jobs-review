@@ -14,6 +14,10 @@
  *   t=title, c=companyIdx, l=locationIdx, s=status (omitted if 'active'),
  *   k=skillIndices[], e=employmentType, sr=source, p=profile, a=appReady,
  *   cr=certifications[], d=descriptionPreview, sa=salary, pd=postedDate
+ *
+ * Build-time facets (v2, scripts/build-site-facets.mjs):
+ *   lo=parsed location indices (into `locs`), kv=validated skill indices (into
+ *   `validSkills`), ro=role index (into `roles`), ag=agency flag, mk=content markets[]
  */
 
 /**
@@ -24,6 +28,9 @@
  */
 export function decodeLiteIndex(liteData) {
   const { skills, companies, locations, ids, jobs } = liteData;
+  const locs = liteData.locs || [];
+  const validSkills = liteData.validSkills || [];
+  const roles = liteData.roles || [];
 
   return jobs.map((entry, idx) => {
     const job = {
@@ -54,6 +61,13 @@ export function decodeLiteIndex(liteData) {
     if (entry.d) job.descriptionPreview = entry.d;
     if (entry.sa) job.salary = entry.sa;
     if (entry.pd) job.postedDate = entry.pd;
+
+    // Precomputed facets
+    job.locs = entry.lo ? entry.lo.map(i => locs[i]) : [];
+    job.validSkills = entry.kv ? entry.kv.map(i => validSkills[i]) : [];
+    if (entry.ro !== undefined) job.roleId = roles[entry.ro];
+    if (entry.ag) job.isAgency = true;
+    if (entry.mk) job.markets = entry.mk;
 
     return job;
   });

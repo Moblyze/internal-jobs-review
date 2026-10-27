@@ -24,7 +24,6 @@ const JobListPage = lazyWithRetry(() => import('./pages/JobListPage'))
 const JobDetailPage = lazyWithRetry(() => import('./pages/JobDetailPage'))
 const CompanyPage = lazyWithRetry(() => import('./pages/CompanyPage'))
 const DescriptionDemoPage = lazyWithRetry(() => import('./pages/DescriptionDemoPage'))
-const ComparisonTool = lazyWithRetry(() => import('./pages/ComparisonTool'))
 const CompaniesPage = lazyWithRetry(() => import('./pages/CompaniesPage'))
 const FeedPage = lazyWithRetry(() => import('./pages/FeedPage'))
 const MarketRatesPage = lazyWithRetry(() => import('./pages/MarketRatesPage'))
@@ -141,7 +140,6 @@ function App() {
             <Route path="/feed" element={<FeedPage />} />
             <Route path="/market-rates" element={<MarketRatesV2Page />} />
             <Route path="/market-rates/v1" element={<MarketRatesPage />} />
-            <Route path="/compare" element={<ComparisonTool />} />
           </Routes>
         </Suspense>
       </Layout>

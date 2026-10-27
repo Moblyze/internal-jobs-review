@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useParams, useSearchParams, Link } from 'react-router-dom'
-import { useJobs, getSimilarJobs, getFullJob, getClosedJob } from '../hooks/useJobs'
-import { formatDate, companyToSlug, findJobBySlug } from '../utils/formatters'
+import { getJobPage, getClosedJob } from '../hooks/useJobs'
+import { mergeEnhancements } from '../utils/jobEnhancementStorage'
+import { formatDate, companyToSlug } from '../utils/formatters'
 import { normalizeCompanyName } from '../utils/companyNormalizer'
 import { formatJobDescription } from '../utils/contentFormatter'
 import { getAllLocations } from '../utils/locationParser'
@@ -113,65 +114,48 @@ function buildJobPostingSchema(job, locations) {
 
 function JobDetailPage() {
   const { jobSlug } = useParams()
-  const { jobs, loading, error } = useJobs()
   const [searchParams] = useSearchParams()
   const searchString = searchParams.toString()
 
   // State must be declared before any conditional returns (React hooks rule)
   const [descriptionView, setDescriptionView] = useState('ai')
-  const [similarJobs, setSimilarJobs] = useState([])
   const [clientEnhancement, setClientEnhancement] = useState(null)
   const [translatedDescription, setTranslatedDescription] = useState(null)
-  const [fullJob, setFullJob] = useState(null)
 
-  // Find job before useEffect (but after hooks)
-  const indexJob = !loading && !error ? findJobBySlug(jobs, jobSlug) : null
-
-  // Load full job data (with description) on demand for detail view
+  // One small page shard per slug (job row + description + precomputed similar jobs),
+  // instead of the whole 17 MB index. Removed/expired jobs fall back to the private
+  // archive (closed shards) and open with a "closed" banner.
+  const [page, setPage] = useState({ slug: null, job: null, similar: [], done: false, error: null })
   useEffect(() => {
-    if (indexJob) {
-      getFullJob(indexJob).then(setFullJob).catch(err => {
-        console.error('Failed to load full job data:', err)
-        setFullJob(indexJob) // Fallback to index data
-      })
-    }
-  }, [indexJob])
-
-  // Removed/expired jobs are not in the list index: look them up in the private archive
-  // so the page still opens (with a "closed" banner). null = not looked up / never existed.
-  const [closedJob, setClosedJob] = useState(null)
-  const [closedLookupDone, setClosedLookupDone] = useState(false)
-  const needsClosedLookup = !loading && !error && !indexJob
-  useEffect(() => {
-    if (!needsClosedLookup) return
     let cancelled = false
-    setClosedLookupDone(false)
-    getClosedJob(jobSlug).then(row => {
-      if (cancelled) return
-      setClosedJob(row)
-      setClosedLookupDone(true)
-    })
+    setPage({ slug: jobSlug, job: null, similar: [], done: false, error: null })
+    ;(async () => {
+      try {
+        const current = await getJobPage(jobSlug)
+        if (cancelled) return
+        if (current) {
+          setPage({ slug: jobSlug, job: mergeEnhancements([current.job])[0], similar: current.similar || [], done: true, error: null })
+          return
+        }
+        const closed = await getClosedJob(jobSlug)
+        if (!cancelled) setPage({ slug: jobSlug, job: closed, similar: [], done: true, error: null })
+      } catch (err) {
+        if (!cancelled) setPage({ slug: jobSlug, job: null, similar: [], done: true, error: err.message })
+      }
+    })()
     return () => { cancelled = true }
-  }, [needsClosedLookup, jobSlug])
+  }, [jobSlug])
 
-  // Use full job if loaded, otherwise fall back to index data, then the closed archive row
-  const job = fullJob || indexJob || (needsClosedLookup ? closedJob : null)
-
-  // Load similar jobs when job changes - MUST be before conditional returns
-  useEffect(() => {
-    if (job && jobs) {
-      getSimilarJobs(jobs, job, 5).then(setSimilarJobs).catch(err => {
-        console.error('Failed to load similar jobs:', err)
-        setSimilarJobs([])
-      })
-    }
-  }, [jobs, job])
+  const loading = !page.done
+  const error = page.error
+  const job = page.job
+  const similarJobs = page.similar
 
   // Inject schema.org JobPosting structured data
   useEffect(() => {
     if (!job || job.closed) return // closed jobs must not emit JobPosting markup
 
-    const locations = getAllLocations(job.location)
+    const locations = job.locs?.length ? job.locs : getAllLocations(job.location)
     const schema = buildJobPostingSchema(job, locations)
     const script = document.createElement('script')
     script.type = 'application/ld+json'
@@ -204,14 +188,6 @@ function JobDetailPage() {
     )
   }
 
-  if (!job && needsClosedLookup && !closedLookupDone) {
-    return (
-      <div className="flex items-center justify-center min-h-[400px]">
-        <p className="text-gray-600">Looking for this job...</p>
-      </div>
-    )
-  }
-
   if (!job) {
     return (
       <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 text-center">
@@ -223,7 +199,7 @@ function JobDetailPage() {
 
   // Format job description into structured content blocks
   const formattedDescription = formatJobDescription(job.description)
-  const locations = getAllLocations(job.location)
+  const locations = job.locs?.length ? job.locs : getAllLocations(job.location)
 
   // Check if job has AI-structured description (from jobs.json or client enhancement)
   const structuredDescription = clientEnhancement || job.structuredDescription

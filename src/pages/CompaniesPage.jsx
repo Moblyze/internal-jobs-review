@@ -1,10 +1,8 @@
 import { useState, useMemo, useEffect, Component } from 'react'
 import { Link } from 'react-router-dom'
 import Select from 'react-select'
-import { useJobs, useFilterOptions, getUniqueCompanies, getUniqueLocations, getUniqueSkills, getCertificationsWithCounts, getEnergyRoles, filterJobsByRole } from '../hooks/useJobs'
+import { useJobs, useSiteFilters } from '../hooks/useJobs'
 import { useFilterParams } from '../hooks/useFilterParams'
-import { getAllLocationsAsync } from '../utils/locationParser'
-import { createGroupedLocationOptionsWithGeodata } from '../utils/locationGeodata'
 import { extractJobCertifications } from '../utils/certificationExtractor'
 import { ALL_ENERGY_REGIONS, getRegionLocationValues } from '../utils/energyRegions'
 import { getMarketLabel, PRIORITY_MARKET_SLUGS } from '../utils/focusMarkets'
@@ -40,6 +38,10 @@ function getSourceColor(source) {
 }
 
 // Sort options
+const EMPTY_LIST = []
+// Render companies a page at a time: all ~6,800 at once was 130,000 DOM nodes and a ~5 s block
+const COMPANIES_PAGE_SIZE = 60
+
 const SORT_OPTIONS = [
   { value: 'jobs-desc', label: 'Most Jobs' },
   { value: 'jobs-asc', label: 'Fewest Jobs' },
@@ -137,7 +139,9 @@ const compactSelectStyles = {
 
 function CompaniesPage() {
   const { jobs, loading, error } = useJobs()
-  const filterOptions = useFilterOptions()
+  // Precomputed at build time over current jobs (scripts/build-site-data.mjs)
+  const filterOptions = useSiteFilters()
+  const [shownCompanies, setShownCompanies] = useState(COMPANIES_PAGE_SIZE)
   const { filters, setFilters } = useFilterParams()
   const [intelligence, setIntelligence] = useState({})
   const [search, setSearch] = useState('')
@@ -224,190 +228,44 @@ function CompaniesPage() {
     })
   }, [filterOptions, jobs])
 
-  // Async filter data
-  const [locationOptions, setLocationOptions] = useState([])
-  const [skills, setSkills] = useState([])
-  const [certifications, setCertifications] = useState([])
-  const [validatedSkillsByJob, setValidatedSkillsByJob] = useState(new Map())
+  // Filter lists: precomputed (no runtime location parsing or skill validation)
+  const locationOptions = filterOptions?.locationOptions || EMPTY_LIST
+  const skills = filterOptions?.skills || EMPTY_LIST
+  const certifications = filterOptions?.certifications || EMPTY_LIST
 
-  // Initialize certifications from pre-computed data if available
-  useEffect(() => {
-    if (filterOptions?.certifications && certifications.length === 0) {
-      setCertifications(filterOptions.certifications)
-    }
-  }, [filterOptions])
-
-  useEffect(() => {
-    if (jobs.length === 0) return
-    let cancelled = false
-
-    async function loadFilterData() {
-      const [locationOptionsResult] = await Promise.allSettled([
-        createGroupedLocationOptionsWithGeodata(jobs),
-      ])
-
-      if (cancelled) return
-      if (locationOptionsResult.status === 'fulfilled') setLocationOptions(locationOptionsResult.value)
-
-      // Load certifications async only if not pre-computed
-      if (!filterOptions?.certifications) {
-        try {
-          const certsResult = await getCertificationsWithCounts(jobs)
-          if (!cancelled) setCertifications(certsResult)
-        } catch (err) {
-          console.error('[CompaniesPage] Failed to load certifications:', err)
-        }
-      }
-
-      // Phase 2: Skills (expensive)
-      try {
-        const processedSkills = await getUniqueSkills(jobs)
-        if (cancelled) return
-        setSkills(processedSkills)
-
-        const { initializeONet } = await import('../utils/onetClient')
-        await initializeONet()
-        const { filterValidSkills } = await import('../utils/skillValidator')
-        const map = new Map()
-        jobs.forEach(job => {
-          if (job.skills && job.skills.length > 0) {
-            map.set(job.id, filterValidSkills(job.skills))
-          }
-        })
-        if (!cancelled) setValidatedSkillsByJob(map)
-      } catch (err) {
-        console.error('[CompaniesPage] Failed to load skills:', err)
-        if (!cancelled) setSkills([])
-      }
-    }
-
-    loadFilterData()
-    return () => { cancelled = true }
-  }, [jobs, filterOptions])
-
-  // Location cache for filtering
-  const [jobLocationsCacheRef, setJobLocationsCacheRef] = useState(new Map())
-
-  useEffect(() => {
-    if (jobs.length === 0) return
-    let cancelled = false
-
-    async function buildLocationCache() {
-      const cache = new Map()
-      for (let i = 0; i < jobs.length; i += 500) {
-        const batch = jobs.slice(i, i + 500)
-        await Promise.all(
-          batch.map(async (job) => {
-            if (job.location && !cache.has(job.location)) {
-              const locs = await getAllLocationsAsync(job.location)
-              cache.set(job.location, locs)
-            }
-          })
-        )
-        if (i + 500 < jobs.length) {
-          await new Promise(r => setTimeout(r, 0))
-        }
-      }
-      if (!cancelled) setJobLocationsCacheRef(cache)
-    }
-
-    buildLocationCache()
-    return () => { cancelled = true }
-  }, [jobs])
-
-  // ── Apply filters to jobs BEFORE computing company stats ──
-  const [filteredJobs, setFilteredJobs] = useState([])
-
-  useEffect(() => {
-    let isCancelled = false
-
-    async function applyFilters() {
-      // Expand region IDs to location values
-      let expandedLocations = [...(filters.locations || [])]
-      if (filters.regions && filters.regions.length > 0 && locationOptions.length > 0) {
-        filters.regions.forEach(regionId => {
-          const region = ALL_ENERGY_REGIONS.find(r => r.id === regionId)
-          if (region) {
-            const regionLocations = getRegionLocationValues(region, locationOptions)
-            expandedLocations = [...expandedLocations, ...regionLocations]
-          }
-        })
-        expandedLocations = [...new Set(expandedLocations)]
-      }
-
-      const locationCacheReady = jobLocationsCacheRef.size > 0
-
-      if (isCancelled) return
-
-      let result = jobs.filter((job) => {
-        // Status filter
-        if (!filters.showInactive && (job.status === 'removed' || job.status === 'paused')) {
-          return false
-        }
-
-        // Company filter
-        if (filters.companies?.length > 0 && !filters.companies.includes(normalizeCompanyName(job.company))) {
-          return false
-        }
-
-        // Location filter
-        if (expandedLocations.length > 0) {
-          if (!locationCacheReady) return true
-          const jobLocations = jobLocationsCacheRef.get(job.location) || []
-          const hasLocation = expandedLocations.some(filterLoc => jobLocations.includes(filterLoc))
-          if (!hasLocation) return false
-        }
-
-        // Skills filter
-        if (filters.skills?.length > 0) {
-          const canonicalSkills = validatedSkillsByJob.get(job.id) || job.skills || []
-          const jobSkillsLower = canonicalSkills.map(s => s.toLowerCase())
-          const hasSkill = filters.skills.some(skill => jobSkillsLower.includes(skill.toLowerCase()))
-          if (!hasSkill) return false
-        }
-
-        // Certifications filter
-        if (filters.certifications?.length > 0) {
-          const jobCertifications = extractJobCertifications(job)
-          const hasCertification = filters.certifications.some(cert => jobCertifications.includes(cert))
-          if (!hasCertification) return false
-        }
-
-        // Employment type filter
-        if (filters.employmentTypes?.length > 0) {
-          if (!job.employmentType || !filters.employmentTypes.includes(job.employmentType)) {
-            return false
-          }
-        }
-
-        // Source filter
-        if (filters.sources?.length > 0) {
-          const jobSource = job.source || 'direct'
-          if (!filters.sources.includes(jobSource)) return false
-        }
-
-        // Focus market filter
-        if (filters.market?.length > 0) {
-          if (!job.profile || !filters.market.includes(job.profile)) {
-            return false
-          }
-        }
-
-        return true
+  // ── Apply filters to jobs BEFORE computing company stats (sync, over build-time facets) ──
+  const filteredJobs = useMemo(() => {
+    let expandedLocations = [...(filters.locations || [])]
+    if (filters.regions?.length > 0 && locationOptions.length > 0) {
+      filters.regions.forEach(regionId => {
+        const region = ALL_ENERGY_REGIONS.find(r => r.id === regionId)
+        if (region) expandedLocations.push(...getRegionLocationValues(region, locationOptions))
       })
-
-      // Apply role filter (async)
-      if (filters.roles?.length > 0) {
-        result = await filterJobsByRole(result, filters.roles)
-      }
-
-      if (isCancelled) return
-      setFilteredJobs(result)
     }
+    const locSet = expandedLocations.length > 0 ? new Set(expandedLocations) : null
+    const skillSet = filters.skills?.length > 0 ? new Set(filters.skills.map(s => s.toLowerCase())) : null
+    const companySet = filters.companies?.length > 0 ? new Set(filters.companies) : null
+    const roleSet = filters.roles?.length > 0 ? new Set(filters.roles) : null
 
-    applyFilters()
-    return () => { isCancelled = true }
-  }, [jobs, filters, locationOptions, jobLocationsCacheRef, validatedSkillsByJob])
+    return jobs.filter((job) => {
+      if (!filters.showInactive && (job.status === 'removed' || job.status === 'paused')) return false
+      if (companySet && !companySet.has(normalizeCompanyName(job.company))) return false
+      if (locSet && !(job.locs || EMPTY_LIST).some(l => locSet.has(l))) return false
+      if (skillSet && !(job.validSkills || job.skills || EMPTY_LIST).some(s => skillSet.has(s.toLowerCase()))) return false
+      if (filters.certifications?.length > 0) {
+        const jobCertifications = extractJobCertifications(job)
+        if (!filters.certifications.some(cert => jobCertifications.includes(cert))) return false
+      }
+      if (filters.employmentTypes?.length > 0 && (!job.employmentType || !filters.employmentTypes.includes(job.employmentType))) return false
+      if (filters.sources?.length > 0 && !filters.sources.includes(job.source || 'direct')) return false
+      if (filters.market?.length > 0 && (!job.profile || !filters.market.includes(job.profile))) return false
+      if (roleSet && !roleSet.has(job.roleId)) return false
+      return true
+    })
+  }, [jobs, filters, locationOptions])
+
+  // Reset the rendered company count when the result set changes
+  useEffect(() => { setShownCompanies(COMPANIES_PAGE_SIZE) }, [filters, search, sortBy])
 
   // ── Compute company stats from filtered jobs ──
   const companyStats = useMemo(() => getCompanyStats(filteredJobs), [filteredJobs])
@@ -1089,13 +947,13 @@ function CompaniesPage() {
 
       {/* Results count */}
       <p className="text-sm text-gray-500 mb-4">
-        Showing {filteredCompanies.length} of {companyStats.length} companies
+        Showing {Math.min(shownCompanies, filteredCompanies.length)} of {filteredCompanies.length} companies
         {hasActiveFilters && ' (filtered)'}
       </p>
 
       {/* Company Cards Grid */}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {filteredCompanies.map(company => {
+        {filteredCompanies.slice(0, shownCompanies).map(company => {
           const hasIntel = !!intelligence[company.slug]
           const intel = intelligence[company.slug]
           const isExpanded = expandedCompany === company.slug
@@ -1265,6 +1123,17 @@ function CompaniesPage() {
           )
         })}
       </div>
+
+      {filteredCompanies.length > shownCompanies && (
+        <div className="text-center mt-6">
+          <button
+            onClick={() => setShownCompanies(n => n + COMPANIES_PAGE_SIZE)}
+            className="px-4 py-2 text-sm font-medium text-blue-600 border border-blue-300 rounded-md hover:bg-blue-50"
+          >
+            Show more companies ({filteredCompanies.length - shownCompanies} remaining)
+          </button>
+        </div>
+      )}
 
       {filteredCompanies.length === 0 && (
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 text-center">

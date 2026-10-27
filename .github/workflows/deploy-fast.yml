@@ -79,6 +79,9 @@ jobs:
         with:
           api-token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           account-id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # main = production; a manual run on any other branch makes an Access-protected
+          # preview at <branch>.moblyze-jobs-review.pages.dev
+          branch: ${{ github.ref_name }}
 
       - name: Report deployment stats
         if: success()

@@ -43,7 +43,11 @@ function JobCard({ job }) {
           </Link>
 
           {(() => {
-            const formattedLocation = formatLocation(job.location);
+            // Prefer the build-time parsed locations (geocoded); formatLocation only
+            // geocodes once locations-geocoded.json has been loaded in this session.
+            const formattedLocation = job.locs?.length
+              ? (job.locs.length > 1 ? `${job.locs[0]} +${job.locs.length - 1} more` : job.locs[0])
+              : formatLocation(job.location);
             if (!formattedLocation) return null;
 
             return (
@@ -99,7 +103,7 @@ function JobCard({ job }) {
       })()}
 
       {(() => {
-        const validSkills = filterValidSkills(job.skills);
+        const validSkills = job.validSkills || filterValidSkills(job.skills);
         if (validSkills.length === 0) return null;
 
         return (

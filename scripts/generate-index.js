@@ -390,8 +390,8 @@ const certificationOptions = Object.entries(certCounts)
   .map(([name, count]) => ({ name, count }))
   .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
 
-// App-ready count
-const appReadyCount = indexJobs.filter(j => j.appReady).length;
+// App-ready count: current (active) jobs only, like every other count here
+const appReadyCount = activeJobs.filter(j => j.appReady).length;
 
 const filterOptions = {
   _generatedAt: new Date().toISOString(),

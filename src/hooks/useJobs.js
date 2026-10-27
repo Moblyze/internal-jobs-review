@@ -5,7 +5,6 @@ import { jobShardIndex, shardKey } from '../utils/jobShard';
 import { companyToSlug } from '../utils/formatters';
 import { normalizeCompanyName } from '../utils/companyNormalizer';
 
-const LAST_UPDATED_KEY = 'jobs_last_updated';
 
 // Lazy-load utility modules to enable code splitting
 const getGeocoderModule = () => import('../utils/geocoder');
@@ -65,107 +64,107 @@ export function useFilterOptions() {
 
 // ── Jobs manifest (index shard list + detail shard map) ─────────────────────
 let manifestCache = null;
+let manifestPromise = null;
 
-async function loadJobsManifest(forceRefresh = false) {
-  if (manifestCache && !forceRefresh) return manifestCache;
-  const res = await fetch(`${import.meta.env.BASE_URL}data/jobs-manifest.json`, {
-    cache: forceRefresh ? 'no-store' : 'no-cache', // always revalidate (ETag), never serve a stale shard list
+function loadJobsManifest(forceRefresh = false) {
+  if (manifestCache && !forceRefresh) return Promise.resolve(manifestCache);
+  if (manifestPromise && !forceRefresh) return manifestPromise;
+  manifestPromise = (async () => {
+    const res = await fetch(`${import.meta.env.BASE_URL}data/jobs-manifest.json`, {
+      cache: forceRefresh ? 'no-store' : 'no-cache', // always revalidate (ETag), never serve a stale shard list
+    });
+    if (!res.ok) throw new Error('Failed to load jobs manifest');
+    manifestCache = await res.json();
+    detailShardCache.clear();
+    pageShardCache.clear();
+    companyShardCache.clear();
+    if (forceRefresh) { siteFiltersCache = null; siteFiltersPromise = null; }
+    return manifestCache;
+  })().finally(() => { manifestPromise = null; });
+  return manifestPromise;
+}
+
+// ── Jobs index: one decoded copy per session, shared by every route ─────────
+// Before: each route mount re-fetched and re-decoded the 17 MB index (50K objects),
+// and leaving the Jobs page froze the tab for ~4 s while that copy was torn down.
+let jobsCache = null;      // decoded jobs array once loaded
+let jobsPromise = null;    // in-flight load
+const jobsListeners = new Set();
+
+function loadJobsIndex(forceRefresh = false) {
+  if (!forceRefresh && jobsCache) return Promise.resolve(jobsCache);
+  if (!forceRefresh && jobsPromise) return jobsPromise;
+  jobsPromise = (async () => {
+    const manifest = await loadJobsManifest(forceRefresh);
+    const shards = await Promise.all(
+      manifest.index.map(async ({ file }) => {
+        const res = await fetch(`${import.meta.env.BASE_URL}data/jobs/${file}`);
+        if (!res.ok) throw new Error(`Failed to load jobs shard ${file}`);
+        return decodeLiteIndex(await res.json());
+      })
+    );
+    const data = mergeEnhancements(shards.flat());
+    console.log(`[useJobs] Loaded ${data.length} current jobs from ${shards.length} index shards`);
+    jobsCache = data;
+    jobsListeners.forEach(fn => fn(data));
+    return data;
+  })().catch(err => {
+    jobsPromise = null;
+    throw err;
   });
-  if (!res.ok) throw new Error('Failed to load jobs manifest');
-  manifestCache = await res.json();
-  detailShardCache.clear();
-  return manifestCache;
+  return jobsPromise;
+}
+
+/** When the job data was built (manifest.dataUpdatedAt), not when the browser loaded it. */
+function dataUpdatedAt(manifest) {
+  const t = manifest?.dataUpdatedAt || manifest?.generatedAt;
+  return t ? new Date(t) : null;
 }
 
 export function useJobs() {
-  const [jobs, setJobs] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [jobs, setJobs] = useState(() => jobsCache || []);
+  const [loading, setLoading] = useState(() => !jobsCache);
   const [error, setError] = useState(null);
   const [geocodingStatus, setGeocodingStatus] = useState(null);
-  const [lastUpdated, setLastUpdated] = useState(() => {
-    const stored = localStorage.getItem(LAST_UPDATED_KEY);
-    return stored ? new Date(stored) : null;
-  });
+  const [lastUpdated, setLastUpdated] = useState(() => dataUpdatedAt(manifestCache));
 
   const fetchJobs = useCallback(async (forceRefresh = false) => {
+    if (!forceRefresh && jobsCache) {
+      setJobs(jobsCache);
+      setLoading(false);
+      setLastUpdated(dataUpdatedAt(manifestCache));
+      return;
+    }
     setLoading(true);
     setError(null);
     setGeocodingStatus(null);
-
-    // Start loading filter options in parallel (tiny file, instant)
-    loadFilterOptions();
-
-    if (forceRefresh) {
-      console.log('[useJobs] Force refresh requested - revalidating manifest');
-    }
-
     try {
-      // The manifest is tiny and always revalidated. Index shards are content-hashed
-      // (immutable, cached forever), so a refresh only downloads shards that changed.
-      const manifest = await loadJobsManifest(forceRefresh);
-      const shards = await Promise.all(
-        manifest.index.map(async ({ file }) => {
-          const res = await fetch(`${import.meta.env.BASE_URL}data/jobs/${file}`);
-          if (!res.ok) throw new Error(`Failed to load jobs shard ${file}`);
-          return decodeLiteIndex(await res.json());
-        })
-      );
-      const data = shards.flat();
-      console.log(`[useJobs] Loaded ${data.length} current jobs from ${shards.length} index shards`);
-
-      const now = new Date();
-
-      // Merge localStorage enhancements with jobs data
-      const enhancedJobs = mergeEnhancements(data);
-      console.log('[useJobs] Merged client-side enhancements');
-
-      setJobs(enhancedJobs);
-      setLastUpdated(now);
-      localStorage.setItem(LAST_UPDATED_KEY, now.toISOString());
+      const data = await loadJobsIndex(forceRefresh);
+      setJobs(data);
+      setLastUpdated(dataUpdatedAt(manifestCache));
       setLoading(false);
-      console.log('[useJobs] Loading complete');
 
-      // After loading jobs, check for new locations and auto-geocode them
+      // After a manual refresh, check for new locations and auto-geocode them (dev only)
       if (forceRefresh) {
-        console.log('[useJobs] Checking for new locations to geocode...');
-
         try {
           const { checkForNewLocations, geocodeNewLocations } = await getGeocoderModule();
           const checkResult = await checkForNewLocations(data);
-
           if (checkResult.hasNewLocations) {
-            console.log(`[useJobs] Found ${checkResult.newLocationCount} new locations to geocode`);
             setGeocodingStatus({ type: 'geocoding', count: checkResult.newLocationCount });
-
-            // Geocode new locations
             const geocodeResult = await geocodeNewLocations(data, (current, total, location) => {
-              setGeocodingStatus({
-                type: 'geocoding',
-                current,
-                total,
-                location
-              });
+              setGeocodingStatus({ type: 'geocoding', current, total, location });
             });
-
-            // Show success message
             setGeocodingStatus({
               type: 'success',
               message: geocodeResult.message,
               newLocations: geocodeResult.newLocations,
               failed: geocodeResult.failed
             });
-
-            // Clear status after 5 seconds
             setTimeout(() => setGeocodingStatus(null), 5000);
-          } else {
-            console.log('[useJobs] All locations already geocoded');
           }
         } catch (geocodeError) {
           console.warn('[useJobs] Geocoding error (non-fatal):', geocodeError.message);
-          setGeocodingStatus({
-            type: 'error',
-            message: 'Geocoding failed (dev mode only)'
-          });
+          setGeocodingStatus({ type: 'error', message: 'Geocoding failed (dev mode only)' });
           setTimeout(() => setGeocodingStatus(null), 5000);
         }
       }
@@ -178,18 +177,84 @@ export function useJobs() {
 
   useEffect(() => {
     fetchJobs();
+    const onLoad = data => setJobs(data);
+    jobsListeners.add(onLoad);
+    return () => { jobsListeners.delete(onLoad); };
   }, [fetchJobs]);
 
-  const refresh = useCallback(() => {
-    console.log('[useJobs] Refresh button clicked');
-    fetchJobs(true); // Force refresh with cache-busting
-  }, [fetchJobs]);
+  const refresh = useCallback(() => fetchJobs(true), [fetchJobs]);
 
   return { jobs, loading, error, lastUpdated, refresh, geocodingStatus };
 }
 
-export function getJobById(jobs, jobId) {
-  return jobs.find(job => job.id === jobId);
+// ── Precomputed filter lists (scripts/build-site-data.mjs, current jobs only) ──
+let siteFiltersCache = null;
+let siteFiltersPromise = null;
+
+export function loadSiteFilters() {
+  if (siteFiltersCache) return Promise.resolve(siteFiltersCache);
+  if (siteFiltersPromise) return siteFiltersPromise;
+  siteFiltersPromise = (async () => {
+    const manifest = await loadJobsManifest();
+    if (!manifest.filters) return null;
+    const res = await fetch(`${import.meta.env.BASE_URL}data/jobs/${manifest.filters}`);
+    if (!res.ok) throw new Error('Failed to load filters');
+    siteFiltersCache = await res.json();
+    return siteFiltersCache;
+  })().catch(err => {
+    siteFiltersPromise = null;
+    console.warn('[useJobs] filters unavailable:', err.message);
+    return null;
+  });
+  return siteFiltersPromise;
+}
+
+/** Hook: the precomputed filters file, or null while loading. */
+export function useSiteFilters() {
+  const [filters, setFilters] = useState(siteFiltersCache);
+  useEffect(() => {
+    if (siteFiltersCache) { setFilters(siteFiltersCache); return; }
+    let live = true;
+    loadSiteFilters().then(f => { if (live && f) setFilters(f); });
+    return () => { live = false; };
+  }, []);
+  return filters;
+}
+
+// ── Per-slug job page data and per-company data (small shards, no full index) ──
+const pageShardCache = new Map();
+const companyShardCache = new Map();
+
+function loadKeyedShard(cache, section, dir, manifest, key) {
+  const count = manifest[section]?.shards;
+  if (!count) return Promise.resolve(null);
+  const sk = shardKey(jobShardIndex(key, count), count);
+  if (!cache.has(sk)) {
+    const file = manifest[section].files[sk];
+    cache.set(sk, fetch(`${import.meta.env.BASE_URL}data/jobs/${dir}/${file}`)
+      .then(res => {
+        if (!res.ok) throw new Error(`Failed to load ${dir} shard ${file}`);
+        return res.json();
+      })
+      .catch(err => { cache.delete(sk); throw err; }));
+  }
+  return cache.get(sk);
+}
+
+/** Resolves { job, similar } for a current job's page slug, or null. */
+export async function getJobPage(slug) {
+  if (!slug) return null;
+  const manifest = await loadJobsManifest();
+  const shard = await loadKeyedShard(pageShardCache, 'page', 'page', manifest, slug);
+  return shard?.[slug] || null;
+}
+
+/** Resolves { name, jobs } for a company slug, or null. */
+export async function getCompanyData(companySlug) {
+  if (!companySlug) return null;
+  const manifest = await loadJobsManifest();
+  const shard = await loadKeyedShard(companyShardCache, 'company', 'company', manifest, companySlug);
+  return shard?.[companySlug] || null;
 }
 
 // Per-job detail (description, structuredDescription, url) lives in content-hashed

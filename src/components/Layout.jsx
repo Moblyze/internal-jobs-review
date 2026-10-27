@@ -8,7 +8,6 @@ function Layout({ children }) {
     { to: '/feed', label: 'Feed' },
     { to: '/market-rates', label: 'Market rates' },
     { to: '/companies', label: 'Companies' },
-    { to: '/compare', label: 'Compare' },
   ]
 
   return (

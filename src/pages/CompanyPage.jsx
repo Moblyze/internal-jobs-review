@@ -1,102 +1,64 @@
 import { useParams } from 'react-router-dom'
-import { useJobs, getJobsByCompany } from '../hooks/useJobs'
+import { useState, useEffect, useMemo } from 'react'
+import { getCompanyData } from '../hooks/useJobs'
 import { useFilterParams } from '../hooks/useFilterParams'
 import { slugToCompany } from '../utils/formatters'
-import { normalizeCompanyName } from '../utils/companyNormalizer'
-import { getAllLocationsAsync } from '../utils/locationParser'
 import { extractJobCertifications } from '../utils/certificationExtractor'
 import Breadcrumbs from '../components/Breadcrumbs'
 import JobCard from '../components/JobCard'
 import SEO from '../components/SEO'
-import { useState, useEffect } from 'react'
+
+const PAGE_SIZE = 60
 
 function CompanyPage() {
   const { companySlug } = useParams()
-  const { jobs, loading, error } = useJobs()
   const { filters } = useFilterParams()
 
-  // State for filtered jobs and locations — must be before any conditional returns
-  const [filteredJobs, setFilteredJobs] = useState([])
-  const [locations, setLocations] = useState([])
-
-  const companyJobs = loading ? [] : getJobsByCompany(jobs, companySlug)
-  const companyName = companyJobs.length > 0
-    ? normalizeCompanyName(companyJobs[0].company)
-    : slugToCompany(companySlug)
-
-  // Apply filters to company jobs (async to handle location parsing)
+  // One small company shard (this company's current jobs with precomputed facets),
+  // instead of the whole 17 MB index.
+  const [data, setData] = useState({ slug: null, company: null, done: false, error: null })
+  const [shown, setShown] = useState(PAGE_SIZE)
   useEffect(() => {
-    if (loading || companyJobs.length === 0) return
+    let cancelled = false
+    setData({ slug: companySlug, company: null, done: false, error: null })
+    setShown(PAGE_SIZE)
+    getCompanyData(companySlug)
+      .then(company => { if (!cancelled) setData({ slug: companySlug, company, done: true, error: null }) })
+      .catch(err => { if (!cancelled) setData({ slug: companySlug, company: null, done: true, error: err.message }) })
+    return () => { cancelled = true }
+  }, [companySlug])
 
-    async function applyFilters() {
-      // Pre-compute all job locations async (ensures geocoded cache is loaded)
-      const jobLocationsMap = new Map()
-      if (filters.locations?.length > 0) {
-        await Promise.all(
-          companyJobs.map(async (job) => {
-            const jobLocs = await getAllLocationsAsync(job.location)
-            jobLocationsMap.set(job.id, jobLocs)
-          })
-        )
-      }
+  const loading = !data.done
+  const error = data.error
+  const companyJobs = data.company?.jobs || []
+  const companyName = data.company?.name || slugToCompany(companySlug)
 
-      let result = companyJobs
-
-      // Location filter
-      if (filters.locations?.length > 0) {
-        result = result.filter(job => {
-          const jobLocations = jobLocationsMap.get(job.id) || []
-          return filters.locations.some(filterLoc =>
-            jobLocations.includes(filterLoc)
-          )
-        })
-      }
-
-      // Skills filter
-      if (filters.skills?.length > 0) {
-        result = result.filter(job =>
-          filters.skills.some(skill => job.skills?.includes(skill))
-        )
-      }
-
-      // Certifications filter
-      if (filters.certifications?.length > 0) {
-        result = result.filter(job => {
-          const jobCertifications = extractJobCertifications(job)
-          return filters.certifications.some(cert =>
-            jobCertifications.includes(cert)
-          )
-        })
-      }
-
-      // Roles filter
-      if (filters.roles?.length > 0) {
-        result = result.filter(job =>
-          filters.roles.some(role => job.energy_role?.includes(role))
-        )
-      }
-
-      setFilteredJobs(result)
+  const filteredJobs = useMemo(() => {
+    let result = companyJobs
+    if (filters.locations?.length > 0) {
+      result = result.filter(job => filters.locations.some(l => (job.locs || []).includes(l)))
     }
-
-    applyFilters()
-  }, [companyJobs, filters, loading])
-
-  // Get unique locations for this company (from all jobs, not just filtered)
-  useEffect(() => {
-    if (loading || companyJobs.length === 0) return
-
-    async function loadLocations() {
-      const allLocationArrays = await Promise.all(
-        companyJobs.map(async job => await getAllLocationsAsync(job.location))
-      )
-      const validArrays = allLocationArrays.filter(locs => locs.length > 0)
-      const uniqueLocations = [...new Set(validArrays.flat())].sort()
-      setLocations(uniqueLocations)
+    if (filters.skills?.length > 0) {
+      const wanted = new Set(filters.skills.map(s => s.toLowerCase()))
+      result = result.filter(job => (job.validSkills || job.skills || []).some(s => wanted.has(s.toLowerCase())))
     }
+    if (filters.certifications?.length > 0) {
+      result = result.filter(job => {
+        const jobCertifications = extractJobCertifications(job)
+        return filters.certifications.some(cert => jobCertifications.includes(cert))
+      })
+    }
+    if (filters.roles?.length > 0) {
+      result = result.filter(job => filters.roles.includes(job.roleId))
+    }
+    return result
+  }, [companyJobs, filters])
 
-    loadLocations()
-  }, [companyJobs, loading])
+  // Unique locations for this company (from all its jobs, not just filtered)
+  const locations = useMemo(
+    () => [...new Set(companyJobs.flatMap(job => job.locs || []))].sort(),
+    [companyJobs]
+  )
 
   if (loading) {
     return (
@@ -205,9 +167,19 @@ function CompanyPage() {
           </div>
         ) : (
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {filteredJobs.map(job => (
+            {filteredJobs.slice(0, shown).map(job => (
               <JobCard key={job.id} job={job} />
             ))}
+          </div>
+        )}
+        {filteredJobs.length > shown && (
+          <div className="text-center mt-6">
+            <button
+              onClick={() => setShown(n => n + PAGE_SIZE)}
+              className="px-4 py-2 text-sm font-medium text-blue-600 border border-blue-300 rounded-md hover:bg-blue-50"
+            >
+              Show more ({filteredJobs.length - shown} remaining)
+            </button>
           </div>
         )}
       </div>
