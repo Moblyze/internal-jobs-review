@@ -7,7 +7,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
-import { bandOf, cellStats, levelCellStatus, ordinal, fmtAmount, fmtDate, fmtRange, fmtRate, niceDomain } from '../utils/marketRates'
+import { CURRENCIES, bandOf, cellStats, convert, curSym, fxNote, levelCellStatus, loadCurrency, ordinal, fmtAmount, fmtDate, fmtRange, fmtRate, niceDomain, saveCurrency, setActiveCurrency, toUsd } from '../utils/marketRates'
 import '../market-rates-v2.css'
 
 const DATA_URL = `${import.meta.env.BASE_URL || '/'}data/market_rates.json`
@@ -41,7 +41,7 @@ function useMarketRates() {
   return s
 }
 
-// Confidence from deduped ads (n) and distinct employers, the stricter of the two wins.
+// Confidence from deduped observations (n) and distinct employers, the stricter of the two wins.
 export function confidenceOf(n, employers) {
   if (n >= 50 && employers >= 15) return 'High'
   if (n >= 20 && employers >= 6) return 'Medium'
@@ -71,7 +71,23 @@ function dateSpan(a, b) {
 
 function fmtExact(v, unit) {
   const sfx = { day: '/day', hour: '/hr', month: '/mo', year: '/yr' }[unit] || ''
-  return `$${v.toLocaleString('en-US', { maximumFractionDigits: unit === 'hour' ? 2 : 0 })}${sfx}`
+  return `${curSym()}${v.toLocaleString('en-US', { maximumFractionDigits: unit === 'hour' ? 2 : 0 })}${sfx}`
+}
+
+/* ── currency selector ────────────────────────────────────────────── */
+function CurrencyPicker({ value, onChange, fx }) {
+  return (
+    <div className="m2-cur">
+      <div className="m2-cur__seg" role="radiogroup" aria-label="Display currency">
+        {CURRENCIES.map(c => (
+          <button key={c} type="button" role="radio" aria-checked={value === c} className={`m2-cur__opt${value === c ? ' is-on' : ''}`} onClick={() => onChange(c)}>
+            <span aria-hidden="true">{curSym(c)}</span>{c}
+          </button>
+        ))}
+      </div>
+      {fx && <span className="m2-cur__fx num">ECB reference rates, {fmtDate(fx.date)}: {fxNote(fx)}</span>}
+    </div>
+  )
 }
 
 function prettyRole(c) { return c.role_label.replace(/ Technician$/, ' technician').replace(/ Inspector$/, ' inspector') }
@@ -90,15 +106,15 @@ function Provenance({ cell, base, compact, onDetail }) {
   const conf = confidenceOf(cell.n, cell.employers)
   return (
     <div className={`m2-prov${compact ? ' m2-prov--compact' : ''}`}>
-      <span className="m2-prov__src">Advertised pay</span>
+      <span className="m2-prov__src">Market pay</span>
       <span className="m2-prov__dot" />
-      <span className="num">{cell.n} ads</span>
+      <span className="num">{cell.n} rates</span>
       <span className="m2-prov__dot" />
       <span className="num">{cell.employers} employers</span>
       <span className="m2-prov__dot" />
       <span className="num">{dateSpan(cell.first_seen_min || b.first_seen_min, cell.first_seen_max || b.first_seen_max)}</span>
       {!compact && <><span className="m2-prov__dot" /><span>Refreshed {fmtDate(cell.last_updated || b.last_updated)}</span></>}
-      <span className={`m2-conf m2-conf--${conf.toLowerCase()}`} title="High: 50+ ads from 15+ employers. Medium: 20+ ads from 6+ employers. Limited: 10+ ads from 3+ employers.">
+      <span className={`m2-conf m2-conf--${conf.toLowerCase()}`} title="High: 50+ rates from 15+ employers. Medium: 20+ rates from 6+ employers. Limited: 10+ rates from 3+ employers.">
         <span className="m2-conf__bars" aria-hidden="true"><i /><i /><i /></span>{conf}
       </span>
       {onDetail && <button type="button" className="m2-prov__more" onClick={onDetail} aria-label="How this number is built">How it's built</button>}
@@ -144,9 +160,18 @@ function LockIcon() {
 }
 
 /* ── hero: your rate vs market ────────────────────────────────────── */
-function RateCheck({ data, buyer, onDetail }) {
-  const [f, setF] = useState(HERO_EXAMPLE)
+function RateCheck({ data, buyer, currency, onDetail }) {
+  const [f, setF] = useState(() => ({ ...HERO_EXAMPLE, rate: String(Math.round(convert(+HERO_EXAMPLE.rate, 'USD', currency))), cur: currency }))
   const set = (k, v) => setF(p => ({ ...p, [k]: v }))
+  // A typed rate follows the display currency, so switching USD -> GBP re-expresses it rather than reinterpreting it.
+  useEffect(() => {
+    setF(p => {
+      if (p.cur === currency) return p
+      const n = parseFloat(String(p.rate).replace(/[^0-9.]/g, ''))
+      const conv = isFinite(n) ? convert(n, p.cur, currency) : null
+      return { ...p, cur: currency, rate: conv == null ? p.rate : String(conv >= 100 ? Math.round(conv) : Math.round(conv * 100) / 100) }
+    })
+  }, [currency])
   const roles = useMemo(() => {
     const m = new Map()
     data.cells.filter(c => !c.role.endsWith('-other')).forEach(c => m.set(c.role, c.role_label))
@@ -163,7 +188,8 @@ function RateCheck({ data, buyer, onDetail }) {
   const dom = st ? niceDomain(Math.min(st.p25Raw, ok ? v : Infinity) * 0.92, Math.max(st.p75Raw, ok ? v : 0) * 1.04, 4) : null
   const pctl = ok ? percentileOf(v, st) : null
   const diff = ok ? (v - st.median) / st.median : 0
-  const dayV = ok ? (unit === 'day' ? v : unit === 'hour' ? v * (r.cell.hours_per_day || (r.cell.basis === 'perm_timebased' ? 8 : 10)) : unit === 'year' ? v / 260 : v / 30.4) : null
+  // banding runs on the cell's USD/day range, so the typed rate goes back to USD per day first
+  const dayV = ok ? toUsd(unit === 'day' ? v : unit === 'hour' ? v * (r.cell.hours_per_day || (r.cell.basis === 'perm_timebased' ? 8 : 10)) : unit === 'year' ? v / 260 : v / 30.4) : null
   const band = ok ? bandOf(dayV, dayV, r.cell) : null
   const lvlLabel = r?.levelUsed !== 'all' ? `${LEVEL_NAME[r.levelUsed].toLowerCase()} median` : 'median'
   const dir = diff < 0 ? 'under' : 'over'
@@ -194,14 +220,14 @@ function RateCheck({ data, buyer, onDetail }) {
 
   const copy = buyer === 'employer'
     ? { eyebrow: 'Rate check for employers and crewing managers', title: <>Are your rates <em>competitive?</em></>, input: 'Rate you offer', lead: ok && diff < -0.02 ? `To reach the market median, add ${fmtRate(gapAbs, unit)}.` : ok ? 'Your offer is at or above the market median.' : '' }
-    : { eyebrow: 'Rate check for recruiters', title: <>What rate can you <em>defend?</em></>, input: 'Rate you plan to quote', lead: st ? `Defensible band: ${fmtRange(st.p25, st.p75, unit)}, the middle half of ${r.cell.n} ads. Quoting up to ${fmtRate(st.p75, unit)} stays inside market.` : '' }
+    : { eyebrow: 'Rate check for recruiters', title: <>What rate can you <em>defend?</em></>, input: 'Rate you plan to quote', lead: st ? `Defensible band: ${fmtRange(st.p25, st.p75, unit)}, the middle half of ${r.cell.n} rates. Quoting up to ${fmtRate(st.p75, unit)} stays inside market.` : '' }
 
   return (
     <section className="m2-hero" aria-labelledby="m2-hero-h">
       <div className="m2-hero__copy">
         <p className="m2-eyebrow">{copy.eyebrow}</p>
         <h1 id="m2-hero-h">{copy.title}</h1>
-        <p className="m2-hero__sub">Enter a role, region, experience level and rate. See where it sits against what the market advertises right now.</p>
+        <p className="m2-hero__sub">Enter a role, region, experience level and rate. See where it sits against what the market pays right now.</p>
         <form className="m2-form" onSubmit={e => e.preventDefault()}>
           <label className="m2-field m2-field--wide"><span>Role</span>
             <select value={f.role} onChange={e => set('role', e.target.value)}>{roles.map(([id, l]) => <option key={id} value={id}>{l}</option>)}</select>
@@ -217,7 +243,7 @@ function RateCheck({ data, buyer, onDetail }) {
           </label>
           <label className="m2-field m2-field--rate"><span>{copy.input}</span>
             <div className="m2-rate">
-              <span className="m2-rate__cur">$</span>
+              <span className="m2-rate__cur">{curSym()}</span>
               <input inputMode="decimal" value={f.rate} onChange={e => set('rate', e.target.value)} aria-label={copy.input} />
               <select value={unit} onChange={e => set('unit', e.target.value)} aria-label="Pay period">
                 {units.map(u => <option key={u} value={u}>{UNIT_LABEL[u]}</option>)}
@@ -231,7 +257,7 @@ function RateCheck({ data, buyer, onDetail }) {
       </div>
 
       <div className="m2-result" aria-live="polite">
-        {!r && <p className="m2-empty">No published market yet for this combination. A cell publishes at 10+ ads from 3+ employers.</p>}
+        {!r && <p className="m2-empty">No published market yet for this combination. A cell publishes at 10+ rates from 3+ employers.</p>}
         {r && (
           <>
             <div className="m2-result__head">
@@ -265,7 +291,7 @@ function RateCheck({ data, buyer, onDetail }) {
                       <span className="m2-moves__what">{m.text}</span>
                       <span className="m2-moves__val num">{m.val}</span>
                       <span className={`m2-moves__d num ${m.d > 0 ? 'is-up' : 'is-down'}`}>{m.d > 0 ? '+' : '-'}{fmtRate(Math.abs(m.d), unit)}</span>
-                      <span className="m2-moves__n num">{m.n} ads</span>
+                      <span className="m2-moves__n num">{m.n} rates</span>
                     </li>
                   ))}
                 </ul>
@@ -283,7 +309,7 @@ function RateCheck({ data, buyer, onDetail }) {
 function FreeLayer({ data, onDetail }) {
   const cells = FEATURED.map(role => data.cells.find(c => c.role === role && c.region === FREE_REGION && c.basis === 'contract_day')).filter(Boolean)
   const all = cells.flatMap(c => [c, ...Object.values(c.levels || {}).filter(Boolean)])
-  const dom = niceDomain(Math.min(...all.map(c => c.usd_day.range_lo)), Math.max(...all.map(c => c.usd_day.range_hi)), 4)
+  const dom = niceDomain(Math.min(...all.map(c => cellStats(c, 'day').p25Raw)), Math.max(...all.map(c => cellStats(c, 'day').p75Raw)), 4)
   return (
     <section className="m2-sec" aria-labelledby="m2-free-h">
       <header className="m2-sec__head">
@@ -291,7 +317,7 @@ function FreeLayer({ data, onDetail }) {
           <p className="m2-eyebrow">Included in this edition</p>
           <h2 id="m2-free-h">Five featured trades, United States contract day rates</h2>
         </div>
-        <p className="m2-sec__aside">One median and one typical range per trade. Experience ranges show only when enough ads back them and the order holds.</p>
+        <p className="m2-sec__aside">One median and one typical range per trade. Experience ranges show only when enough data backs them and the order holds.</p>
       </header>
       <div className="m2-cards">
         {cells.map(c => {
@@ -342,8 +368,8 @@ function GatedLayer({ data, onRequest }) {
   const tiles = [
     { k: 'grid', title: 'Full role, region and experience grid', body: `All ${data.counts.cells_published} published cells and ${data.counts.level_cells_published} experience-level cells, every basis.`, tag: 'Full edition' },
     { k: 'region', title: 'Regional comparison', body: 'The same role side by side across the US, UK, Middle East, Europe and worldwide crewing.', tag: 'Full edition' },
-    { k: 'trend', title: 'Monthly trends, up to 12 months', body: `Shown only where 3+ months each have 5+ ads: ${trendCells.length} cells qualify today. Others carry no trend.`, tag: 'Full edition' },
-    { k: 'prem', title: 'Certification and rotation premiums', body: 'What a 28/28 rotation or a GWO, CSWIP or IRATA ticket adds. Rotation is stated in too few ads to price yet.', tag: 'Coming soon' },
+    { k: 'trend', title: 'Monthly trends, up to 12 months', body: `Shown only where 3+ months each have 5+ rates: ${trendCells.length} cells qualify today. Others carry no trend.`, tag: 'Full edition' },
+    { k: 'prem', title: 'Certification and rotation premiums', body: 'What a 28/28 rotation or a GWO, CSWIP or IRATA ticket adds. Rotation is stated too rarely to price yet.', tag: 'Coming soon' },
     { k: 'peer', title: 'Custom peer sets', body: 'Benchmark against the employers you compete with for crew, for example North Sea subsea contractors.', tag: 'Full edition' },
     { k: 'alert', title: 'Watched-role alerts and CSV export', body: 'A note when a watched role moves outside its range, plus the full grid as a rate card.', tag: 'Full edition' },
   ]
@@ -366,7 +392,7 @@ function GatedLayer({ data, onRequest }) {
               {grid.map(g => (
                 <tr key={g.role}>
                   <td>{(g.cells.find(Boolean) || {}).role_label}</td>
-                  {g.cells.map((c, i) => <td key={i} className="num">{c ? fmtRange(cellStats(c, 'day').p25, cellStats(c, 'day').p75, 'day') : 'Needs 10+ ads'}</td>)}
+                  {g.cells.map((c, i) => <td key={i} className="num">{c ? fmtRange(cellStats(c, 'day').p25, cellStats(c, 'day').p75, 'day') : 'Needs more data'}</td>)}
                 </tr>
               ))}
             </tbody>
@@ -443,15 +469,15 @@ function DetailDrawer({ data, sel, onClose }) {
   const cur = Object.entries(c.currencies || {}).map(([k, v]) => `${k} ${v}`).join(', ')
   const types = Object.entries(c.employer_types || {}).map(([k, v]) => `${({ direct: 'direct employer', board: 'job board', crewing_agency: 'crewing agency', staffing: 'staffing agency' })[k] || k.replace('_', ' ')} ${v}`).join(', ')
   const rows = [
-    ['Measure', 'Advertised pay in public job ads. Not verified, placed or employer-submitted pay.'],
+    ['Measure', 'Stated pay rates for the role, deduplicated across sources.'],
     ['Cell', `${b.role_label} · ${REGION_NAME[b.region]} · ${sel.levelUsed === 'all' ? 'All levels' : `${LEVEL_NAME[sel.levelUsed]} (${LEVEL_YRS[sel.levelUsed]})`} · ${b.basis_label}`],
     ['Typical range', `${fmtRange(st.p25, st.p75, st.period)} (P25-P75), median ${fmtRate(st.median, st.period)}`],
-    ['Ads used', `${c.n} after removing reposts (${c.n_raw} raw) and ${c.outliers_excluded} ${c.outliers_excluded === 1 ? 'outlier' : 'outliers'} beyond 3x MAD`],
+    ['Rates used', `${c.n} after removing duplicates (${c.n_raw} raw) and ${c.outliers_excluded} ${c.outliers_excluded === 1 ? 'outlier' : 'outliers'} beyond 3x MAD`],
     ['Employers', `${c.employers} distinct${types ? ` (${types})` : ''}`],
-    ['Ads first seen', dateSpan(c.first_seen_min || b.first_seen_min, c.first_seen_max || b.first_seen_max)],
-    ['Still open', `${Math.round((c.active_share ?? 0) * 100)}% of these ads are live today`],
-    ['Currencies', `${cur || 'USD'}, converted at ECB reference rates of ${fmtDate(data.fx_date)}`],
-    ['Confidence', `${conf}. High needs 50+ ads from 15+ employers, Medium 20+ from 6+, Limited 10+ from 3+. Below that a cell does not publish.`],
+    ['First seen', dateSpan(c.first_seen_min || b.first_seen_min, c.first_seen_max || b.first_seen_max)],
+    ['Still open', `${Math.round((c.active_share ?? 0) * 100)}% of these listings are live today`],
+    ['Currencies', `${cur || 'USD'} as stated; shown in ${st.currency} at ECB reference rates of ${fmtDate(data.fx?.date || data.fx_date)}`],
+    ['Confidence', `${conf}. High needs 50+ rates from 15+ employers, Medium 20+ from 6+, Limited 10+ from 3+. Below that a cell does not publish.`],
     ['Refreshed', `${fmtDate(c.last_updated || b.last_updated)} · extractor ${data.extractor_version}`],
   ]
   return (
@@ -461,7 +487,7 @@ function DetailDrawer({ data, sel, onClose }) {
         <p className="m2-eyebrow">Provenance</p>
         <h2 id="m2-drawer-h">How this number is built</h2>
         <dl className="m2-dl">{rows.map(([k, v]) => <div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
-        <p className="m2-drawer__fine">Only ads that state pay with an explicit period are counted (about 7% of scraped energy ads). Hourly-to-day conversions assume 10 hours on contract work and 8 on permanent work.</p>
+        <p className="m2-drawer__fine">Only pay stated with an explicit period is counted. Hourly-to-day conversions assume 10 hours on contract work and 8 on permanent work.</p>
       </aside>
     </div>
   )
@@ -473,9 +499,13 @@ export default function MarketRatesV2Page() {
   const [buyer, setBuyer] = useState('employer')
   const [modal, setModal] = useState(false)
   const [detail, setDetail] = useState(null)
+  const [currency, setCurrency] = useState(loadCurrency)
+  const pickCurrency = c => { setCurrency(c); saveCurrency(c) }
+  // every figure below is formatted in the chosen currency (utils read this during render)
+  if (data) setActiveCurrency(currency, data.fx)
   return (
     <div className="m2">
-      <SEO title="Moblyze Market Rates Q4 2026" description="Internal preview of a market pay benchmark built from advertised pay." />
+      <SEO title="Moblyze Market Rates Q4 2026" description="Internal preview of a market pay benchmark for energy and trades roles." />
       <div className="m2-wrap">
         <div className="m2-mast">
           <div className="m2-mast__brand">
@@ -484,6 +514,7 @@ export default function MarketRatesV2Page() {
             <span className="m2-mast__ed">{EDITION} edition</span>
           </div>
           <div className="m2-mast__right">
+            {data && <CurrencyPicker value={currency} onChange={pickCurrency} fx={data.fx} />}
             <span className="m2-pill">Beta</span>
             <Link to="/market-rates/v1" className="m2-mast__v1">Compare with v1</Link>
           </div>
@@ -502,11 +533,11 @@ export default function MarketRatesV2Page() {
         {!data && !error && <p className="m2-empty">Loading the {EDITION} edition…</p>}
         {data && (
           <>
-            <RateCheck data={data} buyer={buyer} onDetail={setDetail} />
+            <RateCheck data={data} buyer={buyer} currency={currency} onDetail={setDetail} />
             <FreeLayer data={data} onDetail={setDetail} />
             <GatedLayer data={data} onRequest={() => setModal(true)} />
             <footer className="m2-foot">
-              <p><b>Advertised pay, not verified pay.</b> Built from {data.counts.observations_dedup.toLocaleString('en-US')} deduplicated public job ads that state pay with an explicit period, out of 129,335 energy and trades ads scraped Feb to Oct 2026. A number publishes only at 10+ ads from 3+ employers. Percentiles are estimated from each cell's P25, median and P75.</p>
+              <p>Built from {data.counts.observations_dedup.toLocaleString('en-US')} deduplicated pay rates for energy and trades roles that state pay with an explicit period, Feb to Oct 2026. A number publishes only at 10+ rates from 3+ employers. Percentiles are estimated from each cell's P25, median and P75. Figures are shown in {currency} at ECB reference rates of {fmtDate(data.fx?.date || data.fx_date)}.</p>
               <p className="m2-foot__ed">Moblyze Market Rates · {EDITION} · Refreshed {fmtDate(data.generated_at.slice(0, 10))} · Internal preview, illustrative, not client-facing</p>
             </footer>
           </>

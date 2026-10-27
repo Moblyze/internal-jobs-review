@@ -1,7 +1,48 @@
 // src/utils/marketRates.js
-// Helpers for the Market rates view. All values arrive in USD per day from
-// pay_rates/site_bundle.py (moblyze-ops); the period toggle re-expresses them
-// with the same assumptions the extractor used.
+// Helpers for the Market rates view. Values arrive in USD per day plus each cell's
+// native currency (pay_rates/site_bundle.py in moblyze-ops); the period toggle
+// re-expresses them with the same assumptions the extractor used, and the
+// currency selector converts them client-side with the bundle's dated FX table.
+
+/* ── display currency ─────────────────────────────────────────────── */
+export const CURRENCIES = ['USD', 'GBP', 'EUR']
+export const CURRENCY_SYMBOL = { USD: '$', GBP: '£', EUR: '€' }
+const CURRENCY_KEY = 'market-rates-currency'
+let ACTIVE = { code: 'USD', usdPer: { USD: 1 } }
+
+// Set once per render by the page, before any figure is formatted.
+export function setActiveCurrency(code, fx) {
+  const usdPer = { USD: 1, ...(fx?.usd_per_unit || {}) }
+  ACTIVE = { code: usdPer[code] ? code : 'USD', usdPer }
+}
+export function activeCurrency() { return ACTIVE.code }
+export function curSym(code = ACTIVE.code) { return CURRENCY_SYMBOL[code] || `${code} ` }
+// USD -> the active currency, and back (the rate check bands in USD)
+export function fromUsd(v) { return v == null ? null : v / (ACTIVE.usdPer[ACTIVE.code] || 1) }
+export function toUsd(v) { return v == null ? null : v * (ACTIVE.usdPer[ACTIVE.code] || 1) }
+// one amount from currency `a` to `b` with the same table
+export function convert(v, a, b) {
+  const pa = ACTIVE.usdPer[a], pb = ACTIVE.usdPer[b]
+  return v == null || !pa || !pb ? v : (v * pa) / pb
+}
+
+export function loadCurrency() {
+  try {
+    const v = window.localStorage.getItem(CURRENCY_KEY)
+    return CURRENCIES.includes(v) ? v : 'USD'
+  } catch {
+    return 'USD'
+  }
+}
+export function saveCurrency(code) {
+  try { window.localStorage.setItem(CURRENCY_KEY, code) } catch { /* private window or blocked storage */ }
+}
+
+// "£1 = $1.33 · €1 = $1.12" for the dated note under the selector
+export function fxNote(fx) {
+  const r = fx?.usd_per_unit || {}
+  return CURRENCIES.filter(c => c !== 'USD' && r[c]).map(c => `${curSym(c)}1 = $${r[c].toFixed(2)}`).join(' · ')
+}
 
 export const PERIODS = ['day', 'hour', 'month', 'year']
 export const PERIOD_LABEL = { day: 'Per day', hour: 'Per hour', month: 'Per month', year: 'Per year' }
@@ -45,30 +86,46 @@ export function fmtMoney(v, { compact = false } = {}) {
   if (v == null) return '–'
   if (compact && Math.abs(v) >= 1000) {
     const k = v / 1000
-    return `$${k >= 100 ? Math.round(k) : k.toFixed(k >= 10 ? 0 : 1)}K`
+    return `${curSym()}${k >= 100 ? Math.round(k) : k.toFixed(k >= 10 ? 0 : 1)}K`
   }
-  return `$${Math.round(v).toLocaleString('en-US')}`
+  return `${curSym()}${Math.round(v).toLocaleString('en-US')}`
 }
 
 export function unitSuffix(period) {
   return { day: '/day', hour: '/hr', month: '/mo', year: '/yr' }[period] || ''
 }
 
-// A cell's stats in a given period: p25/median/p75 cleanly rounded, plus whether it is a conversion.
+// display unit -> per day, mirrors pay_rates/bands.py UNITS (hour is always the 8-hour permanent basis)
+const UNIT_PER_DAY = { day: 1, year: 260, month: 30.4, hour: 1 / 8 }
+
+// A cell figure per day in the active currency: from the cell's native-currency value when the
+// bundle carries one (converted through the FX table), else from usd_day.
+export function dayInActive(cell, key) {
+  const n = cell.native
+  const mult = UNIT_PER_DAY[cell.unit]
+  if (n && n[key] != null && mult && ACTIVE.usdPer[n.currency]) return convert(n[key] / mult, n.currency, ACTIVE.code)
+  return fromUsd(cell.usd_day[key])
+}
+
+// A cell's stats in a given period and the active currency: p25/median/p75 cleanly rounded,
+// plus whether it is a period conversion.
 export function cellStats(cell, period) {
   const native = cell.unit
   const p = period || native
   const conv = p !== native
-  const u = cell.usd_day
+  const lo = fromDay(dayInActive(cell, 'range_lo'), p, cell)
+  const med = fromDay(dayInActive(cell, 'median'), p, cell)
+  const hi = fromDay(dayInActive(cell, 'range_hi'), p, cell)
   return {
     period: p,
     converted: conv,
-    p25: roundClean(fromDay(u.range_lo, p, cell), p),
-    median: roundClean(fromDay(u.median, p, cell), p),
-    p75: roundClean(fromDay(u.range_hi, p, cell), p),
-    p25Raw: fromDay(u.range_lo, p, cell),
-    medianRaw: fromDay(u.median, p, cell),
-    p75Raw: fromDay(u.range_hi, p, cell),
+    currency: ACTIVE.code,
+    p25: roundClean(lo, p),
+    median: roundClean(med, p),
+    p75: roundClean(hi, p),
+    p25Raw: lo,
+    medianRaw: med,
+    p75Raw: hi,
   }
 }
 
@@ -103,16 +160,17 @@ export function niceMax(v) {
 }
 
 // Display formatting used across the redesigned view:
-// $425/day, $36/hr, $6,700/mo, $100k/yr. Values are rounded with roundClean first.
+// $425/day, $36/hr, $6,700/mo, $100k/yr (or £ / € in the active currency). Values are rounded
+// with roundClean first.
 export const PERIOD_SUFFIX = { day: '/day', hour: '/hr', month: '/mo', year: '/yr' }
 export function fmtAmount(v, period) {
   if (v == null || isNaN(v)) return '–'
   const r = roundClean(v, period)
   if (period === 'year') {
     const k = r / 1000
-    return `$${k >= 100 ? Math.round(k) : Math.round(k * 10) / 10}k`
+    return `${curSym()}${k >= 100 ? Math.round(k) : Math.round(k * 10) / 10}k`
   }
-  return `$${Math.round(r).toLocaleString('en-US')}`
+  return `${curSym()}${Math.round(r).toLocaleString('en-US')}`
 }
 export function fmtRate(v, period) {
   if (v == null || isNaN(v)) return '–'
