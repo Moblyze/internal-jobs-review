@@ -21,6 +21,33 @@
 .cp-ranked li.cp-ranked__more { display: block; border-bottom: 0; font-size: 12.5px; color: var(--faint); }
 .cp-all { margin-top: var(--s2); }
 
+/* Clickable rows and tags: each one filters the job list below (Jobs tab URL parameters). */
+.cp-ranked li.cp-ranked__li { display: block; padding: 0; }
+.cp-ranked__btn { display: grid; grid-template-columns: minmax(0, 1fr) 72px 44px; gap: var(--s3); align-items: center; width: 100%; padding: 6px 6px; margin: 0 -6px; width: calc(100% + 12px); border: 0; border-radius: 6px; background: none; text-align: left; cursor: pointer; font-size: 14px; }
+.cp-ranked__btn:hover { background: var(--tint); }
+.cp-ranked__btn:hover .cp-ranked__name { color: var(--teal-ink); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.cp-ranked__btn:focus-visible, .cp-tagbtn:focus-visible, .cp-loc:focus-visible, .cp-chip:focus-visible { outline: 2px solid var(--teal); outline-offset: 1px; }
+.cp-ranked__btn.is-on { background: var(--teal-wash); box-shadow: inset 3px 0 0 var(--teal); }
+.cp-ranked__btn.is-on .cp-ranked__name { color: var(--teal-ink); }
+.cp-ranked__btn.is-on .cp-ranked__bar i { opacity: 1; }
+.cp-tagbtn { border: 1px solid transparent; cursor: pointer; }
+.cp-tagbtn:hover { border-color: var(--teal-soft); color: var(--teal-ink); }
+.cp-tagbtn.is-on { background: var(--teal); color: #fff; }
+.cp-tagbtn.is-on .num { color: rgba(255, 255, 255, .8); }
+.cp-loc { display: flex; justify-content: space-between; gap: var(--s3); width: 100%; border: 0; background: none; padding: 0; text-align: left; cursor: pointer; font-size: 13.5px; }
+.cp-loc:hover span:first-child { color: var(--teal-ink); text-decoration: underline; text-underline-offset: 3px; }
+.cp-loc.is-on { color: var(--teal-ink); font-weight: 700; }
+
+/* Active filter chips above the job list */
+.cp-chips { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2); margin-top: var(--s3); }
+.cp-chips__l { font-size: 13px; color: var(--muted); margin-right: var(--s1); }
+.cp-chip { display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 8px 0 10px; border: 1px solid var(--teal-soft); border-radius: 999px; background: var(--teal-wash); color: var(--ink); font-size: 13px; font-weight: 600; cursor: pointer; max-width: 100%; }
+.cp-chip:hover { border-color: var(--teal); }
+.cp-chip__k { font-size: 11px; font-weight: 700; color: var(--teal-ink); }
+.cp-chip__x { display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; font-size: 15px; line-height: 1; color: var(--teal-ink); }
+.cp-chip:hover .cp-chip__x { background: var(--teal); color: #fff; }
+.cp-chips__jobs { margin-left: auto; }
+
 .cp-signals { list-style: none; margin: 0; padding: 0; }
 .cp-signals li { padding: 6px 0; border-bottom: 1px solid var(--line-2); font-size: 13.5px; line-height: 1.4; }
 .cp-signals a { color: var(--ink); text-decoration: none; }
@@ -29,7 +56,7 @@
 .cp-types .num { color: var(--faint); }
 
 .cp-alllocs ul { list-style: none; margin: 0; padding: 0; columns: 3 220px; column-gap: var(--s6); }
-.cp-alllocs li { display: flex; justify-content: space-between; gap: var(--s3); padding: 4px 0; border-bottom: 1px solid var(--line-2); font-size: 13.5px; break-inside: avoid; }
+.cp-alllocs li { display: block; padding: 4px 0; border-bottom: 1px solid var(--line-2); font-size: 13.5px; break-inside: avoid; }
 .cp-alllocs li .num { color: var(--muted); }
 
 .cp-jobs-head { display: flex; justify-content: space-between; align-items: center; gap: var(--s4); flex-wrap: wrap; }
@@ -48,4 +75,6 @@
   .cp-jobs { grid-template-columns: minmax(0, 1fr); }
   .cp-trade, .cp-trade select { width: 100%; min-width: 0; }
   .cp-big { font-size: 28px; }
+  .cp-ranked__btn { padding: 9px 6px; }
+  .cp-chips__jobs { margin-left: 0; flex-basis: 100%; }
 }

@@ -11,6 +11,18 @@
 .feed .feed-src { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--muted); text-decoration: none; padding: 2px 8px 2px 4px; border-radius: 6px; }
 .feed .feed-src:hover { color: var(--ink); background: var(--tint); }
 .feed .feed-src img, .feed .feed-src svg { width: 16px; height: 16px; border-radius: 3px; flex: none; }
+/* Company names and the people-count button open the contacts modal. .mz button resets color, so set it here. */
+.feed .feed-co { border: 0; background: none; padding: 0; color: var(--teal-ink); font-weight: 600; cursor: pointer; text-align: left; }
+.feed .feed-co--strong { font-weight: 700; }
+.feed .feed-co:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.feed .feed-contacts { display: inline-flex; align-items: center; gap: 4px; margin-left: 6px; vertical-align: middle; height: 20px; padding: 0 7px; border: 1px solid var(--teal-soft); border-radius: 999px; background: var(--teal-wash); color: var(--teal-ink); font-size: 11px; font-weight: 700; cursor: pointer; }
+.feed .feed-contacts:hover { border-color: var(--teal); background: #fff; }
+.feed .feed-contacts:focus-visible, .feed .feed-co:focus-visible, .feed .dm-view:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+.feed .feed-contacts__mail { color: var(--ok); }
+.feed .dm-roles { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 0; padding: 0; }
+.feed .dm-role { font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 4px; background: var(--tint); color: var(--ink-2); border: 1px dashed var(--line); cursor: default; }
+.feed .dm-view { margin-bottom: var(--s3); display: inline-flex; align-items: center; height: 34px; padding: 0 var(--s4); border: 1px solid var(--ink); border-radius: var(--radius); background: var(--bg); color: var(--ink); font-size: 13.5px; font-weight: 700; cursor: pointer; }
+.feed .dm-view:hover { background: var(--ink); color: var(--bg); }
 @media (max-width: 960px) { .feed-filters { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 720px) {
   .feed { padding: var(--s5) var(--s4) var(--s7); }

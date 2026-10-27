@@ -1,48 +1,39 @@
 // src/components/feed/Stepper.jsx
-import { getPhaseStage } from '../../utils/feed/phaseStage'
+// Fixed-width stage indicator: six dots on the left (every stage up to and including the current one
+// filled), the stage name on the right. Hover or focus shows all six stages.
+import { getPhaseStage, STAGES } from '../../utils/feed/phaseStage'
 
 export default function Stepper({ entry }) {
   const data = getPhaseStage(entry)
-
-  if (!data) {
-    return (
-      <div className="stepper stepper--unknown" aria-label="Project phase: unknown">
-        <span className="stepper__dots">
-          {[0, 1, 2, 3, 4, 5].map(i => <span key={i} className="stepper__dot" />)}
-        </span>
-        <span className="stepper__label">Phase unknown</span>
-      </div>
-    )
-  }
-
-  const { track, stages, currentIndex, currentLabel } = data
-  const trackTitle = track === 'decommissioning' ? 'Decom lifecycle' : 'Project lifecycle'
+  const current = data ? data.currentIndex : -1
+  const trackNote = data?.track === 'decommissioning' ? ' (decommissioning)' : ''
+  const label = data
+    ? `Stage ${current + 1} of ${STAGES.length}: ${data.currentLabel}${trackNote}`
+    : 'Stage unknown'
 
   return (
-    <div
-      className="stepper"
-      tabIndex={0}
-      aria-label={`${trackTitle}: ${currentLabel} (stage ${currentIndex + 1} of 6)`}
-    >
-      <span className="stepper__dots">
-        {stages.map((_, i) => (
+    <div className={`stepper${data ? '' : ' stepper--unknown'}`} tabIndex={0} aria-label={label}>
+      <span className="stepper__dots" aria-hidden="true">
+        {STAGES.map((s, i) => (
           <span
-            key={i}
-            className={`stepper__dot${i === currentIndex ? ' stepper__dot--current' : ''}`}
+            key={s.key}
+            className={`stepper__dot${i <= current ? ' stepper__dot--on' : ''}${i === current ? ' stepper__dot--current' : ''}`}
           />
         ))}
       </span>
-      <span className="stepper__label">{currentLabel}</span>
+      <span className="stepper__label">{data ? data.currentLabel : 'Unknown'}</span>
 
       <div className="stepper__popover" role="tooltip">
-        <div className="stepper__popover-title">{trackTitle} · stage {currentIndex + 1} of 6</div>
-        {stages.map((s, i) => (
+        <div className="stepper__popover-title">
+          {data ? `Stage ${current + 1} of ${STAGES.length}${trackNote}` : 'Stage not stated in the source'}
+        </div>
+        {STAGES.map((s, i) => (
           <div
             key={s.key}
-            className={`stepper__popover-row${i === currentIndex ? ' stepper__popover-row--current' : ''}`}
+            className={`stepper__popover-row${i <= current ? ' stepper__popover-row--on' : ''}${i === current ? ' stepper__popover-row--current' : ''}`}
           >
             <span className="stepper__popover-dot" />
-            <span className="stepper__popover-stage">{s.label}</span>
+            <span className="stepper__popover-stage">{i + 1}. {s.label}</span>
             <span className="stepper__popover-meaning">{s.meaning}</span>
           </div>
         ))}

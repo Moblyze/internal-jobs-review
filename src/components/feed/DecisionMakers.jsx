@@ -23,14 +23,14 @@ function NamedPersonCard({ person }) {
   )
 }
 
-export default function DecisionMakers({ keyPeople = [], archetypes = [], company, onArchetypeClick }) {
+export default function DecisionMakers({ keyPeople = [], archetypes = [], company, onViewContacts }) {
   const [showAll, setShowAll] = useState(false)
   const decisionMakers = (keyPeople || []).filter(p => p?.hiring_relevance === 'likely_decision_maker')
   const contextOnly = (keyPeople || []).filter(p => p?.hiring_relevance === 'context_only')
 
   const hasNamed = decisionMakers.length > 0
   const hasArchetypes = (archetypes || []).length > 0
-  if (!hasNamed && !hasArchetypes) return null
+  if (!hasNamed && !hasArchetypes && !(company && onViewContacts)) return null
 
   return (
     <div className="space-y-3 mt-3">
@@ -60,21 +60,19 @@ export default function DecisionMakers({ keyPeople = [], archetypes = [], compan
       {hasArchetypes && (
         <div>
           <div className="text-xs font-semibold uppercase tracking-wider text-gray-700 mb-1">
-            Decision-makers (search) {company ? <span className="font-normal text-gray-500">— at {company}</span> : null}
+            Roles to reach {company ? <span className="font-normal normal-case tracking-normal text-gray-500">at {company}</span> : null}
           </div>
-          <div className="flex flex-wrap gap-1.5">
-            {archetypes.map(a => (
-              <button
-                key={a}
-                type="button"
-                onClick={() => onArchetypeClick?.(a)}
-                className="text-[11px] font-medium px-2 py-1 rounded-full bg-blue-50 text-blue-800 hover:bg-blue-100"
-              >
-                {ARCHETYPE_LABEL[a] || a}
-              </button>
-            ))}
-          </div>
+          <p className="text-xs text-gray-500 mb-1.5">The people who usually make hiring calls at this stage. A guide for who to look for, not a list of contacts.</p>
+          <ul className="dm-roles" aria-label="Roles to reach">
+            {archetypes.map(a => <li key={a} className="dm-role">{ARCHETYPE_LABEL[a] || a}</li>)}
+          </ul>
         </div>
+      )}
+
+      {company && onViewContacts && (
+        <button type="button" className="dm-view" onClick={e => { e.stopPropagation(); onViewContacts() }}>
+          View contacts at {company}
+        </button>
       )}
     </div>
   )

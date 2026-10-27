@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { logTelemetry, postContactFeedback, enrichPerson, lookupCachedPerson } from '../../hooks/usePdlContacts'
+import { stageKeyOf, stageLabel } from '../../utils/feed/phaseStage'
 
 const FILTER_OPTIONS_URL = `${import.meta.env.BASE_URL || '/'}data/filter-options.json`
 const DECISION_MAKERS_URL = `${import.meta.env.BASE_URL || '/'}data/feed/decision_makers.json`
@@ -269,7 +270,7 @@ function AgentContactCard({ p, companyName, entryId, companyDomain }) {
             )}
             {enriching && <span className="text-gray-400">Looking up contact info…</span>}
             {enrichError === 'not_found' && <span className="text-gray-400 italic">No contact info found.</span>}
-            {enrichError === 'daily_cap' && <span className="text-amber-700">Daily lookup cap reached — try tomorrow.</span>}
+            {enrichError === 'daily_cap' && <span className="text-amber-700">Daily lookup cap reached. Try tomorrow.</span>}
             {enrichError === 'credits_exhausted' && <span className="text-red-700">Credits exhausted.</span>}
             {enrichError === 'error' && (
               <button
@@ -277,7 +278,7 @@ function AgentContactCard({ p, companyName, entryId, companyDomain }) {
                 title="Looks up work email via Hunter → GetProspect → PDL. Free tiers first (100 lookups/mo across Hunter and GetProspect); PDL paid backstop. Cached 90 days; re-tried after 24h if no contact info found."
                 className="text-blue-700 hover:underline"
               >
-                Lookup failed — retry
+                Lookup failed. Retry
               </button>
             )}
           </div>
@@ -450,7 +451,7 @@ export default function CompanyCardModal({ slug, name, entryId, onClose }) {
                     {activeJobs.toLocaleString()} ↗
                   </Link>
                 ) : (
-                  <div className="font-medium text-gray-300">—</div>
+                  <div className="font-medium text-gray-300">None</div>
                 )}
               </div>
               {overview?.ticker && <div><div className="text-[10px] uppercase font-semibold text-gray-400">Ticker</div><div className="font-semibold">{overview.ticker.toUpperCase()}</div></div>}
@@ -487,7 +488,7 @@ export default function CompanyCardModal({ slug, name, entryId, onClose }) {
                       <div className="text-[10px] text-gray-400 flex items-center gap-1.5 flex-wrap">
                         <span>{daysAgo(e.ingested_at)}</span>
                         {e.country && <><span className="text-gray-300">·</span><span>{prettySlug(e.country)}</span></>}
-                        {e.phase && <><span className="text-gray-300">·</span><span>{prettySlug(e.phase)}</span></>}
+                        {stageKeyOf(e) && <><span className="text-gray-300">·</span><span>{stageLabel(stageKeyOf(e))}</span></>}
                       </div>
                       <div className="text-gray-700 leading-snug line-clamp-2">{e.headline}</div>
                     </div>

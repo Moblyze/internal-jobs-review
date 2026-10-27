@@ -76,19 +76,25 @@ function SizeBadge({ tier }) {
   return <span className="text-[10px] font-medium px-1.5 py-0.5 rounded bg-gray-100 text-gray-600 ml-1" title={`Company size: ${SIZE_LABEL[tier]}`}>{SIZE_LABEL[tier]}</span>
 }
 
-function ContactsBadge({ coverage, company }) {
+// People we already have for this company (counts only here, no PII). A real button: it opens the
+// contacts modal, which shows saved and cached contacts only and never starts a paid lookup.
+export function ContactsButton({ coverage, company, onOpen }) {
   if (!company || !coverage) return null
   const c = coverage[company.toLowerCase()]
   if (!c || !c.identified) return null
+  const tip = `${c.identified} ${c.identified === 1 ? 'person' : 'people'} on file at ${company}${c.with_email > 0 ? `, ${c.with_email} with email` : ', none with email yet'}. Click to view.`
   return (
-    <span
-      className="contacts-badge inline-flex items-center gap-1 text-[10px] font-medium px-1.5 py-0.5 rounded bg-indigo-50 text-indigo-700 ml-1 align-middle"
-      title={`${c.identified} decision-maker${c.identified === 1 ? '' : 's'} identified${c.with_email > 0 ? ` · ${c.with_email} with contact info` : ' · none with contact info yet'}`}
+    <button
+      type="button"
+      className="feed-contacts"
+      title={tip}
+      aria-label={`View contacts at ${company}: ${tip}`}
+      onClick={e => { e.stopPropagation(); onOpen?.() }}
     >
-      <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-      {c.identified}
-      {c.with_email > 0 && <span className="text-green-700 font-semibold">· ✉ {c.with_email}</span>}
-    </span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <span className="num">{c.identified}</span>
+      {c.with_email > 0 && <span className="feed-contacts__mail num">· ✉ {c.with_email}</span>}
+    </button>
   )
 }
 
@@ -171,13 +177,13 @@ export default function FeedCard({ entry, taxonomy, pdlCache, coverage, onOperat
       )}
       <div className="flex gap-3 text-xs text-gray-500 pt-2 border-t border-gray-100 mt-2">
         <span><span className="text-gray-400">Hiring:</span> {contractor
-          ? <button className="text-blue-700 font-medium hover:underline" onClick={e => { e.stopPropagation(); onContractorClick?.(conSlug, contractor, entry.id) }}>{contractor}</button>
+          ? <button type="button" className="feed-co feed-co--strong" title={`Open ${contractor}: overview and contacts`} onClick={e => { e.stopPropagation(); onContractorClick?.(conSlug, contractor, entry.id) }}>{contractor}</button>
           : <span className="text-gray-400">Not named</span>}
-          <SizeBadge tier={contractorTier} /><ContactsBadge coverage={coverage} company={contractor} /></span>
+          <SizeBadge tier={contractorTier} /><ContactsButton coverage={coverage} company={contractor} onOpen={() => onContractorClick?.(conSlug, contractor, entry.id)} /></span>
         <span><span className="text-gray-400">Operator:</span> {operator
-          ? <button className="text-blue-700 hover:underline" onClick={e => { e.stopPropagation(); onOperatorClick?.(opSlug, operator, entry.id) }}>{operator}</button>
+          ? <button type="button" className="feed-co" title={`Open ${operator}: overview and contacts`} onClick={e => { e.stopPropagation(); onOperatorClick?.(opSlug, operator, entry.id) }}>{operator}</button>
           : <span className="text-gray-400">Not named</span>}
-          <SizeBadge tier={operatorTier} /><ContactsBadge coverage={coverage} company={operator} /></span>
+          <SizeBadge tier={operatorTier} /><ContactsButton coverage={coverage} company={operator} onOpen={() => onOperatorClick?.(opSlug, operator, entry.id)} /></span>
         {entry.mob_window?.start && (
           <span className="ml-auto font-medium text-gray-700">
             {entry.mob_window.start}{entry.mob_window.end ? ` → ${entry.mob_window.end}` : ''}
@@ -189,10 +195,11 @@ export default function FeedCard({ entry, taxonomy, pdlCache, coverage, onOperat
         <BdCardExpanded
           entryId={entry.id}
           taxonomy={taxonomy}
-          onArchetypeSearch={(fullEntry, archetype) => {
+          onViewContacts={(fullEntry) => {
+            const isHiring = !!fullEntry.hiring_entity?.name
             const company = fullEntry.hiring_entity?.name || fullEntry.operator?.name
-            const slug = fullEntry.hiring_entity?.matched_company_slug || fullEntry.operator?.matched_company_slug
-            if (slug) onContractorClick?.(slug, company, fullEntry.id)
+            const slug = isHiring ? fullEntry.hiring_entity?.matched_company_slug : fullEntry.operator?.matched_company_slug
+            if (company) onContractorClick?.(slug, company, fullEntry.id)
           }}
         />
       )}

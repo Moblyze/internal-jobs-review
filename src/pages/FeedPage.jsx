@@ -10,6 +10,7 @@ import ComingSoonSection from '../components/feed/ComingSoonSection'
 import { useFeedData } from '../hooks/useFeedData'
 import { useFilterParams } from '../hooks/useFilterParams'
 import { usePdlCache } from '../hooks/usePdlCache'
+import { stageKeyOf, normalizeStageFilter } from '../utils/feed/phaseStage'
 
 const TIME_DAYS = { '7d': 7, '30d': 30, '90d': 90, 'all': 999999 }
 const READINESS_RANK = { live_now: 4, hot: 3, warming: 2, cold: 1 }
@@ -18,13 +19,14 @@ const readinessKey = (e) => READINESS_RANK[e.outreach_readiness] || 0
 function applyFilters(entries, filters) {
   const cutoff = Date.now() - (TIME_DAYS[filters.timeRange] || 30) * 24 * 60 * 60 * 1000
   const q = (filters.feedSearch || '').toLowerCase()
+  const stageFilter = normalizeStageFilter(filters.phases || [])
   let filtered = entries.filter(e => {
     if (e.ingested_at && new Date(e.ingested_at).getTime() < cutoff) return false
     if (filters.subsectors.length && !filters.subsectors.includes(e.subsector)) return false
     if (filters.disciplines.length && !filters.disciplines.some(d => (e.discipline_tags || []).includes(d))) return false
     if (filters.signals.length && !filters.signals.includes(e.signal_type)) return false
     if (filters.readiness?.length && !filters.readiness.includes(e.outreach_readiness)) return false
-    if (filters.phases?.length && !filters.phases.includes(e.phase)) return false
+    if (stageFilter.length && !stageFilter.includes(stageKeyOf(e))) return false
     if (q && !((e.headline || '').toLowerCase().includes(q))) return false
     return true
   })

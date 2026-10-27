@@ -2,6 +2,7 @@
 import Select from 'react-select'
 import { useFilterParams } from '../../hooks/useFilterParams'
 import { mzSelectStyles } from '../ui/selectStyles'
+import { STAGES, normalizeStageFilter } from '../../utils/feed/phaseStage'
 
 const compactStyles = mzSelectStyles
 
@@ -19,12 +20,7 @@ const READINESS_OPTS = [
   { value: 'cold',     label: 'Cold' },
 ]
 
-const PHASE_OPTS = [
-  { value: 'construction',           label: 'Construction' },
-  { value: 'sanctioned_engineering', label: 'Sanctioned engineering' },
-  { value: 'pre_sanction',           label: 'Pre-sanction' },
-  { value: 'operating',              label: 'Operating' },
-]
+const PHASE_OPTS = STAGES.map((s, i) => ({ value: s.key, label: `${i + 1}. ${s.label}` }))
 
 const SORT_OPTS = [
   { value: 'recent',    label: 'Most recent' },
@@ -76,10 +72,10 @@ export default function FeedFilters({ taxonomy }) {
         />
         <Select
           isMulti
-          placeholder="Phase"
+          placeholder="Stage"
           styles={compactStyles}
           options={PHASE_OPTS}
-          value={PHASE_OPTS.filter(o => (filters.phases || []).includes(o.value))}
+          value={PHASE_OPTS.filter(o => normalizeStageFilter(filters.phases || []).includes(o.value))}
           onChange={vs => setFilters({ ...filters, phases: vs.map(v => v.value) })}
         />
         <Select

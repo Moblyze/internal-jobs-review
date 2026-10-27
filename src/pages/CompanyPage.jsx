@@ -4,7 +4,7 @@
 import { useParams, Link } from 'react-router-dom'
 import { useState, useEffect, useMemo } from 'react'
 import { getCompanyData } from '../hooks/useJobs'
-import { useFilterParams } from '../hooks/useFilterParams'
+import { useFilterParams, buildFilterUrl } from '../hooks/useFilterParams'
 import { slugToCompany } from '../utils/formatters'
 import { extractJobCertifications } from '../utils/certificationExtractor'
 import { loadCompanyIntelligence } from '../utils/companyData'
@@ -37,24 +37,40 @@ function countryOf(loc) {
   return last || 'Not stated'
 }
 
+// Employment type in the Jobs tab's spelling, so ?employmentTypes= means the same thing on both pages.
+const toJobsTabType = t => ({ 'Full-time': 'Full-Time', 'Part-time': 'Part-Time' }[t] || t)
+const jobType = j => toJobsTabType(canonicalEmploymentType(j.employmentType))
+
 function ago(t) {
   if (!t) return null
   const d = Math.max(0, Math.floor((Date.now() - t) / DAY))
   return d === 0 ? 'today' : d === 1 ? 'yesterday' : d < 30 ? `${d} days ago` : `${Math.round(d / 30)} mo ago`
 }
 
-function Ranked({ rows, total, limit, unit = 'jobs' }) {
+// Ranked list. With onPick, each row is a button that filters the job list below; the active row is marked.
+function Ranked({ rows, limit, unit = 'jobs', onPick, isActive, what }) {
   const max = rows[0]?.[1] || 1
   const rest = rows.slice(limit).reduce((s, r) => s + r[1], 0)
   return (
     <ol className="cp-ranked">
-      {rows.slice(0, limit).map(([name, n]) => (
-        <li key={name}>
-          <span className="cp-ranked__name">{name}</span>
-          <span className="cp-ranked__bar" aria-hidden="true"><i style={{ width: `${Math.max(3, (n / max) * 100)}%` }} /></span>
-          <span className="cp-ranked__n num">{n.toLocaleString('en-US')}</span>
-        </li>
-      ))}
+      {rows.slice(0, limit).map(row => {
+        const [name, n] = row
+        const inner = (
+          <>
+            <span className="cp-ranked__name">{name}</span>
+            <span className="cp-ranked__bar" aria-hidden="true"><i style={{ width: `${Math.max(3, (n / max) * 100)}%` }} /></span>
+            <span className="cp-ranked__n num">{n.toLocaleString('en-US')}</span>
+          </>
+        )
+        if (!onPick) return <li key={name}>{inner}</li>
+        const on = isActive?.(row)
+        return (
+          <li key={name} className="cp-ranked__li">
+            <button type="button" className={`cp-ranked__btn${on ? ' is-on' : ''}`} aria-pressed={!!on}
+              title={on ? `Remove the ${what} filter` : `Show only ${name} jobs`} onClick={() => onPick(row)}>{inner}</button>
+          </li>
+        )
+      })}
       {rows.length > limit && <li className="cp-ranked__more">and {(rows.length - limit).toLocaleString('en-US')} more, {rest.toLocaleString('en-US')} {rest === 1 ? unit.replace(/s$/, '') : unit}</li>}
     </ol>
   )
@@ -62,10 +78,9 @@ function Ranked({ rows, total, limit, unit = 'jobs' }) {
 
 function CompanyPage() {
   const { companySlug } = useParams()
-  const { filters } = useFilterParams()
+  const { filters, setFilters } = useFilterParams()
   const [data, setData] = useState({ slug: null, company: null, done: false, error: null })
   const [shown, setShown] = useState(PAGE_SIZE)
-  const [trade, setTrade] = useState('all')
   const [showAllLocs, setShowAllLocs] = useState(false)
   const [intel, setIntel] = useState(null)
   const [coverage, setCoverage] = useState(null)
@@ -75,7 +90,7 @@ function CompanyPage() {
   useEffect(() => {
     let cancelled = false
     setData({ slug: companySlug, company: null, done: false, error: null })
-    setShown(PAGE_SIZE); setTrade('all'); setShowAllLocs(false)
+    setShown(PAGE_SIZE); setShowAllLocs(false)
     getCompanyData(companySlug)
       .then(company => { if (!cancelled) setData({ slug: companySlug, company, done: true, error: null }) })
       .catch(err => { if (!cancelled) setData({ slug: companySlug, company: null, done: true, error: err.message }) })
@@ -101,16 +116,21 @@ function CompanyPage() {
   }, [companyName, companySlug])
 
   const summary = useMemo(() => {
-    const roles = {}, locs = {}, countries = {}, types = {}
+    const roles = {}, locs = {}, countries = {}, types = {}, byCountry = {}
     let tradeJobs = 0, recent = 0, newest = 0
     const cutoff = Date.now() - 30 * DAY
     for (const j of companyJobs) {
       if (j.roleId && j.roleId !== 'other') { tradeJobs++; roles[j.roleId] = (roles[j.roleId] || 0) + 1 }
       const jl = j.locs?.length ? j.locs : (j.location ? [j.location] : [])
-      for (const l of jl) if (countryOf(l) !== 'Not stated') locs[l] = (locs[l] || 0) + 1
+      for (const l of jl) {
+        const lc = countryOf(l)
+        if (lc === 'Not stated') continue
+        locs[l] = (locs[l] || 0) + 1
+        ;(byCountry[lc] ||= new Set()).add(l)
+      }
       const c = jl.length ? countryOf(jl[0]) : 'Not stated'
       countries[c] = (countries[c] || 0) + 1
-      const et = canonicalEmploymentType(j.employmentType)
+      const et = jobType(j)
       types[et] = (types[et] || 0) + 1
       const t = j.postedDate ? Date.parse(j.postedDate) : NaN
       if (t) { if (t > newest) newest = t; if (t >= cutoff) recent++ }
@@ -120,14 +140,21 @@ function CompanyPage() {
       tradeJobs, recent, newest,
       roles: sort(roles).map(([id, n]) => [ENERGY_ROLES[id]?.label || id, n, id]),
       locs: sort(locs), countries: sort(countries).filter(([c]) => c !== 'Not stated'),
-      types: EMPLOYMENT_TYPES.filter(t => types[t]).map(t => [t, types[t]]),
+      types: EMPLOYMENT_TYPES.map(toJobsTabType).filter(t => types[t]).map(t => [t, types[t]]),
+      byCountry: Object.fromEntries(Object.entries(byCountry).map(([c, set]) => [c, [...set].sort()])),
     }
   }, [companyJobs])
 
   const filteredJobs = useMemo(() => {
     let result = companyJobs
-    if (trade !== 'all') result = result.filter(j => j.roleId === trade)
-    if (filters.locations?.length > 0) result = result.filter(job => filters.locations.some(l => (job.locs || []).includes(l)))
+    if (filters.locations?.length > 0) {
+      const want = new Set(filters.locations)
+      result = result.filter(job => (job.locs?.length ? job.locs : (job.location ? [job.location] : [])).some(l => want.has(l)))
+    }
+    if (filters.employmentTypes?.length > 0) {
+      const want = new Set(filters.employmentTypes.map(t => t.toLowerCase()))
+      result = result.filter(job => want.has(jobType(job).toLowerCase()))
+    }
     if (filters.skills?.length > 0) {
       const wanted = new Set(filters.skills.map(s => s.toLowerCase()))
       result = result.filter(job => (job.validSkills || job.skills || []).some(s => wanted.has(s.toLowerCase())))
@@ -137,13 +164,41 @@ function CompanyPage() {
     }
     if (filters.roles?.length > 0) result = result.filter(job => filters.roles.includes(job.roleId))
     return result
-  }, [companyJobs, filters, trade])
+  }, [companyJobs, filters])
+
+  // Back to the first page whenever the filters change
+  const filterKey = [filters.roles, filters.locations, filters.employmentTypes, filters.skills, filters.certifications].map(a => (a || []).join('|')).join('~')
+  useEffect(() => { setShown(PAGE_SIZE) }, [filterKey])
 
   if (!data.done) return <div className="mz cp"><EmptyState title="Loading company…">Reading this company's open jobs.</EmptyState></div>
   if (data.error) return <div className="mz cp"><EmptyState title="This company did not load">{data.error}</EmptyState></div>
 
   const n = companyJobs.length
-  const urlFiltered = filters.locations?.length > 0 || filters.skills?.length > 0 || filters.certifications?.length > 0 || filters.roles?.length > 0
+  // Filters use the Jobs tab's URL parameters (roles, locations, employmentTypes, skills, certifications),
+  // so a filtered company page is a shareable link and the same filter opens on the Jobs tab.
+  const roleIds = filters.roles || []
+  const locSel = filters.locations || []
+  const typeSel = filters.employmentTypes || []
+  const update = patch => setFilters({ ...filters, ...patch })
+  const sameSet = (a, b) => a.length === b.length && a.every(x => b.includes(x))
+  // A country filter is stored as that country's locations; show it as one chip when it matches exactly.
+  const countryOfSel = locSel.length ? Object.keys(summary.byCountry).find(c => sameSet(summary.byCountry[c], locSel)) : null
+  const pickTrade = ([, , id]) => update({ roles: roleIds.length === 1 && roleIds[0] === id ? [] : [id] })
+  const pickCountry = ([c]) => update({ locations: countryOfSel === c ? [] : summary.byCountry[c] || [] })
+  const pickLoc = ([l]) => update({ locations: !countryOfSel && locSel.length === 1 && locSel[0] === l ? [] : [l] })
+  const pickType = t => update({ employmentTypes: typeSel.length === 1 && typeSel[0] === t ? [] : [t] })
+  const roleLabel = id => ENERGY_ROLES[id]?.label || id
+  const chips = [
+    ...roleIds.map(id => ({ key: `r-${id}`, kind: 'Trade', label: roleLabel(id), clear: () => update({ roles: roleIds.filter(x => x !== id) }) })),
+    ...(countryOfSel
+      ? [{ key: 'country', kind: 'Country', label: countryOfSel, clear: () => update({ locations: [] }) }]
+      : locSel.map(l => ({ key: `l-${l}`, kind: 'Location', label: l, clear: () => update({ locations: locSel.filter(x => x !== l) }) }))),
+    ...typeSel.map(t => ({ key: `t-${t}`, kind: 'Type', label: t, clear: () => update({ employmentTypes: typeSel.filter(x => x !== t) }) })),
+    ...(filters.skills || []).map(k => ({ key: `s-${k}`, kind: 'Skill', label: k, clear: () => update({ skills: filters.skills.filter(x => x !== k) }) })),
+    ...(filters.certifications || []).map(k => ({ key: `c-${k}`, kind: 'Cert', label: k, clear: () => update({ certifications: filters.certifications.filter(x => x !== k) }) })),
+  ]
+  const clearAll = () => update({ roles: [], locations: [], employmentTypes: [], skills: [], certifications: [] })
+  const jobsTabUrl = buildFilterUrl('/', { companies: [companyName], roles: roleIds, locations: locSel, employmentTypes: typeSel, skills: filters.skills, certifications: filters.certifications })
   const sub = [intel?.sector, intel?.hq].filter(Boolean).join(' · ') || null
 
   return (
@@ -164,16 +219,16 @@ function CompanyPage() {
               <h2 id="cp-trades-h" className="cp-block__h">Hiring in our trades</h2>
               <p className="cp-big num">{summary.tradeJobs.toLocaleString('en-US')}<small> of {n.toLocaleString('en-US')} open jobs</small></p>
               {summary.roles.length > 0
-                ? <Ranked rows={summary.roles} limit={6} />
+                ? <Ranked rows={summary.roles} limit={6} what="trade" onPick={pickTrade} isActive={([, , id]) => roleIds.includes(id)} />
                 : <p className="cp-quiet">None of the open jobs match a Moblyze trade yet.</p>}
             </section>
 
             <section className="cp-block" aria-labelledby="cp-where-h">
               <h2 id="cp-where-h" className="cp-block__h">Where they hire</h2>
               <p className="cp-big num">{summary.locs.length.toLocaleString('en-US')}<small> location{summary.locs.length === 1 ? '' : 's'} in {summary.countries.length.toLocaleString('en-US')} {summary.countries.length === 1 ? 'country' : 'countries'}</small></p>
-              {summary.countries.length > 1 && <Ranked rows={summary.countries} limit={4} />}
+              {summary.countries.length > 1 && <Ranked rows={summary.countries} limit={4} what="country" onPick={pickCountry} isActive={([c]) => countryOfSel === c} />}
               <h3 className="cp-block__h3">Top locations</h3>
-              <Ranked rows={summary.locs} limit={5} />
+              <Ranked rows={summary.locs} limit={5} what="location" onPick={pickLoc} isActive={([l]) => !countryOfSel && locSel.includes(l)} />
               {summary.locs.length > 5 && (
                 <button type="button" className="mz-link cp-all" onClick={() => setShowAllLocs(v => !v)}>{showAllLocs ? 'Hide the full list' : `Show all ${summary.locs.length.toLocaleString('en-US')} locations`}</button>
               )}
@@ -198,7 +253,15 @@ function CompanyPage() {
               {summary.types.length > 0 && (
                 <>
                   <h3 className="cp-block__h3">Employment type</h3>
-                  <p className="cp-types">{summary.types.map(([t, c]) => <span key={t} className="mz-tag">{t} <span className="num">{c.toLocaleString('en-US')}</span></span>)}</p>
+                  <p className="cp-types">{summary.types.map(([t, c]) => {
+                    const on = typeSel.some(x => x.toLowerCase() === t.toLowerCase())
+                    return (
+                      <button key={t} type="button" className={`mz-tag cp-tagbtn${on ? ' is-on' : ''}`} aria-pressed={on}
+                        title={on ? 'Remove the employment type filter' : `Show only ${t} jobs`} onClick={() => pickType(t)}>
+                        {t} <span className="num">{c.toLocaleString('en-US')}</span>
+                      </button>
+                    )
+                  })}</p>
                 </>
               )}
             </section>
@@ -206,7 +269,16 @@ function CompanyPage() {
 
           {showAllLocs && (
             <section className="mz-sec cp-alllocs" aria-label="All locations">
-              <ul>{summary.locs.map(([l, c]) => <li key={l}><span>{l}</span><span className="num">{c}</span></li>)}</ul>
+              <ul>{summary.locs.map(([l, c]) => {
+                const on = !countryOfSel && locSel.includes(l)
+                return (
+                  <li key={l}>
+                    <button type="button" className={`cp-loc${on ? ' is-on' : ''}`} aria-pressed={on} onClick={() => pickLoc([l])}>
+                      <span>{l}</span><span className="num">{c}</span>
+                    </button>
+                  </li>
+                )
+              })}</ul>
             </section>
           )}
 
@@ -216,16 +288,29 @@ function CompanyPage() {
               {summary.roles.length > 0 && (
                 <label className="mz-field cp-trade">
                   <span className="sr-only">Trade</span>
-                  <select value={trade} onChange={e => { setTrade(e.target.value); setShown(PAGE_SIZE) }} aria-label="Filter by trade">
+                  <select value={roleIds.length === 1 ? roleIds[0] : 'all'} onChange={e => update({ roles: e.target.value === 'all' ? [] : [e.target.value] })} aria-label="Filter by trade">
                     <option value="all">All jobs ({n.toLocaleString('en-US')})</option>
                     {summary.roles.map(([label, c, id]) => <option key={id} value={id}>{label} ({c})</option>)}
                   </select>
                 </label>
               )}
             </div>
-            {urlFiltered && <p className="mz-sec__sub">Filtered by the link you followed.</p>}
+            {chips.length > 0 ? (
+              <div className="cp-chips" aria-label="Active filters">
+                <span className="cp-chips__l">Showing {filteredJobs.length.toLocaleString('en-US')} of {n.toLocaleString('en-US')}</span>
+                {chips.map(c => (
+                  <button key={c.key} type="button" className="cp-chip" onClick={c.clear} aria-label={`Remove filter ${c.kind}: ${c.label}`}>
+                    <span className="cp-chip__k">{c.kind}</span>{c.label}<span className="cp-chip__x" aria-hidden="true">×</span>
+                  </button>
+                ))}
+                {chips.length > 1 && <button type="button" className="mz-link" onClick={clearAll}>Clear all</button>}
+                <Link className="mz-link cp-chips__jobs" to={jobsTabUrl}>Open on the Jobs tab</Link>
+              </div>
+            ) : (
+              <p className="mz-sec__sub">Click a trade, country, location or employment type above to filter these jobs.</p>
+            )}
             {filteredJobs.length === 0
-              ? <EmptyState title="No jobs match">Choose all jobs or another trade.</EmptyState>
+              ? <EmptyState title="No jobs match">Remove a filter to see more.</EmptyState>
               : (
                 <div className="cp-jobs">
                   {filteredJobs.slice(0, shown).map(job => <JobCard key={job.id} job={job} />)}
