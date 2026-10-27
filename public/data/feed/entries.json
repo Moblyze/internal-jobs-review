@@ -2,6 +2,210 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/egypt_agrees_tax_relief_for_project_to_import_cyprus_gas-27-oct-2026-184937-article/?rss=true"
+      }
+    ],
+    "headline": "Chevron-Led Aphrodite Consortium Secures Tax Regime for Cyprus-Egypt Gas Export Pipeline",
+    "body": "The Chevron Corp-led Aphrodite consortium and the Egyptian government have agreed on a special tax regime for a project that would enable the piped export of...",
+    "url": "https://www.rigzone.com/news/egypt_agrees_tax_relief_for_project_to_import_cyprus_gas-27-oct-2026-184937-article/?rss=true",
+    "published_at": "2026-10-27T07:57:10.000Z",
+    "hash": "d2f15a8391d3ac7a",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "pipeline_mechanical",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "east-mediterranean",
+    "country": "egypt",
+    "tldr": "Egypt has agreed a special tax regime with the Chevron-led Aphrodite consortium for piped gas exports from Cyprus, advancing the project toward FID and near-term engineering/construction hiring.",
+    "operator": {
+      "name": "Chevron (Aphrodite consortium)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Aphrodite Gas Export Project",
+    "scope": [
+      "pipeline_export",
+      "gas_import_infrastructure"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Pipeline Project Manager",
+        "Subsea Pipeline Engineer",
+        "Project Development Manager",
+        "FEED Manager",
+        "Regulatory Affairs Manager",
+        "Gas Export Facilities Engineer"
+      ],
+      "skills": [
+        "subsea pipeline",
+        "gas export",
+        "FEED",
+        "project development",
+        "fiscal/tax regime negotiation",
+        "offshore pipeline design",
+        "cross-border gas infrastructure"
+      ],
+      "certs_freetext": [
+        "CENG",
+        "OPITO",
+        "PMP"
+      ],
+      "geo_rtw": "Egypt, Cyprus, EU/EEA eligible",
+      "project_experience": [
+        "EastMed Pipeline",
+        "ENI Zohr",
+        "Leviathan Gas Export",
+        "Noble Energy Tamar",
+        "BP West Nile Delta"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal",
+      "boolean_search": "(\"pipeline project manager\" OR \"gas export\" OR \"FEED manager\" OR \"subsea pipeline engineer\" OR \"project development manager\") AND (\"offshore pipeline\" OR \"gas export\" OR \"cross-border\" OR \"East Mediterranean\" OR \"Cyprus\" OR \"Egypt\") AND (\"Chevron\" OR \"Aphrodite\" OR \"ENI\" OR \"Leviathan\" OR \"EastMed\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Egypt's tax deal with the Chevron-led Aphrodite consortium is a key step toward sanctioning the Cyprus gas export pipeline. Are you open to hearing about senior roles on this project as it advances to FEED/EPC?",
+      "email_subject": "Aphrodite Cyprus-Egypt Pipeline – Senior Roles Ahead of FEED/EPC Award",
+      "email_body": "Hi [Name],\n\nEgypt has just agreed a special tax regime with the Chevron-led Aphrodite consortium for the Cyprus-to-Egypt piped gas export project — a significant pre-FID milestone that typically precedes FEED and EPC contract awards within 12–18 months.\n\nGiven your background in [offshore pipeline / gas export / FEED delivery], I wanted to reach out early. We're mapping talent for senior project and engineering roles as the project progresses.\n\nWould you be open to a brief call to discuss?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Chevron-led Aphrodite consortium) secures a regulatory/fiscal milestone (special tax regime) that directly advances the Cyprus-Egypt gas export pipeline toward FID, constituting a field development plan regulatory event with staffing implications.",
+    "phase": "pre_sanction",
+    "phase_evidence": "The article describes a tax regime agreement as an enabling step for the project, indicating it has not yet reached FID or EPC award stage.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "7ef89d16-9cf5-48e2-a503-7cc0c5c89e1a",
+    "ingested_at": "2026-10-27T12:28:12.059Z",
+    "source_published_at": "2026-10-27T07:57:10.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/rig_sinks_offshore_gabon-27-oct-2026-184939-article/?rss=true"
+      }
+    ],
+    "headline": "Borr Drilling Prospector 5 Rig Incident Offshore Gabon — Asset Loss Event",
+    "body": "Borr Drilling Limited announced, in a statement posted on its website on Sunday, that an incident occurred on October 24 involving the Prospector 5 drilling ...",
+    "url": "https://www.rigzone.com/news/rig_sinks_offshore_gabon-27-oct-2026-184939-article/?rss=true",
+    "published_at": "2026-10-27T10:41:46.000Z",
+    "hash": "bc6b3518851a0248",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "marine_offshore_ops"
+    ],
+    "signal_type": "rig_fixture",
+    "region": "west-africa",
+    "country": "gabon",
+    "tldr": "Borr Drilling's Prospector 5 jackup has sunk offshore Gabon following an incident on October 24, signaling potential rig replacement demand and contractor workforce redeployment or replacement activity.",
+    "operator": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Borr Drilling",
+      "matched_company_slug": null
+    },
+    "project_name": "Prospector 5 — Offshore Gabon",
+    "scope": [
+      "rig_loss",
+      "rig_replacement",
+      "contractor_replacement"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Drilling Superintendent",
+        "Rig Manager",
+        "Toolpusher",
+        "Driller",
+        "HSE Manager",
+        "Marine Warranty Surveyor",
+        "Incident Investigation Lead",
+        "Well Control Specialist"
+      ],
+      "skills": [
+        "jackup operations",
+        "well control",
+        "emergency response",
+        "rig replacement planning",
+        "offshore drilling management"
+      ],
+      "certs_freetext": [
+        "IWCF Well Control",
+        "BOSIET/HUET",
+        "OPITO Offshore Emergency Response",
+        "Offshore Medical (ENG1 or equivalent)"
+      ],
+      "geo_rtw": "Gabon / West Africa — international eligible",
+      "project_experience": [
+        "West Africa jackup drilling",
+        "Gulf of Guinea operations",
+        "Borr Drilling fleet"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "senior",
+      "boolean_search": "(\"Drilling Superintendent\" OR \"Rig Manager\" OR \"Toolpusher\" OR \"Driller\" OR \"Well Control Specialist\") AND (\"jackup\" OR \"offshore drilling\" OR \"West Africa\" OR \"Gabon\") AND (\"IWCF\" OR \"well control\" OR \"emergency response\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], following the Prospector 5 loss offshore Gabon, Borr Drilling will likely need experienced jackup drilling professionals for replacement ops in West Africa. Are you available or open to a conversation?",
+      "email_subject": "West Africa Jackup Opportunity — Prospector 5 Replacement Activity, Borr Drilling",
+      "email_body": "Hi [Name],\n\nFollowing the loss of Borr Drilling's Prospector 5 jackup offshore Gabon on October 24, there is likely to be near-term demand for experienced drilling professionals to support rig replacement and ongoing operations in the region.\n\nGiven your background in [jackup drilling / West Africa ops / well control], I wanted to reach out to see if you'd be open to discussing potential opportunities in this space.\n\nWould you be available for a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named contractor (Borr Drilling) and named rig (Prospector 5) involved in an offshore asset-loss incident offshore Gabon, implying contractor replacement and workforce redeployment demand.",
+    "phase": "operating",
+    "phase_evidence": "The rig was actively drilling offshore Gabon when the incident occurred on October 24, indicating it was in operational phase at time of loss.",
+    "construction_subphase": null,
+    "lifecycle_track": "decommissioning",
+    "decom_stage": "planning",
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "9e65fc5c-be57-4776-b630-327f6b6ba0fd",
+    "ingested_at": "2026-10-27T12:28:12.059Z",
+    "source_published_at": "2026-10-27T10:41:46.000Z",
+    "contact_archetypes": [
+      "ops_director",
+      "hiring_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/blue-moon-announces-the-signing-of-the-refurbishment-contract-for-the-springer-mill-engages-with-wood-group-and-acquires-accommodations-for-springer-site-302919900.html"
@@ -13863,111 +14067,6 @@
     "contact_archetypes": [
       "project_manager",
       "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "pr_newswire_energy",
-        "name": "PR Newswire (Energy)",
-        "url": "https://www.prnewswire.com/news-releases/cbi-continues-growth-in-middle-east-with-new-abu-dhabi-wells-contract-302837248.html"
-      }
-    ],
-    "headline": "CB&I Asset Solutions Wins Well Engineering Services Contract with Cosmo E&P in Abu Dhabi",
-    "body": "ABERDEEN, United Kingdom, July 29, 2026 /PRNewswire/ -- CB&I's Asset Solutions business (formerly part of Petrofac) has secured a new contract with Cosmo E&P Albahriya Limited (\"Cosmo\") in the United Arab Emirates (UAE). The well engineering services contract will support drilling,...",
-    "url": "https://www.prnewswire.com/news-releases/cbi-continues-growth-in-middle-east-with-new-abu-dhabi-wells-contract-302837248.html",
-    "published_at": "2026-07-29T04:00:00.000Z",
-    "hash": "84894a0186124174",
-    "subsector": "onshore-og",
-    "discipline_tags": [
-      "drilling_operations"
-    ],
-    "signal_type": "epc_award",
-    "region": "uae-abu-dhabi",
-    "country": "united_arab_emirates",
-    "tldr": "CB&I's Asset Solutions business has secured a well engineering services contract with Cosmo E&P Albahriya Limited in the UAE, signalling near-term demand for drilling and well engineering professionals in Abu Dhabi.",
-    "operator": {
-      "name": "Cosmo E&P Albahriya Limited",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "CB&I Asset Solutions",
-      "matched_company_slug": null
-    },
-    "project_name": null,
-    "scope": [
-      "well_engineering_services",
-      "drilling_support"
-    ],
-    "mob_window": {
-      "start": "2026-Q3",
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Well Engineer",
-        "Drilling Engineer",
-        "Senior Well Engineer",
-        "Wellsite Supervisor",
-        "Drilling Supervisor",
-        "Well Integrity Engineer",
-        "Completions Engineer",
-        "Drilling Superintendent"
-      ],
-      "skills": [
-        "well engineering",
-        "drilling operations",
-        "well planning",
-        "well integrity",
-        "completions",
-        "UAE operations",
-        "well intervention",
-        "WITSML",
-        "WellPlan",
-        "DrillPlan"
-      ],
-      "certs_freetext": [
-        "IWCF Well Control",
-        "IADC WellSharp",
-        "BOSIET/HUET"
-      ],
-      "geo_rtw": "UAE / Middle East — EEA or Western passport holders eligible",
-      "project_experience": [
-        "ADNOC drilling campaigns",
-        "Cosmo E&P",
-        "Petrofac UAE",
-        "CB&I Asset Solutions Middle East"
-      ],
-      "yoe_band": "8-15",
-      "seniority": "mid-senior",
-      "boolean_search": "(\"Well Engineer\" OR \"Drilling Engineer\" OR \"Wellsite Supervisor\" OR \"Drilling Supervisor\" OR \"Completions Engineer\" OR \"Well Integrity Engineer\") AND (\"UAE\" OR \"Abu Dhabi\" OR \"Middle East\") AND (\"IWCF\" OR \"IADC\" OR \"WellSharp\") AND (\"CB&I\" OR \"Petrofac\" OR \"ADNOC\" OR \"SLB\" OR \"Halliburton\" OR \"Baker Hughes\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], CB&I Asset Solutions just secured a well engineering services contract with Cosmo E&P in Abu Dhabi. We're identifying experienced Well/Drilling Engineers for UAE mobilisation. Would you be open to a brief chat about the opportunity?",
-      "email_subject": "Abu Dhabi Well Engineering Contract — CB&I Asset Solutions — New Roles",
-      "email_body": "Hi [Name],\n\nCB&I Asset Solutions (formerly Petrofac Asset Solutions) has just been awarded a well engineering services contract with Cosmo E&P Albahriya Limited in the UAE, with work commencing in Q3 2026.\n\nWe are actively building a shortlist of experienced Well Engineers, Drilling Engineers, and Wellsite Supervisors with Middle East / UAE experience for deployment on this programme.\n\nIf you hold IWCF or IADC WellSharp certification and have prior UAE or GCC drilling operations experience, I'd welcome a conversation about fit and availability.\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named contract award between CB&I Asset Solutions (contractor/hiring entity) and Cosmo E&P Albahriya Limited (operator) for well engineering services in Abu Dhabi, UAE — a discrete drilling-services contract with clear labor-demand signal.",
-    "phase": "operating",
-    "phase_evidence": "Article describes a well engineering services contract supporting drilling on what appears to be an existing production asset operated by Cosmo E&P, with no FID or new-build language present.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "1-3mo",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "1588c1ae-38a7-43c1-bdb1-bb6fac96c867",
-    "ingested_at": "2026-07-29T06:57:50.781Z",
-    "source_published_at": "2026-07-29T04:00:00.000Z",
-    "contact_archetypes": [
-      "ops_director",
-      "hiring_manager"
     ],
     "prompt_version": "phase-targeting-v1.2"
   }
