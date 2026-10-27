@@ -49,9 +49,10 @@ export function confidenceOf(n, employers) {
 }
 
 // Estimated percentile of v inside a cell, piecewise linear through P25 / P50 / P75,
-// tails extended at the slope of the nearest segment, clamped to P2..P98.
+// tails extended at the slope of the nearest segment, clamped to P2..P98. Uses the unrounded
+// stats, so the same money gets the same percentile in every display currency.
 function percentileOf(v, st) {
-  const { p25: a, median: m, p75: b } = st
+  const { p25Raw: a, medianRaw: m, p75Raw: b } = st
   const lowSeg = Math.max(m - a, m * 0.04), hiSeg = Math.max(b - m, m * 0.04)
   let p
   if (v <= a) p = 25 - ((a - v) / lowSeg) * 25
@@ -187,7 +188,7 @@ function RateCheck({ data, buyer, currency, onDetail }) {
   const st = r ? cellStats(r.cell, unit) : null
   const dom = st ? niceDomain(Math.min(st.p25Raw, ok ? v : Infinity) * 0.92, Math.max(st.p75Raw, ok ? v : 0) * 1.04, 4) : null
   const pctl = ok ? percentileOf(v, st) : null
-  const diff = ok ? (v - st.median) / st.median : 0
+  const diff = ok ? (v - st.medianRaw) / st.medianRaw : 0
   // banding runs on the cell's USD/day range, so the typed rate goes back to USD per day first
   const dayV = ok ? toUsd(unit === 'day' ? v : unit === 'hour' ? v * (r.cell.hours_per_day || (r.cell.basis === 'perm_timebased' ? 8 : 10)) : unit === 'year' ? v / 260 : v / 30.4) : null
   const band = ok ? bandOf(dayV, dayV, r.cell) : null
