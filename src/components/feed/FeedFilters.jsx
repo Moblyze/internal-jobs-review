@@ -1,13 +1,9 @@
 // src/components/feed/FeedFilters.jsx
 import Select from 'react-select'
 import { useFilterParams } from '../../hooks/useFilterParams'
+import { mzSelectStyles } from '../ui/selectStyles'
 
-const compactStyles = {
-  control: (b) => ({ ...b, minHeight: '34px', borderColor: '#d1d5db', boxShadow: 'none', fontSize: '0.8125rem' }),
-  multiValue: (b) => ({ ...b, backgroundColor: '#dbeafe' }),
-  multiValueLabel: (b) => ({ ...b, color: '#1e40af', fontSize: '0.75rem' }),
-  placeholder: (b) => ({ ...b, color: '#9ca3af', fontSize: '0.8125rem' }),
-}
+const compactStyles = mzSelectStyles
 
 const TIME_OPTS = [
   { value: '7d', label: 'Last 7 days' },
@@ -44,8 +40,8 @@ export default function FeedFilters({ taxonomy }) {
 
   return (
     <details open>
-      <summary className="md:hidden cursor-pointer text-sm text-gray-700 mb-2">Filters</summary>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-8 gap-2 mb-4">
+      <summary className="md:hidden cursor-pointer mz-field__l">Filters</summary>
+      <div className="mz-filters feed-filters">
         <Select
           isMulti
           placeholder="Subsector"
@@ -102,8 +98,8 @@ export default function FeedFilters({ taxonomy }) {
         />
         <input
           type="search"
-          placeholder="Search headlines + summary"
-          className="px-3 py-1.5 border border-gray-300 rounded text-sm focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:outline-none"
+          placeholder="Search headlines and summaries"
+          className="mz-input"
           value={filters.feedSearch}
           onChange={e => setFilters({ ...filters, feedSearch: e.target.value })}
         />

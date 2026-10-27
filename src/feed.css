@@ -1,0 +1,12 @@
+/* Feed tab on the shared system (src/styles/mz-ui.css): same header, basis line, filter bar and
+   empty states as Market rates and Companies. Cards keep their content; the frame is a hairline. */
+.feed { padding: var(--s6) var(--s6) var(--s7); overflow-x: clip; }
+.feed-filters { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-bottom: var(--s5); }
+.feed .feed-card { background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: var(--s4) var(--s5); margin-bottom: var(--s3); cursor: pointer; transition: border-color .15s; }
+.feed .feed-card:hover { border-color: var(--faint); }
+.feed .feed-card h3 { font-size: 16.5px; font-weight: 800; letter-spacing: -.01em; color: var(--ink); }
+@media (max-width: 960px) { .feed-filters { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 720px) {
+  .feed { padding: var(--s5) var(--s4) var(--s7); }
+  .feed .feed-card { padding: var(--s3) var(--s4); }
+}

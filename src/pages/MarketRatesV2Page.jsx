@@ -7,6 +7,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
+import { DataBasis, PageHeader, fmtUpdated } from '../components/ui/PageParts'
 import { CURRENCIES, bandOf, cellStats, convert, curSym, fxNote, levelCellStatus, loadCurrency, ordinal, fmtAmount, fmtDate, fmtRange, fmtRate, niceDomain, saveCurrency, setActiveCurrency, toUsd } from '../utils/marketRates'
 import '../market-rates-v2.css'
 
@@ -439,25 +440,20 @@ export default function MarketRatesV2Page() {
   if (data) setActiveCurrency(currency, data.fx)
   const basis = data ? dataBasis(data) : null
   return (
-    <div className="mr3">
+    <div className="mz mr3">
       <SEO title="Moblyze Market Rates" description="Internal preview of a market pay benchmark for energy and trades roles." />
       <div className="mr3-wrap">
-        <header className="mr3-head">
-          <div className="mr3-head__title">
-            <h1>Market rates <span className="mr3-beta">Beta</span></h1>
-            <p className="mr3-head__sub">What energy and trades roles typically earn, from jobs that state their pay.</p>
-          </div>
-          {data && <CurrencyPicker value={currency} onChange={pickCurrency} fx={data.fx} />}
-        </header>
+        <PageHeader
+          title="Market rates"
+          beta
+          sub="What energy and trades roles typically earn, from jobs that state their pay."
+          right={data && <CurrencyPicker value={currency} onChange={pickCurrency} fx={data.fx} />}
+        />
         {basis && (
-          <p className="mr3-basis">
-            <span className="mr3-basis__dot" aria-hidden="true" />
-            Based on <b className="num">{basis.jobs.toLocaleString('en-US')}</b> jobs with stated pay
-            {basis.employers ? <> from <b className="num">{basis.employers.toLocaleString('en-US')}</b> employers</> : null}
-            {basis.from && basis.to ? <>, posted {monthSpan(basis.from, basis.to)}</> : null}
-            <span className="mr3-basis__sep" aria-hidden="true">·</span>
-            Updated {fmtDate(data.generated_at.slice(0, 10))}
-          </p>
+          <DataBasis parts={[
+            <>Based on <b className="num">{basis.jobs.toLocaleString('en-US')}</b> jobs with stated pay{basis.employers ? <> from <b className="num">{basis.employers.toLocaleString('en-US')}</b> employers</> : null}{basis.from && basis.to ? <>, posted {monthSpan(basis.from, basis.to)}</> : null}</>,
+            fmtUpdated(data.generated_at),
+          ]} />
         )}
 
         {error && <p className="mr3-empty">Could not load market data ({error}).</p>}

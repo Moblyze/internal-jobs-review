@@ -1,0 +1,95 @@
+/* Moblyze internal UI: the small shared system the internal tabs (Market rates, Companies, Feed) use.
+   Scope it by putting class "mz" on a page's root element.
+
+   Type     Manrope only. Page title 30/800, section title 20/800, body 15/400-600, meta 13, labels 12/600.
+            Numbers use tabular figures (.num). Hierarchy comes from size and weight, not boxes or color.
+   Space    4-pt steps: --s1 4, --s2 8, --s3 12, --s4 16, --s5 24, --s6 32, --s7 48, --s8 64.
+   Color    Ink on white. Brand teal #14b3a8 for fills and markers; --teal-ink for teal text (AA contrast).
+            Status colors only for status. No gradients, no shadows; hairline rules separate things.
+   Patterns page header (.mz-head), data-basis line (.mz-basis), filter bar (.mz-filters + .mz-field),
+            section (.mz-sec), table (.mz-table), card (.mz-card), tag (.mz-tag), buttons (.mz-btn),
+            empty state (.mz-empty). */
+.mz {
+  --bg: #ffffff; --tint: #f5f8f7; --ink: #10201f; --ink-2: #364644; --muted: #5d6b69; --faint: #8b9795;
+  --line: #e2e7e6; --line-2: #eef1f0;
+  --teal: #14b3a8; --teal-ink: #0a7c74; --teal-soft: #c9ece8; --teal-wash: #eaf7f5;
+  --ok: #0a7c74; --warn: #8f5a00; --warn-wash: #fbf2e1; --low: #b23f17; --up: #2a4fae;
+  --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px; --s6: 32px; --s7: 48px; --s8: 64px;
+  --radius: 8px;
+  background: var(--bg); color: var(--ink); font-family: var(--font); font-size: 15px; line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+.mz * { box-sizing: border-box; }
+.mz .num { font-variant-numeric: tabular-nums; }
+.mz button, .mz input, .mz select { font: inherit; color: inherit; }
+.mz .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.mz-wrap { max-width: 1120px; margin: 0 auto; padding: var(--s6) var(--s6) var(--s8); }
+
+/* page header */
+.mz-head { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--s5); }
+.mz-head h1 { display: flex; align-items: center; gap: var(--s3); margin: 0; font-size: 30px; font-weight: 800; letter-spacing: -.025em; line-height: 1.15; }
+.mz-head__sub { margin: var(--s1) 0 0; color: var(--muted); font-size: 15px; max-width: 640px; }
+.mz-beta { font-size: 11px; font-weight: 700; letter-spacing: .04em; color: var(--warn); border: 1px solid currentColor; border-radius: 4px; padding: 1px 6px; line-height: 1.5; }
+
+/* data-basis / freshness line: how much data, how fresh */
+.mz-basis { margin: var(--s4) 0 0; padding: var(--s3) 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); font-size: 13px; color: var(--ink-2); }
+.mz-basis b { font-weight: 700; color: var(--ink); }
+.mz-basis__dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--teal); margin: 0 10px 1px 2px; vertical-align: middle; box-shadow: 0 0 0 3px var(--teal-wash); }
+.mz-basis__sep { color: var(--faint); margin: 0 8px; }
+
+/* filter bar */
+.mz-filters { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: var(--s3); margin-top: var(--s5); }
+.mz-field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.mz-field__l { font-size: 12px; font-weight: 600; color: var(--muted); }
+.mz-field select, .mz-input { width: 100%; height: 42px; border: 1px solid var(--line); background-color: var(--bg); border-radius: var(--radius); padding: 0 var(--s3); font-size: 14.5px; font-weight: 600; outline: none; min-width: 0; }
+.mz-field select {
+  appearance: none; -webkit-appearance: none; cursor: pointer; padding-right: 38px; text-overflow: ellipsis;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%235d6b69' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 14px center; background-size: 12px 8px;
+}
+.mz-input { font-weight: 500; }
+.mz-field select:focus, .mz-input:focus { border-color: var(--teal); box-shadow: 0 0 0 3px var(--teal-wash); }
+.mz-toolbar { display: flex; justify-content: space-between; align-items: center; gap: var(--s4); flex-wrap: wrap; margin-top: var(--s5); font-size: 13px; color: var(--muted); }
+.mz-toolbar b { color: var(--ink); }
+
+/* sections */
+.mz-sec { margin-top: var(--s7); }
+.mz-sec__h { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -.015em; }
+.mz-sec__sub { margin: var(--s1) 0 0; font-size: 14px; color: var(--muted); }
+
+/* table */
+.mz-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.mz-table th, .mz-table td { padding: 10px var(--s3) 10px 0; border-bottom: 1px solid var(--line-2); text-align: left; vertical-align: middle; }
+.mz-table thead th { padding-top: 0; font-size: 12px; font-weight: 600; color: var(--faint); border-bottom: 1px solid var(--line); }
+.mz-table .r { text-align: right; }
+
+/* card: hairline box, no shadow */
+.mz-card { border: 1px solid var(--line); border-radius: 12px; background: var(--bg); padding: var(--s4) var(--s5); }
+
+/* tags */
+.mz-tag { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 999px; background: var(--tint); color: var(--ink-2); white-space: nowrap; }
+.mz-tag--teal { background: var(--teal-wash); color: var(--teal-ink); }
+.mz-tag--warn { background: var(--warn-wash); color: var(--warn); }
+
+/* buttons + links */
+.mz-btn { display: inline-flex; align-items: center; justify-content: center; flex: none; border: 1px solid var(--ink); background: var(--bg); color: var(--ink); padding: 0 var(--s4); height: 38px; border-radius: var(--radius); font-weight: 700; font-size: 14px; cursor: pointer; white-space: nowrap; text-decoration: none; }
+.mz-btn:hover { background: var(--ink); color: var(--bg); }
+.mz-btn--quiet { border-color: var(--line); }
+.mz-btn--quiet:hover { border-color: var(--ink); }
+.mz-link { border: 0; background: none; padding: 0; font-size: 13px; font-weight: 600; color: var(--teal-ink); cursor: pointer; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.mz-link:hover { color: var(--ink); }
+
+/* empty / loading states */
+.mz-empty { margin: var(--s5) 0; padding: var(--s6) var(--s5); border: 1px dashed var(--line); border-radius: 12px; text-align: center; color: var(--muted); font-size: 14px; }
+.mz-empty b { display: block; color: var(--ink); font-size: 15px; margin-bottom: var(--s1); }
+
+@media (max-width: 720px) {
+  .mz { font-size: 14.5px; }
+  .mz-wrap { padding: var(--s5) var(--s4) var(--s7); }
+  .mz-head { flex-direction: column; gap: var(--s4); }
+  .mz-head h1 { font-size: 26px; }
+  .mz-head__sub { font-size: 14px; }
+  .mz-basis { font-size: 12.5px; }
+  .mz-filters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

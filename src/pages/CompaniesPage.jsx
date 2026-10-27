@@ -6,10 +6,13 @@ import { useFilterParams } from '../hooks/useFilterParams'
 import { extractJobCertifications } from '../utils/certificationExtractor'
 import { ALL_ENERGY_REGIONS, getRegionLocationValues } from '../utils/energyRegions'
 import { getMarketLabel, PRIORITY_MARKET_SLUGS } from '../utils/focusMarkets'
-import { getCompanyStats, getCompanyDetail, getATSBreakdown, getSourcesOverview, loadCompanyIntelligence } from '../utils/companyData'
+import { getCompanyStats, getCompanyDetail, loadCompanyIntelligence } from '../utils/companyData'
 import { companyToSlug } from '../utils/formatters'
 import { normalizeCompanyName } from '../utils/companyNormalizer'
 import SEO from '../components/SEO'
+import { DataBasis, EmptyState, PageHeader, fmtUpdated } from '../components/ui/PageParts'
+import { mzSelectStyles as compactSelectStyles } from '../components/ui/selectStyles'
+import '../companies.css'
 
 // ATS platform colors for badges
 const ATS_COLORS = {
@@ -43,99 +46,34 @@ const EMPTY_LIST = []
 const COMPANIES_PAGE_SIZE = 60
 
 const SORT_OPTIONS = [
-  { value: 'jobs-desc', label: 'Most Jobs' },
-  { value: 'jobs-asc', label: 'Fewest Jobs' },
+  { value: 'trade-desc', label: 'Most trade jobs' },
+  { value: 'recent-desc', label: 'Most new in 30 days' },
+  { value: 'reach-desc', label: 'Contacts ready first' },
+  { value: 'jobs-desc', label: 'Most open jobs' },
   { value: 'name-asc', label: 'Name A-Z' },
-  { value: 'name-desc', label: 'Name Z-A' },
 ]
+const DAY = 864e5
+const FEED_BASE = `${import.meta.env.BASE_URL || '/'}data/feed/`
 
-// Compact react-select styles for inline filter bar
-const compactSelectStyles = {
-  control: (base) => ({
-    ...base,
-    minHeight: '34px',
-    borderColor: '#d1d5db',
-    '&:hover': { borderColor: '#9ca3af' },
-    boxShadow: 'none',
-    '&:focus-within': {
-      borderColor: '#3b82f6',
-      boxShadow: '0 0 0 1px #3b82f6'
-    },
-    fontSize: '0.8125rem',
-  }),
-  valueContainer: (base) => ({
-    ...base,
-    padding: '0 6px',
-  }),
-  multiValue: (base) => ({
-    ...base,
-    backgroundColor: '#dbeafe',
-    borderRadius: '3px',
-    margin: '1px 2px',
-  }),
-  multiValueLabel: (base) => ({
-    ...base,
-    color: '#1e40af',
-    fontSize: '0.75rem',
-    padding: '1px 4px',
-  }),
-  multiValueRemove: (base) => ({
-    ...base,
-    color: '#1e40af',
-    padding: '0 2px',
-    '&:hover': {
-      backgroundColor: '#93c5fd',
-      color: '#1e3a8a'
-    }
-  }),
-  placeholder: (base) => ({
-    ...base,
-    color: '#9ca3af',
-    fontSize: '0.8125rem'
-  }),
-  input: (base) => ({
-    ...base,
-    fontSize: '0.8125rem',
-    margin: '0',
-    padding: '0',
-  }),
-  option: (base, state) => ({
-    ...base,
-    fontSize: '0.8125rem',
-    padding: '6px 10px',
-    backgroundColor: state.isSelected
-      ? '#3b82f6'
-      : state.isFocused
-      ? '#dbeafe'
-      : 'white',
-    color: state.isSelected ? 'white' : '#111827',
-  }),
-  indicatorsContainer: (base) => ({
-    ...base,
-    '& > div': { padding: '4px' },
-  }),
-  dropdownIndicator: (base) => ({
-    ...base,
-    padding: '4px',
-  }),
-  clearIndicator: (base) => ({
-    ...base,
-    padding: '4px',
-  }),
-  groupHeading: (base) => ({
-    ...base,
-    fontSize: '0.7rem',
-    fontWeight: '600',
-    color: '#6b7280',
-    textTransform: 'uppercase',
-    paddingTop: '6px',
-    paddingBottom: '2px'
-  }),
-  menu: (base) => ({
-    ...base,
-    zIndex: 20,
-  }),
+function ago(t) {
+  if (!t) return null
+  const d = Math.max(0, Math.floor((Date.now() - t) / DAY))
+  if (d === 0) return 'today'
+  if (d === 1) return 'yesterday'
+  if (d < 30) return `${d} days ago`
+  const m = Math.round(d / 30)
+  return m < 12 ? `${m} mo ago` : `${Math.round(m / 12)} yr ago`
 }
+
+// The one next step a row suggests, from what we already know (no lookups, no credits).
+function nextStep(x, cov, sig) {
+  if (cov?.with_email > 0) return { label: 'Start outreach', why: `${cov.with_email} contact${cov.with_email === 1 ? '' : 's'} with email`, tone: 'teal' }
+  if (cov?.identified > 0) return { label: 'Find an email', why: `${cov.identified} contact${cov.identified === 1 ? '' : 's'} named, no email yet`, tone: 'warn' }
+  if (sig > 0) return { label: 'Find a contact', why: 'In recent project news', tone: 'plain' }
+  if ((x?.recent || 0) >= 5) return { label: 'Find a contact', why: 'Hiring now', tone: 'plain' }
+  return { label: 'Watch', why: x?.newest ? 'No new jobs lately' : 'No posting dates yet', tone: 'quiet' }
+}
+
 
 function CompaniesPage() {
   const { jobs, loading, error } = useJobs()
@@ -145,7 +83,7 @@ function CompaniesPage() {
   const { filters, setFilters } = useFilterParams()
   const [intelligence, setIntelligence] = useState({})
   const [search, setSearch] = useState('')
-  const [sortBy, setSortBy] = useState('jobs-desc')
+  const [sortBy, setSortBy] = useState('trade-desc')
   const [expandedCompany, setExpandedCompany] = useState(null)
   const MAX_COMPARE = 10
 
@@ -306,70 +244,49 @@ function CompaniesPage() {
     return { totalCompanies, totalActiveJobs, totalInactiveJobs, companiesWithIntel }
   }, [companyStats, intelligence])
 
-  // ATS breakdown
-  const atsBreakdown = useMemo(
-    () => getATSBreakdown(companyStats, intelligence),
-    [companyStats, intelligence]
-  )
+  // Per-company signals for the list: trade jobs, trades, freshness, where (one pass over filtered jobs)
+  const roleLabels = useMemo(() => Object.fromEntries((filterOptions?.roles || []).map(r => [r.id, r.label])), [filterOptions])
+  const companyExtras = useMemo(() => {
+    const cutoff = Date.now() - 30 * DAY
+    const slugOf = new Map()
+    const m = {}
+    for (const job of filteredJobs) {
+      if (!job.company || job.status === 'removed' || job.status === 'paused') continue
+      let slug = slugOf.get(job.company)
+      if (slug === undefined) { slug = companyToSlug(normalizeCompanyName(job.company)) || null; slugOf.set(job.company, slug) }
+      if (!slug) continue
+      const e = m[slug] || (m[slug] = { trade: 0, roles: {}, recent: 0, newest: 0, locs: {}, agency: 0, n: 0 })
+      e.n++
+      if (job.roleId && job.roleId !== 'other') { e.trade++; e.roles[job.roleId] = (e.roles[job.roleId] || 0) + 1 }
+      const t = job.postedDate ? Date.parse(job.postedDate) : NaN
+      if (t) { if (t > e.newest) e.newest = t; if (t >= cutoff) e.recent++ }
+      const loc = (job.locs && job.locs[0]) || job.location
+      if (loc) e.locs[loc] = (e.locs[loc] || 0) + 1
+      if (job.isAgency) e.agency++
+    }
+    return m
+  }, [filteredJobs])
 
-  // Sources overview across all companies
-  const sourcesOverview = useMemo(
-    () => getSourcesOverview(companyStats),
-    [companyStats]
-  )
-
-  // Top 10 companies by active jobs
-  const topCompanies = useMemo(
-    () => companyStats.slice(0, 10),
-    [companyStats]
-  )
-
-  // ── Source Coverage Matrix ──
-  const matrixData = useMemo(() => {
-    // Pick companies: selected ones, or top 10
-    const matrixCompanies = selectedSlugs.length > 0
-      ? companyStats.filter(c => selectedSlugs.includes(c.slug))
-      : companyStats.slice(0, 10)
-
-    if (matrixCompanies.length === 0) return null
-
-    // Collect all sources with at least 1 job across displayed companies
-    const sourceJobTotals = {}
-    matrixCompanies.forEach(company => {
-      Object.entries(company.sourceCounts).forEach(([source, count]) => {
-        sourceJobTotals[source] = (sourceJobTotals[source] || 0) + count
-      })
+  // Contact coverage (counts only, no PII) and recent feed signals, both static files: nothing is looked up or spent here
+  const [reach, setReach] = useState({ coverage: {}, signals: {} })
+  useEffect(() => {
+    let off = false
+    Promise.all([
+      fetch(`${FEED_BASE}contact_coverage.json`).then(r => (r.ok ? r.json() : {})).catch(() => ({})),
+      fetch(`${FEED_BASE}entries-lite.json`).then(r => (r.ok ? r.json() : [])).catch(() => []),
+    ]).then(([coverage, entries]) => {
+      const signals = {}
+      for (const e of Array.isArray(entries) ? entries : []) {
+        const names = new Set([e.operator?.name, e.hiring_entity?.name].filter(Boolean))
+        for (const n of names) {
+          const slug = companyToSlug(normalizeCompanyName(n))
+          if (slug) signals[slug] = (signals[slug] || 0) + 1
+        }
+      }
+      if (!off) setReach({ coverage: coverage || {}, signals })
     })
-
-    // Sort sources by total count descending, filter out zero-total
-    const sources = Object.entries(sourceJobTotals)
-      .filter(([, total]) => total > 0)
-      .sort((a, b) => b[1] - a[1])
-      .map(([source]) => source)
-
-    // Build rows
-    const rows = matrixCompanies.map(company => {
-      const cells = {}
-      let rowTotal = 0
-      sources.forEach(source => {
-        const count = company.sourceCounts[source] || 0
-        cells[source] = count
-        rowTotal += count
-      })
-      return { name: company.name, slug: company.slug, cells, total: rowTotal }
-    })
-
-    // Build column totals
-    const columnTotals = {}
-    let grandTotal = 0
-    sources.forEach(source => {
-      const total = rows.reduce((sum, row) => sum + (row.cells[source] || 0), 0)
-      columnTotals[source] = total
-      grandTotal += total
-    })
-
-    return { sources, rows, columnTotals, grandTotal }
-  }, [companyStats, selectedSlugs])
+    return () => { off = true }
+  }, [])
 
   // Filtered and sorted companies
   const filteredCompanies = useMemo(() => {
@@ -390,8 +307,16 @@ function CompaniesPage() {
 
     // Sort
     switch (sortBy) {
-      case 'jobs-asc':
-        result = [...result].sort((a, b) => a.activeJobs - b.activeJobs)
+      case 'trade-desc':
+        result = [...result].sort((a, b) => (companyExtras[b.slug]?.trade || 0) - (companyExtras[a.slug]?.trade || 0) || b.activeJobs - a.activeJobs)
+        break
+      case 'reach-desc': {
+        const score = c => { const v = reach.coverage[c.name.toLowerCase()]; return v ? 1000 * (v.with_email || 0) + (v.identified || 0) : 0 }
+        result = [...result].sort((a, b) => score(b) - score(a) || (companyExtras[b.slug]?.trade || 0) - (companyExtras[a.slug]?.trade || 0))
+        break
+      }
+      case 'recent-desc':
+        result = [...result].sort((a, b) => (companyExtras[b.slug]?.recent || 0) - (companyExtras[a.slug]?.recent || 0) || b.activeJobs - a.activeJobs)
         break
       case 'name-asc':
         result = [...result].sort((a, b) => a.name.localeCompare(b.name))
@@ -405,7 +330,7 @@ function CompaniesPage() {
     }
 
     return result
-  }, [companyStats, search, sortBy, intelligence])
+  }, [companyStats, search, sortBy, intelligence, companyExtras, reach])
 
   // ── Filter options for dropdowns ──
   const focusMarketOptions = useMemo(() =>
@@ -540,12 +465,7 @@ function CompaniesPage() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-[400px]">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading companies...</p>
-        </div>
-      </div>
+      <div className="mz co"><EmptyState title="Loading companies…">Reading the current job index.</EmptyState></div>
     )
   }
 
@@ -558,626 +478,166 @@ function CompaniesPage() {
     )
   }
 
-  return (
-    <div>
-      <SEO
-        title="Company Opportunities"
-        description={`${summaryMetrics.totalCompanies} companies with ${summaryMetrics.totalActiveJobs} active job listings`}
+  const multi = (key, label, value, options, placeholder) => (
+    <label className="mz-field" key={key}>
+      <span className="mz-field__l">{label}</span>
+      <Select
+        isMulti
+        value={value}
+        onChange={(selected) => setFilters({ ...filters, [key]: selected ? selected.map(o => o.value) : [] })}
+        options={options}
+        styles={compactSelectStyles}
+        placeholder={placeholder}
+        isClearable={false}
+        closeMenuOnSelect={false}
       />
+    </label>
+  )
+  const openJobs = unfilteredTotals.totalActiveJobs
+  const shown = filteredCompanies.slice(0, shownCompanies)
 
-      {/* Page Header */}
-      <div className="mb-6">
-        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Company Opportunities</h1>
-        <p className="text-gray-600 mt-1">
-          Aggregate view of job opportunities by company — filter to see matching companies and stats
-        </p>
+  return (
+    <div className="mz co">
+      <SEO
+        title="Companies"
+        description={`${summaryMetrics.totalCompanies} companies with ${summaryMetrics.totalActiveJobs} open jobs`}
+      />
+      <PageHeader
+        title="Companies"
+        sub="Who is hiring in our trades, how recently, where, and whether we can reach them."
+      />
+      <DataBasis parts={[
+        <><b className="num">{openJobs.toLocaleString('en-US')}</b> open jobs from <b className="num">{unfilteredTotals.totalCompanies.toLocaleString('en-US')}</b> companies</>,
+        fmtUpdated(filterOptions?.dataUpdatedAt),
+      ]} />
+
+      <div className="mz-filters co-filters">
+        <label className="mz-field co-search">
+          <span className="mz-field__l">Search</span>
+          <input className="mz-input" type="search" value={search} onChange={e => setSearch(e.target.value)} placeholder="Company name" />
+        </label>
+        {multi('market', 'Focus market', selectedMarkets, focusMarketOptions, 'All markets')}
+        {multi('locations', 'Location or region', selectedLocations, locationOptions, 'Anywhere')}
+        {multi('certifications', 'Certification', selectedCertifications, certificationOptions, 'Any')}
+        {multi('employmentTypes', 'Employment type', selectedEmploymentTypes, employmentTypeOptions, 'Any')}
+        {multi('skills', 'Skill', selectedSkills, skillOptions, 'Any')}
+        {multi('sources', 'Source', selectedSources, sourceOptions, 'All sources')}
       </div>
 
-      {/* Compact Filter Bar */}
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-3 mb-6">
-        <div className="flex items-center justify-between mb-2">
-          <h2 className="text-sm font-semibold text-gray-700">Filters</h2>
-          {activeFilterCount > 0 && (
-            <button
-              onClick={clearFilters}
-              className="text-xs text-blue-600 hover:text-blue-700 font-medium"
-            >
-              Clear all ({activeFilterCount})
-            </button>
-          )}
-        </div>
-        {/* Companies filter — own row for multi-select */}
-        <div className="mb-2">
-          <label className="block text-xs font-medium text-gray-500 mb-1">Companies</label>
-          <Select
-            isMulti
-            value={selectedCompanyFilters}
-            onChange={handleCompanyFilterChange}
-            options={companyFilterOptions}
-            styles={compactSelectStyles}
-            placeholder={`Select from ${companyFilterOptions.length} companies...`}
-            isClearable={false}
-            closeMenuOnSelect={false}
-          />
-        </div>
-
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2">
-          {/* Focus Market */}
-          <div>
-            <label className="block text-xs font-medium text-gray-500 mb-1">Focus Market</label>
-            <Select
-              isMulti
-              value={selectedMarkets}
-              onChange={(selected) => setFilters({ ...filters, market: selected ? selected.map(o => o.value) : [] })}
-              options={focusMarketOptions}
-              styles={compactSelectStyles}
-              placeholder="All markets..."
-              isClearable={false}
-              closeMenuOnSelect={false}
-            />
-          </div>
-
-          {/* Certifications */}
-          <div>
-            <label className="block text-xs font-medium text-gray-500 mb-1">Certifications</label>
-            <Select
-              isMulti
-              value={selectedCertifications}
-              onChange={(selected) => setFilters({ ...filters, certifications: selected ? selected.map(o => o.value) : [] })}
-              options={certificationOptions}
-              styles={compactSelectStyles}
-              placeholder="All certs..."
-              isClearable={false}
-              closeMenuOnSelect={false}
-            />
-          </div>
-
-          {/* Employment Type */}
-          <div>
-            <label className="block text-xs font-medium text-gray-500 mb-1">Employment Type</label>
-            <Select
-              isMulti
-              value={selectedEmploymentTypes}
-              onChange={(selected) => setFilters({ ...filters, employmentTypes: selected ? selected.map(o => o.value) : [] })}
-              options={employmentTypeOptions}
-              styles={compactSelectStyles}
-              placeholder="All types..."
-              isClearable={false}
-              closeMenuOnSelect={false}
-            />
-          </div>
-
-          {/* Location */}
-          <div>
-            <label className="block text-xs font-medium text-gray-500 mb-1">Location / Region</label>
-            <Select
-              isMulti
-              value={selectedLocations}
-              onChange={(selected) => setFilters({ ...filters, locations: selected ? selected.map(o => o.value) : [] })}
-              options={locationOptions}
-              styles={compactSelectStyles}
-              placeholder="All locations..."
-              isClearable={false}
-              closeMenuOnSelect={false}
-            />
-          </div>
-
-          {/* Skills */}
-          <div>
-            <label className="block text-xs font-medium text-gray-500 mb-1">Skills</label>
-            <Select
-              isMulti
-              value={selectedSkills}
-              onChange={(selected) => setFilters({ ...filters, skills: selected ? selected.map(o => o.value) : [] })}
-              options={skillOptions}
-              styles={compactSelectStyles}
-              placeholder="All skills..."
-              isClearable={false}
-              closeMenuOnSelect={false}
-            />
-          </div>
-
-          {/* Source */}
-          <div>
-            <label className="block text-xs font-medium text-gray-500 mb-1">Source</label>
-            <Select
-              isMulti
-              value={selectedSources}
-              onChange={(selected) => setFilters({ ...filters, sources: selected ? selected.map(o => o.value) : [] })}
-              options={sourceOptions}
-              styles={compactSelectStyles}
-              placeholder="All sources..."
-              isClearable={false}
-              closeMenuOnSelect={false}
-            />
-          </div>
-        </div>
-        {hasActiveFilters && (
-          <p className="text-xs text-gray-500 mt-2">
-            Showing {companyStats.length} companies with {filteredJobs.length} matching jobs (of {jobs.filter(j => j.status !== 'removed' && j.status !== 'paused').length} total)
-          </p>
-        )}
+      <div className="mz-toolbar">
+        <span>
+          Showing <b className="num">{Math.min(shownCompanies, filteredCompanies.length).toLocaleString('en-US')}</b> of <b className="num">{filteredCompanies.length.toLocaleString('en-US')}</b> companies
+          {hasActiveFilters && <> with <b className="num">{filteredJobs.length.toLocaleString('en-US')}</b> matching jobs</>}
+          {activeFilterCount > 0 && <> · <button type="button" className="mz-link" onClick={clearFilters}>Clear {activeFilterCount} filter{activeFilterCount === 1 ? '' : 's'}</button></>}
+        </span>
+        <label className="mz-field co-sort">
+          <span className="sr-only">Sort</span>
+          <select value={sortBy} onChange={e => setSortBy(e.target.value)} aria-label="Sort companies">
+            {SORT_OPTIONS.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
+          </select>
+        </label>
       </div>
 
-      {/* Summary Cards */}
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 text-center">
-          <div className="text-3xl font-bold text-blue-600">{summaryMetrics.totalCompanies}</div>
-          <div className="text-sm text-gray-600 mt-1">Companies</div>
-          {hasActiveFilters && <div className="text-xs text-gray-400">of {unfilteredTotals.totalCompanies}</div>}
-        </div>
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 text-center">
-          <div className="text-3xl font-bold text-green-600">{summaryMetrics.totalActiveJobs}</div>
-          <div className="text-sm text-gray-600 mt-1">Active Jobs</div>
-          {hasActiveFilters && <div className="text-xs text-gray-400">of {unfilteredTotals.totalActiveJobs}</div>}
-        </div>
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 text-center">
-          <div className="text-3xl font-bold text-gray-400">{summaryMetrics.totalInactiveJobs}</div>
-          <div className="text-sm text-gray-600 mt-1">Inactive Jobs</div>
-        </div>
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 text-center">
-          <div className="text-3xl font-bold text-teal-600">{sourcesOverview.totalSources}</div>
-          <div className="text-sm text-gray-600 mt-1">Job Sources</div>
-          {hasActiveFilters && <div className="text-xs text-gray-400">of {unfilteredTotals.totalSources}</div>}
-        </div>
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 text-center">
-          <div className="text-3xl font-bold text-indigo-600">{summaryMetrics.companiesWithIntel}</div>
-          <div className="text-sm text-gray-600 mt-1">Researched</div>
-        </div>
-      </div>
+      {filteredCompanies.length === 0 ? (
+        <EmptyState title="No companies match">Try a wider location or clear a filter.</EmptyState>
+      ) : (
+        <div className="co-list" role="list">
+          <div className="co-row co-row--head" aria-hidden="true">
+            <span>Company</span><span>Trade jobs open</span><span>Activity</span><span>Where</span><span>Reach</span><span>Next step</span>
+          </div>
+          {shown.map(company => {
+            const x = companyExtras[company.slug] || { trade: 0, roles: {}, recent: 0, newest: 0, locs: {}, agency: 0, n: 0 }
+            const intel = intelligence[company.slug]
+            const cov = reach.coverage[company.name.toLowerCase()] || null
+            const sig = reach.signals[company.slug] || 0
+            const step = nextStep(x, cov, sig)
+            const trades = Object.entries(x.roles).sort((a, b) => b[1] - a[1])
+            const locs = Object.entries(x.locs).sort((a, b) => b[1] - a[1])
+            const isAgency = x.n > 0 && x.agency / x.n > 0.5
+            const isExpanded = expandedCompany === company.slug
+            return (
+              <div key={company.slug} className="co-item" role="listitem">
+                <div className="co-row">
+                  <div className="co-name">
+                    <Link to={`/companies/${company.slug}`} className="co-name__a">{company.name}</Link>
+                    <span className="co-name__meta">
+                      {intel?.hq || (isAgency ? 'Staffing agency' : null)}
+                      {intel?.sector && <span className="co-name__sector">{intel.sector}</span>}
+                    </span>
+                    {intel && (
+                      <button type="button" className="mz-link co-name__more" onClick={() => setExpandedCompany(isExpanded ? null : company.slug)}>
+                        {isExpanded ? 'Hide profile' : 'Profile'}
+                      </button>
+                    )}
+                  </div>
 
-      {/* Source Coverage Matrix */}
-      {matrixData && matrixData.rows.length > 0 && (
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-5 mb-8">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-semibold text-gray-900">
-              Source Coverage Matrix
-              {selectedSlugs.length > 0
-                ? ` (${selectedSlugs.length} selected)`
-                : ' (Top 10)'}
-            </h2>
-            {selectedSlugs.length > 0 && (
-              <button
-                onClick={() => setFilters({ ...filters, companies: [] })}
-                className="text-xs text-gray-500 hover:text-gray-700 font-medium"
-              >
-                Show top 10
-              </button>
-            )}
-          </div>
-          <div className="overflow-x-auto -mx-5 px-5">
-            <table className="w-full text-sm border-collapse min-w-[500px]">
-              <thead>
-                <tr className="border-b border-gray-200">
-                  <th className="text-left py-2 pr-4 text-xs font-semibold text-gray-500 uppercase tracking-wider sticky left-0 bg-white z-10 min-w-[160px]">
-                    Company
-                  </th>
-                  {matrixData.sources.map(source => {
-                    const color = getSourceColor(source)
-                    return (
-                      <th key={source} className="text-right py-2 px-3 min-w-[80px]">
-                        <span className={`inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium ${color.bg} ${color.text}`}>
-                          {source}
-                        </span>
-                      </th>
-                    )
-                  })}
-                  <th className="text-right py-2 pl-3 pr-1 text-xs font-bold text-gray-700 uppercase tracking-wider min-w-[60px]">
-                    Total
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-100">
-                {matrixData.rows.map(row => (
-                  <tr key={row.slug} className="hover:bg-gray-50">
-                    <td className="py-2 pr-4 sticky left-0 bg-white z-10">
-                      <Link
-                        to={`/companies/${row.slug}`}
-                        className="text-sm font-medium text-gray-900 hover:text-blue-600"
-                      >
-                        {row.name}
-                      </Link>
-                    </td>
-                    {matrixData.sources.map(source => {
-                      const count = row.cells[source] || 0
-                      const maxInColumn = matrixData.columnTotals[source] || 1
-                      // Subtle intensity for non-zero cells
-                      const intensity = count > 0 ? Math.max(0.05, Math.min(0.3, count / maxInColumn)) : 0
-                      return (
-                        <td
-                          key={source}
-                          className={`text-right py-2 px-3 tabular-nums ${
-                            count === 0
-                              ? 'bg-red-50 text-red-300'
-                              : 'text-gray-900'
-                          }`}
-                          style={count > 0 ? { backgroundColor: `rgba(20, 184, 166, ${intensity})` } : undefined}
-                        >
-                          {count}
-                        </td>
-                      )
-                    })}
-                    <td className="text-right py-2 pl-3 pr-1 font-bold text-gray-900 tabular-nums">
-                      {row.total}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-              <tfoot>
-                <tr className="border-t-2 border-gray-300">
-                  <td className="py-2 pr-4 text-xs font-bold text-gray-500 uppercase sticky left-0 bg-white z-10">
-                    Total
-                  </td>
-                  {matrixData.sources.map(source => (
-                    <td key={source} className="text-right py-2 px-3 font-bold text-gray-700 tabular-nums">
-                      {matrixData.columnTotals[source]}
-                    </td>
-                  ))}
-                  <td className="text-right py-2 pl-3 pr-1 font-bold text-blue-700 tabular-nums">
-                    {matrixData.grandTotal}
-                  </td>
-                </tr>
-              </tfoot>
-            </table>
-          </div>
+                  <div className="co-cell co-trade">
+                    <span className="co-label">Trade jobs open</span>
+                    <span className="co-big num">{x.trade.toLocaleString('en-US')}</span>
+                    <span className="co-sub num">of {company.activeJobs.toLocaleString('en-US')} open</span>
+                    {trades.length > 0 && (
+                      <span className="co-tags">
+                        {trades.slice(0, 2).map(([id, n]) => <span key={id} className="mz-tag">{roleLabels[id] || id} <span className="num">{n}</span></span>)}
+                        {trades.length > 2 && <span className="co-more">+{trades.length - 2} more</span>}
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="co-cell">
+                    <span className="co-label">Activity</span>
+                    {x.recent > 0
+                      ? <span className="co-strong num">+{x.recent.toLocaleString('en-US')} new in 30 days</span>
+                      : <span className="co-quiet">None new in 30 days</span>}
+                    {x.newest > 0 && <span className="co-sub">Newest {ago(x.newest)}</span>}
+                  </div>
+
+                  <div className="co-cell">
+                    <span className="co-label">Where</span>
+                    {locs.length === 0 ? <span className="co-quiet">Not stated</span> : (
+                      <>
+                        <span className="co-loc">{locs[0][0]}</span>
+                        {locs[1] && <span className="co-sub">{locs[1][0]}</span>}
+                        {locs.length > 2 && <span className="co-sub">and {(locs.length - 2).toLocaleString('en-US')} other location{locs.length - 2 === 1 ? '' : 's'}</span>}
+                      </>
+                    )}
+                  </div>
+
+                  <div className="co-cell">
+                    <span className="co-label">Reach</span>
+                    {cov ? (
+                      <span className="co-strong num">{cov.identified} contact{cov.identified === 1 ? '' : 's'}<span className="co-sub-inline"> · {cov.with_email} with email</span></span>
+                    ) : <span className="co-quiet">No contacts yet</span>}
+                    {sig > 0 && <Link to="/feed" className="co-sub co-signal">{sig} project signal{sig === 1 ? '' : 's'} in the feed</Link>}
+                  </div>
+
+                  <div className={`co-cell co-next co-next--${step.tone}`}>
+                    <span className="co-label">Next step</span>
+                    <Link to={`/companies/${company.slug}`} className="co-next__a">{step.label}<span aria-hidden="true"> →</span></Link>
+                    <span className="co-sub">{step.why}</span>
+                  </div>
+                </div>
+                {isExpanded && intel && (
+                  <div className="co-intel">
+                    <CompanyIntelPanel intel={intel} companyDetail={getCompanyDetail(company.slug, filteredJobs)} />
+                  </div>
+                )}
+              </div>
+            )
+          })}
         </div>
       )}
 
-      {/* ATS Breakdown + Sources Overview + Top Companies Row */}
-      <div className="grid md:grid-cols-3 gap-6 mb-8">
-        {/* ATS Platform Breakdown */}
-        {atsBreakdown.length > 0 && (
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-5">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">ATS Platforms (Researched)</h2>
-            <div className="space-y-3">
-              {atsBreakdown.map(({ platform, count }) => {
-                const color = getATSColor(platform)
-                return (
-                  <div key={platform} className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${color.bg} ${color.text}`}>
-                        {platform}
-                      </span>
-                    </div>
-                    <span className="text-sm font-medium text-gray-700">
-                      {count} {count === 1 ? 'company' : 'companies'}
-                    </span>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-        )}
-
-        {/* Sources Overview */}
-        {sourcesOverview.sourceTotals.length > 0 && (
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-5">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">Sources Overview</h2>
-            <div className="space-y-2.5">
-              {sourcesOverview.sourceTotals.map(({ source, jobCount, companyCount }) => {
-                const maxJobs = sourcesOverview.sourceTotals[0]?.jobCount || 1
-                const barWidth = Math.max((jobCount / maxJobs) * 100, 2)
-                const color = getSourceColor(source)
-                return (
-                  <div key={source}>
-                    <div className="flex items-center justify-between mb-1">
-                      <span className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${color.bg} ${color.text}`}>
-                        {source}
-                      </span>
-                      <span className="text-xs text-gray-500">
-                        {jobCount} jobs / {companyCount} {companyCount === 1 ? 'company' : 'companies'}
-                      </span>
-                    </div>
-                    <div className="w-full bg-gray-100 rounded-full h-1.5">
-                      <div
-                        className="bg-teal-500 h-1.5 rounded-full transition-all"
-                        style={{ width: `${barWidth}%` }}
-                      />
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-        )}
-
-        {/* Top Companies */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-5">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">Top 10 by Active Jobs</h2>
-          <div className="space-y-2">
-            {topCompanies.map((company, index) => {
-              const maxJobs = topCompanies[0]?.activeJobs || 1
-              const barWidth = Math.max((company.activeJobs / maxJobs) * 100, 2)
-              const hasIntel = !!intelligence[company.slug]
-
-              return (
-                <div key={company.slug} className="flex items-center gap-3">
-                  <span className="text-xs text-gray-400 w-5 text-right">{index + 1}</span>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-0.5">
-                      <Link
-                        to={`/companies/${company.slug}`}
-                        className="text-sm font-medium text-gray-900 hover:text-blue-600 truncate"
-                      >
-                        {company.name}
-                      </Link>
-                      {hasIntel && (
-                        <span className="inline-block w-2 h-2 rounded-full bg-indigo-500 flex-shrink-0" title="Intelligence data available" />
-                      )}
-                    </div>
-                    <div className="w-full bg-gray-100 rounded-full h-1.5">
-                      <div
-                        className="bg-blue-500 h-1.5 rounded-full transition-all"
-                        style={{ width: `${barWidth}%` }}
-                      />
-                    </div>
-                  </div>
-                  <span className="text-sm font-medium text-gray-700 w-10 text-right">{company.activeJobs}</span>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </div>
-
-      {/* Search and Sort Controls */}
-      <div className="flex flex-col sm:flex-row gap-3 mb-6">
-        <div className="relative flex-1">
-          <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-          </svg>
-          <input
-            type="text"
-            placeholder="Search companies..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
-          />
-        </div>
-        <select
-          value={sortBy}
-          onChange={(e) => setSortBy(e.target.value)}
-          className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm bg-white"
-        >
-          {SORT_OPTIONS.map(opt => (
-            <option key={opt.value} value={opt.value}>{opt.label}</option>
-          ))}
-        </select>
-      </div>
-
-      {/* Results count */}
-      <p className="text-sm text-gray-500 mb-4">
-        Showing {Math.min(shownCompanies, filteredCompanies.length)} of {filteredCompanies.length} companies
-        {hasActiveFilters && ' (filtered)'}
-      </p>
-
-      {/* Company Cards Grid */}
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {filteredCompanies.slice(0, shownCompanies).map(company => {
-          const hasIntel = !!intelligence[company.slug]
-          const intel = intelligence[company.slug]
-          const isExpanded = expandedCompany === company.slug
-
-          return (
-            <div
-              key={company.slug}
-              className={`bg-white rounded-lg shadow-sm border transition-all ${
-                hasIntel ? 'border-indigo-200 hover:border-indigo-400' : 'border-gray-200 hover:border-gray-400'
-              }`}
-            >
-              {/* Card Header */}
-              <div className="p-4">
-                <div className="flex items-start justify-between gap-2 mb-2">
-                  <div className="flex items-center gap-2 min-w-0 flex-1">
-                    <input
-                      type="checkbox"
-                      checked={selectedSlugs.includes(company.slug)}
-                      onChange={() => toggleSelection(company.slug)}
-                      disabled={!selectedSlugs.includes(company.slug) && selectedSlugs.length >= MAX_COMPARE}
-                      className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 flex-shrink-0 cursor-pointer"
-                      title={selectedSlugs.includes(company.slug) ? 'Remove from matrix' : 'Add to matrix'}
-                    />
-                    <Link
-                      to={`/companies/${company.slug}`}
-                      className="text-lg font-semibold text-gray-900 hover:text-blue-600 transition-colors line-clamp-1"
-                    >
-                      {company.name}
-                    </Link>
-                  </div>
-                  {hasIntel && (
-                    <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-indigo-100 text-indigo-800 whitespace-nowrap">
-                      Researched
-                    </span>
-                  )}
-                </div>
-
-                {/* Intel-enriched info */}
-                {intel && (
-                  <div className="flex flex-wrap items-center gap-2 mb-3 text-sm text-gray-600">
-                    {intel.hq && (
-                      <span className="inline-flex items-center">
-                        <svg className="w-3.5 h-3.5 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                        </svg>
-                        {intel.hq}
-                      </span>
-                    )}
-                    {intel.sector && (
-                      <span className="text-xs text-gray-500 line-clamp-1">{intel.sector}</span>
-                    )}
-                  </div>
-                )}
-
-                {/* Job counts */}
-                <div className="flex items-center gap-4 mb-3">
-                  <div className="text-center">
-                    <div className="text-xl font-bold text-green-600">{company.activeJobs}</div>
-                    <div className="text-xs text-gray-500">Active</div>
-                  </div>
-                  {company.inactiveJobs > 0 && (
-                    <div className="text-center">
-                      <div className="text-xl font-bold text-gray-400">{company.inactiveJobs}</div>
-                      <div className="text-xs text-gray-500">Inactive</div>
-                    </div>
-                  )}
-                  <div className="text-center">
-                    <div className="text-xl font-bold text-blue-600">{company.totalJobs}</div>
-                    <div className="text-xs text-gray-500">Total</div>
-                  </div>
-                </div>
-
-                {/* ATS badges */}
-                {intel && intel.ats && (
-                  <div className="flex flex-wrap gap-1.5 mb-3">
-                    {intel.ats.map((ats, i) => {
-                      const color = getATSColor(ats.platform)
-                      return (
-                        <span
-                          key={i}
-                          className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${color.bg} ${color.text}`}
-                        >
-                          {ats.platform}
-                          {intel.ats.length > 1 && (
-                            <span className="ml-1 opacity-70">({ats.region})</span>
-                          )}
-                        </span>
-                      )
-                    })}
-                  </div>
-                )}
-
-                {/* Source badges */}
-                {Object.keys(company.sourceCounts).length > 0 && (
-                  <div className="flex flex-wrap gap-1 mb-3">
-                    {(() => {
-                      const entries = Object.entries(company.sourceCounts)
-                      const shown = entries.slice(0, 3)
-                      const remaining = entries.length - 3
-                      return (
-                        <>
-                          {shown.map(([source, count]) => {
-                            const color = getSourceColor(source)
-                            return (
-                              <span
-                                key={source}
-                                className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${color.bg} ${color.text}`}
-                              >
-                                {source} ({count})
-                              </span>
-                            )
-                          })}
-                          {remaining > 0 && (
-                            <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-600">
-                              +{remaining} more
-                            </span>
-                          )}
-                        </>
-                      )
-                    })()}
-                  </div>
-                )}
-
-                {/* Employment types */}
-                {company.employmentTypes.length > 0 && (
-                  <div className="flex flex-wrap gap-1 mb-3">
-                    {company.employmentTypes.map(type => (
-                      <span
-                        key={type}
-                        className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${
-                          type === 'Full-Time' ? 'bg-green-50 text-green-700'
-                          : type === 'Contractor' ? 'bg-orange-50 text-orange-700'
-                          : type === 'Part-Time' ? 'bg-purple-50 text-purple-700'
-                          : 'bg-gray-50 text-gray-700'
-                        }`}
-                      >
-                        {type}
-                      </span>
-                    ))}
-                  </div>
-                )}
-
-                {/* Action buttons */}
-                <div className="flex items-center gap-2 pt-2 border-t border-gray-100">
-                  <Link
-                    to={`/companies/${company.slug}`}
-                    className="text-sm text-blue-600 hover:text-blue-700 font-medium"
-                  >
-                    View Jobs
-                  </Link>
-                  {hasIntel && (
-                    <button
-                      onClick={() => setExpandedCompany(isExpanded ? null : company.slug)}
-                      className="text-sm text-indigo-600 hover:text-indigo-700 font-medium ml-auto"
-                    >
-                      {isExpanded ? 'Hide Profile' : 'View Profile'}
-                    </button>
-                  )}
-                </div>
-              </div>
-
-              {/* Expanded Intel Section */}
-              {isExpanded && intel && (
-                <CompanyIntelPanel intel={intel} companyDetail={getCompanyDetail(company.slug, filteredJobs)} />
-              )}
-            </div>
-          )
-        })}
-      </div>
-
       {filteredCompanies.length > shownCompanies && (
-        <div className="text-center mt-6">
-          <button
-            onClick={() => setShownCompanies(n => n + COMPANIES_PAGE_SIZE)}
-            className="px-4 py-2 text-sm font-medium text-blue-600 border border-blue-300 rounded-md hover:bg-blue-50"
-          >
-            Show more companies ({filteredCompanies.length - shownCompanies} remaining)
+        <div className="co-more-wrap">
+          <button type="button" className="mz-btn mz-btn--quiet" onClick={() => setShownCompanies(n => n + COMPANIES_PAGE_SIZE)}>
+            Show more companies ({(filteredCompanies.length - shownCompanies).toLocaleString('en-US')} remaining)
           </button>
         </div>
       )}
 
-      {filteredCompanies.length === 0 && (
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 text-center">
-          <p className="text-gray-600">No companies match your filters.</p>
-        </div>
-      )}
-
-      {/* Floating Selection Bar */}
-      {selectedSlugs.length > 0 && (
-        <div className="fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-gray-200 shadow-lg">
-          <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <span className="text-sm font-medium text-gray-700">
-                {selectedSlugs.length} selected
-              </span>
-              <div className="hidden sm:flex gap-1 flex-wrap">
-                {selectedSlugs.slice(0, 5).map(slug => {
-                  const company = companyStats.find(c => c.slug === slug)
-                  return company ? (
-                    <span key={slug} className="inline-flex items-center px-2 py-0.5 rounded bg-blue-100 text-blue-800 text-xs font-medium">
-                      {company.name}
-                      <button
-                        onClick={() => toggleSelection(slug)}
-                        className="ml-1 text-blue-600 hover:text-blue-800"
-                      >
-                        x
-                      </button>
-                    </span>
-                  ) : null
-                })}
-                {selectedSlugs.length > 5 && (
-                  <span className="text-xs text-gray-500 self-center">+{selectedSlugs.length - 5} more</span>
-                )}
-              </div>
-            </div>
-            <button
-              onClick={() => setFilters({ ...filters, companies: [] })}
-              className="px-3 py-1.5 text-sm text-gray-600 hover:text-gray-800 font-medium border border-gray-300 rounded-lg"
-            >
-              Clear
-            </button>
-          </div>
-        </div>
-      )}
+      <p className="co-foot">
+        Trade jobs are open jobs matched to a Moblyze trade. Activity counts jobs with a posting date in the last 30 days. Contact counts come from the BD feed's saved lookups; nothing on this page looks anyone up.
+      </p>
     </div>
   )
 }

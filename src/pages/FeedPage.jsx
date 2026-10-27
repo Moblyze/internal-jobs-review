@@ -1,6 +1,8 @@
 // src/pages/FeedPage.jsx
 import { useState, useMemo, useEffect } from 'react'
 import SEO from '../components/SEO'
+import { DataBasis, EmptyState, PageHeader } from '../components/ui/PageParts'
+import '../feed.css'
 import FeedFilters from '../components/feed/FeedFilters'
 import FeedCard from '../components/feed/FeedCard'
 import CompanyCardModal from '../components/feed/CompanyCardModal'
@@ -57,23 +59,37 @@ export default function FeedPage() {
   }, [])
 
   const filtered = useMemo(() => applyFilters(entries, filters), [entries, filters])
+  const sourceCount = useMemo(() => new Set(entries.flatMap(e => (e.sources || []).map(s => s.id || s.name))).size, [entries])
+  const newest = useMemo(() => {
+    const t = Math.max(0, ...entries.map(e => Date.parse(e.ingested_at || '') || 0))
+    if (!t) return null
+    const h = Math.round((Date.now() - t) / 36e5)
+    return h < 1 ? 'under an hour ago' : h < 48 ? `${h}h ago` : `${Math.round(h / 24)} days ago`
+  }, [entries])
 
   return (
     <>
       <SEO title="Feed — Moblyze Jobs" description="BD intelligence feed for energy-industry recruiters" />
-      <div className="space-y-4">
-        <header className="flex items-baseline justify-between">
-          <h1 className="text-2xl font-bold text-gray-900">Feed</h1>
-          <span className="text-sm text-gray-500">{filtered.length} entries</span>
-        </header>
+      <div className="mz feed">
+        <PageHeader
+          title="Feed"
+          sub="Project, contract and investment news that points to hiring, with who is hiring and whether we can reach them."
+        />
+        {!loading && !error && (
+          <DataBasis parts={[
+            <><b className="num">{entries.length}</b> signals{sourceCount ? <> from <b className="num">{sourceCount}</b> sources</> : null}</>,
+            newest && `Newest ${newest}`,
+            filtered.length !== entries.length && <><b className="num">{filtered.length}</b> match these filters</>,
+          ]} />
+        )}
 
         <FeedFilters taxonomy={taxonomy} />
 
-        {loading && <div className="text-sm text-gray-500">Loading…</div>}
-        {error && <div className="text-sm text-red-600">Failed to load feed: {error}</div>}
+        {loading && <EmptyState title="Loading the feed…" />}
+        {error && <EmptyState title="The feed did not load">{error}</EmptyState>}
 
         {!loading && !error && filtered.length === 0 && (
-          <div className="text-sm text-gray-500 py-8 text-center">No entries match the current filters.</div>
+          <EmptyState title="No signals match">Widen the time range or clear a filter.</EmptyState>
         )}
 
         {!loading && !error && filtered.map(entry => (

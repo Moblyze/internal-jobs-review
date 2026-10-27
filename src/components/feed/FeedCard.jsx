@@ -112,7 +112,7 @@ export default function FeedCard({ entry, taxonomy, pdlCache, coverage, onOperat
   const contractorTier = getSizeTier(contractor, pdlCache)
 
   return (
-    <article className="feed-card bg-white border border-gray-200 rounded-lg p-4 mb-2 transition-shadow hover:shadow-md cursor-pointer" onClick={() => setExpanded(x => !x)}>
+    <article className="feed-card" onClick={() => setExpanded(x => !x)}>
       <div className="grid grid-cols-[1fr_auto] gap-x-4 gap-y-2 items-start mb-2">
         <div className="flex flex-wrap gap-1.5 items-center">
           <PillSubsector taxonomy={taxonomy} id={entry.subsector} />
