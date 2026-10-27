@@ -2832,6 +2832,32 @@
     "mapboxPlaceName": "Afric Street, Largs North South Australia 5016, Australia",
     "confidence": 0.866667
   },
+  "Africa, Europe, Southeast Asia, The Netherlands, Saudi Arabia, Abu Dhabi, Worldwide, Middle East": {
+    "city": null,
+    "state": "Eastern",
+    "stateCode": "04",
+    "country": "Saudi Arabia",
+    "countryCode": "SA",
+    "coordinates": {
+      "latitude": 26.436782,
+      "longitude": 50.103999
+    },
+    "mapboxPlaceName": "Eastern, Saudi Arabia",
+    "confidence": 0.462934
+  },
+  "Africa, Southeast Asia, Europe, The Netherlands, Saudi Arabia, Abu Dhabi, Worldwide, Middle East": {
+    "city": null,
+    "state": "Eastern",
+    "stateCode": "04",
+    "country": "Saudi Arabia",
+    "countryCode": "SA",
+    "coordinates": {
+      "latitude": 26.436782,
+      "longitude": 50.103999
+    },
+    "mapboxPlaceName": "Eastern, Saudi Arabia",
+    "confidence": 0.462934
+  },
   "Afton, TX": {
     "city": "Afton",
     "state": "Texas",
@@ -46426,6 +46452,19 @@
     "mapboxPlaceName": "Doraville, Georgia, United States",
     "confidence": 1
   },
+  "Dordrecht area, The Netherlands": {
+    "city": "Dordrecht",
+    "state": "South Holland",
+    "stateCode": "ZH",
+    "country": "Netherlands",
+    "countryCode": "NL",
+    "coordinates": {
+      "latitude": 51.81511,
+      "longitude": 4.667654
+    },
+    "mapboxPlaceName": "Dordrecht, South Holland, Netherlands",
+    "confidence": 0.592593
+  },
   "Dorset, England, United Kingdom": {
     "city": "Great Yarmouth",
     "state": "England",
@@ -53483,6 +53522,19 @@
     "mapboxPlaceName": "Wath Grove, Hull, HU8 8UB, United Kingdom",
     "confidence": 0.474074
   },
+  "Europe, Saudi Arabia, Africa, Southeast Asia, The Netherlands, Worldwide, Middle East, Abu Dhabi": {
+    "city": "Abu Dhabi",
+    "state": "Abu Dhabi",
+    "stateCode": "AZ",
+    "country": "United Arab Emirates",
+    "countryCode": "AE",
+    "coordinates": {
+      "latitude": 24.453524,
+      "longitude": 54.377438
+    },
+    "mapboxPlaceName": "Abu Dhabi, Abu Dhabi, United Arab Emirates",
+    "confidence": 1
+  },
   "Europe, Singapore": {
     "city": "Roma",
     "state": "Rome",
@@ -53496,6 +53548,19 @@
     "mapboxPlaceName": "Via Singapore, 00144 Roma Rome, Italy",
     "confidence": 0.619167
   },
+  "Europe, Southeast Asia": {
+    "city": "Costa Mesa",
+    "state": "California",
+    "stateCode": "CA",
+    "country": "United States",
+    "countryCode": "US",
+    "coordinates": {
+      "latitude": 33.674986,
+      "longitude": -117.943144
+    },
+    "mapboxPlaceName": "Europa Drive, Costa Mesa, California 92626, United States",
+    "confidence": 0.577778
+  },
   "Europe, UAE": {
     "city": "Mojave",
     "state": "California",
@@ -53508,6 +53573,19 @@
     },
     "mapboxPlaceName": "Europe Avenue, Mojave, California 93501, United States",
     "confidence": 0.95
+  },
+  "Europe, Worldwide": {
+    "city": "Tours",
+    "state": "Indre-et-Loire",
+    "stateCode": "37",
+    "country": "France",
+    "countryCode": "FR",
+    "coordinates": {
+      "latitude": 47.42244,
+      "longitude": 0.68244
+    },
+    "mapboxPlaceName": "Europe, Tours, Indre-et-Loire, France",
+    "confidence": 0.5
   },
   "Europea & UK": {
     "city": "Lowestoft",
@@ -106464,6 +106542,19 @@
     "mapboxPlaceName": "Middle ، 636122 Salem، India",
     "confidence": 0.666667
   },
+  "Middle East, Africa, Southeast Asia, Europe, The Netherlands, Saudi Arabia, Abu Dhabi, Worldwide": {
+    "city": null,
+    "state": null,
+    "stateCode": null,
+    "country": "Saudi Arabia",
+    "countryCode": "SA",
+    "coordinates": {
+      "latitude": 23.384784,
+      "longitude": 44.652426
+    },
+    "mapboxPlaceName": "Saudi Arabia",
+    "confidence": 0.346154
+  },
   "Middle Island, NY": {
     "city": "Middle Island",
     "state": "New York",
@@ -108922,6 +109013,19 @@
     },
     "mapboxPlaceName": "Modesto, Illinois, United States",
     "confidence": 1
+  },
+  "Moerdijk area": {
+    "city": "Oss",
+    "state": "North Brabant",
+    "stateCode": "NB",
+    "country": "Netherlands",
+    "countryCode": "NL",
+    "coordinates": {
+      "latitude": 51.782035,
+      "longitude": 5.520187
+    },
+    "mapboxPlaceName": "Arena, 5346 KP Oss, Netherlands",
+    "confidence": 0.659643
   },
   "Moerdijk, Noord Brabant, NL, 4782 PM": {
     "city": "Moerdijk",
@@ -144689,6 +144793,45 @@
     "mapboxPlaceName": "Ardalaan, 2909 TA Capelle aan den IJssel, Netherlands",
     "confidence": 0.6775
   },
+  "Rotterdam area, Europe": {
+    "city": "Krimpen aan den IJssel",
+    "state": "South Holland",
+    "stateCode": "ZH",
+    "country": "Netherlands",
+    "countryCode": "NL",
+    "coordinates": {
+      "latitude": 51.921071,
+      "longitude": 4.605724
+    },
+    "mapboxPlaceName": "Arena, 2924 VA Krimpen aan den IJssel, Netherlands",
+    "confidence": 0.448333
+  },
+  "Rotterdam area, The Netherlands": {
+    "city": "Rotterdam",
+    "state": "South Holland",
+    "stateCode": "ZH",
+    "country": "Netherlands",
+    "countryCode": "NL",
+    "coordinates": {
+      "latitude": 51.92079,
+      "longitude": 4.487597
+    },
+    "mapboxPlaceName": "Rotterdam, South Holland, Netherlands",
+    "confidence": 0.592593
+  },
+  "Rotterdam area, Worldwide": {
+    "city": "Krimpen aan den IJssel",
+    "state": "South Holland",
+    "stateCode": "ZH",
+    "country": "Netherlands",
+    "countryCode": "NL",
+    "coordinates": {
+      "latitude": 51.921071,
+      "longitude": 4.605724
+    },
+    "mapboxPlaceName": "Arena, 2924 VA Krimpen aan den IJssel, Netherlands",
+    "confidence": 0.448333
+  },
   "Rotterdam regio": {
     "city": "Hualpén",
     "state": "Biobío",
@@ -156709,6 +156852,71 @@
     "mapboxPlaceName": "Southbury, Connecticut, United States",
     "confidence": 1
   },
+  "Southeast Asia": {
+    "city": "Paris",
+    "state": null,
+    "stateCode": null,
+    "country": "France",
+    "countryCode": "FR",
+    "coordinates": {
+      "latitude": 48.823475,
+      "longitude": 2.363926
+    },
+    "mapboxPlaceName": "asiatique, Paris, France",
+    "confidence": 0.5
+  },
+  "Southeast Asia, Europe": {
+    "city": "Buenos Aires",
+    "state": null,
+    "stateCode": null,
+    "country": "Argentina",
+    "countryCode": "AR",
+    "coordinates": {
+      "latitude": -34.637352,
+      "longitude": -58.44025
+    },
+    "mapboxPlaceName": "Asia, Parque Chacabuco, Buenos Aires, C1406, Argentina",
+    "confidence": 0.425926
+  },
+  "Southeast Asia, Europe, The Netherlands, Saudi Arabia, Abu Dhabi, Worldwide, Middle East, Africa": {
+    "city": null,
+    "state": null,
+    "stateCode": null,
+    "country": "Saudi Arabia",
+    "countryCode": "SA",
+    "coordinates": {
+      "latitude": 23.384784,
+      "longitude": 44.652426
+    },
+    "mapboxPlaceName": "Saudi Arabia",
+    "confidence": 0.346154
+  },
+  "Southeast Asia, Moerdijk area": {
+    "city": "Amia",
+    "state": "Arua",
+    "stateCode": "303",
+    "country": "Uganda",
+    "countryCode": "UG",
+    "coordinates": {
+      "latitude": 3.306808,
+      "longitude": 31.214085
+    },
+    "mapboxPlaceName": "Amia, Arua, Uganda",
+    "confidence": 0.518519
+  },
+  "Southeast Asia, Saudi Arabia, Abu Dhabi, Middle East, The Netherlands, Europe, Worldwide, Africa": {
+    "city": "Abu Dhabi",
+    "state": "Abu Dhabi",
+    "stateCode": "AZ",
+    "country": "United Arab Emirates",
+    "countryCode": "AE",
+    "coordinates": {
+      "latitude": 24.453524,
+      "longitude": 54.377438
+    },
+    "mapboxPlaceName": "Abu Dhabi, Abu Dhabi, United Arab Emirates",
+    "confidence": 1
+  },
   "Southern California Edison": {
     "city": "Edison",
     "state": "California",
@@ -166030,6 +166238,84 @@
     },
     "mapboxPlaceName": "The Netherlands, Coulsdon, CR5 1ND, United Kingdom",
     "confidence": 1
+  },
+  "The Netherlands, Africa, Middle East, Worldwide, Abu Dhabi, Saudi Arabia, Southeast Asia, Europe": {
+    "city": "Abu Dhabi",
+    "state": "Abu Dhabi",
+    "stateCode": "AZ",
+    "country": "United Arab Emirates",
+    "countryCode": "AE",
+    "coordinates": {
+      "latitude": 24.453524,
+      "longitude": 54.377438
+    },
+    "mapboxPlaceName": "Abu Dhabi, Abu Dhabi, United Arab Emirates",
+    "confidence": 1
+  },
+  "The Netherlands, Dordrecht area": {
+    "city": "Dordrecht",
+    "state": "South Holland",
+    "stateCode": "ZH",
+    "country": "Netherlands",
+    "countryCode": "NL",
+    "coordinates": {
+      "latitude": 51.81511,
+      "longitude": 4.667654
+    },
+    "mapboxPlaceName": "Dordrecht, South Holland, Netherlands",
+    "confidence": 0.582593
+  },
+  "The Netherlands, Europe": {
+    "city": "Zwijndrecht",
+    "state": "South Holland",
+    "stateCode": "ZH",
+    "country": "Netherlands",
+    "countryCode": "NL",
+    "coordinates": {
+      "latitude": 51.823933,
+      "longitude": 4.652695
+    },
+    "mapboxPlaceName": "Europesebuurt, Zwijndrecht, South Holland, Netherlands",
+    "confidence": 0.656667
+  },
+  "The Netherlands, Middle East, Abu Dhabi, Saudi Arabia, Southeast Asia, Europe, Worldwide, Africa": {
+    "city": "Abu Dhabi",
+    "state": "Abu Dhabi",
+    "stateCode": "AZ",
+    "country": "United Arab Emirates",
+    "countryCode": "AE",
+    "coordinates": {
+      "latitude": 24.453524,
+      "longitude": 54.377438
+    },
+    "mapboxPlaceName": "Abu Dhabi, Abu Dhabi, United Arab Emirates",
+    "confidence": 1
+  },
+  "The Netherlands, Rotterdam area": {
+    "city": "Rotterdam",
+    "state": "South Holland",
+    "stateCode": "ZH",
+    "country": "Netherlands",
+    "countryCode": "NL",
+    "coordinates": {
+      "latitude": 51.893967,
+      "longitude": 4.53669
+    },
+    "mapboxPlaceName": "Arenastraat, 3078 ZT Rotterdam, Netherlands",
+    "confidence": 0.70875
+  },
+  "The Netherlands, Southeast Asia, Worldwide, Saudi Arabia, Abu Dhabi, Africa, Europe, Middle East": {
+    "city": null,
+    "state": "Eastern",
+    "stateCode": "04",
+    "country": "Saudi Arabia",
+    "countryCode": "SA",
+    "coordinates": {
+      "latitude": 26.436782,
+      "longitude": 50.103999
+    },
+    "mapboxPlaceName": "Eastern, Saudi Arabia",
+    "confidence": 0.462934
   },
   "The Plains, Ohio": {
     "city": "The Plains",
@@ -180289,6 +180575,45 @@
     "mapboxPlaceName": "Vlaardingen, South Holland, Netherlands",
     "confidence": 1
   },
+  "Vlissingen area, Moerdijk area, Dordrecht area, The Netherlands, Rotterdam area": {
+    "city": "Dordrecht",
+    "state": "South Holland",
+    "stateCode": "ZH",
+    "country": "Netherlands",
+    "countryCode": "NL",
+    "coordinates": {
+      "latitude": 51.81511,
+      "longitude": 4.667654
+    },
+    "mapboxPlaceName": "Dordrecht, South Holland, Netherlands",
+    "confidence": 0.459259
+  },
+  "Vlissingen area, Rotterdam area, The Netherlands, Dordrecht area, Moerdijk area": {
+    "city": "Rotterdam",
+    "state": "South Holland",
+    "stateCode": "ZH",
+    "country": "Netherlands",
+    "countryCode": "NL",
+    "coordinates": {
+      "latitude": 51.92079,
+      "longitude": 4.487597
+    },
+    "mapboxPlaceName": "Rotterdam, South Holland, Netherlands",
+    "confidence": 0.459259
+  },
+  "Vlissingen area, The Netherlands": {
+    "city": "Vlissingen",
+    "state": "Zeeland",
+    "stateCode": "ZE",
+    "country": "Netherlands",
+    "countryCode": "NL",
+    "coordinates": {
+      "latitude": 51.443012,
+      "longitude": 3.573516
+    },
+    "mapboxPlaceName": "Vlissingen, Zeeland, Netherlands",
+    "confidence": 0.592593
+  },
   "Von Ormy, TX": {
     "city": "Von Ormy",
     "state": "Texas",
@@ -188883,6 +189208,19 @@
     },
     "mapboxPlaceName": "قطر بن خليفة, Al-Riyadh, Riyadh, Saudi Arabia",
     "confidence": 0.627037
+  },
+  "Worldwide, Southeast Asia, Europe, Saudi Arabia, The Netherlands, Abu Dhabi, Middle East, Africa": {
+    "city": null,
+    "state": null,
+    "stateCode": null,
+    "country": "Saudi Arabia",
+    "countryCode": "SA",
+    "coordinates": {
+      "latitude": 23.384784,
+      "longitude": 44.652426
+    },
+    "mapboxPlaceName": "Saudi Arabia",
+    "confidence": 0.346154
   },
   "Worldwide, UAE": {
     "city": null,
