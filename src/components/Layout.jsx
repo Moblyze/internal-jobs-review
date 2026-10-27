@@ -9,7 +9,6 @@ function Layout({ children }) {
     { to: '/market-rates', label: 'Market rates' },
     { to: '/companies', label: 'Companies' },
     { to: '/compare', label: 'Compare' },
-    { href: 'https://moblyze.github.io/docs/energy-contingent-job-research.html', label: 'Sources', external: true },
   ]
 
   return (
