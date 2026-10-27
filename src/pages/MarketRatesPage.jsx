@@ -8,7 +8,7 @@ import SEO from '../components/SEO'
 import RangeBar from '../components/market/RangeBar'
 import Sparkline from '../components/market/Sparkline'
 import RateBadge from '../components/market/RateBadge'
-import { BAND_META, LEVELS, LEVEL_SHORT, cellStats, fmtAmount, fmtDate, fmtRange, fmtRate, fromDay, niceDomain, niceMax } from '../utils/marketRates'
+import { BAND_META, LEVELS, LEVEL_SHORT, cellStats, setActiveCurrency, fmtAmount, fmtDate, fmtRange, fmtRate, fromDay, niceDomain, niceMax } from '../utils/marketRates'
 import '../market-rates.css'
 
 const DATA_URL = `${import.meta.env.BASE_URL || '/'}data/market_rates.json`
@@ -72,7 +72,7 @@ function Hero({ data, onMethod, onExplore }) {
         <div className="mr-hero__copy">
           <div className="mr-hero__tags">
             <span className="mr-brandmark"><span className="dot" />Moblyze Market Intelligence</span>
-            <span className="mr-preview-pill" title="Not client-facing. Numbers are from public job ads, not placements.">Beta</span>
+            <span className="mr-preview-pill" title="Not client-facing. Illustrative market pay data.">Beta</span>
           </div>
           <h1>Market day rates for <em>offshore and energy</em> roles</h1>
           <p>Typical pay by role, region and experience level, benchmarked from {data.counts.observations_dedup.toLocaleString('en-US')} job ads that state their rate. Ranges show the middle half of the market; the marker is the median.</p>
@@ -375,7 +375,7 @@ function Drawer({ data, cell, onClose }) {
           <button type="button" className="mr-drawer__x" onClick={onClose} aria-label="Close">×</button>
         </div>
         <div className="mr-drawer__body">
-          <div className="mr-drawer__note">Internal preview. Illustrative only, built from public job ads, not placements. Not client-facing until source terms are settled.</div>
+          <div className="mr-drawer__note">Internal preview. Illustrative only. Not client-facing until source terms are settled.</div>
           {cell && (
             <section>
               <h4>This benchmark</h4>
@@ -416,7 +416,7 @@ function Drawer({ data, cell, onClose }) {
           </section>
           <section>
             <h4>Caveats</h4>
-            <p>Ads, not placements. "Up to" ranges overstate; permanent salaries exclude benefits. Marine monthly cells are crewing-agency wages.</p>
+            <p>"Up to" ranges overstate; permanent salaries exclude benefits. Marine monthly cells are crewing-agency wages.</p>
           </section>
         </div>
       </div>
@@ -427,6 +427,8 @@ function Drawer({ data, cell, onClose }) {
 /* ── page ─────────────────────────────────────────────────────────── */
 export default function MarketRatesPage() {
   const { data, loading, error } = useMarketRates()
+  // v1 sizes its axes from usd_day, so it always shows USD (the currency selector lives on v2)
+  setActiveCurrency('USD', data?.fx)
   const [params, setParams] = useSearchParams()
   const [role, setRoleRaw] = useState(params.get('role') || 'electrician')
   const [region, setRegionRaw] = useState(params.get('region') || 'US')
@@ -536,7 +538,7 @@ export default function MarketRatesPage() {
 
       <footer className="mr-foot">
         <span className="mr-preview-pill mr-preview-pill--light">Beta</span>
-        <span>Built from public job ads, not placements. Updated {fmtDate(data.cells[0]?.last_updated)}.</span>
+        <span>Shown in USD. Updated {fmtDate(data.cells[0]?.last_updated)}.</span>
         <button type="button" className="mr-linkbtn" onClick={() => setDrawer('method')}><InfoIcon />Methodology</button>
       </footer>
 
