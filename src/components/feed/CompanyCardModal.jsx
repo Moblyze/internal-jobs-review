@@ -238,7 +238,9 @@ function AgentContactCard({ p, companyName, entryId, companyDomain }) {
                   <span className="text-[10px] text-gray-400 shrink-0">(via PDL)</span>
                 )}
                 {enriched?.source === 'pattern' && (
-                  <span className="text-[10px] text-gray-400 shrink-0" title="Derived from this company's verified email pattern (not provider-confirmed)">(via pattern)</span>
+                  enriched?.mv_result === 'ok'
+                    ? <span className="text-[10px] text-gray-400 shrink-0" title="Built from this company's email pattern and confirmed deliverable by MillionVerifier">(via pattern, verified)</span>
+                    : <span className="text-[10px] text-amber-600 shrink-0" title={`Built from this company's email pattern but NOT confirmed deliverable${enriched?.mv_result ? ` (MillionVerifier: ${enriched.mv_result.replace('_', '-')})` : ''}. Treat as a guess.`}>(via pattern, unverified)</span>
                 )}
               </a>
             )}
