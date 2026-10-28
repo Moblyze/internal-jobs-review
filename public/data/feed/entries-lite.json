@@ -1,44 +1,45 @@
 [
   {
-    "id": "7ef89d16-9cf5-48e2-a503-7cc0c5c89e1a",
-    "ingested_at": "2026-10-27T12:28:12.059Z",
+    "id": "e7f2560a-a68d-4108-8be1-be03463b654e",
+    "ingested_at": "2026-10-28T00:36:30.658Z",
     "sources": [
       {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/egypt_agrees_tax_relief_for_project_to_import_cyprus_gas-27-oct-2026-184937-article/?rss=true"
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/capstone-to-invest-3b-in-chile-to-double-copper-production/"
       }
     ],
-    "subsector": "offshore-og",
+    "subsector": "mining",
     "discipline_tags": [
-      "pipeline_mechanical",
-      "process_plant_operations"
+      "industrial_construction",
+      "energy_trades",
+      "pipeline_mechanical"
     ],
-    "signal_type": "regulatory",
-    "region": "east-mediterranean",
-    "country": "egypt",
-    "headline": "Chevron-Led Aphrodite Consortium Secures Tax Regime for Cyprus-Egypt Gas Export Pipeline",
+    "signal_type": "fid",
+    "region": "chile-atacama",
+    "country": "chile",
+    "headline": "Capstone Copper to Invest $3B in Chile — Santo Domingo & Mantoverde Expansions, Thousands of Construction Jobs",
     "operator": {
-      "name": "Chevron (Aphrodite consortium)",
+      "name": "Capstone Copper",
       "matched_company_slug": null
     },
     "hiring_entity": {
-      "name": null,
+      "name": "Capstone Copper",
       "matched_company_slug": null
     },
-    "project_name": "Aphrodite Gas Export Project",
+    "project_name": "Santo Domingo & Mantoverde Expansions",
     "mob_window": {
       "start": null,
       "end": null,
       "duration_months": null
     },
-    "contract_value_usd": null,
-    "phase": "pre_sanction",
+    "contract_value_usd": 3000000000,
+    "phase": "sanctioned_engineering",
     "construction_subphase": null,
     "lifecycle_track": "greenfield",
     "decom_stage": null,
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
     "key_people": []
   },
   {
@@ -81,6 +82,48 @@
     "decom_stage": "planning",
     "outreach_readiness": "warming",
     "estimated_hiring_window": "3-6mo",
+    "key_people": []
+  },
+  {
+    "id": "7ef89d16-9cf5-48e2-a503-7cc0c5c89e1a",
+    "ingested_at": "2026-10-27T12:28:12.059Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/egypt_agrees_tax_relief_for_project_to_import_cyprus_gas-27-oct-2026-184937-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "pipeline_mechanical",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "east-mediterranean",
+    "country": "egypt",
+    "headline": "Chevron-Led Aphrodite Consortium Secures Tax Regime for Cyprus-Egypt Gas Export Pipeline",
+    "operator": {
+      "name": "Chevron (Aphrodite consortium)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Aphrodite Gas Export Project",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
     "key_people": []
   },
   {
@@ -5493,92 +5536,6 @@
     "decom_stage": null,
     "outreach_readiness": "hot",
     "estimated_hiring_window": "3-6mo",
-    "key_people": []
-  },
-  {
-    "id": "716893ea-d5e2-4059-9da7-e4cc69bb8f0c",
-    "ingested_at": "2026-07-29T18:23:08.838Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org/articles/construction-work-under-way-at-canadian-uranium-project"
-      }
-    ],
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades",
-      "process_plant_operations"
-    ],
-    "signal_type": "epc_award",
-    "region": "canada-saskatchewan",
-    "country": "canada",
-    "headline": "Denison Mines Begins Full-Scale Construction at Phoenix ISR Uranium Mine, Saskatchewan",
-    "operator": {
-      "name": "Denison Mines",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Denison Mines",
-      "matched_company_slug": null
-    },
-    "project_name": "Phoenix In-Situ Recovery Uranium Mine",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "construction",
-    "construction_subphase": "rampup",
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "live_now",
-    "estimated_hiring_window": "now",
-    "key_people": []
-  },
-  {
-    "id": "6a723f98-09a7-4d5a-9dd7-fe182c2c5809",
-    "ingested_at": "2026-07-29T12:43:58.008Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/new_zealand_grants_1st_exploration_permit_since_ardernera_ban-29-jul-2026-184240-article/?rss=true"
-      }
-    ],
-    "subsector": "offshore-og",
-    "discipline_tags": [
-      "drilling_operations",
-      "survey_geophysical",
-      "marine_offshore_ops"
-    ],
-    "signal_type": "lease_round",
-    "region": "new-zealand",
-    "country": "new_zealand",
-    "headline": "EnZed Energy Wins NZ's First O&G Exploration Permit Since Ardern-Era Ban Lifted",
-    "operator": {
-      "name": "EnZed Energy Pty Ltd",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "EnZed Energy Pty Ltd",
-      "matched_company_slug": null
-    },
-    "project_name": null,
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "pre_sanction",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
     "key_people": []
   }
 ]

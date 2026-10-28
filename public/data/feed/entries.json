@@ -2,101 +2,112 @@
   {
     "sources": [
       {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/egypt_agrees_tax_relief_for_project_to_import_cyprus_gas-27-oct-2026-184937-article/?rss=true"
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/capstone-to-invest-3b-in-chile-to-double-copper-production/"
       }
     ],
-    "headline": "Chevron-Led Aphrodite Consortium Secures Tax Regime for Cyprus-Egypt Gas Export Pipeline",
-    "body": "The Chevron Corp-led Aphrodite consortium and the Egyptian government have agreed on a special tax regime for a project that would enable the piped export of...",
-    "url": "https://www.rigzone.com/news/egypt_agrees_tax_relief_for_project_to_import_cyprus_gas-27-oct-2026-184937-article/?rss=true",
-    "published_at": "2026-10-27T07:57:10.000Z",
-    "hash": "d2f15a8391d3ac7a",
-    "subsector": "offshore-og",
+    "headline": "Capstone Copper to Invest $3B in Chile — Santo Domingo & Mantoverde Expansions, Thousands of Construction Jobs",
+    "body": "Santo Domingo and Mantoverde expansions anchor a major Atacama investment plan, with thousands of construction jobs expected.",
+    "url": "https://www.mining.com/capstone-to-invest-3b-in-chile-to-double-copper-production/",
+    "published_at": "2026-10-27T10:53:00.000Z",
+    "hash": "5a4ca6d4baea55c4",
+    "subsector": "mining",
     "discipline_tags": [
-      "pipeline_mechanical",
-      "process_plant_operations"
+      "industrial_construction",
+      "energy_trades",
+      "pipeline_mechanical"
     ],
-    "signal_type": "regulatory",
-    "region": "east-mediterranean",
-    "country": "egypt",
-    "tldr": "Egypt has agreed a special tax regime with the Chevron-led Aphrodite consortium for piped gas exports from Cyprus, advancing the project toward FID and near-term engineering/construction hiring.",
+    "signal_type": "fid",
+    "region": "chile-atacama",
+    "country": "chile",
+    "tldr": "Capstone Copper is committing $3B to double copper output in Chile's Atacama region via the Santo Domingo and Mantoverde expansion projects, with thousands of construction roles expected across both sites.",
     "operator": {
-      "name": "Chevron (Aphrodite consortium)",
+      "name": "Capstone Copper",
       "matched_company_slug": null
     },
     "hiring_entity": {
-      "name": null,
+      "name": "Capstone Copper",
       "matched_company_slug": null
     },
-    "project_name": "Aphrodite Gas Export Project",
+    "project_name": "Santo Domingo & Mantoverde Expansions",
     "scope": [
-      "pipeline_export",
-      "gas_import_infrastructure"
+      "mine_expansion",
+      "greenfield_construction",
+      "civil_works",
+      "process_plant"
     ],
     "mob_window": {
       "start": null,
       "end": null,
       "duration_months": null
     },
-    "contract_value_usd": null,
+    "contract_value_usd": 3000000000,
     "targeting": {
       "job_titles_freetext": [
-        "Pipeline Project Manager",
-        "Subsea Pipeline Engineer",
-        "Project Development Manager",
-        "FEED Manager",
-        "Regulatory Affairs Manager",
-        "Gas Export Facilities Engineer"
+        "Construction Manager",
+        "Project Manager – Mining",
+        "Site Manager",
+        "Civil Superintendent",
+        "Process Plant Superintendent",
+        "HSE Manager",
+        "Planning Engineer",
+        "Mechanical Superintendent",
+        "Electrical Superintendent",
+        "Commissioning Manager"
       ],
       "skills": [
-        "subsea pipeline",
-        "gas export",
-        "FEED",
-        "project development",
-        "fiscal/tax regime negotiation",
-        "offshore pipeline design",
-        "cross-border gas infrastructure"
+        "mine construction",
+        "copper processing plant",
+        "project execution",
+        "EPC management",
+        "commissioning",
+        "civil earthworks",
+        "SAG mill",
+        "flotation",
+        "EPCM",
+        "Atacama"
       ],
       "certs_freetext": [
-        "CENG",
-        "OPITO",
-        "PMP"
+        "SERNAGEOMIN (Chile mining safety)",
+        "IOSH",
+        "NEBOSH"
       ],
-      "geo_rtw": "Egypt, Cyprus, EU/EEA eligible",
+      "geo_rtw": "Chile or willing to mobilise to Atacama Region III",
       "project_experience": [
-        "EastMed Pipeline",
-        "ENI Zohr",
-        "Leviathan Gas Export",
-        "Noble Energy Tamar",
-        "BP West Nile Delta"
+        "Cobre Panama",
+        "Quellaveco",
+        "Spence Growth Option",
+        "Quebrada Blanca Phase 2",
+        "Mantoverde"
       ],
       "yoe_band": "10-20",
-      "seniority": "Senior / Principal",
-      "boolean_search": "(\"pipeline project manager\" OR \"gas export\" OR \"FEED manager\" OR \"subsea pipeline engineer\" OR \"project development manager\") AND (\"offshore pipeline\" OR \"gas export\" OR \"cross-border\" OR \"East Mediterranean\" OR \"Cyprus\" OR \"Egypt\") AND (\"Chevron\" OR \"Aphrodite\" OR \"ENI\" OR \"Leviathan\" OR \"EastMed\")"
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"Construction Manager\" OR \"Site Manager\" OR \"Project Manager\" OR \"Civil Superintendent\" OR \"Mechanical Superintendent\" OR \"Commissioning Manager\" OR \"HSE Manager\" OR \"Planning Engineer\") AND (\"copper\" OR \"mining\" OR \"concentrator\" OR \"process plant\" OR \"EPCM\") AND (\"Chile\" OR \"Atacama\" OR \"Mantoverde\" OR \"Latin America\") AND (\"mine construction\" OR \"greenfield\" OR \"expansion\" OR \"EPC\")"
     },
     "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Egypt's tax deal with the Chevron-led Aphrodite consortium is a key step toward sanctioning the Cyprus gas export pipeline. Are you open to hearing about senior roles on this project as it advances to FEED/EPC?",
-      "email_subject": "Aphrodite Cyprus-Egypt Pipeline – Senior Roles Ahead of FEED/EPC Award",
-      "email_body": "Hi [Name],\n\nEgypt has just agreed a special tax regime with the Chevron-led Aphrodite consortium for the Cyprus-to-Egypt piped gas export project — a significant pre-FID milestone that typically precedes FEED and EPC contract awards within 12–18 months.\n\nGiven your background in [offshore pipeline / gas export / FEED delivery], I wanted to reach out early. We're mapping talent for senior project and engineering roles as the project progresses.\n\nWould you be open to a brief call to discuss?\n\nBest regards,\n[Your Name]"
+      "linkedin_inmail": "Hi [Name], Capstone Copper is investing $3B to expand Santo Domingo & Mantoverde in Chile's Atacama — thousands of construction roles incoming. Your background in mining construction looks like a strong fit. Worth a quick chat?",
+      "email_subject": "Capstone Copper $3B Chile Expansion — Senior Construction Roles | Santo Domingo & Mantoverde",
+      "email_body": "Hi [Name],\n\nCapstone Copper has announced a $3 billion investment programme in Chile's Atacama region to double copper production, anchored by the Santo Domingo greenfield project and the Mantoverde expansion. Both sites are expected to generate thousands of construction jobs across civil, mechanical, electrical, and process plant disciplines.\n\nGiven your experience in [relevant mine construction / EPCM / copper processing], I'd love to explore whether there's a fit for senior roles ramping up on these projects.\n\nAre you open to a brief call this week?\n\nBest regards,\n[Your Name]"
     },
     "bd_relevant": true,
-    "bd_relevance_reason": "Named operator (Chevron-led Aphrodite consortium) secures a regulatory/fiscal milestone (special tax regime) that directly advances the Cyprus-Egypt gas export pipeline toward FID, constituting a field development plan regulatory event with staffing implications.",
-    "phase": "pre_sanction",
-    "phase_evidence": "The article describes a tax regime agreement as an enabling step for the project, indicating it has not yet reached FID or EPC award stage.",
+    "bd_relevance_reason": "Named operator (Capstone Copper) announcing a $3B capital investment in two named mining projects (Santo Domingo and Mantoverde) with explicit large-scale construction workforce demand in Chile.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Article states Capstone 'to invest $3B' with expansions anchoring a major investment plan, implying FID-level commitment but construction not yet underway.",
     "construction_subphase": null,
     "lifecycle_track": "greenfield",
     "decom_stage": null,
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
     "key_people": [],
     "enrichment_status": "ok",
     "enrichment_model": "claude-sonnet-4-6",
-    "id": "7ef89d16-9cf5-48e2-a503-7cc0c5c89e1a",
-    "ingested_at": "2026-10-27T12:28:12.059Z",
-    "source_published_at": "2026-10-27T07:57:10.000Z",
+    "id": "e7f2560a-a68d-4108-8be1-be03463b654e",
+    "ingested_at": "2026-10-28T00:36:30.658Z",
+    "source_published_at": "2026-10-27T10:53:00.000Z",
     "contact_archetypes": [
       "project_manager",
+      "hiring_manager",
       "business_unit_director"
     ],
     "prompt_version": "phase-targeting-v1.2"
@@ -200,6 +211,108 @@
     "contact_archetypes": [
       "ops_director",
       "hiring_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/egypt_agrees_tax_relief_for_project_to_import_cyprus_gas-27-oct-2026-184937-article/?rss=true"
+      }
+    ],
+    "headline": "Chevron-Led Aphrodite Consortium Secures Tax Regime for Cyprus-Egypt Gas Export Pipeline",
+    "body": "The Chevron Corp-led Aphrodite consortium and the Egyptian government have agreed on a special tax regime for a project that would enable the piped export of...",
+    "url": "https://www.rigzone.com/news/egypt_agrees_tax_relief_for_project_to_import_cyprus_gas-27-oct-2026-184937-article/?rss=true",
+    "published_at": "2026-10-27T07:57:10.000Z",
+    "hash": "d2f15a8391d3ac7a",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "pipeline_mechanical",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "east-mediterranean",
+    "country": "egypt",
+    "tldr": "Egypt has agreed a special tax regime with the Chevron-led Aphrodite consortium for piped gas exports from Cyprus, advancing the project toward FID and near-term engineering/construction hiring.",
+    "operator": {
+      "name": "Chevron (Aphrodite consortium)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Aphrodite Gas Export Project",
+    "scope": [
+      "pipeline_export",
+      "gas_import_infrastructure"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Pipeline Project Manager",
+        "Subsea Pipeline Engineer",
+        "Project Development Manager",
+        "FEED Manager",
+        "Regulatory Affairs Manager",
+        "Gas Export Facilities Engineer"
+      ],
+      "skills": [
+        "subsea pipeline",
+        "gas export",
+        "FEED",
+        "project development",
+        "fiscal/tax regime negotiation",
+        "offshore pipeline design",
+        "cross-border gas infrastructure"
+      ],
+      "certs_freetext": [
+        "CENG",
+        "OPITO",
+        "PMP"
+      ],
+      "geo_rtw": "Egypt, Cyprus, EU/EEA eligible",
+      "project_experience": [
+        "EastMed Pipeline",
+        "ENI Zohr",
+        "Leviathan Gas Export",
+        "Noble Energy Tamar",
+        "BP West Nile Delta"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal",
+      "boolean_search": "(\"pipeline project manager\" OR \"gas export\" OR \"FEED manager\" OR \"subsea pipeline engineer\" OR \"project development manager\") AND (\"offshore pipeline\" OR \"gas export\" OR \"cross-border\" OR \"East Mediterranean\" OR \"Cyprus\" OR \"Egypt\") AND (\"Chevron\" OR \"Aphrodite\" OR \"ENI\" OR \"Leviathan\" OR \"EastMed\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Egypt's tax deal with the Chevron-led Aphrodite consortium is a key step toward sanctioning the Cyprus gas export pipeline. Are you open to hearing about senior roles on this project as it advances to FEED/EPC?",
+      "email_subject": "Aphrodite Cyprus-Egypt Pipeline – Senior Roles Ahead of FEED/EPC Award",
+      "email_body": "Hi [Name],\n\nEgypt has just agreed a special tax regime with the Chevron-led Aphrodite consortium for the Cyprus-to-Egypt piped gas export project — a significant pre-FID milestone that typically precedes FEED and EPC contract awards within 12–18 months.\n\nGiven your background in [offshore pipeline / gas export / FEED delivery], I wanted to reach out early. We're mapping talent for senior project and engineering roles as the project progresses.\n\nWould you be open to a brief call to discuss?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Chevron-led Aphrodite consortium) secures a regulatory/fiscal milestone (special tax regime) that directly advances the Cyprus-Egypt gas export pipeline toward FID, constituting a field development plan regulatory event with staffing implications.",
+    "phase": "pre_sanction",
+    "phase_evidence": "The article describes a tax regime agreement as an enabling step for the project, indicating it has not yet reached FID or EPC award stage.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "7ef89d16-9cf5-48e2-a503-7cc0c5c89e1a",
+    "ingested_at": "2026-10-27T12:28:12.059Z",
+    "source_published_at": "2026-10-27T07:57:10.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
     ],
     "prompt_version": "phase-targeting-v1.2"
   },
@@ -13846,227 +13959,6 @@
       "site_manager",
       "hiring_manager",
       "project_manager"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org/articles/construction-work-under-way-at-canadian-uranium-project"
-      }
-    ],
-    "headline": "Denison Mines Begins Full-Scale Construction at Phoenix ISR Uranium Mine, Saskatchewan",
-    "body": "Denison Mines announced that site preparation activities have been completed at the Phoenix In-Situ Recovery uranium mine in Saskatchewan and full-scale construction has begun.",
-    "url": "https://www.world-nuclear-news.org/articles/construction-work-under-way-at-canadian-uranium-project",
-    "published_at": "2026-07-29T13:07:33.000Z",
-    "hash": "77e97ca5327460c0",
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades",
-      "process_plant_operations"
-    ],
-    "signal_type": "epc_award",
-    "region": "canada-saskatchewan",
-    "country": "canada",
-    "tldr": "Denison Mines has commenced full-scale construction at the Phoenix In-Situ Recovery uranium project in Saskatchewan following completed site prep. Prime hiring window for construction trades and ISR process specialists is now open.",
-    "operator": {
-      "name": "Denison Mines",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Denison Mines",
-      "matched_company_slug": null
-    },
-    "project_name": "Phoenix In-Situ Recovery Uranium Mine",
-    "scope": [
-      "site_preparation",
-      "isr_facility_construction",
-      "process_plant_build"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Construction Manager",
-        "Site Manager",
-        "HSE Manager",
-        "Civil Superintendent",
-        "Mechanical Supervisor",
-        "Process Plant Construction Supervisor",
-        "ISR Process Engineer",
-        "Instrumentation & Controls Technician",
-        "Heavy Equipment Operator",
-        "Industrial Pipefitter",
-        "Structural Steelwork Supervisor",
-        "Commissioning Engineer"
-      ],
-      "skills": [
-        "in-situ recovery",
-        "uranium mining",
-        "process plant construction",
-        "civil works",
-        "Saskatchewan mining",
-        "ISR wellfield",
-        "industrial construction management",
-        "HSE leadership",
-        "mechanical completion"
-      ],
-      "certs_freetext": [
-        "Saskatchewan Occupational Health & Safety Certificate",
-        "CSTS (Construction Safety Training System)",
-        "Red Seal Pipefitter",
-        "Red Seal Electrician",
-        "WHMIS",
-        "First Aid Level 1"
-      ],
-      "geo_rtw": "Canada — Saskatchewan work authorization required",
-      "project_experience": [
-        "Cigar Lake Mine",
-        "McArthur River Mine",
-        "Wheeler River",
-        "McClean Lake",
-        "Athabasca Basin uranium projects"
-      ],
-      "yoe_band": "8-15",
-      "seniority": "mid-senior",
-      "boolean_search": "(\"construction manager\" OR \"site manager\" OR \"mechanical supervisor\" OR \"civil superintendent\" OR \"commissioning engineer\" OR \"ISR engineer\" OR \"process plant supervisor\") AND (\"uranium\" OR \"in-situ recovery\" OR \"ISR\" OR \"mining construction\" OR \"Saskatchewan\") AND (\"Athabasca\" OR \"Denison\" OR \"Cigar Lake\" OR \"McArthur River\" OR \"Wheeler River\" OR \"nuclear\" OR \"mineral processing\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], full-scale construction has just kicked off at Denison Mines' Phoenix ISR uranium project in Saskatchewan — a live hiring window for experienced mining/construction professionals. Would your availability align with a Q3/Q4 start? Happy to share details.",
-      "email_subject": "Live Construction Roles — Phoenix ISR Uranium Mine, Saskatchewan (Denison Mines)",
-      "email_body": "Hi [Name],\n\nDenison Mines has officially commenced full-scale construction at the Phoenix In-Situ Recovery uranium mine in Saskatchewan — meaning the hiring window for trades, construction supervisors, and ISR process specialists is open right now.\n\nGiven your background in [mining/ISR/process plant construction], I wanted to reach out directly before roles are filled.\n\nKey details:\n• Project: Phoenix ISR Uranium Mine, Saskatchewan\n• Operator: Denison Mines\n• Phase: Full-scale construction underway\n• Likely roles: Construction Managers, Mechanical Supervisors, Civil Superintendents, ISR Process Engineers, Trades\n\nAre you open to a conversation about fit and timing? I can share more on scope and package.\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named operator (Denison Mines) announces full-scale construction commencement at a named project (Phoenix ISR Uranium Mine) in Saskatchewan — a discrete workforce-demand event in the mining subsector.",
-    "phase": "construction",
-    "phase_evidence": "Article states 'site preparation activities have been completed' and 'full-scale construction has begun', confirming active construction phase.",
-    "construction_subphase": "rampup",
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "live_now",
-    "estimated_hiring_window": "now",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "716893ea-d5e2-4059-9da7-e4cc69bb8f0c",
-    "ingested_at": "2026-07-29T18:23:08.838Z",
-    "source_published_at": "2026-07-29T13:07:33.000Z",
-    "contact_archetypes": [
-      "site_manager",
-      "hiring_manager",
-      "project_manager"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/new_zealand_grants_1st_exploration_permit_since_ardernera_ban-29-jul-2026-184240-article/?rss=true"
-      }
-    ],
-    "headline": "EnZed Energy Wins NZ's First O&G Exploration Permit Since Ardern-Era Ban Lifted",
-    "body": "Australia's EnZed Energy Pty Ltd has won the first oil and gas exploration license issued in New Zealand after the government last year reversed a 2018 ban.<...",
-    "url": "https://www.rigzone.com/news/new_zealand_grants_1st_exploration_permit_since_ardernera_ban-29-jul-2026-184240-article/?rss=true",
-    "published_at": "2026-07-29T10:18:52.000Z",
-    "hash": "d46abf6e08484f38",
-    "subsector": "offshore-og",
-    "discipline_tags": [
-      "drilling_operations",
-      "survey_geophysical",
-      "marine_offshore_ops"
-    ],
-    "signal_type": "lease_round",
-    "region": "new-zealand",
-    "country": "new_zealand",
-    "tldr": "Australia's EnZed Energy has been granted New Zealand's first oil and gas exploration license since the government reversed its 2018 ban, signalling an early-stage exploration campaign that will require drilling, survey, and offshore ops personnel in the near-to-medium term.",
-    "operator": {
-      "name": "EnZed Energy Pty Ltd",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "EnZed Energy Pty Ltd",
-      "matched_company_slug": null
-    },
-    "project_name": null,
-    "scope": [
-      "exploration_license",
-      "seismic_survey",
-      "exploration_drilling"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Exploration Geologist",
-        "Exploration Geophysicist",
-        "Drilling Engineer",
-        "Well Engineer",
-        "Country Manager",
-        "Subsurface Manager",
-        "Offshore Installation Manager",
-        "HSE Advisor",
-        "Regulatory Affairs Advisor"
-      ],
-      "skills": [
-        "exploration drilling",
-        "seismic interpretation",
-        "well planning",
-        "petroleum geology",
-        "basin analysis",
-        "regulatory compliance",
-        "offshore operations"
-      ],
-      "certs_freetext": [
-        "BOSIET",
-        "IWCF Well Control",
-        "OPITO Offshore Safety"
-      ],
-      "geo_rtw": "Australia or New Zealand right-to-work preferred",
-      "project_experience": [
-        "Taranaki Basin",
-        "Great South Basin",
-        "Canterbury Basin"
-      ],
-      "yoe_band": "10-20",
-      "seniority": "senior-to-principal",
-      "boolean_search": "(\"exploration geologist\" OR \"exploration geophysicist\" OR \"drilling engineer\" OR \"well engineer\" OR \"subsurface manager\") AND (\"offshore\" OR \"oil and gas\" OR \"exploration\") AND (\"New Zealand\" OR \"Taranaki\" OR \"Great South Basin\" OR \"Australia\") AND (\"seismic\" OR \"well planning\" OR \"basin analysis\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], EnZed Energy just secured NZ's first exploration permit since the 2018 ban was lifted — an early-stage campaign that will need experienced exploration and drilling professionals. Would you be open to a quick chat about opportunities on this programme?",
-      "email_subject": "New Zealand Exploration Revival — EnZed Energy Permit Award",
-      "email_body": "Hi [Name],\n\nAustralia's EnZed Energy has just been awarded New Zealand's first oil and gas exploration license since the government reversed the Ardern-era ban — marking a genuine re-opening of the New Zealand upstream market.\n\nAs the operator moves from license award into work-programme planning, they will need experienced exploration geologists, geophysicists, drilling engineers, and offshore ops professionals familiar with the Australasian regulatory environment.\n\nWe are already positioning candidates for early engagement on this programme and would welcome the chance to discuss how your background aligns with what EnZed will need.\n\nAre you available for a 15-minute call this week?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Specific exploration license awarded to named operator EnZed Energy Pty Ltd in New Zealand, representing a discrete lease/block award event with downstream drilling and survey workforce demand.",
-    "phase": "pre_sanction",
-    "phase_evidence": "The article describes the granting of an exploration permit — the earliest upstream lifecycle stage, preceding any FID or work-programme commitment.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "6a723f98-09a7-4d5a-9dd7-fe182c2c5809",
-    "ingested_at": "2026-07-29T12:43:58.008Z",
-    "source_published_at": "2026-07-29T10:18:52.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "business_unit_director"
     ],
     "prompt_version": "phase-targeting-v1.2"
   }
