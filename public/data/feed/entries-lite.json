@@ -1,5 +1,85 @@
 [
   {
+    "id": "b340565c-19b0-4492-a814-46a3c1fd21f1",
+    "ingested_at": "2026-10-28T18:17:14.827Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/woodside_exits_planned_greater_sunrise_project-28-oct-2026-184952-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [],
+    "signal_type": "replacement",
+    "region": "timor-sea",
+    "country": "timor_leste",
+    "headline": "Woodside Exits Greater Sunrise; Timor-Leste NOC Takes Full Operator Control",
+    "operator": {
+      "name": "Timor-Leste National Oil and Gas Company",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Greater Sunrise",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
+    "id": "9f8b0a82-e18b-4d90-a461-1b31a632dc5a",
+    "ingested_at": "2026-10-28T18:17:14.827Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/pmet-resources-announces-federal-funding-of-c1-2-million-to-its-100-owned-subsidiary-innova-lithium-for-shaakichiuwaanaan-access-road-302922483.html"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction"
+    ],
+    "signal_type": "regulatory",
+    "region": "canada",
+    "country": "canada",
+    "headline": "PMET Resources Secures C$1.2M Federal Grant for Shaakichiuwaanaan Lithium Project Access Road",
+    "operator": {
+      "name": "PMET Resources / Innova Lithium",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Shaakichiuwaanaan Access Road",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 876000,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "d98ba403-2127-4b78-bff3-da63a9b1d682",
     "ingested_at": "2026-10-28T12:20:43.163Z",
     "sources": [

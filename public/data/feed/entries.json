@@ -4,6 +4,197 @@
       {
         "id": "rigzone",
         "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/woodside_exits_planned_greater_sunrise_project-28-oct-2026-184952-article/?rss=true"
+      }
+    ],
+    "headline": "Woodside Exits Greater Sunrise; Timor-Leste NOC Takes Full Operator Control",
+    "body": "Timor-Leste's national oil and gas company will take full control of the Greater Sunrise fields in the jointly managed maritime area agreed between the South...",
+    "url": "https://www.rigzone.com/news/woodside_exits_planned_greater_sunrise_project-28-oct-2026-184952-article/?rss=true",
+    "published_at": "2026-10-28T13:07:26.000Z",
+    "hash": "56092c5c115592bb",
+    "subsector": "offshore-og",
+    "discipline_tags": [],
+    "signal_type": "replacement",
+    "region": "timor-sea",
+    "country": "timor_leste",
+    "tldr": "Woodside is withdrawing from the Greater Sunrise project, with Timor-Leste's national oil company assuming full control. This operator change-of-control is a BD signal to monitor as the new operator will need to reassess contractors and staffing.",
+    "operator": {
+      "name": "Timor-Leste National Oil and Gas Company",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Greater Sunrise",
+    "scope": [
+      "operator_transition",
+      "field_development"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Project Director",
+        "Field Development Manager",
+        "Subsea Engineer",
+        "Offshore Project Manager",
+        "Contracts Manager",
+        "FPSO Development Manager"
+      ],
+      "skills": [
+        "field development planning",
+        "deepwater development",
+        "FPSO",
+        "LNG",
+        "operator transition",
+        "subsea"
+      ],
+      "certs_freetext": [],
+      "geo_rtw": "Timor-Leste, Australia, regional Asia-Pacific",
+      "project_experience": [
+        "Bayu-Undan",
+        "Ichthys",
+        "Prelude FLNG",
+        "Browse",
+        "Sunrise"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "senior-to-principal",
+      "boolean_search": "(\"Greater Sunrise\" OR \"Timor Sea\" OR \"Bayu-Undan\") AND (\"field development\" OR \"FPSO\" OR \"LNG\" OR \"deepwater\") AND (\"project director\" OR \"project manager\" OR \"development manager\" OR \"subsea engineer\" OR \"contracts manager\") AND (\"operator\" OR \"NOC\" OR \"offshore\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], with Woodside exiting Greater Sunrise and Timor-Leste's NOC taking full control, a major operator transition is underway in the Timor Sea. Are you open to discussing senior roles on this project as it reshapes its team?",
+      "email_subject": "Greater Sunrise Operator Transition – Senior Roles Emerging",
+      "email_body": "Hi [Name],\n\nWoodside's exit from the Greater Sunrise project marks a significant shift, with Timor-Leste's national oil company now assuming full operator control of the fields in the jointly managed maritime area.\n\nOperator transitions of this scale typically trigger a broad reassessment of project teams, contractors, and technical resources. We're proactively mapping senior talent with deepwater field development, FPSO, and LNG experience relevant to this project.\n\nGiven your background in [relevant discipline], I'd welcome a brief conversation to explore whether there could be a fit as the new operator builds out its capabilities.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Operator change-of-control on the named Greater Sunrise project, with Woodside exiting and Timor-Leste's NOC taking full control — a qualifying operator-transition event with staffing implications.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Woodside's exit and handover to the national company implies the project has not yet reached FID and will require re-planning under new operator control.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "b340565c-19b0-4492-a814-46a3c1fd21f1",
+    "ingested_at": "2026-10-28T18:17:14.827Z",
+    "source_published_at": "2026-10-28T13:07:26.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/pmet-resources-announces-federal-funding-of-c1-2-million-to-its-100-owned-subsidiary-innova-lithium-for-shaakichiuwaanaan-access-road-302922483.html"
+      }
+    ],
+    "headline": "PMET Resources Secures C$1.2M Federal Grant for Shaakichiuwaanaan Lithium Project Access Road",
+    "body": "MONTREAL, Oct. 28, 2026 /PRNewswire/ -- October 29, 2026 – Sydney, Australia Highlights The Government of Canada, through Natural Resources Canada's (\"NRCan\") First and Last Mile Fund (\"FLMF\"), has approved a contribution of C$1,215,185 for the Shaakichiuwaanaan access road project. The...",
+    "url": "https://www.prnewswire.com/news-releases/pmet-resources-announces-federal-funding-of-c1-2-million-to-its-100-owned-subsidiary-innova-lithium-for-shaakichiuwaanaan-access-road-302922483.html",
+    "published_at": "2026-10-28T17:08:00.000Z",
+    "hash": "a65f6ff77c80ddb1",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction"
+    ],
+    "signal_type": "regulatory",
+    "region": "canada",
+    "country": "canada",
+    "tldr": "Natural Resources Canada has approved C$1.2M for the Shaakichiuwaanaan access road under PMET Resources' Innova Lithium subsidiary. Federal funding approval signals early-stage infrastructure build-out ahead of potential mine development, though active hiring remains distant.",
+    "operator": {
+      "name": "PMET Resources / Innova Lithium",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Shaakichiuwaanaan Access Road",
+    "scope": [
+      "access_road",
+      "civil_works",
+      "mine_infrastructure"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 876000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Civil Construction Superintendent",
+        "Road Construction Project Manager",
+        "Mine Site Civil Engineer",
+        "HSE Advisor",
+        "Construction Planner"
+      ],
+      "skills": [
+        "access road construction",
+        "remote site logistics",
+        "civil earthworks",
+        "mine site infrastructure",
+        "northern Canada operations"
+      ],
+      "certs_freetext": [
+        "First Aid Level 3",
+        "WHMIS",
+        "Ground Disturbance Level 2"
+      ],
+      "geo_rtw": "Canada (Quebec/northern remote)",
+      "project_experience": [
+        "Ring of Fire",
+        "Whabouchi",
+        "James Bay lithium projects"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"access road\" OR \"civil construction\" OR \"mine infrastructure\") AND (\"remote site\" OR \"northern Canada\" OR \"Quebec\") AND (\"construction superintendent\" OR \"project manager\" OR \"civil engineer\") AND (lithium OR mining)"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], PMET Resources just secured C$1.2M federal funding for the Shaakichiuwaanaan access road in Canada. As civil/mine infrastructure work ramps, experienced remote-site construction professionals will be in demand. Worth a conversation?",
+      "email_subject": "Shaakichiuwaanaan Access Road — Civil Construction Opportunity with Innova Lithium",
+      "email_body": "Hi [Name],\n\nPMET Resources' subsidiary Innova Lithium has just received C$1.2M in federal funding from Natural Resources Canada for the Shaakichiuwaanaan access road project — an early but concrete step toward site development.\n\nAs this project progresses toward construction, demand for experienced civil and remote-site infrastructure professionals in northern Canada will grow. Given your background, I wanted to reach out early before roles go live.\n\nWould you be open to a brief call to explore fit?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Federal funding approval for a named mining infrastructure project (Shaakichiuwaanaan access road) under named operator PMET Resources/Innova Lithium constitutes a regulatory/funding event with downstream civil construction labor demand.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article describes a federal funding approval for an access road — early infrastructure enabling works, no FID or EPC contract award mentioned.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "9f8b0a82-e18b-4d90-a461-1b31a632dc5a",
+    "ingested_at": "2026-10-28T18:17:14.827Z",
+    "source_published_at": "2026-10-28T17:08:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
         "url": "https://www.rigzone.com/news/eni_awards_key_contracts_for_cronos_gas_project-28-oct-2026-184949-article/?rss=true"
       }
     ],
