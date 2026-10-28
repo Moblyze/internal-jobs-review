@@ -2,6 +2,122 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/eni_awards_key_contracts_for_cronos_gas_project-28-oct-2026-184949-article/?rss=true"
+      }
+    ],
+    "headline": "Eni Awards EPC & Drilling Contracts for Cronos Gas Project, Cyprus",
+    "body": "Eni SpA said it had signed the main engineering, procurement, construction and drilling contracts for Cyprus' first natural gas development, designed to supp...",
+    "url": "https://www.rigzone.com/news/eni_awards_key_contracts_for_cronos_gas_project-28-oct-2026-184949-article/?rss=true",
+    "published_at": "2026-10-28T10:37:27.000Z",
+    "hash": "5a00db9b35755115",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "drilling_operations",
+      "rov_subsea",
+      "marine_offshore_ops",
+      "pipeline_mechanical"
+    ],
+    "signal_type": "epc_award",
+    "region": "eastern-mediterranean",
+    "country": "cyprus",
+    "tldr": "Eni has signed main EPC and drilling contracts for the Cronos gas project — Cyprus's first gas development — triggering an imminent ramp-up of offshore engineering, construction, and drilling personnel.",
+    "operator": {
+      "name": "Eni SpA",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Cronos Gas Project",
+    "scope": [
+      "epc",
+      "drilling",
+      "subsea_install",
+      "offshore_construction"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Offshore Construction Manager",
+        "Drilling Superintendent",
+        "Project Manager – Offshore",
+        "Subsea Engineer",
+        "FPSO/Platform Installation Engineer",
+        "HSE Manager – Offshore",
+        "Commissioning Engineer",
+        "Procurement Manager",
+        "Contracts Engineer",
+        "Marine Warranty Surveyor"
+      ],
+      "skills": [
+        "offshore gas development",
+        "EPC management",
+        "subsea construction",
+        "drilling operations",
+        "EPCI contracts",
+        "Mediterranean offshore",
+        "project controls",
+        "hook-up and commissioning"
+      ],
+      "certs_freetext": [
+        "BOSIET/HUET",
+        "OPITO offshore survival",
+        "GWO (if wind crossover)",
+        "CSWIP 3.1 (welding inspection)",
+        "IOGP HSE"
+      ],
+      "geo_rtw": "EU/EEA or Cyprus work-eligible",
+      "project_experience": [
+        "ENI Zohr",
+        "Noble Energy Aphrodite",
+        "TotalEnergies Glaucus",
+        "BP Tortue FLNG",
+        "Leviathan Gas Field"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "senior / lead",
+      "boolean_search": "(\"Offshore Construction Manager\" OR \"Drilling Superintendent\" OR \"Subsea Engineer\" OR \"Commissioning Engineer\" OR \"Project Manager\") AND (\"offshore gas\" OR \"EPCI\" OR \"subsea installation\" OR \"EPC\" OR \"offshore drilling\") AND (\"Mediterranean\" OR \"Cyprus\" OR \"Eastern Mediterranean\" OR \"Zohr\" OR \"Leviathan\" OR \"Aphrodite\") AND (\"Eni\" OR \"offshore\" OR \"deepwater\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Eni has just awarded the main EPC & drilling contracts for Cronos — Cyprus's first offshore gas project. Senior offshore/drilling roles are ramping fast. Would you be open to a quick chat about fit?",
+      "email_subject": "Cronos Gas Project (Eni) – Senior Offshore Roles Ramping Now",
+      "email_body": "Hi [Name],\n\nEni has just signed the main engineering, procurement, construction, and drilling contracts for the Cronos Gas Project in Cyprus — the country's first natural gas development.\n\nWith EPC and drilling contracts now in place, we expect a significant ramp-up of offshore construction, subsea, and drilling personnel in the near term.\n\nGiven your background in [offshore construction / drilling / subsea], I wanted to reach out directly to explore whether this could be a strong next move for you.\n\nWould you have 15 minutes this week for a brief call?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "EPC and drilling contract award for a named offshore gas project (Cronos) by a named operator (Eni SpA) in Cyprus, signalling imminent workforce ramp-up.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Article states Eni 'signed the main engineering, procurement, construction and drilling contracts' — indicating post-FID contract execution and the start of detailed engineering/mobilisation.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "d98ba403-2127-4b78-bff3-da63a9b1d682",
+    "ingested_at": "2026-10-28T12:20:43.163Z",
+    "source_published_at": "2026-10-28T10:37:27.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "mining_com",
         "name": "MINING.com",
         "url": "https://www.mining.com/capstone-to-invest-3b-in-chile-to-double-copper-production/"

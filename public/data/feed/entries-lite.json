@@ -1,5 +1,51 @@
 [
   {
+    "id": "d98ba403-2127-4b78-bff3-da63a9b1d682",
+    "ingested_at": "2026-10-28T12:20:43.163Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/eni_awards_key_contracts_for_cronos_gas_project-28-oct-2026-184949-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "drilling_operations",
+      "rov_subsea",
+      "marine_offshore_ops",
+      "pipeline_mechanical"
+    ],
+    "signal_type": "epc_award",
+    "region": "eastern-mediterranean",
+    "country": "cyprus",
+    "headline": "Eni Awards EPC & Drilling Contracts for Cronos Gas Project, Cyprus",
+    "operator": {
+      "name": "Eni SpA",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Cronos Gas Project",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": []
+  },
+  {
     "id": "e7f2560a-a68d-4108-8be1-be03463b654e",
     "ingested_at": "2026-10-28T00:36:30.658Z",
     "sources": [
