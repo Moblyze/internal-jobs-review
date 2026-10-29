@@ -2,6 +2,223 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/westinghouse-to-conduct-key-study-to-prepare-for-ap1000-in-slovakia"
+      }
+    ],
+    "headline": "Westinghouse Awarded FEED Study for AP1000 Reactor at Bohunice NPP, Slovakia",
+    "body": "Westinghouse is to carry out a Front-End Engineering and Design study for the potential deployment of an AP1000 reactor at the Bohunice Nuclear Power Plant in the Slovak Republic.",
+    "url": "https://www.world-nuclear-news.org/articles/westinghouse-to-conduct-key-study-to-prepare-for-ap1000-in-slovakia",
+    "published_at": "2026-10-29T12:08:00.000Z",
+    "hash": "b251650c4e016cf7",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "epc_award",
+    "region": "central-europe",
+    "country": "slovakia",
+    "tldr": "Westinghouse has been contracted to conduct a FEED study for a potential AP1000 reactor deployment at Bohunice Nuclear Power Plant in Slovakia. This pre-FID milestone signals early engineering staffing demand over the next 12+ months.",
+    "operator": {
+      "name": "Bohunice Nuclear Power Plant (Slovak Republic)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Westinghouse",
+      "matched_company_slug": null
+    },
+    "project_name": "AP1000 Bohunice Nuclear Power Plant",
+    "scope": [
+      "feed",
+      "nuclear_reactor_deployment",
+      "ap1000"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear FEED Engineer",
+        "Nuclear Project Manager",
+        "Reactor Systems Engineer",
+        "Nuclear Safety Engineer",
+        "Civil/Structural Engineer – Nuclear",
+        "Process Engineer – Nuclear",
+        "FEED Study Lead",
+        "AP1000 Systems Engineer"
+      ],
+      "skills": [
+        "AP1000",
+        "FEED",
+        "nuclear plant design",
+        "reactor systems",
+        "nuclear safety analysis",
+        "PWR",
+        "civil nuclear",
+        "plant layout",
+        "regulatory compliance"
+      ],
+      "certs_freetext": [
+        "Nuclear Safety qualification",
+        "EUR qualification",
+        "IAEA safety standards familiarity"
+      ],
+      "geo_rtw": "EU/EEA right-to-work eligible; Slovakia or remote FEED office",
+      "project_experience": [
+        "Vogtle Unit 3 & 4",
+        "Hinkley Point C",
+        "Olkiluoto 3",
+        "AP1000 projects globally"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"AP1000\" OR \"PWR\" OR \"nuclear FEED\" OR \"front-end engineering design\" OR \"nuclear plant design\") AND (\"Westinghouse\" OR \"nuclear power\" OR \"reactor systems\" OR \"civil nuclear\") AND (\"FEED\" OR \"pre-FEED\" OR \"nuclear engineering\" OR \"nuclear safety\") AND (\"project manager\" OR \"systems engineer\" OR \"process engineer\" OR \"safety engineer\" OR \"FEED lead\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Westinghouse has just kicked off a FEED study for an AP1000 reactor at Bohunice NPP in Slovakia — early engineering roles are opening up. Your AP1000/nuclear FEED background looks like a strong fit. Open to a quick chat?",
+      "email_subject": "AP1000 FEED Study – Westinghouse / Bohunice NPP Slovakia – Engineering Roles Opening",
+      "email_body": "Hi [Name],\n\nWestinghouse has been awarded the Front-End Engineering and Design (FEED) study for a potential AP1000 reactor deployment at the Bohunice Nuclear Power Plant in Slovakia.\n\nThis pre-FID milestone typically triggers early engineering staffing across reactor systems, nuclear safety, civil/structural, and process disciplines — and we're already mapping talent for the study team.\n\nGiven your background in [AP1000 / nuclear FEED / reactor systems], I'd love to explore whether there's a fit.\n\nAre you open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "FEED award naming Westinghouse as contractor and Bohunice NPP as the project site for a potential AP1000 nuclear reactor deployment in Slovakia — a discrete pre-FID engineering event with staffing implications.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states Westinghouse is to carry out a 'Front-End Engineering and Design study for the potential deployment' — FEED phase, pre-FID, not yet sanctioned.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "39319da7-5124-46c7-b867-366cf4e1a7c6",
+    "ingested_at": "2026-10-29T18:17:36.141Z",
+    "source_published_at": "2026-10-29T12:08:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/khnp-ends-negotiations-with-construction-consortium-czech-units"
+      }
+    ],
+    "headline": "KHNP to Select New Contractor for Dukovany APR1000 Units After Daewoo-Doosan Consortium Collapse",
+    "body": "Korea Hydro & Nuclear Power is to select a new contractor for the construction of two APR1000 reactors at the Czech Republic's Dukovany nuclear power plant following the collapse of contract negotiations with the Daewoo-Doosan consortium.",
+    "url": "https://www.world-nuclear-news.org/articles/khnp-ends-negotiations-with-construction-consortium-czech-units",
+    "published_at": "2026-10-29T16:15:47.000Z",
+    "hash": "eb4333d02f4d5330",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "replacement",
+    "region": "central-europe",
+    "country": "czech_republic",
+    "tldr": "KHNP has terminated negotiations with the Daewoo-Doosan consortium for construction of two APR1000 reactors at Dukovany and will now seek a replacement contractor, opening a significant re-tender opportunity for nuclear construction firms.",
+    "operator": {
+      "name": "Korea Hydro & Nuclear Power (KHNP)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Dukovany Nuclear Power Plant Units 5 & 6 (APR1000)",
+    "scope": [
+      "reactor_construction",
+      "civil_works",
+      "mechanical_installation",
+      "nuclear_epc"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Construction Manager",
+        "Nuclear Project Director",
+        "Reactor Construction Engineer",
+        "Nuclear EPC Bid Manager",
+        "Nuclear Procurement Manager",
+        "Civil Works Superintendent",
+        "Nuclear QA/QC Manager",
+        "Nuclear Commissioning Engineer"
+      ],
+      "skills": [
+        "APR1000",
+        "PWR construction",
+        "nuclear EPC",
+        "reactor installation",
+        "nuclear civil works",
+        "NSSS",
+        "nuclear QA",
+        "contract management"
+      ],
+      "certs_freetext": [
+        "Nuclear Safety Culture certification",
+        "IAEA training",
+        "EN 13480",
+        "ASME Section III"
+      ],
+      "geo_rtw": "EU/EEA work authorisation or Czech Republic eligible",
+      "project_experience": [
+        "Hinkley Point C",
+        "Olkiluoto 3",
+        "Flamanville 3",
+        "Barakah Nuclear Plant",
+        "Vogtle Units 3&4",
+        "Shin Hanul",
+        "APR1400 projects"
+      ],
+      "yoe_band": "12-25",
+      "seniority": "Senior / Principal / Director",
+      "boolean_search": "(\"nuclear construction\" OR \"reactor construction\" OR \"nuclear EPC\" OR \"APR1000\" OR \"APR1400\" OR \"PWR\" OR \"NSSS\") AND (\"construction manager\" OR \"project director\" OR \"project manager\" OR \"commissioning engineer\" OR \"QA manager\" OR \"bid manager\") AND (\"nuclear\" OR \"power plant\") AND (\"Czech Republic\" OR \"Europe\" OR \"EU\" OR \"EEA\" OR \"Slovakia\" OR \"Poland\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], KHNP is re-tendering the construction contractor role for two APR1000 reactors at Dukovany, Czech Republic. With your nuclear EPC background, you could be ideally placed for opportunities emerging from this re-bid. Worth a quick call?",
+      "email_subject": "Dukovany APR1000 Re-Tender — Nuclear Construction Opportunities, Czech Republic",
+      "email_body": "Hi [Name],\n\nKorea Hydro & Nuclear Power (KHNP) has ended contract negotiations with the Daewoo-Doosan consortium for the construction of two APR1000 reactors at Dukovany, Czech Republic, and will now select a new construction contractor.\n\nThis re-tender will drive demand for experienced nuclear EPC and construction professionals — particularly those with APR-series, PWR, or large-scale nuclear construction backgrounds and EU/EEA eligibility.\n\nGiven your experience in [relevant background], I'd love to connect ahead of the contractor announcement to discuss how we might be able to support you or your team in positioning for roles on this project.\n\nWould you have 15 minutes this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Contractor replacement event at a named nuclear project (Dukovany APR1000), naming operator KHNP and outgoing consortium Daewoo-Doosan, triggering a new EPC contractor selection process.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Negotiations with the construction consortium have collapsed and KHNP is yet to select a new contractor, meaning the construction contract has not been awarded and the project is effectively back to pre-sanction for construction purposes.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "f6ec8f2a-a04b-4ee4-9d3b-1c28b97fa7f0",
+    "ingested_at": "2026-10-29T18:17:36.141Z",
+    "source_published_at": "2026-10-29T16:15:47.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "mining_com",
         "name": "MINING.com",
         "url": "https://www.mining.com/xxix-metal-launches-largest-drilling-campaign-in-its-history/"
