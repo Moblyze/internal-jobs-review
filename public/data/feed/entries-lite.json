@@ -1,29 +1,32 @@
 [
   {
-    "id": "b340565c-19b0-4492-a814-46a3c1fd21f1",
-    "ingested_at": "2026-10-28T18:17:14.827Z",
+    "id": "99d0729b-9272-4abd-bf3e-254b8a64ce23",
+    "ingested_at": "2026-10-29T00:36:09.532Z",
     "sources": [
       {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/woodside_exits_planned_greater_sunrise_project-28-oct-2026-184952-article/?rss=true"
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/xxix-metal-launches-largest-drilling-campaign-in-its-history/"
       }
     ],
-    "subsector": "offshore-og",
-    "discipline_tags": [],
-    "signal_type": "replacement",
-    "region": "timor-sea",
-    "country": "timor_leste",
-    "headline": "Woodside Exits Greater Sunrise; Timor-Leste NOC Takes Full Operator Control",
+    "subsector": "mining",
+    "discipline_tags": [
+      "drilling_operations",
+      "survey_geophysical"
+    ],
+    "signal_type": "tender",
+    "region": "canada",
+    "country": "canada",
+    "headline": "XXIX Metals Launches Largest-Ever Drilling Campaign at Opemiska — 20,000m Resource Conversion",
     "operator": {
-      "name": "Timor-Leste National Oil and Gas Company",
+      "name": "XXIX Metals",
       "matched_company_slug": null
     },
     "hiring_entity": {
-      "name": null,
+      "name": "XXIX Metals",
       "matched_company_slug": null
     },
-    "project_name": "Greater Sunrise",
+    "project_name": "Opemiska",
     "mob_window": {
       "start": null,
       "end": null,
@@ -34,8 +37,8 @@
     "construction_subphase": null,
     "lifecycle_track": "greenfield",
     "decom_stage": null,
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
     "key_people": []
   },
   {
@@ -71,6 +74,45 @@
       "duration_months": null
     },
     "contract_value_usd": 876000,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
+    "id": "b340565c-19b0-4492-a814-46a3c1fd21f1",
+    "ingested_at": "2026-10-28T18:17:14.827Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/woodside_exits_planned_greater_sunrise_project-28-oct-2026-184952-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [],
+    "signal_type": "replacement",
+    "region": "timor-sea",
+    "country": "timor_leste",
+    "headline": "Woodside Exits Greater Sunrise; Timor-Leste NOC Takes Full Operator Control",
+    "operator": {
+      "name": "Timor-Leste National Oil and Gas Company",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Greater Sunrise",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
     "phase": "pre_sanction",
     "construction_subphase": null,
     "lifecycle_track": "greenfield",

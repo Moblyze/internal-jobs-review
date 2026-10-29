@@ -2,34 +2,38 @@
   {
     "sources": [
       {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/woodside_exits_planned_greater_sunrise_project-28-oct-2026-184952-article/?rss=true"
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/xxix-metal-launches-largest-drilling-campaign-in-its-history/"
       }
     ],
-    "headline": "Woodside Exits Greater Sunrise; Timor-Leste NOC Takes Full Operator Control",
-    "body": "Timor-Leste's national oil and gas company will take full control of the Greater Sunrise fields in the jointly managed maritime area agreed between the South...",
-    "url": "https://www.rigzone.com/news/woodside_exits_planned_greater_sunrise_project-28-oct-2026-184952-article/?rss=true",
-    "published_at": "2026-10-28T13:07:26.000Z",
-    "hash": "56092c5c115592bb",
-    "subsector": "offshore-og",
-    "discipline_tags": [],
-    "signal_type": "replacement",
-    "region": "timor-sea",
-    "country": "timor_leste",
-    "tldr": "Woodside is withdrawing from the Greater Sunrise project, with Timor-Leste's national oil company assuming full control. This operator change-of-control is a BD signal to monitor as the new operator will need to reassess contractors and staffing.",
+    "headline": "XXIX Metals Launches Largest-Ever Drilling Campaign at Opemiska — 20,000m Resource Conversion",
+    "body": "XXIX Metal says it will drill about 20,000 metres at Opemiska with the goal of converting its resources for the pre-feasibility study.",
+    "url": "https://www.mining.com/xxix-metal-launches-largest-drilling-campaign-in-its-history/",
+    "published_at": "2026-10-28T16:18:00.000Z",
+    "hash": "f0e6c9db0756d56d",
+    "subsector": "mining",
+    "discipline_tags": [
+      "drilling_operations",
+      "survey_geophysical"
+    ],
+    "signal_type": "tender",
+    "region": "canada",
+    "country": "canada",
+    "tldr": "XXIX Metals is drilling ~20,000m at its Opemiska project to convert resources ahead of a pre-feasibility study, signalling near-term demand for drill crews and geotechnical staff.",
     "operator": {
-      "name": "Timor-Leste National Oil and Gas Company",
+      "name": "XXIX Metals",
       "matched_company_slug": null
     },
     "hiring_entity": {
-      "name": null,
+      "name": "XXIX Metals",
       "matched_company_slug": null
     },
-    "project_name": "Greater Sunrise",
+    "project_name": "Opemiska",
     "scope": [
-      "operator_transition",
-      "field_development"
+      "exploration_drilling",
+      "resource_conversion",
+      "pre_feasibility_study"
     ],
     "mob_window": {
       "start": null,
@@ -39,54 +43,61 @@
     "contract_value_usd": null,
     "targeting": {
       "job_titles_freetext": [
-        "Project Director",
-        "Field Development Manager",
-        "Subsea Engineer",
-        "Offshore Project Manager",
-        "Contracts Manager",
-        "FPSO Development Manager"
+        "Diamond Drill Operator",
+        "Drill Helper",
+        "Geological Technician",
+        "Exploration Geologist",
+        "Core Logger",
+        "Drill Site Supervisor",
+        "Senior Geologist",
+        "Resource Geologist"
       ],
       "skills": [
-        "field development planning",
-        "deepwater development",
-        "FPSO",
-        "LNG",
-        "operator transition",
-        "subsea"
+        "diamond drilling",
+        "core logging",
+        "resource estimation",
+        "geological mapping",
+        "exploration drilling",
+        "drill program management",
+        "data collection"
       ],
-      "certs_freetext": [],
-      "geo_rtw": "Timor-Leste, Australia, regional Asia-Pacific",
+      "certs_freetext": [
+        "P.Geo (Ontario / Quebec)",
+        "WHMIS",
+        "First Aid Level C",
+        "Ground Disturbance Certification"
+      ],
+      "geo_rtw": "Canada — Quebec or Ontario RTW required",
       "project_experience": [
-        "Bayu-Undan",
-        "Ichthys",
-        "Prelude FLNG",
-        "Browse",
-        "Sunrise"
+        "Opemiska",
+        "Chapais",
+        "Lac Doré",
+        "Canadian copper exploration projects"
       ],
-      "yoe_band": "10-20",
-      "seniority": "senior-to-principal",
-      "boolean_search": "(\"Greater Sunrise\" OR \"Timor Sea\" OR \"Bayu-Undan\") AND (\"field development\" OR \"FPSO\" OR \"LNG\" OR \"deepwater\") AND (\"project director\" OR \"project manager\" OR \"development manager\" OR \"subsea engineer\" OR \"contracts manager\") AND (\"operator\" OR \"NOC\" OR \"offshore\")"
+      "yoe_band": "3-12",
+      "seniority": "intermediate-to-senior",
+      "boolean_search": "(\"diamond driller\" OR \"drill operator\" OR \"exploration geologist\" OR \"resource geologist\" OR \"core logger\" OR \"geological technician\" OR \"drill supervisor\") AND (\"copper\" OR \"base metals\" OR \"exploration drilling\" OR \"resource conversion\" OR \"pre-feasibility\") AND (\"Quebec\" OR \"Ontario\" OR \"Canada\")"
     },
     "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], with Woodside exiting Greater Sunrise and Timor-Leste's NOC taking full control, a major operator transition is underway in the Timor Sea. Are you open to discussing senior roles on this project as it reshapes its team?",
-      "email_subject": "Greater Sunrise Operator Transition – Senior Roles Emerging",
-      "email_body": "Hi [Name],\n\nWoodside's exit from the Greater Sunrise project marks a significant shift, with Timor-Leste's national oil company now assuming full operator control of the fields in the jointly managed maritime area.\n\nOperator transitions of this scale typically trigger a broad reassessment of project teams, contractors, and technical resources. We're proactively mapping senior talent with deepwater field development, FPSO, and LNG experience relevant to this project.\n\nGiven your background in [relevant discipline], I'd welcome a brief conversation to explore whether there could be a fit as the new operator builds out its capabilities.\n\nBest regards,\n[Your Name]"
+      "linkedin_inmail": "Hi [Name], XXIX Metals has just launched its largest-ever drilling campaign — 20,000m at Opemiska. We're sourcing experienced drill operators, geologists, and core loggers for this resource-conversion program. Worth a quick chat?",
+      "email_subject": "Opemiska Drilling Campaign — 20,000m Program | Roles Available Now",
+      "email_body": "Hi [Name],\n\nXXIX Metals has announced its largest drilling campaign to date at the Opemiska project in Canada — approximately 20,000 metres targeting resource conversion ahead of a pre-feasibility study.\n\nWe are currently sourcing candidates across diamond drilling, geological, and core logging disciplines for this program and believe your background could be a strong fit.\n\nWould you be open to a brief conversation about the opportunity?\n\nBest regards,\n[Your Name]"
     },
     "bd_relevant": true,
-    "bd_relevance_reason": "Operator change-of-control on the named Greater Sunrise project, with Woodside exiting and Timor-Leste's NOC taking full control — a qualifying operator-transition event with staffing implications.",
+    "bd_relevance_reason": "Named operator (XXIX Metals) launching a discrete 20,000m drilling campaign at named project (Opemiska), creating immediate demand for drill crews and geological staff.",
     "phase": "pre_sanction",
-    "phase_evidence": "Woodside's exit and handover to the national company implies the project has not yet reached FID and will require re-planning under new operator control.",
+    "phase_evidence": "Article states drilling is aimed at 'converting resources for the pre-feasibility study', placing the project firmly pre-FID.",
     "construction_subphase": null,
     "lifecycle_track": "greenfield",
     "decom_stage": null,
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
     "key_people": [],
     "enrichment_status": "ok",
     "enrichment_model": "claude-sonnet-4-6",
-    "id": "b340565c-19b0-4492-a814-46a3c1fd21f1",
-    "ingested_at": "2026-10-28T18:17:14.827Z",
-    "source_published_at": "2026-10-28T13:07:26.000Z",
+    "id": "99d0729b-9272-4abd-bf3e-254b8a64ce23",
+    "ingested_at": "2026-10-29T00:36:09.532Z",
+    "source_published_at": "2026-10-28T16:18:00.000Z",
     "contact_archetypes": [
       "project_manager",
       "business_unit_director"
@@ -184,6 +195,100 @@
     "id": "9f8b0a82-e18b-4d90-a461-1b31a632dc5a",
     "ingested_at": "2026-10-28T18:17:14.827Z",
     "source_published_at": "2026-10-28T17:08:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/woodside_exits_planned_greater_sunrise_project-28-oct-2026-184952-article/?rss=true"
+      }
+    ],
+    "headline": "Woodside Exits Greater Sunrise; Timor-Leste NOC Takes Full Operator Control",
+    "body": "Timor-Leste's national oil and gas company will take full control of the Greater Sunrise fields in the jointly managed maritime area agreed between the South...",
+    "url": "https://www.rigzone.com/news/woodside_exits_planned_greater_sunrise_project-28-oct-2026-184952-article/?rss=true",
+    "published_at": "2026-10-28T13:07:26.000Z",
+    "hash": "56092c5c115592bb",
+    "subsector": "offshore-og",
+    "discipline_tags": [],
+    "signal_type": "replacement",
+    "region": "timor-sea",
+    "country": "timor_leste",
+    "tldr": "Woodside is withdrawing from the Greater Sunrise project, with Timor-Leste's national oil company assuming full control. This operator change-of-control is a BD signal to monitor as the new operator will need to reassess contractors and staffing.",
+    "operator": {
+      "name": "Timor-Leste National Oil and Gas Company",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Greater Sunrise",
+    "scope": [
+      "operator_transition",
+      "field_development"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Project Director",
+        "Field Development Manager",
+        "Subsea Engineer",
+        "Offshore Project Manager",
+        "Contracts Manager",
+        "FPSO Development Manager"
+      ],
+      "skills": [
+        "field development planning",
+        "deepwater development",
+        "FPSO",
+        "LNG",
+        "operator transition",
+        "subsea"
+      ],
+      "certs_freetext": [],
+      "geo_rtw": "Timor-Leste, Australia, regional Asia-Pacific",
+      "project_experience": [
+        "Bayu-Undan",
+        "Ichthys",
+        "Prelude FLNG",
+        "Browse",
+        "Sunrise"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "senior-to-principal",
+      "boolean_search": "(\"Greater Sunrise\" OR \"Timor Sea\" OR \"Bayu-Undan\") AND (\"field development\" OR \"FPSO\" OR \"LNG\" OR \"deepwater\") AND (\"project director\" OR \"project manager\" OR \"development manager\" OR \"subsea engineer\" OR \"contracts manager\") AND (\"operator\" OR \"NOC\" OR \"offshore\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], with Woodside exiting Greater Sunrise and Timor-Leste's NOC taking full control, a major operator transition is underway in the Timor Sea. Are you open to discussing senior roles on this project as it reshapes its team?",
+      "email_subject": "Greater Sunrise Operator Transition – Senior Roles Emerging",
+      "email_body": "Hi [Name],\n\nWoodside's exit from the Greater Sunrise project marks a significant shift, with Timor-Leste's national oil company now assuming full operator control of the fields in the jointly managed maritime area.\n\nOperator transitions of this scale typically trigger a broad reassessment of project teams, contractors, and technical resources. We're proactively mapping senior talent with deepwater field development, FPSO, and LNG experience relevant to this project.\n\nGiven your background in [relevant discipline], I'd welcome a brief conversation to explore whether there could be a fit as the new operator builds out its capabilities.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Operator change-of-control on the named Greater Sunrise project, with Woodside exiting and Timor-Leste's NOC taking full control — a qualifying operator-transition event with staffing implications.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Woodside's exit and handover to the national company implies the project has not yet reached FID and will require re-planning under new operator control.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "b340565c-19b0-4492-a814-46a3c1fd21f1",
+    "ingested_at": "2026-10-28T18:17:14.827Z",
+    "source_published_at": "2026-10-28T13:07:26.000Z",
     "contact_archetypes": [
       "project_manager",
       "business_unit_director"
