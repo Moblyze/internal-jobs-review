@@ -1,5 +1,47 @@
 [
   {
+    "id": "5b443c48-019f-47a7-a8fb-9af0eab15036",
+    "ingested_at": "2026-10-30T18:14:25.203Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/doosan-to-manufacture-upper-reactor-vessel-for-nuscale-smr"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "south-korea",
+    "country": "south_korea",
+    "headline": "Doosan Enerbility Wins NuScale SMR Upper Reactor Coolant System Manufacturing Contract",
+    "operator": {
+      "name": "NuScale Power",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Doosan Enerbility",
+      "matched_company_slug": null
+    },
+    "project_name": "NuScale Power Module",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": []
+  },
+  {
     "id": "39319da7-5124-46c7-b867-366cf4e1a7c6",
     "ingested_at": "2026-10-29T18:17:36.141Z",
     "sources": [

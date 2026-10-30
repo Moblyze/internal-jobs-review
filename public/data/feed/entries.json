@@ -4,6 +4,115 @@
       {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/doosan-to-manufacture-upper-reactor-vessel-for-nuscale-smr"
+      }
+    ],
+    "headline": "Doosan Enerbility Wins NuScale SMR Upper Reactor Coolant System Manufacturing Contract",
+    "body": "US small modular reactor developer NuScale Power has signed a contract with South Korea's Doosan Enerbility to manufacture an upper reactor coolant system for the NuScale Power Module.",
+    "url": "https://www.world-nuclear-news.org/articles/doosan-to-manufacture-upper-reactor-vessel-for-nuscale-smr",
+    "published_at": "2026-10-30T10:16:02.000Z",
+    "hash": "6d8752785f5d5a8f",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "south-korea",
+    "country": "south_korea",
+    "tldr": "NuScale Power has contracted Doosan Enerbility to manufacture an upper reactor coolant system for the NuScale Power Module, signaling active supply-chain and fabrication work ramping for the SMR program. Hiring demand for nuclear fabrication, QA/QC, and pressure-vessel specialists likely near-term.",
+    "operator": {
+      "name": "NuScale Power",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Doosan Enerbility",
+      "matched_company_slug": null
+    },
+    "project_name": "NuScale Power Module",
+    "scope": [
+      "reactor_vessel_fabrication",
+      "nuclear_components_manufacturing",
+      "upper_reactor_coolant_system"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Fabrication Engineer",
+        "Pressure Vessel Engineer",
+        "Nuclear QA/QC Inspector",
+        "Reactor Systems Engineer",
+        "Nuclear Manufacturing Engineer",
+        "Welding Engineer (Nuclear)",
+        "NDT Inspector (Nuclear)",
+        "Mechanical Engineer (SMR)"
+      ],
+      "skills": [
+        "pressure vessel fabrication",
+        "nuclear quality assurance",
+        "ASME Section III",
+        "reactor coolant systems",
+        "nuclear manufacturing",
+        "welding inspection",
+        "small modular reactor",
+        "NuScale Power Module"
+      ],
+      "certs_freetext": [
+        "ASME Section III NCA-3800",
+        "AWS CWI",
+        "CSWIP",
+        "Level II/III NDT (ASNT SNT-TC-1A)",
+        "Nuclear Quality Assurance (NQA-1)"
+      ],
+      "geo_rtw": "South Korea (Doosan Enerbility facility) or US-eligible nuclear personnel",
+      "project_experience": [
+        "APR-1400",
+        "APR1000",
+        "SMART reactor",
+        "Westinghouse AP1000",
+        "GE BWRX-300"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"nuclear fabrication\" OR \"pressure vessel\" OR \"reactor coolant\" OR \"SMR\" OR \"small modular reactor\") AND (\"ASME Section III\" OR \"NQA-1\" OR \"nuclear QA\" OR \"nuclear manufacturing\") AND (\"Doosan\" OR \"NuScale\" OR \"APR-1400\" OR \"AP1000\" OR \"BWRX-300\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Doosan Enerbility just landed a nuclear manufacturing contract with NuScale Power for the SMR upper reactor coolant system. Are you open to hearing about opportunities in nuclear fabrication/QA on this program?",
+      "email_subject": "Nuclear Fabrication Roles — Doosan Enerbility / NuScale SMR Contract",
+      "email_body": "Hi [Name],\n\nDoosan Enerbility has been awarded a contract by NuScale Power to manufacture the upper reactor coolant system for the NuScale Power Module — one of the most advanced SMR programs currently in active production.\n\nGiven your background in nuclear fabrication / pressure vessel engineering / nuclear QA, I wanted to reach out to see if you'd be open to a conversation about potential roles supporting this program.\n\nWould you have 15 minutes this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "EPC/manufacturing contract award naming NuScale Power (operator/developer) and Doosan Enerbility (hiring/manufacturing entity) for a specific nuclear component — upper reactor coolant system for the NuScale Power Module — creating discrete fabrication and nuclear QA labor demand.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Article states NuScale has 'signed a contract with Doosan Enerbility to manufacture' the component, indicating active engineering and production work is underway post-design sanction.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "5b443c48-019f-47a7-a8fb-9af0eab15036",
+    "ingested_at": "2026-10-30T18:14:25.203Z",
+    "source_published_at": "2026-10-30T10:16:02.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org/articles/westinghouse-to-conduct-key-study-to-prepare-for-ap1000-in-slovakia"
       }
     ],
