@@ -1,5 +1,48 @@
 [
   {
+    "id": "a1c8010a-cf10-4311-add3-7211263f4c89",
+    "ingested_at": "2026-11-01T12:15:40.808Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/totalenergies_farms_out_nigerian_exploration_block-01-nov-2026-184982-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "survey_geophysical",
+      "marine_offshore_ops"
+    ],
+    "signal_type": "lease_round",
+    "region": "west-africa",
+    "country": "nigeria",
+    "headline": "TotalEnergies Farms Out 40% in OPL257 Offshore Nigeria to South Atlantic Petroleum",
+    "operator": {
+      "name": "TotalEnergies SE",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "South Atlantic Petroleum Ltd",
+      "matched_company_slug": null
+    },
+    "project_name": "OPL257",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "5b443c48-019f-47a7-a8fb-9af0eab15036",
     "ingested_at": "2026-10-30T18:14:25.203Z",
     "sources": [

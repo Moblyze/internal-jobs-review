@@ -2,6 +2,110 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/totalenergies_farms_out_nigerian_exploration_block-01-nov-2026-184982-article/?rss=true"
+      }
+    ],
+    "headline": "TotalEnergies Farms Out 40% in OPL257 Offshore Nigeria to South Atlantic Petroleum",
+    "body": "TotalEnergies SE said Friday it had signed an agreement to sell 40 percent in the OPL257 block offshore Nigeria to local player South Atlantic Petroleum Ltd ...",
+    "url": "https://www.rigzone.com/news/totalenergies_farms_out_nigerian_exploration_block-01-nov-2026-184982-article/?rss=true",
+    "published_at": "2026-11-01T11:00:00.000Z",
+    "hash": "e0c8e7ee553a3695",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "survey_geophysical",
+      "marine_offshore_ops"
+    ],
+    "signal_type": "lease_round",
+    "region": "west-africa",
+    "country": "nigeria",
+    "tldr": "TotalEnergies has signed a farm-out agreement selling 40% of OPL257 offshore Nigeria to South Atlantic Petroleum Ltd, signalling upcoming exploration activity on the block and potential early-phase staffing demand.",
+    "operator": {
+      "name": "TotalEnergies SE",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "South Atlantic Petroleum Ltd",
+      "matched_company_slug": null
+    },
+    "project_name": "OPL257",
+    "scope": [
+      "exploration",
+      "farm_out",
+      "block_equity_transfer"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Exploration Geologist",
+        "Geophysicist",
+        "Exploration Manager",
+        "Subsurface Team Lead",
+        "Well Planning Engineer",
+        "Business Development Manager – Upstream"
+      ],
+      "skills": [
+        "deepwater exploration",
+        "seismic interpretation",
+        "prospect evaluation",
+        "basin analysis",
+        "well planning",
+        "Nigeria upstream",
+        "OPL block operations"
+      ],
+      "certs_freetext": [
+        "IWCF",
+        "BOSIET/HUET",
+        "OPITO"
+      ],
+      "geo_rtw": "Nigeria or West Africa; local DPR experience advantageous",
+      "project_experience": [
+        "OPL245",
+        "OML130",
+        "Egina",
+        "Bonga",
+        "Nigeria deepwater"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal",
+      "boolean_search": "(\"exploration geologist\" OR \"geophysicist\" OR \"subsurface manager\" OR \"well planning engineer\" OR \"exploration manager\") AND (\"Nigeria\" OR \"West Africa\" OR \"deepwater\" OR \"OPL\" OR \"OML\") AND (\"TotalEnergies\" OR \"SAPETRO\" OR \"South Atlantic Petroleum\" OR \"offshore exploration\") AND (\"seismic interpretation\" OR \"prospect evaluation\" OR \"basin analysis\" OR \"well engineering\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], TotalEnergies has farmed out 40% of OPL257 offshore Nigeria to South Atlantic Petroleum — early exploration staffing will follow. Given your Nigeria deepwater background, I'd love to connect. Worth a quick chat?",
+      "email_subject": "OPL257 Nigeria Farm-Out — Exploration Roles Incoming",
+      "email_body": "Hi [Name],\n\nTotalEnergies has just signed a farm-out of 40% in OPL257 offshore Nigeria to South Atlantic Petroleum Ltd. As the block enters active exploration planning, we anticipate early hiring across subsurface, well planning, and exploration management disciplines.\n\nGiven your experience in Nigerian/West African deepwater exploration, I wanted to reach out before roles are formally posted. Would you be open to a brief call this week to discuss how your background aligns?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Farm-out of a named exploration block (OPL257) offshore Nigeria, naming operator TotalEnergies and incoming equity partner South Atlantic Petroleum, constitutes a block/license assignment event with clear upstream labor-demand implications.",
+    "phase": "pre_sanction",
+    "phase_evidence": "The article describes a farm-out agreement on an exploration block (OPL257), indicating pre-FID/exploration phase with no sanction or development plan announced.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "a1c8010a-cf10-4311-add3-7211263f4c89",
+    "ingested_at": "2026-11-01T12:15:40.808Z",
+    "source_published_at": "2026-11-01T11:00:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org/articles/doosan-to-manufacture-upper-reactor-vessel-for-nuscale-smr"
