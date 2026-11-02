@@ -4,6 +4,218 @@
       {
         "id": "rigzone",
         "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/eni_starts_production_at_maha_gas_field_offshore_indonesia-02-nov-2026-184987-article/?rss=true"
+      }
+    ],
+    "headline": "Eni & Petronas Begin Production at Maha Gas Field Tieback, Kutei Basin Indonesia",
+    "body": "Eni SpA and Petroliam Nasional Bhd (Petronas) have begun production at the Maha field in Indonesia's Kutei Basin, a tieback project that grows the capacity o...",
+    "url": "https://www.rigzone.com/news/eni_starts_production_at_maha_gas_field_offshore_indonesia-02-nov-2026-184987-article/?rss=true",
+    "published_at": "2026-11-02T12:09:54.000Z",
+    "hash": "0f6a51c11c8d4be4",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "process_plant_operations",
+      "marine_offshore_ops",
+      "rov_subsea"
+    ],
+    "signal_type": "regulatory",
+    "region": "southeast-asia",
+    "country": "indonesia",
+    "tldr": "Eni and Petronas have brought the Maha gas field online as a tieback in Indonesia's Kutei Basin. Project is now in operating phase; ongoing maintenance and operations staffing applies.",
+    "operator": {
+      "name": "Eni SpA",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Eni SpA",
+      "matched_company_slug": null
+    },
+    "project_name": "Maha Gas Field",
+    "scope": [
+      "tieback",
+      "gas_production",
+      "subsea_tieback"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Production Operator",
+        "Process Technician",
+        "Subsea Engineer",
+        "Operations Superintendent",
+        "Offshore Installation Manager",
+        "Maintenance Technician"
+      ],
+      "skills": [
+        "gas production operations",
+        "subsea tieback",
+        "offshore maintenance",
+        "process operations",
+        "topsides operations"
+      ],
+      "certs_freetext": [
+        "BOSIET",
+        "HUET",
+        "OPITO Offshore Safety"
+      ],
+      "geo_rtw": "Indonesia / Southeast Asia",
+      "project_experience": [
+        "Jangkrik",
+        "Merakes",
+        "Kutei Basin",
+        "Bontang LNG"
+      ],
+      "yoe_band": "5-15",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"Production Operator\" OR \"Process Technician\" OR \"Offshore Installation Manager\" OR \"Subsea Engineer\" OR \"Maintenance Technician\") AND (\"gas production\" OR \"subsea tieback\" OR \"offshore operations\") AND (\"Indonesia\" OR \"Kutei Basin\" OR \"Southeast Asia\") AND (Eni OR Petronas OR \"offshore O&G\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Eni & Petronas have just started production at the Maha gas field in Indonesia's Kutei Basin. Ongoing ops & maintenance roles are opening up — your offshore O&G background looks like a strong fit. Worth a quick chat?",
+      "email_subject": "Maha Gas Field (Eni/Petronas) — Operations & Maintenance Roles, Indonesia",
+      "email_body": "Hi [Name],\n\nEni and Petronas have commenced production at the Maha gas field in Indonesia's Kutei Basin, adding capacity to their existing Kutei operations via a tieback development.\n\nWith the field now online, ongoing operations and maintenance staffing is the immediate need — roles such as Production Operators, Process Technicians, Subsea Engineers, and Maintenance Technicians are typically required at this stage.\n\nGiven your background in offshore O&G operations, I'd love to connect and discuss whether there's a fit here.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operators Eni and Petronas have commenced production at the named Maha Gas Field offshore Indonesia, signalling an operating-phase staffing demand event.",
+    "phase": "operating",
+    "phase_evidence": "Article states Eni and Petronas 'have begun production at the Maha field', confirming operational status.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "ongoing",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "b26e8d2d-f30b-4fd4-9d2f-832ea1dd337c",
+    "ingested_at": "2026-11-02T12:19:04.760Z",
+    "source_published_at": "2026-11-02T12:09:54.000Z",
+    "contact_archetypes": [
+      "ops_director",
+      "hiring_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/hornbeck-offshore-enters-into-multiple-deepwater-services-agreements-302925980.html"
+      }
+    ],
+    "headline": "Hornbeck Offshore Signs Multiple Deepwater Services Agreements with Shell Offshore",
+    "body": "HOUSTON and COVINGTON, La., Nov. 2, 2026 /PRNewswire/ -- Hornbeck Offshore Services, Inc. (\"Hornbeck\") (NYSE: HOS), a premier integrated offshore services company, today announced that it has entered into multiple agreements with Shell Offshore Inc. (\"Shell\") to provide services in the...",
+    "url": "https://www.prnewswire.com/news-releases/hornbeck-offshore-enters-into-multiple-deepwater-services-agreements-302925980.html",
+    "published_at": "2026-11-02T12:00:00.000Z",
+    "hash": "3f7b7872032041a1",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "marine_offshore_ops",
+      "rov_subsea"
+    ],
+    "signal_type": "epc_award",
+    "region": "us-gulf",
+    "country": "united_states",
+    "tldr": "Hornbeck Offshore Services has entered into multiple deepwater services agreements with Shell Offshore Inc., signaling near-term vessel mobilization and crew demand in the US Gulf. Recruiters should target marine and offshore operations talent now.",
+    "operator": {
+      "name": "Shell Offshore Inc.",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Hornbeck Offshore Services, Inc.",
+      "matched_company_slug": null
+    },
+    "project_name": null,
+    "scope": [
+      "deepwater_marine_services",
+      "vessel_operations"
+    ],
+    "mob_window": {
+      "start": "2026-Q4",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Dynamic Positioning Operator",
+        "Master Mariner",
+        "Chief Officer",
+        "Marine Superintendent",
+        "Offshore Installation Manager",
+        "Vessel Operations Manager",
+        "Deck Officer",
+        "Chief Engineer",
+        "ROV Supervisor",
+        "Marine Logistics Coordinator"
+      ],
+      "skills": [
+        "dynamic positioning",
+        "deepwater operations",
+        "OSV operations",
+        "marine logistics",
+        "vessel management",
+        "offshore support vessel",
+        "crew coordination",
+        "Gulf of Mexico operations"
+      ],
+      "certs_freetext": [
+        "STCW",
+        "Master 3000GT",
+        "DP Unlimited (IMCA)",
+        "BOSIET",
+        "HUET",
+        "GMDSS",
+        "OPITO Offshore Safety"
+      ],
+      "geo_rtw": "US Gulf of Mexico — must hold USCG credentials and US work authorization",
+      "project_experience": [
+        "Gulf of Mexico deepwater",
+        "Shell Offshore operations",
+        "OSV / PSV campaigns",
+        "MPSV deepwater support"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"dynamic positioning\" OR \"DP operator\" OR \"offshore support vessel\" OR \"OSV\" OR \"MPSV\" OR \"master mariner\" OR \"chief officer\" OR \"marine superintendent\") AND (\"deepwater\" OR \"Gulf of Mexico\" OR \"subsea support\") AND (\"STCW\" OR \"USCG\" OR \"DP unlimited\" OR \"IMCA DP\") NOT (\"sales\" OR \"onshore only\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Hornbeck Offshore just signed multiple deepwater services agreements with Shell in the US Gulf — vessel ops roles are spinning up now. Your background in [DP/marine ops] looks like a strong fit. Open to a quick chat?",
+      "email_subject": "Hornbeck Offshore / Shell Gulf Deepwater — Marine & Vessel Ops Roles Ramping Now",
+      "email_body": "Hi [Name],\n\nHornbeck Offshore Services has just announced multiple deepwater services agreements with Shell Offshore Inc. in the US Gulf of Mexico, triggering near-term demand for experienced marine and vessel operations professionals.\n\nGiven your background in [dynamic positioning / OSV operations / marine logistics], I wanted to reach out directly — these campaigns typically move quickly from contract award to crew mobilization.\n\nWould you be open to a 15-minute call this week to discuss what's coming up?\n\nBest regards,\n[Recruiter Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named contractor (Hornbeck Offshore) and operator (Shell Offshore) have entered multiple deepwater services agreements, constituting a discrete contract award with direct vessel mobilization and crewing implications in the US Gulf.",
+    "phase": "construction",
+    "phase_evidence": "Multiple agreements have been entered into and announced as of November 2026, indicating active service delivery is commencing imminently.",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "2236a2f3-3e97-497e-9e8a-a163a77d29b0",
+    "ingested_at": "2026-11-02T12:19:04.760Z",
+    "source_published_at": "2026-11-02T12:00:00.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
         "url": "https://www.rigzone.com/news/totalenergies_farms_out_nigerian_exploration_block-01-nov-2026-184982-article/?rss=true"
       }
     ],

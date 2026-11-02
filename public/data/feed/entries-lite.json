@@ -1,5 +1,90 @@
 [
   {
+    "id": "b26e8d2d-f30b-4fd4-9d2f-832ea1dd337c",
+    "ingested_at": "2026-11-02T12:19:04.760Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/eni_starts_production_at_maha_gas_field_offshore_indonesia-02-nov-2026-184987-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "process_plant_operations",
+      "marine_offshore_ops",
+      "rov_subsea"
+    ],
+    "signal_type": "regulatory",
+    "region": "southeast-asia",
+    "country": "indonesia",
+    "headline": "Eni & Petronas Begin Production at Maha Gas Field Tieback, Kutei Basin Indonesia",
+    "operator": {
+      "name": "Eni SpA",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Eni SpA",
+      "matched_company_slug": null
+    },
+    "project_name": "Maha Gas Field",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "operating",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "ongoing",
+    "key_people": []
+  },
+  {
+    "id": "2236a2f3-3e97-497e-9e8a-a163a77d29b0",
+    "ingested_at": "2026-11-02T12:19:04.760Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/hornbeck-offshore-enters-into-multiple-deepwater-services-agreements-302925980.html"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "marine_offshore_ops",
+      "rov_subsea"
+    ],
+    "signal_type": "epc_award",
+    "region": "us-gulf",
+    "country": "united_states",
+    "headline": "Hornbeck Offshore Signs Multiple Deepwater Services Agreements with Shell Offshore",
+    "operator": {
+      "name": "Shell Offshore Inc.",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Hornbeck Offshore Services, Inc.",
+      "matched_company_slug": null
+    },
+    "project_name": null,
+    "mob_window": {
+      "start": "2026-Q4",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": []
+  },
+  {
     "id": "a1c8010a-cf10-4311-add3-7211263f4c89",
     "ingested_at": "2026-11-01T12:15:40.808Z",
     "sources": [
