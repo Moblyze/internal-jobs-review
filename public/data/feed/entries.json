@@ -2,39 +2,38 @@
   {
     "sources": [
       {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/eni_starts_production_at_maha_gas_field_offshore_indonesia-02-nov-2026-184987-article/?rss=true"
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/pej-applies-for-early-works-permit-for-nuclear-power-plant"
       }
     ],
-    "headline": "Eni & Petronas Begin Production at Maha Gas Field Tieback, Kutei Basin Indonesia",
-    "body": "Eni SpA and Petroliam Nasional Bhd (Petronas) have begun production at the Maha field in Indonesia's Kutei Basin, a tieback project that grows the capacity o...",
-    "url": "https://www.rigzone.com/news/eni_starts_production_at_maha_gas_field_offshore_indonesia-02-nov-2026-184987-article/?rss=true",
-    "published_at": "2026-11-02T12:09:54.000Z",
-    "hash": "0f6a51c11c8d4be4",
-    "subsector": "offshore-og",
+    "headline": "Polskie Elektrownie Jądrowe Applies for Early Works Permit at Lubiatowo-Kopalino Nuclear Site",
+    "body": "Polskie Elektrownie Jądrowe has applied to the head of the Pomeranian Voivodeship for a permit to start early works required for the construction of Poland's first nuclear power plant at the Lubiatowo-Kopalino site in the Choczewo municipality.",
+    "url": "https://www.world-nuclear-news.org/articles/pej-applies-for-early-works-permit-for-nuclear-power-plant",
+    "published_at": "2026-11-02T15:37:01.000Z",
+    "hash": "e374ccc99da195ee",
+    "subsector": "nuclear",
     "discipline_tags": [
-      "process_plant_operations",
-      "marine_offshore_ops",
-      "rov_subsea"
+      "industrial_construction",
+      "energy_trades"
     ],
     "signal_type": "regulatory",
-    "region": "southeast-asia",
-    "country": "indonesia",
-    "tldr": "Eni and Petronas have brought the Maha gas field online as a tieback in Indonesia's Kutei Basin. Project is now in operating phase; ongoing maintenance and operations staffing applies.",
+    "region": "poland",
+    "country": "poland",
+    "tldr": "PEJ has filed for an early works construction permit at Poland's first nuclear plant site (Lubiatowo-Kopalino), signalling pre-construction mobilisation is approaching. Hiring for civil/early-works disciplines is likely 12+ months out pending permit approval.",
     "operator": {
-      "name": "Eni SpA",
+      "name": "Polskie Elektrownie Jądrowe",
       "matched_company_slug": null
     },
     "hiring_entity": {
-      "name": "Eni SpA",
+      "name": "Polskie Elektrownie Jądrowe",
       "matched_company_slug": null
     },
-    "project_name": "Maha Gas Field",
+    "project_name": "Lubiatowo-Kopalino Nuclear Power Plant",
     "scope": [
-      "tieback",
-      "gas_production",
-      "subsea_tieback"
+      "early_works",
+      "site_preparation",
+      "civil_works"
     ],
     "mob_window": {
       "start": null,
@@ -44,59 +43,170 @@
     "contract_value_usd": null,
     "targeting": {
       "job_titles_freetext": [
-        "Production Operator",
-        "Process Technician",
-        "Subsea Engineer",
-        "Operations Superintendent",
-        "Offshore Installation Manager",
-        "Maintenance Technician"
+        "Early Works Construction Manager",
+        "Civil Engineering Lead",
+        "Nuclear Construction Planner",
+        "HSE Manager – Nuclear",
+        "Site Preparation Manager",
+        "Permitting & Regulatory Affairs Manager"
       ],
       "skills": [
-        "gas production operations",
-        "subsea tieback",
-        "offshore maintenance",
-        "process operations",
-        "topsides operations"
+        "nuclear construction",
+        "early works",
+        "civil site preparation",
+        "regulatory permitting",
+        "construction planning",
+        "HSE management",
+        "stakeholder engagement"
       ],
       "certs_freetext": [
-        "BOSIET",
-        "HUET",
-        "OPITO Offshore Safety"
+        "IAEA nuclear safety training",
+        "CSCS",
+        "NEBOSH"
       ],
-      "geo_rtw": "Indonesia / Southeast Asia",
+      "geo_rtw": "Poland / EU right-to-work",
       "project_experience": [
-        "Jangkrik",
-        "Merakes",
-        "Kutei Basin",
-        "Bontang LNG"
+        "Hinkley Point C",
+        "Olkiluoto 3",
+        "Flamanville 3",
+        "Vogtle Units 3 & 4"
       ],
-      "yoe_band": "5-15",
-      "seniority": "mid-to-senior",
-      "boolean_search": "(\"Production Operator\" OR \"Process Technician\" OR \"Offshore Installation Manager\" OR \"Subsea Engineer\" OR \"Maintenance Technician\") AND (\"gas production\" OR \"subsea tieback\" OR \"offshore operations\") AND (\"Indonesia\" OR \"Kutei Basin\" OR \"Southeast Asia\") AND (Eni OR Petronas OR \"offshore O&G\")"
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal",
+      "boolean_search": "(\"nuclear power plant\" OR \"nuclear construction\" OR \"early works\") AND (\"construction manager\" OR \"civil engineering\" OR \"site preparation\" OR \"HSE manager\" OR \"permitting\") AND (\"nuclear\" OR \"NPP\") AND (Poland OR \"Eastern Europe\" OR EU)"
     },
     "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Eni & Petronas have just started production at the Maha gas field in Indonesia's Kutei Basin. Ongoing ops & maintenance roles are opening up — your offshore O&G background looks like a strong fit. Worth a quick chat?",
-      "email_subject": "Maha Gas Field (Eni/Petronas) — Operations & Maintenance Roles, Indonesia",
-      "email_body": "Hi [Name],\n\nEni and Petronas have commenced production at the Maha gas field in Indonesia's Kutei Basin, adding capacity to their existing Kutei operations via a tieback development.\n\nWith the field now online, ongoing operations and maintenance staffing is the immediate need — roles such as Production Operators, Process Technicians, Subsea Engineers, and Maintenance Technicians are typically required at this stage.\n\nGiven your background in offshore O&G operations, I'd love to connect and discuss whether there's a fit here.\n\nBest regards,\n[Your Name]"
+      "linkedin_inmail": "Hi [Name], Polskie Elektrownie Jądrowe has just filed for an early works permit at Poland's first nuclear plant (Lubiatowo-Kopalino). Pre-construction roles are coming — would love to explore your interest. Open to a quick chat?",
+      "email_subject": "Poland's First Nuclear Plant – Early Works Phase Approaching | Lubiatowo-Kopalino",
+      "email_body": "Hi [Name],\n\nPolskie Elektrownie Jądrowe (PEJ) has formally applied for an early works permit at the Lubiatowo-Kopalino site in Choczewo — the future home of Poland's first nuclear power plant.\n\nThis permit application signals that pre-construction mobilisation is on the horizon, and roles in civil works, site preparation, HSE, and construction planning are likely to emerge over the next 12+ months.\n\nGiven your background in [nuclear/large-scale construction], I'd love to connect you with this opportunity early — before the market heats up.\n\nAre you open to a brief call this week?\n\nBest regards,\n[Your Name]"
     },
     "bd_relevant": true,
-    "bd_relevance_reason": "Named operators Eni and Petronas have commenced production at the named Maha Gas Field offshore Indonesia, signalling an operating-phase staffing demand event.",
-    "phase": "operating",
-    "phase_evidence": "Article states Eni and Petronas 'have begun production at the Maha field', confirming operational status.",
+    "bd_relevance_reason": "Permit application for early works at a named nuclear project (Lubiatowo-Kopalino) by named operator PEJ signals pre-construction workforce demand is approaching.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states PEJ 'applied for a permit to start early works required for the construction' — permit not yet granted, project not yet sanctioned for full construction.",
     "construction_subphase": null,
     "lifecycle_track": "greenfield",
     "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "ongoing",
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
     "key_people": [],
     "enrichment_status": "ok",
     "enrichment_model": "claude-sonnet-4-6",
-    "id": "b26e8d2d-f30b-4fd4-9d2f-832ea1dd337c",
-    "ingested_at": "2026-11-02T12:19:04.760Z",
-    "source_published_at": "2026-11-02T12:09:54.000Z",
+    "id": "e3f9d785-1271-4402-a848-449190d733ba",
+    "ingested_at": "2026-11-02T18:15:13.314Z",
+    "source_published_at": "2026-11-02T15:37:01.000Z",
     "contact_archetypes": [
-      "ops_director",
-      "hiring_manager"
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/friedland-takes-aim-at-chinas-scandium-grip-with-us-backed-mine/"
+      }
+    ],
+    "headline": "Sunrise Energy Metals Eyes 2028 Scandium Output at Australian Mine with US Financing Backing",
+    "body": "Sunrise Energy Metals targets 2028 output at its Australian project, backed by conditional US financing and a 32-year operating plan.",
+    "url": "https://www.mining.com/friedland-takes-aim-at-chinas-scandium-grip-with-us-backed-mine/",
+    "published_at": "2026-11-02T12:01:00.000Z",
+    "hash": "ad3741d5b1d786e8",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "fid",
+    "region": "australia",
+    "country": "australia",
+    "tldr": "Sunrise Energy Metals, backed by conditional US financing, targets 2028 first output at its Australian scandium project under a 32-year operating plan. Construction and ramp-up hiring will follow as financing is finalized.",
+    "operator": {
+      "name": "Sunrise Energy Metals",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Sunrise Energy Metals",
+      "matched_company_slug": null
+    },
+    "project_name": "Sunrise Scandium Project",
+    "scope": [
+      "mine_development",
+      "process_plant",
+      "site_construction"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": "2028-Q1",
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mine Construction Manager",
+        "Project Director",
+        "Process Plant Superintendent",
+        "HSE Manager",
+        "EPCM Project Manager",
+        "Mining Engineer",
+        "Commissioning Manager"
+      ],
+      "skills": [
+        "mine development",
+        "hydromet processing",
+        "EPCM",
+        "project controls",
+        "mine ramp-up",
+        "scandium",
+        "nickel cobalt processing"
+      ],
+      "certs_freetext": [
+        "RPEQ",
+        "AusIMM CPMin",
+        "ICAM"
+      ],
+      "geo_rtw": "Australia — must hold AU work rights",
+      "project_experience": [
+        "Sunrise Nickel-Cobalt-Scandium Project",
+        "Queensland hydromet projects",
+        "Australian greenfield mine builds"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal / Project Leadership",
+      "boolean_search": "(\"mine construction\" OR \"mine development\" OR \"EPCM\" OR \"process plant\") AND (\"project manager\" OR \"project director\" OR \"construction manager\" OR \"commissioning manager\") AND (\"greenfield\" OR \"hydromet\" OR \"scandium\" OR \"nickel cobalt\") AND (\"Australia\" OR \"Queensland\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Sunrise Energy Metals is advancing its Australian scandium project toward 2028 first output with US-backed financing. As construction ramps, senior mine/plant leadership roles will open. Worth a conversation?",
+      "email_subject": "Sunrise Scandium Mine – Senior Construction & Plant Leadership Roles | 2028 Ramp-Up",
+      "email_body": "Hi [Name],\n\nSunrise Energy Metals is progressing its Australian scandium project toward 2028 production under a 32-year operating plan, supported by conditional US financing.\n\nAs the project moves toward construction sanction, demand for experienced Mine Construction Managers, Process Plant Superintendents, EPCM Project Managers, and Commissioning Leaders will grow.\n\nGiven your background in [relevant area], I'd like to explore whether this aligns with your next move.\n\nAre you open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Sunrise Energy Metals / Friedland) with a named mining project targeting 2028 output backed by conditional US financing — discrete workforce-demand signal in mining sector.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article describes conditional US financing and a 2028 output target, indicating the project is pre-FID with financing not yet fully secured.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [
+      {
+        "name": "Friedland",
+        "title": "Promoter / Backer (Robert Friedland implied)",
+        "company": "Sunrise Energy Metals",
+        "hiring_relevance": "context_only"
+      }
+    ],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "4db2d771-94fb-478c-b3be-f181696d1724",
+    "ingested_at": "2026-11-02T18:15:13.314Z",
+    "source_published_at": "2026-11-02T12:01:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
     ],
     "prompt_version": "phase-targeting-v1.2"
   },
@@ -208,6 +318,107 @@
       "site_manager",
       "hiring_manager",
       "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/eni_starts_production_at_maha_gas_field_offshore_indonesia-02-nov-2026-184987-article/?rss=true"
+      }
+    ],
+    "headline": "Eni & Petronas Begin Production at Maha Gas Field Tieback, Kutei Basin Indonesia",
+    "body": "Eni SpA and Petroliam Nasional Bhd (Petronas) have begun production at the Maha field in Indonesia's Kutei Basin, a tieback project that grows the capacity o...",
+    "url": "https://www.rigzone.com/news/eni_starts_production_at_maha_gas_field_offshore_indonesia-02-nov-2026-184987-article/?rss=true",
+    "published_at": "2026-11-02T12:09:54.000Z",
+    "hash": "0f6a51c11c8d4be4",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "process_plant_operations",
+      "marine_offshore_ops",
+      "rov_subsea"
+    ],
+    "signal_type": "regulatory",
+    "region": "southeast-asia",
+    "country": "indonesia",
+    "tldr": "Eni and Petronas have brought the Maha gas field online as a tieback in Indonesia's Kutei Basin. Project is now in operating phase; ongoing maintenance and operations staffing applies.",
+    "operator": {
+      "name": "Eni SpA",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Eni SpA",
+      "matched_company_slug": null
+    },
+    "project_name": "Maha Gas Field",
+    "scope": [
+      "tieback",
+      "gas_production",
+      "subsea_tieback"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Production Operator",
+        "Process Technician",
+        "Subsea Engineer",
+        "Operations Superintendent",
+        "Offshore Installation Manager",
+        "Maintenance Technician"
+      ],
+      "skills": [
+        "gas production operations",
+        "subsea tieback",
+        "offshore maintenance",
+        "process operations",
+        "topsides operations"
+      ],
+      "certs_freetext": [
+        "BOSIET",
+        "HUET",
+        "OPITO Offshore Safety"
+      ],
+      "geo_rtw": "Indonesia / Southeast Asia",
+      "project_experience": [
+        "Jangkrik",
+        "Merakes",
+        "Kutei Basin",
+        "Bontang LNG"
+      ],
+      "yoe_band": "5-15",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"Production Operator\" OR \"Process Technician\" OR \"Offshore Installation Manager\" OR \"Subsea Engineer\" OR \"Maintenance Technician\") AND (\"gas production\" OR \"subsea tieback\" OR \"offshore operations\") AND (\"Indonesia\" OR \"Kutei Basin\" OR \"Southeast Asia\") AND (Eni OR Petronas OR \"offshore O&G\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Eni & Petronas have just started production at the Maha gas field in Indonesia's Kutei Basin. Ongoing ops & maintenance roles are opening up — your offshore O&G background looks like a strong fit. Worth a quick chat?",
+      "email_subject": "Maha Gas Field (Eni/Petronas) — Operations & Maintenance Roles, Indonesia",
+      "email_body": "Hi [Name],\n\nEni and Petronas have commenced production at the Maha gas field in Indonesia's Kutei Basin, adding capacity to their existing Kutei operations via a tieback development.\n\nWith the field now online, ongoing operations and maintenance staffing is the immediate need — roles such as Production Operators, Process Technicians, Subsea Engineers, and Maintenance Technicians are typically required at this stage.\n\nGiven your background in offshore O&G operations, I'd love to connect and discuss whether there's a fit here.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operators Eni and Petronas have commenced production at the named Maha Gas Field offshore Indonesia, signalling an operating-phase staffing demand event.",
+    "phase": "operating",
+    "phase_evidence": "Article states Eni and Petronas 'have begun production at the Maha field', confirming operational status.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "ongoing",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "b26e8d2d-f30b-4fd4-9d2f-832ea1dd337c",
+    "ingested_at": "2026-11-02T12:19:04.760Z",
+    "source_published_at": "2026-11-02T12:09:54.000Z",
+    "contact_archetypes": [
+      "ops_director",
+      "hiring_manager"
     ],
     "prompt_version": "phase-targeting-v1.2"
   },

@@ -1,46 +1,94 @@
 [
   {
-    "id": "b26e8d2d-f30b-4fd4-9d2f-832ea1dd337c",
-    "ingested_at": "2026-11-02T12:19:04.760Z",
+    "id": "e3f9d785-1271-4402-a848-449190d733ba",
+    "ingested_at": "2026-11-02T18:15:13.314Z",
     "sources": [
       {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/eni_starts_production_at_maha_gas_field_offshore_indonesia-02-nov-2026-184987-article/?rss=true"
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/pej-applies-for-early-works-permit-for-nuclear-power-plant"
       }
     ],
-    "subsector": "offshore-og",
+    "subsector": "nuclear",
     "discipline_tags": [
-      "process_plant_operations",
-      "marine_offshore_ops",
-      "rov_subsea"
+      "industrial_construction",
+      "energy_trades"
     ],
     "signal_type": "regulatory",
-    "region": "southeast-asia",
-    "country": "indonesia",
-    "headline": "Eni & Petronas Begin Production at Maha Gas Field Tieback, Kutei Basin Indonesia",
+    "region": "poland",
+    "country": "poland",
+    "headline": "Polskie Elektrownie Jądrowe Applies for Early Works Permit at Lubiatowo-Kopalino Nuclear Site",
     "operator": {
-      "name": "Eni SpA",
+      "name": "Polskie Elektrownie Jądrowe",
       "matched_company_slug": null
     },
     "hiring_entity": {
-      "name": "Eni SpA",
+      "name": "Polskie Elektrownie Jądrowe",
       "matched_company_slug": null
     },
-    "project_name": "Maha Gas Field",
+    "project_name": "Lubiatowo-Kopalino Nuclear Power Plant",
     "mob_window": {
       "start": null,
       "end": null,
       "duration_months": null
     },
     "contract_value_usd": null,
-    "phase": "operating",
+    "phase": "pre_sanction",
     "construction_subphase": null,
     "lifecycle_track": "greenfield",
     "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "ongoing",
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
     "key_people": []
+  },
+  {
+    "id": "4db2d771-94fb-478c-b3be-f181696d1724",
+    "ingested_at": "2026-11-02T18:15:13.314Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/friedland-takes-aim-at-chinas-scandium-grip-with-us-backed-mine/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "fid",
+    "region": "australia",
+    "country": "australia",
+    "headline": "Sunrise Energy Metals Eyes 2028 Scandium Output at Australian Mine with US Financing Backing",
+    "operator": {
+      "name": "Sunrise Energy Metals",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Sunrise Energy Metals",
+      "matched_company_slug": null
+    },
+    "project_name": "Sunrise Scandium Project",
+    "mob_window": {
+      "start": null,
+      "end": "2028-Q1",
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [
+      {
+        "name": "Friedland",
+        "title": "Promoter / Backer (Robert Friedland implied)",
+        "company": "Sunrise Energy Metals",
+        "hiring_relevance": "context_only"
+      }
+    ]
   },
   {
     "id": "2236a2f3-3e97-497e-9e8a-a163a77d29b0",
@@ -82,6 +130,49 @@
     "decom_stage": null,
     "outreach_readiness": "hot",
     "estimated_hiring_window": "1-3mo",
+    "key_people": []
+  },
+  {
+    "id": "b26e8d2d-f30b-4fd4-9d2f-832ea1dd337c",
+    "ingested_at": "2026-11-02T12:19:04.760Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/eni_starts_production_at_maha_gas_field_offshore_indonesia-02-nov-2026-184987-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "process_plant_operations",
+      "marine_offshore_ops",
+      "rov_subsea"
+    ],
+    "signal_type": "regulatory",
+    "region": "southeast-asia",
+    "country": "indonesia",
+    "headline": "Eni & Petronas Begin Production at Maha Gas Field Tieback, Kutei Basin Indonesia",
+    "operator": {
+      "name": "Eni SpA",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Eni SpA",
+      "matched_company_slug": null
+    },
+    "project_name": "Maha Gas Field",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "operating",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "ongoing",
     "key_people": []
   },
   {

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-02T12:19:04.760Z",
+  "updated_at": "2026-11-02T18:15:13.314Z",
   "sources": {
     "rigzone": {
       "kind": "ok",
@@ -12,11 +12,11 @@
       "alert_count": 0
     },
     "windeurope": {
-      "kind": "ok",
-      "error": null,
-      "error_class": null,
-      "http_status": null,
-      "first_seen_at": null,
+      "kind": "fetch_flapping",
+      "error": "Status code 403",
+      "error_class": "http_403",
+      "http_status": 403,
+      "first_seen_at": "2026-11-02T18:15:13.314Z",
       "last_alerted_at": null,
       "alert_count": 0
     },
@@ -62,8 +62,8 @@
       "error_class": null,
       "http_status": null,
       "first_seen_at": "2026-10-20T12:16:27.458Z",
-      "last_alerted_at": "2026-11-01T18:13:12.664Z",
-      "alert_count": 11
+      "last_alerted_at": "2026-11-02T18:15:13.314Z",
+      "alert_count": 12
     },
     "sec_edgar_8k": {
       "kind": "ok",
