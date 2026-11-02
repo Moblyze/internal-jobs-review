@@ -28,7 +28,7 @@ const ROOT = resolve(__dirname, '..')
 const ENTRIES_PATH = resolve(ROOT, 'public/data/feed/entries.json')
 
 const WORKER_BASE = process.env.PDL_COMPANY_FEED_BASE || 'https://pdl-company-feed.moblyze-ops.workers.dev'
-const ORIGIN = process.env.PREWARM_ORIGIN || 'https://moblyze.github.io'
+const ORIGIN = process.env.PREWARM_ORIGIN || 'https://moblyze-jobs-review.pages.dev'
 const CONCURRENCY = 3
 const PER_REQUEST_TIMEOUT_MS = 45_000
 

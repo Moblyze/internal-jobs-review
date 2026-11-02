@@ -37,7 +37,7 @@ const ENTRIES_LITE_PATH = resolve(ROOT, 'public/data/feed/entries-lite.json')
 const DECISION_MAKERS_PATH = process.env.DECISION_MAKERS_PATH || resolve(ROOT, '.private/decision_makers.json')
 
 const WORKER_BASE = process.env.PDL_COMPANY_FEED_BASE || 'https://pdl-company-feed.moblyze-ops.workers.dev'
-const ORIGIN = process.env.PREWARM_ORIGIN || 'https://moblyze.github.io'
+const ORIGIN = process.env.PREWARM_ORIGIN || 'https://moblyze-jobs-review.pages.dev'
 const CONTACTS_PER_COMPANY = Number(process.env.PREWARM_CONTACTS_PER_COMPANY || 2)
 const MAX_PER_RUN = Number(process.env.PREWARM_MAX_PER_RUN || 25)
 const PER_REQUEST_TIMEOUT_MS = 45_000

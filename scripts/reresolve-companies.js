@@ -12,7 +12,7 @@
 //   ADMIN_TOKEN=… node scripts/reresolve-companies.js "Some Co" "Other Co"   # custom list
 
 const WORKER = process.env.PDL_COMPANY_FEED_BASE || 'https://pdl-company-feed.moblyze-ops.workers.dev'
-const ORIGIN = process.env.PREWARM_ORIGIN || 'https://moblyze.github.io'
+const ORIGIN = process.env.PREWARM_ORIGIN || 'https://moblyze-jobs-review.pages.dev'
 const TOKEN = process.env.ADMIN_TOKEN
 if (!TOKEN) { console.error('Set ADMIN_TOKEN (the Worker PDL_FEED_ADMIN_TOKEN).'); process.exit(1) }
 
