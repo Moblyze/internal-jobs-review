@@ -1,5 +1,44 @@
 [
   {
+    "id": "fa7eb7e2-1043-4da5-ba9c-22291583b2f1",
+    "ingested_at": "2026-11-03T00:31:00.789Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/gordon-mining-acquires-tungsten-tail-project-in-new-mexico/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [],
+    "signal_type": "lease_round",
+    "region": "us-southwest",
+    "country": "united_states",
+    "headline": "Gordon Mining Acquires Tungsten Tail Project in New Mexico",
+    "operator": {
+      "name": "Gordon Mining",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Gordon Mining",
+      "matched_company_slug": null
+    },
+    "project_name": "Tungsten Tail",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "e3f9d785-1271-4402-a848-449190d733ba",
     "ingested_at": "2026-11-02T18:15:13.314Z",
     "sources": [

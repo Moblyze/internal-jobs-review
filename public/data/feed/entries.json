@@ -2,6 +2,94 @@
   {
     "sources": [
       {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/gordon-mining-acquires-tungsten-tail-project-in-new-mexico/"
+      }
+    ],
+    "headline": "Gordon Mining Acquires Tungsten Tail Project in New Mexico",
+    "body": "The project area has a documented history of small-scale tungsten production, with historical scheelite shipments recorded in 1942 and 1955.",
+    "url": "https://www.mining.com/gordon-mining-acquires-tungsten-tail-project-in-new-mexico/",
+    "published_at": "2026-11-02T23:15:51.000Z",
+    "hash": "db1e1dc1b964e6b9",
+    "subsector": "mining",
+    "discipline_tags": [],
+    "signal_type": "lease_round",
+    "region": "us-southwest",
+    "country": "united_states",
+    "tldr": "Gordon Mining has acquired the Tungsten Tail project in New Mexico, a historically active scheelite-producing area. Early-stage acquisition; no immediate hiring signal but operator and project are named.",
+    "operator": {
+      "name": "Gordon Mining",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Gordon Mining",
+      "matched_company_slug": null
+    },
+    "project_name": "Tungsten Tail",
+    "scope": [
+      "exploration",
+      "project_acquisition"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Exploration Geologist",
+        "Mining Engineer",
+        "Project Geologist",
+        "Resource Geologist"
+      ],
+      "skills": [
+        "tungsten exploration",
+        "scheelite",
+        "mineral resource estimation",
+        "hard rock mining",
+        "geological mapping"
+      ],
+      "certs_freetext": [
+        "MSHA Part 48",
+        "CPG"
+      ],
+      "geo_rtw": "US work authorization",
+      "project_experience": [],
+      "yoe_band": "5-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"exploration geologist\" OR \"mining engineer\" OR \"resource geologist\") AND (\"tungsten\" OR \"scheelite\" OR \"hard rock\" OR \"mineral exploration\") AND (\"New Mexico\" OR \"southwest US\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Gordon Mining just acquired the Tungsten Tail project in New Mexico — a historic scheelite-producing area. If you have tungsten/hard-rock exploration experience, I'd love to connect.",
+      "email_subject": "Tungsten Tail Project, New Mexico — Exploration Opportunity with Gordon Mining",
+      "email_body": "Hi [Name],\n\nGordon Mining has recently acquired the Tungsten Tail project in New Mexico, a site with documented historical scheelite production. As the project moves into exploration, they may be looking for experienced geologists and mining engineers familiar with tungsten or hard-rock mineral systems in the US Southwest.\n\nIf this aligns with your background, I'd be happy to share more details and explore whether there's a fit.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Gordon Mining) acquires a named mining project (Tungsten Tail) in New Mexico, constituting a discrete exploration license/property acquisition event in the mining sector.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article describes a project acquisition with only historical production context; no FID, FEED, or EPC activity mentioned.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "fa7eb7e2-1043-4da5-ba9c-22291583b2f1",
+    "ingested_at": "2026-11-03T00:31:00.789Z",
+    "source_published_at": "2026-11-02T23:15:51.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org/articles/pej-applies-for-early-works-permit-for-nuclear-power-plant"
