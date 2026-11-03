@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-03T00:31:00.789Z",
+  "updated_at": "2026-11-03T06:20:13.044Z",
   "sources": {
     "rigzone": {
       "kind": "ok",
@@ -13,10 +13,10 @@
     },
     "windeurope": {
       "kind": "fetch_flapping",
-      "error": "Status code 403",
-      "error_class": "http_403",
-      "http_status": 403,
-      "first_seen_at": "2026-11-02T18:15:13.314Z",
+      "error": "Status code 503",
+      "error_class": "http_503",
+      "http_status": 503,
+      "first_seen_at": "2026-11-03T06:20:13.044Z",
       "last_alerted_at": null,
       "alert_count": 0
     },
