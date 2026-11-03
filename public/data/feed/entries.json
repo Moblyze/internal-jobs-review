@@ -2,6 +2,105 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/xrg_to_buy_shell_stake_in_australian_lng_project-03-nov-2026-184995-article/?rss=true"
+      }
+    ],
+    "headline": "XRG to Acquire Shell's 16.67% Stake in North West Shelf LNG Project",
+    "body": "Shell PLC has agreed to sell its 16.67 percent stake in the North West Shelf (NWS) Project, which produces liquefied natural gas (LNG) and domestic gas in We...",
+    "url": "https://www.rigzone.com/news/xrg_to_buy_shell_stake_in_australian_lng_project-03-nov-2026-184995-article/?rss=true",
+    "published_at": "2026-11-03T09:45:21.000Z",
+    "hash": "4d2139c4ca19bffe",
+    "subsector": "onshore-og",
+    "discipline_tags": [],
+    "signal_type": "replacement",
+    "region": "australia-northwest",
+    "country": "australia",
+    "tldr": "Shell is divesting its 16.67% stake in the North West Shelf LNG Project to XRG, signalling an operator/owner change-of-control at a named producing asset. Recruiters should monitor for contractor and workforce transitions as XRG assumes operatorship interest.",
+    "operator": {
+      "name": "Shell PLC",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "XRG",
+      "matched_company_slug": null
+    },
+    "project_name": "North West Shelf (NWS) Project",
+    "scope": [
+      "stake_acquisition",
+      "operator_change_of_control",
+      "lng_production"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "LNG Operations Manager",
+        "Asset Manager",
+        "Production Engineer",
+        "Facilities Engineer",
+        "HSE Manager",
+        "Maintenance Superintendent",
+        "Process Engineer"
+      ],
+      "skills": [
+        "LNG operations",
+        "asset management",
+        "gas processing",
+        "production operations",
+        "brownfield maintenance"
+      ],
+      "certs_freetext": [
+        "BOSIET",
+        "OPITO",
+        "Australian Gas Industry cert"
+      ],
+      "geo_rtw": "Australia (Australian work rights preferred)",
+      "project_experience": [
+        "North West Shelf",
+        "Gorgon LNG",
+        "Wheatstone LNG",
+        "Darwin LNG",
+        "Ichthys LNG"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "senior",
+      "boolean_search": "(\"LNG\" OR \"liquefied natural gas\") AND (\"North West Shelf\" OR \"NWS\" OR \"Gorgon\" OR \"Wheatstone\" OR \"Ichthys\") AND (\"operations manager\" OR \"asset manager\" OR \"production engineer\" OR \"facilities engineer\" OR \"maintenance superintendent\" OR \"process engineer\") AND (\"Australia\" OR \"Western Australia\" OR \"Karratha\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], XRG is acquiring Shell's stake in the North West Shelf LNG Project — ownership transitions like this often drive new hires. Your LNG ops background looks highly relevant. Open to a quick chat?",
+      "email_subject": "North West Shelf LNG – Operator Change Creating New Opportunities",
+      "email_body": "Hi [Name],\n\nXRG is set to acquire Shell's 16.67% stake in the North West Shelf (NWS) LNG Project in Western Australia. Ownership transitions at major producing assets like NWS typically lead to leadership and technical staffing changes as the incoming stakeholder builds out its team.\n\nGiven your background in LNG operations/asset management, I wanted to reach out early — these roles tend to fill quickly once transitions formalise.\n\nWould you be open to a brief conversation about how your experience aligns with what's emerging at NWS?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "M&A stake sale directly assigns a named project (North West Shelf LNG) to a new named operator/owner (XRG), qualifying as an operator change-of-control with workforce transition implications.",
+    "phase": "operating",
+    "phase_evidence": "The article describes an existing producing LNG and domestic gas asset — 'produces liquefied natural gas (LNG) and domestic gas' — indicating an operational asset.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "c5e739d4-b9b5-4622-a6b6-3965c791614e",
+    "ingested_at": "2026-11-03T12:17:47.473Z",
+    "source_published_at": "2026-11-03T09:45:21.000Z",
+    "contact_archetypes": [
+      "ops_director",
+      "hiring_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "mining_com",
         "name": "MINING.com",
         "url": "https://www.mining.com/gordon-mining-acquires-tungsten-tail-project-in-new-mexico/"

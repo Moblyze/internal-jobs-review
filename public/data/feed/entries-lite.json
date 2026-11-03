@@ -1,5 +1,44 @@
 [
   {
+    "id": "c5e739d4-b9b5-4622-a6b6-3965c791614e",
+    "ingested_at": "2026-11-03T12:17:47.473Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/xrg_to_buy_shell_stake_in_australian_lng_project-03-nov-2026-184995-article/?rss=true"
+      }
+    ],
+    "subsector": "onshore-og",
+    "discipline_tags": [],
+    "signal_type": "replacement",
+    "region": "australia-northwest",
+    "country": "australia",
+    "headline": "XRG to Acquire Shell's 16.67% Stake in North West Shelf LNG Project",
+    "operator": {
+      "name": "Shell PLC",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "XRG",
+      "matched_company_slug": null
+    },
+    "project_name": "North West Shelf (NWS) Project",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "operating",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
     "id": "fa7eb7e2-1043-4da5-ba9c-22291583b2f1",
     "ingested_at": "2026-11-03T00:31:00.789Z",
     "sources": [
