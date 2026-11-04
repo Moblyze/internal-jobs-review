@@ -2,6 +2,216 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/fanco-expands-cooperation-with-hyundai-ec-on-eagl-1"
+      }
+    ],
+    "headline": "FANCO Signs Master Service Agreement with Hyundai E&C for EAGL-1 SMR Project",
+    "body": "US small modular reactor developer First American Nuclear Co has signed a comprehensive master service agreement with South Korea's Hyundai Engineering & Construction.",
+    "url": "https://www.world-nuclear-news.org/articles/fanco-expands-cooperation-with-hyundai-ec-on-eagl-1",
+    "published_at": "2026-11-04T11:41:40.000Z",
+    "hash": "34debb1680670072",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "us",
+    "country": "united_states",
+    "tldr": "First American Nuclear Co has signed a comprehensive master service agreement with Hyundai E&C for the EAGL-1 small modular reactor project, signaling early-stage engineering and construction partnership with labor demand likely 12+ months out.",
+    "operator": {
+      "name": "First American Nuclear Co (FANCO)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Hyundai Engineering & Construction",
+      "matched_company_slug": null
+    },
+    "project_name": "EAGL-1",
+    "scope": [
+      "smr_development",
+      "epc_services",
+      "master_service_agreement"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "SMR Project Engineer",
+        "Nuclear Construction Manager",
+        "Nuclear FEED Engineer",
+        "Project Controls Manager",
+        "Nuclear Safety Engineer",
+        "Commissioning Engineer",
+        "Structural Engineer – Nuclear",
+        "Licensing & Regulatory Affairs Manager"
+      ],
+      "skills": [
+        "small modular reactor",
+        "SMR",
+        "nuclear EPC",
+        "FEED",
+        "nuclear licensing",
+        "NRC regulatory",
+        "project controls",
+        "nuclear safety",
+        "modular construction"
+      ],
+      "certs_freetext": [
+        "Professional Engineer (PE) – Nuclear",
+        "IAEA safety credentials",
+        "PMP",
+        "NRC 10 CFR familiarity"
+      ],
+      "geo_rtw": "USA – right to work required",
+      "project_experience": [
+        "NuScale VOYGR",
+        "TerraPower Natrium",
+        "X-energy Xe-100",
+        "AP1000",
+        "Vogtle Unit 3 & 4"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "senior to principal",
+      "boolean_search": "(\"small modular reactor\" OR \"SMR\" OR \"nuclear EPC\" OR \"nuclear construction\") AND (\"FEED\" OR \"project controls\" OR \"commissioning\" OR \"licensing\") AND (\"Hyundai E&C\" OR \"nuclear developer\" OR \"FANCO\" OR \"First American Nuclear\") AND (\"NRC\" OR \"10 CFR\" OR \"nuclear safety\" OR \"modular reactor\") AND (\"Project Manager\" OR \"Construction Manager\" OR \"Project Engineer\" OR \"Commissioning Engineer\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Hyundai E&C just signed an MSA with First American Nuclear Co for the EAGL-1 SMR project. With your nuclear EPC background, you could be a strong fit as this program ramps into engineering. Worth a quick chat?",
+      "email_subject": "EAGL-1 SMR – Hyundai E&C Engineering Ramp | Your Profile Caught Our Eye",
+      "email_body": "Hi [Name],\n\nFirst American Nuclear Co (FANCO) has just signed a comprehensive master service agreement with Hyundai Engineering & Construction for its EAGL-1 small modular reactor project in the US.\n\nAs Hyundai E&C begins building out its project team for EAGL-1, we're proactively identifying senior nuclear engineers and construction professionals with SMR, FEED, or nuclear EPC experience.\n\nGiven your background in [relevant experience], I'd love to have a brief conversation about how you might align with this program as it progresses through early engineering.\n\nAre you open to a 15-minute call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Master service agreement between named operator FANCO and named EPC contractor Hyundai E&C for the named EAGL-1 SMR nuclear project constitutes a qualifying contract award with clear labor-demand implications.",
+    "phase": "pre_sanction",
+    "phase_evidence": "The article describes a 'comprehensive master service agreement' signed between FANCO and Hyundai E&C, indicating an early-stage cooperation framework prior to FID or EPC contract execution.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "0571f1fa-89eb-4abf-a1b8-c4c3f46cd72a",
+    "ingested_at": "2026-11-04T18:14:10.004Z",
+    "source_published_at": "2026-11-04T11:41:40.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/b2golds-740-million-gramalote-faces-key-permit-test/"
+      }
+    ],
+    "headline": "B2Gold's $740M Gramalote Gold Mine Faces Key Permit Test Ahead of 2027 Construction Start",
+    "body": "Regulators will weigh proposed design changes as the Canadian miner targets construction in 2027 and first gold in 2029.",
+    "url": "https://www.mining.com/b2golds-740-million-gramalote-faces-key-permit-test/",
+    "published_at": "2026-11-04T14:59:00.000Z",
+    "hash": "28c1860e34484819",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction"
+    ],
+    "signal_type": "regulatory",
+    "region": "colombia",
+    "country": "colombia",
+    "tldr": "B2Gold's Gramalote gold project in Colombia is pending regulatory approval of design changes, with construction targeted for 2027 and first gold in 2029. Permit outcome will determine whether the project advances to EPC/construction hiring.",
+    "operator": {
+      "name": "B2Gold",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Gramalote",
+    "scope": [
+      "mine_construction",
+      "permitting",
+      "design_review"
+    ],
+    "mob_window": {
+      "start": "2027-Q1",
+      "end": "2029-Q4",
+      "duration_months": 36
+    },
+    "contract_value_usd": 740000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mine Construction Manager",
+        "Project Manager – Mining",
+        "Permitting & Regulatory Affairs Manager",
+        "Environmental Manager",
+        "Site Manager",
+        "EPC Project Director",
+        "HSE Manager"
+      ],
+      "skills": [
+        "open pit mine construction",
+        "permitting",
+        "gold mining",
+        "EPC project management",
+        "environmental compliance",
+        "mine development"
+      ],
+      "certs_freetext": [
+        "Professional Engineer (P.Eng)",
+        "IOSH Managing Safely",
+        "PMP"
+      ],
+      "geo_rtw": "Colombia or Latin America-eligible",
+      "project_experience": [
+        "Fekola Mine",
+        "Otjikoto Mine",
+        "Kibali Gold Mine",
+        "Cerro Negro",
+        "La Colosa"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal",
+      "boolean_search": "(\"Mine Construction Manager\" OR \"Project Director\" OR \"Site Manager\" OR \"Project Manager\") AND (\"gold mine\" OR \"open pit\" OR \"mine development\" OR \"greenfield mining\") AND (\"Colombia\" OR \"Latin America\" OR \"South America\") AND (\"EPC\" OR \"construction\" OR \"permitting\" OR \"mine build\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], B2Gold's $740M Gramalote gold project in Colombia is approaching a key permit decision ahead of a 2027 construction start. Are you open to hearing about senior roles on the build? Happy to share more.",
+      "email_subject": "Gramalote Gold Mine – Senior Construction Roles | 2027 Build",
+      "email_body": "Hi [Name],\n\nB2Gold's Gramalote gold project ($740M) in Colombia is currently awaiting regulatory approval of design changes, with construction targeted to begin in 2027 and first gold planned for 2029.\n\nAs the project moves toward sanction, the team will need experienced mine construction and project management professionals with greenfield gold mine credentials — ideally with Latin America experience.\n\nI'd love to explore whether your background aligns with the roles likely to come to market over the next 12-18 months. Would you be open to a brief call?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (B2Gold) and project (Gramalote) with a $740M mine development pending a key permit decision ahead of a stated 2027 construction start — a qualifying regulatory/pre-sanction event in mining with clear future workforce demand.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states regulators will weigh proposed design changes and construction is targeted for 2027, indicating the project has not yet received final permits or FID.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "f04c0cab-7a9e-4a52-b0fe-84bd6fa06ca2",
+    "ingested_at": "2026-11-04T18:14:10.004Z",
+    "source_published_at": "2026-11-04T14:59:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/disa-uranium-hosts-government-tribal-and-industry-leaders-at-its-first-nrc-licensed-aum-cleanup-project-in-colorado-302928670.html"
@@ -15099,121 +15309,6 @@
       "project_manager",
       "hiring_manager",
       "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org/articles/bechtel-assumes-responsibility-for-polish-plant-site"
-      }
-    ],
-    "headline": "Bechtel Takes Over Polish Nuclear Plant Site as Earthworks Begin for Poland's First NPP",
-    "body": "Polskie Elektrownie Jądrowe, which plans to build Poland's first nuclear power plant, announced it has handed over management of the project site to general contractor Bechtel as earthworks start on the construction site.",
-    "url": "https://www.world-nuclear-news.org/articles/bechtel-assumes-responsibility-for-polish-plant-site",
-    "published_at": "2026-08-06T14:54:25.000Z",
-    "hash": "dc5c2a97bcf2573e",
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades",
-      "process_plant_operations"
-    ],
-    "signal_type": "epc_award",
-    "region": "poland",
-    "country": "poland",
-    "tldr": "Polskie Elektrownie Jądrowe has handed site management to general contractor Bechtel as earthworks commence on Poland's first nuclear power plant. Construction ramp-up is underway, signaling imminent demand for nuclear construction trades, civil engineers, and HSE professionals.",
-    "operator": {
-      "name": "Polskie Elektrownie Jądrowe",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Bechtel",
-      "matched_company_slug": null
-    },
-    "project_name": "Poland First Nuclear Power Plant",
-    "scope": [
-      "site_preparation",
-      "earthworks",
-      "civil_construction",
-      "general_contractor"
-    ],
-    "mob_window": {
-      "start": "2025-Q2",
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Construction Manager",
-        "Site Manager",
-        "Civil Construction Superintendent",
-        "HSE Manager",
-        "Nuclear Construction Engineer",
-        "Earthworks Supervisor",
-        "Project Controls Manager",
-        "QA/QC Manager",
-        "Structural Engineer",
-        "Planning Engineer"
-      ],
-      "skills": [
-        "nuclear construction",
-        "earthworks",
-        "civil works",
-        "large-scale EPC",
-        "project controls",
-        "nuclear QA",
-        "site management",
-        "construction planning",
-        "HSE management"
-      ],
-      "certs_freetext": [
-        "CSCS",
-        "IOSH Managing Safely",
-        "NEBOSH",
-        "Nuclear Safety Passport",
-        "PMP",
-        "NVQ Civil Engineering"
-      ],
-      "geo_rtw": "EU/EEA work authorization or Polish work permit eligible",
-      "project_experience": [
-        "Hinkley Point C",
-        "Vogtle Units 3 & 4",
-        "Flamanville 3",
-        "Olkiluoto 3",
-        "Akkuyu NPP"
-      ],
-      "yoe_band": "10-20",
-      "seniority": "Senior to Principal",
-      "boolean_search": "(\"nuclear power plant\" OR \"nuclear construction\" OR \"NPP\") AND (\"construction manager\" OR \"site manager\" OR \"civil construction\" OR \"earthworks\" OR \"EPC\") AND (\"Bechtel\" OR \"nuclear\" OR \"NPC\" OR \"NSSS\") AND (\"Poland\" OR \"EU\" OR \"Europe\") NOT (\"decommissioning\" OR \"operations only\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Bechtel has just assumed site management for Poland's first nuclear power plant, with earthworks now underway. This is a major ramp-up opportunity — are you open to discussing senior construction roles on this landmark project?",
-      "email_subject": "Senior Construction Roles – Bechtel / Poland First Nuclear Power Plant",
-      "email_body": "Hi [Name],\n\nBechtel has formally taken over site management of Poland's first nuclear power plant (Polskie Elektrownie Jądrowe) and earthworks have begun — marking the start of a significant construction ramp-up.\n\nGiven your background in nuclear or large-scale EPC construction, I wanted to reach out about senior opportunities likely coming to market in the near term — roles such as Construction Manager, Site Superintendent, HSE Lead, and Planning Engineer.\n\nWould you be open to a brief call this week to discuss?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "EPC general contractor (Bechtel) has assumed site management from named operator (Polskie Elektrownie Jądrowe) with earthworks commencing on Poland's first nuclear power plant, signaling an active construction ramp-up and imminent labor demand.",
-    "phase": "construction",
-    "phase_evidence": "Article states 'earthworks start on the construction site' and site management has been handed over to Bechtel as general contractor, confirming active construction phase has begun.",
-    "construction_subphase": "rampup",
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "1-3mo",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "85c01abb-18ce-4dcf-bd99-275628963908",
-    "ingested_at": "2026-08-06T12:40:27.072Z",
-    "source_published_at": "2026-08-06T14:54:25.000Z",
-    "contact_archetypes": [
-      "site_manager",
-      "hiring_manager",
-      "project_manager"
     ],
     "prompt_version": "phase-targeting-v1.2"
   }

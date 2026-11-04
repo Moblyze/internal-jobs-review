@@ -1,5 +1,88 @@
 [
   {
+    "id": "0571f1fa-89eb-4abf-a1b8-c4c3f46cd72a",
+    "ingested_at": "2026-11-04T18:14:10.004Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/fanco-expands-cooperation-with-hyundai-ec-on-eagl-1"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "us",
+    "country": "united_states",
+    "headline": "FANCO Signs Master Service Agreement with Hyundai E&C for EAGL-1 SMR Project",
+    "operator": {
+      "name": "First American Nuclear Co (FANCO)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Hyundai Engineering & Construction",
+      "matched_company_slug": null
+    },
+    "project_name": "EAGL-1",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
+    "id": "f04c0cab-7a9e-4a52-b0fe-84bd6fa06ca2",
+    "ingested_at": "2026-11-04T18:14:10.004Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/b2golds-740-million-gramalote-faces-key-permit-test/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction"
+    ],
+    "signal_type": "regulatory",
+    "region": "colombia",
+    "country": "colombia",
+    "headline": "B2Gold's $740M Gramalote Gold Mine Faces Key Permit Test Ahead of 2027 Construction Start",
+    "operator": {
+      "name": "B2Gold",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Gramalote",
+    "mob_window": {
+      "start": "2027-Q1",
+      "end": "2029-Q4",
+      "duration_months": 36
+    },
+    "contract_value_usd": 740000000,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "e0477149-f7ed-43fe-9d68-e3c6f4cdf08c",
     "ingested_at": "2026-11-04T12:17:56.079Z",
     "sources": [
@@ -6002,49 +6085,6 @@
     "decom_stage": null,
     "outreach_readiness": "hot",
     "estimated_hiring_window": "3-6mo",
-    "key_people": []
-  },
-  {
-    "id": "85c01abb-18ce-4dcf-bd99-275628963908",
-    "ingested_at": "2026-08-06T12:40:27.072Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org/articles/bechtel-assumes-responsibility-for-polish-plant-site"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades",
-      "process_plant_operations"
-    ],
-    "signal_type": "epc_award",
-    "region": "poland",
-    "country": "poland",
-    "headline": "Bechtel Takes Over Polish Nuclear Plant Site as Earthworks Begin for Poland's First NPP",
-    "operator": {
-      "name": "Polskie Elektrownie Jądrowe",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Bechtel",
-      "matched_company_slug": null
-    },
-    "project_name": "Poland First Nuclear Power Plant",
-    "mob_window": {
-      "start": "2025-Q2",
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "construction",
-    "construction_subphase": "rampup",
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "1-3mo",
     "key_people": []
   }
 ]
