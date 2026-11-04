@@ -1,5 +1,48 @@
 [
   {
+    "id": "e0477149-f7ed-43fe-9d68-e3c6f4cdf08c",
+    "ingested_at": "2026-11-04T12:17:56.079Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/disa-uranium-hosts-government-tribal-and-industry-leaders-at-its-first-nrc-licensed-aum-cleanup-project-in-colorado-302928670.html"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "ndt_inspection",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "colorado-us",
+    "country": "united_states",
+    "headline": "DISA Uranium Hosts First NRC-Licensed AUM Cleanup Project at Mary Ann Site, Colorado",
+    "operator": {
+      "name": "DISA Uranium Corporation",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "DISA Uranium Corporation",
+      "matched_company_slug": null
+    },
+    "project_name": "Mary Ann AUM Cleanup Project",
+    "mob_window": {
+      "start": "2026-Q4",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "decommissioning",
+    "decom_stage": "active_execution",
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": []
+  },
+  {
     "id": "9936b6f9-fe08-481c-8011-9c3eca668212",
     "ingested_at": "2026-11-03T18:14:33.114Z",
     "sources": [

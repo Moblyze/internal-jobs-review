@@ -2,6 +2,113 @@
   {
     "sources": [
       {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/disa-uranium-hosts-government-tribal-and-industry-leaders-at-its-first-nrc-licensed-aum-cleanup-project-in-colorado-302928670.html"
+      }
+    ],
+    "headline": "DISA Uranium Hosts First NRC-Licensed AUM Cleanup Project at Mary Ann Site, Colorado",
+    "body": "Mary Ann project demonstrates the potential to address legacy Abandoned Uranium Mine (AUM) waste using HPSA® technology while supporting domestic uranium supply CASPER, Wyo., Nov. 4, 2026 /PRNewswire/ -- DISA Uranium Corporation (\"DISA Uranium\" or the \"Company\") welcomed government,...",
+    "url": "https://www.prnewswire.com/news-releases/disa-uranium-hosts-government-tribal-and-industry-leaders-at-its-first-nrc-licensed-aum-cleanup-project-in-colorado-302928670.html",
+    "published_at": "2026-11-04T12:00:00.000Z",
+    "hash": "5bbe448764ae0e75",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "ndt_inspection",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "colorado-us",
+    "country": "united_states",
+    "tldr": "DISA Uranium Corporation has launched its first NRC-licensed Abandoned Uranium Mine cleanup project (Mary Ann) in Colorado using proprietary HPSA® technology. The regulatory license milestone signals active remediation work is underway, implying near-term demand for environmental remediation and mining cleanup crews.",
+    "operator": {
+      "name": "DISA Uranium Corporation",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "DISA Uranium Corporation",
+      "matched_company_slug": null
+    },
+    "project_name": "Mary Ann AUM Cleanup Project",
+    "scope": [
+      "uranium_mine_remediation",
+      "abandoned_mine_cleanup",
+      "environmental_restoration"
+    ],
+    "mob_window": {
+      "start": "2026-Q4",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Environmental Remediation Specialist",
+        "Mine Reclamation Engineer",
+        "Radiation Safety Officer",
+        "Site Remediation Manager",
+        "Environmental Health & Safety Manager",
+        "Uranium Mine Cleanup Technician",
+        "Radioactive Waste Management Specialist",
+        "Project Manager – Environmental Remediation"
+      ],
+      "skills": [
+        "abandoned mine reclamation",
+        "uranium remediation",
+        "NRC licensing compliance",
+        "radioactive waste management",
+        "environmental site assessment",
+        "HPSA technology",
+        "mine cleanup operations",
+        "radiation monitoring"
+      ],
+      "certs_freetext": [
+        "NRC Radiation Protection certification",
+        "OSHA 40-hr HAZWOPER",
+        "Radiation Worker Training",
+        "Mine Safety (MSHA Part 46/48)"
+      ],
+      "geo_rtw": "US work authorization required; Colorado-based or willing to relocate",
+      "project_experience": [
+        "Uranium Mill Tailings Radiation Control Act (UMTRCA) sites",
+        "EPA Superfund uranium sites",
+        "DOE legacy uranium cleanup projects"
+      ],
+      "yoe_band": "5-15",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"uranium remediation\" OR \"abandoned mine cleanup\" OR \"mine reclamation\" OR \"radioactive waste\") AND (\"NRC\" OR \"MSHA\" OR \"HAZWOPER\" OR \"radiation safety\") AND (\"environmental remediation\" OR \"site cleanup\" OR \"mine closure\") AND (Colorado OR Wyoming OR \"Four Corners\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], DISA Uranium's Mary Ann site in Colorado — the first NRC-licensed AUM cleanup project — is now active. With your uranium remediation background, this could be a timely fit. Worth a quick chat?",
+      "email_subject": "Active Uranium Mine Cleanup Opportunity – Colorado (NRC-Licensed Site)",
+      "email_body": "Hi [Name],\n\nDISA Uranium Corporation has just activated the Mary Ann project in Colorado — the first NRC-licensed Abandoned Uranium Mine cleanup project using their HPSA® technology.\n\nWith active remediation now underway, they'll need experienced professionals in uranium/radioactive site remediation, radiation safety, and environmental project management.\n\nGiven your background in [relevant experience], I wanted to reach out directly. Would you be open to a brief call to discuss how your skills align?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (DISA Uranium Corporation) has received an NRC license and is actively executing a named cleanup project (Mary Ann AUM) in Colorado, constituting a regulatory permit grant at a named project with direct staffing implications.",
+    "phase": "construction",
+    "phase_evidence": "The article describes an active, NRC-licensed cleanup project already underway ('demonstrates the potential to address legacy AUM waste'), indicating execution has begun.",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "decommissioning",
+    "decom_stage": "active_execution",
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "e0477149-f7ed-43fe-9d68-e3c6f4cdf08c",
+    "ingested_at": "2026-11-04T12:17:56.079Z",
+    "source_published_at": "2026-11-04T12:00:00.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/adnoc_greenlights_abu_dhabi_upstream_gas_project-03-nov-2026-184997-article/?rss=true"
