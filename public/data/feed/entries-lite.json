@@ -6041,50 +6041,5 @@
     "outreach_readiness": "warming",
     "estimated_hiring_window": "6-12mo",
     "key_people": []
-  },
-  {
-    "id": "9a00e80f-2377-4bc4-8da8-56b243e545a2",
-    "ingested_at": "2026-08-07T01:15:52.444Z",
-    "sources": [
-      {
-        "id": "pr_newswire_energy",
-        "name": "PR Newswire (Energy)",
-        "url": "https://www.prnewswire.com/news-releases/exxonmobil-in-mozambique-awards-mcdermott-letter-of-intent-for-rovuma-lng-project-302845439.html"
-      }
-    ],
-    "subsector": "onshore-og",
-    "discipline_tags": [
-      "energy_trades",
-      "industrial_construction",
-      "process_plant_operations",
-      "pipeline_mechanical",
-      "ndt_inspection"
-    ],
-    "signal_type": "epc_award",
-    "region": "east-africa",
-    "country": "mozambique",
-    "headline": "ExxonMobil Awards McDermott LOI for Rovuma LNG EPC – Mozambique",
-    "operator": {
-      "name": "ExxonMobil",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "McDermott Energy Solutions (UK) Limited / SMDC JV",
-      "matched_company_slug": null
-    },
-    "project_name": "Rovuma LNG",
-    "mob_window": {
-      "start": "2026-Q4",
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "sanctioned_engineering",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "3-6mo",
-    "key_people": []
   }
 ]
