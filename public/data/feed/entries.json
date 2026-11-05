@@ -4,6 +4,109 @@
       {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/helen-to-assess-environmental-impacts-of-smr-in-helsinki"
+      }
+    ],
+    "headline": "Helen Ydinvoima Launches EIA for SMR at Helsinki Site — Pre-FID Nuclear Signal",
+    "body": "Finland's Helen Ydinvoima Oy has launched an environmental impact assessment on the construction of a small nuclear power plant at one of three potential sites in Helsinki.",
+    "url": "https://www.world-nuclear-news.org/articles/helen-to-assess-environmental-impacts-of-smr-in-helsinki",
+    "published_at": "2026-11-05T10:40:19.000Z",
+    "hash": "d0e79d0f08ff4e12",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "finland",
+    "country": "finland",
+    "tldr": "Helen Ydinvoima Oy has initiated an environmental impact assessment for a small modular reactor at one of three Helsinki sites, signalling early pre-sanction activity with hiring likely 12+ months away.",
+    "operator": {
+      "name": "Helen Ydinvoima Oy",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Helsinki SMR",
+    "scope": [
+      "eia",
+      "site_selection",
+      "smr_construction_planning"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Project Manager",
+        "Environmental Impact Assessment Lead",
+        "Nuclear Licensing Engineer",
+        "Site Feasibility Manager",
+        "SMR Development Manager",
+        "Nuclear FEED Engineer"
+      ],
+      "skills": [
+        "small modular reactor",
+        "nuclear EIA",
+        "nuclear licensing",
+        "site characterization",
+        "nuclear project development",
+        "regulatory permitting"
+      ],
+      "certs_freetext": [
+        "STUK regulatory familiarity",
+        "IAEA nuclear safety standards",
+        "EUR nuclear certification"
+      ],
+      "geo_rtw": "Finland / EU eligible",
+      "project_experience": [
+        "Hinkley Point C",
+        "Olkiluoto 3",
+        "Flamanville 3",
+        "NuScale VOYGR",
+        "Rolls-Royce SMR",
+        "Fortum Loviisa"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "senior",
+      "boolean_search": "(\"small modular reactor\" OR \"SMR\" OR \"nuclear power plant\") AND (\"environmental impact assessment\" OR \"EIA\" OR \"nuclear licensing\" OR \"site characterization\") AND (\"Finland\" OR \"Helsinki\" OR \"Nordic\") AND (\"project development\" OR \"FEED\" OR \"pre-FID\" OR \"nuclear engineer\" OR \"regulatory\" OR \"permitting\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Helen Ydinvoima has launched an EIA for a Helsinki SMR — an early but significant nuclear development signal in Finland. If you have SMR or nuclear pre-FID/licensing experience, I'd value a conversation about the emerging opportunity. Happy to share more.",
+      "email_subject": "Helsinki SMR — Early Nuclear Development Opportunity with Helen Ydinvoima",
+      "email_body": "Hi [Name],\n\nHelen Ydinvoima Oy has just launched an environmental impact assessment for a small modular reactor at one of three sites in Helsinki, marking a meaningful step forward for nuclear development in Finland.\n\nWhile this is pre-sanction and hiring is likely 12+ months out, organisations like this typically begin building their project and licensing teams well ahead of FID. Given your background in [SMR / nuclear licensing / EIA], I wanted to put this on your radar early.\n\nWould you be open to a brief call to discuss how your experience aligns with what's shaping up in Finland?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Helen Ydinvoima Oy) has launched a formal EIA for an SMR construction project in Helsinki — a regulatory/permitting event with clear downstream workforce demand.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states Helen Ydinvoima has 'launched an environmental impact assessment' — EIA is a pre-FID regulatory step, confirming pre-sanction status.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "4626d1c3-021a-43f1-b2c4-985a6dc2b9f9",
+    "ingested_at": "2026-11-05T12:18:06.484Z",
+    "source_published_at": "2026-11-05T10:40:19.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org/articles/fanco-expands-cooperation-with-hyundai-ec-on-eagl-1"
       }
     ],
