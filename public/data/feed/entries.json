@@ -4,6 +4,335 @@
       {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/ihi-to-supply-components-for-first-polish-ap1000"
+      }
+    ],
+    "headline": "IHI Wins Westinghouse Order for AP1000 Containment Vessel Components at Poland's First Nuclear Plant",
+    "body": "Japanese engineering firm IHI Corporation has received an order from Westinghouse covering engineering and procurement activities for long-lead items for one containment vessel and an associated large steel module for the first unit of Poland's first nuclear power plant.",
+    "url": "https://www.world-nuclear-news.org/articles/ihi-to-supply-components-for-first-polish-ap1000",
+    "published_at": "2026-11-05T15:02:51.000Z",
+    "hash": "957dd14d5c3752d9",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "poland",
+    "country": "poland",
+    "tldr": "IHI Corporation has received an engineering and procurement order from Westinghouse for long-lead containment vessel components for Poland's first AP1000 nuclear unit, signalling early supply-chain ramp-up and upcoming fabrication labor demand.",
+    "operator": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "IHI Corporation",
+      "matched_company_slug": null
+    },
+    "project_name": "Poland AP1000 Nuclear Power Plant Unit 1",
+    "scope": [
+      "containment_vessel_fabrication",
+      "large_steel_module_procurement",
+      "engineering_procurement"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Procurement Engineer",
+        "Long-Lead Items Manager",
+        "Containment Vessel Engineer",
+        "Nuclear Structural Engineer",
+        "AP1000 Module Engineer",
+        "Nuclear QA/QC Engineer",
+        "Steel Module Fabrication Supervisor"
+      ],
+      "skills": [
+        "AP1000",
+        "containment vessel design",
+        "nuclear long-lead procurement",
+        "large steel module fabrication",
+        "ASME nuclear codes",
+        "nuclear quality assurance",
+        "engineering procurement"
+      ],
+      "certs_freetext": [
+        "ASME Section III",
+        "Nuclear Quality Assurance (NQA-1)",
+        "ISO 3834 welding",
+        "PED (Pressure Equipment Directive)"
+      ],
+      "geo_rtw": "Poland / EU / Japan (IHI)",
+      "project_experience": [
+        "Vogtle AP1000",
+        "Hinkley Point C",
+        "V.C. Summer AP1000",
+        "Barakah Nuclear"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"AP1000\" OR \"containment vessel\" OR \"nuclear long-lead\" OR \"large steel module\") AND (\"nuclear procurement\" OR \"nuclear engineering\" OR \"ASME Section III\" OR \"NQA-1\") AND (\"Westinghouse\" OR \"IHI\" OR \"nuclear power plant\") AND (\"Poland\" OR \"new nuclear\" OR \"pressurized water reactor\" OR \"PWR\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], IHI has just received a Westinghouse order for AP1000 containment vessel components for Poland's first nuclear plant. Your background in nuclear fabrication/procurement could be a great fit for the ramp-up ahead. Worth a conversation?",
+      "email_subject": "AP1000 Poland – IHI Containment Vessel Role | Nuclear Procurement/Engineering",
+      "email_body": "Hi [Name],\n\nIHI Corporation has just been awarded an engineering and procurement contract by Westinghouse for long-lead containment vessel and large steel module components for Poland's first AP1000 nuclear unit.\n\nThis is an early-phase supply-chain ramp-up signal, and roles in nuclear procurement, containment vessel engineering, and QA/QC are likely to follow in the near term.\n\nGiven your experience in [AP1000 / nuclear fabrication / ASME nuclear codes], I'd love to explore whether this could be a strong fit for you.\n\nAre you open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "EPC/procurement contract award naming IHI Corporation and Westinghouse for AP1000 containment vessel long-lead items at Poland's first nuclear power plant, a qualifying workforce-demand event in the nuclear subsector.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Article states IHI received an order covering 'engineering and procurement activities for long-lead items', indicating post-FID detailed engineering and supply-chain ramp-up is underway.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "1cbebe29-0922-4db7-8463-6be013061412",
+    "ingested_at": "2026-11-05T18:15:44.686Z",
+    "source_published_at": "2026-11-05T15:02:51.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/cashman-preload-cryogenics-selected-by-power-lng-as-lng-tank-partner-for-project-seawolf-302929803.html"
+      }
+    ],
+    "headline": "Cashman Preload Cryogenics Selected as LNG Tank Partner for Power LNG's Project Seawolf, Galveston TX",
+    "body": "QUINCY, Mass., Nov. 5, 2026 /PRNewswire/ -- Power LNG Ventures has selected Cashman Preload Cryogenics (CPC), an affiliate of Jay Cashman, Inc., as its LNG tank partner for Project Seawolf, a marine LNG fueling facility on Pelican Island in Galveston, Texas. CPC will engineer the...",
+    "url": "https://www.prnewswire.com/news-releases/cashman-preload-cryogenics-selected-by-power-lng-as-lng-tank-partner-for-project-seawolf-302929803.html",
+    "published_at": "2026-11-05T15:11:00.000Z",
+    "hash": "6168d67104c7ce24",
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "us-gulf-coast",
+    "country": "united_states",
+    "tldr": "Power LNG Ventures has awarded Cashman Preload Cryogenics (CPC) the LNG tank engineering scope for Project Seawolf, a marine LNG fueling facility on Pelican Island, Galveston. EPC/engineering ramp signals near-term hiring for cryogenic and industrial construction disciplines.",
+    "operator": {
+      "name": "Power LNG Ventures",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Cashman Preload Cryogenics",
+      "matched_company_slug": null
+    },
+    "project_name": "Project Seawolf",
+    "scope": [
+      "lng_tank_engineering",
+      "cryogenic_systems",
+      "marine_lng_facility"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Cryogenic Engineer",
+        "LNG Tank Engineer",
+        "Process Engineer",
+        "Mechanical Engineer",
+        "Project Engineer",
+        "Construction Manager",
+        "HSE Manager",
+        "Commissioning Engineer",
+        "Tank Design Engineer"
+      ],
+      "skills": [
+        "cryogenic storage",
+        "LNG tank design",
+        "FEED",
+        "EPC",
+        "process engineering",
+        "pre-stressed concrete tanks",
+        "API 625",
+        "pressure vessel",
+        "marine LNG bunkering"
+      ],
+      "certs_freetext": [
+        "PE (Professional Engineer)",
+        "API 625",
+        "OSHA 30",
+        "PMP"
+      ],
+      "geo_rtw": "US work-authorized, Texas-based or relocatable to Galveston TX",
+      "project_experience": [
+        "Freeport LNG",
+        "Sabine Pass LNG",
+        "Corpus Christi LNG",
+        "Port Arthur LNG",
+        "Cameron LNG"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"LNG\" OR \"liquefied natural gas\") AND (\"cryogenic\" OR \"cryogenic tank\" OR \"LNG tank\") AND (\"tank engineer\" OR \"process engineer\" OR \"mechanical engineer\" OR \"commissioning engineer\" OR \"construction manager\") AND (\"EPC\" OR \"FEED\" OR \"tank design\" OR \"API 625\" OR \"marine LNG\" OR \"bunkering\") AND (\"Texas\" OR \"Gulf Coast\" OR \"Galveston\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Cashman Preload Cryogenics just landed the LNG tank scope on Project Seawolf in Galveston, TX. With your cryogenic/LNG background, I'd love to explore if there's a fit. Worth a quick call?",
+      "email_subject": "Project Seawolf – LNG Tank Engineering Roles, Galveston TX | Cashman Preload Cryogenics",
+      "email_body": "Hi [Name],\n\nPower LNG Ventures has just selected Cashman Preload Cryogenics (CPC) as LNG tank partner for Project Seawolf — a marine LNG fueling facility on Pelican Island, Galveston, Texas.\n\nAs CPC ramps up engineering on this project, there will be demand for experienced cryogenic, process, and mechanical engineers with LNG tank and EPC project backgrounds.\n\nGiven your experience in [relevant area], I wanted to reach out early. Would you be open to a brief conversation about how your background might align with the team they're building?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "EPC/engineering contract award naming operator (Power LNG Ventures) and hiring entity (Cashman Preload Cryogenics) for a named project (Project Seawolf), an LNG facility in Galveston, TX — clear workforce-demand signal in the onshore O&G/LNG sector.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "CPC has been 'selected' as LNG tank partner to 'engineer' the facility, indicating detailed engineering is commencing post-award.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "c9cf5273-d0bb-438a-9715-e7bd237886a3",
+    "ingested_at": "2026-11-05T18:15:44.686Z",
+    "source_published_at": "2026-11-05T15:11:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/rio-tinto-injects-144m-into-resolution-copper-after-land-battle-win/"
+      }
+    ],
+    "headline": "Rio Tinto Injects $144M into Resolution Copper for Engineering & Underground Development in Arizona",
+    "body": "Fresh funding will advance engineering and underground development at the Arizona project as legal and cultural tensions persist.",
+    "url": "https://www.mining.com/rio-tinto-injects-144m-into-resolution-copper-after-land-battle-win/",
+    "published_at": "2026-11-05T14:23:00.000Z",
+    "hash": "310fc7adbc7e9a7a",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "us-southwest",
+    "country": "united_states",
+    "tldr": "Rio Tinto is committing $144M to advance engineering and underground development at the Resolution Copper project in Arizona following a land battle win. This signals an active ramp-up phase with near-term demand for mining construction, engineering, and underground development personnel.",
+    "operator": {
+      "name": "Rio Tinto",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Rio Tinto",
+      "matched_company_slug": null
+    },
+    "project_name": "Resolution Copper",
+    "scope": [
+      "underground_development",
+      "engineering",
+      "mine_development"
+    ],
+    "mob_window": {
+      "start": "2025-Q3",
+      "end": "2026-Q2",
+      "duration_months": 12
+    },
+    "contract_value_usd": 144000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Underground Mine Engineer",
+        "Mining Construction Manager",
+        "Shaft Sinking Supervisor",
+        "Geotechnical Engineer",
+        "Mine Planning Engineer",
+        "HSE Manager – Mining",
+        "Underground Development Superintendent",
+        "Project Engineer – Mining",
+        "Ventilation Engineer",
+        "Drill & Blast Engineer"
+      ],
+      "skills": [
+        "underground mining",
+        "shaft sinking",
+        "mine development",
+        "block caving",
+        "geotechnical engineering",
+        "mine planning",
+        "ventilation design",
+        "drill and blast",
+        "project engineering",
+        "HSE mining"
+      ],
+      "certs_freetext": [
+        "MSHA Part 46/48",
+        "Professional Engineer (PE) – Mining",
+        "First Aid/CPR",
+        "Blasting License – Arizona"
+      ],
+      "geo_rtw": "US work-authorized (USC/GC/valid work visa)",
+      "project_experience": [
+        "Bagdad Mine",
+        "Morenci Mine",
+        "Bingham Canyon",
+        "Freeport Climax",
+        "Pinto Valley Mine",
+        "Twin Metals Minnesota"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"underground mining\" OR \"mine development\" OR \"shaft sinking\" OR \"block caving\") AND (\"mining engineer\" OR \"construction manager\" OR \"superintendent\" OR \"geotechnical engineer\" OR \"HSE manager\") AND (\"copper\" OR \"Arizona\" OR \"Resolution Copper\" OR \"Rio Tinto\") AND (\"underground development\" OR \"mine planning\" OR \"drill and blast\" OR \"ventilation\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Rio Tinto just committed $144M to advance underground development at Resolution Copper in Arizona. We're sourcing experienced underground mining engineers & construction leads for this ramp-up. Open to a quick chat?",
+      "email_subject": "Resolution Copper – $144M Ramp-Up | Underground Mining Roles – Arizona",
+      "email_body": "Hi [Name],\n\nRio Tinto has just injected $144 million into the Resolution Copper project in Arizona to advance engineering and underground development following a recent land battle win.\n\nThis signals active hiring demand for experienced underground mining professionals — including Mine Engineers, Development Superintendents, Geotechnical Engineers, and HSE Managers — as the project moves into its next phase.\n\nGiven your background in [underground mining / mine development / relevant discipline], I'd love to connect and share more details about the roles we're sourcing for.\n\nAre you open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Rio Tinto) commits $144M to advance engineering and underground development at named project (Resolution Copper), signaling a discrete workforce-demand ramp-up event in the mining sector.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Article states the $144M injection will 'advance engineering and underground development,' indicating post-sanction detailed engineering and early development work is commencing.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "a6f1d30a-6fe3-4581-907d-5f09c4c89591",
+    "ingested_at": "2026-11-05T18:15:44.686Z",
+    "source_published_at": "2026-11-05T14:23:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org/articles/helen-to-assess-environmental-impacts-of-smr-in-helsinki"
       }
     ],
@@ -721,108 +1050,6 @@
   {
     "sources": [
       {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org/articles/pej-applies-for-early-works-permit-for-nuclear-power-plant"
-      }
-    ],
-    "headline": "Polskie Elektrownie Jądrowe Applies for Early Works Permit at Lubiatowo-Kopalino Nuclear Site",
-    "body": "Polskie Elektrownie Jądrowe has applied to the head of the Pomeranian Voivodeship for a permit to start early works required for the construction of Poland's first nuclear power plant at the Lubiatowo-Kopalino site in the Choczewo municipality.",
-    "url": "https://www.world-nuclear-news.org/articles/pej-applies-for-early-works-permit-for-nuclear-power-plant",
-    "published_at": "2026-11-02T15:37:01.000Z",
-    "hash": "e374ccc99da195ee",
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades"
-    ],
-    "signal_type": "regulatory",
-    "region": "poland",
-    "country": "poland",
-    "tldr": "PEJ has filed for an early works construction permit at Poland's first nuclear plant site (Lubiatowo-Kopalino), signalling pre-construction mobilisation is approaching. Hiring for civil/early-works disciplines is likely 12+ months out pending permit approval.",
-    "operator": {
-      "name": "Polskie Elektrownie Jądrowe",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Polskie Elektrownie Jądrowe",
-      "matched_company_slug": null
-    },
-    "project_name": "Lubiatowo-Kopalino Nuclear Power Plant",
-    "scope": [
-      "early_works",
-      "site_preparation",
-      "civil_works"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Early Works Construction Manager",
-        "Civil Engineering Lead",
-        "Nuclear Construction Planner",
-        "HSE Manager – Nuclear",
-        "Site Preparation Manager",
-        "Permitting & Regulatory Affairs Manager"
-      ],
-      "skills": [
-        "nuclear construction",
-        "early works",
-        "civil site preparation",
-        "regulatory permitting",
-        "construction planning",
-        "HSE management",
-        "stakeholder engagement"
-      ],
-      "certs_freetext": [
-        "IAEA nuclear safety training",
-        "CSCS",
-        "NEBOSH"
-      ],
-      "geo_rtw": "Poland / EU right-to-work",
-      "project_experience": [
-        "Hinkley Point C",
-        "Olkiluoto 3",
-        "Flamanville 3",
-        "Vogtle Units 3 & 4"
-      ],
-      "yoe_band": "10-20",
-      "seniority": "Senior / Principal",
-      "boolean_search": "(\"nuclear power plant\" OR \"nuclear construction\" OR \"early works\") AND (\"construction manager\" OR \"civil engineering\" OR \"site preparation\" OR \"HSE manager\" OR \"permitting\") AND (\"nuclear\" OR \"NPP\") AND (Poland OR \"Eastern Europe\" OR EU)"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Polskie Elektrownie Jądrowe has just filed for an early works permit at Poland's first nuclear plant (Lubiatowo-Kopalino). Pre-construction roles are coming — would love to explore your interest. Open to a quick chat?",
-      "email_subject": "Poland's First Nuclear Plant – Early Works Phase Approaching | Lubiatowo-Kopalino",
-      "email_body": "Hi [Name],\n\nPolskie Elektrownie Jądrowe (PEJ) has formally applied for an early works permit at the Lubiatowo-Kopalino site in Choczewo — the future home of Poland's first nuclear power plant.\n\nThis permit application signals that pre-construction mobilisation is on the horizon, and roles in civil works, site preparation, HSE, and construction planning are likely to emerge over the next 12+ months.\n\nGiven your background in [nuclear/large-scale construction], I'd love to connect you with this opportunity early — before the market heats up.\n\nAre you open to a brief call this week?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Permit application for early works at a named nuclear project (Lubiatowo-Kopalino) by named operator PEJ signals pre-construction workforce demand is approaching.",
-    "phase": "pre_sanction",
-    "phase_evidence": "Article states PEJ 'applied for a permit to start early works required for the construction' — permit not yet granted, project not yet sanctioned for full construction.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "e3f9d785-1271-4402-a848-449190d733ba",
-    "ingested_at": "2026-11-02T18:15:13.314Z",
-    "source_published_at": "2026-11-02T15:37:01.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
         "id": "mining_com",
         "name": "MINING.com",
         "url": "https://www.mining.com/friedland-takes-aim-at-chinas-scandium-grip-with-us-backed-mine/"
@@ -923,6 +1150,108 @@
     "id": "4db2d771-94fb-478c-b3be-f181696d1724",
     "ingested_at": "2026-11-02T18:15:13.314Z",
     "source_published_at": "2026-11-02T12:01:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/pej-applies-for-early-works-permit-for-nuclear-power-plant"
+      }
+    ],
+    "headline": "Polskie Elektrownie Jądrowe Applies for Early Works Permit at Lubiatowo-Kopalino Nuclear Site",
+    "body": "Polskie Elektrownie Jądrowe has applied to the head of the Pomeranian Voivodeship for a permit to start early works required for the construction of Poland's first nuclear power plant at the Lubiatowo-Kopalino site in the Choczewo municipality.",
+    "url": "https://www.world-nuclear-news.org/articles/pej-applies-for-early-works-permit-for-nuclear-power-plant",
+    "published_at": "2026-11-02T15:37:01.000Z",
+    "hash": "e374ccc99da195ee",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "regulatory",
+    "region": "poland",
+    "country": "poland",
+    "tldr": "PEJ has filed for an early works construction permit at Poland's first nuclear plant site (Lubiatowo-Kopalino), signalling pre-construction mobilisation is approaching. Hiring for civil/early-works disciplines is likely 12+ months out pending permit approval.",
+    "operator": {
+      "name": "Polskie Elektrownie Jądrowe",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Polskie Elektrownie Jądrowe",
+      "matched_company_slug": null
+    },
+    "project_name": "Lubiatowo-Kopalino Nuclear Power Plant",
+    "scope": [
+      "early_works",
+      "site_preparation",
+      "civil_works"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Early Works Construction Manager",
+        "Civil Engineering Lead",
+        "Nuclear Construction Planner",
+        "HSE Manager – Nuclear",
+        "Site Preparation Manager",
+        "Permitting & Regulatory Affairs Manager"
+      ],
+      "skills": [
+        "nuclear construction",
+        "early works",
+        "civil site preparation",
+        "regulatory permitting",
+        "construction planning",
+        "HSE management",
+        "stakeholder engagement"
+      ],
+      "certs_freetext": [
+        "IAEA nuclear safety training",
+        "CSCS",
+        "NEBOSH"
+      ],
+      "geo_rtw": "Poland / EU right-to-work",
+      "project_experience": [
+        "Hinkley Point C",
+        "Olkiluoto 3",
+        "Flamanville 3",
+        "Vogtle Units 3 & 4"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal",
+      "boolean_search": "(\"nuclear power plant\" OR \"nuclear construction\" OR \"early works\") AND (\"construction manager\" OR \"civil engineering\" OR \"site preparation\" OR \"HSE manager\" OR \"permitting\") AND (\"nuclear\" OR \"NPP\") AND (Poland OR \"Eastern Europe\" OR EU)"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Polskie Elektrownie Jądrowe has just filed for an early works permit at Poland's first nuclear plant (Lubiatowo-Kopalino). Pre-construction roles are coming — would love to explore your interest. Open to a quick chat?",
+      "email_subject": "Poland's First Nuclear Plant – Early Works Phase Approaching | Lubiatowo-Kopalino",
+      "email_body": "Hi [Name],\n\nPolskie Elektrownie Jądrowe (PEJ) has formally applied for an early works permit at the Lubiatowo-Kopalino site in Choczewo — the future home of Poland's first nuclear power plant.\n\nThis permit application signals that pre-construction mobilisation is on the horizon, and roles in civil works, site preparation, HSE, and construction planning are likely to emerge over the next 12+ months.\n\nGiven your background in [nuclear/large-scale construction], I'd love to connect you with this opportunity early — before the market heats up.\n\nAre you open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Permit application for early works at a named nuclear project (Lubiatowo-Kopalino) by named operator PEJ signals pre-construction workforce demand is approaching.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states PEJ 'applied for a permit to start early works required for the construction' — permit not yet granted, project not yet sanctioned for full construction.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "e3f9d785-1271-4402-a848-449190d733ba",
+    "ingested_at": "2026-11-02T18:15:13.314Z",
+    "source_published_at": "2026-11-02T15:37:01.000Z",
     "contact_archetypes": [
       "project_manager",
       "business_unit_director"

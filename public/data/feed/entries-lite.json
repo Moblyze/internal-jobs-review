@@ -1,5 +1,132 @@
 [
   {
+    "id": "1cbebe29-0922-4db7-8463-6be013061412",
+    "ingested_at": "2026-11-05T18:15:44.686Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/ihi-to-supply-components-for-first-polish-ap1000"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "poland",
+    "country": "poland",
+    "headline": "IHI Wins Westinghouse Order for AP1000 Containment Vessel Components at Poland's First Nuclear Plant",
+    "operator": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "IHI Corporation",
+      "matched_company_slug": null
+    },
+    "project_name": "Poland AP1000 Nuclear Power Plant Unit 1",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
+    "id": "c9cf5273-d0bb-438a-9715-e7bd237886a3",
+    "ingested_at": "2026-11-05T18:15:44.686Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/cashman-preload-cryogenics-selected-by-power-lng-as-lng-tank-partner-for-project-seawolf-302929803.html"
+      }
+    ],
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "us-gulf-coast",
+    "country": "united_states",
+    "headline": "Cashman Preload Cryogenics Selected as LNG Tank Partner for Power LNG's Project Seawolf, Galveston TX",
+    "operator": {
+      "name": "Power LNG Ventures",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Cashman Preload Cryogenics",
+      "matched_company_slug": null
+    },
+    "project_name": "Project Seawolf",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": []
+  },
+  {
+    "id": "a6f1d30a-6fe3-4581-907d-5f09c4c89591",
+    "ingested_at": "2026-11-05T18:15:44.686Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/rio-tinto-injects-144m-into-resolution-copper-after-land-battle-win/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "fid",
+    "region": "us-southwest",
+    "country": "united_states",
+    "headline": "Rio Tinto Injects $144M into Resolution Copper for Engineering & Underground Development in Arizona",
+    "operator": {
+      "name": "Rio Tinto",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Rio Tinto",
+      "matched_company_slug": null
+    },
+    "project_name": "Resolution Copper",
+    "mob_window": {
+      "start": "2025-Q3",
+      "end": "2026-Q2",
+      "duration_months": 12
+    },
+    "contract_value_usd": 144000000,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
     "id": "4626d1c3-021a-43f1-b2c4-985a6dc2b9f9",
     "ingested_at": "2026-11-05T12:18:06.484Z",
     "sources": [
@@ -291,48 +418,6 @@
     "key_people": []
   },
   {
-    "id": "e3f9d785-1271-4402-a848-449190d733ba",
-    "ingested_at": "2026-11-02T18:15:13.314Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org/articles/pej-applies-for-early-works-permit-for-nuclear-power-plant"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades"
-    ],
-    "signal_type": "regulatory",
-    "region": "poland",
-    "country": "poland",
-    "headline": "Polskie Elektrownie Jądrowe Applies for Early Works Permit at Lubiatowo-Kopalino Nuclear Site",
-    "operator": {
-      "name": "Polskie Elektrownie Jądrowe",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Polskie Elektrownie Jądrowe",
-      "matched_company_slug": null
-    },
-    "project_name": "Lubiatowo-Kopalino Nuclear Power Plant",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "pre_sanction",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
-    "key_people": []
-  },
-  {
     "id": "4db2d771-94fb-478c-b3be-f181696d1724",
     "ingested_at": "2026-11-02T18:15:13.314Z",
     "sources": [
@@ -380,6 +465,48 @@
         "hiring_relevance": "context_only"
       }
     ]
+  },
+  {
+    "id": "e3f9d785-1271-4402-a848-449190d733ba",
+    "ingested_at": "2026-11-02T18:15:13.314Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/pej-applies-for-early-works-permit-for-nuclear-power-plant"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "regulatory",
+    "region": "poland",
+    "country": "poland",
+    "headline": "Polskie Elektrownie Jądrowe Applies for Early Works Permit at Lubiatowo-Kopalino Nuclear Site",
+    "operator": {
+      "name": "Polskie Elektrownie Jądrowe",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Polskie Elektrownie Jądrowe",
+      "matched_company_slug": null
+    },
+    "project_name": "Lubiatowo-Kopalino Nuclear Power Plant",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
   },
   {
     "id": "2236a2f3-3e97-497e-9e8a-a163a77d29b0",
