@@ -1,5 +1,132 @@
 [
   {
+    "id": "216474b2-5101-4b87-85eb-cd7018946607",
+    "ingested_at": "2026-11-06T18:15:42.082Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/orsted_reaches_commercial_operation_at_revolution_wind-06-nov-2026-185029-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-wind",
+    "discipline_tags": [
+      "marine_offshore_ops",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-northeast",
+    "country": "united_states",
+    "headline": "Ørsted & GIP's 704MW Revolution Wind Offshore Wind Farm Reaches Commercial Operation",
+    "operator": {
+      "name": "Ørsted",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Ørsted",
+      "matched_company_slug": null
+    },
+    "project_name": "Revolution Wind",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "operating",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "ongoing",
+    "key_people": []
+  },
+  {
+    "id": "99565608-b6c9-4214-9aec-9e8a3e39303e",
+    "ingested_at": "2026-11-06T18:15:42.082Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/x-energy-selects-fluor-for-second-xe-100-project"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "us-pacific-northwest",
+    "country": "united_states",
+    "headline": "Fluor Selected for Design & Engineering on X-energy Xe-100 Cascade Advanced Energy Facility, WA",
+    "operator": {
+      "name": "Energy Northwest",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Fluor Corporation",
+      "matched_company_slug": null
+    },
+    "project_name": "Cascade Advanced Energy Facility",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
+    "id": "cf20f2ca-a5ab-4894-99bb-0d8b155f0440",
+    "ingested_at": "2026-11-06T18:15:42.082Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/nac-to-supply-used-fuel-storage-solution-for-norway"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "norway",
+    "country": "norway",
+    "headline": "NAC International Contracted to Supply Used Nuclear Fuel Dry Storage Casks for Norway's Halden & Kjeller Sites",
+    "operator": {
+      "name": "Norway (national nuclear authority / Institutt for energiteknikk implied)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "NAC International",
+      "matched_company_slug": null
+    },
+    "project_name": "Norway Used Nuclear Fuel Dry Storage — Halden & Kjeller",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "decommissioning",
+    "decom_stage": "contract_awarded",
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": []
+  },
+  {
     "id": "c9cf5273-d0bb-438a-9715-e7bd237886a3",
     "ingested_at": "2026-11-05T18:15:44.686Z",
     "sources": [

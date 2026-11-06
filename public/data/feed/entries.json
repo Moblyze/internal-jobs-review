@@ -2,6 +2,331 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/orsted_reaches_commercial_operation_at_revolution_wind-06-nov-2026-185029-article/?rss=true"
+      }
+    ],
+    "headline": "Ørsted & GIP's 704MW Revolution Wind Offshore Wind Farm Reaches Commercial Operation",
+    "body": "Ørsted A/S on Thursday announced the start of commercial operation at the 704-megawatt (MW) Revolution Wind, a 50:50 partnership with Global Infrastructure P...",
+    "url": "https://www.rigzone.com/news/orsted_reaches_commercial_operation_at_revolution_wind-06-nov-2026-185029-article/?rss=true",
+    "published_at": "2026-11-06T15:04:23.000Z",
+    "hash": "4dea3671ebc23b52",
+    "subsector": "offshore-wind",
+    "discipline_tags": [
+      "marine_offshore_ops",
+      "process_plant_operations"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-northeast",
+    "country": "united_states",
+    "tldr": "Revolution Wind (704MW), a 50:50 Ørsted/GIP joint venture, has entered commercial operation. Hiring signal shifts to ongoing O&M roles rather than construction trades.",
+    "operator": {
+      "name": "Ørsted",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Ørsted",
+      "matched_company_slug": null
+    },
+    "project_name": "Revolution Wind",
+    "scope": [
+      "commissioning_complete",
+      "commercial_operations"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Wind Turbine Technician",
+        "Offshore O&M Technician",
+        "SCADA Engineer",
+        "Electrical & Instrumentation Technician",
+        "Site Operations Manager",
+        "Marine Coordinator"
+      ],
+      "skills": [
+        "offshore wind O&M",
+        "SCADA",
+        "preventive maintenance",
+        "electrical systems",
+        "condition monitoring",
+        "CTV/vessel coordination"
+      ],
+      "certs_freetext": [
+        "GWO Basic Safety Training",
+        "BOSIET",
+        "HUET",
+        "OPITO Offshore Emergency Response"
+      ],
+      "geo_rtw": "US (New England / Northeast, US work-authorized)",
+      "project_experience": [
+        "South Fork Wind",
+        "Vineyard Wind",
+        "Block Island Wind Farm",
+        "Sunrise Wind"
+      ],
+      "yoe_band": "3-10",
+      "seniority": "mid-level technician to senior engineer",
+      "boolean_search": "(\"offshore wind\" OR \"wind farm O&M\" OR \"wind turbine technician\") AND (\"operations & maintenance\" OR \"O&M\" OR \"SCADA\" OR \"electrical maintenance\") AND (\"GWO\" OR \"BOSIET\" OR \"offshore wind technician\") AND (\"New England\" OR \"Rhode Island\" OR \"Connecticut\" OR \"Massachusetts\" OR \"Northeast US\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Ørsted's 704MW Revolution Wind just reached commercial operation off New England. O&M teams are now the focus — if you're an offshore wind technician or O&M engineer open to ongoing roles, I'd love to connect.",
+      "email_subject": "Revolution Wind Now Operational — O&M Roles Opening | Ørsted",
+      "email_body": "Hi [Name],\n\nØrsted's Revolution Wind (704MW) officially entered commercial operation this week — marking a major milestone for offshore wind in the US Northeast.\n\nWith construction complete, the focus shifts fully to operations & maintenance. We're connecting qualified offshore wind O&M technicians, electrical engineers, and marine coordinators with opportunities supporting this asset.\n\nIf you hold GWO/BOSIET and have offshore wind O&M experience, I'd welcome a quick call to discuss what's available.\n\nBest,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Ørsted) and project (Revolution Wind) reach commercial operation, signalling an active O&M workforce demand phase for a specific offshore wind asset.",
+    "phase": "operating",
+    "phase_evidence": "Article states 'start of commercial operation at the 704-megawatt Revolution Wind', confirming the asset is now in the operating phase.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "ongoing",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "216474b2-5101-4b87-85eb-cd7018946607",
+    "ingested_at": "2026-11-06T18:15:42.082Z",
+    "source_published_at": "2026-11-06T15:04:23.000Z",
+    "contact_archetypes": [
+      "ops_director",
+      "hiring_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/x-energy-selects-fluor-for-second-xe-100-project"
+      }
+    ],
+    "headline": "Fluor Selected for Design & Engineering on X-energy Xe-100 Cascade Advanced Energy Facility, WA",
+    "body": "Fluor Corporation is to provide design and engineering services to support the second-of-a-kind US project featuring X-energy's Xe-100, at Energy Northwest's proposed Cascade Advanced Energy Facility near Richland, Washington.",
+    "url": "https://www.world-nuclear-news.org/articles/x-energy-selects-fluor-for-second-xe-100-project",
+    "published_at": "2026-11-06T11:49:50.000Z",
+    "hash": "90ee522c79fb68c2",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "us-pacific-northwest",
+    "country": "united_states",
+    "tldr": "X-energy has selected Fluor to provide design and engineering services for the second Xe-100 SMR project at Energy Northwest's Cascade Advanced Energy Facility near Richland, WA. This FEED/engineering award signals a growing nuclear workforce demand in the Pacific Northwest over the next 1–2 years.",
+    "operator": {
+      "name": "Energy Northwest",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Fluor Corporation",
+      "matched_company_slug": null
+    },
+    "project_name": "Cascade Advanced Energy Facility",
+    "scope": [
+      "design_engineering",
+      "nuclear_smr",
+      "feed"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Design Engineer",
+        "Mechanical Engineer – Nuclear",
+        "Structural Engineer",
+        "Process Engineer",
+        "Nuclear Safety Engineer",
+        "Project Controls Engineer",
+        "Lead Engineer",
+        "FEED Engineer",
+        "Commissioning Manager",
+        "Project Manager – Nuclear"
+      ],
+      "skills": [
+        "SMR design",
+        "nuclear FEED",
+        "ASME nuclear codes",
+        "safety analysis",
+        "process design",
+        "nuclear licensing",
+        "NRC regulatory",
+        "design basis documentation",
+        "systems engineering",
+        "project controls"
+      ],
+      "certs_freetext": [
+        "Professional Engineer (PE) – Nuclear or Mechanical",
+        "ASME Section III",
+        "10 CFR 50 / 52 familiarity",
+        "NRC design certification experience"
+      ],
+      "geo_rtw": "US work authorization required; Pacific Northwest / Richland WA preferred",
+      "project_experience": [
+        "Xe-100 TRISO-X",
+        "NuScale VOYGR",
+        "TerraPower Natrium",
+        "Vogtle Units 3 & 4",
+        "AP1000",
+        "SMR FEED projects"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"nuclear engineer\" OR \"SMR\" OR \"small modular reactor\" OR \"FEED engineer\" OR \"nuclear design\" OR \"reactor design\") AND (\"Fluor\" OR \"nuclear\" OR \"ASME\" OR \"NRC\" OR \"10 CFR\") AND (\"FEED\" OR \"front end engineering\" OR \"design engineering\" OR \"nuclear licensing\") AND (\"Washington\" OR \"Pacific Northwest\" OR \"Richland\" OR \"United States\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Fluor has just been selected for design & engineering on X-energy's Xe-100 SMR project at Energy Northwest's Cascade facility in WA. We're placing senior nuclear engineers for this ramp. Worth a quick call?",
+      "email_subject": "Nuclear Engineering Roles – Fluor / X-energy Xe-100 Cascade Project, WA",
+      "email_body": "Hi [Name],\n\nFluor Corporation has been selected to deliver design and engineering services for X-energy's Xe-100 SMR at Energy Northwest's Cascade Advanced Energy Facility near Richland, Washington — the second-of-a-kind Xe-100 project in the US.\n\nThis engineering award signals near-term demand for senior nuclear, mechanical, structural, and process engineers with FEED and NRC licensing experience.\n\nWe're actively building a shortlist of candidates with SMR, AP1000, or advanced reactor FEED backgrounds. If you're open to exploring this opportunity — or know someone who might be — I'd welcome a brief conversation.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named engineering services contract award (Fluor) for a named SMR nuclear project (Cascade Advanced Energy Facility / Xe-100) with a named operator (Energy Northwest), signaling an engineering workforce ramp in nuclear.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Article states Fluor is to 'provide design and engineering services' for the project, indicating post-selection FEED/detailed engineering phase is commencing.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "99565608-b6c9-4214-9aec-9e8a3e39303e",
+    "ingested_at": "2026-11-06T18:15:42.082Z",
+    "source_published_at": "2026-11-06T11:49:50.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director",
+      "hr_business_partner"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/nac-to-supply-used-fuel-storage-solution-for-norway"
+      }
+    ],
+    "headline": "NAC International Contracted to Supply Used Nuclear Fuel Dry Storage Casks for Norway's Halden & Kjeller Sites",
+    "body": "NAC International of the USA has been contracted to deliver casks for the dry storage of Norway's used nuclear fuel from the former research reactors at Halden and Kjeller.",
+    "url": "https://www.world-nuclear-news.org/articles/nac-to-supply-used-fuel-storage-solution-for-norway",
+    "published_at": "2026-11-06T12:00:05.000Z",
+    "hash": "916e9d0e0e42f56e",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations"
+    ],
+    "signal_type": "epc_award",
+    "region": "norway",
+    "country": "norway",
+    "tldr": "NAC International has been contracted to deliver dry storage casks for used nuclear fuel from Norway's former Halden and Kjeller research reactors, signaling near-term specialist nuclear handling and logistics workforce demand.",
+    "operator": {
+      "name": "Norway (national nuclear authority / Institutt for energiteknikk implied)",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "NAC International",
+      "matched_company_slug": null
+    },
+    "project_name": "Norway Used Nuclear Fuel Dry Storage — Halden & Kjeller",
+    "scope": [
+      "dry_cask_storage",
+      "used_fuel_management",
+      "nuclear_decommissioning_support"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Fuel Handling Engineer",
+        "Radiation Protection Supervisor",
+        "Nuclear Storage Systems Engineer",
+        "Health Physics Technician",
+        "Nuclear Logistics Coordinator",
+        "Cask Loading Supervisor",
+        "Nuclear Decommissioning Engineer",
+        "Criticality Safety Engineer"
+      ],
+      "skills": [
+        "dry cask storage",
+        "used nuclear fuel handling",
+        "radiation protection",
+        "nuclear waste management",
+        "criticality safety",
+        "nuclear logistics",
+        "IAEA transport regulations",
+        "nuclear decommissioning"
+      ],
+      "certs_freetext": [
+        "Radiation Protection Supervisor (RPS)",
+        "IAEA transport certification",
+        "Nuclear Safety Case experience",
+        "GWR/GWE (General Workers Radiation)"
+      ],
+      "geo_rtw": "Norway / EEA eligible",
+      "project_experience": [
+        "Halden Research Reactor",
+        "Kjeller Research Reactor",
+        "IFE Norway",
+        "NAC International cask projects",
+        "OPAL reactor Australia",
+        "NRG Petten Netherlands"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"dry cask storage\" OR \"used fuel storage\" OR \"spent fuel\" OR \"nuclear waste management\") AND (\"radiation protection\" OR \"health physics\" OR \"criticality safety\" OR \"nuclear logistics\") AND (\"research reactor\" OR \"nuclear decommissioning\" OR \"fuel handling\") AND (Norway OR \"North Sea\" OR EEA OR Europe)"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], NAC International has just been contracted for Norway's used nuclear fuel dry storage project at Halden & Kjeller. We're sourcing nuclear fuel handling and RP specialists for this campaign. Open to a quick chat?",
+      "email_subject": "Nuclear Fuel Handling Roles — NAC International / Norway Halden & Kjeller Project",
+      "email_body": "Hi [Name],\n\nNAC International has been contracted to deliver dry storage casks for Norway's used nuclear fuel from the former Halden and Kjeller research reactors — a specialist project requiring experienced nuclear fuel handling, radiation protection, and criticality safety professionals.\n\nGiven your background in [relevant discipline], I wanted to reach out to explore whether this could be a fit for you, or if you know colleagues who may be interested.\n\nWould you be open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named contract award (NAC International) for nuclear used fuel dry storage at named sites (Halden and Kjeller, Norway), creating a discrete specialist workforce demand signal.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Article states NAC International 'has been contracted to deliver casks,' indicating contract award stage with engineering and logistics execution to follow.",
+    "construction_subphase": null,
+    "lifecycle_track": "decommissioning",
+    "decom_stage": "contract_awarded",
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "cf20f2ca-a5ab-4894-99bb-0d8b155f0440",
+    "ingested_at": "2026-11-06T18:15:42.082Z",
+    "source_published_at": "2026-11-06T12:00:05.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/cashman-preload-cryogenics-selected-by-power-lng-as-lng-tank-partner-for-project-seawolf-302929803.html"
