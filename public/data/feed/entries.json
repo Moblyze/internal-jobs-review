@@ -2,6 +2,213 @@
   {
     "sources": [
       {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/paratus-energy-update-regarding-the-petrobras-tender-process-302933292.html"
+      }
+    ],
+    "headline": "Paratus Energy in Active Petrobras PLSV Tender for Contracts Commencing 2028",
+    "body": "HAMILTON, Bermuda, Nov. 9, 2026 /PRNewswire/ -- Reference is made to previous updates from Paratus Energy Services Ltd. (\"Paratus\" or the \"Company\") regarding the ongoing Petrobras PLSV tender for contracts commencing in 2028, including the Company's announcement dated September 18, 2026....",
+    "url": "https://www.prnewswire.com/news-releases/paratus-energy-update-regarding-the-petrobras-tender-process-302933292.html",
+    "published_at": "2026-11-09T11:49:00.000Z",
+    "hash": "4c201b25d93c1d9d",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "rov_subsea",
+      "marine_offshore_ops"
+    ],
+    "signal_type": "tender",
+    "region": "brazil-offshore",
+    "country": "brazil",
+    "tldr": "Paratus Energy Services is competing in Petrobras's PLSV (Pipe-Lay Support Vessel) tender for contracts starting 2028, signaling a vessel mobilization and subsea crew ramp-up cycle beginning in the 6-12 month lead-up to contract start. Recruiters should begin mapping PLSV and ROV talent now.",
+    "operator": {
+      "name": "Petrobras",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Paratus Energy Services Ltd.",
+      "matched_company_slug": null
+    },
+    "project_name": "Petrobras PLSV Tender 2028",
+    "scope": [
+      "plsv_operations",
+      "subsea_support",
+      "vessel_mob"
+    ],
+    "mob_window": {
+      "start": "2027-Q3",
+      "end": "2028-Q1",
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "PLSV Superintendent",
+        "ROV Supervisor",
+        "Subsea Engineer",
+        "Marine Superintendent",
+        "Vessel Operations Manager",
+        "Offshore Installation Manager",
+        "Dynamic Positioning Officer",
+        "Subsea Construction Superintendent"
+      ],
+      "skills": [
+        "PLSV operations",
+        "pipe-lay support",
+        "ROV operations",
+        "dynamic positioning",
+        "subsea construction",
+        "offshore vessel management",
+        "pre-salt deepwater"
+      ],
+      "certs_freetext": [
+        "BOSIET/HUET",
+        "OPITO offshore survival",
+        "DP Unlimited (NI or Nautical Institute)",
+        "IMCA ROV Supervisor",
+        "GWO"
+      ],
+      "geo_rtw": "Brazil or internationally mobile with ANVISA/Brazilian visa eligibility",
+      "project_experience": [
+        "Petrobras pre-salt PLSV campaigns",
+        "Subsea 7 PLSVs Brazil",
+        "Sapura PLSV Brazil",
+        "DeepOcean Brazil",
+        "Heerema subsea Brazil"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid-senior to senior",
+      "boolean_search": "(\"PLSV\" OR \"pipe-lay support vessel\" OR \"subsea support vessel\") AND (\"ROV supervisor\" OR \"subsea superintendent\" OR \"marine superintendent\" OR \"vessel superintendent\" OR \"OIM\" OR \"offshore installation manager\") AND (\"Petrobras\" OR \"Brazil\" OR \"pre-salt\" OR \"deepwater\") AND (\"dynamic positioning\" OR \"DP2\" OR \"subsea construction\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Paratus Energy is competing in Petrobras's 2028 PLSV tender — a major Brazil deepwater campaign. We're mapping experienced PLSV/ROV talent now ahead of contract award. Would you be open to a quick call to explore fit?",
+      "email_subject": "Petrobras PLSV 2028 – Paratus Energy Vessel Roles – Early Talent Mapping",
+      "email_body": "Hi [Name],\n\nParatus Energy Services is actively pursuing Petrobras's PLSV tender for contracts commencing in 2028. As we support their bid and pre-award planning, we're building a pipeline of experienced PLSV, ROV, and subsea construction professionals with Brazilian offshore exposure.\n\nGiven your background in [relevant experience], I'd value a brief conversation to understand your availability and interest ahead of contract confirmation.\n\nWould you have 15 minutes this week or next?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Active PLSV tender naming both operator (Petrobras) and competing contractor (Paratus Energy Services) for offshore subsea contracts commencing 2028, constituting a qualifying tender event with clear labor-demand implications.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article describes an 'ongoing Petrobras PLSV tender for contracts commencing in 2028' — award not yet made, pre-contract phase.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "c6531bff-e441-415b-b749-55b5a7d41d06",
+    "ingested_at": "2026-11-09T12:18:13.372Z",
+    "source_published_at": "2026-11-09T11:49:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/century-lithiums-angel-island-mine-plan-of-operations-deemed-complete-by-blm-advancing-project-toward-environmental-review-302932806.html"
+      }
+    ],
+    "headline": "BLM Deems Century Lithium's Angel Island Mine Plan of Operations Complete, Advancing to Environmental Review",
+    "body": "VANCOUVER, BC, Nov. 9, 2026 /PRNewswire/ -- Century Lithium Corp. (TSXV: LCE) (OTCQX: CYDVF) (Frankfurt: C1Z) (\"Century Lithium\" or \"the Company\") is pleased to announce that the U.S. Bureau of Land Management (\"BLM\"), Battle Mountain District, Tonopah Field Office, has reviewed and...",
+    "url": "https://www.prnewswire.com/news-releases/century-lithiums-angel-island-mine-plan-of-operations-deemed-complete-by-blm-advancing-project-toward-environmental-review-302932806.html",
+    "published_at": "2026-11-09T11:30:00.000Z",
+    "hash": "3be792448bf42752",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "survey_geophysical"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-nevada",
+    "country": "united_states",
+    "tldr": "BLM has accepted Century Lithium's Plan of Operations for the Angel Island lithium mine as complete, triggering the environmental review process and moving the project closer to permitting and eventual construction. Hiring demand is 12+ months out pending NEPA completion.",
+    "operator": {
+      "name": "Century Lithium Corp.",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Century Lithium Corp.",
+      "matched_company_slug": null
+    },
+    "project_name": "Angel Island Mine",
+    "scope": [
+      "mine_plan_of_operations",
+      "environmental_review",
+      "permitting"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mining Engineer",
+        "Environmental Permitting Manager",
+        "Project Development Manager",
+        "NEPA Specialist",
+        "Geotechnical Engineer",
+        "Mine Planning Engineer"
+      ],
+      "skills": [
+        "lithium mining",
+        "NEPA review",
+        "BLM permitting",
+        "mine plan of operations",
+        "environmental impact assessment",
+        "open pit mining"
+      ],
+      "certs_freetext": [
+        "PE (Mining)",
+        "MSHA certification"
+      ],
+      "geo_rtw": "US work authorization required; Nevada-based or relocatable",
+      "project_experience": [
+        "Thacker Pass",
+        "Rhyolite Ridge",
+        "Ioneer",
+        "Lithium Nevada"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "Senior / Principal",
+      "boolean_search": "(\"Mining Engineer\" OR \"Project Development Manager\" OR \"Environmental Permitting Manager\" OR \"NEPA Specialist\" OR \"Mine Planning Engineer\") AND (\"lithium\" OR \"open pit\" OR \"hard rock mining\") AND (\"BLM\" OR \"NEPA\" OR \"Plan of Operations\" OR \"environmental review\") AND (\"Nevada\" OR \"battery minerals\" OR \"critical minerals\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Century Lithium's Angel Island lithium mine just cleared a key BLM permitting milestone. As environmental review advances, project and permitting talent will be in demand. Worth a conversation about your next move?",
+      "email_subject": "Angel Island Lithium Mine – Permitting Milestone Opens Talent Pipeline",
+      "email_body": "Hi [Name],\n\nCentury Lithium's Angel Island Mine (Nevada) has just had its Plan of Operations deemed complete by the BLM, kicking off the formal environmental review process. This is a significant pre-sanction milestone that typically precedes a construction decision by 12-18 months.\n\nAs the project advances through NEPA, Century Lithium will be building out its project development and permitting team. Given your background in [lithium/critical minerals/BLM permitting], you could be well positioned for roles coming to market in the next 12 months.\n\nI'd welcome a brief call to discuss the opportunity and how we're supporting Century Lithium's hiring plans.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Century Lithium) and project (Angel Island Mine) with a regulatory permitting milestone (BLM Plan of Operations acceptance) in the mining subsector, signalling imminent environmental review and downstream workforce demand.",
+    "phase": "pre_sanction",
+    "phase_evidence": "BLM has deemed the Plan of Operations complete and is advancing the project toward environmental review, indicating pre-FID/pre-permit stage.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "483653c9-526c-4007-bf2d-7e4f2e6df51e",
+    "ingested_at": "2026-11-09T12:18:13.372Z",
+    "source_published_at": "2026-11-09T11:30:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/orsted_reaches_commercial_operation_at_revolution_wind-06-nov-2026-185029-article/?rss=true"
