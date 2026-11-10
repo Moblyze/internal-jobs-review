@@ -22,7 +22,7 @@ Usage:
 
 Environment:
     GOOGLE_SERVICE_ACCOUNT_PATH      path to service account JSON
-    GOOGLE_SHEETS_SPREADSHEET_NAME   spreadsheet name (default "Job Scraping Results")
+    GOOGLE_SHEETS_SPREADSHEET_ID     optional override; default in src/utils/sheet_config.py
 """
 
 import argparse
@@ -38,6 +38,7 @@ from google.oauth2.service_account import Credentials
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from src.exporters.sheets import _retry_429  # noqa: E402
+from src.utils.sheet_config import open_jobs_spreadsheet  # noqa: E402
 
 SCOPES = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -91,7 +92,7 @@ def main():
 
     client = authenticate()
     name = os.environ.get("GOOGLE_SHEETS_SPREADSHEET_NAME", "Job Scraping Results")
-    ws = client.open(name).worksheet(TAB_NAME)
+    ws = open_jobs_spreadsheet(client).worksheet(TAB_NAME)
 
     values = _retry_429(ws.get_all_values)
     header, rows = values[0], values[1:]

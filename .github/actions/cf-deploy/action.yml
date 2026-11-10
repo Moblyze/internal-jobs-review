@@ -37,9 +37,24 @@ runs:
           npx --yes wrangler@4 r2 object get "bd-feed-private/archive/jobs/$m.jsonl.gz" --file ".cf-prior/$m.jsonl.gz" --remote >/dev/null 2>&1 || rm -f ".cf-prior/$m.jsonl.gz"
         done
         echo "prior archive months present: $(ls .cf-prior | wc -l)"
+    - name: Pull the prior closed-job shards from private R2 (closed pages survive archiving)
+      shell: bash
+      env:
+        CLOUDFLARE_API_TOKEN: ${{ inputs.api-token }}
+        CLOUDFLARE_ACCOUNT_ID: ${{ inputs.account-id }}
+      run: |
+        # Since Nov 10, 2026 removed rows move off the Sheet, so jobs.json no longer carries
+        # them and their closed pages come only from these shards. A shard that fails to
+        # download would be overwritten without its slugs, so any miss stops the deploy.
+        mkdir -p .cf-prior-closed
+        npx --yes wrangler@4 --version >/dev/null
+        for i in $(seq 0 255); do printf '%02x\n' "$i"; done | \
+          xargs -P 8 -I{} sh -c 'for t in 1 2 3; do npx --yes wrangler@4 r2 object get "bd-feed-private/closed/{}.json.gz" --file ".cf-prior-closed/{}.json.gz" --remote >/dev/null 2>&1 && exit 0; sleep 5; done; exit 1' \
+          || { echo "::error::could not download every prior closed shard; refusing to overwrite them"; exit 1; }
+        echo "prior closed shards present: $(ls .cf-prior-closed | wc -l)"
     - name: Build sharded site data into dist and stage R2 artifacts
       shell: bash
-      run: node scripts/build-site-data.mjs --prior-archive .cf-prior
+      run: node scripts/build-site-data.mjs --prior-archive .cf-prior --prior-closed .cf-prior-closed
     - name: Final dist gate (drop non-site files, enforce Pages limits)
       shell: bash
       run: node scripts/cf-prepare-dist.mjs

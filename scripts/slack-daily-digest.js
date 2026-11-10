@@ -23,14 +23,15 @@ import { google } from 'googleapis';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { JOBS_SPREADSHEET_ID, CLIENT_JOBS_URL } from './jobs-sheet-config.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // ── Configuration ────────────────────────────────────────────────────────────
 
-const SPREADSHEET_ID = '1xb3QBZG9Dtkyo_UmOGu3Oc3zMr2Cg1ohOyt-cd3WT7Y';
-const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/edit?gid=1820304798#gid=1820304798`;
+const SPREADSHEET_ID = JOBS_SPREADSHEET_ID;
+const SHEET_URL = CLIENT_JOBS_URL;
 
 const STATE_FILE = path.join(__dirname, '../data/digest-state.json');
 const DEFAULT_CREDENTIALS_PATH = path.join(__dirname, '../../job-scraping/config/service_account.json');
@@ -431,8 +432,16 @@ function computeDiff(previous, current) {
       for (const key of curr.active) {
         if (!prevActive.has(key)) newCount++;
       }
+      // Since Nov 9, 2026 the archive-removed job moves status=removed rows
+      // out of the sheet before this digest runs, so a newly removed job is
+      // usually just gone from the sheet: count jobs that were active last
+      // time and are not active now, plus any still-present removed row that
+      // was neither active nor removed before.
+      for (const key of prevActive) {
+        if (!curr.active.has(key)) removedCount++;
+      }
       for (const key of curr.removed) {
-        if (!prevRemoved.has(key)) removedCount++;
+        if (!prevRemoved.has(key) && !prevActive.has(key)) removedCount++;
       }
     }
 

@@ -148,3 +148,22 @@ test('job page shards are keyed by slug with similar jobs; company shards by com
   const company = JSON.parse(fs.readFileSync(path.join(out, 'jobs/company', manifest.company.files[ckey]))).acme
   assert.deepEqual(company.jobs.map(j => j.id).sort(), ['a', 'b'])
 })
+
+test('prior closed pages survive once removed rows leave the Sheet (Nov 10, 2026)', () => {
+  const priorDir = fs.mkdtempSync(path.join(os.tmpdir(), 'prior-closed-'))
+  const goneSlug = jobToSlug('Acme', 'Gone Role')
+  const backSlug = jobToSlug('Acme', 'Title back')
+  const put = (slug, row) => {
+    const f = path.join(priorDir, `${shardKey(jobShardIndex(slug, 256), 256)}.json.gz`)
+    const cur = fs.existsSync(f) ? JSON.parse(zlib.gunzipSync(fs.readFileSync(f))) : {}
+    cur[slug] = row
+    fs.writeFileSync(f, zlib.gzipSync(JSON.stringify(cur)))
+  }
+  put(goneSlug, { id: 'gone', title: 'Gone Role', lastSeen: '2026-11-01T00:00:00Z' })
+  put(backSlug, { id: 'back-old', title: 'Title back', lastSeen: '2026-10-01T00:00:00Z' })
+  const { r2 } = build([row('a'), row('back')], ['--prior-closed', priorDir])
+  const read = slug => JSON.parse(zlib.gunzipSync(fs.readFileSync(
+    path.join(r2, 'closed', `${shardKey(jobShardIndex(slug, 256), 256)}.json.gz`))))[slug]
+  assert.equal(read(goneSlug).id, 'gone')
+  assert.equal(read(backSlug), undefined) // current again -> not a closed page
+})

@@ -33,6 +33,10 @@
  *                          public/data (gitignored paths jobs/ and jobs-manifest.json).
  *   --r2-dir <dir>         R2 staging dir (default .cf-r2)
  *   --prior-archive <dir>  directory holding previously uploaded archive/jobs/*.jsonl.gz to merge
+ *   --prior-closed <dir>   directory holding previously uploaded closed/KK.json.gz shards to merge.
+ *                          Since Nov 10, 2026 removed rows leave the Sheet for the archive, so
+ *                          jobs.json no longer carries them; prior closed pages are carried over
+ *                          (a slug that is current again is dropped, a newer sighting wins).
  *   --no-archive           skip the R2 outputs (dev)
  */
 import fs from 'node:fs'
@@ -50,6 +54,7 @@ const arg = (name, def) => {
 const OUT_DATA = arg('--out-dir', 'dist/data')
 const R2_DIR = arg('--r2-dir', '.cf-r2')
 const PRIOR = arg('--prior-archive', null)
+const PRIOR_CLOSED = arg('--prior-closed', null)
 const NO_ARCHIVE = process.argv.includes('--no-archive')
 
 const INDEX_CHUNK = 12500 // list rows per index shard
@@ -348,9 +353,23 @@ if (!NO_ARCHIVE) {
     if (!shard[slug]) closedCount++
     if (!shard[slug] || String(seen) > String(shard[slug].lastSeen)) shard[slug] = row
   }
+  let carried = 0
+  if (PRIOR_CLOSED) {
+    for (let i = 0; i < CLOSED_SHARDS; i++) {
+      const f = path.join(PRIOR_CLOSED, `${shardKey(i, CLOSED_SHARDS)}.json.gz`)
+      if (!fs.existsSync(f)) continue
+      const prior = JSON.parse(zlib.gunzipSync(fs.readFileSync(f)).toString('utf8'))
+      for (const [slug, row] of Object.entries(prior)) {
+        if (currentSlugs.has(slug)) continue
+        const shard = closedShards[jobShardIndex(slug, CLOSED_SHARDS)]
+        if (!shard[slug]) { shard[slug] = row; closedCount++; carried++ }
+        else if (String(row.lastSeen || '') > String(shard[slug].lastSeen || '')) shard[slug] = row
+      }
+    }
+  }
   closedShards.forEach((obj, i) =>
     writeFile(path.join(R2_DIR, 'closed', `${shardKey(i, CLOSED_SHARDS)}.json.gz`), gz(Buffer.from(JSON.stringify(obj)))))
-  console.log(`[site-data] closed: ${closedCount} slugs in ${CLOSED_SHARDS} shards`)
+  console.log(`[site-data] closed: ${closedCount} slugs in ${CLOSED_SHARDS} shards (${carried} carried over from the prior closed shards)`)
 
   const currentRows = jobs.filter(isCurrent)
   writeFile(path.join(R2_DIR, 'current', 'jobs-current.json.gz'), gz(Buffer.from(JSON.stringify(currentRows))))

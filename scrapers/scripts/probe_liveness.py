@@ -44,7 +44,7 @@ Usage (creds only exist in GitHub Actions; see liveness-probe.yml):
 
 Environment:
     GOOGLE_SERVICE_ACCOUNT_PATH      path to service account JSON (sheet writes)
-    GOOGLE_SHEETS_SPREADSHEET_NAME   spreadsheet name (default "Job Scraping Results")
+    GOOGLE_SHEETS_SPREADSHEET_ID     optional override; default in src/utils/sheet_config.py
 """
 
 import argparse
@@ -358,7 +358,8 @@ def open_spreadsheet():
         "https://www.googleapis.com/auth/spreadsheets",
         "https://www.googleapis.com/auth/drive",
     ])
-    return gspread.authorize(creds).open(os.environ.get("GOOGLE_SHEETS_SPREADSHEET_NAME", "Job Scraping Results"))
+    from src.utils.sheet_config import open_jobs_spreadsheet
+    return open_jobs_spreadsheet(gspread.authorize(creds))
 
 
 # ---------------------------------------------------------------------------

@@ -64,16 +64,9 @@ async function authenticate(credentialsPath) {
 }
 
 async function findSpreadsheetId(auth) {
-  const drive = google.drive({ version: 'v3', auth });
-  const response = await drive.files.list({
-    q: `name='${SPREADSHEET_NAME}' and mimeType='application/vnd.google-apps.spreadsheet'`,
-    fields: 'files(id, name)',
-    spaces: 'drive',
-  });
-  if (!response.data.files || response.data.files.length === 0) {
-    throw new Error(`Spreadsheet "${SPREADSHEET_NAME}" not found.`);
-  }
-  return response.data.files[0].id;
+  // Opened by ID since Nov 10, 2026 (scripts/jobs-sheet-config.js): a name
+  // search can return the frozen old sheet.
+  return JOBS_SPREADSHEET_ID;
 }
 
 function delay(ms) {

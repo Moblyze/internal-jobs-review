@@ -97,7 +97,13 @@ class JobLifecycleManager:
             # Sonardyne, Oct 20, 2026) stays "removed" on the sheet forever
             # while the DB says active, because the diff only sees DB state.
             if self.exporter:
-                self._update_sheet_statuses(sheet_name, reactivated_urls, 'active')
+                missing = self._update_sheet_statuses(sheet_name, reactivated_urls, 'active')
+                # Since Nov 9, 2026 removed rows are moved to the archive
+                # spreadsheet (scripts/archive_removed_rows.py), so a job that
+                # comes back usually has no row left to flip. Re-append it
+                # from today's scrape so it is on the sheet again.
+                if missing:
+                    self._reappend_jobs(sheet_name, current_jobs, missing)
 
         # Update last_seen for all scraped jobs (not just new ones)
         self.tracker.update_last_seen_batch(company, current_urls)
@@ -185,11 +191,13 @@ class JobLifecycleManager:
         keep = {j['url_hash'] for j in protected}
         return [j for j in removed_jobs if j['url_hash'] not in keep], protected
 
-    def _update_sheet_statuses(self, sheet_name: str, urls: list[str], new_status: str):
+    def _update_sheet_statuses(self, sheet_name: str, urls: list[str], new_status: str) -> list[str]:
         """Set Status / Status Changed Date on the existing sheet rows for urls.
 
         Only rows already on the tab are touched (never appends); same
         batching and 429 handling as retirements via batch_update_statuses.
+        Returns the urls that have no row on the tab (empty on a read error,
+        so a failed read never triggers a re-append).
         """
         try:
             url_to_row = self.exporter.get_existing_job_urls(sheet_name)
@@ -198,13 +206,31 @@ class JobLifecycleManager:
             if updates:
                 self.exporter.batch_update_statuses(sheet_name, updates)
                 logger.info(f"Updated {len(updates)} jobs to {new_status} in sheet: {sheet_name}")
-            else:
-                logger.warning(
-                    f"No matching URLs found in sheet {sheet_name} for {len(urls)} {new_status} jobs"
-                )
+            missing = [u for u in urls if u not in url_to_row]
+            if missing:
+                logger.info(f"{len(missing)} {new_status} jobs have no row in sheet {sheet_name}")
+            return missing
         except Exception as e:
             logger.error(f"Failed to update Google Sheets for {new_status} jobs: {e}", exc_info=True)
             # Don't raise - lifecycle tracking in DB already succeeded
+            return []
+
+    def _reappend_jobs(self, sheet_name: str, current_jobs: list[JobPosting], urls: list[str]):
+        """Append today's scraped rows for reactivated urls that have no sheet row (archived)."""
+        wanted = set(urls)
+        jobs, seen = [], set()
+        for job in current_jobs:
+            u = str(job.url)
+            if u in wanted and u not in seen:
+                seen.add(u)
+                jobs.append(job)
+        if not jobs:
+            return
+        try:
+            written = self.exporter.export_jobs(jobs, sheet_name)
+            logger.info(f"Re-appended {written} reactivated jobs to sheet {sheet_name} (rows had been archived)")
+        except Exception as e:
+            logger.error(f"Failed to re-append reactivated jobs to {sheet_name}: {e}", exc_info=True)
 
     def _update_sheets_for_removed_jobs(
         self,

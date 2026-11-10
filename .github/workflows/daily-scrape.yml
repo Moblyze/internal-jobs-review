@@ -450,9 +450,62 @@ jobs:
           echo "::error::Scrape health check detected one or more employers whose active-job count fell to zero. See the 'Record health snapshot' step above for details."
           exit 1
 
+  # ── Move removed rows to the archive spreadsheet (Nov 9, 2026) ──
+  # The old sheet hit Google's size limit ("This document is too large to
+  # continue editing") with 159k removed rows in it; live rows moved to a new
+  # spreadsheet on Nov 10, 2026. Every row whose Status is "removed" is
+  # appended (slim, no description) to the archive spreadsheet (tab "Archived
+  # Jobs") and then deleted here. Then a size guard: #monitoring note at 2x the
+  # post-cutover size, failed step at 3x. Deleting shifts row numbers, so this runs
+  # only after BOTH scrape jobs have finished writing, and before the matrix
+  # and digest read the sheet. Idempotent: see scrapers/src/utils/sheet_archive.py.
+  archive-removed:
+    needs: [employer-scrapers, aggregator-searches]
+    if: ${{ !cancelled() && inputs.dry_run != true }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    defaults:
+      run:
+        working-directory: scrapers
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: scrapers/requirements.txt
+
+      - name: Install Python dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Create service account credentials file
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          mkdir -p config
+          echo "$GOOGLE_SERVICE_ACCOUNT_JSON" > config/service_account.json
+          chmod 600 config/service_account.json
+
+      - name: Archive removed rows and check sheet size
+        env:
+          GOOGLE_SERVICE_ACCOUNT_PATH: config/service_account.json
+          SLACK_MONITORING_WEBHOOK: ${{ secrets.SLACK_MONITORING_WEBHOOK }}
+        run: python scripts/archive_removed_rows.py
+
+      - name: Clean up credentials
+        if: always()
+        run: |
+          rm -f config/service_account.json
+
   # ── Update Source Coverage Matrix (runs after both complete) ──
   update-matrix:
-    needs: [employer-scrapers, aggregator-searches]
+    needs: [employer-scrapers, aggregator-searches, archive-removed]
     if: always() && (needs.employer-scrapers.result == 'success' || needs.aggregator-searches.result == 'success')
     runs-on: ubuntu-latest
     defaults:
@@ -497,7 +550,7 @@ jobs:
 
   # ── Slack Daily Digest (runs after scrape + matrix update) ──
   slack-digest:
-    needs: [employer-scrapers, aggregator-searches, update-matrix]
+    needs: [employer-scrapers, aggregator-searches, archive-removed, update-matrix]
     if: always() && inputs.skip_slack_digest != true && (needs.employer-scrapers.result == 'success' || needs.aggregator-searches.result == 'success')
     runs-on: ubuntu-latest
     permissions:
@@ -560,7 +613,7 @@ jobs:
 
   # ── Summary job (runs after all jobs complete) ──
   report:
-    needs: [employer-scrapers, aggregator-searches, persist-state, update-matrix, slack-digest]
+    needs: [employer-scrapers, aggregator-searches, persist-state, archive-removed, update-matrix, slack-digest]
     if: always()
     runs-on: ubuntu-latest
     steps:
@@ -572,6 +625,7 @@ jobs:
           echo "  Employer scrapers: ${{ needs.employer-scrapers.result }}"
           echo "  Aggregator searches: ${{ needs.aggregator-searches.result }}"
           echo "  Persist dedup state: ${{ needs.persist-state.result }}"
+          echo "  Removed-row archive: ${{ needs.archive-removed.result }}"
           echo "  Source matrix update: ${{ needs.update-matrix.result }}"
           echo "  Slack digest: ${{ needs.slack-digest.result }}"
           echo "════════════════════════════════════════"

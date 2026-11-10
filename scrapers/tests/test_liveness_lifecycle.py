@@ -142,3 +142,30 @@ class TestReactivationReachesTheSheet:
         writes = [u for call in exporter.batch_update_statuses.call_args_list for u in call.args[1]]
         assert [(row, status) for row, status, _ in writes] == [(7, 'active')]
         assert exporter.batch_update_statuses.call_args.args[0] == 'Acme'
+
+
+class TestReactivationOfArchivedRows:
+    def test_reactivated_job_without_a_sheet_row_is_reappended(self, tracker):
+        # Nov 9, 2026: removed rows now move to the archive spreadsheet, so a
+        # job that comes back has no row to flip; it must be appended again.
+        _insert(tracker.conn, 'https://x/archived', status='removed')
+        _insert(tracker.conn, 'https://x/on-sheet', status='removed')
+        exporter = MagicMock()
+        exporter.get_existing_job_urls.return_value = {'https://x/on-sheet': 5}
+        mgr = JobLifecycleManager(tracker=tracker, exporter=exporter)
+
+        jobs = [MagicMock(url=u) for u in ('https://x/archived', 'https://x/on-sheet')]
+        mgr.process_scrape_results('Acme', 'Acme', jobs)
+
+        writes = [u for call in exporter.batch_update_statuses.call_args_list for u in call.args[1]]
+        assert [(row, status) for row, status, _ in writes] == [(5, 'active')]
+        exported, tab = exporter.export_jobs.call_args.args
+        assert tab == 'Acme' and [str(j.url) for j in exported] == ['https://x/archived']
+
+    def test_sheet_read_failure_never_reappends(self, tracker):
+        _insert(tracker.conn, 'https://x/back', status='removed')
+        exporter = MagicMock()
+        exporter.get_existing_job_urls.side_effect = RuntimeError('too large')
+        mgr = JobLifecycleManager(tracker=tracker, exporter=exporter)
+        mgr.process_scrape_results('Acme', 'Acme', [MagicMock(url='https://x/back')])
+        exporter.export_jobs.assert_not_called()

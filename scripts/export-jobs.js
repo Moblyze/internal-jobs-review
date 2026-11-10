@@ -11,6 +11,7 @@ import { google } from 'googleapis';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { JOBS_SPREADSHEET_ID } from './jobs-sheet-config.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -18,7 +19,7 @@ const __dirname = path.dirname(__filename);
 // Configuration
 const CREDENTIALS_PATH = path.join(__dirname, '../../job-scraping/config/service_account.json');
 const SPREADSHEET_NAME = 'Job Scraping Results'; // Must match .env in job-scraping
-const AGGREGATOR_SPREADSHEET_ID = '1xb3QBZG9Dtkyo_UmOGu3Oc3zMr2Cg1ohOyt-cd3WT7Y';
+const AGGREGATOR_SPREADSHEET_ID = JOBS_SPREADSHEET_ID;
 const OUTPUT_PATH = path.join(__dirname, '../public/data/jobs.json');
 // Source-page liveness verdicts written by scrapers/scripts/probe_liveness.py
 // (release asset liveness-latest.json, downloaded by sync-data.yml). Keyed by
@@ -232,20 +233,9 @@ async function fetchAllJobs(auth) {
 }
 
 async function getSpreadsheetId(sheets) {
-  // Find spreadsheet by name
-  const drive = google.drive({ version: 'v3', auth: sheets.context._options.auth });
-
-  const response = await withRetry(() => drive.files.list({
-    q: `name='${SPREADSHEET_NAME}' and mimeType='application/vnd.google-apps.spreadsheet'`,
-    fields: 'files(id, name)',
-    spaces: 'drive',
-  }));
-
-  if (!response.data.files || response.data.files.length === 0) {
-    throw new Error(`Spreadsheet "${SPREADSHEET_NAME}" not found. Make sure it's shared with the service account.`);
-  }
-
-  return response.data.files[0].id;
+  // Opened by ID since Nov 10, 2026 (scripts/jobs-sheet-config.js): a name
+  // search can return the frozen old sheet.
+  return JOBS_SPREADSHEET_ID;
 }
 
 // Aggregator Jobs sheet column mapping (16 cols: A-P)

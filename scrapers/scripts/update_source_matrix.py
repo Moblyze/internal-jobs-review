@@ -12,7 +12,7 @@ Usage:
 
 Environment:
     GOOGLE_SERVICE_ACCOUNT_PATH - path to service account JSON
-    GOOGLE_SHEETS_SPREADSHEET_NAME - spreadsheet name
+    GOOGLE_SHEETS_SPREADSHEET_ID - optional override (src/utils/sheet_config.py)
 """
 
 import argparse
@@ -28,6 +28,9 @@ from datetime import datetime
 import gspread
 from google.oauth2.service_account import Credentials
 from gspread.exceptions import APIError, WorksheetNotFound
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from src.utils.sheet_config import open_jobs_spreadsheet  # noqa: E402
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s %(message)s')
 logger = logging.getLogger(__name__)
@@ -48,7 +51,6 @@ SKIP_SHEETS = {
 }
 
 # Aggregator spreadsheet ID (same as export-jobs.js)
-AGGREGATOR_SPREADSHEET_ID = '1xb3QBZG9Dtkyo_UmOGu3Oc3zMr2Cg1ohOyt-cd3WT7Y'
 
 # Path to companies.json (relative to repo root)
 COMPANIES_JSON_PATH = os.path.join(
@@ -161,7 +163,7 @@ def read_aggregator_jobs(client) -> list[dict]:
     jobs = []
 
     try:
-        spreadsheet = _retry_429(client.open_by_key, AGGREGATOR_SPREADSHEET_ID)
+        spreadsheet = open_jobs_spreadsheet(client, _retry_429)
         ws = _retry_429(spreadsheet.worksheet, 'Aggregator Jobs')
     except (WorksheetNotFound, gspread.exceptions.SpreadsheetNotFound) as e:
         logger.warning(f'Could not open aggregator spreadsheet: {e}')
@@ -529,8 +531,8 @@ def main():
     # Authenticate
     logger.info('Authenticating with Google Sheets...')
     client = authenticate(credentials_path)
-    spreadsheet = _retry_429(client.open, spreadsheet_name)
-    logger.info(f'Connected to: {spreadsheet_name}')
+    spreadsheet = open_jobs_spreadsheet(client, _retry_429)
+    logger.info(f'Connected to: {spreadsheet.title} ({spreadsheet.id})')
 
     # Read all job data
     logger.info('Reading employer jobs...')

@@ -140,7 +140,8 @@ def main() -> int:
 
     creds = Credentials.from_service_account_file(os.environ["GOOGLE_SERVICE_ACCOUNT_PATH"], scopes=[
         "https://www.googleapis.com/auth/spreadsheets", "https://www.googleapis.com/auth/drive"])
-    book = gspread.authorize(creds).open(os.environ.get("GOOGLE_SHEETS_SPREADSHEET_NAME", "Job Scraping Results"))
+    from src.utils.sheet_config import open_jobs_spreadsheet
+    book = open_jobs_spreadsheet(gspread.authorize(creds), _retry_429)
     ws = _retry_429(book.worksheet, TAB)
     values = _retry_429(ws.get_all_values)
     header, rows = values[0], values[1:]

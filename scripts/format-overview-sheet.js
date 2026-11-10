@@ -19,13 +19,14 @@ import { google } from 'googleapis';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { JOBS_SPREADSHEET_ID } from './jobs-sheet-config.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // --- Configuration -----------------------------------------------------------
 
-const SPREADSHEET_ID = '1xb3QBZG9Dtkyo_UmOGu3Oc3zMr2Cg1ohOyt-cd3WT7Y';
+const SPREADSHEET_ID = JOBS_SPREADSHEET_ID;
 const OVERVIEW_SHEET_NAME = 'Overview';
 const RUN_HISTORY_SHEET_NAME = 'Run History';
 

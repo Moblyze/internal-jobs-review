@@ -47,7 +47,7 @@ Usage (creds only exist in GitHub Actions; see seed-state-from-sheet.yml):
 
 Environment:
     GOOGLE_SERVICE_ACCOUNT_PATH      path to service account JSON
-    GOOGLE_SHEETS_SPREADSHEET_NAME   spreadsheet name (default "Job Scraping Results")
+    GOOGLE_SHEETS_SPREADSHEET_ID     optional override; default in src/utils/sheet_config.py
 """
 
 import argparse
@@ -66,6 +66,7 @@ from google.oauth2.service_account import Credentials
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from src.exporters.sheets import _retry_429  # noqa: E402
+from src.utils.sheet_config import open_jobs_spreadsheet  # noqa: E402
 from src.utils import liveness  # noqa: E402
 from src.utils.deduplication import DeduplicationTracker  # noqa: E402
 
@@ -288,7 +289,7 @@ def main():
 
     keys = [k.strip() for k in args.company.split(",") if k.strip()]
     client = authenticate()
-    spreadsheet = client.open(os.environ.get("GOOGLE_SHEETS_SPREADSHEET_NAME", "Job Scraping Results"))
+    spreadsheet = open_jobs_spreadsheet(client)
 
     # Opening through the tracker guarantees the schema (and its migrations) match production.
     tracker = DeduplicationTracker(db_path=args.state_db)

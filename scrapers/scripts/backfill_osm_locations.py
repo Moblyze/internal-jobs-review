@@ -20,6 +20,9 @@ from urllib.request import Request, urlopen
 import gspread
 from google.oauth2.service_account import Credentials
 
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from src.utils.sheet_config import open_jobs_spreadsheet  # noqa: E402
+
 SCOPES = [
     'https://www.googleapis.com/auth/spreadsheets',
     'https://www.googleapis.com/auth/drive',
@@ -107,7 +110,7 @@ def main():
     credentials = Credentials.from_service_account_file(cred_path, scopes=SCOPES)
     gc = gspread.authorize(credentials)
     spreadsheet_name = os.environ.get('GOOGLE_SHEETS_SPREADSHEET_NAME', 'Job Scraping Results')
-    spreadsheet = gc.open(spreadsheet_name)
+    spreadsheet = open_jobs_spreadsheet(gc)
     worksheet = spreadsheet.worksheet(SHEET_NAME)
 
     # Read all rows

@@ -25,14 +25,15 @@ import { google } from 'googleapis';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { JOBS_SPREADSHEET_ID, CLIENT_JOBS_URL } from './jobs-sheet-config.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // ── Configuration ────────────────────────────────────────────────────────────
 
-const SPREADSHEET_ID = '1xb3QBZG9Dtkyo_UmOGu3Oc3zMr2Cg1ohOyt-cd3WT7Y';
-const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/edit?gid=1820304798#gid=1820304798`;
+const SPREADSHEET_ID = JOBS_SPREADSHEET_ID;
+const SHEET_URL = CLIENT_JOBS_URL;
 
 const STATE_FILE = path.join(__dirname, '../data/weekly-digest-state.json');
 const DEFAULT_CREDENTIALS_PATH = path.join(__dirname, '../../job-scraping/config/service_account.json');

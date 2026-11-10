@@ -20,6 +20,7 @@ from gspread.exceptions import APIError, WorksheetNotFound
 from tenacity import retry, retry_if_exception_type, stop_after_attempt, wait_exponential
 
 from src.models.job import JobPosting
+from src.utils.sheet_config import open_archive_spreadsheet, open_jobs_spreadsheet
 
 logger = logging.getLogger(__name__)
 
@@ -146,16 +147,13 @@ class SheetsExporter:
             raise FileNotFoundError(f"Credentials file not found: {credentials_path}")
 
         self.credentials_path = credentials_path
-        self.spreadsheet_name = spreadsheet_name or os.getenv('GOOGLE_SHEETS_SPREADSHEET_NAME')
-
-        if not self.spreadsheet_name:
-            raise ValueError(
-                "Spreadsheet name must be provided or set in GOOGLE_SHEETS_SPREADSHEET_NAME env var"
-            )
+        # Opened by ID since Nov 10, 2026 (src/utils/sheet_config.py); the name
+        # is kept only for log lines.
+        self.spreadsheet_name = spreadsheet_name or os.getenv('GOOGLE_SHEETS_SPREADSHEET_NAME') or 'Job Scraping Results'
 
         # Authenticate and open spreadsheet (SHEETS-01)
         self._authenticate()
-        logger.info(f"Connected to Google Sheets: {self.spreadsheet_name}")
+        logger.info(f"Connected to Google Sheets: {self.spreadsheet.title} ({self.spreadsheet.id})")
 
     def _authenticate(self):
         """Authenticate with Google Sheets API using service account credentials."""
@@ -164,9 +162,19 @@ class SheetsExporter:
             scopes=self.SCOPES
         )
         self.client = gspread.authorize(credentials)
-        self.spreadsheet = _retry_429(self.client.open, self.spreadsheet_name)
+        self.spreadsheet = open_jobs_spreadsheet(self.client, _retry_429)
         self._ws_cache: Optional[dict] = None
         self._header_checked: set = set()
+
+    def archive_url(self) -> Optional[str]:
+        """URL of the removed-jobs archive spreadsheet ("<name> - Archive"), or None."""
+        if getattr(self, '_archive_url', None) is None:
+            try:
+                self._archive_url = open_archive_spreadsheet(self.client, _retry_429).url
+            except Exception as e:
+                logger.warning(f"Archive spreadsheet not reachable: {e}")
+                self._archive_url = ''
+        return self._archive_url or None
 
     def _worksheet(self, sheet_name: str):
         """Worksheet by title, from ONE metadata read per run (2026-09-24).
@@ -603,6 +611,21 @@ class SheetsExporter:
             range_name=f'A1:F{end_row}',
             value_input_option='RAW'
         )
+
+        # Link to the removed-jobs archive (Nov 9, 2026). clear() above wipes
+        # every value on this tab, so the link is rewritten on each run.
+        archive_url = self.archive_url()
+        if archive_url:
+            try:
+                overview_ws.update(
+                    values=[['Removed jobs archive'],
+                            [f'=HYPERLINK("{archive_url}", "Job Scraping Results - Archive")'],
+                            ['Jobs removed at the source are moved there daily.']],
+                    range_name='H1:H3',
+                    value_input_option='USER_ENTERED'
+                )
+            except Exception as e:
+                logger.warning(f"Could not write the archive link on Overview: {e}")
 
         logger.info(
             f"Overview sheet rewritten: {len(sources)} sources "
