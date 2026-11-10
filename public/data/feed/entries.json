@@ -2,6 +2,120 @@
   {
     "sources": [
       {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/arena-energy-closes-480-million-department-of-energy-loan-for-energy-infrastructure-improvements-in-the-gulf-of-america-302935060.html"
+      }
+    ],
+    "headline": "Arena Energy Closes $480M DOE Loan for Project Elkhorn Offshore Platform Refurbishment – Gulf of America",
+    "body": "Project Elkhorn will retool, refurbish, and repower offshore platforms in the Southern Eugene Island area off the coast of Louisiana THE WOODLANDS, Texas, Nov. 10, 2026 /PRNewswire/ -- Arena Energy, LLC (\"Arena\"), a leading independent oil and natural gas exploration company focused on...",
+    "url": "https://www.prnewswire.com/news-releases/arena-energy-closes-480-million-department-of-energy-loan-for-energy-infrastructure-improvements-in-the-gulf-of-america-302935060.html",
+    "published_at": "2026-11-10T17:05:00.000Z",
+    "hash": "c43032cc5634c398",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations",
+      "marine_offshore_ops"
+    ],
+    "signal_type": "fid",
+    "region": "us-gulf",
+    "country": "united_states",
+    "tldr": "Arena Energy has closed a $480M Department of Energy loan to retool, refurbish, and repower offshore platforms in the Southern Eugene Island area, Louisiana. Project Elkhorn signals a significant brownfield construction ramp-up with near-term labor demand across offshore trades and mechanical disciplines.",
+    "operator": {
+      "name": "Arena Energy, LLC",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Arena Energy, LLC",
+      "matched_company_slug": null
+    },
+    "project_name": "Project Elkhorn",
+    "scope": [
+      "platform_refurbishment",
+      "repower",
+      "brownfield_epc",
+      "topsides_rework"
+    ],
+    "mob_window": {
+      "start": "2027-Q1",
+      "end": "2027-Q4",
+      "duration_months": 12
+    },
+    "contract_value_usd": 480000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Offshore Construction Manager",
+        "Platform Superintendent",
+        "Mechanical Completion Engineer",
+        "HSE Manager – Offshore",
+        "Hook-Up & Commissioning Engineer",
+        "Structural Superintendent",
+        "Electrical Superintendent",
+        "Offshore Project Manager",
+        "Maintenance & Reliability Engineer",
+        "Brownfield Project Engineer"
+      ],
+      "skills": [
+        "offshore platform refurbishment",
+        "brownfield construction",
+        "hook-up commissioning",
+        "topsides modification",
+        "offshore mechanical completion",
+        "platform repower",
+        "GoM operations",
+        "SEMS",
+        "BSEE compliance"
+      ],
+      "certs_freetext": [
+        "BOSIET / HUET",
+        "TWIC Card",
+        "OSHA 30 Construction",
+        "API 510 / 570",
+        "First Aid / CPR Offshore"
+      ],
+      "geo_rtw": "US – Gulf of Mexico / Louisiana shore base; must hold TWIC",
+      "project_experience": [
+        "Southern Eugene Island",
+        "Gulf of Mexico brownfield platform projects",
+        "Shelf platform refurbishment campaigns",
+        "GOM topsides modification"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid-senior to senior",
+      "boolean_search": "(\"offshore construction\" OR \"platform refurbishment\" OR \"brownfield offshore\" OR \"hook-up commissioning\" OR \"topsides modification\" OR \"offshore superintendent\") AND (\"Gulf of Mexico\" OR \"GOM\" OR \"offshore Louisiana\" OR \"Eugene Island\") AND (\"TWIC\" OR \"BOSIET\" OR \"offshore platform\" OR \"SEMS\") NOT (\"decommissioning\" OR \"solar\" OR \"wind\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name] – Arena Energy just closed a $480M DOE loan for Project Elkhorn, a major offshore platform refurbishment in Southern Eugene Island, GOM. Brownfield construction ramp is imminent – are you open to a conversation about senior offshore roles?",
+      "email_subject": "Project Elkhorn – Arena Energy | Offshore Platform Refurbishment – Senior Roles Opening",
+      "email_body": "Hi [Name],\n\nArena Energy has just closed a $480M Department of Energy loan for Project Elkhorn – a significant brownfield refurbishment, retooling, and repower campaign across offshore platforms in the Southern Eugene Island area, Gulf of America.\n\nThis signals an imminent construction ramp with demand for experienced offshore construction managers, platform superintendents, HUC engineers, and HSE leads familiar with GoM shelf operations and BSEE/SEMS requirements.\n\nI work with operators and contractors placing senior offshore talent across the GOM and would welcome a quick call to explore whether your profile and availability align with this campaign.\n\nAre you available for a 15-minute call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Arena Energy) closes $480M financing for a named brownfield offshore construction project (Project Elkhorn) in the GOM, signalling imminent platform refurbishment construction ramp and discrete workforce demand.",
+    "phase": "construction",
+    "phase_evidence": "Article states the DOE loan has 'closed' and the project will 'retool, refurbish, and repower offshore platforms', indicating financing is complete and execution-phase work is commencing.",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "d54a3329-19dd-4957-868a-ed544d8f5510",
+    "ingested_at": "2026-11-10T18:13:15.358Z",
+    "source_published_at": "2026-11-10T17:05:00.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org/articles/us-issues-landmark-construction-permit-for-texas-smr-plant"

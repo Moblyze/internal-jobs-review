@@ -1,5 +1,49 @@
 [
   {
+    "id": "d54a3329-19dd-4957-868a-ed544d8f5510",
+    "ingested_at": "2026-11-10T18:13:15.358Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/arena-energy-closes-480-million-department-of-energy-loan-for-energy-infrastructure-improvements-in-the-gulf-of-america-302935060.html"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations",
+      "marine_offshore_ops"
+    ],
+    "signal_type": "fid",
+    "region": "us-gulf",
+    "country": "united_states",
+    "headline": "Arena Energy Closes $480M DOE Loan for Project Elkhorn Offshore Platform Refurbishment – Gulf of America",
+    "operator": {
+      "name": "Arena Energy, LLC",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Arena Energy, LLC",
+      "matched_company_slug": null
+    },
+    "project_name": "Project Elkhorn",
+    "mob_window": {
+      "start": "2027-Q1",
+      "end": "2027-Q4",
+      "duration_months": 12
+    },
+    "contract_value_usd": 480000000,
+    "phase": "construction",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "3-6mo",
+    "key_people": []
+  },
+  {
     "id": "72f1e031-50af-4687-ae2b-5b7efaa577d9",
     "ingested_at": "2026-11-10T12:17:03.518Z",
     "sources": [
