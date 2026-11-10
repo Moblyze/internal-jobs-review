@@ -1,5 +1,134 @@
 [
   {
+    "id": "7fe25a77-f539-489a-8290-f5829b78041f",
+    "ingested_at": "2026-11-10T00:29:09.481Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/qatarenergy_chevron_expand_exploration_partnership_offshore_namibia-09-nov-2026-185039-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "survey_geophysical",
+      "marine_offshore_ops",
+      "rov_subsea"
+    ],
+    "signal_type": "lease_round",
+    "region": "offshore-namibia",
+    "country": "namibia",
+    "headline": "QatarEnergy Acquires 25% Stake in Chevron's Offshore Namibia Exploration License",
+    "operator": {
+      "name": "Chevron",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Chevron",
+      "matched_company_slug": null
+    },
+    "project_name": "Petroleum Exploration License — Offshore Namibia (Chevron-operated)",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
+    "id": "3247924e-735e-4803-a3b4-9576a07bc62a",
+    "ingested_at": "2026-11-10T00:29:09.481Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/concrete-work-completed-for-akkuyu-4s-turbine-unit"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "turkey",
+    "country": "turkey",
+    "headline": "Akkuyu NPP Unit 4 Turbine Building Foundation Concrete Work Completed",
+    "operator": {
+      "name": "Akkuyu Nuclear JSC",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Akkuyu Nuclear Power Plant Unit 4",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": []
+  },
+  {
+    "id": "eaf707a4-1e53-4a9a-bde4-d90662ae2a9b",
+    "ingested_at": "2026-11-10T00:29:09.481Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/codelco-pucobre-clear-key-hurdle-for-870-million-copper-mine/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "fid",
+    "region": "chile",
+    "country": "chile",
+    "headline": "Codelco & Pucobre Clear Key Hurdle for $870M Copper Mine — Construction Targeted 2027",
+    "operator": {
+      "name": "Codelco / Pucobre",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Codelco / Pucobre",
+      "matched_company_slug": null
+    },
+    "project_name": null,
+    "mob_window": {
+      "start": "2027-Q1",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 870000000,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "c6531bff-e441-415b-b749-55b5a7d41d06",
     "ingested_at": "2026-11-09T12:18:13.372Z",
     "sources": [
@@ -380,6 +509,47 @@
     "key_people": []
   },
   {
+    "id": "f04c0cab-7a9e-4a52-b0fe-84bd6fa06ca2",
+    "ingested_at": "2026-11-04T18:14:10.004Z",
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/b2golds-740-million-gramalote-faces-key-permit-test/"
+      }
+    ],
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction"
+    ],
+    "signal_type": "regulatory",
+    "region": "colombia",
+    "country": "colombia",
+    "headline": "B2Gold's $740M Gramalote Gold Mine Faces Key Permit Test Ahead of 2027 Construction Start",
+    "operator": {
+      "name": "B2Gold",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Gramalote",
+    "mob_window": {
+      "start": "2027-Q1",
+      "end": "2029-Q4",
+      "duration_months": 36
+    },
+    "contract_value_usd": 740000000,
+    "phase": "pre_sanction",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": []
+  },
+  {
     "id": "0571f1fa-89eb-4abf-a1b8-c4c3f46cd72a",
     "ingested_at": "2026-11-04T18:14:10.004Z",
     "sources": [
@@ -413,47 +583,6 @@
       "duration_months": null
     },
     "contract_value_usd": null,
-    "phase": "pre_sanction",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
-    "key_people": []
-  },
-  {
-    "id": "f04c0cab-7a9e-4a52-b0fe-84bd6fa06ca2",
-    "ingested_at": "2026-11-04T18:14:10.004Z",
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/b2golds-740-million-gramalote-faces-key-permit-test/"
-      }
-    ],
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction"
-    ],
-    "signal_type": "regulatory",
-    "region": "colombia",
-    "country": "colombia",
-    "headline": "B2Gold's $740M Gramalote Gold Mine Faces Key Permit Test Ahead of 2027 Construction Start",
-    "operator": {
-      "name": "B2Gold",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Gramalote",
-    "mob_window": {
-      "start": "2027-Q1",
-      "end": "2029-Q4",
-      "duration_months": 36
-    },
-    "contract_value_usd": 740000000,
     "phase": "pre_sanction",
     "construction_subphase": null,
     "lifecycle_track": "greenfield",
@@ -6248,92 +6377,6 @@
     "decom_stage": null,
     "outreach_readiness": "warming",
     "estimated_hiring_window": "6-12mo",
-    "key_people": []
-  },
-  {
-    "id": "d3018c6f-1067-45bc-a264-567f34ea8ad0",
-    "ingested_at": "2026-08-11T18:19:12.860Z",
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/santos_starts_delivering_oil_from_alaska_project-11-aug-2026-184347-article/?rss=true"
-      }
-    ],
-    "subsector": "onshore-og",
-    "discipline_tags": [
-      "process_plant_operations",
-      "drilling_operations",
-      "pipeline_mechanical"
-    ],
-    "signal_type": "epc_award",
-    "region": "alaska-north-slope",
-    "country": "united_states",
-    "headline": "Santos First Oil Achieved at Pikka Development, Alaska North Slope",
-    "operator": {
-      "name": "Santos Ltd",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Santos Ltd",
-      "matched_company_slug": null
-    },
-    "project_name": "Pikka Development",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "operating",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "ongoing",
-    "key_people": []
-  },
-  {
-    "id": "28b3de07-ef17-4c8e-95a7-ba0581d5b667",
-    "ingested_at": "2026-08-11T18:19:12.860Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org/articles/upgrading-of-loviisa-turbine-island-begins"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "energy_trades",
-      "industrial_construction",
-      "process_plant_operations"
-    ],
-    "signal_type": "epc_award",
-    "region": "finland",
-    "country": "finland",
-    "headline": "Fortum Begins Major Turbine Island Modernisation at Loviisa Nuclear Plant, Finland",
-    "operator": {
-      "name": "Fortum",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Loviisa Turbine Island Modernisation",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "construction",
-    "construction_subphase": "rampup",
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "live_now",
-    "estimated_hiring_window": "now",
     "key_people": []
   }
 ]

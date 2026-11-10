@@ -2,6 +2,329 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/qatarenergy_chevron_expand_exploration_partnership_offshore_namibia-09-nov-2026-185039-article/?rss=true"
+      }
+    ],
+    "headline": "QatarEnergy Acquires 25% Stake in Chevron's Offshore Namibia Exploration License",
+    "body": "QatarEnergy is entering into another partnership with Chevron Corp offshore Namibia with the acquisition of a 25 percent stake in Petroleum Exploration Licen...",
+    "url": "https://www.rigzone.com/news/qatarenergy_chevron_expand_exploration_partnership_offshore_namibia-09-nov-2026-185039-article/?rss=true",
+    "published_at": "2026-11-09T12:51:30.000Z",
+    "hash": "e2bb34747bfd9614",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "drilling_operations",
+      "survey_geophysical",
+      "marine_offshore_ops",
+      "rov_subsea"
+    ],
+    "signal_type": "lease_round",
+    "region": "offshore-namibia",
+    "country": "namibia",
+    "tldr": "QatarEnergy takes a 25% working interest in a Chevron-operated exploration license offshore Namibia, signaling an upcoming exploration drilling campaign and associated workforce demand for survey, drilling, and subsea roles.",
+    "operator": {
+      "name": "Chevron",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Chevron",
+      "matched_company_slug": null
+    },
+    "project_name": "Petroleum Exploration License — Offshore Namibia (Chevron-operated)",
+    "scope": [
+      "exploration_drilling",
+      "seismic_survey",
+      "well_operations"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Exploration Drilling Engineer",
+        "Wellsite Geologist",
+        "Drilling Superintendent",
+        "Subsea Engineer",
+        "Geophysicist",
+        "Exploration Geologist",
+        "Well Operations Coordinator",
+        "HSE Advisor Offshore"
+      ],
+      "skills": [
+        "deepwater exploration drilling",
+        "well planning",
+        "seismic interpretation",
+        "subsea wellhead systems",
+        "African offshore operations",
+        "exploration well management"
+      ],
+      "certs_freetext": [
+        "BOSIET/HUET",
+        "IWCF Well Control",
+        "OPITO Offshore Safety",
+        "GWO Basic Safety Training"
+      ],
+      "geo_rtw": "Namibia / Southern Africa offshore; international rotators eligible",
+      "project_experience": [
+        "TotalEnergies Venus Block 2912B Namibia",
+        "Shell Orange Basin Deep Water",
+        "Galp Mopane Namibia",
+        "Deepwater Angola",
+        "Deepwater Gulf of Mexico"
+      ],
+      "yoe_band": "8-18",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"Drilling Engineer\" OR \"Drilling Superintendent\" OR \"Wellsite Geologist\" OR \"Exploration Geologist\" OR \"Geophysicist\" OR \"Well Operations\") AND (\"deepwater\" OR \"offshore exploration\" OR \"exploration drilling\") AND (\"Namibia\" OR \"West Africa\" OR \"Southern Africa\" OR \"Angola\" OR \"Orange Basin\") AND (\"Chevron\" OR \"TotalEnergies\" OR \"Shell\" OR \"Galp\" OR \"QatarEnergy\" OR \"deepwater campaign\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Chevron is expanding its offshore Namibia exploration program following QatarEnergy's 25% stake entry. Deepwater drilling roles are likely ramping — your background in offshore exploration looks highly relevant. Worth a quick call?",
+      "email_subject": "Offshore Namibia Exploration Drilling — Chevron / QatarEnergy Campaign Roles",
+      "email_body": "Hi [Name],\n\nQatarEnergy has just entered into a 25% partnership with Chevron on an offshore Namibia exploration license, expanding an active deepwater frontier program in one of the most exciting basins in Africa right now.\n\nWith exploration drilling campaigns expected to follow, Chevron will likely be seeking experienced deepwater professionals across drilling engineering, wellsite geology, subsea, and HSE disciplines.\n\nGiven your background in [relevant experience], I'd love to connect and share more about what's shaping up in the Namibia basin — and explore whether this could be a strong next move.\n\nAre you open to a brief conversation this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Exploration license assignment naming QatarEnergy (25% WI) and Chevron (operator) in an offshore Namibia block — a qualifying block/license award with named operator triggering future drilling and workforce demand.",
+    "phase": "pre_sanction",
+    "phase_evidence": "The article describes an exploration license entry (stake acquisition), indicating pre-FID exploration phase with no development sanction yet confirmed.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "7fe25a77-f539-489a-8290-f5829b78041f",
+    "ingested_at": "2026-11-10T00:29:09.481Z",
+    "source_published_at": "2026-11-09T12:51:30.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director",
+      "hr_business_partner"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/concrete-work-completed-for-akkuyu-4s-turbine-unit"
+      }
+    ],
+    "headline": "Akkuyu NPP Unit 4 Turbine Building Foundation Concrete Work Completed",
+    "body": "More than 2,240 cubic metres of concrete was used to complete the turbine building foundation for Turkey's Akkuyu Nuclear Power Plant's fourth unit.",
+    "url": "https://www.world-nuclear-news.org/articles/concrete-work-completed-for-akkuyu-4s-turbine-unit",
+    "published_at": "2026-11-09T10:32:29.000Z",
+    "hash": "6b82ce5e21c87a79",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "turkey",
+    "country": "turkey",
+    "tldr": "Concrete foundation works for Akkuyu Nuclear Power Plant Unit 4's turbine building are complete, signalling active construction-phase labor demand continues on this multi-unit nuclear megaproject in Turkey.",
+    "operator": {
+      "name": "Akkuyu Nuclear JSC",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Akkuyu Nuclear Power Plant Unit 4",
+    "scope": [
+      "civil_works",
+      "turbine_building_foundation",
+      "nuclear_construction"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Construction Manager",
+        "Civil Works Superintendent",
+        "Concrete/Structural Engineer",
+        "QA/QC Inspector – Nuclear",
+        "HSE Manager – Nuclear Construction",
+        "Mechanical Completion Engineer",
+        "Site Engineer – Nuclear"
+      ],
+      "skills": [
+        "nuclear plant construction",
+        "reinforced concrete",
+        "turbine building civil works",
+        "quality assurance nuclear",
+        "VVER construction",
+        "structural works supervision"
+      ],
+      "certs_freetext": [
+        "IAEA nuclear safety training",
+        "ISO 9001 QMS",
+        "Nuclear Industry Association accreditation",
+        "NEBOSH / IOSH"
+      ],
+      "geo_rtw": "Turkey or internationally mobile; note geo-hint flag applies",
+      "project_experience": [
+        "Hinkley Point C",
+        "Barakah NPP",
+        "Flamanville 3",
+        "Olkiluoto 3",
+        "Vogtle Units 3 & 4"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"nuclear construction\" OR \"nuclear power plant\" OR \"NPP\") AND (\"civil works\" OR \"turbine building\" OR \"reinforced concrete\" OR \"structural works\") AND (\"construction manager\" OR \"site engineer\" OR \"QA QC\" OR \"mechanical completion\" OR \"HSE manager\") AND (\"VVER\" OR \"pressurized water reactor\" OR \"PWR\" OR \"Akkuyu\" OR \"Barakah\" OR \"Hinkley\" OR \"Vogtle\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], construction is advancing on Akkuyu NPP Unit 4 in Turkey — turbine building foundations are now complete. We're sourcing senior nuclear construction professionals for this phase. Would you be open to a brief call?",
+      "email_subject": "Akkuyu NPP Unit 4 – Nuclear Construction Opportunities",
+      "email_body": "Hi [Name],\n\nFoundation works for the turbine building at Akkuyu Nuclear Power Plant Unit 4 in Turkey have just been completed, marking continued progress on this major multi-unit nuclear construction project.\n\nAs construction moves into the next phase, demand for experienced nuclear construction professionals — including Construction Managers, QA/QC Inspectors, Civil/Structural Engineers, and HSE leads — is active.\n\nGiven your background in [relevant experience], I'd love to explore whether this could be a fit for you or someone in your network.\n\nWould you have 15 minutes for a call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named nuclear project (Akkuyu NPP Unit 4) with a discrete construction milestone (turbine building foundation completion) indicating active construction-phase labor demand.",
+    "phase": "construction",
+    "phase_evidence": "Article states concrete work for the turbine building foundation has been completed, confirming active construction is underway on Unit 4.",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "hot",
+    "estimated_hiring_window": "1-3mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "3247924e-735e-4803-a3b4-9576a07bc62a",
+    "ingested_at": "2026-11-10T00:29:09.481Z",
+    "source_published_at": "2026-11-09T10:32:29.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/codelco-pucobre-clear-key-hurdle-for-870-million-copper-mine/"
+      }
+    ],
+    "headline": "Codelco & Pucobre Clear Key Hurdle for $870M Copper Mine — Construction Targeted 2027",
+    "body": "Chilean partners plan to begin construction in 2027 on a copper operation featuring solar power and a seawater supply system.",
+    "url": "https://www.mining.com/codelco-pucobre-clear-key-hurdle-for-870-million-copper-mine/",
+    "published_at": "2026-11-09T12:53:00.000Z",
+    "hash": "f2ef7131f2667d9d",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades",
+      "process_plant_operations"
+    ],
+    "signal_type": "fid",
+    "region": "chile",
+    "country": "chile",
+    "tldr": "Codelco and Pucobre have cleared a major approval milestone for an $870M copper mine in Chile, with construction planned to begin in 2027. This signals an upcoming large-scale greenfield construction workforce ramp.",
+    "operator": {
+      "name": "Codelco / Pucobre",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Codelco / Pucobre",
+      "matched_company_slug": null
+    },
+    "project_name": null,
+    "scope": [
+      "open_pit_or_underground_mining",
+      "solar_power_install",
+      "seawater_supply_system",
+      "greenfield_construction"
+    ],
+    "mob_window": {
+      "start": "2027-Q1",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 870000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mining Construction Manager",
+        "Site Manager",
+        "Project Manager – Mining",
+        "HSE Manager",
+        "Civil Construction Superintendent",
+        "Mechanical Superintendent",
+        "Electrical Superintendent",
+        "Process Plant Engineer",
+        "Commissioning Manager",
+        "Planning & Scheduling Engineer"
+      ],
+      "skills": [
+        "greenfield mine construction",
+        "copper processing",
+        "solar power integration",
+        "desalination / seawater supply",
+        "EPC project delivery",
+        "site mobilisation",
+        "EPCM management"
+      ],
+      "certs_freetext": [
+        "IOSH Managing Safely",
+        "NEBOSH International",
+        "Chilean mining safety certification (SERNAGEOMIN)",
+        "PMP"
+      ],
+      "geo_rtw": "Chile — must be eligible to work in Chile or relocate; Spanish language advantageous",
+      "project_experience": [
+        "Quellaveco",
+        "Quebrada Blanca Phase 2",
+        "Chuquicamata Underground",
+        "Spence Growth Option",
+        "Mantoverde Development"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal / Superintendent",
+      "boolean_search": "(\"Mining Construction Manager\" OR \"Site Manager\" OR \"Project Manager\" OR \"Construction Superintendent\" OR \"HSE Manager\" OR \"Commissioning Manager\") AND (\"copper\" OR \"open pit\" OR \"underground mine\" OR \"greenfield mine\") AND (\"Chile\" OR \"LATAM\" OR \"South America\") AND (\"EPC\" OR \"EPCM\" OR \"mine construction\" OR \"plant commissioning\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Codelco & Pucobre have cleared a key hurdle for their $870M Chilean copper mine, targeting construction start in 2027. We're mapping senior construction talent now. Would you be open to a conversation about opportunities on this build?",
+      "email_subject": "Senior Mining Construction Roles — Codelco/Pucobre $870M Copper Mine (Chile, 2027 Start)",
+      "email_body": "Hi [Name],\n\nCodelco and Pucobre have recently cleared a significant approval milestone for their $870 million greenfield copper mine in Chile, incorporating solar power and a seawater supply system. Construction is targeted to begin in 2027, and we expect a substantial workforce ramp in the lead-up.\n\nGiven your background in [mining construction / mine site management / EPCM delivery], I wanted to reach out early. We are actively mapping experienced construction and project leadership professionals with copper or large-scale mineral processing project experience in LATAM.\n\nIf you would be open to a confidential conversation about senior roles on this project, I'd welcome a brief call at your convenience.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operators (Codelco and Pucobre) have cleared a key regulatory/approval hurdle for an $870M greenfield copper mine, with construction start announced for 2027 — a discrete, forward-looking workforce-demand event in mining.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states partners 'plan to begin construction in 2027,' indicating the project has cleared a hurdle but construction has not yet started, placing it in pre-sanction/late-FEED territory.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "eaf707a4-1e53-4a9a-bde4-d90662ae2a9b",
+    "ingested_at": "2026-11-10T00:29:09.481Z",
+    "source_published_at": "2026-11-09T12:53:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/paratus-energy-update-regarding-the-petrobras-tender-process-302933292.html"
@@ -966,6 +1289,108 @@
   {
     "sources": [
       {
+        "id": "mining_com",
+        "name": "MINING.com",
+        "url": "https://www.mining.com/b2golds-740-million-gramalote-faces-key-permit-test/"
+      }
+    ],
+    "headline": "B2Gold's $740M Gramalote Gold Mine Faces Key Permit Test Ahead of 2027 Construction Start",
+    "body": "Regulators will weigh proposed design changes as the Canadian miner targets construction in 2027 and first gold in 2029.",
+    "url": "https://www.mining.com/b2golds-740-million-gramalote-faces-key-permit-test/",
+    "published_at": "2026-11-04T14:59:00.000Z",
+    "hash": "28c1860e34484819",
+    "subsector": "mining",
+    "discipline_tags": [
+      "industrial_construction"
+    ],
+    "signal_type": "regulatory",
+    "region": "colombia",
+    "country": "colombia",
+    "tldr": "B2Gold's Gramalote gold project in Colombia is pending regulatory approval of design changes, with construction targeted for 2027 and first gold in 2029. Permit outcome will determine whether the project advances to EPC/construction hiring.",
+    "operator": {
+      "name": "B2Gold",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Gramalote",
+    "scope": [
+      "mine_construction",
+      "permitting",
+      "design_review"
+    ],
+    "mob_window": {
+      "start": "2027-Q1",
+      "end": "2029-Q4",
+      "duration_months": 36
+    },
+    "contract_value_usd": 740000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Mine Construction Manager",
+        "Project Manager – Mining",
+        "Permitting & Regulatory Affairs Manager",
+        "Environmental Manager",
+        "Site Manager",
+        "EPC Project Director",
+        "HSE Manager"
+      ],
+      "skills": [
+        "open pit mine construction",
+        "permitting",
+        "gold mining",
+        "EPC project management",
+        "environmental compliance",
+        "mine development"
+      ],
+      "certs_freetext": [
+        "Professional Engineer (P.Eng)",
+        "IOSH Managing Safely",
+        "PMP"
+      ],
+      "geo_rtw": "Colombia or Latin America-eligible",
+      "project_experience": [
+        "Fekola Mine",
+        "Otjikoto Mine",
+        "Kibali Gold Mine",
+        "Cerro Negro",
+        "La Colosa"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Principal",
+      "boolean_search": "(\"Mine Construction Manager\" OR \"Project Director\" OR \"Site Manager\" OR \"Project Manager\") AND (\"gold mine\" OR \"open pit\" OR \"mine development\" OR \"greenfield mining\") AND (\"Colombia\" OR \"Latin America\" OR \"South America\") AND (\"EPC\" OR \"construction\" OR \"permitting\" OR \"mine build\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], B2Gold's $740M Gramalote gold project in Colombia is approaching a key permit decision ahead of a 2027 construction start. Are you open to hearing about senior roles on the build? Happy to share more.",
+      "email_subject": "Gramalote Gold Mine – Senior Construction Roles | 2027 Build",
+      "email_body": "Hi [Name],\n\nB2Gold's Gramalote gold project ($740M) in Colombia is currently awaiting regulatory approval of design changes, with construction targeted to begin in 2027 and first gold planned for 2029.\n\nAs the project moves toward sanction, the team will need experienced mine construction and project management professionals with greenfield gold mine credentials — ideally with Latin America experience.\n\nI'd love to explore whether your background aligns with the roles likely to come to market over the next 12-18 months. Would you be open to a brief call?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (B2Gold) and project (Gramalote) with a $740M mine development pending a key permit decision ahead of a stated 2027 construction start — a qualifying regulatory/pre-sanction event in mining with clear future workforce demand.",
+    "phase": "pre_sanction",
+    "phase_evidence": "Article states regulators will weigh proposed design changes and construction is targeted for 2027, indicating the project has not yet received final permits or FID.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "cold",
+    "estimated_hiring_window": "12mo+",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "f04c0cab-7a9e-4a52-b0fe-84bd6fa06ca2",
+    "ingested_at": "2026-11-04T18:14:10.004Z",
+    "source_published_at": "2026-11-04T14:59:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org/articles/fanco-expands-cooperation-with-hyundai-ec-on-eagl-1"
@@ -1065,108 +1490,6 @@
     "id": "0571f1fa-89eb-4abf-a1b8-c4c3f46cd72a",
     "ingested_at": "2026-11-04T18:14:10.004Z",
     "source_published_at": "2026-11-04T11:41:40.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "mining_com",
-        "name": "MINING.com",
-        "url": "https://www.mining.com/b2golds-740-million-gramalote-faces-key-permit-test/"
-      }
-    ],
-    "headline": "B2Gold's $740M Gramalote Gold Mine Faces Key Permit Test Ahead of 2027 Construction Start",
-    "body": "Regulators will weigh proposed design changes as the Canadian miner targets construction in 2027 and first gold in 2029.",
-    "url": "https://www.mining.com/b2golds-740-million-gramalote-faces-key-permit-test/",
-    "published_at": "2026-11-04T14:59:00.000Z",
-    "hash": "28c1860e34484819",
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction"
-    ],
-    "signal_type": "regulatory",
-    "region": "colombia",
-    "country": "colombia",
-    "tldr": "B2Gold's Gramalote gold project in Colombia is pending regulatory approval of design changes, with construction targeted for 2027 and first gold in 2029. Permit outcome will determine whether the project advances to EPC/construction hiring.",
-    "operator": {
-      "name": "B2Gold",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Gramalote",
-    "scope": [
-      "mine_construction",
-      "permitting",
-      "design_review"
-    ],
-    "mob_window": {
-      "start": "2027-Q1",
-      "end": "2029-Q4",
-      "duration_months": 36
-    },
-    "contract_value_usd": 740000000,
-    "targeting": {
-      "job_titles_freetext": [
-        "Mine Construction Manager",
-        "Project Manager – Mining",
-        "Permitting & Regulatory Affairs Manager",
-        "Environmental Manager",
-        "Site Manager",
-        "EPC Project Director",
-        "HSE Manager"
-      ],
-      "skills": [
-        "open pit mine construction",
-        "permitting",
-        "gold mining",
-        "EPC project management",
-        "environmental compliance",
-        "mine development"
-      ],
-      "certs_freetext": [
-        "Professional Engineer (P.Eng)",
-        "IOSH Managing Safely",
-        "PMP"
-      ],
-      "geo_rtw": "Colombia or Latin America-eligible",
-      "project_experience": [
-        "Fekola Mine",
-        "Otjikoto Mine",
-        "Kibali Gold Mine",
-        "Cerro Negro",
-        "La Colosa"
-      ],
-      "yoe_band": "10-20",
-      "seniority": "Senior / Principal",
-      "boolean_search": "(\"Mine Construction Manager\" OR \"Project Director\" OR \"Site Manager\" OR \"Project Manager\") AND (\"gold mine\" OR \"open pit\" OR \"mine development\" OR \"greenfield mining\") AND (\"Colombia\" OR \"Latin America\" OR \"South America\") AND (\"EPC\" OR \"construction\" OR \"permitting\" OR \"mine build\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], B2Gold's $740M Gramalote gold project in Colombia is approaching a key permit decision ahead of a 2027 construction start. Are you open to hearing about senior roles on the build? Happy to share more.",
-      "email_subject": "Gramalote Gold Mine – Senior Construction Roles | 2027 Build",
-      "email_body": "Hi [Name],\n\nB2Gold's Gramalote gold project ($740M) in Colombia is currently awaiting regulatory approval of design changes, with construction targeted to begin in 2027 and first gold planned for 2029.\n\nAs the project moves toward sanction, the team will need experienced mine construction and project management professionals with greenfield gold mine credentials — ideally with Latin America experience.\n\nI'd love to explore whether your background aligns with the roles likely to come to market over the next 12-18 months. Would you be open to a brief call?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named operator (B2Gold) and project (Gramalote) with a $740M mine development pending a key permit decision ahead of a stated 2027 construction start — a qualifying regulatory/pre-sanction event in mining with clear future workforce demand.",
-    "phase": "pre_sanction",
-    "phase_evidence": "Article states regulators will weigh proposed design changes and construction is targeted for 2027, indicating the project has not yet received final permits or FID.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "cold",
-    "estimated_hiring_window": "12mo+",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "f04c0cab-7a9e-4a52-b0fe-84bd6fa06ca2",
-    "ingested_at": "2026-11-04T18:14:10.004Z",
-    "source_published_at": "2026-11-04T14:59:00.000Z",
     "contact_archetypes": [
       "project_manager",
       "business_unit_director"
@@ -15712,221 +16035,6 @@
       "project_manager",
       "hiring_manager",
       "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "rigzone",
-        "name": "Rigzone",
-        "url": "https://www.rigzone.com/news/santos_starts_delivering_oil_from_alaska_project-11-aug-2026-184347-article/?rss=true"
-      }
-    ],
-    "headline": "Santos First Oil Achieved at Pikka Development, Alaska North Slope",
-    "body": "Santos Ltd said Tuesday it had loaded the first crude oil cargo from the Pikka development on Alaska's North Slope, headed to the West Coast for refining.</p...",
-    "url": "https://www.rigzone.com/news/santos_starts_delivering_oil_from_alaska_project-11-aug-2026-184347-article/?rss=true",
-    "published_at": "2026-08-11T13:52:26.000Z",
-    "hash": "b9549cbb571eafd6",
-    "subsector": "onshore-og",
-    "discipline_tags": [
-      "process_plant_operations",
-      "drilling_operations",
-      "pipeline_mechanical"
-    ],
-    "signal_type": "epc_award",
-    "region": "alaska-north-slope",
-    "country": "united_states",
-    "tldr": "Santos has loaded first crude cargo from the Pikka development on Alaska's North Slope, marking operational start. Hiring focus shifts to steady-state operations and maintenance roles.",
-    "operator": {
-      "name": "Santos Ltd",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Santos Ltd",
-      "matched_company_slug": null
-    },
-    "project_name": "Pikka Development",
-    "scope": [
-      "first_oil",
-      "production_operations"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Production Operator",
-        "Process Technician",
-        "Maintenance Technician",
-        "Operations Supervisor",
-        "Facilities Engineer",
-        "Integrity Engineer",
-        "HSE Advisor"
-      ],
-      "skills": [
-        "oil production operations",
-        "arctic operations",
-        "process plant operations",
-        "facilities maintenance",
-        "North Slope experience"
-      ],
-      "certs_freetext": [
-        "BOSIET",
-        "OSHA 30",
-        "H2S Alive",
-        "First Aid/CPR"
-      ],
-      "geo_rtw": "US work authorization required; Alaska North Slope rotational",
-      "project_experience": [
-        "Prudhoe Bay",
-        "Alpine Field",
-        "Kuparuk",
-        "Point Thomson",
-        "Willow Project"
-      ],
-      "yoe_band": "5-15",
-      "seniority": "mid-to-senior",
-      "boolean_search": "(\"Production Operator\" OR \"Process Technician\" OR \"Operations Supervisor\" OR \"Facilities Engineer\" OR \"Integrity Engineer\") AND (\"North Slope\" OR \"Alaska\" OR \"arctic operations\" OR \"Prudhoe Bay\" OR \"Kuparuk\") AND (\"oil production\" OR \"process plant\" OR \"facilities maintenance\") AND (\"rotational\" OR \"FIFO\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Santos has just achieved first oil at the Pikka Development on Alaska's North Slope — steady-state ops roles are opening up. Your North Slope background looks like a strong fit. Worth a quick chat?",
-      "email_subject": "Pikka Development (Alaska) — Operations & Maintenance Roles | Santos First Oil",
-      "email_body": "Hi [Name],\n\nSantos has officially achieved first oil at its Pikka Development on Alaska's North Slope, with the first crude cargo now en route to the West Coast for refining.\n\nWith the project transitioning into steady-state operations, we anticipate demand for experienced Production Operators, Process Technicians, Maintenance Technicians, and Facilities/Integrity Engineers familiar with arctic or North Slope environments.\n\nGiven your background in [relevant experience], I'd love to connect and discuss whether any of these opportunities align with your next move.\n\nAre you open to a brief call this week?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "First oil milestone at the named Pikka Development operated by Santos signals transition to operational phase with ongoing O&M staffing demand on Alaska's North Slope.",
-    "phase": "operating",
-    "phase_evidence": "Article states Santos loaded the first crude oil cargo from the Pikka development, confirming production has commenced.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "hot",
-    "estimated_hiring_window": "ongoing",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "d3018c6f-1067-45bc-a264-567f34ea8ad0",
-    "ingested_at": "2026-08-11T18:19:12.860Z",
-    "source_published_at": "2026-08-11T13:52:26.000Z",
-    "contact_archetypes": [
-      "ops_director",
-      "hiring_manager"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org/articles/upgrading-of-loviisa-turbine-island-begins"
-      }
-    ],
-    "headline": "Fortum Begins Major Turbine Island Modernisation at Loviisa Nuclear Plant, Finland",
-    "body": "Finnish utility Fortum has begun a major modernisation of the turbine island at its Loviisa nuclear power plant, a project that will increase the electricity output of the plant and ensure its continued operation until 2050.",
-    "url": "https://www.world-nuclear-news.org/articles/upgrading-of-loviisa-turbine-island-begins",
-    "published_at": "2026-08-11T15:05:48.000Z",
-    "hash": "e6be5a60fc86816e",
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "energy_trades",
-      "industrial_construction",
-      "process_plant_operations"
-    ],
-    "signal_type": "epc_award",
-    "region": "finland",
-    "country": "finland",
-    "tldr": "Finnish utility Fortum has commenced a major turbine island upgrade at Loviisa NPP targeting output increase and plant life extension to 2050. Construction-phase work is underway now, signalling active demand for nuclear-qualified trades and mechanical specialists.",
-    "operator": {
-      "name": "Fortum",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "project_name": "Loviisa Turbine Island Modernisation",
-    "scope": [
-      "turbine_island_upgrade",
-      "plant_life_extension",
-      "output_uprate"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Turbine Overhaul Engineer",
-        "Mechanical Completion Engineer",
-        "Nuclear Construction Manager",
-        "Commissioning Engineer",
-        "Outage Manager",
-        "HSE Lead",
-        "Site Manager",
-        "Electrical Engineer",
-        "I&C Technician",
-        "Scaffold Supervisor"
-      ],
-      "skills": [
-        "turbine island",
-        "steam turbine overhaul",
-        "nuclear plant modernisation",
-        "plant life extension",
-        "mechanical completion",
-        "commissioning",
-        "nuclear outage management",
-        "electrical installation",
-        "instrumentation and control"
-      ],
-      "certs_freetext": [
-        "Nuclear safety awareness",
-        "STUK regulatory compliance",
-        "Radiation protection qualification",
-        "Finnish nuclear work permit"
-      ],
-      "geo_rtw": "Finland / EU right to work",
-      "project_experience": [
-        "Olkiluoto 3",
-        "Forsmark",
-        "Ringhals",
-        "Loviisa",
-        "Hinkley Point C"
-      ],
-      "yoe_band": "8-20",
-      "seniority": "mid-to-senior",
-      "boolean_search": "(\"nuclear\" OR \"NPP\") AND (\"turbine island\" OR \"steam turbine\" OR \"turbine overhaul\" OR \"plant modernisation\" OR \"life extension\") AND (\"construction manager\" OR \"commissioning engineer\" OR \"outage manager\" OR \"mechanical engineer\" OR \"I&C\" OR \"HSE lead\") AND (\"Finland\" OR \"Loviisa\" OR \"Olkiluoto\" OR \"Fortum\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Fortum has just kicked off a major turbine island upgrade at the Loviisa nuclear plant in Finland — construction is live now through to 2050 plant life extension. We're sourcing nuclear-qualified engineers and trades. Would you be open to a quick call?",
-      "email_subject": "Live Now: Fortum Loviisa NPP Turbine Island Upgrade — Nuclear Engineers & Trades Needed",
-      "email_body": "Hi [Name],\n\nFortum has commenced the turbine island modernisation at its Loviisa nuclear power plant in Finland — an upgrade aimed at boosting output and extending plant life to 2050. Work is actively underway, meaning hiring is live now.\n\nWe are placing nuclear-experienced professionals across construction management, commissioning, outage management, mechanical, and I&C disciplines for this programme.\n\nGiven your background in [relevant discipline], I'd love to explore whether this could be a strong fit for your next role.\n\nAre you available for a brief call this week?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named operator (Fortum) has begun a large-scale modernisation project at a named nuclear facility (Loviisa NPP), constituting a discrete workforce-demand event in the nuclear subsector.",
-    "phase": "construction",
-    "phase_evidence": "Article states Fortum 'has begun' the modernisation, indicating active construction-phase work is underway.",
-    "construction_subphase": "rampup",
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "live_now",
-    "estimated_hiring_window": "now",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "28b3de07-ef17-4c8e-95a7-ba0581d5b667",
-    "ingested_at": "2026-08-11T18:19:12.860Z",
-    "source_published_at": "2026-08-11T15:05:48.000Z",
-    "contact_archetypes": [
-      "site_manager",
-      "hiring_manager",
-      "project_manager"
     ],
     "prompt_version": "phase-targeting-v1.2"
   }
