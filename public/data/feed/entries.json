@@ -2,6 +2,121 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/us-issues-landmark-construction-permit-for-texas-smr-plant"
+      }
+    ],
+    "headline": "NRC Issues Construction Permit for Dow Seadrift SMR Plant — Four Xe-100 Units Greenlit",
+    "body": "The US Nuclear Regulatory Commission has issued a construction permit for the proposed plant featuring four Xe-100 small modular reactor units at Dow's Seadrift site - the first construction permit for a high-temperature gas-cooled reactor issued in the USA in nearly 60 years.",
+    "url": "https://www.world-nuclear-news.org/articles/us-issues-landmark-construction-permit-for-texas-smr-plant",
+    "published_at": "2026-11-10T15:56:26.000Z",
+    "hash": "12cdd6b3a9d0d0dd",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-gulf-coast",
+    "country": "united_states",
+    "tldr": "The US NRC has issued a construction permit for four Xe-100 SMR units at Dow's Seadrift, Texas site — the first HTGR construction permit in the US in ~60 years. This is a major regulatory milestone unlocking the construction-ramp hiring window for nuclear trades and construction disciplines.",
+    "operator": {
+      "name": "Dow",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Dow Seadrift Xe-100 SMR Plant",
+    "scope": [
+      "smr_construction",
+      "nuclear_civil_works",
+      "module_assembly",
+      "four_xe100_units"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Construction Manager",
+        "Nuclear Project Manager",
+        "Civil/Structural Superintendent",
+        "Nuclear QA/QC Manager",
+        "Radiation Protection Supervisor",
+        "Nuclear I&C Engineer",
+        "Construction HSE Manager",
+        "Nuclear Commissioning Engineer",
+        "Module Assembly Supervisor",
+        "Nuclear Craft Supervisor"
+      ],
+      "skills": [
+        "nuclear construction",
+        "SMR",
+        "high-temperature gas-cooled reactor",
+        "nuclear QA",
+        "10 CFR 50",
+        "NRC licensing",
+        "nuclear civil works",
+        "module fabrication",
+        "nuclear commissioning",
+        "ASME Section III"
+      ],
+      "certs_freetext": [
+        "NRC Construction Authorization",
+        "ASME Section III Nuclear",
+        "10 CFR 50 Appendix B QA",
+        "OSHA 30 Construction",
+        "CWI (AWS Certified Welding Inspector)"
+      ],
+      "geo_rtw": "US work authorization required (Texas)",
+      "project_experience": [
+        "Vogtle Units 3 & 4",
+        "NuScale UAMPS Carbon Free Power Project",
+        "X-energy Xe-100",
+        "TerraPower Natrium",
+        "Kairos Power Hermes"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"nuclear construction\" OR \"SMR\" OR \"small modular reactor\" OR \"HTGR\" OR \"Xe-100\") AND (\"construction manager\" OR \"project manager\" OR \"superintendent\" OR \"commissioning engineer\" OR \"QA manager\" OR \"radiation protection\" OR \"I&C engineer\") AND (\"10 CFR 50\" OR \"NRC\" OR \"ASME Section III\" OR \"nuclear QA\" OR \"Appendix B\") AND (Texas OR \"Gulf Coast\" OR \"Seadrift\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name] — the NRC just issued a construction permit for Dow's Xe-100 SMR plant at Seadrift, TX — first HTGR permit in 60 years. Nuclear construction roles will ramp soon. Would you be open to a conversation about opportunities on this landmark project?",
+      "email_subject": "Nuclear Construction Roles — Dow Seadrift Xe-100 SMR | NRC Permit Just Issued",
+      "email_body": "Hi [Name],\n\nThe US Nuclear Regulatory Commission has just issued a construction permit for Dow's Seadrift, Texas SMR plant — four Xe-100 high-temperature gas-cooled reactor units in what is the first HTGR construction permit in the US in nearly 60 years.\n\nThis is a landmark project and construction-phase hiring is expected to ramp as EPC contractors are mobilised. Given your background in [nuclear construction / nuclear QA / commissioning], I wanted to reach out early.\n\nWould you be open to a brief call to discuss how your experience could align with opportunities on this project?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "NRC construction permit issued for a named nuclear project (Dow Seadrift Xe-100 SMR) — a regulatory milestone that directly unlocks the construction phase and creates imminent labor-demand signals for nuclear trades and construction disciplines.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Construction permit just issued by NRC — project is greenlit for construction but EPC award and detailed engineering mobilization are the immediate next steps, placing it at the sanctioned/pre-construction engineering boundary.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "72f1e031-50af-4687-ae2b-5b7efaa577d9",
+    "ingested_at": "2026-11-10T12:17:03.518Z",
+    "source_published_at": "2026-11-10T15:56:26.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/qatarenergy_chevron_expand_exploration_partnership_offshore_namibia-09-nov-2026-185039-article/?rss=true"

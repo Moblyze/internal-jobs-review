@@ -1,5 +1,48 @@
 [
   {
+    "id": "72f1e031-50af-4687-ae2b-5b7efaa577d9",
+    "ingested_at": "2026-11-10T12:17:03.518Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/us-issues-landmark-construction-permit-for-texas-smr-plant"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "process_plant_operations",
+      "energy_trades"
+    ],
+    "signal_type": "regulatory",
+    "region": "us-gulf-coast",
+    "country": "united_states",
+    "headline": "NRC Issues Construction Permit for Dow Seadrift SMR Plant — Four Xe-100 Units Greenlit",
+    "operator": {
+      "name": "Dow",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Dow Seadrift Xe-100 SMR Plant",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
     "id": "7fe25a77-f539-489a-8290-f5829b78041f",
     "ingested_at": "2026-11-10T00:29:09.481Z",
     "sources": [
