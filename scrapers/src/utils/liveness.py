@@ -124,6 +124,9 @@ PLATFORM_KINDS = {
 }
 
 CREWBASE_SITEMAP_INDEX = "https://crewbase.pro/sitemap.xml"
+SITEMAP_TIMEOUT = 45.0
+SITEMAP_ATTEMPTS = 3
+SITEMAP_BACKOFF = 5.0
 _SITEMAP_NS = "{http://www.sitemaps.org/schemas/sitemap/0.9}"
 
 EXPIRED_RE = re.compile(
@@ -870,6 +873,31 @@ class LivenessProber:
             return True, ""
         return False, f"robots disallows {urlparse(url).path[:60]} on {host}"
 
+    def fetch_sitemap(self, url: str, attempts: int = SITEMAP_ATTEMPTS) -> Response:
+        """A CrewBase sitemap read, retried with a longer timeout.
+
+        Every CrewBase verdict in a run hangs on these few requests, so one
+        timeout used to blind the probe to all ~16k CrewBase rows (Nov 10, 2026:
+        the index read timed out at 10 s and every row came back UNKNOWN).
+        Per-job pages are still never retried.
+        """
+        resp = Response(None, url, "", error="not fetched")
+        for i in range(attempts):
+            self._throttle(urlparse(url).netloc.lower())
+            with self._lock:
+                self.requests_made += 1
+            try:
+                r = self._client.get(url, headers={"Accept": "application/xml,text/xml,*/*;q=0.8"},
+                                     timeout=SITEMAP_TIMEOUT)
+                resp = Response(r.status_code, str(r.url), r.text)
+            except httpx.HTTPError as e:
+                resp = Response(None, url, "", error=type(e).__name__ + ": " + str(e)[:80])
+            if resp.status_code == 200:
+                return resp
+            if i + 1 < attempts:
+                time.sleep(SITEMAP_BACKOFF * (i + 1))
+        return resp
+
     # -- crewbase ------------------------------------------------------------
 
     def crewbase_live_urls(self, index_url: str = CREWBASE_SITEMAP_INDEX) -> Optional[set]:
@@ -882,7 +910,7 @@ class LivenessProber:
             if not allowed:
                 logger.warning("crewbase sitemap skipped: %s", why)
                 return None
-            idx = self.fetch(index_url, accept="application/xml,text/xml,*/*;q=0.8")
+            idx = self.fetch_sitemap(index_url)
             if idx.error or idx.status_code != 200:
                 logger.warning("crewbase sitemap index failed: http %s %s", idx.status_code, idx.error)
                 return None
@@ -894,7 +922,7 @@ class LivenessProber:
             live = set(u.rstrip("/") for u in urls)
             job_shards = [s for s in shards if "sitemap-jobs" in s]
             for shard in job_shards:
-                r = self.fetch(shard, accept="application/xml,text/xml,*/*;q=0.8")
+                r = self.fetch_sitemap(shard)
                 if r.error or r.status_code != 200:
                     logger.warning("crewbase shard failed (%s): http %s %s", shard, r.status_code, r.error)
                     return None

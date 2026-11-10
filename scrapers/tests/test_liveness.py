@@ -423,7 +423,8 @@ class TestRobotsLongestMatch:
         assert sorted(p.calls) == ["https://crewbase.pro/robots.txt", "https://crewbase.pro/sitemap-jobs-0.xml",
                                    "https://crewbase.pro/sitemap.xml"]
 
-    def test_crewbase_failed_shard_means_unknown_for_all(self):
+    def test_crewbase_failed_shard_means_unknown_for_all(self, monkeypatch):
+        monkeypatch.setattr(lv, "SITEMAP_BACKOFF", 0)
         idx = ('<?xml version="1.0"?><sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
                '<sitemap><loc>https://crewbase.pro/sitemap-jobs-0.xml</loc></sitemap></sitemapindex>')
         p = _mock_prober({
@@ -550,3 +551,38 @@ class TestCrewbaseRemovedPage:
         page = "<html><head><title>Roustabout at Transocean | CrewBase Maritime Jobs</title></head></html>"
         assert not lv.crewbase_page_gone(lv.Response(200, "https://crewbase.pro/jobs/a", page))
         assert not lv.crewbase_page_gone(lv.Response(503, "https://crewbase.pro/jobs/a", ""))
+
+
+class TestCrewbaseSitemapRetry:
+    def test_one_timeout_on_the_index_does_not_blind_the_run(self, monkeypatch):
+        monkeypatch.setattr(lv, "SITEMAP_BACKOFF", 0)
+        idx = ('<?xml version="1.0"?><sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+               '<sitemap><loc>https://crewbase.pro/sitemap-jobs-0.xml</loc></sitemap></sitemapindex>')
+        shard = ('<?xml version="1.0"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+                 '<url><loc>https://crewbase.pro/jobs/live1</loc></url></urlset>')
+        seen = {"index": 0}
+
+        def handler(request: httpx.Request) -> httpx.Response:
+            u = str(request.url)
+            if u.endswith("/robots.txt"):
+                return httpx.Response(404, text="")
+            if u == lv.CREWBASE_SITEMAP_INDEX:
+                seen["index"] += 1
+                if seen["index"] == 1:
+                    raise httpx.ReadTimeout("The read operation timed out", request=request)
+                return httpx.Response(200, text=idx)
+            if u.endswith("sitemap-jobs-0.xml"):
+                return httpx.Response(200, text=shard)
+            return httpx.Response(404, text="")
+
+        client = httpx.Client(transport=httpx.MockTransport(handler))
+        p = lv.LivenessProber(client=client, min_interval=0, today=TODAY)
+        assert p.probe("https://crewbase.pro/jobs/live1").status == lv.LIVE
+        assert p.probe("https://crewbase.pro/jobs/gone1").status == lv.DEAD
+        assert seen["index"] == 2
+
+    def test_persistent_failure_still_means_unknown(self, monkeypatch):
+        monkeypatch.setattr(lv, "SITEMAP_BACKOFF", 0)
+        client = httpx.Client(transport=httpx.MockTransport(lambda r: httpx.Response(503, text="")))
+        p = lv.LivenessProber(client=client, min_interval=0, today=TODAY, honor_robots=False)
+        assert p.probe("https://crewbase.pro/jobs/x").status == lv.UNKNOWN
