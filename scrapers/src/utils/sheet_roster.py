@@ -29,6 +29,17 @@ COLUMN_CHUNK_TABS = 8
 CHUNK_PAUSE = 1.2
 SKIP_TAB_MARKERS = ("(backup", "backup ")
 DEFAULT_PER_HOST_CAP = 600
+# Hosts whose verdict costs no request per row, so the per-host cap protects
+# nobody and only defers checks. CrewBase rows are classified against its job
+# sitemaps (fetched once per run). Until 2026-11-10 the cap left thousands of
+# CrewBase rows unchecked for days, and the Nov 10 trade sample found removed
+# CrewBase jobs still on the site that the sitemap already ruled dead.
+UNCAPPED_HOSTS = ("crewbase.pro",)
+
+
+def is_uncapped_host(host: str) -> bool:
+    host = host.lower()
+    return any(host == h or host.endswith("." + h) for h in UNCAPPED_HOSTS)
 
 
 def col_letter(idx: int) -> str:
@@ -119,7 +130,8 @@ def select_sheet_only(index: dict, db_active_urls: set, last_checked: dict, hash
     out = []
     for host, rows in by_host.items():
         rows.sort(key=lambda r: (r["_last"], r["url"]))   # never-checked ("") first
-        keep = rows[:per_host_cap] if per_host_cap and per_host_cap > 0 else rows
+        capped = per_host_cap and per_host_cap > 0 and not is_uncapped_host(host)
+        keep = rows[:per_host_cap] if capped else rows
         stats["deferred"] += len(rows) - len(keep)
         for r in keep:
             r.pop("_last", None)

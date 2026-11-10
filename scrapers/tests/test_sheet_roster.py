@@ -86,6 +86,18 @@ class TestIndexAndSelection:
         picked = {int(r["url"].rstrip("/").rsplit("/", 1)[1]) for r in rows}
         assert set(range(300, 351)) <= picked                               # the 51 never-checked come first
 
+    def test_crewbase_is_never_capped(self):
+        # CrewBase verdicts come from its sitemap (no request per row), so the
+        # cap only deferred checks: on 2026-11-10 removed CrewBase jobs the
+        # sitemap already ruled dead were still on the site.
+        rows = [{"tab": "CrewBase", "row": i + 2, "url": f"https://crewbase.pro/jobs/{i}", "status": "active",
+                 "title": "Rigger"} for i in range(250)]
+        idx = sheet_roster.build_active_index(rows + self._technip_rows())
+        out, stats = sheet_roster.select_sheet_only(idx, set(), {}, _h, _no_exclusions, per_host_cap=100)
+        hosts = [r["url"].split("/")[2] for r in out]
+        assert hosts.count("crewbase.pro") == 250 and hosts.count("careers.technipfmc.com") == 100
+        assert stats["deferred"] == 251
+
     def test_company_filter_matches_tab_or_company(self):
         idx = sheet_roster.build_active_index([
             {"tab": "TechnipFMC", "row": 2, "url": "https://t/1", "status": "active", "title": "a"},

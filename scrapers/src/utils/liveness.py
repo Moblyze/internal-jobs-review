@@ -11,7 +11,9 @@ freshness rule is replaced by this per-URL liveness signal.
 Rules were calibrated on a 726-URL probe the same day (liveness_probe_2026-09-12.csv):
 
   Workday          /wday/cxs/{tenant}/{site}/job/... JSON: 200 posted=true -> LIVE
-                   (endDate = validThrough); 403 errorCode S22 or 404 -> DEAD
+                   (endDate = validThrough); 404 -> DEAD. 403 errorCode S22 is
+                   DEAD only when the tenant's own job search (POST .../jobs,
+                   searchText = requisition id) no longer lists it (2026-11-10)
   SuccessFactors / TalentBrew / Avature (careers.<co>.com/job/.../<id>/)
                    JobPosting microdata with validThrough -> LIVE unless the
                    date is past; "position has been filled" / "no longer
@@ -381,6 +383,37 @@ def classify_workday_cxs(resp: Response, today: date) -> Verdict:
     return Verdict(LIVE, "cxs posted", valid_through=vt, http=c)
 
 
+def workday_listing_state(resp: Response, req_id: str) -> Optional[bool]:
+    """Is req_id in a tenant job-search answer? True listed, False delisted, None unknown.
+
+    WHY (2026-11-10): a cxs detail answering 403 errorCode S22 was read as DEAD
+    on its own. That is right for Workday (a live job answers 200 from the same
+    endpoint on the same run, so S22 is not bot blocking), but a 403 alone must
+    never close a live job, so the DEAD verdict now needs a positive signal:
+    the tenant's own job search, asked for the requisition id, no longer lists
+    it. Checked by hand that day on BP: five RQ ids sampled from the site
+    answered S22 and searchText=<id> returned total 0, while a live RQ id
+    returned exactly its own posting.
+    """
+    if resp.error or resp.status_code != 200:
+        return None
+    d = _json(resp)
+    if not isinstance(d, dict) or not isinstance(d.get("total"), int):
+        return None
+    postings = d.get("jobPostings") or []
+    rid = req_id.lower()
+    for jp in postings:
+        if not isinstance(jp, dict):
+            continue
+        path = str(jp.get("externalPath") or "").lower()
+        bullets = [str(b).lower() for b in (jp.get("bulletFields") or [])]
+        if path.endswith("_" + rid) or rid in bullets:
+            return True
+    if d["total"] == 0 or (postings and d["total"] <= len(postings)):
+        return False
+    return None
+
+
 def classify_oracle_api(resp: Response, today: date) -> Verdict:
     v = _transport(resp)
     if v:
@@ -484,6 +517,22 @@ def classify_crewbase(url: str, live_urls: Optional[set]) -> Verdict:
     return Verdict(DEAD, "not in crewbase sitemap")
 
 
+CREWBASE_REMOVED_RE = re.compile(r"job removed|has been removed", re.I)
+
+
+def crewbase_page_gone(resp: Response) -> bool:
+    """A CrewBase job page that says the job is gone.
+
+    Two shapes seen on 2026-11-10: HTTP 410 with the title "Has Been Removed |
+    Job Removed", and HTTP 200 serving the same "Job Removed" page. Both are a
+    removal; only counting 404/410 would let the 200 shape fail the sitemap-diff
+    page sample and demote a correct diff to UNKNOWN.
+    """
+    if resp.status_code in (404, 410):
+        return True
+    return resp.status_code == 200 and bool(CREWBASE_REMOVED_RE.search(_title_tag(resp.text or "")))
+
+
 # --------------------------------------------------------------------------
 # URL builders for the per-ATS status endpoints
 # --------------------------------------------------------------------------
@@ -500,6 +549,21 @@ def workday_cxs_url(url: str) -> Optional[str]:
         return None
     tenant = p.netloc.split(".")[0]
     return f"https://{p.netloc}/wday/cxs/{tenant}/{parts[0]}/" + "/".join(parts[1:])
+
+
+def workday_req_id(url: str) -> Optional[str]:
+    """The requisition id Workday appends to a job URL slug: .../Drilling-Engineer_RQ108021 -> RQ108021."""
+    parts = [x for x in urlparse(url).path.split("/") if x]
+    if not parts or "_" not in parts[-1]:
+        return None
+    rid = parts[-1].rsplit("_", 1)[1]
+    return rid if re.fullmatch(r"[A-Za-z]{0,6}-?\d{3,}(-\d+)?", rid) else None
+
+
+def workday_search_url(url: str) -> Optional[str]:
+    """The tenant's job search endpoint: /wday/cxs/{tenant}/{site}/jobs (POST)."""
+    cxs = workday_cxs_url(url)
+    return cxs.split("/job/", 1)[0] + "/jobs" if cxs and "/job/" in cxs else None
 
 
 def workday_site_url(url: str) -> Optional[str]:
@@ -676,8 +740,14 @@ class LivenessProber:
     def __init__(self, user_agent: str = USER_AGENT, timeout: float = DEFAULT_TIMEOUT,
                  min_interval: float = DEFAULT_MIN_INTERVAL, honor_robots: bool = True,
                  today: Optional[date] = None, client: Optional[httpx.Client] = None,
-                 osm_open_ids: Optional[set] = None):
+                 osm_open_ids: Optional[set] = None, cxs_only_hosts: Optional[set] = None):
         self.user_agent = user_agent
+        # Workday hosts scraped through the CXS JSON API by decision (companies.yaml
+        # platform workday_api: BP on 2026-09-12, Fugro on 2026-09-21). Their robots
+        # disallow the HTML careers pages, which the probe never fetches; only the
+        # CXS URLs it actually requests are robots-checked for them.
+        self.cxs_only_hosts = {h.lower() for h in (cxs_only_hosts or ())}
+        self._wd_search_ok: dict[str, bool] = {}
         # OSM Thome ids open in the off-CI listing snapshot (src/utils/osm_snapshot.py),
         # or None when no complete, fresh snapshot was available this run.
         self.osm_open_ids = osm_open_ids
@@ -721,6 +791,46 @@ class LivenessProber:
             return Response(None, url, "", error=type(e).__name__ + ": " + str(e)[:80])
         text = r.text if len(r.content) <= MAX_BODY_BYTES else r.content[:MAX_BODY_BYTES].decode("utf-8", "replace")
         return Response(r.status_code, str(r.url), text)
+
+    def post_json(self, url: str, body: dict) -> Response:
+        """One JSON POST, throttled per host, no retries (Workday job search)."""
+        self._throttle(urlparse(url).netloc.lower())
+        with self._lock:
+            self.requests_made += 1
+        try:
+            r = self._client.post(url, json=body, headers={"Accept": JSON_ACCEPT})
+        except httpx.HTTPError as e:
+            return Response(None, url, "", error=type(e).__name__ + ": " + str(e)[:80])
+        return Response(r.status_code, str(r.url), r.text[:MAX_BODY_BYTES])
+
+    # -- workday job search -------------------------------------------------
+
+    def workday_listed(self, url: str) -> tuple[Optional[bool], str]:
+        """(listed?, why) from the tenant's own job search, asked for this row's requisition id.
+
+        The search is trusted only after a sanity read on the same run: an
+        empty search must return total > 0, so a search that answers "0" for
+        everything (outage, changed API) can never confirm a removal.
+        """
+        search, rid = workday_search_url(url), workday_req_id(url)
+        if not search or not rid:
+            return None, "no requisition id in url"
+        allowed, why = self.robots_allows(search)
+        if not allowed:
+            return None, why
+        body = {"appliedFacets": {}, "limit": 20, "offset": 0}
+        with self._lock:
+            ok = self._wd_search_ok.get(search)
+        if ok is None:
+            r = self.post_json(search, {**body, "searchText": ""})
+            d = _json(r) if r.status_code == 200 else None
+            ok = isinstance(d, dict) and isinstance(d.get("total"), int) and d["total"] > 0
+            with self._lock:
+                self._wd_search_ok[search] = ok
+        if not ok:
+            return None, "tenant job search unavailable"
+        listed = workday_listing_state(self.post_json(search, {**body, "searchText": rid}), rid)
+        return listed, ("search unreadable" if listed is None else "")
 
     # -- robots --------------------------------------------------------------
 
@@ -829,7 +939,11 @@ class LivenessProber:
             api_url = adp_api_url(url)
 
         to_check = [url, api_url]
-        if kind == "workday":
+        if kind == "workday" and urlparse(url).netloc.lower() in self.cxs_only_hosts:
+            # Read through CXS by decision (see cxs_only_hosts): the HTML page is
+            # never fetched, so only the JSON endpoint's robots apply.
+            to_check = [api_url]
+        elif kind == "workday":
             # Workday tenants write robots rules against the site root
             # (Disallow: /bpCareers/) while rows carry the localized form
             # (/en-US/bpCareers/...): honor the rule as the tenant meant it.
@@ -842,6 +956,15 @@ class LivenessProber:
         if kind == "workday" and api_url:
             resp = self.fetch(api_url, accept=JSON_ACCEPT)
             v = classify_workday_cxs(resp, self.today)
+            if v.status == DEAD and "S22" in v.reason:
+                # A 403 alone never closes a job: the tenant's search must agree.
+                listed, why = self.workday_listed(url)
+                if listed is False:
+                    v = Verdict(DEAD, "cxs S22 and not in tenant job search", http=v.http)
+                elif listed is True:
+                    v = Verdict(UNKNOWN, "cxs S22 but listed in tenant job search", http=v.http)
+                else:
+                    v = Verdict(UNKNOWN, "cxs S22, delisting unconfirmed: " + why[:50], http=v.http)
         elif kind == "oracle" and api_url:
             resp = self.fetch(api_url, accept=JSON_ACCEPT)
             v = classify_oracle_api(resp, self.today)

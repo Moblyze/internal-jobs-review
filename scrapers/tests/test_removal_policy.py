@@ -197,3 +197,12 @@ class TestMonitoringNote:
         text = monitoring.format_large_retire_note("Liveness probe", [("TechnipFMC", 191, 191, "http 404 x191")])
         assert "TechnipFMC: 191 of 191 rows (100%) retired" in text
         assert "\u2014" not in text
+
+
+def test_cxs_only_hosts_come_from_workday_api_tenants_in_companies_yaml():
+    pl = probe_liveness
+    cfg = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "config", "companies.yaml")
+    hosts = pl.cxs_only_hosts(pl.load_company_meta(cfg))
+    assert "bpinternational.wd3.myworkdayjobs.com" in hosts and "fugro.wd3.myworkdayjobs.com" in hosts
+    # A tenant still scraped through its HTML pages keeps the HTML robots rule.
+    assert "conocophillips.wd1.myworkdayjobs.com" not in hosts

@@ -440,3 +440,113 @@ class TestRobotsLongestMatch:
         p = lv.LivenessProber(client=client, min_interval=0, today=TODAY, honor_robots=False)
         v = p.probe("https://x.example/job/1", "Rigger")
         assert v.status == lv.UNKNOWN and v.reason.startswith("error:") and p.requests_made == 1
+
+
+BP = "https://bpinternational.wd3.myworkdayjobs.com"
+BP_ROBOTS = ("User-agent: *\nDisallow: /bpCareers/\nDisallow: /bpCWCareersSite/\n"
+             "Disallow: /bpEarlyCareers/\nDisallow: /bpPrivateExternalCareersSite/\nDisallow: /refreshFacet/")
+BP_ROW = BP + "/en-US/bpCareers/job/Egypt---Cairo/Drilling-Engineer_RQ108021"
+BP_CXS = BP + "/wday/cxs/bpinternational/bpCareers/job/Egypt---Cairo/Drilling-Engineer_RQ108021"
+BP_SEARCH = BP + "/wday/cxs/bpinternational/bpCareers/jobs"
+S22 = '{"errorCode":"S22","errorCaseId":"C7E86FMWAX6K74","httpStatus":403,"message":"permission denied"}'
+
+
+def _bp_prober(search_answers: dict, detail=(403, S22), cxs_only=True):
+    """Prober over a fake BP tenant. search_answers: searchText -> (status, json body)."""
+    calls = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        u = str(request.url)
+        calls.append((request.method, u))
+        if u == BP + "/robots.txt":
+            return httpx.Response(200, text=BP_ROBOTS)
+        if request.method == "GET" and u.startswith(BP + "/wday/cxs/bpinternational/bpCareers/job/"):
+            return httpx.Response(detail[0], text=detail[1])
+        if request.method == "POST" and u == BP_SEARCH:
+            q = json.loads(request.content)["searchText"]
+            status, body = search_answers.get(q, (200, {"total": 0, "jobPostings": []}))
+            return httpx.Response(status, text=json.dumps(body))
+        return httpx.Response(404, text="")
+
+    client = httpx.Client(transport=httpx.MockTransport(handler), follow_redirects=True)
+    p = lv.LivenessProber(client=client, min_interval=0, today=TODAY,
+                          cxs_only_hosts={"bpinternational.wd3.myworkdayjobs.com"} if cxs_only else None)
+    p.calls = calls
+    return p
+
+
+LISTING = (200, {"total": 190, "jobPostings": [{"externalPath": "/job/X/Senior-Facilities-Engineer_RQ118054",
+                                               "bulletFields": ["RQ118054"]}]})
+
+
+class TestWorkdayDelisting:
+    """2026-11-10: BP rows answered cxs 403 S22 and were gone from BP's own job search,
+    but the probe applied the HTML robots rule and left all 793 BP rows UNKNOWN."""
+
+    def test_req_id_and_search_url(self):
+        assert lv.workday_req_id(BP_ROW) == "RQ108021"
+        assert lv.workday_req_id(
+            "https://gevernova.wd5.myworkdayjobs.com/en-US/Vernova_ExternalSite/job/Cotonou/SCADA_R5053628-2"
+        ) == "R5053628-2"
+        assert lv.workday_req_id("https://x.wd1.myworkdayjobs.com/en-US/S/job/L/Cadet_REQ-001696") == "REQ-001696"
+        assert lv.workday_req_id("https://x.wd1.myworkdayjobs.com/en-US/S/job/L/No-Id-Here") is None
+        assert lv.workday_search_url(BP_ROW) == BP_SEARCH
+
+    def test_listing_state(self):
+        r = lambda body, st=200: lv.Response(st, BP_SEARCH, json.dumps(body))
+        assert lv.workday_listing_state(r({"total": 0, "jobPostings": []}), "RQ1") is False
+        assert lv.workday_listing_state(r(LISTING[1]), "RQ118054") is True
+        assert lv.workday_listing_state(r({"total": 1, "jobPostings": [{"externalPath": "/job/x/Other_RQ9"}]}),
+                                        "RQ1") is False
+        assert lv.workday_listing_state(r({"total": 50, "jobPostings": [{"externalPath": "/job/x/Other_RQ9"}]}),
+                                        "RQ1") is None
+        assert lv.workday_listing_state(r({}, 403), "RQ1") is None
+        assert lv.workday_listing_state(r({"oops": 1}), "RQ1") is None
+
+    def test_s22_and_delisted_is_dead_without_touching_the_html_page(self):
+        p = _bp_prober({"": LISTING})
+        v = p.probe(BP_ROW, "Drilling Engineer", platform="workday_api")
+        assert v.status == lv.DEAD and v.reason == "cxs S22 and not in tenant job search"
+        assert all("/wday/cxs/" in u or u.endswith("/robots.txt") for _m, u in p.calls)
+
+    def test_s22_but_still_listed_is_not_closed(self):
+        listed = (200, {"total": 1, "jobPostings": [{"externalPath": "/job/Egypt---Cairo/Drilling-Engineer_RQ108021"}]})
+        p = _bp_prober({"": LISTING, "RQ108021": listed})
+        assert p.probe(BP_ROW).status == lv.UNKNOWN
+
+    def test_s22_with_a_broken_search_is_not_closed(self):
+        # A search answering 0 for everything (outage, API change) must never confirm a removal.
+        p = _bp_prober({"": (200, {"total": 0, "jobPostings": []})})
+        v = p.probe(BP_ROW)
+        assert v.status == lv.UNKNOWN and "unavailable" in v.reason
+        p = _bp_prober({"": (403, {"errorCode": "S99"})})
+        assert p.probe(BP_ROW).status == lv.UNKNOWN
+
+    def test_search_sanity_read_happens_once_per_tenant(self):
+        p = _bp_prober({"": LISTING})
+        p.probe(BP_ROW)
+        p.probe(BP_ROW.replace("RQ108021", "RQ096744"))
+        searches = [b for m, b in p.calls if m == "POST"]
+        assert len(searches) == 3      # one sanity read, then one per row
+
+    def test_live_bp_job_is_live(self):
+        p = _bp_prober({"": LISTING}, detail=(200, json.dumps({"jobPostingInfo": {"posted": True}})))
+        assert p.probe(BP_ROW).status == lv.LIVE
+
+    def test_tenant_not_read_through_cxs_still_honors_html_robots(self):
+        p = _bp_prober({"": LISTING}, cxs_only=False)
+        v = p.probe(BP_ROW)
+        assert v.status == lv.UNKNOWN and "robots disallows" in v.reason
+
+
+class TestCrewbaseRemovedPage:
+    def test_410_and_200_job_removed_are_gone(self):
+        page = "<html><head><title>Has Been Removed | Job Removed | CrewBase Maritime Jobs</title></head></html>"
+        assert lv.crewbase_page_gone(lv.Response(410, "https://crewbase.pro/jobs/a", page))
+        assert lv.crewbase_page_gone(lv.Response(200, "https://crewbase.pro/jobs/a", page))
+        assert lv.crewbase_page_gone(lv.Response(404, "https://crewbase.pro/jobs/a", ""))
+
+    def test_live_page_is_not_gone(self):
+        page = "<html><head><title>Roustabout at Transocean | CrewBase Maritime Jobs</title></head></html>"
+        assert not lv.crewbase_page_gone(lv.Response(200, "https://crewbase.pro/jobs/a", page))
+        assert not lv.crewbase_page_gone(lv.Response(503, "https://crewbase.pro/jobs/a", ""))

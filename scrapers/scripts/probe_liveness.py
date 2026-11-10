@@ -87,8 +87,21 @@ def load_company_meta(config_path: str) -> dict:
     """company name -> {'sheet_name', 'platform'} from companies.yaml."""
     with open(config_path, encoding="utf-8") as f:
         companies = yaml.safe_load(f)["companies"]
-    return {c["name"]: {"sheet_name": c.get("sheet_name", c["name"]), "platform": c.get("platform")}
+    return {c["name"]: {"sheet_name": c.get("sheet_name", c["name"]), "platform": c.get("platform"),
+                        "base_url": c.get("base_url")}
             for c in companies.values() if c.get("name")}
+
+
+def cxs_only_hosts(meta: dict) -> set[str]:
+    """Hosts of the Workday tenants read through the CXS JSON API by decision (platform workday_api).
+
+    BP (2026-09-12) and Fugro (2026-09-21) disallow their HTML careers pages in
+    robots.txt; the scraper reads their CXS listing instead, and so does the
+    probe. Before 2026-11-10 the probe still applied the HTML rule, so all 793
+    BP rows came back UNKNOWN every day and dead BP postings stayed on the site.
+    """
+    return {urlparse(m["base_url"]).netloc.lower() for m in meta.values()
+            if m.get("platform") == "workday_api" and m.get("base_url")}
 
 
 def tab_for(row: dict, meta: dict) -> str:
@@ -169,7 +182,7 @@ def confirm_crewbase_dead(results, prober: liveness.LivenessProber, sample: int 
             continue
         resp = prober.fetch(row["url"])
         checked += 1
-        if resp.status_code in (404, 410):
+        if liveness.crewbase_page_gone(resp):   # 404/410, or 200 serving "Job Removed"
             gone += 1
     if checked and gone / checked < min_confirm:
         for _row, v in dead:
@@ -466,7 +479,8 @@ def main() -> int:
             f":alarm_clock: OSM Thome jobs are not refreshing: no usable listing snapshot ({osm_why}). "
             "The Mac Studio's nightly fetch (launchd co.kedy.osm-snapshot) has not uploaded one; "
             "OSM rows stay UNKNOWN until it does. Check ~/.local/log/osm-snapshot.log on the Studio.")
-    prober = liveness.LivenessProber(min_interval=args.min_interval, today=today, osm_open_ids=osm_open)
+    prober = liveness.LivenessProber(min_interval=args.min_interval, today=today, osm_open_ids=osm_open,
+                                     cxs_only_hosts=cxs_only_hosts(meta))
     progress, lock = Counter(), threading.Lock()
     results: list[tuple[dict, liveness.Verdict]] = []
     with ThreadPoolExecutor(max_workers=min(MAX_WORKERS, max(1, len(by_host)))) as pool:
