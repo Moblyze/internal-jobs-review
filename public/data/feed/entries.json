@@ -1197,111 +1197,6 @@
   {
     "sources": [
       {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org/articles/ihi-to-supply-components-for-first-polish-ap1000"
-      }
-    ],
-    "headline": "IHI Wins Westinghouse Order for AP1000 Containment Vessel Components at Poland's First Nuclear Plant",
-    "body": "Japanese engineering firm IHI Corporation has received an order from Westinghouse covering engineering and procurement activities for long-lead items for one containment vessel and an associated large steel module for the first unit of Poland's first nuclear power plant.",
-    "url": "https://www.world-nuclear-news.org/articles/ihi-to-supply-components-for-first-polish-ap1000",
-    "published_at": "2026-11-05T15:02:51.000Z",
-    "hash": "957dd14d5c3752d9",
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades"
-    ],
-    "signal_type": "epc_award",
-    "region": "poland",
-    "country": "poland",
-    "tldr": "IHI Corporation has received an engineering and procurement order from Westinghouse for long-lead containment vessel components for Poland's first AP1000 nuclear unit, signalling early supply-chain ramp-up and upcoming fabrication labor demand.",
-    "operator": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "IHI Corporation",
-      "matched_company_slug": null
-    },
-    "project_name": "Poland AP1000 Nuclear Power Plant Unit 1",
-    "scope": [
-      "containment_vessel_fabrication",
-      "large_steel_module_procurement",
-      "engineering_procurement"
-    ],
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Nuclear Procurement Engineer",
-        "Long-Lead Items Manager",
-        "Containment Vessel Engineer",
-        "Nuclear Structural Engineer",
-        "AP1000 Module Engineer",
-        "Nuclear QA/QC Engineer",
-        "Steel Module Fabrication Supervisor"
-      ],
-      "skills": [
-        "AP1000",
-        "containment vessel design",
-        "nuclear long-lead procurement",
-        "large steel module fabrication",
-        "ASME nuclear codes",
-        "nuclear quality assurance",
-        "engineering procurement"
-      ],
-      "certs_freetext": [
-        "ASME Section III",
-        "Nuclear Quality Assurance (NQA-1)",
-        "ISO 3834 welding",
-        "PED (Pressure Equipment Directive)"
-      ],
-      "geo_rtw": "Poland / EU / Japan (IHI)",
-      "project_experience": [
-        "Vogtle AP1000",
-        "Hinkley Point C",
-        "V.C. Summer AP1000",
-        "Barakah Nuclear"
-      ],
-      "yoe_band": "10-20",
-      "seniority": "Senior / Lead",
-      "boolean_search": "(\"AP1000\" OR \"containment vessel\" OR \"nuclear long-lead\" OR \"large steel module\") AND (\"nuclear procurement\" OR \"nuclear engineering\" OR \"ASME Section III\" OR \"NQA-1\") AND (\"Westinghouse\" OR \"IHI\" OR \"nuclear power plant\") AND (\"Poland\" OR \"new nuclear\" OR \"pressurized water reactor\" OR \"PWR\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], IHI has just received a Westinghouse order for AP1000 containment vessel components for Poland's first nuclear plant. Your background in nuclear fabrication/procurement could be a great fit for the ramp-up ahead. Worth a conversation?",
-      "email_subject": "AP1000 Poland – IHI Containment Vessel Role | Nuclear Procurement/Engineering",
-      "email_body": "Hi [Name],\n\nIHI Corporation has just been awarded an engineering and procurement contract by Westinghouse for long-lead containment vessel and large steel module components for Poland's first AP1000 nuclear unit.\n\nThis is an early-phase supply-chain ramp-up signal, and roles in nuclear procurement, containment vessel engineering, and QA/QC are likely to follow in the near term.\n\nGiven your experience in [AP1000 / nuclear fabrication / ASME nuclear codes], I'd love to explore whether this could be a strong fit for you.\n\nAre you open to a brief call this week?\n\nBest regards,\n[Your Name]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "EPC/procurement contract award naming IHI Corporation and Westinghouse for AP1000 containment vessel long-lead items at Poland's first nuclear power plant, a qualifying workforce-demand event in the nuclear subsector.",
-    "phase": "sanctioned_engineering",
-    "phase_evidence": "Article states IHI received an order covering 'engineering and procurement activities for long-lead items', indicating post-FID detailed engineering and supply-chain ramp-up is underway.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "1cbebe29-0922-4db7-8463-6be013061412",
-    "ingested_at": "2026-11-05T18:15:44.686Z",
-    "source_published_at": "2026-11-05T15:02:51.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "hiring_manager",
-      "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
         "id": "mining_com",
         "name": "MINING.com",
         "url": "https://www.mining.com/rio-tinto-injects-144m-into-resolution-copper-after-land-battle-win/"
@@ -1405,6 +1300,111 @@
     "id": "a6f1d30a-6fe3-4581-907d-5f09c4c89591",
     "ingested_at": "2026-11-05T18:15:44.686Z",
     "source_published_at": "2026-11-05T14:23:00.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/ihi-to-supply-components-for-first-polish-ap1000"
+      }
+    ],
+    "headline": "IHI Wins Westinghouse Order for AP1000 Containment Vessel Components at Poland's First Nuclear Plant",
+    "body": "Japanese engineering firm IHI Corporation has received an order from Westinghouse covering engineering and procurement activities for long-lead items for one containment vessel and an associated large steel module for the first unit of Poland's first nuclear power plant.",
+    "url": "https://www.world-nuclear-news.org/articles/ihi-to-supply-components-for-first-polish-ap1000",
+    "published_at": "2026-11-05T15:02:51.000Z",
+    "hash": "957dd14d5c3752d9",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "poland",
+    "country": "poland",
+    "tldr": "IHI Corporation has received an engineering and procurement order from Westinghouse for long-lead containment vessel components for Poland's first AP1000 nuclear unit, signalling early supply-chain ramp-up and upcoming fabrication labor demand.",
+    "operator": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "IHI Corporation",
+      "matched_company_slug": null
+    },
+    "project_name": "Poland AP1000 Nuclear Power Plant Unit 1",
+    "scope": [
+      "containment_vessel_fabrication",
+      "large_steel_module_procurement",
+      "engineering_procurement"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Procurement Engineer",
+        "Long-Lead Items Manager",
+        "Containment Vessel Engineer",
+        "Nuclear Structural Engineer",
+        "AP1000 Module Engineer",
+        "Nuclear QA/QC Engineer",
+        "Steel Module Fabrication Supervisor"
+      ],
+      "skills": [
+        "AP1000",
+        "containment vessel design",
+        "nuclear long-lead procurement",
+        "large steel module fabrication",
+        "ASME nuclear codes",
+        "nuclear quality assurance",
+        "engineering procurement"
+      ],
+      "certs_freetext": [
+        "ASME Section III",
+        "Nuclear Quality Assurance (NQA-1)",
+        "ISO 3834 welding",
+        "PED (Pressure Equipment Directive)"
+      ],
+      "geo_rtw": "Poland / EU / Japan (IHI)",
+      "project_experience": [
+        "Vogtle AP1000",
+        "Hinkley Point C",
+        "V.C. Summer AP1000",
+        "Barakah Nuclear"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Lead",
+      "boolean_search": "(\"AP1000\" OR \"containment vessel\" OR \"nuclear long-lead\" OR \"large steel module\") AND (\"nuclear procurement\" OR \"nuclear engineering\" OR \"ASME Section III\" OR \"NQA-1\") AND (\"Westinghouse\" OR \"IHI\" OR \"nuclear power plant\") AND (\"Poland\" OR \"new nuclear\" OR \"pressurized water reactor\" OR \"PWR\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], IHI has just received a Westinghouse order for AP1000 containment vessel components for Poland's first nuclear plant. Your background in nuclear fabrication/procurement could be a great fit for the ramp-up ahead. Worth a conversation?",
+      "email_subject": "AP1000 Poland – IHI Containment Vessel Role | Nuclear Procurement/Engineering",
+      "email_body": "Hi [Name],\n\nIHI Corporation has just been awarded an engineering and procurement contract by Westinghouse for long-lead containment vessel and large steel module components for Poland's first AP1000 nuclear unit.\n\nThis is an early-phase supply-chain ramp-up signal, and roles in nuclear procurement, containment vessel engineering, and QA/QC are likely to follow in the near term.\n\nGiven your experience in [AP1000 / nuclear fabrication / ASME nuclear codes], I'd love to explore whether this could be a strong fit for you.\n\nAre you open to a brief call this week?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "EPC/procurement contract award naming IHI Corporation and Westinghouse for AP1000 containment vessel long-lead items at Poland's first nuclear power plant, a qualifying workforce-demand event in the nuclear subsector.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Article states IHI received an order covering 'engineering and procurement activities for long-lead items', indicating post-FID detailed engineering and supply-chain ramp-up is underway.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "1cbebe29-0922-4db7-8463-6be013061412",
+    "ingested_at": "2026-11-05T18:15:44.686Z",
+    "source_published_at": "2026-11-05T15:02:51.000Z",
     "contact_archetypes": [
       "project_manager",
       "hiring_manager",
@@ -16147,119 +16147,6 @@
     "id": "e24735ae-d9b7-43a7-b1a8-ced0b7bb592b",
     "ingested_at": "2026-08-13T06:32:55.702Z",
     "source_published_at": "2026-08-13T06:02:00.000Z",
-    "contact_archetypes": [
-      "project_manager",
-      "hiring_manager",
-      "business_unit_director"
-    ],
-    "prompt_version": "phase-targeting-v1.2"
-  },
-  {
-    "sources": [
-      {
-        "id": "pr_newswire_energy",
-        "name": "PR Newswire (Energy)",
-        "url": "https://www.prnewswire.com/news-releases/vale-base-metals-to-proceed-with-coarse-particle-flotation-at-salobo-increasing-and-accelerating-projected-copper-production-302850235.html"
-      }
-    ],
-    "headline": "Vale Base Metals Greenlights Coarse Particle Flotation at Salobo Copper Project, Start-Up H1 2028",
-    "body": "Coarse Particle Flotation (CPF) expected to add up to ~30,000 tonnes of annual copper production and 6 million tonnes of annual ore processing capacity at Salobo Project start-up accelerated to first half of 2028; Construction license received CPF capex estimate optimized; Wheaton...",
-    "url": "https://www.prnewswire.com/news-releases/vale-base-metals-to-proceed-with-coarse-particle-flotation-at-salobo-increasing-and-accelerating-projected-copper-production-302850235.html",
-    "published_at": "2026-08-12T23:26:00.000Z",
-    "hash": "bded184a31449f3d",
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations",
-      "energy_trades"
-    ],
-    "signal_type": "fid",
-    "region": "brazil-para",
-    "country": "brazil",
-    "tldr": "Vale Base Metals has sanctioned the CPF expansion at Salobo, with construction license in hand and first production targeted H1 2028, opening a near-term construction hiring window for process plant and industrial trades.",
-    "operator": {
-      "name": "Vale Base Metals",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Vale Base Metals",
-      "matched_company_slug": null
-    },
-    "project_name": "Salobo CPF Expansion",
-    "scope": [
-      "process_plant_construction",
-      "flotation_circuit_install",
-      "ore_processing_capacity_expansion"
-    ],
-    "mob_window": {
-      "start": "2025-Q3",
-      "end": "2028-Q2",
-      "duration_months": 33
-    },
-    "contract_value_usd": null,
-    "targeting": {
-      "job_titles_freetext": [
-        "Construction Manager",
-        "Process Plant Superintendent",
-        "Mechanical Superintendent",
-        "HSE Manager",
-        "Commissioning Manager",
-        "Electrical Superintendent",
-        "Instrumentation & Controls Superintendent",
-        "Project Controls Engineer",
-        "Piping Supervisor",
-        "Structural Fabrication Supervisor"
-      ],
-      "skills": [
-        "coarse particle flotation",
-        "copper processing",
-        "mineral processing plant construction",
-        "process plant commissioning",
-        "brownfield expansion",
-        "ore processing",
-        "EPC construction management",
-        "shutdown & turnaround",
-        "EPCM delivery"
-      ],
-      "certs_freetext": [
-        "NR-10 (Brazil electrical safety)",
-        "NR-35 (Brazil working at height)",
-        "CREA (Brazilian engineering registration)",
-        "First Aid / HUET"
-      ],
-      "geo_rtw": "Brazil (Pará state); willingness to relocate or FIFO to Salobo site",
-      "project_experience": [
-        "Salobo III Expansion",
-        "Carajas Mining Complex",
-        "Bingham Canyon Concentrator",
-        "Quellaveco Copper Plant",
-        "Oyu Tolgoi Concentrator",
-        "Cobre Panama Process Plant"
-      ],
-      "yoe_band": "10-20",
-      "seniority": "Senior / Principal / Superintendent",
-      "boolean_search": "(\"construction manager\" OR \"process plant superintendent\" OR \"commissioning manager\" OR \"mechanical superintendent\" OR \"electrical superintendent\" OR \"HSE manager\" OR \"project controls\") AND (\"copper\" OR \"flotation\" OR \"mineral processing\" OR \"concentrator\" OR \"ore processing\") AND (\"mining\" OR \"EPCM\" OR \"brownfield\") AND (\"Brazil\" OR \"Pará\" OR \"Salobo\" OR \"Carajas\" OR \"Latin America\")"
-    },
-    "outreach_drafts": {
-      "linkedin_inmail": "Hi [Name], Vale Base Metals has just sanctioned the Coarse Particle Flotation expansion at Salobo (H1 2028 start-up) — a major copper plant build-out in Pará, Brazil. With your background in [mineral processing / plant construction], you could be a strong fit. Worth a quick call?",
-      "email_subject": "Salobo CPF Expansion – Senior Construction & Process Roles | Vale Base Metals, Brazil",
-      "email_body": "Hi [Name],\n\nVale Base Metals has formally sanctioned the Coarse Particle Flotation (CPF) project at Salobo, targeting first production in H1 2028. The scope adds ~30,000 tonnes of annual copper output and 6 million tonnes of processing capacity — a significant greenfield plant build in Pará, Brazil, with a construction license already in hand.\n\nWe are supporting resourcing for senior construction, process, and commissioning professionals for this campaign. Based on your experience in [copper / mineral processing / EPCM construction], I believe you could be well placed for roles such as:\n\n• Construction Manager\n• Process / Mechanical Superintendent\n• Commissioning Manager\n• HSE Manager (site-level)\n\nWould you be open to a 15-minute call this week to explore fit and timeline?\n\nBest regards,\n[Your Name]\n[Agency | Contact Details]"
-    },
-    "bd_relevant": true,
-    "bd_relevance_reason": "Named operator (Vale Base Metals) has sanctioned a copper processing plant expansion at a named project (Salobo CPF), with construction license received and a defined start-up target of H1 2028, constituting a clear FID/project sanction workforce-demand event in mining.",
-    "phase": "sanctioned_engineering",
-    "phase_evidence": "Article states 'Construction license received' and start-up 'accelerated to first half of 2028', indicating FID has been taken and detailed engineering/construction is ramping.",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": [],
-    "enrichment_status": "ok",
-    "enrichment_model": "claude-sonnet-4-6",
-    "id": "9c02c7ce-8448-4b40-a7f8-a4ab3a8a22fc",
-    "ingested_at": "2026-08-13T00:25:17.711Z",
-    "source_published_at": "2026-08-12T23:26:00.000Z",
     "contact_archetypes": [
       "project_manager",
       "hiring_manager",

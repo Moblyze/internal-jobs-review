@@ -470,48 +470,6 @@
     "key_people": []
   },
   {
-    "id": "1cbebe29-0922-4db7-8463-6be013061412",
-    "ingested_at": "2026-11-05T18:15:44.686Z",
-    "sources": [
-      {
-        "id": "world_nuclear_news",
-        "name": "World Nuclear News",
-        "url": "https://www.world-nuclear-news.org/articles/ihi-to-supply-components-for-first-polish-ap1000"
-      }
-    ],
-    "subsector": "nuclear",
-    "discipline_tags": [
-      "industrial_construction",
-      "energy_trades"
-    ],
-    "signal_type": "epc_award",
-    "region": "poland",
-    "country": "poland",
-    "headline": "IHI Wins Westinghouse Order for AP1000 Containment Vessel Components at Poland's First Nuclear Plant",
-    "operator": {
-      "name": null,
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "IHI Corporation",
-      "matched_company_slug": null
-    },
-    "project_name": "Poland AP1000 Nuclear Power Plant Unit 1",
-    "mob_window": {
-      "start": null,
-      "end": null,
-      "duration_months": null
-    },
-    "contract_value_usd": null,
-    "phase": "sanctioned_engineering",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": []
-  },
-  {
     "id": "a6f1d30a-6fe3-4581-907d-5f09c4c89591",
     "ingested_at": "2026-11-05T18:15:44.686Z",
     "sources": [
@@ -545,6 +503,48 @@
       "duration_months": 12
     },
     "contract_value_usd": 144000000,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
+    "id": "1cbebe29-0922-4db7-8463-6be013061412",
+    "ingested_at": "2026-11-05T18:15:44.686Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/ihi-to-supply-components-for-first-polish-ap1000"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "industrial_construction",
+      "energy_trades"
+    ],
+    "signal_type": "epc_award",
+    "region": "poland",
+    "country": "poland",
+    "headline": "IHI Wins Westinghouse Order for AP1000 Containment Vessel Components at Poland's First Nuclear Plant",
+    "operator": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "IHI Corporation",
+      "matched_company_slug": null
+    },
+    "project_name": "Poland AP1000 Nuclear Power Plant Unit 1",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
     "phase": "sanctioned_engineering",
     "construction_subphase": null,
     "lifecycle_track": "greenfield",
@@ -6409,49 +6409,6 @@
       "matched_company_slug": null
     },
     "project_name": "Salobo Coarse Particle Flotation (CPF) Expansion",
-    "mob_window": {
-      "start": "2025-Q3",
-      "end": "2028-Q2",
-      "duration_months": 33
-    },
-    "contract_value_usd": null,
-    "phase": "sanctioned_engineering",
-    "construction_subphase": null,
-    "lifecycle_track": "greenfield",
-    "decom_stage": null,
-    "outreach_readiness": "warming",
-    "estimated_hiring_window": "6-12mo",
-    "key_people": []
-  },
-  {
-    "id": "9c02c7ce-8448-4b40-a7f8-a4ab3a8a22fc",
-    "ingested_at": "2026-08-13T00:25:17.711Z",
-    "sources": [
-      {
-        "id": "pr_newswire_energy",
-        "name": "PR Newswire (Energy)",
-        "url": "https://www.prnewswire.com/news-releases/vale-base-metals-to-proceed-with-coarse-particle-flotation-at-salobo-increasing-and-accelerating-projected-copper-production-302850235.html"
-      }
-    ],
-    "subsector": "mining",
-    "discipline_tags": [
-      "industrial_construction",
-      "process_plant_operations",
-      "energy_trades"
-    ],
-    "signal_type": "fid",
-    "region": "brazil-para",
-    "country": "brazil",
-    "headline": "Vale Base Metals Greenlights Coarse Particle Flotation at Salobo Copper Project, Start-Up H1 2028",
-    "operator": {
-      "name": "Vale Base Metals",
-      "matched_company_slug": null
-    },
-    "hiring_entity": {
-      "name": "Vale Base Metals",
-      "matched_company_slug": null
-    },
-    "project_name": "Salobo CPF Expansion",
     "mob_window": {
       "start": "2025-Q3",
       "end": "2028-Q2",
