@@ -1,5 +1,47 @@
 [
   {
+    "id": "70dc3f1f-278c-4bb8-854a-66829c4bdbf7",
+    "ingested_at": "2026-11-13T12:17:00.333Z",
+    "sources": [
+      {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/centrus-oklo-deal-secures-fuel-for-ohio-reactor-deployment"
+      }
+    ],
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "epc_award",
+    "region": "us-midwest",
+    "country": "united_states",
+    "headline": "Centrus & Oklo Finalise Fuel Agreement for Up to 5 Aurora Reactors at Meta's 1.2 GW Ohio Campus",
+    "operator": {
+      "name": "Oklo",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Oklo",
+      "matched_company_slug": null
+    },
+    "project_name": "Aurora Powerhouse – Meta Ohio Campus",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
     "id": "d54a3329-19dd-4957-868a-ed544d8f5510",
     "ingested_at": "2026-11-10T18:13:15.358Z",
     "sources": [

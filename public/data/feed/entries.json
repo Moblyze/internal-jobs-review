@@ -2,6 +2,114 @@
   {
     "sources": [
       {
+        "id": "world_nuclear_news",
+        "name": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/centrus-oklo-deal-secures-fuel-for-ohio-reactor-deployment"
+      }
+    ],
+    "headline": "Centrus & Oklo Finalise Fuel Agreement for Up to 5 Aurora Reactors at Meta's 1.2 GW Ohio Campus",
+    "body": "Centrus and Oklo have finalised agreements securing fuel to power up to five Aurora powerhouses for multiple years at a 1.2 GW Ohio campus for tech giant Meta, an agreement which helps Centrus's capacity expansion plans.",
+    "url": "https://www.world-nuclear-news.org/articles/centrus-oklo-deal-secures-fuel-for-ohio-reactor-deployment",
+    "published_at": "2026-11-13T10:41:28.000Z",
+    "hash": "6e81dc445342f97f",
+    "subsector": "nuclear",
+    "discipline_tags": [
+      "process_plant_operations",
+      "industrial_construction"
+    ],
+    "signal_type": "epc_award",
+    "region": "us-midwest",
+    "country": "united_states",
+    "tldr": "Centrus and Oklo have signed fuel supply agreements for up to five Aurora powerhouses at a 1.2 GW nuclear campus serving Meta in Ohio, signalling near-term reactor deployment and associated workforce demand. This represents a concrete project sanction signal for nuclear construction and operations staffing.",
+    "operator": {
+      "name": "Oklo",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Oklo",
+      "matched_company_slug": null
+    },
+    "project_name": "Aurora Powerhouse – Meta Ohio Campus",
+    "scope": [
+      "fuel_supply",
+      "reactor_deployment",
+      "nuclear_powerhouse_construction"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Nuclear Construction Manager",
+        "Reactor Commissioning Engineer",
+        "Nuclear Startup Engineer",
+        "Health Physics Technician",
+        "Nuclear Operations Supervisor",
+        "I&C Engineer",
+        "Nuclear Project Manager",
+        "Fuel Handling Technician"
+      ],
+      "skills": [
+        "advanced nuclear reactor",
+        "small modular reactor",
+        "nuclear fuel handling",
+        "reactor commissioning",
+        "nuclear safety",
+        "instrumentation and controls",
+        "NRC licensing",
+        "startup testing"
+      ],
+      "certs_freetext": [
+        "NRC Reactor Operator License",
+        "10 CFR Part 50",
+        "ANSI/ANS nuclear standards",
+        "DOE-Q clearance preferred"
+      ],
+      "geo_rtw": "US work authorization required; Ohio-based or relocatable",
+      "project_experience": [
+        "Kairos Power Hermes",
+        "X-energy Xe-100",
+        "NuScale UAMPS",
+        "TerraPower Natrium",
+        "Oklo Aurora"
+      ],
+      "yoe_band": "8-20",
+      "seniority": "mid-to-senior",
+      "boolean_search": "(\"nuclear\" OR \"SMR\" OR \"advanced reactor\" OR \"Aurora\") AND (\"commissioning\" OR \"startup\" OR \"construction manager\" OR \"reactor operator\" OR \"health physics\" OR \"I&C\" OR \"instrumentation\") AND (\"Oklo\" OR \"Centrus\" OR \"NRC\" OR \"DOE\") AND (\"Ohio\" OR \"relocate\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Oklo is deploying up to 5 Aurora reactors at Meta's 1.2 GW Ohio nuclear campus — fuel agreements just signed with Centrus. Strong demand incoming for nuclear commissioning, ops, and construction talent. Worth a conversation?",
+      "email_subject": "Nuclear Talent — Oklo Aurora Deployment, Meta Ohio Campus",
+      "email_body": "Hi [Name],\n\nCentrus and Oklo have just finalised fuel supply agreements for up to five Aurora powerhouses at a 1.2 GW campus serving Meta in Ohio — one of the most significant advanced nuclear deployment signals in the US right now.\n\nAs the project moves toward construction and commissioning, demand for experienced nuclear professionals (commissioning engineers, reactor operators, I&C, health physics, project management) will ramp quickly.\n\nWe specialise in placing nuclear talent on advanced-reactor programmes and have candidates with SMR, DOE, and NRC-licensed backgrounds ready to engage.\n\nWould you be open to a brief call to discuss how we can support Oklo's hiring needs for this programme?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Oklo), fuel contractor (Centrus), and project (Aurora powerhouses at Meta's Ohio campus) with a finalised fuel agreement signalling imminent reactor deployment and workforce demand.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Finalised fuel agreements for reactor deployment at a named campus indicate the project has moved past concept stage into active pre-construction/engineering preparation.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "70dc3f1f-278c-4bb8-854a-66829c4bdbf7",
+    "ingested_at": "2026-11-13T12:17:00.333Z",
+    "source_published_at": "2026-11-13T10:41:28.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "pr_newswire_energy",
         "name": "PR Newswire (Energy)",
         "url": "https://www.prnewswire.com/news-releases/arena-energy-closes-480-million-department-of-energy-loan-for-energy-infrastructure-improvements-in-the-gulf-of-america-302935060.html"
