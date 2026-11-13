@@ -2,6 +2,124 @@
   {
     "sources": [
       {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/exxonmobil_greenlights_eighth_stabroek_project-13-nov-2026-185080-article/?rss=true"
+      }
+    ],
+    "headline": "ExxonMobil Takes $12.5B FID on Longtail Development, Stabroek Block, Offshore Guyana",
+    "body": "Exxon Mobil Corp on Thursday announced a $12.5-billion final investment decision to proceed with the Longtail development in the Stabroek block offshore Guya...",
+    "url": "https://www.rigzone.com/news/exxonmobil_greenlights_eighth_stabroek_project-13-nov-2026-185080-article/?rss=true",
+    "published_at": "2026-11-13T15:32:01.000Z",
+    "hash": "08587d0f987a65a7",
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "rov_subsea",
+      "marine_offshore_ops",
+      "process_plant_operations",
+      "ndt_inspection"
+    ],
+    "signal_type": "fid",
+    "region": "guyana-suriname-basin",
+    "country": "guyana",
+    "tldr": "ExxonMobil has sanctioned the Longtail development on the Stabroek block offshore Guyana with a $12.5B FID, triggering EPC tendering and large-scale offshore construction hiring across engineering, subsea, marine, and trades disciplines.",
+    "operator": {
+      "name": "ExxonMobil",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Longtail",
+    "scope": [
+      "fpso_development",
+      "subsea_install",
+      "offshore_construction",
+      "epc_tender"
+    ],
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 12500000000,
+    "targeting": {
+      "job_titles_freetext": [
+        "Project Director",
+        "Project Manager",
+        "Offshore Construction Manager",
+        "Subsea Engineer",
+        "FPSO Integration Manager",
+        "Commissioning Manager",
+        "Lead Process Engineer",
+        "HSE Manager",
+        "Marine Superintendent",
+        "Contracts Manager"
+      ],
+      "skills": [
+        "FPSO development",
+        "deepwater subsea",
+        "offshore project management",
+        "EPC contracting",
+        "subsea umbilicals risers flowlines",
+        "offshore construction",
+        "commissioning",
+        "topsides engineering"
+      ],
+      "certs_freetext": [
+        "BOSIET/HUET",
+        "OPITO offshore survival",
+        "CSWIP",
+        "GWO",
+        "NEBOSH",
+        "Chartered Engineer (CEng)"
+      ],
+      "geo_rtw": "Guyana / international rotators accepted",
+      "project_experience": [
+        "Liza Phase 1",
+        "Liza Phase 2",
+        "Payara",
+        "Yellowtail",
+        "Hammerhead",
+        "Stabroek Block"
+      ],
+      "yoe_band": "10-20",
+      "seniority": "Senior / Lead / Manager",
+      "boolean_search": "(\"FPSO\" OR \"deepwater\" OR \"subsea\") AND (\"project manager\" OR \"project director\" OR \"construction manager\" OR \"commissioning manager\" OR \"subsea engineer\" OR \"marine superintendent\") AND (\"Guyana\" OR \"Stabroek\" OR \"Liza\" OR \"Payara\" OR \"Yellowtail\" OR \"deepwater development\") AND (\"EPC\" OR \"SURF\" OR \"HUC\" OR \"topsides\" OR \"offshore construction\") NOT (\"intern\" OR \"graduate\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], ExxonMobil just took a $12.5B FID on Longtail in the Stabroek Block offshore Guyana — EPC awards and construction hiring will follow fast. Your deepwater/FPSO background is a strong fit. Worth a quick chat?",
+      "email_subject": "Longtail FID — Stabroek deepwater roles coming fast",
+      "email_body": "Hi [Name],\n\nExxonMobil has just greenlit the Longtail development on the Stabroek Block offshore Guyana with a $12.5B final investment decision — the eighth Stabroek project to reach FID.\n\nEPC contract awards and construction mobilisation will now accelerate, creating strong demand for experienced deepwater, FPSO, subsea, and offshore construction professionals.\n\nGiven your background in [relevant discipline], I wanted to reach out early before these roles go to market. I'd welcome a 15-minute call to understand your availability and appetite for a Guyana rotation.\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "ExxonMobil has announced a $12.5B FID on the named Longtail project in the Stabroek block offshore Guyana, constituting a discrete project sanction event with a named operator and project.",
+    "phase": "sanctioned_engineering",
+    "phase_evidence": "Article states ExxonMobil announced a 'final investment decision' on the Longtail development, confirming FID has been taken and EPC/engineering phases will follow.",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "4a7afa10-eefa-48ba-a46f-9e98157e39a2",
+    "ingested_at": "2026-11-13T18:13:42.520Z",
+    "source_published_at": "2026-11-13T15:32:01.000Z",
+    "contact_archetypes": [
+      "project_manager",
+      "hiring_manager",
+      "business_unit_director"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "world_nuclear_news",
         "name": "World Nuclear News",
         "url": "https://www.world-nuclear-news.org/articles/centrus-oklo-deal-secures-fuel-for-ohio-reactor-deployment"

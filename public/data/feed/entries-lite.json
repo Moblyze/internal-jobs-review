@@ -1,5 +1,51 @@
 [
   {
+    "id": "4a7afa10-eefa-48ba-a46f-9e98157e39a2",
+    "ingested_at": "2026-11-13T18:13:42.520Z",
+    "sources": [
+      {
+        "id": "rigzone",
+        "name": "Rigzone",
+        "url": "https://www.rigzone.com/news/exxonmobil_greenlights_eighth_stabroek_project-13-nov-2026-185080-article/?rss=true"
+      }
+    ],
+    "subsector": "offshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "rov_subsea",
+      "marine_offshore_ops",
+      "process_plant_operations",
+      "ndt_inspection"
+    ],
+    "signal_type": "fid",
+    "region": "guyana-suriname-basin",
+    "country": "guyana",
+    "headline": "ExxonMobil Takes $12.5B FID on Longtail Development, Stabroek Block, Offshore Guyana",
+    "operator": {
+      "name": "ExxonMobil",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": null,
+      "matched_company_slug": null
+    },
+    "project_name": "Longtail",
+    "mob_window": {
+      "start": null,
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": 12500000000,
+    "phase": "sanctioned_engineering",
+    "construction_subphase": null,
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "warming",
+    "estimated_hiring_window": "6-12mo",
+    "key_people": []
+  },
+  {
     "id": "70dc3f1f-278c-4bb8-854a-66829c4bdbf7",
     "ingested_at": "2026-11-13T12:17:00.333Z",
     "sources": [
