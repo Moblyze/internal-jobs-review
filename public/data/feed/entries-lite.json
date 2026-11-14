@@ -1,5 +1,49 @@
 [
   {
+    "id": "b14216a6-48cc-4a57-a380-d1af683838d7",
+    "ingested_at": "2026-11-14T00:29:56.711Z",
+    "sources": [
+      {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/black-bayou-launches-construction-at-44-4-bcf-gas-storage-facility-in-cameron-parish-louisiana-302939224.html"
+      }
+    ],
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations",
+      "pipeline_mechanical"
+    ],
+    "signal_type": "epc_award",
+    "region": "us-gulf-coast",
+    "country": "united_states",
+    "headline": "Black Bayou Gas Storage Breaks Ground on 44.4 BCF Facility in Cameron Parish, Louisiana",
+    "operator": {
+      "name": "Black Bayou Gas Storage, LLC",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Black Bayou Gas Storage, LLC",
+      "matched_company_slug": null
+    },
+    "project_name": "Black Bayou Gas Storage Facility",
+    "mob_window": {
+      "start": "2026-Q4",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "phase": "construction",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": []
+  },
+  {
     "id": "4a7afa10-eefa-48ba-a46f-9e98157e39a2",
     "ingested_at": "2026-11-13T18:13:42.520Z",
     "sources": [

@@ -2,6 +2,120 @@
   {
     "sources": [
       {
+        "id": "pr_newswire_energy",
+        "name": "PR Newswire (Energy)",
+        "url": "https://www.prnewswire.com/news-releases/black-bayou-launches-construction-at-44-4-bcf-gas-storage-facility-in-cameron-parish-louisiana-302939224.html"
+      }
+    ],
+    "headline": "Black Bayou Gas Storage Breaks Ground on 44.4 BCF Facility in Cameron Parish, Louisiana",
+    "body": "CAMERON PARISH, La., Nov. 13, 2026 /PRNewswire/ -- Black Bayou Gas Storage, LLC has begun construction at its natural gas storage project in Cameron Parish, Louisiana, launching site work on Wednesday, November 11, 2026, shortly after receiving a Limited Notice to Proceed from the Federal...",
+    "url": "https://www.prnewswire.com/news-releases/black-bayou-launches-construction-at-44-4-bcf-gas-storage-facility-in-cameron-parish-louisiana-302939224.html",
+    "published_at": "2026-11-13T18:21:00.000Z",
+    "hash": "445ec7647c10a5b6",
+    "subsector": "onshore-og",
+    "discipline_tags": [
+      "energy_trades",
+      "industrial_construction",
+      "process_plant_operations",
+      "pipeline_mechanical"
+    ],
+    "signal_type": "epc_award",
+    "region": "us-gulf-coast",
+    "country": "united_states",
+    "tldr": "Black Bayou Gas Storage, LLC has commenced construction on a 44.4 BCF natural gas storage facility in Cameron Parish, Louisiana following receipt of a Limited Notice to Proceed. Active site work began November 11, 2026, signaling an immediate labor demand ramp-up for trades and construction personnel.",
+    "operator": {
+      "name": "Black Bayou Gas Storage, LLC",
+      "matched_company_slug": null
+    },
+    "hiring_entity": {
+      "name": "Black Bayou Gas Storage, LLC",
+      "matched_company_slug": null
+    },
+    "project_name": "Black Bayou Gas Storage Facility",
+    "scope": [
+      "site_civil_works",
+      "gas_storage_construction",
+      "mechanical_install",
+      "pipeline_tie-in"
+    ],
+    "mob_window": {
+      "start": "2026-Q4",
+      "end": null,
+      "duration_months": null
+    },
+    "contract_value_usd": null,
+    "targeting": {
+      "job_titles_freetext": [
+        "Construction Manager",
+        "Site Manager",
+        "Civil Site Supervisor",
+        "Pipefitter Foreman",
+        "Mechanical Supervisor",
+        "HSE Manager",
+        "Commissioning Engineer",
+        "Gas Storage Engineer",
+        "Instrumentation & Controls Technician",
+        "Welding Supervisor"
+      ],
+      "skills": [
+        "natural gas storage",
+        "underground storage facility construction",
+        "civil site works",
+        "pipeline mechanical",
+        "process piping",
+        "FERC regulated projects",
+        "compression facilities",
+        "wellhead construction"
+      ],
+      "certs_freetext": [
+        "OSHA 30",
+        "PEC SafeLand",
+        "NCCER Pipefitting",
+        "AWS CWI",
+        "API 1104"
+      ],
+      "geo_rtw": "US work authorization required; Louisiana Gulf Coast",
+      "project_experience": [
+        "Sempra LNG Sabine Pass",
+        "Freeport LNG",
+        "Golden Pass LNG",
+        "Midcoast Energy gas storage",
+        "Spire Storage"
+      ],
+      "yoe_band": "8-15",
+      "seniority": "mid-senior",
+      "boolean_search": "(\"gas storage\" OR \"natural gas storage\" OR \"underground storage\") AND (\"construction manager\" OR \"site manager\" OR \"mechanical supervisor\" OR \"pipefitter\" OR \"commissioning engineer\" OR \"HSE manager\") AND (\"Louisiana\" OR \"Gulf Coast\" OR \"Cameron Parish\") NOT (\"retail\" OR \"IT\" OR \"software\")"
+    },
+    "outreach_drafts": {
+      "linkedin_inmail": "Hi [Name], Black Bayou Gas Storage just broke ground on a 44.4 BCF facility in Cameron Parish, LA — active site work is underway now. I'm placing [role] talent for this build. Open to a quick call this week?",
+      "email_subject": "Active Construction Role — Black Bayou 44.4 BCF Gas Storage, Cameron Parish LA",
+      "email_body": "Hi [Name],\n\nBlack Bayou Gas Storage, LLC officially commenced construction on its 44.4 BCF natural gas storage facility in Cameron Parish, Louisiana on November 11, 2026, following a Limited Notice to Proceed from federal regulators.\n\nSite work is live now and I'm sourcing experienced [Construction Manager / Mechanical Supervisor / HSE Lead] candidates for this project. Given your background in [gas storage / pipeline / process plant construction], I thought you'd be a strong fit or may know someone who is.\n\nWould you be open to a brief call this week to discuss?\n\nBest regards,\n[Your Name]"
+    },
+    "bd_relevant": true,
+    "bd_relevance_reason": "Named operator (Black Bayou Gas Storage, LLC) has commenced construction on a named onshore O&G gas storage project in Cameron Parish, Louisiana, with active site work beginning November 11, 2026 — a discrete workforce-demand event.",
+    "phase": "construction",
+    "phase_evidence": "Article states 'has begun construction...launching site work on Wednesday, November 11, 2026, shortly after receiving a Limited Notice to Proceed.'",
+    "construction_subphase": "rampup",
+    "lifecycle_track": "greenfield",
+    "decom_stage": null,
+    "outreach_readiness": "live_now",
+    "estimated_hiring_window": "now",
+    "key_people": [],
+    "enrichment_status": "ok",
+    "enrichment_model": "claude-sonnet-4-6",
+    "id": "b14216a6-48cc-4a57-a380-d1af683838d7",
+    "ingested_at": "2026-11-14T00:29:56.711Z",
+    "source_published_at": "2026-11-13T18:21:00.000Z",
+    "contact_archetypes": [
+      "site_manager",
+      "hiring_manager",
+      "project_manager"
+    ],
+    "prompt_version": "phase-targeting-v1.2"
+  },
+  {
+    "sources": [
+      {
         "id": "rigzone",
         "name": "Rigzone",
         "url": "https://www.rigzone.com/news/exxonmobil_greenlights_eighth_stabroek_project-13-nov-2026-185080-article/?rss=true"
